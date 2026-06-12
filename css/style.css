@@ -423,6 +423,11 @@ nav a:hover { color: var(--primary); }
 .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
 .faq-item p { color: var(--text-light); line-height: 1.65; margin: 0; }
 
+/* ===== PRODUKT BILD ===== */
+.produkt-img-link { display: block; text-align: center; margin: 16px 0 20px; }
+.produkt-img-link img { max-width: 180px; height: auto; border-radius: 8px; border: 1px solid #f0f0f0; transition: transform 0.2s; }
+.produkt-img-link img:hover { transform: scale(1.03); }
+
 /* ===== INHALTSVERZEICHNIS ===== */
 .toc {
   background: var(--white);
