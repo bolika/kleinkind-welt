@@ -423,6 +423,36 @@ nav a:hover { color: var(--primary); }
 .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
 .faq-item p { color: var(--text-light); line-height: 1.65; margin: 0; }
 
+/* ===== INLINE PRODUKT KARTE ===== */
+.inline-produkt {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f1f8e9;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 28px 0;
+}
+.inline-produkt-emoji { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+.inline-produkt-info { flex: 1; min-width: 0; }
+.inline-produkt-name { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 3px; }
+.inline-produkt-note { font-size: 0.82rem; color: var(--text-light); }
+.btn-inline {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent);
+  color: white;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.btn-inline:hover { background: #E68900; color: white; }
+
 /* ===== PRODUKT BILD ===== */
 .produkt-img-link { display: none; } /* Temporär ausgeblendet — Platzhalter bis echte Fotos da sind */
 .produkt-img-link img { max-width: 180px; height: auto; border-radius: 8px; border: 1px solid #f0f0f0; transition: transform 0.2s; }
@@ -565,4 +595,6 @@ footer ul a:hover { color: white; }
   .hero { padding: 48px 16px; }
   .section { padding: 40px 16px; }
   .card-grid { grid-template-columns: 1fr; }
+  .inline-produkt { flex-wrap: wrap; }
+  .btn-inline { width: 100%; justify-content: center; }
 }
