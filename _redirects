@@ -8,6 +8,7 @@ https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 # Artikel .html → clean URLs (ohne .html)
 /artikel/*.html /artikel/:splat 301!
 
-# Root-Level .html → clean (für Impressum, Datenschutz)
+# Root-Level .html → clean (für Impressum, Datenschutz, Über uns)
 /impressum.html  /impressum  301!
 /datenschutz.html /datenschutz 301!
+/ueber-uns.html /ueber-uns 301!
