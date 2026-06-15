@@ -245,6 +245,21 @@ nav a:hover { color: var(--primary); }
 }
 .btn-accent:hover { background: var(--accent-light); }
 
+.btn-hero {
+  display: inline-block;
+  background: #E07B39;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.btn-hero:hover {
+  background: #C96A2A;
+  color: #ffffff;
+}
+
 /* ===== CONTAINER ===== */
 .container {
   max-width: 1100px;
@@ -707,26 +722,27 @@ footer ul a:hover { color: white; }
 
 /* ===== TESTSIEGER BOX ===== */
 .testsieger-box {
-  background: linear-gradient(135deg, #EBF0E4, #EFE9DF);
-  border: 2px solid var(--primary);
-  border-radius: var(--radius);
-  padding: 28px 24px 24px;
+  background: #FFF8F0;
+  border: none;
+  border-left: 4px solid #E07B39;
+  border-radius: 8px;
+  padding: 20px 24px;
   margin: 28px 0;
-  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .testsieger-label {
-  position: absolute;
-  top: -13px;
-  left: 20px;
-  background: var(--primary);
-  color: white;
-  font-size: 0.72rem;
+  display: inline-block;
+  background: none;
+  color: #E07B39;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 20px;
+  padding: 0;
+  border-radius: 0;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .testsieger-box h3 {
