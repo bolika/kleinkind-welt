@@ -411,9 +411,23 @@ nav a:hover { color: var(--primary); }
   margin-bottom: 12px;
 }
 
-.produkt-pros { list-style: none; margin: 0 0 16px; }
+.produkt-pros { list-style: none; margin: 0 0 12px; }
 .produkt-pros li::before { content: "✓ "; color: var(--primary); font-weight: 700; }
 .produkt-pros li { margin-bottom: 6px; font-size: 0.93rem; }
+
+.produkt-cons { list-style: none; margin: 0 0 16px; }
+.produkt-cons li::before { content: "✗ "; color: var(--accent); font-weight: 700; }
+.produkt-cons li { margin-bottom: 6px; font-size: 0.93rem; color: var(--text-light); }
+
+.pros-cons-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  color: var(--earth-light);
+}
 
 .btn-amazon {
   display: inline-flex;
