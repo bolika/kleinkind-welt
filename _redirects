@@ -1,0 +1,13 @@
+# www → non-www (falls nicht im Netlify-Dashboard konfiguriert)
+https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
+
+# Umbenannter Artikel: holzspielzeug-kleinkind → holzspielzeug-vs-plastikspielzeug
+/artikel/holzspielzeug-kleinkind     /artikel/holzspielzeug-vs-plastikspielzeug 301!
+/artikel/holzspielzeug-kleinkind.html /artikel/holzspielzeug-vs-plastikspielzeug 301!
+
+# Artikel .html → clean URLs (ohne .html)
+/artikel/*.html /artikel/:splat 301!
+
+# Root-Level .html → clean (für Impressum, Datenschutz)
+/impressum.html  /impressum  301!
+/datenschutz.html /datenschutz 301!
