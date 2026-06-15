@@ -581,6 +581,138 @@ footer ul a:hover { color: white; }
   font-size: 0.9rem;
 }
 
+/* ===== TESTSIEGER BOX ===== */
+.testsieger-box {
+  background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 28px 24px 24px;
+  margin: 28px 0;
+  position: relative;
+}
+
+.testsieger-label {
+  position: absolute;
+  top: -13px;
+  left: 20px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.testsieger-box h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 6px 0 8px !important;
+  color: var(--text);
+}
+
+.testsieger-box p { margin-bottom: 14px; }
+
+.testsieger-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.testsieger-meta .bewertung-sterne { color: var(--accent); font-size: 1.05rem; }
+.testsieger-meta .testsieger-info { font-size: 0.85rem; color: var(--text-light); }
+
+/* ===== VERGLEICH TABELLE ===== */
+.vergleich-intro { font-size: 0.93rem; color: var(--text-light); margin-bottom: 14px; }
+
+.vergleich-tabelle-wrap {
+  overflow-x: auto;
+  margin: 0 0 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.vergleich-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.9rem;
+  min-width: 520px;
+}
+
+.vergleich-tabelle thead { background: var(--primary); color: white; }
+
+.vergleich-tabelle th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.vergleich-tabelle td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.vergleich-tabelle tr:last-child td { border-bottom: none; }
+.vergleich-tabelle tr:hover td { background: #f9fbe7; }
+.vergleich-tabelle .top-pick td { background: #F1F8E9; }
+.vergleich-tabelle .top-pick:hover td { background: #E8F5E9; }
+.vergleich-tabelle .produkt-name { font-weight: 600; }
+.vergleich-tabelle .bewertung { color: var(--accent); white-space: nowrap; font-size: 0.88rem; }
+
+.btn-table {
+  display: inline-flex;
+  align-items: center;
+  background: #FF9900;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btn-table:hover { background: #E68900; color: white; }
+
+/* ===== KAUFEMPFEHLUNG BOX ===== */
+.kaufempfehlung-box {
+  background: var(--white);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 40px 0 32px;
+}
+
+.kaufempfehlung-box h2 {
+  font-size: 1.2rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+  color: var(--text);
+}
+
+.kaufempfehlung-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.kaufempfehlung-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.kaufempfehlung-emoji { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+
+.kaufempfehlung-text strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+.kaufempfehlung-text span { font-size: 0.85rem; color: var(--text-light); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   nav ul { display: none; }
