@@ -2,17 +2,35 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --primary: #2E7D32;
-  --primary-light: #4CAF50;
-  --accent: #FF8F00;
-  --text: #212121;
-  --text-light: #616161;
-  --bg: #FAFAFA;
-  --white: #ffffff;
-  --border: #E0E0E0;
+  /* ── Primärfarbe: Waldgrün (warm, natürlich – kein Digital-Grün) */
+  --primary: #3A6B35;
+  --primary-light: #5A8F52;
+  --primary-dark: #2C5228;
+
+  /* ── Akzent: Weiches Terrakotta (wärmer und organischer als Orange) */
+  --accent: #C2714F;
+  --accent-light: #D98F6A;
+
+  /* ── Neutraltöne: Erdige Töne aus dem Logo */
+  --earth: #605C52;          /* Logofarbe – Erdbraun */
+  --earth-light: #8C8576;
+
+  /* ── Text */
+  --text: #2C2A26;           /* Sehr dunkles Braun statt reines Schwarz */
+  --text-light: #6B6459;     /* Warmes Mittelgrau statt kühles Grau */
+
+  /* ── Hintergründe: Cremig, nicht klinisch weiß */
+  --bg: #F7F3EE;             /* Warmes Naturweiß */
+  --white: #FDFAF6;          /* Cremeweiß */
+  --bg-warm: #EFE9DF;        /* Warmer Hintergrund für Cards */
+
+  /* ── Rahmen */
+  --border: #DDD5C8;         /* Warmer Sand statt kühles Grau */
+
+  /* ── UI */
   --radius: 12px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  --shadow-hover: 0 6px 24px rgba(0,0,0,0.14);
+  --shadow: 0 2px 12px rgba(58,107,53,0.10);
+  --shadow-hover: 0 6px 24px rgba(58,107,53,0.18);
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -86,7 +104,7 @@ nav a:hover { color: var(--primary); }
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, #E8F5E9 0%, #FFF8E1 100%);
+  background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
   padding: 72px 20px;
   text-align: center;
 }
@@ -133,7 +151,7 @@ nav a:hover { color: var(--primary); }
 .btn-accent {
   background: var(--accent);
 }
-.btn-accent:hover { background: #F57C00; }
+.btn-accent:hover { background: var(--accent-light); }
 
 /* ===== CONTAINER ===== */
 .container {
@@ -194,7 +212,7 @@ nav a:hover { color: var(--primary); }
 
 .card-img-placeholder {
   height: 180px;
-  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  background: linear-gradient(135deg, #EBF0E4, #D4E4CF);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,7 +317,7 @@ nav a:hover { color: var(--primary); }
 
 /* ===== ARTIKEL-SEITE ===== */
 .article-hero {
-  background: linear-gradient(135deg, #E8F5E9 0%, #FFF8E1 100%);
+  background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
   padding: 48px 20px;
 }
 
@@ -361,7 +379,7 @@ nav a:hover { color: var(--primary); }
   border-radius: var(--radius);
   padding: 24px;
   margin: 32px 0;
-  background: #F1F8E9;
+  background: var(--bg-warm);
 }
 
 .produkt-box-header {
@@ -415,19 +433,19 @@ nav a:hover { color: var(--primary); }
 /* ===== AFFILIATE HINWEIS ===== */
 .affiliate-hinweis {
   background: transparent;
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--border);
   padding: 10px 16px;
   margin: 20px 0;
   border-radius: 6px;
   font-size: 0.8rem;
-  color: #aaa;
+  color: var(--earth-light);
 }
-.affiliate-hinweis strong { font-weight: 600; color: #c0c0c0; }
+.affiliate-hinweis strong { font-weight: 600; color: var(--earth-light); }
 
 /* ===== FAQ SECTION ===== */
 .faq-section { margin: 48px 0 32px; }
 .faq-section > h2 { font-size: 1.5rem; margin-bottom: 24px; }
-.faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
 .faq-item:last-child { border-bottom: none; }
 .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
 .faq-item p { color: var(--text-light); line-height: 1.65; margin: 0; }
@@ -437,7 +455,7 @@ nav a:hover { color: var(--primary); }
   display: flex;
   align-items: center;
   gap: 16px;
-  background: #f1f8e9;
+  background: var(--bg-warm);
   border-left: 4px solid var(--primary);
   border-radius: 0 10px 10px 0;
   padding: 14px 18px;
@@ -460,7 +478,7 @@ nav a:hover { color: var(--primary); }
   flex-shrink: 0;
   transition: background 0.2s;
 }
-.btn-inline:hover { background: #E68900; color: white; }
+.btn-inline:hover { background: var(--accent-light); color: white; }
 
 /* ===== PRODUKT BILD ===== */
 .produkt-img-link { display: none; } /* Temporär ausgeblendet — Platzhalter bis echte Fotos da sind */
@@ -490,7 +508,7 @@ nav a:hover { color: var(--primary); }
 
 /* ===== FOOTER ===== */
 footer {
-  background: #1B5E20;
+  background: var(--primary-dark);
   color: rgba(255,255,255,0.85);
   padding: 48px 20px 24px;
 }
@@ -555,7 +573,7 @@ footer ul a:hover { color: white; }
 }
 
 #cookie-banner p { font-size: 0.9rem; max-width: 700px; opacity: 0.9; }
-#cookie-banner a { color: #81C784; }
+#cookie-banner a { color: var(--primary-light); }
 
 .cookie-buttons { display: flex; gap: 12px; flex-shrink: 0; }
 
@@ -583,7 +601,7 @@ footer ul a:hover { color: white; }
 
 /* ===== TESTSIEGER BOX ===== */
 .testsieger-box {
-  background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
+  background: linear-gradient(135deg, #EBF0E4, #EFE9DF);
   border: 2px solid var(--primary);
   border-radius: var(--radius);
   padding: 28px 24px 24px;
@@ -661,9 +679,9 @@ footer ul a:hover { color: white; }
 }
 
 .vergleich-tabelle tr:last-child td { border-bottom: none; }
-.vergleich-tabelle tr:hover td { background: #f9fbe7; }
-.vergleich-tabelle .top-pick td { background: #F1F8E9; }
-.vergleich-tabelle .top-pick:hover td { background: #E8F5E9; }
+.vergleich-tabelle tr:hover td { background: var(--bg-warm); }
+.vergleich-tabelle .top-pick td { background: #EBF0E4; }
+.vergleich-tabelle .top-pick:hover td { background: #DDE8D8; }
 .vergleich-tabelle .produkt-name { font-weight: 600; }
 .vergleich-tabelle .bewertung { color: var(--accent); white-space: nowrap; font-size: 0.88rem; }
 
