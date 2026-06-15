@@ -102,6 +102,17 @@ nav a {
 
 nav a:hover { color: var(--primary); }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+  padding: 4px 8px;
+  line-height: 1;
+}
+
 /* ===== HERO ===== */
 .hero {
   background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
@@ -247,8 +258,8 @@ nav a:hover { color: var(--primary); }
 
 .btn-hero {
   display: inline-block;
-  background: #E07B39;
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--white);
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: 700;
@@ -256,8 +267,8 @@ nav a:hover { color: var(--primary); }
   transition: background 0.2s;
 }
 .btn-hero:hover {
-  background: #C96A2A;
-  color: #ffffff;
+  background: var(--accent-light);
+  color: var(--white);
 }
 
 /* ===== CONTAINER ===== */
@@ -323,9 +334,18 @@ nav a:hover { color: var(--primary); }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 4.5rem;
   position: relative;
 }
+
+.card-img-placeholder.theme-rose     { background: linear-gradient(135deg, #FFF0F0, #FFDDD5); }
+.card-img-placeholder.theme-peach    { background: linear-gradient(135deg, #FFF4E8, #FFE0C4); }
+.card-img-placeholder.theme-mint     { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.card-img-placeholder.theme-sky      { background: linear-gradient(135deg, #E8F4FD, #C8E3F5); }
+.card-img-placeholder.theme-sunny    { background: linear-gradient(135deg, #FFFDE7, #FFF9C4); }
+.card-img-placeholder.theme-sand     { background: linear-gradient(135deg, #FBF3E8, #F0DEC0); }
+.card-img-placeholder.theme-lavender { background: linear-gradient(135deg, #F3E8FF, #E4D0F5); }
+.card-img-placeholder.theme-butter   { background: linear-gradient(135deg, #FFFCE0, #FFF5A0); }
 
 .card-body {
   padding: 20px;
@@ -722,9 +742,9 @@ footer ul a:hover { color: white; }
 
 /* ===== TESTSIEGER BOX ===== */
 .testsieger-box {
-  background: #FFF8F0;
+  background: var(--white);
   border: none;
-  border-left: 4px solid #E07B39;
+  border-left: 4px solid var(--accent);
   border-radius: 8px;
   padding: 20px 24px;
   margin: 28px 0;
@@ -735,7 +755,7 @@ footer ul a:hover { color: white; }
 .testsieger-label {
   display: inline-block;
   background: none;
-  color: #E07B39;
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 700;
   padding: 0;
@@ -855,7 +875,33 @@ footer ul a:hover { color: white; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  nav ul { display: none; }
+  .nav-toggle { display: block; }
+
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    z-index: 200;
+  }
+
+  nav ul.open { display: flex; }
+
+  nav ul li { border-bottom: 1px solid var(--border); }
+  nav ul li:last-child { border-bottom: none; }
+
+  nav ul li a {
+    display: block;
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
 
   .footer-grid {
     grid-template-columns: 1fr;

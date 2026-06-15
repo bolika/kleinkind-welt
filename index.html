@@ -23,7 +23,8 @@
   <div class="nav-inner">
     <a href="/" class="logo">👶 Kleinkind-<span>Welt</span><small class="logo-tagline">Ehrliche Empfehlungen für Eltern</small></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
@@ -85,7 +86,7 @@
     <div class="card-grid">
 
       <a href="artikel/spielzeug-12-18-monate.html" class="card">
-        <div class="card-img-placeholder">🧸
+        <div class="card-img-placeholder theme-rose">🧸
           <span class="card-badge">Beliebt</span>
         </div>
         <div class="card-body">
@@ -97,7 +98,7 @@
       </a>
 
       <a href="artikel/geschenke-1-jahr.html" class="card">
-        <div class="card-img-placeholder">🎁
+        <div class="card-img-placeholder theme-peach">🎁
           <span class="card-badge">Neu</span>
         </div>
         <div class="card-body">
@@ -109,7 +110,7 @@
       </a>
 
       <a href="artikel/montessori-spielzeug-kleinkind.html" class="card">
-        <div class="card-img-placeholder">🌿</div>
+        <div class="card-img-placeholder theme-mint">🌿</div>
         <div class="card-body">
           <div class="card-tag">Montessori</div>
           <h3>Montessori Spielzeug für Kleinkinder – was steckt dahinter?</h3>
@@ -119,7 +120,7 @@
       </a>
 
       <a href="artikel/motorikspielzeug-test.html" class="card">
-        <div class="card-img-placeholder">🏗️</div>
+        <div class="card-img-placeholder theme-sky">🏗️</div>
         <div class="card-body">
           <div class="card-tag">Test & Vergleich</div>
           <h3>Motorikspielzeug im Test – die 8 besten für 2025</h3>
@@ -129,7 +130,7 @@
       </a>
 
       <a href="artikel/spielzeug-6-12-monate.html" class="card">
-        <div class="card-img-placeholder">🍼</div>
+        <div class="card-img-placeholder theme-sunny">🍼</div>
         <div class="card-body">
           <div class="card-tag">6–12 Monate</div>
           <h3>Spielzeug für 6–12 Monate – Förderung in der Krabbelphase</h3>
@@ -139,7 +140,7 @@
       </a>
 
       <a href="artikel/holzspielzeug-kleinkind.html" class="card">
-        <div class="card-img-placeholder">🪵</div>
+        <div class="card-img-placeholder theme-sand">🪵</div>
         <div class="card-body">
           <div class="card-tag">Nachhaltigkeit</div>
           <h3>Holzspielzeug für Kleinkinder – langlebig, sicher, fördernd</h3>
@@ -161,7 +162,7 @@
     <div class="card-grid">
 
       <a href="artikel/montessori-spielzeug-kleinkind.html" class="card">
-        <div class="card-img-placeholder">📚</div>
+        <div class="card-img-placeholder theme-lavender">📚</div>
         <div class="card-body">
           <div class="card-tag">Entwicklung</div>
           <h3>Was lernt mein Kind wann? Meilensteine 0–3 Jahre</h3>
@@ -171,7 +172,7 @@
       </a>
 
       <a href="artikel/motorikspielzeug-test.html" class="card">
-        <div class="card-img-placeholder">💡</div>
+        <div class="card-img-placeholder theme-butter">💡</div>
         <div class="card-body">
           <div class="card-tag">Tipps</div>
           <h3>Weniger ist mehr – warum zu viel Spielzeug schadet</h3>
@@ -227,6 +228,32 @@
 
 <script>
   if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';
+</script>
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
 </script>
 
 </body>
