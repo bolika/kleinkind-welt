@@ -1349,6 +1349,64 @@ footer ul a:hover { color: white; }
   color: var(--text-light);
 }
 
+/* ===== BEWERTUNGSMATRIX (5 Kriterien pro Produkt) ===== */
+.bewertungsmatrix {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px 0 20px;
+  font-size: 0.86rem;
+}
+
+.matrix-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.matrix-row:last-child { border-bottom: none; }
+.matrix-row:nth-child(odd) { background: var(--bg); }
+.matrix-row:nth-child(even) { background: var(--white); }
+
+.matrix-kriterium {
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.matrix-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.matrix-bar {
+  width: 80px;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.matrix-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--primary);
+}
+
+.matrix-bar-fill.accent { background: var(--accent); }
+
+.matrix-sterne {
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  min-width: 60px;
+}
+
 /* ===== KURZANTWORT-BOX (LLM/AI Search optimiert) ===== */
 .kurzantwort-box {
   background: var(--bg-warm);

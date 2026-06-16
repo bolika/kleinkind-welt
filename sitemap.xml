@@ -142,6 +142,20 @@
   </url>
 
   <url>
+    <loc>https://kleinkind-welt.de/artikel/spielzeug-unter-20-euro</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://kleinkind-welt.de/artikel/was-wir-nicht-kaufen</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://kleinkind-welt.de/impressum</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>yearly</changefreq>

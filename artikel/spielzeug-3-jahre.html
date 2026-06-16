@@ -69,6 +69,35 @@
 
 <div class="article-body">
 
+  <div class="kaufbox">
+    <h3 class="kaufbox-heading">Kurz entschieden</h3>
+    <div class="kaufbox-grid">
+      <div class="kaufbox-cell kaufbox-top">
+        <span class="kaufbox-label">★ Unsere Empfehlung</span>
+        <strong class="kaufbox-name">LEGO DUPLO Classic</strong>
+        <span class="kaufbox-detail">Dreijährige bauen täglich komplexer · kein Akku · wächst unbegrenzt mit</span>
+        <a href="https://www.amazon.de/s?k=lego+duplo+classic+bausteinbox&tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">💶 Budget-Tipp (unter 20 €)</span>
+        <strong class="kaufbox-name">Fingerfarben + Malblock</strong>
+        <span class="kaufbox-detail">Mit 3 Jahren explodiert die Kreativität · beschäftigt ausdauernd</span>
+        <a href="https://www.amazon.de/s?k=fingerfarben+kinder+3+jahre&tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell kaufbox-warning">
+        <span class="kaufbox-label">🚫 Nicht kaufen wenn...</span>
+        <strong class="kaufbox-name">Themen-Sets mit einem Motiv</strong>
+        <span class="kaufbox-detail">...das Motiv schon nächsten Monat out ist. Offene Systeme (DUPLO, Magnete) gewinnen immer.</span>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">🏡 Für das erste Regelspiel</span>
+        <strong class="kaufbox-name">HABA Obstgarten</strong>
+        <span class="kaufbox-detail">Kooperativ (nicht kompetitiv) · perfekter Einstieg ins Brettspiel · ab 3 Jahre</span>
+        <a href="https://www.amazon.de/s?k=haba+obstgarten&tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+    </div>
+  </div>
+
   <div class="affiliate-hinweis">
     <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.de. Bei einem Kauf über diese Links erhalten wir eine kleine Provision – für dich entstehen keine Mehrkosten.
   </div>
@@ -96,7 +125,7 @@
   <div class="inline-produkt">
     <span class="inline-produkt-emoji">🏆</span>
     <div class="inline-produkt-info">
-      <div class="inline-produkt-name">LEGO DUPLO Classic – unser Testsieger für Dreijährige</div>
+      <div class="inline-produkt-name">LEGO DUPLO Classic – unsere Top-Empfehlung für Dreijährige</div>
       <div class="inline-produkt-note">Ideal für 2–5 Jahre · Fördert Kreativität, Motorik &amp; Planung · Jahrelang nutzbar</div>
     </div>
     <a href="https://www.amazon.de/s?k=lego+duplo+classic&tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
@@ -257,6 +286,19 @@
       });
     });
   })();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-cell');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'spielzeug-3-jahre'}});
+      }
+    });
+  });
+})();
 </script>
 
 </body>

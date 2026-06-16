@@ -299,6 +299,19 @@
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-cell');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'geschenke-1-jahr'}});
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

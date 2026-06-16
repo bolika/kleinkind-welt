@@ -66,6 +66,35 @@
 
 <div class="article-body">
 
+  <div class="kaufbox">
+    <h3 class="kaufbox-heading">Kurz entschieden</h3>
+    <div class="kaufbox-grid">
+      <div class="kaufbox-cell kaufbox-top">
+        <span class="kaufbox-label">★ Klarer Sieger</span>
+        <strong class="kaufbox-name">LEGO DUPLO Classic</strong>
+        <span class="kaufbox-detail">Beste Verbindungsqualität · kompatibel mit normalem LEGO · ab 18 Monate bis 5+ Jahre</span>
+        <a href="https://amzn.to/4vigSoi" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">🧲 Für kleine Wohnungen</span>
+        <strong class="kaufbox-name">Magnetbausteine</strong>
+        <span class="kaufbox-detail">Kompakter als DUPLO · 3D-Konstruktionen · fördert räumliches Denken ab 3 Jahre</span>
+        <a href="https://amzn.to/4ovz2Ai" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell kaufbox-warning">
+        <span class="kaufbox-label">🚫 Nicht kaufen wenn...</span>
+        <strong class="kaufbox-name">Mega Bloks</strong>
+        <span class="kaufbox-detail">...du DUPLO-Qualität erwartest. Verbindungen schlechter, Material weicher — für Babys OK, aber kein DUPLO-Ersatz.</span>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">🌳 Premium-Alternative</span>
+        <strong class="kaufbox-name">Grimm's Regenbogen-Bausteine</strong>
+        <span class="kaufbox-detail">Kein System, dafür grenzenlos kreativ · Montessori-Klassiker · sehr hochwertig</span>
+        <a href="https://amzn.to/4ot4Plp" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+    </div>
+  </div>
+
   <div class="affiliate-hinweis">
     <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.de. Bei einem Kauf über diese Links erhalten wir eine kleine Provision – ohne Mehrkosten für dich.
   </div>
@@ -378,6 +407,19 @@
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-cell');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'duplo-vergleich'}});
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

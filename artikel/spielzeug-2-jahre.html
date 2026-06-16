@@ -66,6 +66,35 @@
 
 <div class="article-body">
 
+  <div class="kaufbox">
+    <h3 class="kaufbox-heading">Kurz entschieden</h3>
+    <div class="kaufbox-grid">
+      <div class="kaufbox-cell kaufbox-top">
+        <span class="kaufbox-label">★ Unsere Empfehlung</span>
+        <strong class="kaufbox-name">LEGO DUPLO Classic Bausteinbox</strong>
+        <span class="kaufbox-detail">Kein Akku · unbegrenzt erweiterbar · bis ins Grundschulalter</span>
+        <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">🌀 Faszinierend für 2-Jährige</span>
+        <strong class="kaufbox-name">HABA Kullerbü Kugelbahn</strong>
+        <span class="kaufbox-detail">Kugeln rollen = Ursache-Wirkung lernen · Ausdauer · Holz</span>
+        <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+      <div class="kaufbox-cell kaufbox-warning">
+        <span class="kaufbox-label">🚫 Nicht kaufen wenn...</span>
+        <strong class="kaufbox-name">Tablet-Lernspiele / Sprech-Spielzeug</strong>
+        <span class="kaufbox-detail">...das Kind unter 2 Jahre ist. Fördert passives Konsumieren statt aktives Erkunden.</span>
+      </div>
+      <div class="kaufbox-cell">
+        <span class="kaufbox-label">🚲 Für draußen</span>
+        <strong class="kaufbox-name">Laufrad</strong>
+        <span class="kaufbox-detail">Beste Vorbereitung aufs Fahrradfahren · ab 18 Monate · kein Pedaltraining nötig</span>
+        <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+      </div>
+    </div>
+  </div>
+
   <div class="affiliate-hinweis">
     <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.de. Wenn du über diese Links kaufst, erhalten wir eine kleine Provision – für dich entstehen keine Mehrkosten. Das hilft uns, diese Seite kostenlos betreiben zu können.
   </div>
@@ -98,7 +127,7 @@
   <div class="inline-produkt">
     <span class="inline-produkt-emoji">🏆</span>
     <div class="inline-produkt-info">
-      <div class="inline-produkt-name">LEGO DUPLO Classic Bausteinbox, unser Testsieger für 2-Jährige</div>
+      <div class="inline-produkt-name">LEGO DUPLO Classic Bausteinbox, unsere Top-Empfehlung für 2-Jährige</div>
       <div class="inline-produkt-note">Ideal für 2–5 Jahre · Fördert Kreativität &amp; Motorik · Jahrelang nutzbar</div>
     </div>
     <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
@@ -318,6 +347,19 @@
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-cell');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'spielzeug-2-jahre'}});
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

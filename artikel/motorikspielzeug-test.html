@@ -351,6 +351,43 @@
         </ul>
       </div>
     </div>
+    <div class="bewertungsmatrix">
+      <div class="matrix-row">
+        <span class="matrix-kriterium">Sicherheit</span>
+        <div class="matrix-right">
+          <div class="matrix-bar"><div class="matrix-bar-fill" style="width:100%"></div></div>
+          <span class="matrix-sterne">★★★★★</span>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="matrix-kriterium">Nutzungsdauer</span>
+        <div class="matrix-right">
+          <div class="matrix-bar"><div class="matrix-bar-fill" style="width:100%"></div></div>
+          <span class="matrix-sterne">★★★★★</span>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="matrix-kriterium">Entwicklungsnutzen</span>
+        <div class="matrix-right">
+          <div class="matrix-bar"><div class="matrix-bar-fill" style="width:100%"></div></div>
+          <span class="matrix-sterne">★★★★★</span>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="matrix-kriterium">Alltagstauglichkeit</span>
+        <div class="matrix-right">
+          <div class="matrix-bar"><div class="matrix-bar-fill" style="width:100%"></div></div>
+          <span class="matrix-sterne">★★★★★</span>
+        </div>
+      </div>
+      <div class="matrix-row">
+        <span class="matrix-kriterium">Preis-Leistung</span>
+        <div class="matrix-right">
+          <div class="matrix-bar"><div class="matrix-bar-fill" style="width:80%"></div></div>
+          <span class="matrix-sterne">★★★★☆</span>
+        </div>
+      </div>
+    </div>
     <a href="https://amzn.to/4ahtljF" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">Jetzt bei Amazon ansehen →</a>
   </div>
 
@@ -850,6 +887,19 @@
       }
     });
   })();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-cell');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'motorikspielzeug'}});
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
