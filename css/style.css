@@ -1212,3 +1212,54 @@ footer ul a:hover { color: white; }
   .age-btn { padding: 8px 14px; font-size: 0.85rem; }
   .artikel-autor-line { flex-wrap: wrap; }
 }
+
+/* ===== KURZANTWORT-BOX (LLM/AI Search optimiert) ===== */
+.kurzantwort-box {
+  background: var(--bg-warm);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0 0 28px 0;
+}
+
+.kurzantwort-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.kurzantwort-box p {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* ===== QUELLENBOX (Transparenz & Trust) ===== */
+.quellenbox {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 32px 0;
+  font-size: 0.88rem;
+}
+
+.quellenbox h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.quellenbox ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.quellenbox ul li { margin-bottom: 4px; }

@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
 
+# ChatGPT Search — erlaubt (Sichtbarkeit in ChatGPT Search Answers)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI Training — erlaubt (kann auf Disallow: / geändert werden wenn gewünscht)
+User-agent: GPTBot
+Allow: /
+
+# Google-Bots — explizit erlaubt
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://kleinkind-welt.de/sitemap.xml
