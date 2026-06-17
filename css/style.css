@@ -622,6 +622,41 @@ nav a:hover { color: var(--primary); }
 
 .article-body p { margin-bottom: 16px; color: var(--text); }
 
+.article-body p a:not([class]),
+.article-body li a:not([class]),
+.article-body .quellenbox a,
+.article-body .faq-item a,
+.article-body .affiliate-hinweis a {
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(240,111,91,0.55);
+  text-underline-offset: 3px;
+  text-decoration-skip-ink: auto;
+  transition: color 0.15s, background-color 0.15s, text-decoration-color 0.15s;
+}
+
+.article-body p a:not([class]):hover,
+.article-body li a:not([class]):hover,
+.article-body .quellenbox a:hover,
+.article-body .faq-item a:hover,
+.article-body .affiliate-hinweis a:hover {
+  color: var(--primary);
+  background: rgba(240,111,91,0.10);
+  text-decoration-color: var(--accent);
+}
+
+.article-body p a:not([class]):focus-visible,
+.article-body li a:not([class]):focus-visible,
+.article-body .quellenbox a:focus-visible,
+.article-body .faq-item a:focus-visible,
+.article-body .affiliate-hinweis a:focus-visible {
+  outline: 3px solid rgba(240,111,91,0.35);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
 .article-body ul, .article-body ol {
   margin: 0 0 16px 24px;
 }
