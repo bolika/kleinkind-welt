@@ -41,9 +41,10 @@
 
 <header>
   <div class="nav-inner">
-    <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
+      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
@@ -66,32 +67,47 @@
 
 <div class="article-body">
 
+  <div class="artikel-autor-line">
+    <div class="autor-avatar">👤</div>
+    <div class="autor-info">
+      <span class="autor-name">Boris, Kleinkind-Welt</span>
+      <span class="autor-desc">Vater, Senior CRO Manager · Empfehlungen basieren auf Recherche, Eltern-Erfahrungen und Entwicklungsrichtlinien · <a href="../ueber-uns.html">Mehr über uns</a></span>
+    </div>
+  </div>
+
+  <div class="kurzantwort-box">
+    <span class="kurzantwort-label">Kurzantwort</span>
+    <p>Mit drei Jahren verändert sich alles: Kinder fangen an zu bauen, zu rollenspiel und erste Regelspiele zu verstehen. Hier sind 12 Geschenkideen die genau das unterstützen und wirklich lange Freude machen.</p>
+  </div>
+
+
   <div class="kaufbox">
     <h3 class="kaufbox-heading">Kurz entschieden</h3>
-    <div class="kaufbox-grid">
-      <div class="kaufbox-cell kaufbox-top">
-        <span class="kaufbox-label">★ Unsere Empfehlung</span>
-        <strong class="kaufbox-name">LEGO DUPLO Classic Steinebox</strong>
-        <span class="kaufbox-detail">Kein Akku, kein Bildschirm · wächst unbegrenzt mit · Kinder bauen täglich komplexer</span>
-        <a href="https://amzn.to/3QLAxxH" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+    <div class="kaufbox-hero">
+      <span class="kaufbox-label">Unsere Empfehlung</span>
+      <strong class="kaufbox-name">LEGO DUPLO Classic Steinebox</strong>
+      <span class="kaufbox-detail">Kein Akku, kein Bildschirm · wächst unbegrenzt mit · Kinder bauen täglich komplexer</span>
+      <a href="https://amzn.to/3QLAxxH" class="btn-inline kaufbox-primary-cta" target="_blank" rel="sponsored noopener nofollow">Preis prüfen</a>
+    </div>
+    <div class="kaufbox-support">
+      <p class="kaufbox-support-title">Auch sinnvoll</p>
+      <div class="kaufbox-options">
+        <div class="kaufbox-option">
+          <span class="kaufbox-label">Budget-Tipp (unter 25 €)</span>
+          <strong class="kaufbox-name">Kreativ-Malset</strong>
+          <span class="kaufbox-detail">Dreijährige entdecken Kreativität · keine schlechte Mama-Laune wenn der Preis stimmt</span>
+        </div>
+        <div class="kaufbox-option">
+          <span class="kaufbox-label">Für kleine Wohnungen</span>
+          <strong class="kaufbox-name">Magnetbausteine</strong>
+          <span class="kaufbox-detail">Kompakter als DUPLO · ab 3 Jahre · fördert räumliches Denken</span>
+        </div>
       </div>
-      <div class="kaufbox-cell">
-        <span class="kaufbox-label">💶 Budget-Tipp (unter 25 €)</span>
-        <strong class="kaufbox-name">Kreativ-Malset</strong>
-        <span class="kaufbox-detail">Dreijährige entdecken Kreativität · keine schlechte Mama-Laune wenn der Preis stimmt</span>
-        <a href="https://amzn.to/3QKe9Vo" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
-      </div>
-      <div class="kaufbox-cell kaufbox-warning">
-        <span class="kaufbox-label">🚫 Nicht kaufen wenn...</span>
-        <strong class="kaufbox-name">Überteuerte Marken-Sets</strong>
-        <span class="kaufbox-detail">...ein 3-Jähriger das Thema nach 2 Wochen wechselt. Offene Systeme (DUPLO, Magnete) schlagen Themen-Sets immer.</span>
-      </div>
-      <div class="kaufbox-cell">
-        <span class="kaufbox-label">🏠 Für kleine Wohnungen</span>
-        <strong class="kaufbox-name">Magnetbausteine</strong>
-        <span class="kaufbox-detail">Kompakter als DUPLO · ab 3 Jahre · fördert räumliches Denken</span>
-        <a href="https://amzn.to/3SHjTQh" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
-      </div>
+    </div>
+    <div class="kaufbox-avoid">
+      <span class="kaufbox-label">Eher nicht</span>
+      <strong class="kaufbox-name">Überteuerte Marken-Sets</strong>
+      <span class="kaufbox-detail">ein 3-Jähriger das Thema nach 2 Wochen wechselt. Offene Systeme (DUPLO, Magnete) schlagen Themen-Sets immer.</span>
     </div>
   </div>
 
@@ -107,7 +123,7 @@
       <span class="bewertung-sterne">★★★★★</span>
       <span class="testsieger-info">Ab 2 Jahre · Feinmotorik & Kreativität · Erweiterbar · Jahrelang nutzbar</span>
     </div>
-    <a href="https://amzn.to/3QLAxxH" class="btn-hero" target="_blank" rel="sponsored noopener nofollow">Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3QLAxxH" class="btn-hero" target="_blank" rel="sponsored noopener nofollow">Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="toc">
@@ -140,7 +156,7 @@
       <div class="inline-produkt-name">LEGO DUPLO Classic, unsere Top-Empfehlung</div>
       <div class="inline-produkt-note">Ab 2 Jahre · Unbegrenzt erweiterbar · Feinmotorik & Kreativität</div>
     </div>
-    <a href="https://amzn.to/3QLAxxH" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
+      <a href="https://amzn.to/3QLAxxH" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
   </div>
 
   <h2 id="top-geschenke">Die 12 besten Geschenkideen zum 3. Geburtstag</h2>
@@ -165,7 +181,7 @@
       <li>Steine können sich unter Füßen sehr unangenehm anfühlen</li>
       <li>Qualitätsgünstige Duplo-Klone haben oft schlechtere Steckverbindungen</li>
     </ul>
-    <a href="https://amzn.to/3QLAxxH" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3QLAxxH" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="produkt-box">
@@ -187,7 +203,7 @@
       <li>Günstige Modelle haben oft keine Lenkungsbegrenzung, was Stürze verursachen kann</li>
       <li>Braucht ausreichend Platz draußen, für Stadtkinder manchmal schwierig</li>
     </ul>
-    <a href="https://amzn.to/4uGu58Z" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/4uGu58Z" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="produkt-box">
@@ -209,7 +225,7 @@
       <li>Magnete regelmäßig auf festen Sitz prüfen, gelockerte Magnete sind ein Sicherheitsrisiko</li>
       <li>Hochwertige Sets (Magna-Tiles) sind teurer als DUPLO</li>
     </ul>
-    <a href="https://amzn.to/3SHjTQh" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3SHjTQh" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="produkt-box">
@@ -231,7 +247,7 @@
       <li>Eher kurze Spielzeit, ältere Geschwister können unterfordert sein</li>
       <li>Kleines Obst kann bei sehr jungen Geschwistern ein Risiko sein</li>
     </ul>
-    <a href="https://amzn.to/3QIjMn5" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3QIjMn5" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="produkt-box">
@@ -252,7 +268,7 @@
     <ul class="produkt-cons">
       <li>Teile gehen verloren, darauf achten dass Puzzles nicht in der Nähe von Lüftungsschlitzen gespielt werden</li>
     </ul>
-    <a href="https://amzn.to/3SdfrIY" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3SdfrIY" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <div class="produkt-box">
@@ -274,21 +290,31 @@
       <li>Kann schnell unübersichtlich werden – Unterlage und alte Kleidung empfehlenswert</li>
       <li>Knete trocknet aus wenn Deckel nicht fest verschlossen bleiben</li>
     </ul>
-    <a href="https://amzn.to/3QKe9Vo" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
+      <a href="https://amzn.to/3QKe9Vo" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuellen Preis prüfen →</a>
   </div>
 
   <p>Weitere sehr gute Geschenkideen für den 3. Geburtstag auf einen Blick:</p>
   <ul>
-    <li><strong>7. <a href="https://www.amazon.de/s?k=spielkueche+holz+kinder+3+jahre&tag=kleinkindwelt-21" rel="sponsored noopener nofollow">Spielküche aus Holz</a></strong> – das ultimative Rollenspiel-Spielzeug, hält bis ins Schulalter</li>
-    <li><strong>8. <a href="https://www.amazon.de/s?k=playmobil+1.2.3+set&tag=kleinkindwelt-21" rel="sponsored noopener nofollow">Playmobil 1.2.3</a></strong> – speziell für Kleinkinder, große Teile, einfache Szenarien</li>
-    <li><strong>8. <a href="https://amzn.to/4aLFzAZ" rel="sponsored noopener nofollow">Balanceboard aus Holz</a></strong> – Grobmotorik, Balance, hält bis ins Schulalter</li>
-    <li><strong>9. <a href="https://www.amazon.de/s?k=hoerspielbox+kinder+tonieboxformat&tag=kleinkindwelt-21" rel="sponsored noopener nofollow">Hörspielbox (Toniebox)</a></strong> – selbstständiges Hören von Geschichten und Liedern</li>
-    <li><strong>10. <a href="https://www.amazon.de/s?k=sandspielzeug+set+kinder&tag=kleinkindwelt-21" rel="sponsored noopener nofollow">Hochwertiges Sandspielzeug-Set</a></strong> – sensorisches Spiel, Kreativität im Freien</li>
-    <li><strong>11. <a href="https://www.amazon.de/s?k=bilderbücher+set+3+jahre+kinder&tag=kleinkindwelt-21" rel="sponsored noopener nofollow">Bücher-Set für 3-Jährige</a></strong> – weiter vorlesen, Sprachentwicklung ist mit 3 noch in vollem Gang</li>
-    <li><strong>12. <a href="https://amzn.to/4uCqqt9" rel="sponsored noopener nofollow">Pikler-Dreieck / Kletterdreieck</a></strong> – wenn Platz vorhanden, das beste Grobmotorik-Spielzeug für drinnen</li>
+    <li><strong>7. <a target="_blank" href="https://amzn.to/43K6MQP" rel="sponsored noopener nofollow">Spielküche aus Holz</a> <span style="background:#F06F5B;color:white;font-size:0.72em;font-weight:700;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:4px;">Prime Deal ⚡</span></strong> – das ultimative Rollenspiel-Spielzeug, hält bis ins Schulalter</li>
+    <li><strong>8. Playmobil 1.2.3</strong> – speziell für Kleinkinder, große Teile, einfache Szenarien: <a target="_blank" href="https://amzn.to/4aWs29R" rel="sponsored noopener nofollow">Set 1</a> · <a target="_blank" href="https://amzn.to/4oxSIU5" rel="sponsored noopener nofollow">Set 2</a> · <a target="_blank" href="https://amzn.to/4euQGj5" rel="sponsored noopener nofollow">Set 3</a></li>
+    <li><strong>8. <a target="_blank" href="https://amzn.to/4aLFzAZ" rel="sponsored noopener nofollow">Balanceboard aus Holz</a></strong> – Grobmotorik, Balance, hält bis ins Schulalter</li>
+    <li><strong>9. <a target="_blank" href="https://amzn.to/4a57uM4" rel="sponsored noopener nofollow">Toniebox</a></strong> – selbstständiges Hören von Geschichten und Liedern</li>
+    <li><strong>10. <a target="_blank" href="https://amzn.to/4egezfn" rel="sponsored noopener nofollow">Hochwertiges Sandspielzeug-Set</a></strong> – sensorisches Spiel, Kreativität im Freien</li>
+    <li><strong>11. Bilder- &amp; Fühlbücher für 3-Jährige</strong> – weiter vorlesen, Sprachentwicklung ist mit 3 noch in vollem Gang: <a target="_blank" href="https://amzn.to/4vfEGZL" rel="sponsored noopener nofollow">Buch 1</a> · <a target="_blank" href="https://amzn.to/4egeGaN" rel="sponsored noopener nofollow">Buch 2</a> · <a target="_blank" href="https://amzn.to/4vLCYz2" rel="sponsored noopener nofollow">Buch 3</a></li>
+    <li><strong>12. <a target="_blank" href="https://amzn.to/4uCqqt9" rel="sponsored noopener nofollow">Pikler-Dreieck / Kletterdreieck</a></strong> – wenn Platz vorhanden, das beste Grobmotorik-Spielzeug für drinnen</li>
   </ul>
 
   <h2 id="nach-budget">Empfehlungen nach Budget</h2>
+
+
+  <div class="quellenbox">
+    <h4>Quellen und Bewertungsgrundlage</h4>
+    <ul>
+      <li><strong>Redaktionelle Einordnung:</strong> Bewertung nach unseren <a href="../bewertungsmethode.html">Auswahlkriterien</a>.</li>
+      <li><strong>Eltern-Erfahrungen:</strong> Auswertung häufig genannter Vorteile und Kritikpunkte in Rezensionen.</li>
+      <li><strong>Sicherheit:</strong> Orientierung an Altersangaben, CE-Kennzeichnung und relevanten Spielzeugstandards.</li>
+    </ul>
+  </div>
 
   <div class="kaufempfehlung-box">
     <div class="kaufempfehlung-item">
@@ -380,7 +406,7 @@
 </footer>
 
 <div id="cookie-banner">
-  <p>Diese Website verwendet keine Tracking-Cookies. Mehr in unserer <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+  <p>Keine Werbe- oder Tracking-Cookies. Wir nutzen Plausible für datenschutzfreundliche Reichweitenmessung. <a href="../datenschutz.html">Mehr erfahren</a>.</p>
   <div class="cookie-buttons">
     <button class="btn-cookie-ok" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1')">Verstanden</button>
   </div>
@@ -390,7 +416,7 @@
 (function() {
   document.querySelectorAll('.kaufbox a').forEach(function(link) {
     link.addEventListener('click', function() {
-      var cell = this.closest('.kaufbox-cell');
+      var cell = this.closest('.kaufbox-hero, .kaufbox-option');
       var name = cell && cell.querySelector('.kaufbox-name');
       if (name && window.plausible) {
         plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'geschenke-3-jahre'}});
@@ -400,5 +426,31 @@
 })();
 </script>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>

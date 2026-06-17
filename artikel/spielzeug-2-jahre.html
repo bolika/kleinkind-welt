@@ -41,9 +41,10 @@
 
 <header>
   <div class="nav-inner">
-    <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
+      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
@@ -66,32 +67,47 @@
 
 <div class="article-body">
 
+  <div class="artikel-autor-line">
+    <div class="autor-avatar">👤</div>
+    <div class="autor-info">
+      <span class="autor-name">Boris, Kleinkind-Welt</span>
+      <span class="autor-desc">Vater, Senior CRO Manager · Empfehlungen basieren auf Recherche, Eltern-Erfahrungen und Entwicklungsrichtlinien · <a href="../ueber-uns.html">Mehr über uns</a></span>
+    </div>
+  </div>
+
+  <div class="kurzantwort-box">
+    <span class="kurzantwort-label">Kurzantwort</span>
+    <p>Mit 2 Jahren explodiert die Neugier deines Kindes. Es will bauen, rollenspielen, klettern und entdecken. Wir zeigen, welches Spielzeug wirklich gebraucht wird – ohne Werbung, ohne Übertreibung.</p>
+  </div>
+
+
   <div class="kaufbox">
     <h3 class="kaufbox-heading">Kurz entschieden</h3>
-    <div class="kaufbox-grid">
-      <div class="kaufbox-cell kaufbox-top">
-        <span class="kaufbox-label">★ Unsere Empfehlung</span>
-        <strong class="kaufbox-name">LEGO DUPLO Classic Bausteinbox</strong>
-        <span class="kaufbox-detail">Kein Akku · unbegrenzt erweiterbar · bis ins Grundschulalter</span>
-        <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
+    <div class="kaufbox-hero">
+      <span class="kaufbox-label">Unsere Empfehlung</span>
+      <strong class="kaufbox-name">LEGO DUPLO Classic Bausteinbox</strong>
+      <span class="kaufbox-detail">Kein Akku · unbegrenzt erweiterbar · bis ins Grundschulalter</span>
+      <a href="https://amzn.to/4fLeeCt" class="btn-inline kaufbox-primary-cta" target="_blank" rel="sponsored noopener nofollow">Preis prüfen</a>
+    </div>
+    <div class="kaufbox-support">
+      <p class="kaufbox-support-title">Auch sinnvoll</p>
+      <div class="kaufbox-options">
+        <div class="kaufbox-option">
+          <span class="kaufbox-label">Faszinierend für 2-Jährige</span>
+          <strong class="kaufbox-name">HABA Kullerbü Kugelbahn</strong>
+          <span class="kaufbox-detail">Kugeln rollen = Ursache-Wirkung lernen · Ausdauer · Holz</span>
+        </div>
+        <div class="kaufbox-option">
+          <span class="kaufbox-label">Für draußen</span>
+          <strong class="kaufbox-name">Laufrad</strong>
+          <span class="kaufbox-detail">Beste Vorbereitung aufs Fahrradfahren · ab 18 Monate · kein Pedaltraining nötig</span>
+        </div>
       </div>
-      <div class="kaufbox-cell">
-        <span class="kaufbox-label">🌀 Faszinierend für 2-Jährige</span>
-        <strong class="kaufbox-name">HABA Kullerbü Kugelbahn</strong>
-        <span class="kaufbox-detail">Kugeln rollen = Ursache-Wirkung lernen · Ausdauer · Holz</span>
-        <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
-      </div>
-      <div class="kaufbox-cell kaufbox-warning">
-        <span class="kaufbox-label">🚫 Nicht kaufen wenn...</span>
-        <strong class="kaufbox-name">Tablet-Lernspiele / Sprech-Spielzeug</strong>
-        <span class="kaufbox-detail">...das Kind unter 2 Jahre ist. Fördert passives Konsumieren statt aktives Erkunden.</span>
-      </div>
-      <div class="kaufbox-cell">
-        <span class="kaufbox-label">🚲 Für draußen</span>
-        <strong class="kaufbox-name">Laufrad</strong>
-        <span class="kaufbox-detail">Beste Vorbereitung aufs Fahrradfahren · ab 18 Monate · kein Pedaltraining nötig</span>
-        <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">→ Bei Amazon ansehen</a>
-      </div>
+    </div>
+    <div class="kaufbox-avoid">
+      <span class="kaufbox-label">Eher nicht</span>
+      <strong class="kaufbox-name">Tablet-Lernspiele / Sprech-Spielzeug</strong>
+      <span class="kaufbox-detail">Wenn es Bauen, Bewegung oder Rollenspiel ersetzt. Zweijährige lernen stärker durch echte Handlungen und offene Systeme.</span>
     </div>
   </div>
 
@@ -130,7 +146,7 @@
       <div class="inline-produkt-name">LEGO DUPLO Classic Bausteinbox, unsere Top-Empfehlung für 2-Jährige</div>
       <div class="inline-produkt-note">Ideal für 2–5 Jahre · Fördert Kreativität &amp; Motorik · Jahrelang nutzbar</div>
     </div>
-    <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
+      <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-inline" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a>
   </div>
 
   <h2 id="worauf-achten">Worauf solltest du beim Kauf achten?</h2>
@@ -154,7 +170,7 @@
       <h3>LEGO DUPLO Classic Grosse Bausteinbox</h3>
     </div>
     <div class="produkt-bewertung">★★★★★</div>
-    <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07FQZNRYP&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="LEGO DUPLO Classic Bausteinbox" loading="lazy" width="200" height="200">
     </a>
     <p>LEGO DUPLO ist das Spielzeug für 2-Jährige schlechthin – und das aus gutem Grund. Die großen, sicheren Steine lassen sich leicht greifen und zusammenstecken. Schon im zweiten Lebensjahr entstehen erste stolze Konstruktionen. Und DUPLO wächst mit: bis 5–6 Jahre bleibt es relevant.</p>
@@ -164,7 +180,7 @@
       <li>Kompatibel mit allen DUPLO-Sets – erweiterbar</li>
       <li>Langlebig: hält Jahrzehnte und ist vererbbar</li>
     </ul>
-    <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/B07FQZNRYP?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -176,7 +192,7 @@
       <h3>Kugelbahn aus Holz (z.B. HABA Kullerbü)</h3>
     </div>
     <div class="produkt-bewertung">★★★★★</div>
-    <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07BTHQ9FG&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="HABA Kullerbü Starter Set Kugelbahn" loading="lazy" width="200" height="200">
     </a>
     <p>Eine Kugelbahn ist pure Magie für 2-Jährige. Ursache und Wirkung werden greifbar: Kugel oben reinwerfen, unten rausrollen – und strahlendes Staunen. HABA Kullerbü ist dabei besonders empfehlenswert: kompatible Elemente, erweiterbar, aus hochwertigem Holz gefertigt.</p>
@@ -186,7 +202,7 @@
       <li>Hohe Qualität, sicher nach europäischen Standards</li>
       <li>Auch für Geschwister mit unterschiedlichen Altern geeignet</li>
     </ul>
-    <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/B07BTHQ9FG?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -198,7 +214,7 @@
       <h3>Laufrad (z.B. Puky LR M oder Woom 1)</h3>
     </div>
     <div class="produkt-bewertung">★★★★★</div>
-    <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00JXJR3DC&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="Puky LR M Laufrad" loading="lazy" width="200" height="200">
     </a>
     <p>Das Laufrad ist der Klassiker für draußen ab 2 Jahren. Es trainiert Balance, Koordination und Mut – und bereitet perfekt aufs Fahrradfahren vor, ohne Stützräder. Kinder die mit Laufrad aufwachsen, wechseln später oft ohne Zwischenschritte direkt aufs Fahrrad.</p>
@@ -208,7 +224,7 @@
       <li>Draußen spielen fördert körperliche Gesundheit</li>
       <li>Qualitätsmodelle halten mehrere Kinder lang</li>
     </ul>
-    <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/B00JXJR3DC?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -220,7 +236,7 @@
       <h3>Holzpuzzle mit Griffen (4–8 Teile)</h3>
     </div>
     <div class="produkt-bewertung">★★★★☆</div>
-    <a href="https://www.amazon.de/dp/B000B5YOAU?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/B000B5YOAU?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000B5YOAU&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="Holzpuzzle Kleinkind mit Griffen" loading="lazy" width="200" height="200">
     </a>
     <p>Puzzles sind hervorragendes Spielzeug für 2-Jährige: Sie schulen Geduld, logisches Denken und Feinmotorik gleichzeitig. Für Zweijährige eignen sich einfache Steckpuzzles aus Holz mit stabilen Griffknöpfen an jedem Teil. 4–8 Teile sind ideal, um erste Erfolgserlebnisse zu ermöglichen.</p>
@@ -230,7 +246,7 @@
       <li>Holz ist langlebig und schadstofffrei (CE-Zeichen prüfen)</li>
       <li>Günstig – großer Lerneffekt für kleines Geld</li>
     </ul>
-    <a href="https://www.amazon.de/dp/B000B5YOAU?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/B000B5YOAU?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -242,7 +258,7 @@
       <h3>Rollenspiel-Set: Spielzeugküche oder Arztkoffer</h3>
     </div>
     <div class="produkt-bewertung">★★★★☆</div>
-    <a href="https://www.amazon.de/dp/B085LR4PPJ?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/B085LR4PPJ?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B085LR4PPJ&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="Spielzeugküche Holz Rollenspiel" loading="lazy" width="200" height="200">
     </a>
     <p>Mit 2 Jahren ist Rollenspiel in vollem Gange. Dein Kind kocht für dich, behandelt Kuscheltiere oder telefoniert ernsthaft auf dem Spielzeugtelefon. Eine gute Spielzeugküche oder ein Arztkoffer deckt diesen Nachahmungsdrang ab und fördert gleichzeitig Sprache und soziale Kompetenz.</p>
@@ -252,7 +268,7 @@
       <li>Wächst mit dem Kind – beliebt bis weit ins Vorschulalter</li>
       <li>Holzvarianten sind langlebiger und umweltfreundlicher</li>
     </ul>
-    <a href="https://www.amazon.de/dp/B085LR4PPJ?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/B085LR4PPJ?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -264,7 +280,7 @@
       <h3>Bilderbücher und erste Geschichtenbücher</h3>
     </div>
     <div class="produkt-bewertung">★★★★★</div>
-    <a href="https://www.amazon.de/dp/3473437026?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
+      <a href="https://www.amazon.de/dp/3473437026?tag=kleinkindwelt-21" target="_blank" rel="sponsored noopener nofollow" class="produkt-img-link">
       <img src="https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=3473437026&Format=_SL250_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=kleinkindwelt-21" alt="Bilderbuch für 2-Jährige" loading="lazy" width="200" height="200">
     </a>
     <p>Mit 2 Jahren verstehen Kinder erste einfache Geschichten und lieben es, immer wieder dieselben Bücher zu hören. Vorlesen ist die günstigste und wirkungsvollste Investition in die Sprachentwicklung. Zeitlose Klassiker wie "Der kleine Maulwurf" oder "Die kleine Raupe Nimmersatt" begeistern Generation für Generation.</p>
@@ -274,7 +290,7 @@
       <li>Fördert Empathie und emotionale Intelligenz</li>
       <li>Günstig und nachhaltig: Bibliothek oder Second Hand nutzen</li>
     </ul>
-    <a href="https://www.amazon.de/dp/3473437026?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
+      <a href="https://www.amazon.de/dp/3473437026?tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">
       🛒 Aktuellen Preis prüfen →
     </a>
   </div>
@@ -286,6 +302,16 @@
   <p>Investiere in 4–5 hochwertige Spielzeuge, die dein Kind wirklich fordern und fördern. Vermeide Plastik-Spielzeug mit Batterien, das nur blinkt und Geräusche macht – es unterhält kurzfristig, aber fördert langfristig nicht.</p>
 
   <p><strong>Unsere Essentials für 2-Jährige:</strong> LEGO DUPLO + Kugelbahn + Laufrad + 2–3 gute Bücher. Das deckt alle wichtigen Entwicklungsbereiche ab – und macht ehrlich gesagt am meisten Spaß.</p>
+
+
+  <div class="quellenbox">
+    <h4>Quellen und Bewertungsgrundlage</h4>
+    <ul>
+      <li><strong>Redaktionelle Einordnung:</strong> Bewertung nach unseren <a href="../bewertungsmethode.html">Auswahlkriterien</a>.</li>
+      <li><strong>Eltern-Erfahrungen:</strong> Auswertung häufig genannter Vorteile und Kritikpunkte in Rezensionen.</li>
+      <li><strong>Sicherheit:</strong> Orientierung an Altersangaben, CE-Kennzeichnung und relevanten Spielzeugstandards.</li>
+    </ul>
+  </div>
 
   <div class="faq-section">
     <h2>Häufige Fragen</h2>
@@ -341,7 +367,7 @@
 </footer>
 
 <div id="cookie-banner">
-  <p>Diese Website verwendet keine Tracking-Cookies. Mehr in unserer <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+  <p>Keine Werbe- oder Tracking-Cookies. Wir nutzen Plausible für datenschutzfreundliche Reichweitenmessung. <a href="../datenschutz.html">Mehr erfahren</a>.</p>
   <div class="cookie-buttons">
     <button class="btn-cookie-ok" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1')">Verstanden</button>
   </div>
@@ -351,7 +377,7 @@
 (function() {
   document.querySelectorAll('.kaufbox a').forEach(function(link) {
     link.addEventListener('click', function() {
-      var cell = this.closest('.kaufbox-cell');
+      var cell = this.closest('.kaufbox-hero, .kaufbox-option');
       var name = cell && cell.querySelector('.kaufbox-name');
       if (name && window.plausible) {
         plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'spielzeug-2-jahre'}});
@@ -361,5 +387,31 @@
 })();
 </script>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
