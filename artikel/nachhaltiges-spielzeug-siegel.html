@@ -41,9 +41,10 @@
 
 <header>
   <div class="nav-inner">
-    <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
+      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
@@ -65,6 +66,20 @@
 </div>
 
 <div class="article-body">
+
+  <div class="artikel-autor-line">
+    <div class="autor-avatar">👤</div>
+    <div class="autor-info">
+      <span class="autor-name">Boris, Kleinkind-Welt</span>
+      <span class="autor-desc">Vater, Senior CRO Manager · Empfehlungen basieren auf Recherche, Eltern-Erfahrungen und Entwicklungsrichtlinien · <a href="../ueber-uns.html">Mehr über uns</a></span>
+    </div>
+  </div>
+
+  <div class="kurzantwort-box">
+    <span class="kurzantwort-label">Kurzantwort</span>
+    <p>CE, EN 71, FSC, Öko-Tex, GOTS: Spielzeugverpackungen sind voll von Logos. Aber was bedeuten sie wirklich? Wir erklären welche Siegel echte Sicherheit und Nachhaltigkeit garantieren und welche nur Marketing sind.</p>
+  </div>
+
 
   <div class="affiliate-hinweis">
     <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.de. Bei einem Kauf über diese Links erhalten wir eine kleine Provision – ohne Mehrkosten für dich.
@@ -155,8 +170,8 @@
       <h3>Haba (Deutschland)</h3>
     </div>
     <p>Haba produziert seit 1938 in Bad Rodach, Oberfranken. Die Holzspielzeuge werden mit lebensmittelechten Farben behandelt, CE und EN 71 sind Standard. Viele Produkte tragen das GS-Zeichen. Haba ist transparent über ihre Materialien und hat einen guten Ruf bei deutschen Sicherheitsbehörden.</p>
-    <a href="https://amzn.to/44bwQo2" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 HABA Entdecker Bausteine →</a>
-    <a href="https://amzn.to/4fMzNCK" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 HABA Meine ersten Bausteine →</a>
+      <a href="https://amzn.to/44bwQo2" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 HABA Entdecker Bausteine →</a>
+      <a href="https://amzn.to/4fMzNCK" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 HABA Meine ersten Bausteine →</a>
   </div>
 
   <div class="produkt-box">
@@ -165,8 +180,8 @@
       <h3>Grimm's Spiel und Holz (Deutschland)</h3>
     </div>
     <p>Grimm's ist bekannt für farbintensive Regenbogen-Spielzeuge aus Lindenholz, mit Wasserfarben in satten Regenbogenfarben behandelt. Alle Farben sind lebensmittelecht, CE und EN 71-3 geprüft. Grimm's verwendet ausschließlich Holz aus nachhaltiger Forstwirtschaft und ist bei Waldorf-Pädagogen sehr beliebt.</p>
-    <a href="https://amzn.to/4gjqpXh" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Grimm's Regenbogen →</a>
-    <a href="https://amzn.to/4fMA2Oa" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Grimm's weiteres Produkt →</a>
+      <a href="https://amzn.to/4gjqpXh" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Grimm's Regenbogen →</a>
+      <a href="https://amzn.to/4fMA2Oa" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Grimm's weiteres Produkt →</a>
   </div>
 
   <div class="produkt-box">
@@ -175,7 +190,7 @@
       <h3>PlanToys (Thailand)</h3>
     </div>
     <p>PlanToys ist eine der nachhaltigsten Spielzeugmarken weltweit. Das Holz stammt von Kautschukbäumen die nach dem Ende ihrer Latexproduktion nicht verbrannt, sondern zu Spielzeug verarbeitet werden. Wasserbasierte, schadstofffreie Farben. Das Unternehmen ist solar-betrieben und hat strenge Abfallstandards. CE, EN 71 und FSC sind Standard.</p>
-    <a href="https://amzn.to/4xwcNOu" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 PlanToys auf Amazon</a>
+      <a href="https://amzn.to/4xwcNOu" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 PlanToys auf Amazon</a>
   </div>
 
   <h2 id="checkliste">Checkliste: Was beim Kauf wirklich zählt</h2>
@@ -191,6 +206,16 @@
     <li><strong>Amazon-Rezensionen: Erwähnen Eltern Gerüche oder Farbabfärbungen?</strong> Das sind Warnsignale für Schadstoffe die sich in formalen Prüfungen manchmal nicht zeigen.</li>
   </ul>
 
+
+  <div class="quellenbox">
+    <h4>Quellen und Bewertungsgrundlage</h4>
+    <ul>
+      <li><strong>Redaktionelle Einordnung:</strong> Bewertung nach unseren <a href="../bewertungsmethode.html">Auswahlkriterien</a>.</li>
+      <li><strong>Eltern-Erfahrungen:</strong> Auswertung häufig genannter Vorteile und Kritikpunkte in Rezensionen.</li>
+      <li><strong>Sicherheit:</strong> Orientierung an Altersangaben, CE-Kennzeichnung und relevanten Spielzeugstandards.</li>
+    </ul>
+  </div>
+
   <div class="kaufempfehlung-box">
     <h2>Unsere Empfehlung: Zertifiziertes Spielzeug für Kleinkinder</h2>
     <div class="kaufempfehlung-item">
@@ -198,7 +223,7 @@
       <div class="kaufempfehlung-text">
         <strong>Holzspielzeug: Haba oder Grimm's</strong>
         <span>Beide Marken haben langjährig beständige Qualitätsstandards, sind in Deutschland leicht verfügbar und haben transparente Materialinformationen. Ideal für Eltern die sich keine Gedanken über Schadstoffe machen wollen.</span>
-        <br><a href="https://www.amazon.de/s?k=haba+holzspielzeug&tag=kleinkindwelt-21" class="btn-table" target="_blank" rel="sponsored noopener nofollow" style="margin-top:8px;display:inline-flex;">→ Haba ansehen</a>
+        <br><a href="https://amzn.to/44bwQo2" class="btn-table" target="_blank" rel="sponsored noopener nofollow" style="margin-top:8px;display:inline-flex;">→ Haba ansehen</a>
       </div>
     </div>
     <div class="kaufempfehlung-item">
@@ -264,12 +289,38 @@
 </footer>
 
 <div id="cookie-banner">
-  <p>Diese Website verwendet keine Tracking-Cookies. Mehr in unserer <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+  <p>Keine Werbe- oder Tracking-Cookies. Wir nutzen Plausible für datenschutzfreundliche Reichweitenmessung. <a href="../datenschutz.html">Mehr erfahren</a>.</p>
   <div class="cookie-buttons">
     <button class="btn-cookie-ok" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1')">Verstanden</button>
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';</script>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>

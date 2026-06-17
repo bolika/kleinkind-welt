@@ -41,9 +41,10 @@
 
 <header>
   <div class="nav-inner">
-    <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
+      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
@@ -65,6 +66,20 @@
 </div>
 
 <div class="article-body">
+
+  <div class="artikel-autor-line">
+    <div class="autor-avatar">👤</div>
+    <div class="autor-info">
+      <span class="autor-name">Boris, Kleinkind-Welt</span>
+      <span class="autor-desc">Vater, Senior CRO Manager · Empfehlungen basieren auf Recherche, Eltern-Erfahrungen und Entwicklungsrichtlinien · <a href="../ueber-uns.html">Mehr über uns</a></span>
+    </div>
+  </div>
+
+  <div class="kurzantwort-box">
+    <span class="kurzantwort-label">Kurzantwort</span>
+    <p>Sprachentwicklung passiert nicht automatisch. Die richtigen Spielzeuge, und vor allem die richtigen Gespräche beim Spielen, machen einen messbaren Unterschied. Was wirklich hilft, und was nur so aussieht als würde es helfen.</p>
+  </div>
+
 
   <div class="affiliate-hinweis">
     <strong>Hinweis:</strong> Diese Seite enthält Affiliate-Links zu Amazon.de. Bei einem Kauf über diese Links erhalten wir eine kleine Provision – ohne Mehrkosten für dich.
@@ -110,7 +125,7 @@
       <li>Stärkt die Eltern-Kind-Bindung durch gemeinsame ruhige Zeit</li>
       <li>Günstig, langlebig, zeitlos</li>
     </ul>
-    <a href="https://amzn.to/4gmeOqs" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuelle Pappbilderbücher ansehen →</a>
+      <a href="https://amzn.to/4gmeOqs" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Aktuelle Pappbilderbücher ansehen →</a>
   </div>
 
   <div class="produkt-box">
@@ -125,7 +140,7 @@
       <li>Gibt Eltern Zeit für sprachbegleitendes Kommentieren</li>
       <li>Ab 0 Monate nutzbar, erster wirklicher Nutzen ab Monat 2</li>
     </ul>
-    <a href="https://www.amazon.de/s?k=spielbogen+baby+holz+nachhaltig&tag=kleinkindwelt-21" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Spielbögen ansehen →</a>
+      <a href="https://amzn.to/4efC0UI" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Spielbögen ansehen →</a>
   </div>
 
   <h2 id="12-24">12–24 Monate: Erste Worte und Wortschatz-Explosion</h2>
@@ -145,7 +160,7 @@
       <li>Ideal für Eltern um neue Wörter spielerisch einzuführen</li>
       <li>Fördert Fantasie und Rollenspiel gleichzeitig</li>
     </ul>
-    <a href="https://amzn.to/3QKknoe" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Fingerpuppen ansehen →</a>
+      <a href="https://amzn.to/3QKknoe" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Fingerpuppen ansehen →</a>
   </div>
 
   <div class="produkt-box">
@@ -161,7 +176,7 @@
       <li>Fördert Wortschatz, Kategorisierung und Feinmotorik gleichzeitig</li>
       <li>Einfache Erfolgserlebnisse stärken die Motivation</li>
     </ul>
-    <a href="https://amzn.to/4xvhpEK" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Tierpuzzle ansehen →</a>
+      <a href="https://amzn.to/4xvhpEK" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Tierpuzzle ansehen →</a>
   </div>
 
   <h2 id="24-36">24–36 Monate: Sätze, Geschichten und Rollenspiel</h2>
@@ -181,7 +196,7 @@
       <li>Übt Fragen stellen, antworten und aushandeln</li>
       <li>Symbolisches Denken das direkt mit Sprachverständnis zusammenhängt</li>
     </ul>
-    <a href="https://amzn.to/3QhZxws" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Spielküchen ansehen →</a>
+      <a href="https://amzn.to/3QhZxws" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Spielküchen ansehen →</a>
   </div>
 
   <div class="produkt-box">
@@ -197,7 +212,7 @@
       <li>Interaktives Vorlesen macht Kinder zu aktiven Gesprächsteilnehmern</li>
       <li>Grundlage für Lese- und Schreiblernkompetenz später</li>
     </ul>
-    <a href="https://amzn.to/4vQW7zL" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Bilderbücher für 2-Jährige ansehen →</a>
+      <a href="https://amzn.to/4vQW7zL" class="btn-amazon" target="_blank" rel="sponsored noopener nofollow">🛒 Bilderbücher für 2-Jährige ansehen →</a>
   </div>
 
   <h2 id="was-nicht">Was die Sprachentwicklung nicht fördert</h2>
@@ -209,6 +224,16 @@
     <li><strong>Baby-Lern-Videos und Sprach-Apps:</strong> Babys und Kleinkinder lernen Sprache fast ausschließlich von echten Menschen in sozialen Kontexten. Videos produzieren keinen Sprachlerneffekt unter 2 Jahren.</li>
     <li><strong>Spielzeuge die immer dieselben Sätze sagen:</strong> Spielzeuge die immer den gleichen Satz abspielen ("Das ist ein Hund! Der Hund sagt wau!") bieten keine Variation die das Gehirn zum Lernen braucht. Echte Gespräche variieren immer.</li>
   </ul>
+
+
+  <div class="quellenbox">
+    <h4>Quellen und Bewertungsgrundlage</h4>
+    <ul>
+      <li><strong>Redaktionelle Einordnung:</strong> Bewertung nach unseren <a href="../bewertungsmethode.html">Auswahlkriterien</a>.</li>
+      <li><strong>Eltern-Erfahrungen:</strong> Auswertung häufig genannter Vorteile und Kritikpunkte in Rezensionen.</li>
+      <li><strong>Sicherheit:</strong> Orientierung an Altersangaben, CE-Kennzeichnung und relevanten Spielzeugstandards.</li>
+    </ul>
+  </div>
 
   <div class="kaufempfehlung-box" id="empfehlungen">
     <h2>Unsere Top-Empfehlungen nach Alter</h2>
@@ -291,12 +316,38 @@
 </footer>
 
 <div id="cookie-banner">
-  <p>Diese Website verwendet keine Tracking-Cookies. Mehr in unserer <a href="../datenschutz.html">Datenschutzerklärung</a>.</p>
+  <p>Keine Werbe- oder Tracking-Cookies. Wir nutzen Plausible für datenschutzfreundliche Reichweitenmessung. <a href="../datenschutz.html">Mehr erfahren</a>.</p>
   <div class="cookie-buttons">
     <button class="btn-cookie-ok" onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1')">Verstanden</button>
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')) document.getElementById('cookie-banner').style.display='none';</script>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
