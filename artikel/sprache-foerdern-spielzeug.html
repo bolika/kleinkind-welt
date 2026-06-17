@@ -35,13 +35,13 @@
   }
   </script>
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
-  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
 </head>
 <body>
 
 <header>
   <div class="nav-inner">
-      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
+      <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="288" height="64"></a>
     <nav>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
       <ul id="nav-menu">
@@ -348,6 +348,19 @@
       }
     });
   })();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.kaufbox a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var cell = this.closest('.kaufbox-hero, .kaufbox-option');
+      var name = cell && cell.querySelector('.kaufbox-name');
+      if (name && window.plausible) {
+        plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'sprache-foerdern-spielzeug'}});
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>

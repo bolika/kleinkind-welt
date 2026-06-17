@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -27,14 +27,15 @@
     .not-found-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
   </style>
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
-  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
 </head>
 <body>
 
 <header>
   <div class="nav-inner">
     <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
-    <nav><ul>
+    <nav><button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
       <li><a href="/#alter">Nach Alter</a></li>
       <li><a href="/#ratgeber">Ratgeber</a></li>
     </ul></nav>
@@ -58,11 +59,37 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-bottom">
-      <span>© 2025 Kleinkind-Welt.de</span>
+      <span>© 2026 Kleinkind-Welt.de</span>
       <a href="/impressum.html" style="color: rgba(255,255,255,0.7)">Impressum</a>
     </div>
   </div>
 </footer>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
