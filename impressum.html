@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/images/logo-mark.svg" type="image/svg+xml">
   <meta name="robots" content="noindex">
+  <meta name="description" content="Impressum von Kleinkind-Welt.de mit Kontakt, Verantwortlichem und Affiliate-Hinweis.">
   <title>Impressum | Kleinkind-Welt.de</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,7 +15,8 @@
   <div class="nav-inner">
     <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="220" height="55"></a>
     <nav>
-      <ul>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <ul id="nav-menu">
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
@@ -54,7 +56,7 @@
   <p>
     Diese Einnahmen helfen mir, diese Website kostenlos und werbefrei zu betreiben. Die redaktionelle Unabhängigkeit meiner Empfehlungen wird dadurch nicht beeinflusst – ich empfehle nur Produkte, von denen ich überzeugt bin.
   </p>
-  <p>Alle Affiliate-Links sind mit dem Attribut <code>rel="nofollow"</code> gekennzeichnet.</p>
+  <p>Affiliate-Links werden als solche gekennzeichnet und technisch mit <code>rel="sponsored noopener nofollow"</code> ausgezeichnet.</p>
 
   <h2>Haftung für Inhalte</h2>
   <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Die Informationen auf dieser Website dienen der allgemeinen Orientierung und ersetzen keine professionelle medizinische oder pädagogische Beratung.</p>
@@ -73,5 +75,31 @@
   </div>
 </footer>
 
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      }
+    });
+  })();
+</script>
 </body>
 </html>

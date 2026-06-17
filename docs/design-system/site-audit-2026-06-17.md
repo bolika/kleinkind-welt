@@ -10,11 +10,24 @@ Audit-Basis:
 - lokaler Linkcheck fuer `href`/`src`
 - Musterpruefung fuer Header, Cookie-Texte, Trust-Module, Canonicals, Jahreszahlen und Affiliate-/Empfehlungssprache
 
+## Umsetzungsstand Nach Bereinigung
+
+Stand: 2026-06-17, nach dem ersten Fix-Durchlauf.
+
+- P0 Mobile Navigation: umgesetzt. Alle normalen HTML-Seiten mit mobiler Navigation nutzen jetzt `nav-toggle`, `nav-menu` und das zugehoerige Script.
+- P0 Cookie-/Datenschutzsprache: umgesetzt. Cookie-Banner sind vereinheitlicht, `datenschutz.html` erklaert Plausible ohne Cookies und den lokalen Hinweis-Status konsistent.
+- P0 2025-Signale: umgesetzt, soweit sichtbar. Historische `datePublished`-Werte bleiben bewusst erhalten; sichtbare Titel, Meta-Beschreibungen, Footer und alte Jahresclaims wurden bereinigt.
+- P1 Artikelstandard: weitgehend umgesetzt. Alle Artikel haben Autorzeile, Kurzantwort und Quellenbox; produktbezogene Kaufboxen bleiben redaktionell dort, wo sie sinnvoll gepflegt sind.
+- P1 Empfehlungs-Wording: umgesetzt. Sichtbare "Test"/"Testsieger"-Claims wurden auf Empfehlungen, Vergleiche und Auswahlkriterien umgestellt.
+- P1 Affiliate-Sprache: umgesetzt. Impressum und Affiliate-Links orientieren sich an `rel="sponsored noopener nofollow"`.
+- P2 OG-Bild: umgesetzt. `images/og-kleinkind-welt.png` ist erstellt und auf der Startseite als `og:image` eingebunden.
+- P2 technische Entduplizierung: offen. Header/Footer/Cookie sind in statischen HTML-Dateien weiterhin dupliziert; fuer echte Entduplizierung braucht es einen Build-/Include-Schritt.
+
 ## Executive Summary
 
 Die Seite ist visuell bereits auf einem guten Weg: neues Logo ist fast ueberall eingebunden, die Farbwelt wurde an Teal/Coral angepasst, Canonicals sind bei allen indexierbaren Hauptseiten/Artikeln sauber und lokale Links sind aktuell nicht kaputt.
 
-Der groesste Abstand zum Design System liegt in der Konsistenz aelterer Seiten:
+Der groesste Abstand zum Design System lag vor der Bereinigung in der Konsistenz aelterer Seiten:
 
 - Mobile Navigation fehlt auf vielen Artikeln, weil der Burger-Button/Script nicht ueberall vorhanden ist.
 - Cookie-/Datenschutz-Sprache ist uneinheitlich und teilweise nicht im Einklang mit Plausible.
