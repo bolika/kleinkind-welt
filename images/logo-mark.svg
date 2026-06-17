@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Kleinkind-Welt mark</title>
+  <desc id="desc">A rounded world shape with a toy-block K for Kleinkind-Welt.</desc>
+  <circle cx="128" cy="128" r="118" fill="#F8F1E7"/>
+  <circle cx="128" cy="128" r="96" fill="#94D7C2"/>
+  <path d="M58 132a70 70 0 0 1 140-8" fill="none" stroke="#2B6F67" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="203" cy="116" r="13" fill="#F06F5B"/>
+  <path d="M86 70v116" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+  <path d="M112 128 169 70" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+  <path d="M112 128 176 186" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="88" cy="185" r="10" fill="#FFD166"/>
+</svg>

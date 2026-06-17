@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title desc">
+  <title id="title">Kleinkind-Welt logo</title>
+  <desc id="desc">Kleinkind-Welt wordmark with a simple toy-block K world mark.</desc>
+  <defs>
+    <style>
+      .name {
+        font-family: Nunito, Arial, Helvetica, sans-serif;
+        font-size: 62px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+      .tagline {
+        font-family: Nunito, Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(20 18) scale(.56)">
+    <circle cx="128" cy="128" r="118" fill="#F8F1E7"/>
+    <circle cx="128" cy="128" r="96" fill="#94D7C2"/>
+    <path d="M58 132a70 70 0 0 1 140-8" fill="none" stroke="#2B6F67" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="203" cy="116" r="13" fill="#F06F5B"/>
+    <path d="M86 70v116" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+    <path d="M112 128 169 70" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+    <path d="M112 128 176 186" fill="none" stroke="#203A49" stroke-width="30" stroke-linecap="round"/>
+    <circle cx="88" cy="185" r="10" fill="#FFD166"/>
+  </g>
+
+  <text class="name" x="180" y="82" fill="#203A49">Kleinkind-<tspan fill="#F06F5B">Welt</tspan></text>
+  <text class="tagline" x="184" y="122" fill="#2B6F67">Ehrliche Empfehlungen für Eltern</text>
+</svg>
