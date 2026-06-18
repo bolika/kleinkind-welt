@@ -1,0 +1,19 @@
+{
+  "name": "Kleinkind-Welt",
+  "short_name": "Kleinkind-Welt",
+  "icons": [
+    {
+      "src": "/images/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-mark-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#94D7C2",
+  "background_color": "#F8F1E7",
+  "display": "standalone"
+}
