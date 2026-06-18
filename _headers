@@ -1,17 +1,20 @@
-# Bilder: 1 Jahr cachen (Dateinamen ändern sich selten)
-/images/*
-  Cache-Control: public, max-age=31536000, immutable
+# HTML: nicht cachen (immer frisch)
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
 # CSS/JS: 1 Woche (kann sich bei Deploys ändern)
 /css/*
   Cache-Control: public, max-age=604800, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
-# HTML: nicht cachen (immer frisch)
-/*
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Security-Header
-/*
+# Bilder: 1 Jahr cachen (Dateinamen ändern sich selten)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
