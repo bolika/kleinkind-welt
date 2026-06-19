@@ -1945,6 +1945,32 @@ footer ul a:hover { color: white; }
   color: var(--text);
 }
 
+/* ===== METHODENBOX (Affiliate-Transparenz) ===== */
+.methodenbox {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: -10px 0 28px 0;
+  font-size: 0.9rem;
+}
+
+.methodenbox h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.methodenbox ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.methodenbox li { margin-bottom: 4px; }
+
 /* ===== QUELLENBOX (Transparenz & Trust) ===== */
 .quellenbox {
   background: var(--white);
