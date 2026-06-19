@@ -502,6 +502,18 @@
   });
 })();
 </script>
+<script>
+(function() {
+  document.querySelectorAll('.faq-section').forEach(function(s) {
+    s.classList.add('accordion-enabled');
+    s.querySelectorAll('.faq-item').forEach(function(item) {
+      item.querySelector('h3').addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
+    });
+  });
+})();
+</script>
 
 <script>
   (function() {

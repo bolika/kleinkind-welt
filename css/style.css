@@ -874,6 +874,20 @@ nav a:hover { color: var(--primary); }
 .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--primary); }
 .faq-item p { color: var(--text-light); line-height: 1.65; margin: 0; }
 
+/* Accordion mode – activated via JS adding .accordion-enabled to .faq-section */
+.faq-section.accordion-enabled .faq-item { cursor: pointer; }
+.faq-section.accordion-enabled .faq-item h3 {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0; padding-right: 8px; cursor: pointer;
+}
+.faq-section.accordion-enabled .faq-item h3::after {
+  content: '+'; font-size: 1.3rem; font-weight: 400; color: var(--primary);
+  flex-shrink: 0; margin-left: 12px; line-height: 1;
+}
+.faq-section.accordion-enabled .faq-item.open h3::after { content: '−'; }
+.faq-section.accordion-enabled .faq-item p { display: none; margin-top: 12px; }
+.faq-section.accordion-enabled .faq-item.open p { display: block; }
+
 /* ===== INLINE PRODUKT KARTE ===== */
 .inline-produkt {
   display: flex;

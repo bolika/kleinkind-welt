@@ -423,6 +423,40 @@
 
 <p>Für Geschenke ist deshalb ein erweiterbares System oft besser als ein einzelnes Effektspielzeug. DUPLO-Steine, Bahnen, Küchenzubehör oder Bücher wachsen mit und lassen sich mit vorhandenem Spielzeug kombinieren. Das reduziert Fehlkäufe und sorgt dafür, dass ein Geschenk nicht nur am Geburtstag spannend ist.</p>
 
+<h2 id="vergleich">Schnellvergleich: Unsere Top-4 für 2-Jährige</h2>
+<div class="budget-table-wrap">
+  <table class="budget-table">
+    <thead>
+      <tr><th>Produkt</th><th>Stärke</th><th>Nutzungsdauer</th><th>Link</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>LEGO DUPLO Bausteinbox</strong></td>
+        <td>Kreativität, Sprache, Bauen</td>
+        <td>2–6 Jahre</td>
+        <td><a href="https://amzn.to/4fLeeCt" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Kugelbahn (HABA Kullerbü)</strong></td>
+        <td>Ursache-Wirkung, Konzentration</td>
+        <td>18 M–4 Jahre</td>
+        <td><a href="https://amzn.to/4v7sv10" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Laufrad (Puky / Woom)</strong></td>
+        <td>Gleichgewicht, Bewegung</td>
+        <td>18 M–4 Jahre</td>
+        <td><a href="https://amzn.to/4uGu58Z" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Holzpuzzle mit Griffen</strong></td>
+        <td>Feinmotorik, Ausdauer</td>
+        <td>2–4 Jahre</td>
+        <td><a href="https://amzn.to/3QmhJF9" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
   <div class="quellenbox">
   <h4>Quellen und Bewertungsgrundlage</h4>
@@ -497,6 +531,18 @@
       if (name && window.plausible) {
         plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'spielzeug-2-jahre'}});
       }
+    });
+  });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.faq-section').forEach(function(s) {
+    s.classList.add('accordion-enabled');
+    s.querySelectorAll('.faq-item').forEach(function(item) {
+      item.querySelector('h3').addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
     });
   });
 })();

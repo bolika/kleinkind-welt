@@ -401,6 +401,40 @@
 
 <p>Wenn du unsicher bist, starte mit dem Spielzeug, das das Kind ohne Erklärung versteht. In dieser Phase sind klare Handlungen wie schieben, einwerfen, herausnehmen, stapeln und wiederholen wertvoller als komplexe Funktionen.</p>
 
+<h2 id="vergleich">Schnellvergleich: Unsere Top-4 für 12–18 Monate</h2>
+<div class="budget-table-wrap">
+  <table class="budget-table">
+    <thead>
+      <tr><th>Produkt</th><th>Ab Alter</th><th>Stärke</th><th>Link</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lauflernwagen (Holz)</strong></td>
+        <td>ab 10 M</td>
+        <td>Laufen lernen, Gleichgewicht</td>
+        <td><a href="https://amzn.to/44arhWQ" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Stapelbecher</strong></td>
+        <td>ab 6 M</td>
+        <td>Feinmotorik, Größenkonzept</td>
+        <td><a href="https://amzn.to/444KxoH" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Formenbox (Holz)</strong></td>
+        <td>ab 12 M</td>
+        <td>Kognition, Problemlösung</td>
+        <td><a href="https://amzn.to/4xsdyYX" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+      <tr>
+        <td><strong>Pappbilderbücher</strong></td>
+        <td>ab 6 M</td>
+        <td>Sprachentwicklung, Bindung</td>
+        <td><a href="https://amzn.to/4ghIBk6" target="_blank" rel="sponsored noopener nofollow">Preis prüfen →</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
   <div class="quellenbox">
   <h4>Quellen und Bewertungsgrundlage</h4>
@@ -474,6 +508,18 @@
       if (name && window.plausible) {
         plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'spielzeug-12-18-monate'}});
       }
+    });
+  });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.faq-section').forEach(function(s) {
+    s.classList.add('accordion-enabled');
+    s.querySelectorAll('.faq-item').forEach(function(item) {
+      item.querySelector('h3').addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
     });
   });
 })();
