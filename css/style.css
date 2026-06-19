@@ -613,7 +613,7 @@ nav a:hover { color: var(--primary); }
 /* ===== ARTIKEL-SEITE ===== */
 .article-hero-image {
   width: 100%;
-  height: 280px;
+  height: 220px;
   overflow: hidden;
   display: block;
   background: #EBF0E4;
@@ -629,7 +629,7 @@ nav a:hover { color: var(--primary); }
 
 .article-hero-image img {
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center center;
 }
 
 .article-hero-image--overlay {
@@ -1081,6 +1081,67 @@ footer ul a:hover { color: white; }
 }
 
 .btn-table:hover { background: #E68900; color: white; }
+
+/* ===== BUDGET TABLE ===== */
+.budget-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.93rem;
+}
+
+.budget-table thead { background: var(--primary); color: #fff; }
+
+.budget-table th {
+  padding: 11px 18px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.budget-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.budget-table tbody tr:last-child td { border-bottom: none; }
+.budget-table tbody tr:hover td { background: var(--bg-warm); }
+
+.budget-label {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  padding: 4px 11px;
+  border-radius: 20px;
+  background: #EBF0E4;
+  color: var(--primary-dark);
+}
+
+.budget-label--gift {
+  background: #FDECEA;
+  color: var(--accent-action);
+}
+
+.budget-table a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.budget-table a:hover { color: var(--accent-action); text-decoration: none; }
 
 /* ===== KAUFEMPFEHLUNG BOX ===== */
 .kaufempfehlung-box {
