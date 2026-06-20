@@ -101,6 +101,7 @@
   </script>
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
+  <link rel="preload" as="image" href="/images/articles/montessori-spielzeug-kleinkind.jpg" fetchpriority="high">
 </head>
 <body>
 <header>
@@ -495,6 +496,18 @@
       if (name && window.plausible) {
         plausible('Kaufbox-Klick', {props: {produkt: name.textContent.trim(), seite: 'montessori-spielzeug-kleinkind'}});
       }
+    });
+  });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('.faq-section').forEach(function(s) {
+    s.classList.add('accordion-enabled');
+    s.querySelectorAll('.faq-item').forEach(function(item) {
+      item.querySelector('h3').addEventListener('click', function() {
+        item.classList.toggle('open');
+      });
     });
   });
 })();
