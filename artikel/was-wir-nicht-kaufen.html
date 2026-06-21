@@ -167,7 +167,17 @@
 
   <div class="kurzantwort-box">
     <span class="kurzantwort-label">Kurzantwort</span>
-    <p>Die häufigsten Fehler beim Spielzeugkauf für Kleinkinder: <strong>batteriebetriebene Lernspielzeuge unter 18 Monaten</strong> (klingen nach Lernen, bewirken wenig), <strong>billiger Plastik ohne CE</strong> (Sicherheitsrisiko), <strong>Fake-Montessori</strong> (teure Holzoptik ohne Substanz), <strong>Themen-Sets die einengen</strong> (zu wenig Eigeninitiative) und <strong>Tablet-Halter</strong> (kein Spielzeug). Kein absolutes Verbot — aber bewusste Zurückhaltung mit Begründung.</p>
+    <p><strong>Am ehesten weglassen:</strong> laute Lerncomputer unter 18 Monaten, billiges Plastik ohne CE, Fake-Montessori ohne Lernzweck und Tablet-Halter. <strong>Besser:</strong> wenige offene Spielzeuge, die Greifen, Bauen, Bewegung oder Sprache auslösen. <strong>Kein Dogma:</strong> Entscheidend sind Alter, Sicherheit und ob das Kind aktiv spielt statt nur zuschaut.</p>
+  </div>
+
+  <div class="methodenbox">
+    <h4>So haben wir ausgewählt</h4>
+    <p class="methodenbox-proof"><strong>Redaktionell geprüft:</strong> <a href="../ueber-uns">Autor</a>, <a href="../bewertungsmethode">Bewertungskriterien</a> und <a href="#quellen">Quellen</a> sind offen verlinkt; Affiliate-Provisionen ändern die Reihenfolge nicht.</p>
+    <ul>
+      <li><strong>Vorauswahl:</strong> Wir nennen Kategorien nur, wenn sie Kleinkinder im Alltag eher passiv machen, überfordern oder ein vermeidbares Sicherheitsrisiko erzeugen.</li>
+      <li><strong>Abgleich:</strong> Wir prüfen Entwicklungsstand, Sicherheitsangaben, Eltern-Erfahrungen und unabhängige Quellen gegeneinander.</li>
+      <li><strong>Transparenz:</strong> Diese Liste ist eine redaktionelle Einordnung und ersetzt keine Labor-, Schadstoff- oder Sicherheitsprüfung.</li>
+    </ul>
   </div>
 
   <div class="toc">
@@ -311,7 +321,7 @@
 
   <p>Das bedeutet nicht: Kein Tablet je. Es bedeutet: Nicht als Beschäftigungslösung für Kleinkinder einsetzen die eigentlich Zeit mit einer echten Person oder offenem Spielzeug brauchen.</p>
 
-  <div class="quellenbox">
+  <div class="quellenbox" id="quellen">
   <h4>Quellen und Bewertungsgrundlage</h4>
   <ul>
     <li><strong>Europäische Kommission:</strong> <a href="https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en" target="_blank" rel="noopener">Toy Safety in the EU</a> – Grundlage für CE-Kennzeichnung, chemische Anforderungen und Produktsicherheit.</li>
@@ -413,6 +423,63 @@
       }
     });
   })();
+</script>
+<script>
+(function() {
+  function cleanText(value) {
+    return (value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function articleSlug() {
+    var parts = window.location.pathname.split('/').filter(Boolean);
+    var last = parts[parts.length - 1] || 'startseite';
+    return last.replace(/\.html$/, '');
+  }
+
+  function placement(link) {
+    if (link.closest('.kaufbox-hero')) return 'kaufbox-primary';
+    if (link.closest('.kaufbox-option')) return 'kaufbox-alternative';
+    if (link.closest('.testsieger-box')) return 'top-empfehlung';
+    if (link.closest('.produkt-box')) return 'produktbox';
+    if (link.closest('.vergleich-tabelle, table') || link.classList.contains('btn-table')) return 'vergleichstabelle';
+    return 'intext';
+  }
+
+  function productName(link) {
+    var scope = link.closest('.kaufbox-hero, .kaufbox-option');
+    var name = scope && scope.querySelector('.kaufbox-name');
+    if (name) return cleanText(name.textContent);
+
+    scope = link.closest('.produkt-box');
+    name = scope && scope.querySelector('h3');
+    if (name) return cleanText(name.textContent.replace(/^#?\d+\s*[–-]?\s*/, ''));
+
+    scope = link.closest('.testsieger-box');
+    name = scope && scope.querySelector('h3');
+    if (name) return cleanText(name.textContent);
+
+    scope = link.closest('tr');
+    name = scope && scope.querySelector('.produkt-name');
+    if (name) return cleanText(name.textContent);
+
+    return cleanText(link.getAttribute('aria-label') || link.textContent || 'Amazon-Link');
+  }
+
+  document.querySelectorAll('a[href*="amzn.to"], a[href*="amazon."]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (!window.plausible) return;
+      plausible('Affiliate-Klick', {
+        props: {
+          seite: articleSlug(),
+          produkt: productName(link),
+          platzierung: placement(link),
+          cta: cleanText(link.textContent),
+          ziel: link.href.split('?')[0]
+        }
+      });
+    });
+  });
+})();
 </script>
 <script>
 (function() {

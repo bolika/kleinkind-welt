@@ -821,6 +821,17 @@ nav a:hover { color: var(--primary); }
   margin-bottom: 12px;
 }
 
+.produkt-box > p:not(.pros-cons-label):first-of-type::before {
+  content: "Unser Fazit";
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 4px 0 6px;
+  color: var(--earth-light);
+}
+
 .produkt-pros { list-style: none; margin: 0 0 12px; }
 .produkt-pros li::before { content: "✓ "; color: var(--primary); font-weight: 700; }
 .produkt-pros li { margin-bottom: 6px; font-size: 0.93rem; }
@@ -828,6 +839,25 @@ nav a:hover { color: var(--primary); }
 .produkt-cons { list-style: none; margin: 0 0 16px; }
 .produkt-cons li::before { content: "✗ "; color: var(--accent); font-weight: 700; }
 .produkt-cons li { margin-bottom: 6px; font-size: 0.93rem; color: var(--text-light); }
+
+.produkt-box:not(:has(.pros-cons-label)) .produkt-pros::before,
+.produkt-box:not(:has(.pros-cons-label)) .produkt-cons::before {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+  color: var(--earth-light);
+}
+
+.produkt-box:not(:has(.pros-cons-label)) .produkt-pros::before {
+  content: "Stärken";
+}
+
+.produkt-box:not(:has(.pros-cons-label)) .produkt-cons::before {
+  content: "Schwachpunkte";
+}
 
 .pros-cons-label {
   font-size: 0.78rem;
@@ -1753,6 +1783,14 @@ footer ul a:hover { color: white; }
   overflow-wrap: anywhere;
 }
 
+.kaufbox-trust a {
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .kaufbox--decision .kaufbox-support {
   margin-top: 14px;
 }
@@ -1961,19 +1999,39 @@ footer ul a:hover { color: white; }
 
 /* ===== METHODENBOX (Affiliate-Transparenz) ===== */
 .methodenbox {
-  background: var(--bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #FFFDF7 0%, #F8F2EA 100%);
+  border: 1px solid #E8D7C0;
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
   padding: 18px 22px;
   margin: -10px 0 28px 0;
   font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(93, 72, 53, 0.06);
 }
 
 .methodenbox h4 {
   margin: 0 0 10px 0;
   font-size: 0.92rem;
   color: var(--text);
+}
+
+.methodenbox-proof {
+  margin: 0 0 12px 0;
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.methodenbox-proof strong {
+  color: var(--primary);
+}
+
+.methodenbox-proof a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 .methodenbox ul {
