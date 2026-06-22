@@ -1187,6 +1187,15 @@ footer ul a:hover { color: white; }
 
 .budget-table a:hover { color: var(--accent-action); text-decoration: none; }
 
+.article-body .table-scroll,
+.article-body .budget-table-wrap,
+.article-body .vergleich-tabelle-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ===== KAUFEMPFEHLUNG BOX ===== */
 .kaufempfehlung-box {
   background: var(--white);
@@ -2156,6 +2165,54 @@ footer ul a:hover { color: white; }
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .article-body .table-scroll,
+  .article-body .budget-table-wrap,
+  .article-body .vergleich-tabelle-wrap {
+    margin: 20px 0 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .article-body table,
+  .article-body .budget-table,
+  .article-body .vergleich-tabelle {
+    width: 100% !important;
+    min-width: 640px !important;
+    max-width: none !important;
+    table-layout: auto;
+  }
+
+  .article-body .kaufhilfe-table {
+    min-width: 760px !important;
+  }
+
+  .article-body table th,
+  .article-body table td {
+    min-width: 120px;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .article-body table th:first-child,
+  .article-body table td:first-child {
+    min-width: 105px;
+  }
+
+  .article-body table th:last-child,
+  .article-body table td:last-child {
+    min-width: 180px;
+  }
+
+  .article-body table th,
+  .article-body .budget-label,
+  .article-body .bewertung,
+  .article-body .btn-table {
+    white-space: nowrap;
+  }
 }
 
 .kaufhilfe-process {
