@@ -2043,6 +2043,222 @@ footer ul a:hover { color: white; }
 
 .methodenbox li { margin-bottom: 4px; }
 
+/* ===== KAUFHILFEN / BONUS STACK ===== */
+.kaufhilfen-hero {
+  background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
+}
+
+.kaufhilfen-hero .hero-kicker {
+  margin: 0 auto 10px !important;
+  color: var(--primary) !important;
+}
+
+.kaufhilfen-body {
+  padding-top: 40px;
+  overflow-x: visible;
+}
+
+.kaufhilfen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 32px 0 44px;
+}
+
+.kaufhilfe-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 190px;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.kaufhilfe-card:hover {
+  color: var(--text);
+  border-top-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.kaufhilfe-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.kaufhilfe-card p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.kaufhilfe-tag {
+  width: fit-content;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(43,111,103,0.10);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.checklist-panel {
+  margin: 20px 0 28px;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.kaufhilfe-checklist {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.article-body .kaufhilfe-checklist {
+  margin: 0;
+}
+
+.kaufhilfe-checklist li {
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(221,213,200,0.6);
+}
+
+.kaufhilfe-checklist li:last-child {
+  border-bottom: 0;
+}
+
+.kaufhilfe-list {
+  margin: 0 0 16px;
+  padding: 22px 24px 22px 42px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.article-body .kaufhilfe-list {
+  margin: 0 0 16px;
+}
+
+.kaufhilfe-table {
+  margin: 16px 0 28px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kaufhilfe-process {
+  margin: 20px 0 32px;
+}
+
+.bonus-cta {
+  margin: 28px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(43,111,103,0.10), rgba(240,111,91,0.10));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+
+.bonus-cta-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bonus-cta h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.bonus-cta p {
+  margin-bottom: 14px;
+}
+
+.bonus-next-box {
+  margin: 44px 0 16px;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.bonus-next-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .ueber-uns-hero.kaufhilfen-hero {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 20px;
+    overflow: hidden;
+  }
+
+  .kaufhilfen-hero h1,
+  .kaufhilfen-hero p {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .article-body.kaufhilfen-body {
+    width: 100%;
+    max-width: 760px;
+    padding-inline: 20px;
+    overflow-x: visible;
+  }
+
+  .article-body.kaufhilfen-body > * {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .kaufhilfen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kaufhilfe-card,
+  .checklist-panel,
+  .bonus-next-box,
+  .bonus-cta,
+  .affiliate-hinweis,
+  .kurzantwort-box {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .kaufhilfe-list {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px 18px 18px 32px;
+    overflow-wrap: anywhere;
+  }
+
+  .bonus-next-links {
+    flex-direction: column;
+  }
+}
+
 /* ===== QUELLENBOX (Transparenz & Trust) ===== */
 .quellenbox {
   background: var(--white);

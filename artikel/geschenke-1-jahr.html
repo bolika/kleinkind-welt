@@ -189,6 +189,7 @@
         <li><a href="/#alter">Nach Alter</a></li>
         <li><a href="/#ratgeber">Ratgeber</a></li>
         <li><a href="/#aktuell">Aktuell</a></li>
+        <li><a href="/kaufhilfen">Kaufhilfen</a></li>
         <li><a href="../ueber-uns">Über uns</a></li>
       </ul>
     </nav>
@@ -256,6 +257,13 @@
     <span class="kurzantwort-label">Kurzantwort</span>
     <p><strong>Beste Geschenkidee:</strong> ein Lauflernwagen aus Holz, wenn es ein hochwertiges Hauptgeschenk sein soll. <strong>Günstiger und immer passend:</strong> Steckpuzzle oder Pappbilderbücher. <strong>Nicht ideal:</strong> lautes Batterie-Spielzeug, weil Einjährige mehr von Greifen, Schieben, Stapeln und echtem Nachahmen haben.</p>
   </div>
+<div class="bonus-cta">
+  <span class="bonus-cta-label">Kostenlose Kaufhilfe</span>
+  <h3>Geschenk vor dem Kauf einordnen</h3>
+  <p>Der Geschenk-Finder hilft dir, nach Alter, Budget und Wohnsituation schneller ein sinnvolles Geschenk auszuwählen.</p>
+  <a href="../kaufhilfen#geschenk-finder" class="btn-inline" data-bonus="geschenk-finder" data-placement="article-top">Geschenk-Finder öffnen</a>
+</div>
+
 
 
   <div class="kaufbox kaufbox--decision">
@@ -659,6 +667,22 @@
         toggle.setAttribute('aria-expanded', 'false');
         toggle.textContent = '☰';
       }
+    });
+  })();
+</script>
+<script>
+  (function() {
+    document.querySelectorAll('a[data-bonus]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (!window.plausible) return;
+        plausible('Bonus-Klick', {
+          props: {
+            bonus: link.getAttribute('data-bonus') || 'kaufhilfe',
+            seite: location.pathname.split('/').filter(Boolean).join('/') || 'home',
+            platzierung: link.getAttribute('data-placement') || 'article'
+          }
+        });
+      });
     });
   })();
 </script>
