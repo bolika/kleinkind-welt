@@ -1281,12 +1281,12 @@ footer ul a:hover { color: white; }
   .btn-inline { display: flex; width: 100%; justify-content: center; text-align: center; }
   .article-hero-inner,
   .article-body {
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
   }
   .article-hero-inner > *,
   .article-body > * {
-    max-width: calc(100vw - 40px);
+    max-width: 100%;
   }
 }
 
@@ -2397,6 +2397,21 @@ footer ul a:hover { color: white; }
   .logo-img {
     height: 50px;
     max-width: 72vw;
+  }
+
+  .breadcrumb ol {
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .breadcrumb li {
+    min-width: 0;
+  }
+
+  .breadcrumb [aria-current="page"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .article-hero {
