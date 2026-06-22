@@ -91,3 +91,15 @@ Optionaler Screenshot-Check:
 ```sh
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-first-run --force-device-scale-factor=1 --window-size=390,900 --screenshot=/tmp/kleinkind-mobile.png http://127.0.0.1:5500/
 ```
+
+Wichtige Regel fuer Mobile-Screenshots:
+
+- Den Chrome-Headless-CLI-Screenshot mit `--window-size=390,...` nicht als alleinigen Mobile-Beweis verwenden. In diesem Projekt rendert er wiederholt wie ein schmaler Desktop-Ausschnitt; dadurch wirkt der rechte Rand abgeschnitten, obwohl das nicht zwingend das echte Smartphone-Layout ist.
+- Wenn der Screenshot rechts abgeschnitten aussieht, nicht in eine Screenshot-Loop gehen. Stattdessen zuerst objektiv pruefen:
+  - CSS auf bekannte Overflow-Ursachen kontrollieren: `width: 100vw` in gepaddeten Containern, lange Breadcrumbs, `white-space: nowrap`, feste Tabellenbreiten, breite CTA-Buttons.
+  - Per Browser/DevTools oder Skript `document.documentElement.scrollWidth` gegen `clientWidth` vergleichen.
+  - Falls moeglich echte Device-Emulation im Browser verwenden, nicht nur `--window-size`.
+- Bewaehrte Fixes fuer Artikel-Mobile:
+  - Artikelcontainer innerhalb gepaddeter Sections auf `width: 100%; max-width: 100%;` setzen, nicht auf `100vw`.
+  - Lange Breadcrumb-Endpunkte auf Mobile mit `overflow: hidden; text-overflow: ellipsis; white-space: nowrap;` absichern.
+  - Tabellen horizontal in einem Scroll-Wrapper lassen, statt Wortumbrueche in sehr schmale Spalten zu erzwingen.
