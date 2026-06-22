@@ -2052,6 +2052,46 @@ footer ul a:hover { color: white; }
 
 .methodenbox li { margin-bottom: 4px; }
 
+.entscheidungshilfe-box {
+  margin: 24px 0 28px;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.entscheidungshilfe-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.entscheidungshilfe-box h3 {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.entscheidungshilfe-box ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.entscheidungshilfe-box li {
+  margin-bottom: 7px;
+  color: var(--text);
+}
+
+.entscheidungshilfe-box li:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== KAUFHILFEN / BONUS STACK ===== */
 .kaufhilfen-hero {
   background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
