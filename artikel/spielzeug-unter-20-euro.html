@@ -700,9 +700,7 @@
         props: {
           seite: articleSlug(),
           produkt: productName(link),
-          platzierung: placement(link),
-          cta: cleanText(link.textContent),
-          ziel: link.href.split('?')[0]
+          platzierung: placement(link)
         }
       });
     });
