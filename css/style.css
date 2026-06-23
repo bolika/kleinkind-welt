@@ -2426,6 +2426,120 @@ footer ul a:hover { color: white; }
   background: rgba(240,111,91,0.14);
 }
 
+.newsletter-confirmation {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 72px 20px 56px;
+}
+
+.newsletter-confirmation-copy {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.newsletter-confirmation h1 {
+  margin: 8px 0 14px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+}
+
+.newsletter-confirmation-copy p {
+  color: var(--text-light);
+  font-size: 1.08rem;
+}
+
+.download-card {
+  padding: 28px;
+  background:
+    linear-gradient(135deg, rgba(43,111,103,0.08), rgba(240,111,91,0.08)),
+    var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.download-card-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--accent-action);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.download-card h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.download-card p {
+  max-width: 680px;
+  margin-bottom: 18px;
+  color: var(--text-light);
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.download-note {
+  margin-top: 14px;
+  margin-bottom: 0 !important;
+  font-size: 0.94rem;
+}
+
+.download-next {
+  margin-top: 34px;
+}
+
+.download-next h2 {
+  margin-bottom: 16px;
+  font-size: 1.45rem;
+}
+
+.download-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.download-next-grid a {
+  display: block;
+  min-height: 120px;
+  padding: 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.download-next-grid a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(43,111,103,0.35);
+  box-shadow: var(--shadow-hover);
+}
+
+.download-next-grid strong,
+.download-next-grid span {
+  display: block;
+}
+
+.download-next-grid strong {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.download-next-grid span {
+  color: var(--text-light);
+  font-size: 0.94rem;
+}
+
 .kaufhilfe-process {
   margin: 20px 0 32px;
 }
@@ -2535,6 +2649,31 @@ footer ul a:hover { color: white; }
 
   .newsletter-form {
     padding: 16px;
+  }
+
+  .newsletter-confirmation {
+    width: 100%;
+    max-width: 100%;
+    padding: 48px 20px 42px;
+    overflow-x: hidden;
+  }
+
+  .newsletter-confirmation h1,
+  .download-card h2,
+  .download-card p,
+  .download-next-grid a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .download-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px;
+  }
+
+  .download-next-grid {
+    grid-template-columns: 1fr;
   }
 }
 

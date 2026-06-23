@@ -39,6 +39,26 @@ const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const isValidBirthMonth = (value) => !value || /^\d{4}-(0[1-9]|1[0-2])$/.test(value);
 
+const normalizeSiteUrl = (value) => String(value || 'https://kleinkind-welt.de').replace(/\/+$/, '');
+
+const getDoiRedirectUrl = (ageInterest, fallbackUrl) => {
+  const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
+  const freebieRedirects = {
+    '12-18': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-12-18#download`,
+  };
+
+  if (freebieRedirects[ageInterest]) return freebieRedirects[ageInterest];
+
+  try {
+    const url = new URL(fallbackUrl);
+    url.searchParams.set('alter', ageInterest);
+    url.hash = 'download';
+    return url.toString();
+  } catch (error) {
+    return `${siteUrl}/newsletter-bestaetigt?alter=${encodeURIComponent(ageInterest)}#download`;
+  }
+};
+
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -58,8 +78,8 @@ exports.handler = async (event) => {
   const apiKey = process.env.BREVO_API_KEY;
   const listId = Number(process.env.BREVO_NEWSLETTER_LIST_ID);
   const templateId = Number(process.env.BREVO_DOI_TEMPLATE_ID);
-  const redirectionUrl = process.env.BREVO_DOI_REDIRECT_URL
-    || 'https://kleinkind-welt.de/kaufhilfen?newsletter=confirmed#eltern-newsletter';
+  const fallbackRedirectionUrl = process.env.BREVO_DOI_REDIRECT_URL
+    || `${normalizeSiteUrl(process.env.SITE_URL)}/newsletter-bestaetigt`;
   const birthMonthAttribute = process.env.BREVO_BIRTHMONTH_ATTRIBUTE || 'GEBURTSMONAT';
   const interestAttribute = process.env.BREVO_INTEREST_ATTRIBUTE || 'EINSTIEGSSTUFE';
   const firstNameAttribute = process.env.BREVO_FIRSTNAME_ATTRIBUTE || 'VORNAME';
@@ -104,6 +124,8 @@ exports.handler = async (event) => {
   if (!consent) {
     return json(400, { ok: false, message: 'Bitte bestätige die Newsletter-Einwilligung.' });
   }
+
+  const redirectionUrl = getDoiRedirectUrl(ageInterest, fallbackRedirectionUrl);
 
   const attributes = {
     [interestAttribute]: ageInterest,
