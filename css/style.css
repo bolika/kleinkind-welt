@@ -2292,13 +2292,21 @@ footer ul a:hover { color: white; }
 }
 
 .newsletter-benefits {
+  display: grid;
+  gap: 8px;
   margin: 0;
-  padding-left: 18px;
+  padding: 0;
+  list-style: none;
   color: var(--text);
 }
 
 .newsletter-benefits li {
-  margin-bottom: 6px;
+  margin: 0;
+  padding: 9px 11px;
+  background: rgba(253,250,246,0.62);
+  border: 1px solid rgba(221,213,200,0.72);
+  border-radius: 8px;
+  line-height: 1.45;
 }
 
 .newsletter-form {
