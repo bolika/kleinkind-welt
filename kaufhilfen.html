@@ -245,7 +245,10 @@
         </div>
         <div class="newsletter-field">
           <label for="newsletter-birthmonth">Geburtsmonat des Kindes <span>optional</span></label>
-          <input id="newsletter-birthmonth" name="geburtsmonat" type="month" autocomplete="bday">
+          <div class="month-wrap">
+            <input id="newsletter-birthmonth" name="geburtsmonat" type="month" autocomplete="bday" class="is-empty">
+            <span class="month-ph" aria-hidden="true">z. B. April 2025</span>
+          </div>
           <small>Damit die Tipps später automatisch mitwachsen können.</small>
         </div>
         <label class="newsletter-consent">
@@ -421,6 +424,12 @@
     var feedback = form.querySelector('[data-newsletter-feedback]');
     var submit = form.querySelector('.newsletter-submit');
     var defaultButtonText = submit ? submit.textContent : '';
+    var monthInput = form.querySelector('#newsletter-birthmonth');
+    if (monthInput) {
+      monthInput.addEventListener('change', function() {
+        this.classList.toggle('is-empty', !this.value);
+      });
+    }
     var confirmed = new URLSearchParams(window.location.search).get('newsletter') === 'confirmed';
 
     if (confirmed && feedback) {
@@ -463,6 +472,7 @@
           feedback.hidden = false;
         }
         form.reset();
+        if (monthInput) monthInput.classList.add('is-empty');
       } catch (error) {
         if (feedback) {
           feedback.textContent = error.message || 'Die Anmeldung konnte gerade nicht verarbeitet werden.';

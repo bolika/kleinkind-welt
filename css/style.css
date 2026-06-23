@@ -2383,6 +2383,27 @@ footer ul a:hover { color: white; }
 
 .newsletter-submit {
   width: 100%;
+  justify-content: center;
+}
+
+.month-wrap {
+  position: relative;
+}
+.month-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  pointer-events: none;
+  color: #9c9a94;
+  font-size: 1rem;
+}
+.newsletter-field input[type="month"].is-empty {
+  color: transparent;
+}
+.newsletter-field input[type="month"]:not(.is-empty) + .month-ph {
+  display: none;
 }
 
 .newsletter-submit:disabled {
