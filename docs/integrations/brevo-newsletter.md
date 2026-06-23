@@ -9,7 +9,7 @@ Diese Integration verbindet das eigene Newsletter-Formular auf `/kaufhilfen#elte
 In Brevo anlegen:
 
 - Eine Hauptliste, z. B. `Eltern-Newsletter`.
-- Ein Double-Opt-In Template mit Bestätigungslink `{{ params.DOIurl }}`.
+- Ein Double-Opt-In Template mit Bestätigungslink `{{ params.DOIurl }}`. Wichtig: In den Advanced Settings des Templates muss das Tag `optin` gesetzt sein, sonst gibt die API den Fehler "An active DOI template does not exist".
 - Kontaktattribute:
   - `VORNAME` als Text.
   - `GEBURTSMONAT` als Datum.
