@@ -145,6 +145,7 @@ exports.handler = async (event) => {
       return json(502, {
         ok: false,
         message: 'Die Anmeldung konnte gerade nicht gestartet werden. Bitte versuche es später erneut.',
+        _debug: { brevoStatus: response.status, brevoDetail: detail },
       });
     }
 
