@@ -2255,6 +2255,148 @@ footer ul a:hover { color: white; }
   }
 }
 
+.newsletter-signup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: 24px;
+  align-items: start;
+  margin: 36px 0 44px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(43,111,103,0.10), rgba(240,111,91,0.08)),
+    var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.newsletter-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.newsletter-signup h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.newsletter-signup p {
+  margin-bottom: 14px;
+}
+
+.newsletter-benefits {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+.newsletter-benefits li {
+  margin-bottom: 6px;
+}
+
+.newsletter-form {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  background: rgba(253,250,246,0.82);
+  border: 1px solid rgba(221,213,200,0.82);
+  border-radius: 8px;
+}
+
+.newsletter-field {
+  display: grid;
+  gap: 5px;
+}
+
+.newsletter-field label,
+.newsletter-consent {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.newsletter-field label span {
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+.newsletter-field input,
+.newsletter-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.newsletter-field input:focus,
+.newsletter-field select:focus {
+  outline: 3px solid rgba(43,111,103,0.18);
+  border-color: var(--primary);
+}
+
+.newsletter-field small,
+.newsletter-note {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.newsletter-consent {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.newsletter-consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+}
+
+.newsletter-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.newsletter-submit {
+  width: 100%;
+}
+
+.newsletter-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.newsletter-feedback {
+  margin: 0;
+  padding: 10px 12px;
+  color: var(--primary-dark);
+  background: rgba(43,111,103,0.10);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.newsletter-feedback.is-error {
+  color: #8A2D24;
+  background: rgba(240,111,91,0.14);
+}
+
 .kaufhilfe-process {
   margin: 20px 0 32px;
 }
@@ -2335,6 +2477,7 @@ footer ul a:hover { color: white; }
 
   .kaufhilfe-card,
   .checklist-panel,
+  .newsletter-signup,
   .bonus-next-box,
   .bonus-cta,
   .affiliate-hinweis,
@@ -2353,6 +2496,16 @@ footer ul a:hover { color: white; }
 
   .bonus-next-links {
     flex-direction: column;
+  }
+
+  .newsletter-signup {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .newsletter-form {
+    padding: 16px;
   }
 }
 

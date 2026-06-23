@@ -1,6 +1,9 @@
 # www → non-www (falls nicht im Netlify-Dashboard konfiguriert)
 https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 
+# API-Endpunkte
+/api/newsletter-signup /.netlify/functions/newsletter-signup 200
+
 # Umbenannter Artikel: holzspielzeug-kleinkind → holzspielzeug-vs-plastikspielzeug
 /artikel/holzspielzeug-kleinkind     /artikel/holzspielzeug-vs-plastikspielzeug 301!
 /artikel/holzspielzeug-kleinkind.html /artikel/holzspielzeug-vs-plastikspielzeug 301!

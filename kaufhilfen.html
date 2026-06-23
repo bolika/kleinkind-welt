@@ -210,6 +210,56 @@
       </table>
     </div>
 
+    <section class="newsletter-signup" id="eltern-newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-copy">
+        <span class="newsletter-label">Mitwachsender Eltern-Newsletter</span>
+        <h2 id="newsletter-title">Spielideen passend zum Alter deines Kindes bekommen</h2>
+        <p>Wähle aus, welche Entwicklungsphase gerade wichtig ist. Später schicken wir dir passende Ratgeber, Kaufhilfen und Spielideen genau zu diesem Altersbereich.</p>
+        <ul class="newsletter-benefits">
+          <li>🎈 Spielideen, die wirklich zur aktuellen Phase deines Kindes passen</li>
+          <li>🧸 Kurze Kaufhilfen, Sicherheits-Checks und neue Ratgeber ohne Fachchinesisch</li>
+          <li>🌱 Geburtsmonat nur optional - damit die Tipps später mitwachsen können</li>
+        </ul>
+      </div>
+      <form class="newsletter-form" data-newsletter-form action="/api/newsletter-signup" method="post">
+        <div class="newsletter-field">
+          <label for="newsletter-firstname">Vorname <span>optional</span></label>
+          <input id="newsletter-firstname" name="vorname" type="text" autocomplete="given-name" placeholder="z. B. Anna">
+        </div>
+        <div class="newsletter-field">
+          <label for="newsletter-email">E-Mail-Adresse</label>
+          <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" required>
+        </div>
+        <div class="newsletter-field">
+          <label for="newsletter-age-interest">Welche Phase interessiert dich gerade?</label>
+          <select id="newsletter-age-interest" name="interessen_alter" required>
+            <option value="">Bitte auswählen</option>
+            <option value="0-6">0-6 Monate</option>
+            <option value="6-12">6-12 Monate</option>
+            <option value="12-18">12-18 Monate</option>
+            <option value="18-24">18-24 Monate</option>
+            <option value="2-jahre">2 Jahre</option>
+            <option value="3-jahre">3 Jahre</option>
+            <option value="geschenke-geburtstage">Geschenke & Geburtstage</option>
+          </select>
+        </div>
+        <div class="newsletter-field">
+          <label for="newsletter-birthmonth">Geburtsmonat des Kindes <span>optional</span></label>
+          <input id="newsletter-birthmonth" name="geburtsmonat" type="month" autocomplete="bday">
+          <small>Damit die Tipps später automatisch mitwachsen können.</small>
+        </div>
+        <label class="newsletter-consent">
+          <input name="consent" type="checkbox" required>
+          <span>Ich möchte den Newsletter erhalten und akzeptiere die Verarbeitung gemäß <a href="datenschutz">Datenschutzerklärung</a>. Abmeldung ist jederzeit möglich.</span>
+        </label>
+        <input type="hidden" name="quelle" value="kaufhilfen-alters-matrix">
+        <input type="text" name="website" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-inline newsletter-submit" type="submit">Passende Tipps erhalten</button>
+        <p class="newsletter-note">Du erhältst zuerst eine Bestätigungsmail per Double-Opt-In.</p>
+        <p class="newsletter-feedback" data-newsletter-feedback role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+
     <h2 id="sicherheit">Sicherheits-Quickcheck für U3-Spielzeug</h2>
     <ul class="kaufhilfe-list">
       <li><strong>Kleinteile:</strong> Unter drei Jahren alles kritisch prüfen, was sich lösen, abbrechen oder verschlucken lässt.</li>
@@ -361,6 +411,80 @@
           }
         });
       });
+    });
+  })();
+</script>
+<script>
+  (function() {
+    var form = document.querySelector('[data-newsletter-form]');
+    if (!form) return;
+    var feedback = form.querySelector('[data-newsletter-feedback]');
+    var submit = form.querySelector('.newsletter-submit');
+    var defaultButtonText = submit ? submit.textContent : '';
+    var confirmed = new URLSearchParams(window.location.search).get('newsletter') === 'confirmed';
+
+    if (confirmed && feedback) {
+      feedback.textContent = 'Danke, deine Anmeldung ist bestätigt.';
+      feedback.hidden = false;
+    }
+
+    form.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      if (feedback) {
+        feedback.hidden = true;
+        feedback.classList.remove('is-error');
+        feedback.textContent = '';
+      }
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Wird gesendet...';
+      }
+
+      var payload = Object.fromEntries(new FormData(form).entries());
+      try {
+        var response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        var result = await response.json().catch(function() {
+          return { ok: false, message: 'Die Anmeldung konnte gerade nicht verarbeitet werden.' };
+        });
+        if (!response.ok || !result.ok) {
+          throw new Error(result.message || 'Die Anmeldung konnte gerade nicht verarbeitet werden.');
+        }
+        if (feedback) {
+          feedback.textContent = result.message || 'Fast geschafft: Bitte bestätige deine Anmeldung per E-Mail.';
+          feedback.hidden = false;
+        }
+        form.reset();
+      } catch (error) {
+        if (feedback) {
+          feedback.textContent = error.message || 'Die Anmeldung konnte gerade nicht verarbeitet werden.';
+          feedback.classList.add('is-error');
+          feedback.hidden = false;
+        }
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = defaultButtonText;
+        }
+      }
+
+      if (window.plausible) {
+        plausible('Newsletter-Formular', {
+          props: {
+            seite: 'kaufhilfen',
+            platzierung: 'alters-matrix',
+            status: feedback && feedback.classList.contains('is-error') ? 'fehler' : 'doi-gestartet'
+          }
+        });
+      }
     });
   })();
 </script>
