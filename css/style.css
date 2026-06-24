@@ -2216,35 +2216,142 @@ footer ul a:hover { color: white; }
     box-shadow: var(--shadow);
   }
 
-  .article-body table,
-  .article-body .budget-table,
-  .article-body .vergleich-tabelle {
+  /* ── 2-Spalten-Tabellen: feste Breiten, kein Scroll ── */
+  .table--two-col {
+    min-width: 0 !important;
     width: 100% !important;
-    min-width: 640px !important;
-    max-width: none !important;
-    table-layout: auto;
+    table-layout: fixed;
+  }
+  .table--two-col th,
+  .table--two-col td {
+    min-width: 0 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    vertical-align: top;
+    padding: 11px 12px;
+  }
+  .table--two-col th:first-child,
+  .table--two-col td:first-child {
+    width: 29%;
+    font-size: 0.82rem;
+    padding-right: 6px;
   }
 
-  .article-body .kaufhilfe-table {
-    min-width: 760px !important;
+  /* ── Mehrspaltige Tabellen: Card-Layout ── */
+  .table--multi-col {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+  }
+  .table--multi-col thead {
+    display: none;
+  }
+  .table--multi-col tbody {
+    display: block;
+  }
+  .table--multi-col tr {
+    display: block;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--border);
+    background: var(--white);
+  }
+  .table--multi-col tr:last-child {
+    border-bottom: none;
+  }
+  .table--multi-col tr.top-pick {
+    border-left: 4px solid var(--primary);
+    padding-left: 12px;
+    background: #EBF0E4;
+  }
+  .table--multi-col td {
+    display: block;
+    padding: 2px 0;
+    border: none !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.9rem;
+  }
+  .table--multi-col td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--earth);
+    margin-top: 8px;
+    margin-bottom: 1px;
   }
 
-  .article-body table th,
-  .article-body table td {
-    min-width: 120px;
-    overflow-wrap: normal;
-    word-break: normal;
-    hyphens: none;
+  /* Erste Spalte = Card-Titel (kein Label-Prefix) */
+  .budget-table.table--multi-col td:first-child,
+  .kaufhilfe-table.table--multi-col td:first-child {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-bottom: 2px;
+  }
+  .budget-table.table--multi-col td:first-child::before,
+  .kaufhilfe-table.table--multi-col td:first-child::before {
+    display: none;
   }
 
-  .article-body table th:first-child,
-  .article-body table td:first-child {
-    min-width: 105px;
+  /* vergleich-tabelle: Spalte 1 (#) ausblenden, Spalte 2 = Titel */
+  .vergleich-tabelle.table--multi-col td:first-child {
+    display: none;
+  }
+  .vergleich-tabelle.table--multi-col td:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-bottom: 2px;
+  }
+  .vergleich-tabelle.table--multi-col td:nth-child(2)::before {
+    display: none;
   }
 
-  .article-body table th:last-child,
-  .article-body table td:last-child {
-    min-width: 180px;
+  /* Letzte Spalte (Link/CTA) – kein Label */
+  .table--multi-col td:last-child::before {
+    display: none;
+  }
+  .table--multi-col td:last-child {
+    margin-top: 4px;
+  }
+
+  /* btn-table volle Breite */
+  .table--multi-col .btn-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 11px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: normal;
+    border-radius: 8px;
+    font-size: 0.88rem;
+  }
+
+  /* budget-table: inline-Links als Button-Style */
+  .budget-table.table--multi-col td:last-child a:not(.btn-table) {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 9px 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  /* Bewertungssterne */
+  .table--multi-col .bewertung {
+    font-size: 1rem;
+  }
+  .table--multi-col .bewertung::before {
+    display: none;
   }
 
   .article-body table th,
