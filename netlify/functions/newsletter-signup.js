@@ -1,4 +1,5 @@
 const BREVO_DOI_ENDPOINT = 'https://api.brevo.com/v3/contacts/doubleOptinConfirmation';
+const BREVO_ATTRIBUTES_ENDPOINT = 'https://api.brevo.com/v3/contacts/attributes';
 
 const allowedAgeInterests = new Set([
   '0-6',
@@ -41,6 +42,16 @@ const isValidBirthMonth = (value) => !value || /^\d{4}-(0[1-9]|1[0-2])$/.test(va
 
 const normalizeSiteUrl = (value) => String(value || 'https://kleinkind-welt.de').replace(/\/+$/, '');
 
+const ageInterestLabels = {
+  '0-6': '0-6 Monate',
+  '6-12': '6-12 Monate',
+  '12-18': '12-18 Monate',
+  '18-24': '18-24 Monate',
+  '2-jahre': '2 Jahre',
+  '3-jahre': '3 Jahre',
+  'geschenke-geburtstage': 'Geschenke & Geburtstage',
+};
+
 const getDoiRedirectUrl = (ageInterest, fallbackUrl) => {
   const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
   const freebieRedirects = {
@@ -57,6 +68,49 @@ const getDoiRedirectUrl = (ageInterest, fallbackUrl) => {
   } catch (error) {
     return `${siteUrl}/newsletter-bestaetigt?alter=${encodeURIComponent(ageInterest)}#download`;
   }
+};
+
+const getCategoryOptionValue = (option) => {
+  if (Object.prototype.hasOwnProperty.call(option, 'value')) return option.value;
+  if (Object.prototype.hasOwnProperty.call(option, 'valueStr')) return option.valueStr;
+  return option.label;
+};
+
+const getInterestAttributeValue = async (apiKey, attributeName, ageInterest, attributeType) => {
+  if (attributeType !== 'category') return ageInterest;
+
+  const expectedLabel = ageInterestLabels[ageInterest];
+  if (!expectedLabel) return ageInterest;
+
+  const response = await fetch(BREVO_ATTRIBUTES_ENDPOINT, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'api-key': apiKey,
+    },
+  });
+
+  if (!response.ok) {
+    let detail = '';
+    try {
+      detail = await response.text();
+    } catch (error) {
+      detail = '';
+    }
+    console.error('Brevo attributes lookup failed', response.status, detail);
+    throw new Error('Brevo attribute lookup failed');
+  }
+
+  const data = await response.json();
+  const attribute = (data.attributes || []).find((item) => item.name === attributeName);
+  const option = attribute && (attribute.enumeration || []).find((item) => item.label === expectedLabel);
+
+  if (!option) {
+    console.error('Brevo category option missing', attributeName, expectedLabel);
+    throw new Error('Brevo category option missing');
+  }
+
+  return getCategoryOptionValue(option);
 };
 
 exports.handler = async (event) => {
@@ -82,6 +136,7 @@ exports.handler = async (event) => {
     || `${normalizeSiteUrl(process.env.SITE_URL)}/newsletter-bestaetigt`;
   const birthMonthAttribute = process.env.BREVO_BIRTHMONTH_ATTRIBUTE || 'GEBURTSMONAT';
   const interestAttribute = process.env.BREVO_INTEREST_ATTRIBUTE || 'EINSTIEGSSTUFE';
+  const interestAttributeType = process.env.BREVO_INTEREST_ATTRIBUTE_TYPE || 'category';
   const firstNameAttribute = process.env.BREVO_FIRSTNAME_ATTRIBUTE || 'VORNAME';
 
   if (!apiKey || !Number.isInteger(listId) || !Number.isInteger(templateId)) {
@@ -126,9 +181,24 @@ exports.handler = async (event) => {
   }
 
   const redirectionUrl = getDoiRedirectUrl(ageInterest, fallbackRedirectionUrl);
+  let interestAttributeValue;
+
+  try {
+    interestAttributeValue = await getInterestAttributeValue(
+      apiKey,
+      interestAttribute,
+      ageInterest,
+      interestAttributeType,
+    );
+  } catch (error) {
+    return json(502, {
+      ok: false,
+      message: 'Die Anmeldung konnte gerade nicht gestartet werden. Bitte versuche es später erneut.',
+    });
+  }
 
   const attributes = {
-    [interestAttribute]: ageInterest,
+    [interestAttribute]: interestAttributeValue,
   };
 
   if (firstName) {
