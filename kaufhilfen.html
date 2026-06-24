@@ -10,8 +10,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="description" content="Kostenlose Kaufhilfen für Kleinkind-Spielzeug: 3-Minuten-Check, Alters-Matrix, Sicherheitscheck, Fake-Montessori-Check und Spielzeug-Rotation.">
   <title>Kaufhilfen für Kleinkind-Spielzeug | Kleinkind-Welt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260624-newsletter-month">
+  <link rel="stylesheet" href="css/style.css?v=20260624-psi-fixes">
   <link rel="canonical" href="https://kleinkind-welt.de/kaufhilfen">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kleinkind-welt.de/kaufhilfen">
@@ -242,7 +241,7 @@
             <option value="3-jahre">3 Jahre</option>
             <option value="geschenke-geburtstage">Geschenke & Geburtstage</option>
           </select>
-          <small>Für 12-18 Monate bekommst du nach der Bestätigung direkt den Spielideen-Kompass als PDF.</small>
+          <small data-age-freebie-note>Für 12-18 Monate bekommst du nach der Bestätigung direkt den Spielideen-Kompass als PDF.</small>
         </div>
         <div class="newsletter-field">
           <label for="newsletter-birthmonth">Geburtsmonat des Kindes <span>optional</span></label>
@@ -425,6 +424,27 @@
     var feedback = form.querySelector('[data-newsletter-feedback]');
     var submit = form.querySelector('.newsletter-submit');
     var defaultButtonText = submit ? submit.textContent : '';
+    var ageSelect = form.querySelector('#newsletter-age-interest');
+    var ageFreebieNote = form.querySelector('[data-age-freebie-note]');
+    var freebieMessages = {
+      available: 'Für 12-18 Monate bekommst du nach der Bestätigung direkt den Spielideen-Kompass als PDF.',
+      pending: 'Der passende Kompass für diese Phase ist noch in Arbeit. Du kannst dich trotzdem anmelden - wir schicken ihn dir nach, sobald er fertig ist.',
+      empty: 'Wähle eine Phase aus. Für 12-18 Monate ist der Spielideen-Kompass schon direkt verfügbar.'
+    };
+    var updateAgeFreebieNote = function() {
+      if (!ageSelect || !ageFreebieNote) return;
+      if (!ageSelect.value) {
+        ageFreebieNote.textContent = freebieMessages.empty;
+        return;
+      }
+      ageFreebieNote.textContent = ageSelect.value === '12-18'
+        ? freebieMessages.available
+        : freebieMessages.pending;
+    };
+    if (ageSelect) {
+      ageSelect.addEventListener('change', updateAgeFreebieNote);
+      updateAgeFreebieNote();
+    }
     var monthInput = form.querySelector('#newsletter-birthmonth');
     if (monthInput) {
       var syncMonthPlaceholder = function() {
@@ -471,10 +491,15 @@
           throw new Error(result.message || 'Die Anmeldung konnte gerade nicht verarbeitet werden.');
         }
         if (feedback) {
-          feedback.textContent = result.message || 'Fast geschafft: Bitte bestätige deine Anmeldung per E-Mail.';
+          var successMessage = result.message || 'Fast geschafft: Bitte bestätige deine Anmeldung per E-Mail.';
+          if (ageSelect && ageSelect.value && ageSelect.value !== '12-18') {
+            successMessage += ' Der passende Kompass für deine gewählte Phase ist noch in Arbeit und wird nachgereicht.';
+          }
+          feedback.textContent = successMessage;
           feedback.hidden = false;
         }
         form.reset();
+        if (ageSelect) updateAgeFreebieNote();
         if (monthInput) monthInput.classList.add('is-empty');
       } catch (error) {
         if (feedback) {

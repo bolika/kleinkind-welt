@@ -18,8 +18,7 @@
   <meta property="og:description" content="Deine Anmeldung ist bestätigt. Hier findest du deinen passenden Spielideen-Kompass und nächste altersgerechte Tipps.">
   <meta property="og:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <meta property="og:site_name" content="Kleinkind-Welt">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260624-seo-quickwins">
+  <link rel="stylesheet" href="css/style.css?v=20260624-psi-fixes">
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
 </head>
@@ -52,7 +51,10 @@
       <span class="download-card-kicker">Dein Freebie</span>
       <h2 data-freebie-title>Spielideen passend zum Alter</h2>
       <p data-freebie-text>Wenn für deine gewählte Phase bereits ein PDF verfügbar ist, findest du es hier direkt zum Download.</p>
-      <a class="btn-inline download-button" href="/kaufhilfen" data-freebie-link>Zu den Kaufhilfen</a>
+      <div class="download-actions">
+        <a class="btn-inline download-button" href="/kaufhilfen" data-freebie-mobile-link>Zu den Kaufhilfen</a>
+        <a class="btn-inline download-button download-button-secondary" href="/kaufhilfen" data-freebie-desktop-link hidden>PDF speichern oder drucken</a>
+      </div>
       <p class="download-note" data-freebie-note>In den nächsten Tagen bekommst du außerdem weitere passende Tipps per E-Mail.</p>
     </div>
 
@@ -113,29 +115,63 @@
       'spielideen-12-18': {
         title: 'Spielideen-Kompass für 12 bis 18 Monate',
         text: '5 schnelle Spielideen für genau die Phase, in der dein Kind gerade steckt - ohne große Vorbereitung und mit Dingen, die du oft schon zuhause hast.',
-        href: '/freebies/spielideen-kompass-12-18-monate.pdf',
-        button: 'PDF herunterladen',
-        note: 'Speichere dir das PDF am besten direkt ab. In ein paar Tagen bekommst du weitere passende Ideen per E-Mail.'
+        mobileHref: '/freebies/spielideen-kompass-12-18-monate-mobile',
+        desktopHref: '/freebies/spielideen-kompass-12-18-monate.pdf',
+        mobileButton: 'Am Handy lesen',
+        desktopButton: 'PDF speichern oder drucken',
+        note: 'Du kannst beide Versionen nutzen: mobil bequem lesen oder das PDF speichern und ausdrucken.'
       }
     };
 
     var params = new URLSearchParams(window.location.search);
     var freebieKey = params.get('freebie');
+    var ageInterest = params.get('alter');
     var data = freebies[freebieKey];
     var title = document.querySelector('[data-freebie-title]');
     var text = document.querySelector('[data-freebie-text]');
-    var link = document.querySelector('[data-freebie-link]');
+    var mobileLink = document.querySelector('[data-freebie-mobile-link]');
+    var desktopLink = document.querySelector('[data-freebie-desktop-link]');
     var note = document.querySelector('[data-freebie-note]');
 
     if (data) {
       if (title) title.textContent = data.title;
       if (text) text.textContent = data.text;
-      if (link) {
-        link.href = data.href;
-        link.textContent = data.button;
-        link.setAttribute('download', '');
+      if (mobileLink) {
+        mobileLink.href = data.mobileHref;
+        mobileLink.textContent = data.mobileButton;
+        mobileLink.removeAttribute('download');
+        mobileLink.hidden = false;
+      }
+      if (desktopLink) {
+        desktopLink.href = data.desktopHref;
+        desktopLink.textContent = data.desktopButton;
+        desktopLink.setAttribute('download', '');
+        desktopLink.hidden = false;
       }
       if (note) note.textContent = data.note;
+    } else if (ageInterest) {
+      if (title) title.textContent = 'Dein Kompass ist in Arbeit';
+      if (text) text.textContent = 'Danke, deine Phase ist vorgemerkt. Der passende Spielideen-Kompass ist noch im Aufbau und wird dir per E-Mail nachgereicht, sobald er fertig ist.';
+      if (mobileLink) {
+        mobileLink.href = '/kaufhilfen';
+        mobileLink.textContent = 'Kaufhilfen ansehen';
+        mobileLink.removeAttribute('download');
+        mobileLink.hidden = false;
+      }
+      if (desktopLink) {
+        desktopLink.hidden = true;
+      }
+      if (note) note.textContent = 'Bis dahin bekommst du passende Tipps und neue Artikel für deine gewählte Phase direkt per Newsletter.';
+    } else {
+      if (mobileLink) {
+        mobileLink.href = '/kaufhilfen';
+        mobileLink.textContent = 'Zu den Kaufhilfen';
+        mobileLink.removeAttribute('download');
+        mobileLink.hidden = false;
+      }
+      if (desktopLink) {
+        desktopLink.hidden = true;
+      }
     }
 
     if (window.plausible) {
@@ -147,17 +183,18 @@
       });
     }
 
-    if (link) {
+    document.querySelectorAll('[data-freebie-mobile-link], [data-freebie-desktop-link]').forEach(function(link) {
       link.addEventListener('click', function() {
         if (!window.plausible) return;
         plausible('Freebie Download', {
           props: {
             freebie: freebieKey || 'none',
-            seite: 'newsletter-bestaetigt'
+            seite: 'newsletter-bestaetigt',
+            version: link.hasAttribute('data-freebie-mobile-link') ? 'mobile' : 'desktop'
           }
         });
       });
-    }
+    });
   })();
 </script>
 <script>

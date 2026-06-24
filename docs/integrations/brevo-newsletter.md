@@ -73,3 +73,36 @@ Der Brevo API-Key bleibt serverseitig in der Function und wird nicht im Browser 
    - Nach Klick wird zur Redirect-URL zurückgeleitet.
    - Kontakt landet in der richtigen Brevo-Liste.
    - Attribute `VORNAME`, `EINSTIEGSSTUFE` und optional `GEBURTSMONAT` sind gesetzt.
+
+## Freebie-Links in Brevo-Mails
+
+Für verfügbare Kategorien sollten Mails zwei CTA-Links enthalten: eine mobile Leseversion und eine PDF-/Desktop-Version. Nutzer dürfen beide Varianten öffnen.
+
+Aktuell verfügbar:
+
+```txt
+12-18 Monate - Mobile:
+https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate-mobile
+
+12-18 Monate - Desktop/PDF:
+https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate.pdf
+```
+
+Empfohlene CTA-Texte:
+
+- `Am Handy lesen`
+- `PDF speichern oder drucken`
+
+Einfache Brevo-Textvorlage:
+
+```txt
+Du kannst dir den Kompass in zwei Versionen öffnen:
+
+Am Handy lesen:
+https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate-mobile
+
+PDF speichern oder drucken:
+https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate.pdf
+```
+
+Für alle anderen `EINSTIEGSSTUFE`-Werte ist der passende Kompass noch in Arbeit. Diese Kontakte bleiben trotzdem im Newsletter und bekommen die passende Version nachgeliefert, sobald sie fertig ist.
