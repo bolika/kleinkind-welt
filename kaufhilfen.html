@@ -11,7 +11,7 @@
   <meta name="description" content="Kostenlose Kaufhilfen für Kleinkind-Spielzeug: 3-Minuten-Check, Alters-Matrix, Sicherheitscheck, Fake-Montessori-Check und Spielzeug-Rotation.">
   <title>Kaufhilfen für Kleinkind-Spielzeug | Kleinkind-Welt</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260624-seo-quickwins">
+  <link rel="stylesheet" href="css/style.css?v=20260624-newsletter-month">
   <link rel="canonical" href="https://kleinkind-welt.de/kaufhilfen">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kleinkind-welt.de/kaufhilfen">
@@ -427,9 +427,11 @@
     var defaultButtonText = submit ? submit.textContent : '';
     var monthInput = form.querySelector('#newsletter-birthmonth');
     if (monthInput) {
-      monthInput.addEventListener('change', function() {
+      var syncMonthPlaceholder = function() {
         this.classList.toggle('is-empty', !this.value);
-      });
+      };
+      monthInput.addEventListener('input', syncMonthPlaceholder);
+      monthInput.addEventListener('change', syncMonthPlaceholder);
     }
     var confirmed = new URLSearchParams(window.location.search).get('newsletter') === 'confirmed';
 

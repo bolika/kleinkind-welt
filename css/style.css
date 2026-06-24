@@ -2563,6 +2563,9 @@ footer ul a:hover { color: white; }
 .newsletter-field input[type="month"].is-empty {
   color: transparent;
 }
+.newsletter-field input[type="month"].is-empty:focus + .month-ph {
+  display: none;
+}
 .newsletter-field input[type="month"]:not(.is-empty) + .month-ph {
   display: none;
 }
