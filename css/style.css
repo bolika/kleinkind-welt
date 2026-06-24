@@ -2092,6 +2092,60 @@ footer ul a:hover { color: white; }
   margin-bottom: 0;
 }
 
+.schnellentscheidung-box {
+  margin: 24px 0;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.schnellentscheidung-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.schnellentscheidung-box h3 {
+  margin: 0 0 14px;
+  font-size: 1.12rem;
+}
+
+.schnellentscheidung-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.schnellentscheidung-grid div {
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.schnellentscheidung-grid strong,
+.schnellentscheidung-grid span {
+  display: block;
+}
+
+.schnellentscheidung-grid strong {
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.schnellentscheidung-grid span {
+  color: var(--text-light);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
 /* ===== KAUFHILFEN / BONUS STACK ===== */
 .kaufhilfen-hero {
   background: linear-gradient(135deg, #EBF0E4 0%, #F5EDE3 100%);
@@ -2780,6 +2834,14 @@ footer ul a:hover { color: white; }
   }
 
   .download-next-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schnellentscheidung-box {
+    padding: 16px;
+  }
+
+  .schnellentscheidung-grid {
     grid-template-columns: 1fr;
   }
 }
