@@ -179,6 +179,14 @@ nav a:hover { color: var(--primary); }
   object-position: center center;
 }
 
+.hero-image > picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-image::after {
   content: '';
   position: absolute;
@@ -285,6 +293,12 @@ nav a:hover { color: var(--primary); }
   }
 
   .hero-image::after { display: none; }
+
+  .hero-image > picture {
+    position: static;
+    width: 100%;
+    height: 154px;
+  }
 
   .hero-image-photo {
     position: static;
@@ -470,6 +484,12 @@ nav a:hover { color: var(--primary); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.card-img-placeholder picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .card-img-placeholder.theme-rose     { background: linear-gradient(135deg, #FFF0F0, #FFDDD5); }
@@ -1357,6 +1377,7 @@ footer ul a:hover { color: white; }
     max-width: 72vw;
   }
 
+  .hero-image > picture,
   .hero-image-photo { height: 142px; }
 
   .hero-image-inner { padding: 24px 18px 28px; }
