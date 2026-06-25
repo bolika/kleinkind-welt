@@ -1,6 +1,9 @@
 # www → non-www (falls nicht im Netlify-Dashboard konfiguriert)
 https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 
+# /404 direkt aufgerufen → echten HTTP 404 zurückgeben (kein Soft-404)
+/404  /404.html  404
+
 # API-Endpunkte
 /api/newsletter-signup /.netlify/functions/newsletter-signup 200
 

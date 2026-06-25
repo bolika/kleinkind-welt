@@ -1,23 +1,22 @@
 # HTML: nicht cachen (immer frisch)
 /*
   Cache-Control: public, max-age=0, must-revalidate
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.amazon-adsystem.com https://*.media-amazon.com; connect-src 'self' https://plausible.io; font-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';
 
-# CSS/JS: 1 Woche (kann sich bei Deploys ändern)
+# CSS/JS: 1 Jahr + immutable (versionierter ?v=-Query-String verhindert veralteten Cache)
 /css/*
-  Cache-Control: public, max-age=604800, must-revalidate
-  X-Frame-Options: DENY
+  Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
 
 # Bilder: 1 Jahr cachen (Dateinamen ändern sich selten)
 /images/*
   Cache-Control: public, max-age=31536000, immutable
-  X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
 
 # Freebies: nicht indexieren, aber sauber ausliefern
 /freebies/*
