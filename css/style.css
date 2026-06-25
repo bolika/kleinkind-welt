@@ -4,22 +4,22 @@
 :root {
   /* ── Primärfarbe: Teal aus dem neuen Logo */
   --primary: #2B6F67;
-  --primary-light: #4F9A8E;
+  --primary-light: #27665F;
   --primary-dark: #203A49;
 
   /* ── Akzent: Coral aus der Wortmarke */
-  --accent: #F06F5B;
+  --accent: #B33D31;
   --accent-light: #FF8A75;
-  --accent-action: #C94B3B;
-  --accent-action-hover: #B93F31;
+  --accent-action: #B33D31;
+  --accent-action-hover: #8A2D24;
 
   /* ── Neutraltöne: Erdige Töne aus dem Logo */
   --earth: #605C52;
-  --earth-light: #8C8576;
+  --earth-light: #6F675B;
 
   /* ── Text */
   --text: #2C2A26;           /* Sehr dunkles Braun statt reines Schwarz */
-  --text-light: #6B6459;     /* Warmes Mittelgrau statt kühles Grau */
+  --text-light: #5F574D;     /* Warmes Mittelgrau statt kühles Grau */
 
   /* ── Hintergründe: Cremig, nicht klinisch weiß */
   --bg: #F7F3EE;             /* Warmes Naturweiß */
@@ -47,6 +47,24 @@ body {
 
 a { color: var(--primary); text-decoration: none; }
 a:hover { color: var(--primary-light); }
+
+main p a:not([class]),
+main li a:not([class]),
+.section a:not([class]) {
+  color: var(--primary-dark);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+  text-decoration-color: rgba(179,61,49,0.72);
+}
+
+main p a:not([class]):hover,
+main li a:not([class]):hover,
+.section a:not([class]):hover {
+  color: var(--accent-action-hover);
+  text-decoration-color: currentColor;
+}
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -874,7 +892,7 @@ nav a:hover { color: var(--primary); }
   align-items: center;
   gap: 8px;
   background: #FF9900;
-  color: white;
+  color: var(--text);
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 700;
@@ -882,7 +900,7 @@ nav a:hover { color: var(--primary); }
   transition: background 0.2s;
 }
 
-.btn-amazon:hover { background: #E68900; color: white; }
+.btn-amazon:hover { background: #E68900; color: var(--text); }
 
 /* ===== AFFILIATE HINWEIS ===== */
 .affiliate-hinweis {
@@ -1115,7 +1133,7 @@ footer ul a:hover { color: white; }
   display: inline-flex;
   align-items: center;
   background: #FF9900;
-  color: white;
+  color: var(--text);
   padding: 6px 12px;
   border-radius: 6px;
   font-weight: 700;
@@ -1124,7 +1142,7 @@ footer ul a:hover { color: white; }
   transition: background 0.2s;
 }
 
-.btn-table:hover { background: #E68900; color: white; }
+.btn-table:hover { background: #E68900; color: var(--text); }
 
 /* ===== BUDGET TABLE ===== */
 .budget-table-wrap {
@@ -2594,7 +2612,7 @@ footer ul a:hover { color: white; }
   align-items: center;
   padding: 0 12px;
   pointer-events: none;
-  color: #9c9a94;
+  color: var(--text-light);
   font-size: 1rem;
 }
 .newsletter-field input[type="month"].is-empty {
