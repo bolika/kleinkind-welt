@@ -501,6 +501,160 @@ nav a:hover { color: var(--primary); }
 .card-img-placeholder.theme-lavender { background: linear-gradient(135deg, #F3E8FF, #E4D0F5); }
 .card-img-placeholder.theme-butter   { background: linear-gradient(135deg, #FFFCE0, #FFF5A0); }
 
+.seasonal-section {
+  padding: 50px 20px 56px;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  overflow-x: clip;
+}
+
+.seasonal-section .container {
+  width: 100%;
+  max-width: 1060px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.seasonal-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.seasonal-label {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seasonal-heading h2 {
+  max-width: 100%;
+  margin: 0 0 10px;
+  font-size: 1.85rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.seasonal-heading p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1.03rem;
+  line-height: 1.65;
+}
+
+.seasonal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.seasonal-feature,
+.seasonal-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+
+.seasonal-feature:hover,
+.seasonal-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(43,111,103,0.35);
+  box-shadow: var(--shadow-hover);
+}
+
+.seasonal-feature {
+  position: relative;
+  min-width: 0;
+}
+
+.seasonal-feature picture,
+.seasonal-feature img {
+  display: block;
+  width: 100%;
+}
+
+.seasonal-feature img {
+  height: 280px;
+  object-fit: cover;
+}
+
+.seasonal-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--accent-action);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.seasonal-feature-body {
+  padding: 22px;
+}
+
+.seasonal-feature-body span,
+.seasonal-link span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.seasonal-feature-body h3,
+.seasonal-link h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.seasonal-feature-body p,
+.seasonal-link p {
+  margin: 0;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+.seasonal-feature-body strong {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--accent-action);
+  font-size: 0.95rem;
+}
+
+.seasonal-list {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.seasonal-link {
+  padding: 18px;
+  min-width: 0;
+}
+
+.editorial-intro {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .card-body {
   padding: 20px;
   flex: 1;
@@ -1309,6 +1463,20 @@ footer ul a:hover { color: white; }
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .seasonal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seasonal-heading,
+  .seasonal-grid {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .seasonal-heading h2 {
+    font-size: 1.55rem;
+  }
+
   .situation-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1368,6 +1536,41 @@ footer ul a:hover { color: white; }
     font-size: 0.98rem;
     line-height: 1.68;
   }
+
+  .seasonal-section {
+    padding: 38px 16px 42px;
+  }
+
+  .seasonal-section .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .seasonal-heading,
+  .seasonal-grid {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .seasonal-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .seasonal-heading p,
+  .seasonal-feature-body p,
+  .seasonal-link p {
+    font-size: 0.98rem;
+  }
+
+  .seasonal-feature img {
+    height: 210px;
+  }
+
+  .seasonal-feature-body,
+  .seasonal-link {
+    padding: 18px;
+  }
+
   .card-grid { grid-template-columns: 1fr; }
 
   .nav-inner { padding: 0 14px; }
