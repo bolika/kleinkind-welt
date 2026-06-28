@@ -2,6 +2,10 @@
 
 > Eltern-Ratgeber für Spielzeug und Förderung von Kindern von 0 bis 3 Jahren. Von Boris Nazarov, Vater in München. Unabhängig, keine bezahlten Empfehlungen von Herstellern. Affiliate-Links zu Amazon sind als solche gekennzeichnet.
 
+license: https://rsl.ai/1.0/public-inference
+maintainer: Boris Nazarov <borisnazarov21@gmail.com>
+last-updated: 2026-06-28
+
 ## Über diese Seite
 
 - [Über uns](https://kleinkind-welt.de/ueber-uns): Wer schreibt hier, persönlicher Hintergrund von Boris Nazarov
