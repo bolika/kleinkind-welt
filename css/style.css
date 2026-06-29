@@ -2447,6 +2447,24 @@ footer ul a:hover { color: white; }
   margin: 32px 0 44px;
 }
 
+.age-hub-page .kaufhilfen-body {
+  overflow-x: hidden;
+}
+
+.age-hub-page .card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.age-hub-page .card,
+.age-hub-page .card-body {
+  min-width: 0;
+}
+
+.age-hub-page .card-body h3,
+.age-hub-page .card-body p {
+  overflow-wrap: anywhere;
+}
+
 .kaufhilfe-card {
   display: flex;
   flex-direction: column;
@@ -3071,6 +3089,63 @@ footer ul a:hover { color: white; }
 
   .kaufhilfen-grid {
     grid-template-columns: 1fr;
+  }
+
+  .age-hub-page .ueber-uns-hero h1 {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: clamp(1.55rem, 7vw, 1.85rem);
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+  }
+
+  .age-hub-page .ueber-uns-hero p {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .age-hub-page .ueber-uns-hero.kaufhilfen-hero {
+    text-align: left;
+  }
+
+  .age-hub-page .article-body.kaufhilfen-body {
+    overflow-x: hidden;
+  }
+
+  .age-hub-page .article-body.kaufhilfen-body > * {
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .age-hub-page .age-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 2px 2px 10px;
+    scroll-snap-type: x proximity;
+  }
+
+  .age-hub-page .age-btn {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .age-hub-page .card-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .age-hub-page .card {
+    width: 100%;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .kaufhilfe-card,

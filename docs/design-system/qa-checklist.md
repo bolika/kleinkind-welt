@@ -94,6 +94,7 @@ Optionaler Screenshot-Check:
 
 Wichtige Regel fuer Mobile-Screenshots:
 
+- Siehe auch: [Known Issue: Mobile Screenshots Rechts Abgeschnitten](mobile-screenshot-known-issue.md).
 - Den Chrome-Headless-CLI-Screenshot mit `--window-size=390,...` nicht als alleinigen Mobile-Beweis verwenden. In diesem Projekt rendert er wiederholt wie ein schmaler Desktop-Ausschnitt; dadurch wirkt der rechte Rand abgeschnitten, obwohl das nicht zwingend das echte Smartphone-Layout ist.
 - Wenn der Screenshot rechts abgeschnitten aussieht, nicht in eine Screenshot-Loop gehen. Stattdessen zuerst objektiv pruefen:
   - CSS auf bekannte Overflow-Ursachen kontrollieren: `width: 100vw` in gepaddeten Containern, lange Breadcrumbs, `white-space: nowrap`, feste Tabellenbreiten, breite CTA-Buttons.
