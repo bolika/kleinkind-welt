@@ -120,7 +120,7 @@
 
     <div class="age-nav" aria-label="Sommer-Spielzeug nach Situation">
       <a href="#reise" class="age-btn">Reise</a>
-      <a href="#garten" class="age-btn active">Garten</a>
+      <a href="#garten" class="age-btn active" aria-current="true">Garten</a>
       <a href="#balkon" class="age-btn">Balkon</a>
       <a href="#wasser" class="age-btn">Wasser</a>
       <a href="#budget" class="age-btn">Unter 20 Euro</a>
@@ -358,6 +358,43 @@
         var isOpen = menu.classList.toggle('show');
         toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
+    }
+
+    var situationNav = document.querySelector('.age-nav');
+    if (situationNav) {
+      var situationButtons = Array.prototype.slice.call(situationNav.querySelectorAll('.age-btn'));
+      function updateActiveSituation() {
+        var currentHash = window.location.hash || '#garten';
+        var hasMatch = false;
+
+        situationButtons.forEach(function(button) {
+          var isActive = button.getAttribute('href') === currentHash;
+          button.classList.toggle('active', isActive);
+          if (isActive) {
+            button.setAttribute('aria-current', 'true');
+            hasMatch = true;
+          } else {
+            button.removeAttribute('aria-current');
+          }
+        });
+
+        if (!hasMatch && !window.location.hash) {
+          var defaultButton = situationNav.querySelector('a[href="#garten"]');
+          if (defaultButton) {
+            defaultButton.classList.add('active');
+            defaultButton.setAttribute('aria-current', 'true');
+          }
+        }
+      }
+
+      situationButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          window.setTimeout(updateActiveSituation, 0);
+        });
+      });
+
+      window.addEventListener('hashchange', updateActiveSituation);
+      updateActiveSituation();
     }
   });
 </script>
