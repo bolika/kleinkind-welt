@@ -12,7 +12,31 @@ https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 /artikel/holzspielzeug-kleinkind.html /artikel/holzspielzeug-vs-plastikspielzeug 301!
 
 # Artikel .html → clean URLs (ohne .html)
-/artikel/*.html /artikel/:splat 301!
+# Explizite Regeln statt Wildcard, da Netlify existierende Dateien vor Wildcard-Regeln serviert;
+# explizite Regeln mit ! überschreiben physisch vorhandene Dateien korrekt.
+/artikel/badespielzeug-kleinkind.html        /artikel/badespielzeug-kleinkind        301!
+/artikel/duplo-vergleich.html                /artikel/duplo-vergleich                301!
+/artikel/geschenke-1-jahr.html               /artikel/geschenke-1-jahr               301!
+/artikel/geschenke-2-jahre.html              /artikel/geschenke-2-jahre              301!
+/artikel/geschenke-3-jahre.html              /artikel/geschenke-3-jahre              301!
+/artikel/geschenke-zur-geburt.html           /artikel/geschenke-zur-geburt           301!
+/artikel/holzspielzeug-vs-plastikspielzeug.html /artikel/holzspielzeug-vs-plastikspielzeug 301!
+/artikel/montessori-spielzeug-kleinkind.html /artikel/montessori-spielzeug-kleinkind 301!
+/artikel/motorikspielzeug-test.html          /artikel/motorikspielzeug-test          301!
+/artikel/nachhaltiges-spielzeug-siegel.html  /artikel/nachhaltiges-spielzeug-siegel  301!
+/artikel/outdoor-spielzeug-kleinkind.html    /artikel/outdoor-spielzeug-kleinkind    301!
+/artikel/reisespielzeug-kleinkind.html       /artikel/reisespielzeug-kleinkind       301!
+/artikel/spielzeug-0-6-monate.html          /artikel/spielzeug-0-6-monate           301!
+/artikel/spielzeug-12-18-monate.html         /artikel/spielzeug-12-18-monate         301!
+/artikel/spielzeug-18-24-monate.html         /artikel/spielzeug-18-24-monate         301!
+/artikel/spielzeug-2-jahre.html              /artikel/spielzeug-2-jahre              301!
+/artikel/spielzeug-3-jahre.html              /artikel/spielzeug-3-jahre              301!
+/artikel/spielzeug-6-12-monate.html          /artikel/spielzeug-6-12-monate          301!
+/artikel/spielzeug-balkon-kleinkind.html     /artikel/spielzeug-balkon-kleinkind     301!
+/artikel/spielzeug-unter-20-euro.html        /artikel/spielzeug-unter-20-euro        301!
+/artikel/sprache-foerdern-spielzeug.html     /artikel/sprache-foerdern-spielzeug     301!
+/artikel/was-wir-nicht-kaufen.html           /artikel/was-wir-nicht-kaufen           301!
+/artikel/weihnachtsgeschenke-kleinkind.html  /artikel/weihnachtsgeschenke-kleinkind  301!
 
 # Root-Level .html → clean (für Impressum, Datenschutz, Über uns)
 /impressum.html  /impressum  301!
