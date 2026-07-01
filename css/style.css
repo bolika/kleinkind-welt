@@ -3602,6 +3602,10 @@ footer ul a:hover { color: white; }
     overflow-wrap: anywhere;
   }
 
+  .kurzantwort-box .kurzantwort-detail {
+    display: none;
+  }
+
   .kaufhilfe-list {
     width: 100%;
     max-width: 100%;
