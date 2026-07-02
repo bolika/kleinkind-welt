@@ -235,6 +235,52 @@
   </div>
 </div>
 
+<section class="section newsletter-section" id="newsletter">
+  <div class="container">
+    <section class="newsletter-signup newsletter-signup--compact" aria-labelledby="newsletter-title-home">
+      <div class="newsletter-copy">
+        <span class="newsletter-label">Kostenloser Newsletter-Bonus</span>
+        <h2 id="newsletter-title-home">Spielideen-Kompass sichern</h2>
+        <p>Erhalte altersgerechte Spielideen, Kaufhilfen und Sicherheits-Checks. Für 12-18 Monate gibt es sofort eine mobile Version und ein PDF nach der Bestätigung.</p>
+        <ul class="newsletter-benefits">
+          <li>Mobile Version und PDF für 12-18 Monate</li>
+          <li>Kurze Kaufhilfen statt Produktflut</li>
+          <li>Abmeldung jederzeit möglich</li>
+        </ul>
+      </div>
+      <form class="newsletter-form" data-newsletter-form data-placement="home-newsletter" action="/api/newsletter-signup" method="post">
+        <div class="newsletter-field">
+          <label for="home-newsletter-email">E-Mail-Adresse</label>
+          <input id="home-newsletter-email" name="email" type="email" autocomplete="email" placeholder="deine@email.de" required>
+        </div>
+        <div class="newsletter-field">
+          <label for="home-newsletter-age">Welche Phase interessiert dich gerade?</label>
+          <select id="home-newsletter-age" name="interessen_alter" required>
+            <option value="">Bitte auswählen</option>
+            <option value="0-6">0-6 Monate</option>
+            <option value="6-12">6-12 Monate</option>
+            <option value="12-18">12-18 Monate</option>
+            <option value="18-24">18-24 Monate</option>
+            <option value="2-jahre">2 Jahre</option>
+            <option value="3-jahre">3 Jahre</option>
+            <option value="geschenke-geburtstage">Geschenke &amp; Geburtstage</option>
+          </select>
+          <small data-age-freebie-note>Für 12-18 Monate sind mobile Version und PDF direkt verfügbar.</small>
+        </div>
+        <label class="newsletter-consent">
+          <input name="consent" type="checkbox" required>
+          <span>Ich möchte den Newsletter erhalten und akzeptiere die Verarbeitung gemäß <a href="/datenschutz">Datenschutzerklärung</a>.</span>
+        </label>
+        <input type="hidden" name="quelle" value="home-newsletter">
+        <input type="text" name="website" class="newsletter-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+        <button class="btn-inline newsletter-submit" type="submit">Kompass sichern</button>
+        <p class="newsletter-note">Double-Opt-In: Der Zugriff wird nach Bestätigung per E-Mail freigeschaltet.</p>
+        <p class="newsletter-feedback" data-newsletter-feedback role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+  </div>
+</section>
+
 <!-- NACH ALTER -->
 <section class="section section-alt" id="alter">
   <div class="container">
@@ -623,6 +669,7 @@
     });
   })();
 </script>
+<script src="/js/newsletter-form.js" defer></script>
 <script>
   (function() {
     var toggle = document.querySelector('.nav-toggle');
