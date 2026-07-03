@@ -8,21 +8,23 @@
     var defaultButtonText = submit ? submit.textContent : '';
     var ageSelect = form.querySelector('[name="interessen_alter"]');
     var ageFreebieNote = form.querySelector('[data-age-freebie-note]');
-    var freebieMessages = {
-      available: 'Für 12-18 Monate kannst du nach der Bestätigung die mobile Version öffnen, das PDF speichern oder beides nutzen.',
-      pending: 'Der passende Kompass für diese Phase ist noch in Arbeit. Du kannst dich trotzdem anmelden - wir schicken ihn dir nach, sobald er fertig ist.',
-      empty: 'Wähle eine Phase aus. Für 12-18 Monate sind mobile Version und PDF schon direkt verfügbar.'
+    var ageLabels = {
+      '0-6': '0-6 Monate',
+      '6-12': '6-12 Monate',
+      '12-18': '12-18 Monate',
+      '18-24': '18-24 Monate',
+      '2-jahre': '2 Jahre',
+      '3-jahre': '3 Jahre',
+      'geschenke-geburtstage': 'Geschenke & Geburtstage'
     };
 
     function updateAgeFreebieNote() {
       if (!ageSelect || !ageFreebieNote) return;
       if (!ageSelect.value) {
-        ageFreebieNote.textContent = freebieMessages.empty;
+        ageFreebieNote.textContent = 'Wähle eine Phase aus. Nach der Bestätigung kannst du mobile Version, Mobile-PDF und Desktop-PDF nutzen.';
         return;
       }
-      ageFreebieNote.textContent = ageSelect.value === '12-18'
-        ? freebieMessages.available
-        : freebieMessages.pending;
+      ageFreebieNote.textContent = 'Für ' + (ageLabels[ageSelect.value] || 'deine Auswahl') + ' bekommst du nach der Bestätigung mobile Version, Mobile-PDF und Desktop-PDF.';
     }
 
     if (ageSelect) {
@@ -78,10 +80,8 @@
         }
         if (feedback) {
           var successMessage = result.message || 'Fast geschafft: Bitte bestätige deine Anmeldung per E-Mail.';
-          if (ageSelect && ageSelect.value === '12-18') {
-            successMessage += ' Danach landest du direkt beim Spielideen-Kompass mit Mobile-Version und PDF.';
-          } else if (ageSelect && ageSelect.value && ageSelect.value !== '12-18') {
-            successMessage += ' Der passende Kompass für deine gewählte Phase ist noch in Arbeit und wird nachgereicht.';
+          if (ageSelect && ageSelect.value) {
+            successMessage += ' Danach landest du direkt beim passenden Spielideen-Kompass mit mobiler Version und PDFs.';
           }
           feedback.textContent = successMessage;
           feedback.hidden = false;

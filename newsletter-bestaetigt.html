@@ -56,6 +56,7 @@
       <p data-freebie-text>Wenn für deine gewählte Phase bereits ein Kompass verfügbar ist, kannst du hier die mobile Version öffnen, das PDF speichern oder beide Versionen nutzen.</p>
       <div class="download-actions">
         <a class="btn-inline download-button" href="/kaufhilfen" data-freebie-mobile-link>Mobile Version öffnen</a>
+        <a class="btn-inline download-button download-button-secondary" href="/kaufhilfen" data-freebie-mobile-pdf-link hidden>Mobile-PDF speichern</a>
         <a class="btn-inline download-button download-button-secondary" href="/kaufhilfen" data-freebie-desktop-link hidden>PDF herunterladen</a>
       </div>
       <p class="download-note" data-freebie-note>In den nächsten Tagen bekommst du außerdem weitere passende Tipps per E-Mail.</p>
@@ -64,9 +65,9 @@
     <div class="download-next">
       <h2>Danach sinnvoll weiterstöbern</h2>
       <div class="download-next-grid">
-        <a href="/artikel/spielzeug-12-18-monate">
-          <strong>Spielzeug für 12-18 Monate</strong>
-          <span>Konkrete Empfehlungen für diese Phase.</span>
+        <a href="/spielzeug-nach-alter">
+          <strong>Spielzeug nach Alter</strong>
+          <span>Konkrete Empfehlungen für jede Entwicklungsphase.</span>
         </a>
         <a href="/kaufhilfen">
           <strong>Kaufhilfen nutzen</strong>
@@ -115,14 +116,75 @@
 <script>
   (function() {
     var freebies = {
+      'spielideen-0-6': {
+        title: 'Spielideen-Kompass für 0 bis 6 Monate',
+        text: '5 sanfte Spielideen für die ersten Monate: Nähe, Stimme, Gesicht und kleine Sinneseindrücke - ohne Vorbereitung und ohne Druck.',
+        mobileHref: '/freebies/spielideen-kompass-0-6-monate-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-0-6-monate-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-0-6-monate.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
+      },
+      'spielideen-6-12': {
+        title: 'Spielideen-Kompass für 6 bis 12 Monate',
+        text: '5 einfache Spielideen für Greifen, Krabbeln, Suchen und erste Ursache-Wirkung-Momente im Familienalltag.',
+        mobileHref: '/freebies/spielideen-kompass-6-12-monate-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-6-12-monate-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-6-12-monate.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
+      },
       'spielideen-12-18': {
         title: 'Spielideen-Kompass für 12 bis 18 Monate',
-        text: '5 schnelle Spielideen für genau die Phase, in der dein Kind gerade steckt - ohne große Vorbereitung und mit Dingen, die du oft schon zuhause hast.',
+        text: '5 schnelle Spielideen für Laufen, Stapeln, Nachahmen und die Phase, in der Wiederholung oft das eigentliche Spiel ist.',
         mobileHref: '/freebies/spielideen-kompass-12-18-monate-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-12-18-monate-mobile.pdf',
         desktopHref: '/freebies/spielideen-kompass-12-18-monate.pdf',
         mobileButton: 'Mobile Version öffnen',
         desktopButton: 'PDF herunterladen',
         note: 'Du kannst selbst entscheiden: nur mobil lesen, nur das PDF speichern oder beide Versionen nutzen.'
+      },
+      'spielideen-18-24': {
+        title: 'Spielideen-Kompass für 18 bis 24 Monate',
+        text: '5 Spielideen für Kinder, die im Alltag mitmachen, nachahmen, sortieren und kleine Aufgaben übernehmen wollen.',
+        mobileHref: '/freebies/spielideen-kompass-18-24-monate-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-18-24-monate-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-18-24-monate.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
+      },
+      'spielideen-2-jahre': {
+        title: 'Spielideen-Kompass für 2 Jahre',
+        text: '5 Spielideen für mehr Sprache, Rollenspiel, Bewegung und kleine „selber machen“-Momente.',
+        mobileHref: '/freebies/spielideen-kompass-2-jahre-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-2-jahre-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-2-jahre.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
+      },
+      'spielideen-3-jahre': {
+        title: 'Spielideen-Kompass für 3 Jahre',
+        text: '5 Spielideen für Fantasie, Sprache, erste Regeln und eigene kleine Welten.',
+        mobileHref: '/freebies/spielideen-kompass-3-jahre-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-3-jahre-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-3-jahre.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
+      },
+      'spielideen-geschenke-geburtstage': {
+        title: 'Geschenke-Kompass für Kleinkinder',
+        text: '5 ehrliche Geschenkideen für Geburtstage, Besuche und kleine Mitbringsel - mit weniger Fehlkauf-Risiko.',
+        mobileHref: '/freebies/spielideen-kompass-geschenke-geburtstage-mobile',
+        mobilePdfHref: '/freebies/spielideen-kompass-geschenke-geburtstage-mobile.pdf',
+        desktopHref: '/freebies/spielideen-kompass-geschenke-geburtstage.pdf',
+        mobileButton: 'Mobile Version öffnen',
+        desktopButton: 'PDF herunterladen',
+        note: 'Du kannst mobil lesen, das PDF speichern oder beide Versionen nutzen.'
       }
     };
 
@@ -133,6 +195,7 @@
     var title = document.querySelector('[data-freebie-title]');
     var text = document.querySelector('[data-freebie-text]');
     var mobileLink = document.querySelector('[data-freebie-mobile-link]');
+    var mobilePdfLink = document.querySelector('[data-freebie-mobile-pdf-link]');
     var desktopLink = document.querySelector('[data-freebie-desktop-link]');
     var note = document.querySelector('[data-freebie-note]');
 
@@ -145,6 +208,12 @@
         mobileLink.removeAttribute('download');
         mobileLink.hidden = false;
       }
+      if (mobilePdfLink) {
+        mobilePdfLink.href = data.mobilePdfHref;
+        mobilePdfLink.textContent = 'Mobile-PDF speichern';
+        mobilePdfLink.setAttribute('download', '');
+        mobilePdfLink.hidden = false;
+      }
       if (desktopLink) {
         desktopLink.href = data.desktopHref;
         desktopLink.textContent = data.desktopButton;
@@ -153,8 +222,8 @@
       }
       if (note) note.textContent = data.note;
     } else if (ageInterest) {
-      if (title) title.textContent = 'Dein Kompass ist in Arbeit';
-      if (text) text.textContent = 'Danke, deine Phase ist vorgemerkt. Der passende Spielideen-Kompass ist noch im Aufbau und wird dir per E-Mail nachgereicht, sobald er fertig ist.';
+      if (title) title.textContent = 'Kompass auswählen';
+      if (text) text.textContent = 'Danke, deine Anmeldung ist bestätigt. Für deine Auswahl konnte kein direkter Kompass zugeordnet werden. In den Kaufhilfen findest du die passenden Einstiegspunkte nach Alter und Anlass.';
       if (mobileLink) {
         mobileLink.href = '/kaufhilfen';
         mobileLink.textContent = 'Kaufhilfen ansehen';
@@ -163,6 +232,9 @@
       }
       if (desktopLink) {
         desktopLink.hidden = true;
+      }
+      if (mobilePdfLink) {
+        mobilePdfLink.hidden = true;
       }
       if (note) note.textContent = 'Bis dahin bekommst du passende Tipps und neue Artikel für deine gewählte Phase direkt per Newsletter.';
     } else {
@@ -175,6 +247,9 @@
       if (desktopLink) {
         desktopLink.hidden = true;
       }
+      if (mobilePdfLink) {
+        mobilePdfLink.hidden = true;
+      }
     }
 
     if (window.plausible) {
@@ -186,14 +261,14 @@
       });
     }
 
-    document.querySelectorAll('[data-freebie-mobile-link], [data-freebie-desktop-link]').forEach(function(link) {
+    document.querySelectorAll('[data-freebie-mobile-link], [data-freebie-mobile-pdf-link], [data-freebie-desktop-link]').forEach(function(link) {
       link.addEventListener('click', function() {
         if (!window.plausible) return;
         plausible('Freebie Download', {
           props: {
             freebie: freebieKey || 'none',
             seite: 'newsletter-bestaetigt',
-            version: link.hasAttribute('data-freebie-mobile-link') ? 'mobile' : 'desktop'
+            version: link.hasAttribute('data-freebie-mobile-link') ? 'mobile-html' : (link.hasAttribute('data-freebie-mobile-pdf-link') ? 'mobile-pdf' : 'desktop-pdf')
           }
         });
       });

@@ -222,8 +222,8 @@
         <h2 id="newsletter-title">Spielideen-Kompass sichern: Mobile Version und PDF</h2>
         <p>Melde dich zum Newsletter an und bestätige deine E-Mail. Danach kannst du den Kompass bequem am Handy lesen, als PDF speichern oder beide Versionen nutzen.</p>
         <ul class="newsletter-benefits">
-          <li>🎈 Für 12-18 Monate sofort nach Bestätigung als mobile Leseversion und PDF</li>
-          <li>📱 Am Handy öffnen oder als Desktop/PDF speichern und drucken</li>
+          <li>🎈 Für jede Phase sofort nach Bestätigung als mobile Leseversion und PDF</li>
+          <li>📱 Am Handy öffnen, als Mobile-PDF speichern oder als Desktop-PDF drucken</li>
           <li>🧸 Kurze Kaufhilfen, Sicherheits-Checks und neue Ratgeber ohne Fachchinesisch</li>
         </ul>
       </div>
@@ -248,7 +248,7 @@
             <option value="3-jahre">3 Jahre</option>
             <option value="geschenke-geburtstage">Geschenke & Geburtstage</option>
           </select>
-          <small data-age-freebie-note>Für 12-18 Monate bekommst du nach der Bestätigung direkt die mobile Version und das PDF.</small>
+          <small data-age-freebie-note>Nach der Bestätigung bekommst du die passende mobile Version, ein Mobile-PDF und ein Desktop-PDF.</small>
         </div>
         <div class="newsletter-field">
           <label for="newsletter-birthmonth">Geburtsmonat des Kindes <span>optional</span></label>
@@ -475,20 +475,22 @@
     var defaultButtonText = submit ? submit.textContent : '';
     var ageSelect = form.querySelector('#newsletter-age-interest');
     var ageFreebieNote = form.querySelector('[data-age-freebie-note]');
-    var freebieMessages = {
-      available: 'Für 12-18 Monate kannst du nach der Bestätigung die mobile Version öffnen, das PDF speichern oder beides nutzen.',
-      pending: 'Der passende Kompass für diese Phase ist noch in Arbeit. Du kannst dich trotzdem anmelden - wir schicken ihn dir nach, sobald er fertig ist.',
-      empty: 'Wähle eine Phase aus. Für 12-18 Monate sind mobile Version und PDF schon direkt verfügbar.'
+    var ageLabels = {
+      '0-6': '0-6 Monate',
+      '6-12': '6-12 Monate',
+      '12-18': '12-18 Monate',
+      '18-24': '18-24 Monate',
+      '2-jahre': '2 Jahre',
+      '3-jahre': '3 Jahre',
+      'geschenke-geburtstage': 'Geschenke & Geburtstage'
     };
     var updateAgeFreebieNote = function() {
       if (!ageSelect || !ageFreebieNote) return;
       if (!ageSelect.value) {
-        ageFreebieNote.textContent = freebieMessages.empty;
+        ageFreebieNote.textContent = 'Wähle eine Phase aus. Nach der Bestätigung kannst du mobile Version, Mobile-PDF und Desktop-PDF nutzen.';
         return;
       }
-      ageFreebieNote.textContent = ageSelect.value === '12-18'
-        ? freebieMessages.available
-        : freebieMessages.pending;
+      ageFreebieNote.textContent = 'Für ' + (ageLabels[ageSelect.value] || 'deine Auswahl') + ' bekommst du nach der Bestätigung mobile Version, Mobile-PDF und Desktop-PDF.';
     };
     if (ageSelect) {
       ageSelect.addEventListener('change', updateAgeFreebieNote);
@@ -541,10 +543,8 @@
         }
         if (feedback) {
           var successMessage = result.message || 'Fast geschafft: Bitte bestätige deine Anmeldung per E-Mail.';
-          if (ageSelect && ageSelect.value === '12-18') {
-            successMessage += ' Danach landest du direkt beim Spielideen-Kompass mit Mobile-Version und PDF.';
-          } else if (ageSelect && ageSelect.value && ageSelect.value !== '12-18') {
-            successMessage += ' Der passende Kompass für deine gewählte Phase ist noch in Arbeit und wird nachgereicht.';
+          if (ageSelect && ageSelect.value) {
+            successMessage += ' Danach landest du direkt beim passenden Spielideen-Kompass mit mobiler Version und PDFs.';
           }
           feedback.textContent = successMessage;
           feedback.hidden = false;

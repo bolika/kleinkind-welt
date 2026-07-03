@@ -55,7 +55,13 @@ const ageInterestLabels = {
 const getDoiRedirectUrl = (ageInterest, fallbackUrl) => {
   const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
   const freebieRedirects = {
+    '0-6': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-0-6#download`,
+    '6-12': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-6-12#download`,
     '12-18': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-12-18#download`,
+    '18-24': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-18-24#download`,
+    '2-jahre': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-2-jahre#download`,
+    '3-jahre': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-3-jahre#download`,
+    'geschenke-geburtstage': `${siteUrl}/newsletter-bestaetigt?freebie=spielideen-geschenke-geburtstage#download`,
   };
 
   if (freebieRedirects[ageInterest]) return freebieRedirects[ageInterest];

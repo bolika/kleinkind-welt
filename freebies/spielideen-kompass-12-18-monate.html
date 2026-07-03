@@ -4,596 +4,247 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Dein Spielideen-Kompass für 12 bis 18 Monate: fünf einfache Spielideen aus dem Familienalltag, als Bonus für Newsletter-Abonnenten.">
   <title>Spielideen-Kompass 12 bis 18 Monate | Kleinkind-Welt</title>
   <link rel="canonical" href="https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kleinkind-welt.de/freebies/spielideen-kompass-12-18-monate">
-  <meta property="og:title" content="Spielideen-Kompass 12 bis 18 Monate">
-  <meta property="og:description" content="Fünf einfache Spielideen für 12 bis 18 Monate als Newsletter-Bonus von Kleinkind-Welt.">
-  <meta property="og:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
-  <meta property="og:site_name" content="Kleinkind-Welt">
   <style>
     :root {
-      --green: #2f8578;
-      --green-dark: #1f5f56;
-      --coral: #ca493a;
+      --accent: #ca493a;
+      --accent-dark: #8f342b;
+      --accent-soft: #faebe7;
+      --paper: #fbf6ee;
+      --card: #fffdf9;
       --ink: #2f2b28;
       --muted: #6e625b;
-      --paper: #fbf6ee;
       --line: #eadfd3;
-      --soft: #f5ebe1;
-      --notice: #fff3df;
+      --warm: #f4eadf;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: #e8ded4;
-      font-family: "Nunito", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.55;
-    }
-
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      line-height: 1.12;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--ink);
-    }
-
-    p,
-    ul,
-    ol {
-      margin: 0;
-    }
-
-    a {
-      color: var(--green-dark);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    @page {
-      size: A4;
-      margin: 0;
-    }
-
+    * { box-sizing: border-box; }
+    html, body { margin: 0; color: var(--ink); background: #e8ded4; font-family: "Nunito Sans", "Inter", "DejaVu Sans", system-ui, sans-serif; line-height: 1.48; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { line-height: 1.05; letter-spacing: 0; font-family: "Poppins", "Nunito Sans", "DejaVu Sans", system-ui, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    @page { size: A4; margin: 0; }
     .page {
       position: relative;
-      min-height: 297mm;
-      padding: 26mm 22mm 22mm;
+      width: 210mm;
+      height: 297mm;
       overflow: hidden;
-      background: var(--paper);
       page-break-after: always;
+      background:
+        radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+        var(--paper);
+      padding: 22mm 20mm 18mm;
     }
-
-    .page:last-child {
-      page-break-after: auto;
-    }
-
-    .brand {
-      color: var(--green);
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: -0.01em;
-    }
-
-    .tagline {
-      margin-top: 1mm;
-      color: var(--muted);
-      font-size: 8.5px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      color: var(--coral);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .cover {
-      padding: 32mm 24mm;
-    }
-
-    .cover::before,
-    .cover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 18mm;
-      background: var(--green);
-    }
-
-    .cover::before {
-      top: 0;
-    }
-
-    .cover::after {
-      bottom: 0;
-      height: 28mm;
-      background: var(--green-dark);
-    }
-
-    .cover-content {
-      margin-top: 42mm;
-      max-width: 118mm;
-    }
-
-    .cover h1 {
-      margin-top: 7mm;
-      font-size: 38px;
-      letter-spacing: -0.02em;
-    }
-
-    .cover p {
-      margin-top: 8mm;
-      max-width: 104mm;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .pill {
-      display: inline-block;
-      margin-top: 14mm;
-      padding: 4mm 9mm;
-      color: #fff;
-      background: var(--green);
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .cover-note {
-      position: absolute;
-      left: 24mm;
-      right: 24mm;
-      bottom: 37mm;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .section-label {
-      margin-bottom: 4mm;
-      color: var(--coral);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .intro h2,
-    .closing h2 {
-      margin-bottom: 6mm;
-      font-size: 27px;
-    }
-
-    .intro p,
-    .closing p {
-      margin-top: 4mm;
-      color: var(--ink);
-      font-size: 12.7px;
-    }
-
-    .intro-list {
-      display: grid;
-      gap: 3mm;
-      margin-top: 7mm;
-      padding: 0;
-      list-style: none;
-    }
-
-    .intro-list li,
-    .safety-box {
-      padding: 4mm 5mm;
-      border: 1px solid var(--line);
-      border-radius: 5mm;
-      background: #fffaf2;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .safety-box {
-      margin-top: 7mm;
-      border-left: 1.5mm solid var(--green);
-    }
-
-    .idea-page {
-      padding-top: 18mm;
-    }
-
-    .page-heading {
-      margin-bottom: 8mm;
-    }
-
-    .page-heading h2 {
-      max-width: 132mm;
-      font-size: 25px;
-    }
-
-    .page-heading .small-note {
-      display: block;
-      margin-top: 3mm;
-      max-width: 128mm;
-      font-size: 12px;
-    }
-
-    .idea {
-      margin-bottom: 6mm;
-      border: 1px solid var(--line);
-      border-radius: 5mm;
-      background: #fffaf2;
-      box-shadow: 0 2mm 8mm rgba(54, 40, 26, 0.045);
-      overflow: hidden;
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-
-    .idea:last-child {
-      margin-bottom: 0;
-    }
-
-    .idea-title {
-      display: flex;
-      gap: 5mm;
-      align-items: center;
-      padding: 5mm 7mm;
-      background: var(--green);
-    }
-
-    .number {
-      flex: 0 0 auto;
-      min-width: 15mm;
-      padding: 2.3mm 3mm;
-      border-radius: 4mm;
-      color: var(--green-dark);
-      background: #fff;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-
-    .idea h3 {
-      color: #fff;
-      font-size: 20.5px;
-    }
-
-    .idea-body {
-      padding: 6mm 7mm 7mm;
-    }
-
-    .meta {
-      display: grid;
-      gap: 2.2mm;
-      margin-bottom: 4mm;
-    }
-
-    .meta-row {
-      display: grid;
-      grid-template-columns: 34mm 1fr;
-      gap: 5mm;
-      align-items: baseline;
-      padding: 2.7mm 3.6mm;
-      border-radius: 3mm;
-      background: var(--soft);
-      color: var(--muted);
-      font-size: 10.9px;
-    }
-
-    .meta strong,
-    .so-gehts strong {
-      color: var(--ink);
-      font-weight: 900;
-    }
-
-    .meta .label {
-      color: var(--green);
-      font-weight: 900;
-    }
-
-    .meta em {
-      color: var(--ink);
-      font-style: italic;
-      font-weight: 700;
-    }
-
-    .idea p {
-      margin-top: 3mm;
-      font-size: 11.8px;
-    }
-
-    .so-gehts {
-      margin-top: 4mm;
-      font-size: 12.2px;
-    }
-
-    .shop-tip {
-      margin-top: 3.2mm;
-      padding: 3.5mm 4.2mm;
-      border-radius: 4mm;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-size: 11px;
-    }
-
-    .shop-tip strong {
-      display: block;
-      margin-bottom: 1mm;
-      color: var(--coral);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .practice {
-      margin-top: 3.2mm;
-      padding: 3.2mm 4mm;
-      border-left: 1.5mm solid var(--green);
-      border-radius: 4mm;
-      background: #eaf5f2;
-      font-size: 11.2px;
-    }
-
-    .practice strong {
-      display: block;
-      margin-bottom: 1mm;
-      color: var(--green-dark);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: 10.5px;
-    }
-
-    .cta {
-      margin-top: 8mm;
-      padding: 7mm;
-      border-radius: 6mm;
-      background: var(--green-dark);
-      color: #fff;
-    }
-
-    .cta h3 {
-      color: #fff;
-      font-size: 21px;
-    }
-
-    .cta p {
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 12px;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 5mm;
-      padding: 3mm 5mm;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--green-dark);
-      font-weight: 900;
-    }
-
-    .footer {
-      position: absolute;
-      right: 22mm;
-      bottom: 12mm;
-      left: 22mm;
-      border-top: 1px solid var(--line);
-      padding-top: 4mm;
-      color: var(--muted);
-      font-size: 8.8px;
-    }
-
+    .page:last-child { page-break-after: auto; }
+    .brand { color: var(--accent-dark); font-size: 11pt; font-weight: 900; white-space: nowrap; }
+    .tagline { margin-top: 1pt; color: var(--muted); font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .page-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16pt; color: var(--muted); font-size: 9pt; font-weight: 800; }
+    .cover { background: linear-gradient(150deg, var(--paper) 0%, #fffaf2 48%, var(--accent-soft) 100%); }
+    .cover::before { content: ""; position: absolute; inset: auto 0 0; height: 34mm; background: var(--accent-dark); }
+    .cover::after { content: ""; position: absolute; right: -35mm; top: 36mm; width: 92mm; height: 92mm; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); }
+    .cover-content { position: relative; z-index: 1; margin-top: 42mm; max-width: 136mm; }
+    .eyebrow, .kicker, .section-label { color: var(--accent-dark); font-size: 9pt; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    .cover h1 { margin-top: 8mm; font-size: 44pt; max-width: 132mm; }
+    .cover .subtitle { margin-top: 8mm; color: var(--ink); font-size: 16pt; font-weight: 800; max-width: 122mm; }
+    .cover .lead { margin-top: 6mm; color: var(--muted); font-size: 12.5pt; max-width: 116mm; }
+    .pill { display: inline-flex; margin-top: 12mm; padding: 4mm 8mm; border-radius: 999px; color: #fff; background: var(--accent); font-size: 11pt; font-weight: 900; }
+    .cover-note { position: absolute; z-index: 1; left: 20mm; right: 20mm; bottom: 21mm; color: #fff; font-size: 9pt; font-weight: 750; }
+    .intro h2, .closing h2 { margin-top: 28mm; font-size: 34pt; max-width: 140mm; }
+    .intro p, .closing p { margin-top: 5mm; color: var(--ink); font-size: 12.2pt; max-width: 150mm; }
+    .intro-list { display: grid; gap: 3mm; margin: 8mm 0 0; padding: 0; list-style: none; }
+    .intro-list li, .safety-box, .text-box, .meta-grid > div { border: 1px solid var(--line); border-radius: 5mm; background: var(--card); }
+    .intro-list li { padding: 4mm 5mm; color: var(--muted); font-size: 11pt; font-weight: 720; }
+    .safety-box { margin-top: 7mm; padding: 5mm; border-left: 1.5mm solid var(--accent); color: var(--muted); font-size: 10.5pt; }
+    .idea-page { padding-top: 18mm; }
+    .idea-card { margin-top: 24mm; padding: 8mm; border-radius: 8mm; background: var(--card); border: 1px solid var(--line); box-shadow: 0 12pt 32pt rgba(47,43,40,0.08); }
+    .idea-head { display: grid; grid-template-columns: 19mm 1fr; gap: 5mm; align-items: center; }
+    .number { display: grid; place-items: center; width: 18mm; height: 18mm; border-radius: 999px; color: #fff; background: var(--accent); font-size: 15pt; font-weight: 950; }
+    .idea h2 { margin-top: 1mm; font-size: 28pt; }
+    .meta-line { margin-top: 2mm; color: var(--muted); font-size: 10.8pt; font-weight: 760; }
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 6mm; }
+    .meta-grid > div { padding: 4mm; background: var(--accent-soft); }
+    .meta-grid strong, .text-box strong { display: block; margin-bottom: 1mm; color: var(--accent-dark); font-size: 9pt; letter-spacing: 0.08em; text-transform: uppercase; }
+    .meta-grid span { display: block; color: var(--ink); font-size: 10.8pt; font-weight: 760; }
+    .text-box { margin-top: 4mm; padding: 5mm; }
+    .text-box p { color: var(--ink); font-size: 11.7pt; }
+    .steps { background: #fffaf2; }
+    .practice { border-left: 1.5mm solid var(--accent); background: color-mix(in srgb, var(--accent-soft) 72%, #fff); }
+    .note { background: #fff7e8; }
+    .buy { background: #f7f1ea; }
+    .closing .cta { margin-top: 10mm; padding: 8mm; border-radius: 8mm; color: #fff; background: var(--accent-dark); }
+    .cta h3 { font-size: 27pt; }
+    .cta p { color: rgba(255,255,255,0.88); font-size: 12pt; }
+    .button { display: inline-flex; margin-top: 6mm; padding: 3.5mm 6mm; border-radius: 999px; color: var(--accent-dark); background: #fff; font-size: 11pt; font-weight: 900; }
+    .footer-note { margin-top: 8mm; color: var(--muted); font-size: 9pt; }
+    footer { position: absolute; left: 20mm; right: 20mm; bottom: 10mm; padding-top: 3mm; border-top: 1px solid var(--line); color: var(--muted); font-size: 8.5pt; }
     @media screen {
-      body {
-        padding: 12px;
-      }
-
-      .page {
-        width: 210mm;
-        margin: 0 auto 12px;
-        box-shadow: 0 12px 40px rgba(35, 28, 20, 0.18);
-      }
+      body { padding: 14px; }
+      .page { margin: 0 auto 14px; box-shadow: 0 12px 40px rgba(35,28,20,0.18); }
+      html.render-single-page body { padding: 0; background: var(--paper); }
+      html.render-single-page .page { margin: 0; box-shadow: none; }
     }
   </style>
+
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(location.search);
+      var page = params.get('renderPage');
+      if (!page) return;
+      document.documentElement.classList.add('render-single-page');
+      document.querySelectorAll('[data-page]').forEach(function(section) {
+        section.hidden = section.getAttribute('data-page') !== page;
+      });
+    });
+  })();
+</script>
 </head>
 <body>
-  <section class="page cover">
-    <div class="brand">Kleinkind-Welt</div>
-    <div class="tagline">Ehrliche Empfehlungen für Eltern</div>
-
+  <section class="page cover" data-page="1">
+    <div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div>
     <div class="cover-content">
       <div class="eyebrow">Dein Spielideen-Kompass</div>
       <h1>Was spiele ich heute?</h1>
-      <p>5 schnelle Spielideen für genau die Phase, in der dein Kind gerade steckt, ohne Vorbereitung, meist nur mit Sachen, die du zuhause hast.</p>
+      <p class="subtitle">5 schnelle Spielideen für Kinder von 12 bis 18 Monaten</p>
+      <p class="lead">Laufen, stapeln, nachahmen - alltagstaugliche Ideen ohne große Vorbereitung.</p>
       <span class="pill">12 bis 18 Monate</span>
     </div>
-
     <p class="cover-note">Aus dem Familienalltag gesammelt und verständlich aufbereitet · kleinkind-welt.de</p>
   </section>
-
-  <section class="page intro">
-    <div class="section-label">Vor dem Loslegen</div>
-    <h2>Schön, dass du da bist</h2>
-    <p>Ich bin Boris, verheiratet, Papa eines Sohnes und beruflich als Senior Manager in München unterwegs. Kleinkind-Welt ist mein kleines Herzensprojekt.</p>
-    <p>Der Antrieb kam daraus, dass ich selbst mehr mit meinem Sohn machen wollte, und weil ich beruflich ziemlich auf Optimierung getrimmt bin. Das heißt nicht, dass ich nicht einfach mit ihm rumblödel, ganz im Gegenteil. Aber ich wollte auch bewusster etwas zu seiner Entwicklung beitragen.</p>
-    <p>Online hat es mir dafür oft an guten Infos gefehlt. Also habe ich angefangen, viel zu lesen, vieles selbst auszuprobieren und meine Erfahrungen verständlich zu sammeln.</p>
-
-    <div class="section-label" style="margin-top: 10mm;">So nutzt du dieses Heft</div>
-    <p>Ein ehrlicher Hinweis vorweg: Jedes Kind entwickelt sich in seinem eigenen Tempo. Diese Ideen sind Angebote, kein Programm, das abgearbeitet werden muss. Wenn dein Kind heute lieber Töpfe ausräumt, auch super.</p>
-
+  <section class="page intro" data-page="2">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <h2>Jetzt wird Wiederholung Gold wert</h2>
+    <p>Ich bin Boris, Papa eines Sohnes und Gründer von Kleinkind-Welt.</p><p>Mit 12 bis 18 Monaten wirkt vieles chaotisch: Dinge werden ausgeräumt, umgeworfen, wiederholt und sofort nochmal gemacht.</p><p>Genau darin steckt viel Lernen. Dein Kind übt Ursache und Wirkung, Sprache, Gleichgewicht und erste kleine Entscheidungen.</p><p>Diese Ideen sind Angebote, kein Programm. Jedes Kind entwickelt sich in seinem eigenen Tempo.</p>
     <ul class="intro-list">
-      <li>Schau bei jeder Idee zuerst auf „Wann?“ und nimm einfach das, was gerade zu eurer Situation passt.</li>
-      <li>Du brauchst fast nie Spielzeug. Meist reichen Dinge, die ohnehin zuhause sind.</li>
-      <li>Es geht nicht um Perfektion. Wenn dein Kind nach drei Minuten etwas anderes will, ist das völlig okay.</li>
-      <li>Die Praxis-Tipps kommen aus echtem Familienalltag und sind bewusst alltagstauglich gehalten.</li>
+      <li>Schau zuerst auf „Wann?“ und nimm, was gerade zu eurer Situation passt.</li>
+      <li>Du brauchst meist wenig Material. Alltag schlägt oft Spielzeugflut.</li>
+      <li>Wenn dein Kind nach wenigen Minuten aussteigt, ist das völlig okay.</li>
     </ul>
-
-    <div class="safety-box">
-      <strong>Kurzer Sicherheits-Hinweis:</strong> Bitte begleite die Spiele immer aufmerksam, nutze keine verschluckbaren Kleinteile und passe Material und Umgebung an dein Kind an.
-    </div>
+    <div class="safety-box"><strong>Kurzer Sicherheits-Hinweis:</strong> Bitte begleite die Spiele aufmerksam und passe Material und Umgebung an dein Kind an.</div>
+    <footer>kleinkind-welt.de</footer>
   </section>
 
-  <section class="page idea-page">
-    <div class="page-heading">
-      <h2>Deine 5 Spielideen für 12 bis 18 Monate</h2>
-      <div class="small-note">erste Schritte · erste Wörter · alles erkunden</div>
-    </div>
-
-    <article class="idea">
-      <div class="idea-title">
+  <section class="page idea-page" data-page="3">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
         <span class="number">01</span>
-        <h3>Becher-Türme stapeln und umwerfen</h3>
-      </div>
-      <div class="idea-body">
-        <div class="meta">
-          <div class="meta-row"><span class="label">Wann?</span><span>15 Minuten · drinnen · wenn dein Kind quengelt</span></div>
-          <div class="meta-row"><span class="label">Material</span><span>3 bis 5 stapelbare Becher oder leere Joghurtbecher</span></div>
-          <div class="meta-row"><span class="label">Dauer</span><span>ca. 15 Minuten</span></div>
-          <div class="meta-row"><span class="label">Das passiert dabei</span><span><em>Auge-Hand-Koordination · Ursache-Wirkung · Frustrationstoleranz</em></span></div>
-        </div>
-        <p class="so-gehts"><strong>So geht’s:</strong> Stapelt gemeinsam einen Turm und lasst dein Kind ihn umwerfen. Jubelt beim Umfallen. Wiederholt es ruhig oft, denn die Wiederholung ist für dein Kind das eigentliche Spiel, nicht der fertige Turm.</p>
-        <div class="shop-tip">
-          <strong>Tipp zum Kaufen</strong>
-          Wenn du es schöner und stabiler magst, passt ein Stapelbecher-Set gut dazu:
-          <a href="https://amzn.to/4wlVDSw" target="_blank" rel="sponsored noopener nofollow" data-affiliate="amazon" data-freebie="spielideen-kompass-12-18-monate">Stapelbecher-Set ansehen</a>.
-        </div>
-        <div class="practice">
-          <strong>Boris’ Praxis-Tipp</strong>
-          Wenn dein Kind schon laufen kann, lass es gerne selbst dagegen laufen. Das hat bei uns für sehr viel Gelächter gesorgt.
+        <div>
+          <div class="kicker">Spielidee 01</div>
+          <h2>Becher-Türme stapeln und umwerfen</h2>
+          <p class="meta-line">10-15 Min · drinnen · bei Bewegungsdrang</p>
         </div>
       </div>
-    </article>
-  </section>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>3 bis 5 stapelbare Becher oder leere Joghurtbecher</span></div>
+        <div><strong>Fördert</strong><span>Auge-Hand-Koordination · Ursache-Wirkung · Frustrationstoleranz</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Stapelt gemeinsam einen Turm und lass dein Kind ihn umwerfen. Jubelt beim Umfallen. Wiederholt es ruhig oft, denn die Wiederholung ist für dein Kind das eigentliche Spiel, nicht der fertige Turm.</p></div>
 
-  <section class="page idea-page">
-    <article class="idea">
-      <div class="idea-title">
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Wenn dein Kind schon laufen kann, lass es auch mal selbst dagegen laufen. Das hat bei uns für sehr viel Gelächter gesorgt.</p></div>
+      <div class="text-box buy"><strong>Tipp zum Kaufen</strong><p>Ein schlichtes Stapelbecher-Set reicht völlig. Es muss nicht blinken, sprechen oder besonders groß sein.</p></div>
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page idea-page" data-page="4">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
         <span class="number">02</span>
-        <h3>Der Wäscheklammer-Schatz</h3>
-      </div>
-      <div class="idea-body">
-        <div class="meta">
-          <div class="meta-row"><span class="label">Wann?</span><span>5 Minuten · während du kochst</span></div>
-          <div class="meta-row"><span class="label">Material</span><span>Eine Handvoll Holz-Wäscheklammern und ein Behälter</span></div>
-          <div class="meta-row"><span class="label">Dauer</span><span>5 Minuten, läuft auch nebenbei</span></div>
-          <div class="meta-row"><span class="label">Das passiert dabei</span><span><em>Feinmotorik · Pinzettengriff · Konzentration · Vorstufe zum Greifen und Schreiben</em></span></div>
-        </div>
-        <p class="so-gehts"><strong>So geht’s:</strong> Gib deinem Kind Klammern und eine Schüssel. Reinwerfen, rausnehmen, wieder rein. Zeig einmal, wie man eine Klammer an den Rand steckt. Viele Kinder sind davon erstaunlich lange gefesselt.</p>
-        <p class="small-note">Bitte nur unter Aufsicht und mit stabilen, großen Klammern spielen lassen.</p>
-        <div class="shop-tip">
-          <strong>Tipp zum Kaufen</strong>
-          Wenn du dafür etwas Schönes möchtest, passt ein Set bunter Holzklammern:
-          <a href="https://amzn.to/3QhhivV" target="_blank" rel="sponsored noopener nofollow" data-affiliate="amazon" data-freebie="spielideen-kompass-12-18-monate">Holzklammern ansehen</a>.
-        </div>
-        <div class="practice">
-          <strong>Boris’ Praxis-Tipp</strong>
-          Es muss nicht unbedingt der Schüsselrand sein. Bei uns hat sich unser Kind erstmal mit der Funktionsweise der Klammer vertraut gemacht. Dieses Spiel klappt oft erst beim zweiten oder dritten Mal richtig.
+        <div>
+          <div class="kicker">Spielidee 02</div>
+          <h2>Der Wäscheklammer-Schatz</h2>
+          <p class="meta-line">5 Min · während du kochst</p>
         </div>
       </div>
-    </article>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Große Holz-Wäscheklammern und ein Behälter</span></div>
+        <div><strong>Fördert</strong><span>Feinmotorik · Pinzettengriff · Konzentration</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Gib deinem Kind Klammern und eine Schüssel. Reinwerfen, rausnehmen, wieder rein. Zeig einmal, wie man eine Klammer an den Rand steckt. Danach darf dein Kind ausprobieren.</p></div>
+      <div class="text-box note"><strong>Hinweis</strong><p>Bitte nur unter Aufsicht und mit stabilen, großen Klammern spielen lassen.</p></div>
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Dieses Spiel klappt oft erst beim zweiten oder dritten Mal richtig. Am Anfang ist schon das Anschauen der Klammer spannend.</p></div>
 
-    <article class="idea">
-      <div class="idea-title">
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page idea-page" data-page="5">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
         <span class="number">03</span>
-        <h3>Kissen-Parcours durchs Wohnzimmer</h3>
-      </div>
-      <div class="idea-body">
-        <div class="meta">
-          <div class="meta-row"><span class="label">Wann?</span><span>15 Minuten · Regentag · bei Bewegungsdrang</span></div>
-          <div class="meta-row"><span class="label">Material</span><span>Sofakissen, Decken und ein paar Kuscheltiere</span></div>
-          <div class="meta-row"><span class="label">Dauer</span><span>ca. 15 Minuten</span></div>
-          <div class="meta-row"><span class="label">Das passiert dabei</span><span><em>Grobmotorik · Gleichgewicht · Körpergefühl · Mut</em></span></div>
-        </div>
-        <p class="so-gehts"><strong>So geht’s:</strong> Leg Kissen als kleinen Weg auf den Boden. Zeig deinem frisch laufenden Kind, wie es darüber balanciert, und halte anfangs die Hand. Ein Kuscheltier am Ende als Ziel motiviert zusätzlich.</p>
-        <p class="small-note">Bitte achte auf rutschfesten Untergrund und ausreichend Platz.</p>
-        <div class="practice">
-          <strong>Boris’ Praxis-Tipp</strong>
-          Mein absolutes Lieblingsspiel. Besonders viel Spaß macht es, wenn man spielerisch hinterher ist. Optimal sind Schaumstoffmatten oder eine Krabbelunterlage, auf der man weicher fällt.
+        <div>
+          <div class="kicker">Spielidee 03</div>
+          <h2>Kissen-Parcours</h2>
+          <p class="meta-line">10 Min · Regentag · bei Bewegungsdrang</p>
         </div>
       </div>
-    </article>
-  </section>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Sofakissen, Decken und ein Kuscheltier</span></div>
+        <div><strong>Fördert</strong><span>Grobmotorik · Gleichgewicht · Körpergefühl</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Leg Kissen als kleinen Weg auf den Boden. Zeig, wie dein Kind darübersteigen oder krabbeln kann. Ein Kuscheltier am Ende als Ziel motiviert zusätzlich.</p></div>
+      <div class="text-box note"><strong>Hinweis</strong><p>Achte auf rutschfesten Untergrund und genug Platz.</p></div>
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Mein Lieblingsspiel für volle Wohnzimmer-Tage. Es wirkt wild, ist aber oft genau die Bewegung, die ein Kind gerade braucht.</p></div>
 
-  <section class="page idea-page">
-    <article class="idea">
-      <div class="idea-title">
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page idea-page" data-page="6">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
         <span class="number">04</span>
-        <h3>Benennen-Spiel am Fenster</h3>
-      </div>
-      <div class="idea-body">
-        <div class="meta">
-          <div class="meta-row"><span class="label">Wann?</span><span>5 Minuten · ruhiger Moment · zuhause</span></div>
-          <div class="meta-row"><span class="label">Material</span><span>Nur ein Fenster, kein Spielzeug nötig</span></div>
-          <div class="meta-row"><span class="label">Dauer</span><span>ca. 5 Minuten</span></div>
-          <div class="meta-row"><span class="label">Das passiert dabei</span><span><em>Sprachentwicklung · Wortschatz · gemeinsame Aufmerksamkeit</em></span></div>
-        </div>
-        <p class="so-gehts"><strong>So geht’s:</strong> Schau mit deinem Kind aus dem Fenster und benenne ruhig, was ihr seht: „Auto. Rotes Auto. Hund. Der Hund läuft.“ Kurze, klare Wörter und kleine Pausen reichen völlig. Dein Kind muss noch nichts sagen, denn Zuhören ist die Vorstufe zum Sprechen.</p>
-        <div class="practice">
-          <strong>Boris’ Praxis-Tipp</strong>
-          Mach dich nicht an der Aussprache fest. Wiederhole auch mal, was dein Kind sagt. Dann fühlt es sich sicher und traut sich mehr.
+        <div>
+          <div class="kicker">Spielidee 04</div>
+          <h2>Benennen am Fenster</h2>
+          <p class="meta-line">5 Min · ruhiger Moment</p>
         </div>
       </div>
-    </article>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Nur ein Fenster</span></div>
+        <div><strong>Fördert</strong><span>Sprache · Wortschatz · gemeinsame Aufmerksamkeit</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Schau mit deinem Kind aus dem Fenster und benenne ruhig, was ihr seht: „Auto. Rotes Auto. Hund. Der Hund läuft.“ Kurze Wörter und kleine Pausen reichen völlig.</p></div>
 
-    <article class="idea">
-      <div class="idea-title">
-        <span class="number">05</span>
-        <h3>Sortier-Spiel mit Alltagsschätzen</h3>
-      </div>
-      <div class="idea-body">
-        <div class="meta">
-          <div class="meta-row"><span class="label">Wann?</span><span>10 bis 15 Minuten · drinnen · konzentrierte Phase</span></div>
-          <div class="meta-row"><span class="label">Material</span><span>2 Schüsseln und größere, ungefährliche Gegenstände in zwei Sorten</span></div>
-          <div class="meta-row"><span class="label">Dauer</span><span>10 bis 15 Minuten</span></div>
-          <div class="meta-row"><span class="label">Das passiert dabei</span><span><em>Logisches Denken · Kategorien bilden · Feinmotorik</em></span></div>
-        </div>
-        <p class="so-gehts"><strong>So geht’s:</strong> Misch zwei Sorten Gegenstände und zeig deinem Kind, wie man sie in zwei Schüsseln sortiert. Am Anfang hilfst du, bald macht es dein Kind selbst. Wichtig: nur große Teile verwenden, nichts Verschluckbares.</p>
-        <div class="shop-tip">
-          <strong>Tipp zum Kaufen</strong>
-          Wenn du dafür ein eigenes Spielzeug möchtest, passt ein einfaches Sortier-Spielzeug aus Holz:
-          <a href="https://amzn.to/4xHEaoW" target="_blank" rel="sponsored noopener nofollow" data-affiliate="amazon" data-freebie="spielideen-kompass-12-18-monate">Sortier-Spielzeug ansehen</a>.
-        </div>
-        <div class="practice">
-          <strong>Boris’ Praxis-Tipp</strong>
-          Besonders witzig war es bei uns mit Obst. Achtung, Sauerei-Gefahr. Aber dass immer wieder ein Stück im Mund verschwinden konnte, hat bei uns für viel Lachen gesorgt und zur Nachahmung motiviert.
-        </div>
-      </div>
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Mach dich nicht an der Aussprache fest. Wenn dein Kind etwas Ähnliches sagt, greif es freundlich auf und wiederhole das Wort klar.</p></div>
+
     </article>
+    <footer>kleinkind-welt.de</footer>
   </section>
+  <section class="page idea-page" data-page="7">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">05</span>
+        <div>
+          <div class="kicker">Spielidee 05</div>
+          <h2>Sortieren mit Alltagsschätzen</h2>
+          <p class="meta-line">10 Min · konzentrierte Phase</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>2 Schüsseln und große, ungefährliche Gegenstände</span></div>
+        <div><strong>Fördert</strong><span>Kategorien bilden · Feinmotorik · erstes logisches Denken</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Misch zwei Sorten Gegenstände und zeig, wie man sie in zwei Schüsseln sortiert. Am Anfang hilfst du, später findet dein Kind eigene Regeln.</p></div>
 
-  <section class="page closing">
-    <div class="section-label">Zum Mitnehmen</div>
-    <h2>Kurz zur Beruhigung</h2>
-    <p>Kinder entwickeln sich unterschiedlich schnell. Das meiste, worüber man sich Sorgen macht, ist völlig normal. Sprich aber gern mit deinem Kinderarzt oder deiner Kinderärztin, wenn du dauerhaft das Gefühl hast, dass etwas nicht stimmt. Vertrauen in den eigenen Bauch ist hier wichtiger als jede Checkliste.</p>
-    <p class="small-note">Dieser Kompass ersetzt keine ärztliche oder therapeutische Beratung. Er sammelt Spielanregungen aus dem Familienalltag.</p>
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Bei uns funktionierte es mit Obst besonders gut. Achtung, kleine Sauerei-Gefahr. Aber genau das machte es interessant.</p></div>
 
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page closing" data-page="8">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>12 bis 18 Monate</span></div>
+    <h2>Zum Mitnehmen</h2>
+    <p>Wenn dein Kind Dinge zum zehnten Mal umwirft, ist das nicht gegen dich gerichtet. Es prüft, ob die Welt noch genauso funktioniert wie eben.</p><p>Gute Spiele in dieser Phase dürfen einfach sein. Wiederholung ist kein Mangel, sondern das eigentliche Training.</p>
+    <p class="footer-note">Dieser Kompass ersetzt keine ärztliche oder therapeutische Beratung. Bitte begleite die Spiele aufmerksam und passe Material und Umgebung an dein Kind an.</p>
     <div class="cta">
-      <h3>Mehr Ideen für diese Phase</h3>
-      <p>Noch mehr Spielideen und ehrliche Empfehlungen für Kinder von 12 bis 18 Monaten findest du auf Kleinkind-Welt.</p>
-      <a href="https://kleinkind-welt.de/artikel/spielzeug-12-18-monate">Mehr für 12 bis 18 Monate ansehen</a>
+      <h3>Mehr Spielideen und ehrliche Empfehlungen</h3>
+      <p>Weitere passende Ideen, Kaufhilfen und ehrliche Empfehlungen findest du auf Kleinkind-Welt.</p>
+      <a class="button" href="https://kleinkind-welt.de/artikel/spielzeug-12-18-monate">Mehr für 12 bis 18 Monate ansehen</a>
     </div>
-
-    <p style="margin-top: 8mm;">Und in ein paar Tagen schreibe ich dir nochmal kurz. Dann verrate ich dir meine Lieblingsidee für richtig stressige Tage. Bis dahin: viel Spaß beim Ausprobieren.</p>
-
-    <div class="footer">
-      © kleinkind-welt.de · Dieses Freebie ist für deinen persönlichen Gebrauch. Mit Affiliate-Links gekennzeichnete Empfehlungen bedeuten: Kaufst du darüber, unterstützt du diese Seite ohne Mehrkosten für dich. Ich empfehle nur Dinge, die ich selbst sinnvoll finde.
-    </div>
+    <footer>© kleinkind-welt.de · Dieses Freebie ist für deinen persönlichen Gebrauch.</footer>
   </section>
 </body>
 </html>

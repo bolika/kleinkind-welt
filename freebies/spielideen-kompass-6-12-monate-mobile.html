@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Spielideen-Kompass 6 bis 12 Monate - Mobile Version</title>
+  <link rel="canonical" href="https://kleinkind-welt.de/freebies/spielideen-kompass-6-12-monate-mobile">
+  <style>
+    :root {
+      --accent: #2f8578;
+      --accent-dark: #1f5f56;
+      --accent-soft: #eaf5f2;
+      --paper: #fbf6ee;
+      --card: #fffdf9;
+      --ink: #2f2b28;
+      --muted: #6e625b;
+      --line: #eadfd3;
+      --warm: #f4eadf;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; color: var(--ink); background: #e8ded4; font-family: "Nunito Sans", "Inter", "DejaVu Sans", system-ui, sans-serif; line-height: 1.48; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { line-height: 1.05; letter-spacing: 0; font-family: "Poppins", "Nunito Sans", "DejaVu Sans", system-ui, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    @page { size: 405pt 720pt; margin: 0; }
+    .page {
+      position: relative;
+      width: 405pt;
+      height: 720pt;
+      overflow: hidden;
+      page-break-after: always;
+      background:
+        radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 28%),
+        var(--paper);
+      padding: 30pt 28pt 24pt;
+    }
+    .page:last-child { page-break-after: auto; }
+    .brand { color: var(--accent-dark); font-size: 11pt; font-weight: 900; white-space: nowrap; }
+    .tagline { margin-top: 1pt; color: var(--muted); font-size: 7.5pt; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+    .page-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16pt; color: var(--muted); font-size: 9pt; font-weight: 800; }
+    .cover { background: linear-gradient(150deg, var(--paper) 0%, #fffaf2 48%, var(--accent-soft) 100%); }
+    .cover::before { content: ""; position: absolute; inset: auto 0 0; height: 96pt; background: var(--accent-dark); }
+    .cover::after { content: ""; position: absolute; right: -80pt; top: 95pt; width: 220pt; height: 220pt; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); }
+    .cover-content { position: relative; z-index: 1; margin-top: 86pt; max-width: 320pt; }
+    .eyebrow, .kicker, .section-label { color: var(--accent-dark); font-size: 9pt; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; }
+    .cover h1 { margin-top: 14pt; font-size: 40pt; max-width: 300pt; }
+    .cover .subtitle { margin-top: 12pt; color: var(--ink); font-size: 16pt; font-weight: 800; max-width: 300pt; }
+    .cover .lead { margin-top: 10pt; color: var(--muted); font-size: 13.5pt; max-width: 292pt; }
+    .pill { display: inline-flex; margin-top: 20pt; padding: 8pt 15pt; border-radius: 999px; color: #fff; background: var(--accent); font-size: 11.5pt; font-weight: 900; }
+    .cover-note { position: absolute; z-index: 1; left: 28pt; right: 28pt; bottom: 32pt; color: #fff; font-size: 10.5pt; font-weight: 750; }
+    .intro h2, .closing h2 { margin-top: 58pt; font-size: 32pt; max-width: 320pt; }
+    .intro p, .closing p { margin-top: 12pt; color: var(--ink); font-size: 13.8pt; max-width: 318pt; }
+    .intro-list { display: grid; gap: 8pt; margin: 18pt 0 0; padding: 0; list-style: none; }
+    .intro-list li, .safety-box, .text-box, .meta-grid > div { border: 1px solid var(--line); border-radius: 18pt; background: var(--card); }
+    .intro-list li { padding: 10pt 12pt; color: var(--muted); font-size: 12.2pt; font-weight: 720; }
+    .safety-box { margin-top: 15pt; padding: 12pt; border-left: 5pt solid var(--accent); color: var(--muted); font-size: 11.5pt; }
+    .idea-page { padding-top: 24pt; }
+    .idea-card { margin-top: 54pt; padding: 20pt; border-radius: 28pt; background: var(--card); border: 1px solid var(--line); box-shadow: 0 12pt 32pt rgba(47,43,40,0.08); }
+    .idea-head { display: grid; grid-template-columns: 54pt 1fr; gap: 13pt; align-items: center; }
+    .number { display: grid; place-items: center; width: 54pt; height: 54pt; border-radius: 999px; color: #fff; background: var(--accent); font-size: 15pt; font-weight: 950; }
+    .idea h2 { margin-top: 4pt; font-size: 27pt; }
+    .meta-line { margin-top: 8pt; color: var(--muted); font-size: 12.3pt; font-weight: 760; }
+    .meta-grid { display: grid; grid-template-columns: 1fr; gap: 8pt; margin-top: 16pt; }
+    .meta-grid > div { padding: 10pt 12pt; background: var(--accent-soft); }
+    .meta-grid strong, .text-box strong { display: block; margin-bottom: 4pt; color: var(--accent-dark); font-size: 10pt; letter-spacing: 0.08em; text-transform: uppercase; }
+    .meta-grid span { display: block; color: var(--ink); font-size: 12.3pt; font-weight: 760; }
+    .text-box { margin-top: 10pt; padding: 12pt; }
+    .text-box p { color: var(--ink); font-size: 13.2pt; }
+    .steps { background: #fffaf2; }
+    .practice { border-left: 5pt solid var(--accent); background: color-mix(in srgb, var(--accent-soft) 72%, #fff); }
+    .note { background: #fff7e8; }
+    .buy { background: #f7f1ea; }
+    .closing .cta { margin-top: 24pt; padding: 18pt; border-radius: 26pt; color: #fff; background: var(--accent-dark); }
+    .cta h3 { font-size: 25pt; }
+    .cta p { color: rgba(255,255,255,0.88); font-size: 13pt; }
+    .button { display: inline-flex; margin-top: 16pt; padding: 11pt 16pt; border-radius: 999px; color: var(--accent-dark); background: #fff; font-size: 12pt; font-weight: 900; }
+    .footer-note { margin-top: 18pt; color: var(--muted); font-size: 10.6pt; }
+    footer { position: absolute; left: 28pt; right: 28pt; bottom: 18pt; padding-top: 8pt; border-top: 1px solid var(--line); color: var(--muted); font-size: 9pt; }
+    @media screen {
+      body { padding: 14px; }
+      .page { margin: 0 auto 14px; box-shadow: 0 12px 40px rgba(35,28,20,0.18); }
+      html.render-single-page body { padding: 0; background: var(--paper); }
+      html.render-single-page .page { margin: 0; box-shadow: none; }
+    }
+  </style>
+
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(location.search);
+      var page = params.get('renderPage');
+      if (!page) return;
+      document.documentElement.classList.add('render-single-page');
+      document.querySelectorAll('[data-page]').forEach(function(section) {
+        section.hidden = section.getAttribute('data-page') !== page;
+      });
+    });
+  })();
+</script>
+</head>
+<body>
+  <section class="page mobile-page cover" data-page="1">
+    <div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div>
+    <div class="cover-content">
+      <div class="eyebrow">Mobile Leseversion</div>
+      <h1>Was spiele ich heute?</h1>
+      <p class="subtitle">5 einfache Spielideen für Babys von 6 bis 12 Monaten</p>
+      <p class="lead">Greifen, krabbeln, ausprobieren - mit Dingen, die du oft schon zuhause hast.</p>
+      <span class="pill">6 bis 12 Monate</span>
+    </div>
+    <p class="cover-note">kleinkind-welt.de</p>
+  </section>
+  <section class="page mobile-page intro" data-page="2">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <h2>Jetzt wird alles interessant</h2>
+    <p>Ich bin Boris, Papa eines Sohnes und Gründer von Kleinkind-Welt.</p><p>Zwischen 6 und 12 Monaten wird Spielen oft aktiver. Dein Baby greift gezielter, möchte Dinge fallen lassen, sucht Nähe und entfernt sich gleichzeitig ein kleines Stück.</p><p>Du brauchst dafür kein volles Spielzimmer. Gute Spiele in dieser Phase sind kurz, wiederholbar und lassen dein Baby selbst etwas bewirken.</p><p>Diese Ideen sind Angebote, kein Programm. Jedes Kind entwickelt sich in seinem eigenen Tempo.</p>
+    <div class="safety-box"><strong>Wichtig:</strong> Diese Ideen sind Angebote, kein Programm. Jedes Kind entwickelt sich in seinem eigenen Tempo.</div>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+
+  <section class="page mobile-page idea-page" data-page="3">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">01</span>
+        <div>
+          <div class="kicker">Spielidee 01</div>
+          <h2>Rein, raus, wieder rein</h2>
+          <p class="meta-line">5-10 Min · am Boden · ruhige Wachphase</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Schüssel und große Tücher oder weiche Bälle</span></div>
+        <div><strong>Fördert</strong><span>Greifen · Loslassen · Ursache-Wirkung</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Lege wenige große Gegenstände in eine Schüssel. Zeig einmal langsam, wie du etwas herausnimmst und wieder hineinlegst. Dann gib deinem Baby Zeit. Das Spiel darf sehr schlicht bleiben.</p></div>
+
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Bei uns wurde das Ausräumen viel früher verstanden als das Einräumen. Das ist völlig normal. Erst kommt das Entdecken, dann die Ordnung.</p></div>
+
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page mobile-page idea-page" data-page="4">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">02</span>
+        <div>
+          <div class="kicker">Spielidee 02</div>
+          <h2>Krabbel-Ziel setzen</h2>
+          <p class="meta-line">3-8 Min · wenn dein Baby Bewegungsdrang hat</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Lieblingsspielzeug oder ein spannender Alltagsgegenstand</span></div>
+        <div><strong>Fördert</strong><span>Grobmotorik · Motivation · Raumgefühl</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Lege einen interessanten Gegenstand ein kleines Stück außerhalb der direkten Reichweite. Geh selbst auf Augenhöhe und ermutige dein Baby ruhig. Vergrößere den Abstand nur, wenn es entspannt bleibt.</p></div>
+
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Ein Ziel direkt vor die Nase zu legen, war bei uns oft besser als zu weit weg. Kleine Erfolgserlebnisse motivieren mehr als große Herausforderungen.</p></div>
+
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page mobile-page idea-page" data-page="5">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">03</span>
+        <div>
+          <div class="kicker">Spielidee 03</div>
+          <h2>Tuch-Versteck</h2>
+          <p class="meta-line">2-5 Min · Wickeltisch oder Boden</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Leichtes Tuch und ein bekanntes Spielzeug</span></div>
+        <div><strong>Fördert</strong><span>Objektpermanenz · Aufmerksamkeit · Freude am Suchen</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Verstecke ein Spielzeug halb unter einem Tuch. Frag ruhig: „Wo ist es?“ Zieh das Tuch erst ein Stück weg, dann lass dein Baby selbst entdecken. Später kannst du das Spielzeug ganz verdecken.</p></div>
+
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Mach es am Anfang wirklich leicht. Das Erfolgserlebnis ist der Spaß, nicht die perfekte Suche.</p></div>
+
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page mobile-page idea-page" data-page="6">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">04</span>
+        <div>
+          <div class="kicker">Spielidee 04</div>
+          <h2>Klatschen und Pause</h2>
+          <p class="meta-line">1-3 Min · zwischendurch</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Nur deine Hände und Stimme</span></div>
+        <div><strong>Fördert</strong><span>Rhythmus · Nachahmung · soziale Verbindung</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Klatsche langsam zweimal und mach dann eine Pause. Warte, ob dein Baby reagiert. Wiederhole ein einfaches Muster. Wenn dein Baby nur lächelt oder strampelt, ist das schon Mitmachen.</p></div>
+
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Ich musste lernen, Pausen auszuhalten. Babys brauchen oft länger, um zu antworten. Genau diese Pause macht das Spiel spannend.</p></div>
+
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page mobile-page idea-page" data-page="7">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <article class="idea-card">
+      <div class="idea-head">
+        <span class="number">05</span>
+        <div>
+          <div class="kicker">Spielidee 05</div>
+          <h2>Becher wandern lassen</h2>
+          <p class="meta-line">5 Min · Hochstuhl oder Boden</p>
+        </div>
+      </div>
+      <div class="meta-grid">
+        <div><strong>Material</strong><span>Zwei leichte Becher</span></div>
+        <div><strong>Fördert</strong><span>Handwechsel · Koordination · erstes Problemlösen</span></div>
+      </div>
+      <div class="text-box steps"><strong>So geht's</strong><p>Gib deinem Baby einen Becher in die Hand und biete den zweiten an. Beobachte, ob es den ersten loslässt, wechselt oder beide halten will. Danach kannst du etwas Kleines darunter verstecken.</p></div>
+
+      <div class="text-box practice"><strong>Boris' Praxistipp</strong><p>Nicht zu viel erklären. Einfach anbieten und schauen. In diesem Alter ist der Weg wichtiger als das Ergebnis.</p></div>
+      <div class="text-box buy"><strong>Tipp zum Kaufen</strong><p>Stapelbecher sind für diese Phase oft sinnvoller als komplexes Aktivitätsspielzeug, weil sie länger nutzbar bleiben.</p></div>
+    </article>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+  <section class="page mobile-page closing" data-page="8">
+    <div class="page-top"><div class="brand">Kleinkind-Welt</div><div class="tagline">Ehrliche Empfehlungen für Eltern</div><span>6 bis 12 Monate</span></div>
+    <h2>Zum Mitnehmen</h2>
+    <p>In dieser Phase entsteht oft das Gefühl, dass ständig neues Spielzeug her muss. Meist stimmt das nicht. Dein Baby lernt durch Wiederholung, nicht durch Abwechslung um jeden Preis.</p><p>Wenn eine Idee heute nicht klappt, ist sie nicht gescheitert. Versuch sie in zwei Wochen nochmal.</p>
+    <p class="footer-note">Dieser Kompass ersetzt keine ärztliche oder therapeutische Beratung. Bitte begleite die Spiele aufmerksam und passe Material und Umgebung an dein Kind an.</p>
+    <div class="cta">
+      <h3>Mehr Ideen</h3>
+      <p>Mehr Spielideen und ehrliche Empfehlungen findest du auf kleinkind-welt.de.</p>
+      <a class="button" href="/artikel/spielzeug-6-12-monate">Mehr für 6 bis 12 Monate ansehen</a>
+    </div>
+    <footer>kleinkind-welt.de</footer>
+  </section>
+</body>
+</html>
