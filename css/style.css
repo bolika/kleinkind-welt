@@ -1540,6 +1540,7 @@ nav a:hover { color: var(--primary); }
   margin: 32px 0;
 }
 
+.toc h2,
 .toc h4 {
   font-size: 0.95rem;
   font-weight: 700;
@@ -2054,6 +2055,7 @@ footer ul a:hover { color: white; }
   margin: 28px 0;
 }
 
+.so-waehlen-wir-box h3,
 .so-waehlen-wir-box h4 {
   font-size: 0.8rem;
   font-weight: 700;
@@ -2267,6 +2269,7 @@ footer ul a:hover { color: white; }
   display: block;
 }
 
+.prozess-item h3,
 .prozess-item h4 {
   font-size: 1rem;
   font-weight: 700;
@@ -2739,6 +2742,7 @@ footer ul a:hover { color: white; }
   box-shadow: 0 8px 24px rgba(93, 72, 53, 0.06);
 }
 
+.methodenbox h3,
 .methodenbox h4 {
   margin: 0 0 10px 0;
   font-size: 0.92rem;
@@ -3675,7 +3679,8 @@ footer ul a:hover { color: white; }
   font-size: 0.88rem;
 }
 
-.quellenbox h4 {
+.quellenbox h4,
+.quellenbox h3 {
   margin: 0 0 10px 0;
   font-size: 0.9rem;
   color: var(--text);
