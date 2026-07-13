@@ -1013,6 +1013,54 @@ nav a:hover { color: var(--primary); }
   margin-bottom: 12px;
 }
 
+.produkt-evidenz {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 12px;
+  color: var(--primary);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.produkt-evidenz strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--primary) 8%, white);
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.produkt-evidenz span {
+  color: var(--text-light);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.produkt-evidenz--inline {
+  margin-bottom: 0;
+}
+
+.redaktionelle-einordnung {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.redaktionelle-einordnung small {
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
 .produkt-box > p:not(.pros-cons-label):first-of-type::before {
   content: "Unser Fazit";
   display: block;
@@ -1449,18 +1497,59 @@ nav a:hover { color: var(--primary); }
 .faq-item p { color: var(--text-light); line-height: 1.65; margin: 0; }
 
 /* Accordion mode – activated via JS adding .accordion-enabled to .faq-section */
-.faq-section.accordion-enabled .faq-item { cursor: pointer; }
-.faq-section.accordion-enabled .faq-item h3 {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 0; padding-right: 8px; cursor: pointer;
+.faq-section.accordion-enabled .faq-item h3 { margin-bottom: 0; }
+.faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 4px 8px 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
 }
-.faq-section.accordion-enabled .faq-item h3::after {
-  content: '+'; font-size: 1.3rem; font-weight: 400; color: var(--primary);
-  flex-shrink: 0; margin-left: 12px; line-height: 1;
+.faq-toggle::after {
+  content: '+';
+  flex-shrink: 0;
+  margin-left: 12px;
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1;
 }
-.faq-section.accordion-enabled .faq-item.open h3::after { content: '−'; }
-.faq-section.accordion-enabled .faq-item p { display: none; margin-top: 12px; }
-.faq-section.accordion-enabled .faq-item.open p { display: block; }
+.faq-toggle[aria-expanded="true"]::after { content: '−'; }
+.faq-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.faq-answer { padding-top: 12px; }
+.faq-answer[hidden] { display: none; }
+.faq-answer p + p { margin-top: 12px; }
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 0.15s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+}
 
 /* ===== INLINE PRODUKT KARTE ===== */
 .inline-produkt {

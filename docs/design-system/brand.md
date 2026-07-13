@@ -59,7 +59,7 @@ Rollen:
 
 - `--primary`: Trust-Bar, Links, wichtige Orientierung
 - `--primary-dark`: Footer, starke Kontrastflaechen
-- `--accent`: Haupt-CTA, Sterne, positive Hervorhebung
+- `--accent`: Haupt-CTA, Fokusindikator, positive Hervorhebung
 - `--bg` und `--white`: Seitenhintergrund und Karten
 - `--bg-warm`: Infoboxen, weiche Modulbereiche
 
@@ -108,4 +108,3 @@ Nicht verwenden:
 - generische Stockbilder mit uebertriebenem Lachen
 - klinisch weisse Produktfreisteller als Hauptbild
 - dunkle, unscharfe oder rein atmosphaerische Bilder
-

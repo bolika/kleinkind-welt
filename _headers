@@ -31,3 +31,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Robots-Tag: noindex, follow
+
+# Interne Arbeits- und Integrationsdokumente gehören nicht in den Suchindex
+/docs/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: noindex, nofollow

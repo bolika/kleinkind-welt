@@ -4,13 +4,20 @@
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-06-28
+last-updated: 2026-07-13
 
 ## Über diese Seite
+
+- [Startseite](https://kleinkind-welt.de/): Einstieg zu Alters-, Situations- und Ratgeberseiten
 
 - [Über uns](https://kleinkind-welt.de/ueber-uns): Wer schreibt hier, persönlicher Hintergrund von Boris Nazarov
 - [Bewertungsmethode](https://kleinkind-welt.de/bewertungsmethode): Auswahlkriterien, Transparenz, wie Empfehlungen entstehen
 - [Kostenlose Kaufhilfen](https://kleinkind-welt.de/kaufhilfen): 3-Minuten-Fehlkauf-Check, Alters-Matrix, Sicherheitscheck und Geschenk-Finder
+
+## Strukturierte Daten und Evidenz
+
+- [Evidenzregister der Empfehlungen](https://kleinkind-welt.de/data/editorial-evidence.json): Evidenztyp, Prüftag, Grenzen und Quellenbasis der redaktionellen Produktkarten
+- [Datensatz zu Spielzeug-Siegeln](https://kleinkind-welt.de/data/spielzeug-siegel.json): Geltungsbereich, Prüfart, Grenzen, Verbrauchercheck und offizielle Primärquelle
 
 ## Spielzeug nach Alter
 
@@ -26,7 +33,7 @@ last-updated: 2026-06-28
 - [Motorikspielzeug Empfehlungen](https://kleinkind-welt.de/artikel/motorikspielzeug-test): 8 Produkte, Fein- und Grobmotorik, mit Altersempfehlungen
 - [DUPLO vs. andere Bausteine](https://kleinkind-welt.de/artikel/duplo-vergleich): DUPLO, Mega Bloks, Magnetbausteine, Holzbausteine, Kapla
 - [Outdoor-Spielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/outdoor-spielzeug-kleinkind): Sandkasten, Laufrad, Schaukel, Wasserspielzeug ab 12 Monate
-- [Badespielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/badespielzeug-kleinkind): Wasserspielzeug für die Badewanne, CE-sicher, ab 6 Monate
+- [Badespielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/badespielzeug-kleinkind): Wasserspielzeug für die Badewanne, mit Alters- und Sicherheitshinweisen, ab 6 Monate
 
 ## Geschenke
 
@@ -39,11 +46,14 @@ last-updated: 2026-06-28
 
 ## Ratgeber
 
+- [Spielzeug nach Alter](https://kleinkind-welt.de/spielzeug-nach-alter): Übersicht der Empfehlungen von 0 bis 3 Jahren
+
 - [Sommer-Spielzeug für Kleinkinder](https://kleinkind-welt.de/saisonale-empfehlungen/sommer-spielzeug): Saisonale Übersicht für Garten, Balkon, Wasser und warme Tage
 - [Reisespielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/reisespielzeug-kleinkind): Leise, leichte Spielideen für Auto, Zug, Flugzeug, Hotel und Restaurant
+- [Spielzeug für den Balkon](https://kleinkind-welt.de/artikel/spielzeug-balkon-kleinkind): Kompakte, leise Ideen für kleine Außenflächen
 - [Montessori Spielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/montessori-spielzeug-kleinkind): Was Montessori wirklich bedeutet, Produktempfehlungen
 - [Holzspielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/holzspielzeug-vs-plastikspielzeug): Holz vs. Plastik, ehrlicher Vergleich in 6 Kategorien
 - [Sprache fördern mit Spielzeug](https://kleinkind-welt.de/artikel/sprache-foerdern-spielzeug): 0–3 Jahre, was wirklich hilft
 - [Spielzeug-Siegel erklärt](https://kleinkind-welt.de/artikel/nachhaltiges-spielzeug-siegel): CE, FSC, Öko-Tex, GOTS
-- [Spielzeug unter 20 Euro](https://kleinkind-welt.de/artikel/spielzeug-unter-20-euro): 8 Budget-Empfehlungen die wirklich fördern, CE-sicher, ohne Kompromisse
+- [Spielzeug unter 20 Euro](https://kleinkind-welt.de/artikel/spielzeug-unter-20-euro): 8 Budget-Empfehlungen mit Alters- und Sicherheitshinweisen
 - [Was wir nicht kaufen würden](https://kleinkind-welt.de/artikel/was-wir-nicht-kaufen): 7 Kategorien die wir meiden — Batterie-Lernspielzeug, Fake-Montessori, Tablet-Halter

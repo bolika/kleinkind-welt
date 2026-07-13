@@ -125,7 +125,7 @@ Mindestinhalt:
 
 - Rang
 - Produktname oder Produktkategorie
-- Sternebewertung
+- sichtbare Evidenzkennzeichnung mit Prüftag
 - Beschreibung
 - Pros
 - Cons, wenn relevant
@@ -171,4 +171,3 @@ Vor Abschluss pruefen:
 - CTA passt in die Breite.
 - Tabellen sind horizontal scrollbar.
 - Cookie-Banner verdeckt nicht den Haupt-CTA dauerhaft.
-

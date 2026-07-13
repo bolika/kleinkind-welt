@@ -81,10 +81,11 @@ Wenn ein alter SEO-Slug wie `motorikspielzeug-test` existiert:
 - Sichtbare Titel, H1, Card-Tags, Footer-Links und interne Linktexte trotzdem auf "Empfehlungen" oder "Vergleich" umstellen.
 - Bei einer spaeteren URL-Migration nur mit Redirect-Plan arbeiten.
 
-Pflicht bei Bewertungsbegriffen:
+Pflicht bei Empfehlungsbegriffen:
 
-- Link zur Bewertungsmethode bei Produktbewertungen
-- Hinweis, dass Bewertungen auf Auswahlkriterien und Recherche beruhen
+- Link zur Bewertungsmethode bei Produktempfehlungen
+- sichtbarer Evidenztyp und Prüftag direkt an der Produktkarte
+- Hinweis, dass redaktionelle Einordnungen auf Auswahlkriterien und Recherche beruhen
 - konkrete Vor- und Nachteile
 
 ## Affiliate-Sprache
@@ -102,7 +103,7 @@ Regeln:
 - Keine Formulierungen wie "Jetzt unbedingt kaufen".
 - CTA darf sachlich sein: "Bei Amazon ansehen", "Aktuellen Preis pruefen".
 
-## Produktbewertungen
+## Produktempfehlungen
 
 Jede Produktbox soll enthalten:
 
@@ -113,13 +114,13 @@ Jede Produktbox soll enthalten:
 - Wohnungs-/Alltagseignung, wenn relevant
 - Sicherheitshinweis, wenn relevant
 
-Bewertungsskala:
+Evidenztypen:
 
-- 5 Sterne: klar empfehlenswert, breite Eignung
-- 4 Sterne: gut, aber mit relevanten Einschraenkungen
-- 3 Sterne: situationsabhaengig
+- `self-used`: das konkret genannte Modell wurde selbst genutzt; Zeitraum und Umfang muessen genannt werden
+- `product-type-experience`: die Produktart ist aus Elternpraxis bekannt, aber nicht zwingend das verlinkte Modell
+- `editorial-assessment`: Recherche nach veroeffentlichten Kriterien ohne eigenen vollstaendigen Produkttest
 
-Keine Produkte unter 3 Sterne prominent empfehlen, ausser im Kontext "nicht kaufen".
+Sterne und numerische Noten sind nicht zulaessig, solange keine reproduzierbare Berechnung und produktspezifische Datengrundlage vorliegen. Stattdessen Eignung, Grenzen, Evidenztyp und Prueftag nennen.
 
 ## Content-Typen
 
