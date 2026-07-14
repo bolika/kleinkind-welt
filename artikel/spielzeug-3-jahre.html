@@ -10,7 +10,7 @@
   <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="../css/style.css?v=20260713-evidence">
+  <link rel="stylesheet" href="../css/style.css?v=20260714-quality">
   <link rel="canonical" href="https://kleinkind-welt.de/artikel/spielzeug-3-jahre">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de/artikel/spielzeug-3-jahre">
   <link rel="alternate" hreflang="x-default" href="https://kleinkind-welt.de/artikel/spielzeug-3-jahre">
@@ -573,61 +573,7 @@
     });
   })();
 </script>
-<script>
-(function() {
-  function cleanText(value) {
-    return (value || '').replace(/\s+/g, ' ').trim();
-  }
-
-  function articleSlug() {
-    var parts = window.location.pathname.split('/').filter(Boolean);
-    var last = parts[parts.length - 1] || 'startseite';
-    return last.replace(/\.html$/, '');
-  }
-
-  function placement(link) {
-    if (link.closest('.kaufbox-hero')) return 'kaufbox-primary';
-    if (link.closest('.kaufbox-option')) return 'kaufbox-alternative';
-    if (link.closest('.testsieger-box')) return 'top-empfehlung';
-    if (link.closest('.produkt-box')) return 'produktbox';
-    if (link.closest('.vergleich-tabelle, table') || link.classList.contains('btn-table')) return 'vergleichstabelle';
-    return 'intext';
-  }
-
-  function productName(link) {
-    var scope = link.closest('.kaufbox-hero, .kaufbox-option');
-    var name = scope && scope.querySelector('.kaufbox-name');
-    if (name) return cleanText(name.textContent);
-
-    scope = link.closest('.produkt-box');
-    name = scope && scope.querySelector('h3');
-    if (name) return cleanText(name.textContent.replace(/^#?\d+\s*[–-]?\s*/, ''));
-
-    scope = link.closest('.testsieger-box');
-    name = scope && scope.querySelector('h3');
-    if (name) return cleanText(name.textContent);
-
-    scope = link.closest('tr');
-    name = scope && scope.querySelector('.produkt-name');
-    if (name) return cleanText(name.textContent);
-
-    return cleanText(link.getAttribute('aria-label') || link.textContent || 'Amazon-Link');
-  }
-
-  document.querySelectorAll('a[href*="amzn.to"], a[href*="amazon."]').forEach(function(link) {
-    link.addEventListener('click', function() {
-      if (!window.plausible) return;
-      plausible('Affiliate-Klick', {
-        props: {
-          seite: articleSlug(),
-          produkt: productName(link),
-          platzierung: placement(link)
-        }
-      });
-    });
-  });
-})();
-</script>
+<script src="/js/affiliate-tracking.js?v=20260714" defer></script>
 <script src="/js/faq-accordion.js?v=20260713" defer></script>
 <script src="/js/mobile-tables.js" defer></script>
 </body>

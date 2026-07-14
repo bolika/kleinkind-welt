@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "slug": "nachhaltiges-spielzeug-siegel",
+  "status": "review_required",
+  "publishReady": false,
+  "primaryQuery": "spielzeug siegel",
+  "searchIntent": "informational",
+  "targetAudience": "Eltern und Betreuungspersonen, die Kennzeichnungen auf Spielzeug einordnen möchten",
+  "uniqueValue": "Offen lizenzierte, maschinenlesbare Gegenüberstellung von Aussage, Grenze, Produktcheck und Primärquelle",
+  "reviewDueAt": "2026-10-14",
+  "sources": [
+    {
+      "id": "eu-toy-safety",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/toys/placing-toys-eu-market_en",
+      "kind": "primary",
+      "checkedAt": "2026-07-14"
+    },
+    {
+      "id": "baua-gs",
+      "url": "https://www.baua.de/DE/Die-BAuA/Aufgaben/Gesetzliche-und-hoheitliche-Aufgaben/Produktsicherheitsgesetz/FAQ/FAQ",
+      "kind": "primary",
+      "checkedAt": "2026-07-14"
+    },
+    {
+      "id": "fsc-coc",
+      "url": "https://fsc.org/en/chain-of-custody",
+      "kind": "primary",
+      "checkedAt": "2026-07-14"
+    },
+    {
+      "id": "gots-labelling",
+      "url": "https://gotslive.global-standard.org/certification-and-labelling/labelling/how-to-identify-gots-goods",
+      "kind": "primary",
+      "checkedAt": "2026-07-14"
+    },
+    {
+      "id": "oeko-tex-100",
+      "url": "https://www.oeko-tex.com/en/our-standards/oeko-tex-standard-100",
+      "kind": "primary",
+      "checkedAt": "2026-07-14"
+    }
+  ],
+  "claims": [
+    {
+      "id": "ce-conformity",
+      "type": "safety",
+      "text": "CE dokumentiert die Herstellerverantwortung für die EU-Konformität, aber nicht automatisch eine unabhängige Einzelprüfung.",
+      "sourceIds": ["eu-toy-safety"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "gs-independent",
+      "type": "safety",
+      "text": "Das freiwillige GS-Zeichen wird von einer zugelassenen GS-Stelle neutral und unabhängig geprüft.",
+      "sourceIds": ["baua-gs"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "scope-separation",
+      "type": "editorial",
+      "text": "FSC, GOTS und OEKO-TEX STANDARD 100 decken unterschiedliche Material- und Lieferkettenaspekte ab und ersetzen keine allgemeine Spielzeugsicherheitsprüfung.",
+      "sourceIds": ["fsc-coc", "gots-labelling", "oeko-tex-100"],
+      "approvedForPublish": false
+    }
+  ],
+  "humanApproval": {
+    "required": true,
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Migration eines bestehenden Artikels in den neuen Workflow. Vor der nächsten inhaltlichen Veröffentlichung Claims einzeln bestätigen."
+  }
+}

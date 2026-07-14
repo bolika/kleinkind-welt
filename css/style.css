@@ -3093,6 +3093,38 @@ footer ul a:hover { color: white; }
   -webkit-overflow-scrolling: touch;
 }
 
+.article-body table caption {
+  padding: 10px 12px;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  text-align: left;
+  caption-side: bottom;
+}
+
+.dataset-changelog {
+  margin: 18px 0 34px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.dataset-changelog summary {
+  color: var(--primary-dark);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dataset-changelog summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.dataset-changelog ul {
+  margin-bottom: 0;
+}
+
 @media (max-width: 640px) {
   .article-body .table-scroll,
   .article-body .budget-table-wrap,

@@ -4,7 +4,7 @@
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-13
+last-updated: 2026-07-14
 
 ## Über diese Seite
 
@@ -17,7 +17,8 @@ last-updated: 2026-07-13
 ## Strukturierte Daten und Evidenz
 
 - [Evidenzregister der Empfehlungen](https://kleinkind-welt.de/data/editorial-evidence.json): Evidenztyp, Prüftag, Grenzen und Quellenbasis der redaktionellen Produktkarten
-- [Datensatz zu Spielzeug-Siegeln](https://kleinkind-welt.de/data/spielzeug-siegel.json): Geltungsbereich, Prüfart, Grenzen, Verbrauchercheck und offizielle Primärquelle
+- [Offener Spielzeug-Siegel-Datensatz (JSON)](https://kleinkind-welt.de/data/spielzeug-siegel.json): Geltungsbereich, Prüfart, Grenzen, Verbrauchercheck und offizielle Primärquelle
+- [Offener Spielzeug-Siegel-Datensatz (CSV)](https://kleinkind-welt.de/data/spielzeug-siegel.csv): tabellarische Distribution unter CC BY 4.0
 
 ## Spielzeug nach Alter
 

@@ -64,6 +64,7 @@ for (const route of routes) {
   const h1Count = (html.match(/<h1\b/gi) || []).length;
   const anchorTags = [...html.matchAll(/<a\b[^>]*>/gi)].map((m) => m[0]);
   const affiliateAnchors = anchorTags.filter((tag) => /data-affiliate=|href=["'][^"']*(?:amzn\.to|amazon\.)/i.test(tag));
+  const amazonAnchors = anchorTags.filter((tag) => /href=["'][^"']*(?:amzn\.to|amazon\.)/i.test(tag));
   const affiliateCount = affiliateAnchors.length;
   const sponsoredCount = affiliateAnchors.filter((tag) => /rel=["'][^"']*\bsponsored\b[^"']*["']/i.test(tag)).length;
   const missingAlt = [...html.matchAll(/<img\b([^>]*)>/gi)].filter((m) => !/\balt\s*=\s*["'][^"']*["']/i.test(m[1])).length;
@@ -81,6 +82,7 @@ for (const route of routes) {
 
   check(title, `${route}: Title fehlt.`);
   if (title) warn(title.length <= 60, `${route}: Title ist ${title.length} Zeichen lang.`);
+  if (title) check(!/Entwicklung fördern|Die besten Empfehlungen|Testsieger/i.test(title), `${route}: Title enthält ein unbelegtes Wirkungs- oder Testsieger-Versprechen.`);
   check(canonical, `${route}: Canonical fehlt.`);
   check(h1Count === 1, `${route}: erwartet genau eine H1, gefunden ${h1Count}.`);
   check(/class=["'][^"']*skip-link[^"']*["'][^>]+href=["']#main-content["']|href=["']#main-content["'][^>]+class=["'][^"']*skip-link/i.test(html), `${route}: Skip-Link zum Hauptinhalt fehlt.`);
@@ -88,7 +90,12 @@ for (const route of routes) {
   check(missingAlt === 0, `${route}: ${missingAlt} Bild(er) ohne Alt-Attribut.`);
   for (const table of dataTables) check(/aria-label(?:ledby)?=["'][^"']+["']/i.test(table), `${route}: Tabelle ohne zugängliche Beschriftung.`);
   check(affiliateCount === sponsoredCount, `${route}: ${affiliateCount} Affiliate-Links, aber ${sponsoredCount} davon als sponsored markiert.`);
-  if (affiliateCount > 0) check(/affiliate-hinweis|affiliate-links/i.test(html), `${route}: Affiliate-Links ohne sichtbaren Hinweis.`);
+  if (affiliateCount > 0) {
+    check(/affiliate-hinweis|affiliate-links/i.test(html), `${route}: Affiliate-Links ohne sichtbaren Hinweis.`);
+    check(/src=["']\/js\/affiliate-tracking\.js/i.test(html), `${route}: Affiliate-Links nutzen nicht das zentrale Tracking.`);
+    check(!/plausible\(["']Affiliate[ -]Klick["']/i.test(html), `${route}: veraltetes Inline-Affiliate-Tracking vorhanden.`);
+  }
+  for (const tag of amazonAnchors) check(/data-affiliate=["'][^"']+["']/i.test(tag), `${route}: Amazon-Link ohne data-affiliate-Attribut.`);
   for (const block of jsonLdBlocks) {
     try {
       const structuredData = JSON.parse(block[1]);
@@ -131,6 +138,13 @@ for (const [canonical, matches] of seenCanonicals) if (matches.length > 1) failu
 for (const id of evidenceRecords.keys()) check(renderedEvidenceIds.has(id), `${evidenceFile}: ${id} wird auf keiner Sitemap-Seite gerendert.`);
 const headers = read("_headers");
 check(/\/docs\/\*[\s\S]*?X-Robots-Tag:\s*noindex,\s*nofollow/i.test(headers), `_headers: /docs/* ist nicht noindex, nofollow.`);
+const affiliateTrackingFile = "js/affiliate-tracking.js";
+check(fs.existsSync(path.join(root, affiliateTrackingFile)), `${affiliateTrackingFile} fehlt.`);
+if (fs.existsSync(path.join(root, affiliateTrackingFile))) {
+  const affiliateTracking = read(affiliateTrackingFile);
+  check(/plausible\(["']Affiliate-Klick["']/.test(affiliateTracking), `${affiliateTrackingFile}: kanonischer Eventname Affiliate-Klick fehlt.`);
+  check(/event_schema:\s*["']2["']/.test(affiliateTracking), `${affiliateTrackingFile}: Event-Schema-Version fehlt.`);
+}
 
 if (!localOnly) {
   const fetchPage = async (route, redirect = "follow") => fetch(`${baseUrl}${route}`, {

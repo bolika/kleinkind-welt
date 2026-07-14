@@ -1,8 +1,28 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "version": "2026.07.14",
   "title": "Kennzeichnungen und Siegel bei Kleinkind-Spielzeug",
-  "reviewedAt": "2026-07-13",
+  "description": "Redaktionell gepflegte Übersicht zu Geltungsbereich, Prüfart, Grenzen, Verbrauchercheck und offizieller Primärquelle ausgewählter Kennzeichnungen und Siegel bei Spielzeug.",
+  "canonicalUrl": "https://kleinkind-welt.de/artikel/nachhaltiges-spielzeug-siegel#datensatz",
+  "jsonUrl": "https://kleinkind-welt.de/data/spielzeug-siegel.json",
+  "csvUrl": "https://kleinkind-welt.de/data/spielzeug-siegel.csv",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": "Kleinkind-Welt.de",
+  "reviewedAt": "2026-07-14",
   "methodUrl": "https://kleinkind-welt.de/bewertungsmethode",
+  "citation": "Kleinkind-Welt.de (2026): Kennzeichnungen und Siegel bei Kleinkind-Spielzeug, Version 2026.07.14, https://kleinkind-welt.de/artikel/nachhaltiges-spielzeug-siegel#datensatz",
+  "changeLog": [
+    {
+      "date": "2026-07-14",
+      "version": "2026.07.14",
+      "changes": "CSV-Distribution, offene Lizenz, Zitationshinweis und Dataset-Metadaten ergänzt."
+    },
+    {
+      "date": "2026-07-13",
+      "version": "2026.07.13",
+      "changes": "Erstveröffentlichung mit CE, GS, FSC, GOTS und OEKO-TEX STANDARD 100."
+    }
+  ],
   "entries": [
     {
       "id": "ce",

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "property": "sc-domain:kleinkind-welt.de",
+  "releaseDate": "2026-07-14",
+  "gscDataLagDays": 3,
+  "checkpointsDays": [14, 28],
+  "priorityPages": [
+    "/artikel/spielzeug-12-18-monate",
+    "/artikel/nachhaltiges-spielzeug-siegel",
+    "/artikel/motorikspielzeug-test",
+    "/spielzeug-nach-alter",
+    "/kaufhilfen"
+  ],
+  "kpis": [
+    "clicks",
+    "impressions",
+    "ctr",
+    "position",
+    "priority_page_impressions"
+  ],
+  "notes": "GSC-Daten können verzögert und bei kleinen Mengen anonymisiert sein. Entscheidungen nicht aus einem einzelnen Tageswert ableiten."
+}
