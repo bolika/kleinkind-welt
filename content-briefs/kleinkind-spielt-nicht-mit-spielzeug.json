@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "slug": "kleinkind-spielt-nicht-mit-spielzeug",
+  "status": "approved",
+  "publishReady": true,
+  "primaryQuery": "kleinkind spielt nicht mit spielzeug",
+  "secondaryQueries": [
+    "kind spielt nicht mit seinen spielsachen",
+    "kleinkind langweilt sich mit spielzeug",
+    "kind spielt nur kurz mit spielzeug",
+    "was tun wenn kind nicht spielt"
+  ],
+  "searchIntent": "informational",
+  "targetAudience": "Eltern, die unsicher sind, weil ihr Kleinkind Spielzeug ablehnt, häufig wechselt oder lieber mit Alltagsgegenständen spielt.",
+  "uniqueValue": "Eine beruhigende Entscheidungshilfe, die normale Alltagssituationen von plötzlichen Veränderungen trennt, konkrete Beobachtungsfragen gibt und ausdrücklich keine Diagnose aus Online-Texten ableitet.",
+  "titleOptions": [
+    "Kleinkind spielt nicht mit Spielzeug: mögliche Gründe und was hilft",
+    "Warum spielt mein Kind nicht mit seinem Spielzeug?",
+    "Kind spielt nur kurz: 7 Beobachtungen statt neuer Kauf"
+  ],
+  "recommendedTitle": "Kleinkind spielt nicht mit Spielzeug: mögliche Gründe und was hilft",
+  "answerFirst": "Wenn ein Kleinkind nicht mit gekauftem Spielzeug spielt, ist das zunächst kein Beweis für ein Problem. Prüfe zuerst Interesse, Müdigkeit, Entwicklungsstand, zu viele Reize und die Möglichkeit, selbst zu wählen. Verliert ein sonst spielfreudiges Kind plötzlich dauerhaft die Spielfreude oder wirkt krank bzw. belastet, gehört das in die kinderärztliche Abklärung.",
+  "outline": [
+    "Kurzantwort: Nicht jedes Kind spielt lange oder mit gekauftem Spielzeug",
+    "Möglicher Grund 1: Das Angebot passt gerade nicht zum Interesse oder Entwicklungsstand",
+    "Möglicher Grund 2: Zu viele Reize oder zu feste Spielvorgaben",
+    "Möglicher Grund 3: Müdigkeit, Krankheit, Stress oder Veränderungen im Alltag",
+    "Was Eltern 10 Minuten lang beobachten können",
+    "Was du ausprobieren kannst, ohne neues Spielzeug zu kaufen",
+    "Wann ein Gespräch mit Kinderarzt oder Kinderärztin sinnvoll ist",
+    "FAQ"
+  ],
+  "targetWordCount": 1200,
+  "internalLinks": [
+    { "url": "/artikel/spielzeug-rotieren-kleinkind", "anchor": "Spielzeugrotation als ruhiger Test", "role": "cluster-support" },
+    { "url": "/artikel/spielzeug-12-18-monate", "anchor": "Spielzeug nach dem Alter einordnen", "role": "commercial-support" },
+    { "url": "/artikel/motorikspielzeug-test", "anchor": "Spielideen nach Platz und Spielweise", "role": "commercial-support" },
+    { "url": "/ueber-uns", "anchor": "Wie Kleinkind-Welt Empfehlungen recherchiert", "role": "trust" }
+  ],
+  "cta": {
+    "type": "internal-link",
+    "label": "Erst die passende Altersstufe prüfen",
+    "target": "/spielzeug-nach-alter",
+    "amazonLinks": false
+  },
+  "measurement": {
+    "primary": "GSC impressions and clicks for the primary query",
+    "secondary": ["internal clicks to /spielzeug-nach-alter", "Plausible CTA click rate", "engaged time"],
+    "reviewAfterDays": 90
+  },
+  "distribution": ["homepage parent-help module", "newsletter problem/solution section", "Pinterest observation checklist"],
+  "cannibalizationGuard": "Owns the concern/problem query. Do not turn it into a product list, developmental milestone guide or medical advice page.",
+  "sources": [
+    {
+      "id": "biog-not-playing",
+      "url": "https://www.kindergesundheit-info.de/themen/faq/mein-kind-will-nicht-spielen-woran-kann-das-liegen/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "biog-play-with-parent",
+      "url": "https://www.kindergesundheit-info.de/themen/faq/warum-moechte-meine-tochter-18-monate-oft-gar-nicht-so-gern-mit-mir-spielen/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "aok-toy-overload",
+      "url": "https://www.aok.de/pk/magazin/familie/kinder/spielzeug-kann-ein-kind-zu-viel-davon-haben/",
+      "kind": "editorial",
+      "checkedAt": "2026-07-15"
+    }
+  ],
+  "claims": [
+    {
+      "id": "not-playing-is-not-diagnosis",
+      "type": "development",
+      "text": "Dass ein Kind ein bestimmtes Spielzeug nicht nutzt, ist für sich genommen keine Diagnose und kann viele alltägliche Gründe haben.",
+      "sourceIds": ["biog-not-playing", "biog-play-with-parent"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "sudden-change-check",
+      "type": "safety",
+      "text": "Wenn ein sonst spielfreudiges Kind plötzlich dauerhaft die Spielfreude verliert oder krank bzw. belastet wirkt, sollten Eltern die Situation beobachten und bei Sorge kinderärztlich abklären lassen.",
+      "sourceIds": ["biog-not-playing"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "child-led-play",
+      "type": "development",
+      "text": "Beim gemeinsamen Spiel kann es helfen, das Kind zu beobachten, seine Spielidee aufzugreifen und eigene Vorgaben zurückzunehmen.",
+      "sourceIds": ["biog-play-with-parent"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "too-many-offers",
+      "type": "development",
+      "text": "Zu viele gleichzeitig angebotene Spielsachen können manche Kinder überfordern; das ist eine mögliche Erklärung, keine allgemeine Regel.",
+      "sourceIds": ["biog-not-playing", "aok-toy-overload"],
+      "approvedForPublish": true
+    }
+  ],
+  "humanApproval": {
+    "required": true,
+    "approvedBy": "Boris Nazarov (Projektinhaber)",
+    "approvedAt": "2026-07-15",
+    "notes": "Claims geprüft und zur Veröffentlichung freigegeben. Medizinische Grenze klar sichtbar halten: keine Diagnose, keine Entwicklungsprognose und kein Ersatz für kinderärztliche Beratung."
+  },
+  "reviewDueAt": "2027-01-15"
+}

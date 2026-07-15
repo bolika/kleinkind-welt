@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "slug": "wie-viel-spielzeug-braucht-ein-kleinkind",
+  "status": "approved",
+  "publishReady": true,
+  "primaryQuery": "wie viel spielzeug braucht ein kleinkind",
+  "secondaryQueries": [
+    "wie viel spielzeug ist genug",
+    "zu viel spielzeug kleinkind",
+    "minimalistisches kinderzimmer spielzeug",
+    "spielzeug reduzieren kleinkind"
+  ],
+  "searchIntent": "informational",
+  "targetAudience": "Eltern und Großeltern, die zwischen Geschenkflut, wenig Platz und dem Wunsch nach sinnvollen Spielmöglichkeiten abwägen.",
+  "uniqueValue": "Keine erfundene Idealzahl, sondern ein sichtbarer Auswahlrahmen nach Interesse, Platz, Sicherheit und Nutzung – inklusive Geschenkregel für Verwandte und einer kurzen Ausmist-Checkliste.",
+  "titleOptions": [
+    "Wie viel Spielzeug braucht ein Kleinkind wirklich?",
+    "Zu viel Spielzeug? Ein realistischer Rahmen für Kleinkinder",
+    "Wie viel Spielzeug ist genug? Checkliste für Eltern"
+  ],
+  "recommendedTitle": "Wie viel Spielzeug braucht ein Kleinkind wirklich?",
+  "answerFirst": "Eine feste Zahl gibt es nicht. Für ein Kleinkind ist die passende Menge die Auswahl, die sicher erreichbar ist, zum aktuellen Interesse passt und im Raum überschaubar bleibt. Weniger sichtbare Dinge können helfen, wenn das Kind von der Menge überfordert wirkt – entscheidend ist die Beobachtung, nicht ein minimalistisches Ideal.",
+  "outline": [
+    "Kurzantwort: Warum es keine universelle Spielzeugzahl gibt",
+    "Vier Kriterien: Interesse, Entwicklungsstand, Platz und Sicherheit",
+    "Woran erkennst du eine zu große sichtbare Auswahl?",
+    "Was darf sichtbar bleiben, was kann pausieren?",
+    "Die 10-Minuten-Ausmist-Checkliste",
+    "Geschenke steuern: Nachricht an Großeltern und Verwandte",
+    "Spielzeug nach Alter und Sicherheitsangaben prüfen",
+    "FAQ"
+  ],
+  "targetWordCount": 1200,
+  "internalLinks": [
+    { "url": "/artikel/spielzeug-rotieren-kleinkind", "anchor": "Spielzeug rotieren statt alles gleichzeitig anbieten", "role": "cluster-support" },
+    { "url": "/spielzeug-nach-alter", "anchor": "Spielzeug nach Alter sortieren", "role": "utility" },
+    { "url": "/artikel/nachhaltiges-spielzeug-siegel", "anchor": "Siegel und Materialangaben einordnen", "role": "commercial-support" },
+    { "url": "/artikel/spielzeug-unter-20-euro", "anchor": "kleine Ergänzungen unter 20 Euro", "role": "commercial-support" }
+  ],
+  "cta": {
+    "type": "internal-link",
+    "label": "Mit der Spielzeug-Auswahl nach Alter starten",
+    "target": "/spielzeug-nach-alter",
+    "amazonLinks": false
+  },
+  "measurement": {
+    "primary": "GSC impressions and clicks for the primary query",
+    "secondary": ["internal clicks to /spielzeug-nach-alter", "Plausible CTA click rate", "newsletter signup assist"],
+    "reviewAfterDays": 90
+  },
+  "distribution": ["homepage family-organization module", "newsletter gift guidance", "Pinterest declutter checklist"],
+  "cannibalizationGuard": "Owns the quantity/overload question. It must not repeat age-specific product lists or claim that a fixed number of toys improves development.",
+  "sources": [
+    {
+      "id": "aok-toy-overload",
+      "url": "https://www.aok.de/pk/magazin/familie/kinder/spielzeug-kann-ein-kind-zu-viel-davon-haben/",
+      "kind": "editorial",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "dak-toy-quantity",
+      "url": "https://www.dak.de/dak/gesundheit/familie-leben/erziehung/wie-viel-spielzeug-braucht-ein-kind-_18780",
+      "kind": "editorial",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "biog-play-1-3",
+      "url": "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "biog-safety-1-3",
+      "url": "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/1-3-jahre/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    }
+  ],
+  "claims": [
+    {
+      "id": "no-universal-number",
+      "type": "editorial",
+      "text": "Es gibt keine belastbare allgemeine Idealzahl an Spielsachen für jedes Kleinkind; die Auswahl sollte an Kind, Raum und Alltag angepasst werden.",
+      "sourceIds": ["aok-toy-overload", "dak-toy-quantity"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "visible-overload-possible",
+      "type": "development",
+      "text": "Eine sehr große sichtbare Auswahl kann manche Kinder überfordern und das Fokussieren erschweren; das ist eine mögliche Beobachtung, keine Diagnose.",
+      "sourceIds": ["biog-play-1-3", "aok-toy-overload"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "age-safety-fit",
+      "type": "safety",
+      "text": "Spielzeug sollte zu Alter und Entwicklungsstand passen und auf erkennbare Risiken wie lösbare Kleinteile geprüft werden.",
+      "sourceIds": ["biog-safety-1-3"],
+      "approvedForPublish": true
+    },
+    {
+      "id": "gift-guidance",
+      "type": "editorial",
+      "text": "Eine konkrete Wunschliste oder Bitte an Verwandte kann helfen, vorhandenes Spielmaterial gezielt zu ergänzen statt ungeplant zu vervielfachen.",
+      "sourceIds": ["aok-toy-overload", "dak-toy-quantity"],
+      "approvedForPublish": true
+    }
+  ],
+  "humanApproval": {
+    "required": true,
+    "approvedBy": "Boris Nazarov (Projektinhaber)",
+    "approvedAt": "2026-07-15",
+    "notes": "Claims geprüft und zur Veröffentlichung freigegeben. Keine starre Zahl und keine pauschale Entwicklungswirkung versprechen. DAK- und AOK-Aussagen redaktionell einordnen und Sicherheitsdetails mit offizieller Quelle abgleichen."
+  },
+  "reviewDueAt": "2027-01-15"
+}

@@ -11,6 +11,18 @@ Pro Monat:
 - 1 großes Update eines bestehenden Artikels.
 - 1 Newsletter-/Freebie-Verbesserung.
 
+## Informationscluster-Pilot: Spielalltag (ab Juli 2026)
+
+Diese drei Seiten sind ein kontrollierter Test für organischen Top-of-Funnel-Traffic. Sie enthalten zunächst keine Amazon-Links und werden nicht gleichzeitig veröffentlicht. Jeder Entwurf bleibt bis zur Claim-Freigabe `review_required`.
+
+| Reihenfolge | Brief | Rolle | Erfolgscheck |
+|---|---|---|---|
+| 1 | `/artikel/spielzeug-rotieren-kleinkind` | praktische Methode gegen sichtbare Überforderung | GSC-Impressionen, Klicks zum Alters-Hub, CTA-Rate nach 90 Tagen |
+| 2 | `/artikel/kleinkind-spielt-nicht-mit-spielzeug` | Problem-/Orientierungsseite mit klarer medizinischer Grenze | GSC-Impressionen, engagierte Lesezeit, Klicks zum Alters-Hub nach 90 Tagen |
+| 3 | `/artikel/wie-viel-spielzeug-braucht-ein-kleinkind` | Mengen- und Geschenkfrage als Evergreen | GSC-Impressionen, Newsletter-Assist, Klicks zum Alters-Hub nach 90 Tagen |
+
+Nach der Claim-Freigabe wird zuerst nur der erste Brief als vollständiger Artikel umgesetzt. Die beiden weiteren Seiten folgen erst nach dem ersten 14-/28-Tage-GSC-Messpunkt, wenn Suchintention, interne Klicks und redaktioneller Aufwand des ersten Tests plausibel sind.
+
 ## Juli 2026: Sommer, Draußen, Reisen
 
 | Woche | Aufgabe | URL / Format | Ziel |
