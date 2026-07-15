@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "property": "sc-domain:kleinkind-welt.de",
-  "releaseDate": "2026-07-14",
+  "releaseDate": "2026-07-15",
   "gscDataLagDays": 3,
   "checkpointsDays": [14, 28],
   "priorityPages": [

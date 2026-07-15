@@ -11,10 +11,11 @@
 
   function placement(link) {
     if (link.dataset.placement) return link.dataset.placement;
+    if (link.closest('.top-pick-strip')) return 'top-pick-strip';
     if (link.closest('.kaufbox-hero')) return 'kaufbox-primary';
     if (link.closest('.kaufbox-option')) return 'kaufbox-alternative';
     if (link.closest('.testsieger-box')) return 'top-empfehlung';
-    if (link.closest('.produkt-box, .produkt-card, .produkt-karte')) return 'produktbox';
+    if (link.closest('.kw-product-card, .produkt-box, .produkt-card, .produkt-karte')) return 'produktkarte';
     if (link.closest('.vergleich-tabelle, .comparison-table, table') || link.classList.contains('btn-table')) {
       return 'vergleichstabelle';
     }
@@ -29,7 +30,7 @@
     var name = scope && scope.querySelector('.kaufbox-name');
     if (name) return cleanText(name.textContent);
 
-    scope = link.closest('.produkt-box, .produkt-card, .produkt-karte, .testsieger-box');
+    scope = link.closest('.kw-product-card, .produkt-box, .produkt-card, .produkt-karte, .testsieger-box');
     name = scope && scope.querySelector('[data-product-name], .produkt-name, h3, h2');
     if (name) return cleanText(name.textContent.replace(/^#?\d+\s*[–-]?\s*/, ''));
 
