@@ -5,6 +5,8 @@
   "gscDataLagDays": 3,
   "checkpointsDays": [14, 28],
   "priorityPages": [
+    "/artikel/spielzeug-unter-20-euro",
+    "/artikel/spielzeug-0-6-monate",
     "/artikel/spielzeug-12-18-monate",
     "/artikel/nachhaltiges-spielzeug-siegel",
     "/artikel/motorikspielzeug-test",

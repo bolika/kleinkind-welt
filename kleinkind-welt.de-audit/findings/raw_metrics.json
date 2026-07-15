@@ -1,0 +1,880 @@
+{
+  "home": {
+    "desktop": {
+      "scroll_width": 1920,
+      "client_width": 1920,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug finden, das wirklich zu deinem Kind passt.",
+        "top": 178.0625,
+        "bottom": 395.8125,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 0,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/home-desktop.png"
+    },
+    "laptop": {
+      "scroll_width": 1366,
+      "client_width": 1366,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug finden, das wirklich zu deinem Kind passt.",
+        "top": 178.0625,
+        "bottom": 395.8125,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 0,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/home-laptop.png"
+    },
+    "tablet": {
+      "scroll_width": 768,
+      "client_width": 768,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug finden, das wirklich zu deinem Kind passt.",
+        "top": 280.390625,
+        "bottom": 350.765625,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 714.890625,
+          "right": 752,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 1,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/home-tablet.png"
+    },
+    "mobile": {
+      "scroll_width": 375,
+      "client_width": 375,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug finden, das wirklich zu deinem Kind passt.",
+        "top": 293.78125,
+        "bottom": 383.03125,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 321.890625,
+          "right": 359,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 1,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/home-mobile.png"
+    },
+    "mobile_images": [
+      {
+        "src": "https://kleinkind-welt.de/images/logo-horizontal.svg",
+        "naturalW": 300,
+        "naturalH": 67,
+        "renderedW": 225,
+        "renderedH": 50,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt \u2013 Ehrliche Empfehlungen f\u00fcr Eltern"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/hero-spielzeug-finden-640.webp",
+        "naturalW": 375,
+        "naturalH": 209,
+        "renderedW": 375,
+        "renderedH": 142,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind spielt mit Holzspielzeug auf einer hellen Spielmatte"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/outdoor-spielzeug-kleinkind.jpg",
+        "naturalW": 1600,
+        "naturalH": 893,
+        "renderedW": 298,
+        "renderedH": 210,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Outdoor-Spielzeug f\u00fcr Kleinkinder im Sommer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-12-18-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 191,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kleinkind spielt mit Stapelringen und Motorikspielzeug im Kinderzimmer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-6-12-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Babyspielzeug auf einer hellen Krabbeldecke"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-0-6-monate-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Erste Babyspielzeuge mit Greifling und Kontrastbuch"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-18-24-monate-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kleinkind-Spielzeug zum Nachahmen, Puzzeln und Malen auf einem Kindertisch"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-2-jahre-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Laufrad, Bausteine und Bilderbuch in einem Kinderzimmer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-3-jahre-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kinderzimmer mit Bausteinen, Bewegungsspielzeug und Fantasiespiel"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/og-kleinkind-welt-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kostenlose Kaufhilfen f\u00fcr sinnvolles Kleinkind-Spielzeug"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/sprache-foerdern-spielzeug-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kinder und Erwachsene erz\u00e4hlen mit Bilderbuch und Handpuppen"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/nachhaltiges-spielzeug-siegel-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Nachhaltiges Holz- und Stoffspielzeug mit Pr\u00fcfsiegel-Anh\u00e4ngern"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/holzspielzeug-vs-plastikspielzeug-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Holzspielzeug und Plastikspielzeug im direkten Vergleich"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/montessori-spielzeug-kleinkind-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Montessori-Spielzeug auf niedrigen Holzregalen"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/was-wir-nicht-kaufen-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Bewusst ausgew\u00e4hlte Spielsachen vor einem \u00fcberf\u00fcllten Spielzeugregal"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/geschenke-1-jahr-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Holzspielzeug zum 1. Geburtstag: Lauflernwagen, Baukl\u00f6tze und Pappbilderb\u00fccher auf hellem Leinenstoff"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/duplo-vergleich-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Verschiedene gro\u00dfe Bausteinsysteme nebeneinander im Kinderzimmer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-unter-20-euro-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "G\u00fcnstige F\u00f6rder-Spielzeuge auf einem hellen Holztisch"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/badespielzeug-kleinkind-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Sauberes Badespielzeug f\u00fcr Kleinkinder am Badewannenrand"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/geschenke-zur-geburt-480.jpg",
+        "naturalW": 0,
+        "naturalH": 0,
+        "renderedW": 335,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Geschenke zur Geburt mit Greifring, Stofftier und Geschenkbox"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/logo-mark.svg",
+        "naturalW": 150,
+        "naturalH": 150,
+        "renderedW": 36,
+        "renderedH": 36,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt"
+      }
+    ]
+  },
+  "hub": {
+    "desktop": {
+      "scroll_width": 1920,
+      "client_width": 1920,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Altersgerechtes Spielzeug f\u00fcr 0 bis 3 Jahre",
+        "top": 168.0625,
+        "bottom": 229.5,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 0,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/hub-desktop.png"
+    },
+    "laptop": {
+      "scroll_width": 1366,
+      "client_width": 1366,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Altersgerechtes Spielzeug f\u00fcr 0 bis 3 Jahre",
+        "top": 168.0625,
+        "bottom": 229.5,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 0,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/hub-laptop.png"
+    },
+    "tablet": {
+      "scroll_width": 768,
+      "client_width": 768,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Altersgerechtes Spielzeug f\u00fcr 0 bis 3 Jahre",
+        "top": 158.390625,
+        "bottom": 204.453125,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 714.890625,
+          "right": 752,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 1,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/hub-tablet.png"
+    },
+    "mobile": {
+      "scroll_width": 375,
+      "client_width": 375,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Altersgerechtes Spielzeug f\u00fcr 0 bis 3 Jahre",
+        "top": 158.390625,
+        "bottom": 251.296875,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 321.890625,
+          "right": 359,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 1,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/hub-mobile.png"
+    },
+    "mobile_images": [
+      {
+        "src": "https://kleinkind-welt.de/images/logo-horizontal.svg",
+        "naturalW": 300,
+        "naturalH": 67,
+        "renderedW": 225,
+        "renderedH": 50,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt - Ehrliche Empfehlungen f\u00fcr Eltern"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-0-6-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Erste Babyspielzeuge mit Greifling und Kontrastbuch"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-6-12-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Babyspielzeug auf einer hellen Krabbeldecke"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-12-18-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 191,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kleinkind spielt mit Stapelringen und Motorikspielzeug im Kinderzimmer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-18-24-monate-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kleinkind-Spielzeug zum Nachahmen, Puzzeln und Malen auf einem Kindertisch"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-2-jahre-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Laufrad, Bausteine und Bilderbuch in einem Kinderzimmer"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-3-jahre-480.webp",
+        "naturalW": 335,
+        "naturalH": 186,
+        "renderedW": 300,
+        "renderedH": 180,
+        "broken": false,
+        "loading": "lazy",
+        "alt": "Kinderzimmer mit Bausteinen, Bewegungsspielzeug und Fantasiespiel"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/logo-mark.svg",
+        "naturalW": 150,
+        "naturalH": 150,
+        "renderedW": 36,
+        "renderedH": 36,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt"
+      }
+    ]
+  },
+  "article": {
+    "desktop": {
+      "scroll_width": 1920,
+      "client_width": 1920,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug unter 20 Euro f\u00fcr Kleinkinder \u2013 8 Empfehlungen die wirklich f\u00f6rdern",
+        "top": 434.21875,
+        "bottom": 526.375,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 6,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        },
+        {
+          "text": "Kleinkind-Welt.de",
+          "w": 130,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/article-desktop.png"
+    },
+    "laptop": {
+      "scroll_width": 1366,
+      "client_width": 1366,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug unter 20 Euro f\u00fcr Kleinkinder \u2013 8 Empfehlungen die wirklich f\u00f6rdern",
+        "top": 434.21875,
+        "bottom": 526.375,
+        "visible": true
+      },
+      "ctas_above_fold": [],
+      "cta_count_total": 6,
+      "small_tap_targets": [
+        {
+          "text": "Nach Alter",
+          "w": 75,
+          "h": 18
+        },
+        {
+          "text": "Geschenke",
+          "w": 79,
+          "h": 18
+        },
+        {
+          "text": "Ratgeber",
+          "w": 65,
+          "h": 18
+        },
+        {
+          "text": "Aktuell",
+          "w": 49,
+          "h": 18
+        },
+        {
+          "text": "Kaufhilfen",
+          "w": 72,
+          "h": 18
+        },
+        {
+          "text": "\u00dcber uns",
+          "w": 64,
+          "h": 18
+        },
+        {
+          "text": "Kleinkind-Welt.de",
+          "w": 130,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/article-laptop.png"
+    },
+    "tablet": {
+      "scroll_width": 768,
+      "client_width": 768,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug unter 20 Euro f\u00fcr Kleinkinder \u2013 8 Empfehlungen die wirklich f\u00f6rdern",
+        "top": 426.21875,
+        "bottom": 490.71875,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 714.890625,
+          "right": 752,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 7,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        },
+        {
+          "text": "Kleinkind-Welt.de",
+          "w": 130,
+          "h": 18
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/article-tablet.png"
+    },
+    "mobile": {
+      "scroll_width": 375,
+      "client_width": 375,
+      "horizontal_overflow": false,
+      "h1": {
+        "text": "Spielzeug unter 20 Euro f\u00fcr Kleinkinder \u2013 8 Empfehlungen die wirklich f\u00f6rdern",
+        "top": 464.875,
+        "bottom": 549.765625,
+        "visible": true
+      },
+      "ctas_above_fold": [
+        {
+          "text": "\u2630",
+          "top": 22,
+          "bottom": 54,
+          "left": 321.890625,
+          "right": 359,
+          "width": 37.109375,
+          "height": 32,
+          "visibleAboveFold": true
+        }
+      ],
+      "cta_count_total": 7,
+      "small_tap_targets": [
+        {
+          "text": "\u2630",
+          "w": 37,
+          "h": 32
+        },
+        {
+          "text": "Kleinkind-Welt.de",
+          "w": 75,
+          "h": 42
+        }
+      ],
+      "cookie_banner": {
+        "found": false
+      },
+      "console_errors": [],
+      "screenshot": "/Users/bnazarov/coding/kleinkind-welt/kleinkind-welt.de-audit/screenshots/article-mobile.png"
+    },
+    "mobile_images": [
+      {
+        "src": "https://kleinkind-welt.de/images/logo-horizontal.svg",
+        "naturalW": 300,
+        "naturalH": 67,
+        "renderedW": 225,
+        "renderedH": 50,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt \u2013 Ehrliche Empfehlungen f\u00fcr Eltern"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/articles/spielzeug-unter-20-euro.webp",
+        "naturalW": 1200,
+        "naturalH": 669,
+        "renderedW": 375,
+        "renderedH": 220,
+        "broken": false,
+        "loading": "auto",
+        "alt": "G\u00fcnstiges Spielzeug unter 20 Euro f\u00fcr Kleinkinder \u2013 Stapelbecher, Steckpuzzle und Bei\u00dfring"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/autor-boris.webp",
+        "naturalW": 600,
+        "naturalH": 500,
+        "renderedW": 40,
+        "renderedH": 40,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Boris Nazarov"
+      },
+      {
+        "src": "https://kleinkind-welt.de/images/logo-mark.svg",
+        "naturalW": 150,
+        "naturalH": 150,
+        "renderedW": 36,
+        "renderedH": 36,
+        "broken": false,
+        "loading": "auto",
+        "alt": "Kleinkind-Welt"
+      }
+    ]
+  }
+}

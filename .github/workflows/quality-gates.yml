@@ -37,6 +37,7 @@ jobs:
           node --check js/faq-accordion.js
           node --check tools/content-brief-gate.mjs
           node --check tools/generate-seal-assets.mjs
+          node --check tools/internal-link-audit.mjs
           node --check tools/seo-smoke-test.mjs
 
       - name: Validate GSC monitoring script syntax
@@ -48,7 +49,7 @@ jobs:
           jq empty data/content-brief.schema.json
           jq empty data/spielzeug-siegel.json
           jq empty data/seo-monitoring-config.json
-          jq empty content-briefs/nachhaltiges-spielzeug-siegel.json
+          jq empty content-briefs/*.json
 
       - name: Validate AI publishing inputs and generated assets
         run: |
@@ -56,7 +57,9 @@ jobs:
           node tools/generate-seal-assets.mjs --check
 
       - name: Run local SEO smoke test
-        run: node tools/seo-smoke-test.mjs --local
+        run: |
+          node tools/seo-smoke-test.mjs --local
+          node tools/internal-link-audit.mjs
 
   live-quality:
     name: Daily production smoke test

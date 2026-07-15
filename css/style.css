@@ -3125,6 +3125,67 @@ footer ul a:hover { color: white; }
   margin-bottom: 0;
 }
 
+/* Contextual hub-and-spoke navigation for age guides */
+.article-age-path {
+  margin: 18px 0 24px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-warm);
+}
+
+.article-age-path-label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.article-age-path-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.article-age-path a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--white);
+  color: var(--primary-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.article-age-path a:hover {
+  border-color: var(--primary);
+  background: #EBF0E4;
+}
+
+.article-age-path a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .article-age-path-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .article-age-path a {
+    width: 100%;
+  }
+}
+
 @media (max-width: 640px) {
   .article-body .table-scroll,
   .article-body .budget-table-wrap,

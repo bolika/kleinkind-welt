@@ -1,10 +1,10 @@
 # Kleinkind-Welt.de
 
-> Eltern-Ratgeber für Spielzeug und Förderung von Kindern von 0 bis 3 Jahren. Von Boris Nazarov, Vater in München. Unabhängig, keine bezahlten Empfehlungen von Herstellern. Affiliate-Links zu Amazon sind als solche gekennzeichnet.
+> Eltern-Ratgeber für Spielzeug, Geschenke und Auswahlfragen von 0 bis 3 Jahren. Von Boris Nazarov, Vater in München. Unabhängig, keine bezahlten Empfehlungen von Herstellern. Affiliate-Links zu Amazon sind als solche gekennzeichnet.
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-14
+last-updated: 2026-07-15
 
 ## Über diese Seite
 
@@ -22,7 +22,7 @@ last-updated: 2026-07-14
 
 ## Spielzeug nach Alter
 
-- [Spielzeug 0–6 Monate](https://kleinkind-welt.de/artikel/spielzeug-0-6-monate): Greifspielzeug, Beißringe, Spielbögen für Babys
+- [Spielzeug 0–6 Monate](https://kleinkind-welt.de/artikel/spielzeug-0-6-monate): Ab wann Spielzeug interessant wird, Greifideen und Sicherheit in den ersten Monaten
 - [Spielzeug 6–12 Monate](https://kleinkind-welt.de/artikel/spielzeug-6-12-monate): Krabbelphase, Motorik, erste Stehversuche
 - [Spielzeug 12–18 Monate](https://kleinkind-welt.de/artikel/spielzeug-12-18-monate): Lauflernwagen, Stapelspiele, Ursache-Wirkung
 - [Spielzeug 18–24 Monate](https://kleinkind-welt.de/artikel/spielzeug-18-24-monate): Rollenspiel, Bausteine, Sprachentwicklung

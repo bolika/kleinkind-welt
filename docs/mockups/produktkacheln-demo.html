@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produktkachel Mockup - Kleinkind-Welt</title>
+  <style>
+    :root {
+      --primary: #2d776d;
+      --primary-dark: #1f5d55;
+      --accent: #d96f4f;
+      --text: #2d2926;
+      --muted: #706960;
+      --paper: #fbf7f1;
+      --card: #fffdf8;
+      --line: #e7ddd0;
+      --soft: #f4ede4;
+      --success: #2d776d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 56px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.65rem, 3vw, 2.45rem);
+      line-height: 1.08;
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .section-title {
+      margin: 34px 0 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .product-card {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 10px 26px rgba(45, 41, 38, 0.08);
+    }
+
+    .product-card--top {
+      grid-template-columns: 176px minmax(0, 1fr);
+      padding: 20px;
+      border-top: 4px solid var(--primary);
+    }
+
+    .product-media {
+      display: grid;
+      place-items: center;
+      min-height: 176px;
+      border-radius: 8px;
+      border: 1px solid #eadfce;
+      background:
+        linear-gradient(135deg, rgba(45,119,109,0.08), rgba(217,111,79,0.08)),
+        #f8f1e7;
+    }
+
+    .product-placeholder {
+      display: grid;
+      place-items: center;
+      width: 116px;
+      height: 116px;
+      border-radius: 7px;
+      background: #fffaf2;
+      border: 1px solid #e5d6c2;
+      color: var(--primary);
+      font-size: 2.4rem;
+      box-shadow: inset 0 0 0 6px rgba(45,119,109,0.05);
+    }
+
+    .product-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .product-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .product-rank {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-size: 0.86rem;
+      flex: 0 0 auto;
+    }
+
+    .product-card h2,
+    .product-card h3 {
+      margin: 0;
+      line-height: 1.16;
+      font-size: 1.32rem;
+    }
+
+    .product-verdict {
+      margin: 7px 0 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .editorial-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.96rem;
+    }
+
+    .rating-note {
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 0.82rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0 0 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(45,119,109,0.24);
+      background: rgba(45,119,109,0.06);
+      color: var(--primary-dark);
+      font-size: 0.79rem;
+      font-weight: 750;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+      gap: 12px;
+      margin: 0 0 16px;
+    }
+
+    .decision-box {
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .decision-box strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.86rem;
+    }
+
+    .decision-box ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .decision-box li + li { margin-top: 4px; }
+    .decision-box li::before { content: "✓ "; color: var(--success); font-weight: 900; }
+    .decision-box--contra li::before { content: "× "; color: var(--accent); }
+
+    .product-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-amazon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 7px;
+      background: #f2a23a;
+      color: #241c13;
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 0.92rem;
+      box-shadow: 0 3px 0 rgba(117, 76, 24, 0.22);
+    }
+
+    .method-link {
+      color: var(--primary-dark);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product-card--compact {
+      padding: 16px;
+      min-height: 100%;
+    }
+
+    .compact-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .compact-media {
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      border: 1px solid #eadfce;
+      background: #f8f1e7;
+      color: var(--primary);
+      font-size: 1.45rem;
+      flex: 0 0 auto;
+    }
+
+    .compact-copy {
+      margin: 10px 0 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mini-facts {
+      display: grid;
+      gap: 7px;
+      margin: 0 0 14px;
+      padding: 0;
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .mini-facts strong { color: var(--text); }
+
+    .comparison-card {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 6px 16px rgba(45, 41, 38, 0.06);
+    }
+
+    .comparison-rank {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(45,119,109,0.1);
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .comparison-card strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .comparison-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        width: min(100% - 24px, 520px);
+        padding-top: 22px;
+      }
+
+      .product-card--top {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .product-media {
+        min-height: 120px;
+      }
+
+      .product-placeholder {
+        width: 86px;
+        height: 86px;
+        font-size: 1.9rem;
+      }
+
+      .decision-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-actions,
+      .btn-amazon {
+        width: 100%;
+      }
+
+      .comparison-card {
+        grid-template-columns: 42px minmax(0, 1fr);
+      }
+
+      .comparison-card .btn-amazon {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Produktkacheln für Kleinkind-Welt</h1>
+    <p class="intro">Redaktionell, ruhig und vertrauensbildend: keine Amazon-Shopoptik, sondern schnelle Entscheidungshilfe mit ehrlichem Nachteil und klarem CTA.</p>
+
+    <p class="section-title">Variante A - Top-Empfehlung</p>
+    <article class="product-card product-card--top">
+      <div class="product-media" aria-hidden="true">
+        <div class="product-placeholder">▦</div>
+      </div>
+      <div>
+        <div class="product-head">
+          <div>
+            <span class="product-label">Beste Gesamtwahl</span>
+            <h2>LEGO DUPLO Klassische Steinebox</h2>
+          </div>
+          <span class="product-rank">#1</span>
+        </div>
+        <p class="product-verdict">Beste Wahl, wenn du ein Geschenk suchst, das mehrere Jahre mitwächst und nicht nach zwei Wochen uninteressant wird.</p>
+        <div class="editorial-rating">
+          ★★★★★ <span class="rating-note">5/5 redaktionell bewertet</span>
+        </div>
+        <div class="badges">
+          <span class="badge">ab 18 Monate</span>
+          <span class="badge">ohne Batterie</span>
+          <span class="badge">lange nutzbar</span>
+          <span class="badge">erweiterbar</span>
+        </div>
+        <div class="decision-grid">
+          <div class="decision-box">
+            <strong>Passt gut wenn</strong>
+            <ul>
+              <li>du ein langlebiges Hauptgeschenk suchst</li>
+              <li>dein Kind gerne baut, sortiert oder Figuren spielt</li>
+              <li>später weitere Sets dazukommen sollen</li>
+            </ul>
+          </div>
+          <div class="decision-box decision-box--contra">
+            <strong>Nicht ideal wenn</strong>
+            <ul>
+              <li>du nur ein kleines Mitbringsel unter 15 Euro brauchst</li>
+            </ul>
+          </div>
+        </div>
+        <div class="product-actions">
+          <a href="#" class="btn-amazon">Preis bei Amazon prüfen</a>
+          <a href="#" class="method-link">Warum diese Bewertung?</a>
+        </div>
+      </div>
+    </article>
+
+    <p class="section-title">Variante B - Produktliste</p>
+    <div class="product-grid">
+      <article class="product-card product-card--compact">
+        <div class="compact-top">
+          <div>
+            <span class="product-label">Budget-Tipp</span>
+            <h3>Stapelbecher</h3>
+          </div>
+          <div class="compact-media" aria-hidden="true">◐</div>
+        </div>
+        <div class="editorial-rating">★★★★★ <span class="rating-note">5/5</span></div>
+        <p class="compact-copy">Günstig, robust und erstaunlich vielseitig: stapeln, sortieren, baden, sandeln und umfüllen.</p>
+        <ul class="mini-facts">
+          <li><strong>Alter:</strong> ab ca. 6 Monate</li>
+          <li><strong>Stärke:</strong> Preis-Leistung</li>
+          <li><strong>Grenze:</strong> wirkt als Geschenk schlicht</li>
+        </ul>
+        <a href="#" class="btn-amazon">Preis prüfen</a>
+      </article>
+
+      <article class="product-card product-card--compact">
+        <div class="compact-top">
+          <div>
+            <span class="product-label">Für Bewegung</span>
+            <h3>Balanceboard</h3>
+          </div>
+          <div class="compact-media" aria-hidden="true">↔</div>
+        </div>
+        <div class="editorial-rating">★★★★☆ <span class="rating-note">4/5</span></div>
+        <p class="compact-copy">Stark für Gleichgewicht und Körpergefühl, wenn zuhause genug freie Fläche vorhanden ist.</p>
+        <ul class="mini-facts">
+          <li><strong>Alter:</strong> ab ca. 18 Monate</li>
+          <li><strong>Stärke:</strong> Grobmotorik</li>
+          <li><strong>Grenze:</strong> nicht ideal bei wenig Platz</li>
+        </ul>
+        <a href="#" class="btn-amazon">Preis prüfen</a>
+      </article>
+
+      <article class="product-card product-card--compact">
+        <div class="compact-top">
+          <div>
+            <span class="product-label">Ruhige Beschäftigung</span>
+            <h3>Erstes Puzzle</h3>
+          </div>
+          <div class="compact-media" aria-hidden="true">□</div>
+        </div>
+        <div class="editorial-rating">★★★★☆ <span class="rating-note">4/5</span></div>
+        <p class="compact-copy">Sinnvoll, wenn dein Kind schon konzentriert sitzt und einfache Formen wiedererkennt.</p>
+        <ul class="mini-facts">
+          <li><strong>Alter:</strong> ab ca. 2 Jahre</li>
+          <li><strong>Stärke:</strong> Konzentration</li>
+          <li><strong>Grenze:</strong> nicht für sehr aktive Phasen</li>
+        </ul>
+        <a href="#" class="btn-amazon">Preis prüfen</a>
+      </article>
+    </div>
+
+    <p class="section-title">Variante C - Kompakte Vergleichskachel</p>
+    <article class="comparison-card">
+      <div class="comparison-rank">#2</div>
+      <div>
+        <strong>Hape Hammerbank aus Holz</strong>
+        <span>ab 12 Monate · Motorik + Ursache-Wirkung · gut als günstige Alternative</span>
+      </div>
+      <a href="#" class="btn-amazon">Preis prüfen</a>
+    </article>
+  </main>
+</body>
+</html>

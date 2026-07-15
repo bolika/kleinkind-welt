@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "slug": "spielzeug-0-6-monate",
+  "status": "review_required",
+  "publishReady": false,
+  "primaryQuery": "spielzeug 0 6 monate",
+  "searchIntent": "informational",
+  "targetAudience": "Eltern von Neugeborenen und jungen Babys, die wissen möchten, ab wann Spielzeug interessant wird",
+  "uniqueValue": "Direkte Antwort auf Ab-wann-Fragen, grobe Altersorientierung ohne Leistungsversprechen und klare Trennung von Spiel- und Schlafsicherheit",
+  "reviewDueAt": "2026-10-13",
+  "sources": [
+    {
+      "id": "bioeg-play-babies",
+      "url": "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/spielen-von-babys/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "bioeg-play-joy",
+      "url": "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/spielfreude/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "bioeg-vision",
+      "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/sehen/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "bioeg-grip",
+      "url": "https://www.kindergesundheit-info.de/themen/entwicklung/0-12-monate/greifentwicklung/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "bioeg-safe-sleep",
+      "url": "https://www.kindergesundheit-info.de/themen/schlafen/0-12-monate/schlafumgebung/sicher-schlafen/",
+      "kind": "official",
+      "checkedAt": "2026-07-15"
+    },
+    {
+      "id": "eu-toy-safety",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
+      "kind": "primary",
+      "checkedAt": "2026-07-15"
+    }
+  ],
+  "claims": [
+    {
+      "id": "people-before-toys",
+      "type": "development",
+      "text": "In den ersten Lebenswochen sind Gesicht und Stimme der Bezugspersonen meist attraktiver als gekauftes Spielzeug.",
+      "sourceIds": ["bioeg-play-babies"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "around-three-months",
+      "type": "development",
+      "text": "Etwa ab drei Monaten kommt echtes Spielzeug wie Greifring, Rassel oder Kuscheltuch als grobe Orientierung häufiger ins Spiel.",
+      "sourceIds": ["bioeg-play-joy"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "vision-and-grip-vary",
+      "type": "development",
+      "text": "Sehen und Greifen entwickeln sich schrittweise; Altersangaben sind grobe Orientierung und kein Leistungstest.",
+      "sourceIds": ["bioeg-vision", "bioeg-grip"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "sleep-environment",
+      "type": "safety",
+      "text": "In die Schlafumgebung gehört nichts, das die Atemwege bedecken kann; Schnüre und Bänder dürfen nicht in Reichweite sein.",
+      "sourceIds": ["bioeg-safe-sleep"],
+      "approvedForPublish": false
+    },
+    {
+      "id": "toy-safety",
+      "type": "safety",
+      "text": "Herstellerfreigabe, Warnhinweise, CE-Kennzeichnung, Anbieteradresse und intakte Verarbeitung müssen am konkreten Spielzeug geprüft werden.",
+      "sourceIds": ["eu-toy-safety"],
+      "approvedForPublish": false
+    }
+  ],
+  "humanApproval": {
+    "required": true,
+    "approvedBy": null,
+    "approvedAt": null,
+    "notes": "Medizinische oder therapeutische Einzelfallberatung bleibt ausgeschlossen. Claims vor Veröffentlichung menschlich prüfen."
+  }
+}
