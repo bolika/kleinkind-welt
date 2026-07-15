@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "slug": "nachhaltiges-spielzeug-siegel",
-  "status": "review_required",
-  "publishReady": false,
+  "status": "approved",
+  "publishReady": true,
   "primaryQuery": "spielzeug siegel",
   "searchIntent": "informational",
   "targetAudience": "Eltern und Betreuungspersonen, die Kennzeichnungen auf Spielzeug einordnen möchten",
@@ -46,27 +46,27 @@
       "type": "safety",
       "text": "CE dokumentiert die Herstellerverantwortung für die EU-Konformität, aber nicht automatisch eine unabhängige Einzelprüfung.",
       "sourceIds": ["eu-toy-safety"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "gs-independent",
       "type": "safety",
       "text": "Das freiwillige GS-Zeichen wird von einer zugelassenen GS-Stelle neutral und unabhängig geprüft.",
       "sourceIds": ["baua-gs"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "scope-separation",
       "type": "editorial",
       "text": "FSC, GOTS und OEKO-TEX STANDARD 100 decken unterschiedliche Material- und Lieferkettenaspekte ab und ersetzen keine allgemeine Spielzeugsicherheitsprüfung.",
       "sourceIds": ["fsc-coc", "gots-labelling", "oeko-tex-100"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     }
   ],
   "humanApproval": {
     "required": true,
-    "approvedBy": null,
-    "approvedAt": null,
-    "notes": "Migration eines bestehenden Artikels in den neuen Workflow. Vor der nächsten inhaltlichen Veröffentlichung Claims einzeln bestätigen."
+    "approvedBy": "Boris Nazarov (Projektinhaber)",
+    "approvedAt": "2026-07-15",
+    "notes": "Claims einzeln geprüft und für die Veröffentlichung freigegeben."
   }
 }

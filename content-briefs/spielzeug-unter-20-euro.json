@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "slug": "spielzeug-unter-20-euro",
-  "status": "review_required",
-  "publishReady": false,
+  "status": "approved",
+  "publishReady": true,
   "primaryQuery": "spielzeug unter 20 euro",
   "searchIntent": "commercial",
   "targetAudience": "Eltern und Schenkende, die altersgerechte Spielideen mit einer harten Budgetgrenze suchen",
@@ -34,27 +34,27 @@
       "type": "safety",
       "text": "Die CE-Kennzeichnung ist für Spielzeug im EU-Markt erforderlich und ist nicht automatisch eine unabhängige Laborbewertung.",
       "sourceIds": ["eu-toy-safety"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "price-rule",
       "type": "commercial",
       "text": "Ein verlinktes Produkt gehört nur zur Auswahl, solange sein aktueller Händlerpreis ohne zusätzliche Pflichtkosten höchstens 20 Euro beträgt.",
       "sourceIds": [],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "no-own-test",
       "type": "editorial",
       "text": "Die Reihenfolge ist eine redaktionelle Einordnung nach Recherche und kein eigener vollständiger Produkttest.",
       "sourceIds": ["bioeg-play-1-3", "bioeg-safety-1-3"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     }
   ],
   "humanApproval": {
     "required": true,
-    "approvedBy": null,
-    "approvedAt": null,
-    "notes": "Vor Veröffentlichung Händlerpreise stichprobenartig prüfen und Claims freigeben. Preisänderungen sind ausdrücklich möglich."
+    "approvedBy": "Boris Nazarov (Projektinhaber)",
+    "approvedAt": "2026-07-15",
+    "notes": "Claims geprüft und für die Veröffentlichung freigegeben. Händlerpreise vor jedem Update stichprobenartig prüfen; Preisänderungen sind ausdrücklich möglich."
   }
 }

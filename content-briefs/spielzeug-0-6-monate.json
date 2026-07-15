@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "slug": "spielzeug-0-6-monate",
-  "status": "review_required",
-  "publishReady": false,
+  "status": "approved",
+  "publishReady": true,
   "primaryQuery": "spielzeug 0 6 monate",
   "searchIntent": "informational",
   "targetAudience": "Eltern von Neugeborenen und jungen Babys, die wissen möchten, ab wann Spielzeug interessant wird",
@@ -52,41 +52,41 @@
       "type": "development",
       "text": "In den ersten Lebenswochen sind Gesicht und Stimme der Bezugspersonen meist attraktiver als gekauftes Spielzeug.",
       "sourceIds": ["bioeg-play-babies"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "around-three-months",
       "type": "development",
       "text": "Etwa ab drei Monaten kommt echtes Spielzeug wie Greifring, Rassel oder Kuscheltuch als grobe Orientierung häufiger ins Spiel.",
       "sourceIds": ["bioeg-play-joy"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "vision-and-grip-vary",
       "type": "development",
       "text": "Sehen und Greifen entwickeln sich schrittweise; Altersangaben sind grobe Orientierung und kein Leistungstest.",
       "sourceIds": ["bioeg-vision", "bioeg-grip"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "sleep-environment",
       "type": "safety",
       "text": "In die Schlafumgebung gehört nichts, das die Atemwege bedecken kann; Schnüre und Bänder dürfen nicht in Reichweite sein.",
       "sourceIds": ["bioeg-safe-sleep"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     },
     {
       "id": "toy-safety",
       "type": "safety",
       "text": "Herstellerfreigabe, Warnhinweise, CE-Kennzeichnung, Anbieteradresse und intakte Verarbeitung müssen am konkreten Spielzeug geprüft werden.",
       "sourceIds": ["eu-toy-safety"],
-      "approvedForPublish": false
+      "approvedForPublish": true
     }
   ],
   "humanApproval": {
     "required": true,
-    "approvedBy": null,
-    "approvedAt": null,
-    "notes": "Medizinische oder therapeutische Einzelfallberatung bleibt ausgeschlossen. Claims vor Veröffentlichung menschlich prüfen."
+    "approvedBy": "Boris Nazarov (Projektinhaber)",
+    "approvedAt": "2026-07-15",
+    "notes": "Claims geprüft und für die Veröffentlichung freigegeben. Medizinische oder therapeutische Einzelfallberatung bleibt ausgeschlossen."
   }
 }
