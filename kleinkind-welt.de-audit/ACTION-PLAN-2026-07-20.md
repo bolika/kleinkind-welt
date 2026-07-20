@@ -170,7 +170,7 @@ Reihenfolge basiert auf Risiko für Kindersicherheit, Vertrauen, Conversion und 
 
 ## Umsetzungsstatus 20.07.2026
 
-- Priorität 1: Ersatz-Shortlinks eingepflegt; Produktledger und Integritätsprüfung angelegt. Neue Ziele bleiben bis zur menschlichen Alters-/Sicherheitsprüfung `pending-human-review`.
+- Priorität 1: Alle 99 aktuell produktiven Amazon-Ziele sind im Produktledger erfasst; der Integritätscheck meldet 0 fehlende Ledger-Einträge und 0 blockierte produktive Ziele. Alle automatisch ergänzten bzw. ersetzten Ziele bleiben bis zur menschlichen Alters-/Sicherheitsprüfung bewusst `pending-human-review`.
 - Priorität 2: Budget-, Vergleichs-, Kaufhilfe- und generische Vergleichstabellen verwenden die zentrale Mobile-Komponente; Caption- und Zeilenkopf-Behandlung ergänzt.
 - Priorität 3: Alters- und Geschenke-Hubs sowie Karten und Kurzantwort-Boxen auf mobilen Breakpoints zentriert.
 - Priorität 5: Navigation auf allen Seiten auf den einheitlichen `.open`-Zustand normalisiert; veraltete `.show`-Zustände entfernt.
