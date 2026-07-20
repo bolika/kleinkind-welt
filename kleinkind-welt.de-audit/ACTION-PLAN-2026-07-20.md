@@ -175,3 +175,4 @@ Reihenfolge basiert auf Risiko für Kindersicherheit, Vertrauen, Conversion und 
 - Priorität 3: Alters- und Geschenke-Hubs sowie Karten und Kurzantwort-Boxen auf mobilen Breakpoints zentriert.
 - Priorität 5: Navigation auf allen Seiten auf den einheitlichen `.open`-Zustand normalisiert; veraltete `.show`-Zustände entfernt.
 - Regression-Gate ergänzt: Tabellen ohne `mobile-tables.js` und veraltete Nav-Zustände schlagen den lokalen SEO-Smoke-Test fehl.
+- Priorität 6: Decision-Header als Pilot auf Badespielzeug, Montessori, 18–24 Monate und Sprachförderung ergänzt; jeweils eine Primäroption, maximal zwei Alternativen und klare Prüfhinweise.
