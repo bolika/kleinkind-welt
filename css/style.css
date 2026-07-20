@@ -20,6 +20,7 @@
   /* ── Text */
   --text: #2C2A26;           /* Sehr dunkles Braun statt reines Schwarz */
   --text-light: #5F574D;     /* Warmes Mittelgrau statt kühles Grau */
+  --text-muted: #7A7268;
 
   /* ── Hintergründe: Cremig, nicht klinisch weiß */
   --bg: #F7F3EE;             /* Warmes Naturweiß */
@@ -33,6 +34,17 @@
   --radius: 12px;
   --shadow: 0 2px 12px rgba(32,58,73,0.10);
   --shadow-hover: 0 6px 24px rgba(32,58,73,0.16);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --container-page: 1100px;
+  --container-article: 760px;
+  --control-height: 44px;
 }
 
 html { font-size: 16px; scroll-behavior: smooth; }
@@ -120,6 +132,11 @@ nav a {
 
 nav a:hover { color: var(--primary); }
 
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 3px solid rgba(179, 61, 49, 0.48);
+  outline-offset: 3px;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -127,6 +144,8 @@ nav a:hover { color: var(--primary); }
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--text);
+  min-width: var(--control-height);
+  min-height: var(--control-height);
   padding: 4px 8px;
   line-height: 1;
 }
@@ -1113,8 +1132,9 @@ nav a:hover { color: var(--primary); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #FF9900;
-  color: var(--text);
+  background: var(--accent-action);
+  color: #fff;
+  min-height: var(--control-height);
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 700;
@@ -1122,7 +1142,7 @@ nav a:hover { color: var(--primary); }
   transition: background 0.2s;
 }
 
-.btn-amazon:hover { background: #E68900; color: var(--text); }
+.btn-amazon:hover { background: var(--accent-action-hover); color: #fff; }
 
 .affiliate-link--blocked {
   opacity: 0.78;
@@ -1558,7 +1578,13 @@ nav a:hover { color: var(--primary); }
 .skip-link:focus { transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
-  .skip-link { transition: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ===== INLINE PRODUKT KARTE ===== */
@@ -1615,6 +1641,7 @@ nav a:hover { color: var(--primary); }
   align-items: center;
   background: var(--accent-action);
   color: white;
+  min-height: var(--control-height);
   padding: 9px 16px;
   border-radius: 8px;
   font-weight: 700;
@@ -1978,6 +2005,7 @@ footer ul a:hover { color: white; }
   .seasonal-grid {
     width: 100%;
     max-width: 300px;
+    margin-inline: auto;
   }
 
   .seasonal-heading h2 {
@@ -2066,6 +2094,7 @@ footer ul a:hover { color: white; }
   .seasonal-grid {
     width: 100%;
     max-width: 300px;
+    margin-inline: auto;
   }
 
   .seasonal-heading h2 {
@@ -2917,6 +2946,29 @@ footer ul a:hover { color: white; }
   margin-bottom: 0;
 }
 
+.praxis-details summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.praxis-details summary .entscheidungshilfe-label {
+  display: inline;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.praxis-details[open] summary {
+  margin-bottom: 12px;
+}
+
+.praxis-details p:last-child {
+  margin-bottom: 0;
+}
+
 .schnellentscheidung-box {
   margin: 24px 0;
   padding: 20px;
@@ -3332,8 +3384,9 @@ footer ul a:hover { color: white; }
     display: none;
   }
 
-  /* Letzte Spalte (Link/CTA) – kein Label */
-  .table--multi-col td:last-child::before {
+  /* CTA-Zellen brauchen kein Tabellen-Label; redaktionelle Werte behalten es. */
+  .table--multi-col td:last-child:has(.btn-table)::before,
+  .table--multi-col td:last-child:has(a[data-affiliate])::before {
     display: none;
   }
   .table--multi-col td:last-child {
@@ -3790,16 +3843,17 @@ footer ul a:hover { color: white; }
   }
 
   .age-hub-page .age-nav {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 2px 2px 10px;
-    scroll-snap-type: x proximity;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 2px;
+    overflow: visible;
   }
 
   .age-hub-page .age-btn {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    width: 100%;
+    min-height: var(--control-height);
+    padding-inline: 10px;
   }
 
   .age-hub-page .card-grid {

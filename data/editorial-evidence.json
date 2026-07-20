@@ -132,21 +132,6 @@
       "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
     },
     {
-      "id": "duplo-vergleich-recommendation-1",
-      "page": "/artikel/duplo-vergleich",
-      "item": "LEGO DUPLO Classic",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
-        "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
       "id": "duplo-vergleich-recommendation-2",
       "page": "/artikel/duplo-vergleich",
       "item": "LEGO DUPLO Classic Steinebox",
@@ -381,21 +366,6 @@
       "articleSourceUrls": [
         "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
         "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "geschenke-3-jahre-recommendation-1",
-      "page": "/artikel/geschenke-3-jahre",
-      "item": "LEGO DUPLO Classic Steinebox",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/3-6-jahre/",
         "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
       ],
       "approvalStatus": "editorial-label-approved",
