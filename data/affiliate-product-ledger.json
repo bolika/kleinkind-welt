@@ -8,7 +8,7 @@
     "unreviewedLinkHandling": "Critical mismatches are runtime-blocked; missing entries remain pending and are reported by the checker."
   },
   "coverage": {
-    "expectedUniqueAmazonLinks": 100,
+    "expectedUniqueAmazonLinks": 99,
     "verifiedEntries": 0,
     "status": "in-progress",
     "note": "Die vollständige Prüfung wird durch tools/affiliate-integrity-check.mjs verfolgt."
@@ -351,7 +351,161 @@
       "observedTitle": "Lernuhr mit Kalender und Jahreszeiten",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
-      "reason": "Vom Nutzer bereitgestellter Ersatz für den entfernten 404-Link.",
+      "reason": "Vom Nutzer bereitgestellter Ersatz für den entfernten 404-Link; für die Geschenkeseite inzwischen redaktionell entfernt, weil die Altersfreigabe nicht zu einem ersten Geburtstag passt.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "43tTmZd",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Pinolino-269416-Lauflernwagen-Kimi-grau/dp/B01N6JBE7X",
+      "asin": "B01N6JBE7X",
+      "observedTitle": "Pinolino Lauflernwagen Kimi",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel der Primärempfehlung; Herstelleralter, Bremsmechanik und Sicherheitskontext vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3QmhJF9",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Hape-E0411-Kreatives-Steckpuzzle-teilig/dp/B00712O1J6",
+      "asin": "B00712O1J6",
+      "observedTitle": "Hape E0411 kreatives Steckpuzzle",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/montessori-spielzeug-kleinkind", "/artikel/spielzeug-18-24-monate", "/artikel/spielzeug-2-jahre", "/artikel/spielzeug-unter-20-euro"],
+      "reason": "Händlerziel für das Steckpuzzle; Altersangabe, Teilegröße und Preisregel vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4gmeOqs",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Meine-ersten-100-Wörter-Foto-Wörterbuch/dp/3845820233",
+      "asin": "3845820233",
+      "observedTitle": "Meine ersten 100 Wörter – Foto-Wörterbuch",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/spielzeug-unter-20-euro", "/artikel/sprache-foerdern-spielzeug"],
+      "reason": "Händlerziel der Pappbilderbuch-Option; Ausgabe, Format und Hersteller-/Verlagshinweise vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4b4liHc",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/WINGYZ-Musikinstrumente-Kinder-Jahr-Musikspielzeug/dp/B0GT2TLBHX",
+      "asin": "B0GT2TLBHX",
+      "observedTitle": "WINGYZ Musikinstrumente-Kinder-Set",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Vom Nutzer bereitgestellter Ersatzlink; Lieferumfang, Lautstärke, Kleinteile und Herstelleralter vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4g1eNs7",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/HABA-306287-Bausteine-Tierparade-Naturbausteine/dp/B09GGDPFG4",
+      "asin": "B09GGDPFG4",
+      "observedTitle": "HABA 306287 Bausteine Tierparade",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel für die Holzbausteine; Teilegröße, Altersfreigabe und die Aussage zur Nutzungsdauer vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4vCZt96",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Meine-ersten-Wörter-Tiere-Pappbilderbücher/dp/B0GVBCHF6Z",
+      "asin": "B0GVBCHF6Z",
+      "observedTitle": "Meine ersten Wörter – Tiere Pappbilderbücher",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Vom Nutzer bereitgestellter Ersatzlink; Ausgabe, Seitenstärke und Herstelleralter vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3SgjBQp",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/BIG-Bobby-Classic-Green-Sicherheits-Lenkrad/dp/B0CSDR87J9",
+      "asin": "B0CSDR87J9",
+      "observedTitle": "BIG Bobby-Car Classic",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/outdoor-spielzeug-kleinkind"],
+      "reason": "Korrigiertes Händlerziel für das Rutschauto; Herstelleralter, Sitz-/Fahrkontext und Nutzungsdauer vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "43FLns6",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/KNETÄ-Vegane-Spielknete-Ungiftig-Kleinkinder/dp/B089QCHHGX",
+      "asin": "B089QCHHGX",
+      "observedTitle": "KNETÄ vegane Spielknete",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel der Knetmasse; Altersfreigabe, Inhaltsstoffe und Verschluckrisiko vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4xEXYcI",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/FUNLIO-Dino-Schaukelpferd-Kleinkinder-Plüsch-Schaukeldino-liebevollem/dp/B0FDWMNTFK",
+      "asin": "B0FDWMNTFK",
+      "observedTitle": "FUNLIO Dino-Schaukelpferd",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel des Schaukeltieres; Herstelleralter, Standfestigkeit und Aufsichtshinweise vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4oNddfB",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Stück-Fingerpuppen-Rotkäppchen-Fingerpuppen-Theater-Kindergeschichten/dp/B0DLJRRM8S",
+      "asin": "B0DLJRRM8S",
+      "observedTitle": "Fingerpuppen-Set Rotkäppchen",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel des Fingerpuppensatzes; Kleinteile, Altersempfehlung und geeignete Nutzung unter Aufsicht vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "43Gmxs5",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Schildkröt-Sand-Spielset-Handtaschenformat-Sandspielzeugen-970244/dp/B094ZCP4PJ",
+      "asin": "B094ZCP4PJ",
+      "observedTitle": "Schildkröt Sand-Spielset 970244",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/outdoor-spielzeug-kleinkind"],
+      "reason": "Händlerziel des Sandkastensets; Kleinteile, Altersfreigabe und Einsatz unter Aufsicht vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4oH4BHp",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/Honeysticks-Little-Learner-Buntstifte-Kinder/dp/B0F83MWSPN",
+      "asin": "B0F83MWSPN",
+      "observedTitle": "Honeysticks Little Learner Buntstifte",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel der dicken Wachsmalstifte; Altersfreigabe, Inhaltsstoffe und Verschluckrisiko vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4w2K7vh",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/BJORKI-Wärmekissen-Baby-Kinder-Kuschelkissen/dp/B0DHK1H89Z",
+      "asin": "B0DHK1H89Z",
+      "observedTitle": "BJORKI Wärmekissen für Baby und Kinder",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel des Wärmekissens; Temperatur, Erwärmung, Altershinweise und Aufsicht vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4auPM51",
+      "status": "pending-human-review",
+      "finalUrl": "https://www.amazon.de/LPZMPZ-Fotoalbum-Selbstgestalten-Scrapbook-Geburtstag/dp/B0F2SJRKV6",
+      "asin": "B0F2SJRKV6",
+      "observedTitle": "LPZMPZ Fotoalbum zum Selbstgestalten",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Händlerziel des Fotoalbums; Format, Material und Eignung für die konkrete Geschenkidee vor menschlicher Freigabe prüfen.",
       "humanApproved": false
     }
   ]
