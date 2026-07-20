@@ -252,9 +252,10 @@
   document.addEventListener('DOMContentLoaded', function() {
     var toggle = document.querySelector('.nav-toggle');
     var menu = document.getElementById('nav-menu');
-    if (toggle && menu) toggle.addEventListener('click', function() { var isOpen = menu.classList.toggle('show'); toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); });
+    if (toggle && menu) toggle.addEventListener('click', function() { var isOpen = menu.classList.toggle('open'); toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); });
   });
 </script>
+<script src="/js/mobile-tables.js" defer></script>
 <script src="/js/faq-accordion.js?v=20260713" defer></script>
 </body>
 </html>

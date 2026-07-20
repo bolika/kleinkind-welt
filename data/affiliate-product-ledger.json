@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-20",
+  "reviewPolicy": {
+    "prices": "Nicht als aktuell ausgeben, wenn keine frische Händlerprüfung vorliegt.",
+    "ageAndSafety": "Herstellerfreigabe und konkrete Produktseite prüfen; menschliche Freigabe erforderlich.",
+    "ownProductTest": false,
+    "unreviewedLinkHandling": "Critical mismatches are runtime-blocked; missing entries remain pending and are reported by the checker."
+  },
+  "coverage": {
+    "expectedUniqueAmazonLinks": 100,
+    "verifiedEntries": 0,
+    "status": "in-progress",
+    "note": "Die vollständige Prüfung wird durch tools/affiliate-integrity-check.mjs verfolgt."
+  },
+  "entries": [
+    {
+      "shortCode": "4uCqqt9",
+      "status": "blocked-age-mismatch",
+      "finalUrl": "https://www.amazon.de/Montessori-Kletterger%C3%BCst-Kletterdreieck-Spielplatz-Kleinkinder/dp/B0GRFG52Q1",
+      "asin": "B0GRFG52Q1",
+      "observedTitle": "Montessori-Klettergerüst/Kletterdreieck",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/motorikspielzeug-test"
+      ],
+      "reason": "Artikel verwendet Pikler-Dreieck ab ca. 6 Monaten; Händlerziel weist auf ein Klettergerüst ab 18 Monaten hin.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3Swnd0N",
+      "status": "blocked-age-mismatch",
+      "finalUrl": "https://www.amazon.de/Simba-Baff-Paints-Bademalstifte-herausdrehbare/dp/B0FRNM4WTC",
+      "asin": "B0FRNM4WTC",
+      "observedTitle": "Simba Baff Bademalstifte",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/badespielzeug-kleinkind"
+      ],
+      "reason": "Artikel nennt Bademalfarben ab ca. 18 Monaten; Händlerziel weist auf ein Produkt ab 3 Jahren hin.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4ahtljF",
+      "status": "blocked-description-mismatch",
+      "finalUrl": "https://www.amazon.de/Hoarosall-Montessori-Spielzeug-Holzspielzeug-Schaltern/dp/B0CT5MYSS6",
+      "asin": "B0CT5MYSS6",
+      "observedTitle": "Hoarosall Busy Board mit Schaltern und LEDs",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/motorikspielzeug-test"
+      ],
+      "reason": "Artikel beschreibt wiederholt ein ruhiges Motorikbrett aus Holz mit Verschlüssen; Händlerziel ist ein anderes, elektronisch wirkendes Busy-Board.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4gjqpXh",
+      "status": "blocked-brand-mismatch",
+      "finalUrl": "https://www.amazon.de/goki-58478-Bausteine-Regenbogen-Teile/dp/B09F6GXQ9X",
+      "asin": "B09F6GXQ9X",
+      "observedTitle": "goki Regenbogen-Bausteine",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/duplo-vergleich"
+      ],
+      "reason": "Artikel nennt Grimm's Regenbogen-Bausteine; Händlerziel ist goki.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4ot4Plp",
+      "status": "blocked-brand-mismatch",
+      "finalUrl": "https://www.amazon.de/Foot-11412-Bausteine-Regenbogen-teiliger/dp/B07XDRVG99",
+      "asin": "B07XDRVG99",
+      "observedTitle": "small foot Regenbogen-Bausteine",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/duplo-vergleich"
+      ],
+      "reason": "Artikel nennt Grimm's Regenbogen-Bausteine; Händlerziel ist small foot.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4ovz2Ai",
+      "status": "blocked-brand-mismatch",
+      "finalUrl": "https://www.amazon.de/hahaland-Magnetische-Dino-Figuren-Montessori-Magnetbausteine/dp/B0G5LKSK8S",
+      "asin": "B0G5LKSK8S",
+      "observedTitle": "hahaland magnetische Dino-Figuren/Magnetbausteine",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/duplo-vergleich"
+      ],
+      "reason": "Artikeltext nennt Magna-Tiles/PicassoTiles, der Link führt zu hahaland.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3SHjTQh",
+      "status": "blocked-brand-mismatch",
+      "finalUrl": "https://www.amazon.de/hahaland-Magnetische-Dino-Figuren-Montessori-Magnetbausteine/dp/B0G5LKSK8S",
+      "asin": "B0G5LKSK8S",
+      "observedTitle": "hahaland magnetische Dino-Figuren/Magnetbausteine",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/duplo-vergleich"
+      ],
+      "reason": "Mehrere Shortlinks zeigen auf dasselbe Händlerprodukt; Artikel verwendet unterschiedliche Markenbezeichnungen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "444Mq4L",
+      "status": "blocked-price-mismatch",
+      "finalUrl": "https://www.amazon.de/Hape-E0305-Xylophon-und-Hammerspiel/dp/B00712O2D6",
+      "asin": "B00712O2D6",
+      "observedTitle": "Hape Xylophon und Hammerspiel",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/motorikspielzeug-test"
+      ],
+      "reason": "Artikel nennt etwa 15 Euro; beobachteter Händlerpreis lag bei etwa 23 Euro.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3QHuOsJ",
+      "status": "blocked-price-rule",
+      "finalUrl": "https://www.amazon.de/Haba-5580-Motorikspielzeug-Holzspielzeug-Bauernhofmotiven/dp/B005HAW5JM",
+      "asin": "B005HAW5JM",
+      "observedTitle": "Haba Motorikspielzeug",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/motorikspielzeug-test",
+        "/artikel/spielzeug-unter-20-euro"
+      ],
+      "reason": "Artikel führt das Ziel unter einer Preisgrenze von 20 Euro; beobachteter Händlerpreis lag bei etwa 21 Euro.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3SQIpi2",
+      "status": "blocked-age-copy-review",
+      "finalUrl": "https://www.amazon.de/Hape-E0217-Schlauchboot-R%C3%BCckziehmotor-Bunt/dp/B096SGWL82",
+      "asin": "B096SGWL82",
+      "observedTitle": "Hape Schlauchboot mit Rückziehmotor",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/badespielzeug-kleinkind"
+      ],
+      "reason": "Artikel spricht von Babys ab 6 Monaten; Händlerprodukt weist auf eine spätere Altersfreigabe hin.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3QvxlGy",
+      "status": "blocked-age-copy-review",
+      "finalUrl": "https://www.amazon.de/gp/product/B0CFV9J7FG",
+      "asin": "B0CFV9J7FG",
+      "observedTitle": "Badewannen-Wasserbahn",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/badespielzeug-kleinkind"
+      ],
+      "reason": "Artikel nennt einen Start ab 12 Monaten; Händlerziel wurde als Produkt ab 18 Monaten aufgelöst.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3QhZxws",
+      "status": "blocked-age-mismatch",
+      "finalUrl": "https://www.amazon.de/Klein-7199-Holzk%C3%BCche-K%C3%BCchen-Zubeh%C3%B6r-Edelstahl/dp/B07PQ8SCT3",
+      "asin": "B07PQ8SCT3",
+      "observedTitle": "Klein Holzspielküche",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/spielzeug-18-24-monate"
+      ],
+      "reason": "Artikel empfiehlt Spielküche im Bereich 18–24 Monate; Händlerziel weist auf eine spätere Altersfreigabe hin.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4uuaSav",
+      "status": "blocked-category-mismatch",
+      "finalUrl": "https://www.amazon.de/Pinolino-Schlammk%C3%BCche-Spielk%C3%BCche-Massivholz-Malbrett/dp/B085LR4PPJ",
+      "asin": "B085LR4PPJ",
+      "observedTitle": "Pinolino Outdoor-Schlammküche",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/spielzeug-12-18-monate"
+      ],
+      "reason": "Artikel beschreibt eine allgemeine Indoor-Spielküche; das Händlerziel ist eine Outdoor-Schlammküche.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "44ibqWm",
+      "status": "blocked-price-copy-review",
+      "finalUrl": "https://www.amazon.de/Peradix-Sprinkler-Wasser-Spielmatte-Wasserspielzeug-Haustiere/dp/B0833WKG1N",
+      "asin": "B0833WKG1N",
+      "observedTitle": "Peradix Sprinkler-Wasserspielmatte",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/outdoor-spielzeug-kleinkind"
+      ],
+      "reason": "Kaufbox nennt etwa 10–15 Euro Sandspielzeug; Händlerziel ist eine Sprinkler-Wasserspielmatte mit beobachtetem Preis um 25 Euro.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "43L24T0",
+      "status": "blocked-dead-link",
+      "finalUrl": "https://www.amazon.de/HESS-SINCE-1990-Kalender-Erzgebirge/dp/B01B0WL3QQ",
+      "asin": "B01B0WL3QQ",
+      "observedTitle": "HESS Kalender/Erzgebirge",
+      "observedAt": "2026-07-20",
+      "affectedPages": [
+        "/artikel/geschenke-1-jahr"
+      ],
+      "reason": "Affiliate-Auflösung lieferte HTTP 404; außerdem passt der Händler-Titel nicht zur beschriebenen Lernuhr.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4wPPIp1",
+      "status": "pending-human-review",
+      "replaces": ["4uCqqt9"],
+      "finalUrl": "https://www.amazon.de/Goodevas-Montessori-Climbing-Frame-Set/dp/B0DTJHR62G",
+      "asin": "B0DTJHR62G",
+      "observedTitle": "Goodevas Montessori Klettergerüst-Set",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-3-jahre", "/artikel/geschenke-zur-geburt", "/artikel/motorikspielzeug-test", "/artikel/weihnachtsgeschenke-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für das Kletterdreieck; Altersfreigabe vor Veröffentlichung je Kontext bestätigen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4bxsZFY",
+      "status": "pending-human-review",
+      "replaces": ["3Swnd0N"],
+      "finalUrl": "https://www.amazon.de/Munchkin-Badefarben-farbenfrohes-Badespielzeug-abwaschbares/dp/B00IFWP97O",
+      "asin": "B00IFWP97O",
+      "observedTitle": "Munchkin Badefarben",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/badespielzeug-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für die Bademalfarben; Herstelleralter und Inhaltsstoffhinweise vor Veröffentlichung bestätigen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4wgA1HE",
+      "status": "pending-human-review",
+      "replaces": ["4ahtljF"],
+      "finalUrl": "https://www.amazon.de/Joyreal-Motorikbrett-Jahr-Montessori-Motorikspielzeug/dp/B0BYYQP1GT",
+      "asin": "B0BYYQP1GT",
+      "observedTitle": "Joyreal Motorikbrett/Montessori-Motorikspielzeug",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/holzspielzeug-vs-plastikspielzeug", "/artikel/montessori-spielzeug-kleinkind", "/artikel/motorikspielzeug-test", "/artikel/weihnachtsgeschenke-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für das zuvor unpassende Busy-Board; konkrete Altersfreigabe und Modellmerkmale abgleichen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4hlzKhJ",
+      "status": "pending-human-review",
+      "replaces": ["4gjqpXh", "4ot4Plp"],
+      "finalUrl": "https://www.amazon.de/goki-58479-Regenbogen-hochwertigem-Kreativität/dp/B0BXMPB9QJ",
+      "asin": "B0BXMPB9QJ",
+      "observedTitle": "goki 58479 Regenbogen-Bausteine",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/duplo-vergleich", "/artikel/nachhaltiges-spielzeug-siegel"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz; Text muss auf goki statt Grimm's lauten, sofern genau dieses Modell empfohlen wird.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4yrMQjK",
+      "status": "pending-human-review",
+      "replaces": ["4ovz2Ai", "3SHjTQh"],
+      "finalUrl": "https://www.amazon.de/Magna-Tiles-Open-Ended-Educational-Lieferumfang-18816/dp/B07H14DXLF",
+      "asin": "B07H14DXLF",
+      "observedTitle": "Magna-Tiles Open-Ended Educational Set",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/duplo-vergleich", "/artikel/geschenke-3-jahre"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für die zuvor auf hahaland zeigenden Magnetbaustein-Links.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4fkI7aL",
+      "status": "pending-human-review",
+      "replaces": ["444Mq4L"],
+      "finalUrl": "https://www.amazon.de/Eichhorn-100027005-Klopfstifte-Zertifiziertes-Buchenholz/dp/B007CXO0YU",
+      "asin": "B007CXO0YU",
+      "observedTitle": "Eichhorn Klopfstifte aus Buchenholz",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/motorikspielzeug-test"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für das Hape-Xylophon/Hammerspiel; Preis und Altersfreigabe vor Veröffentlichung prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4b0R1Jg",
+      "status": "pending-human-review",
+      "replaces": ["3QHuOsJ"],
+      "finalUrl": "https://www.amazon.de/wotoyd-Montessori-Spielzeug-Jahre-Holzspielzeug/dp/B0GBSW5GLZ",
+      "asin": "B0GBSW5GLZ",
+      "observedTitle": "wotoyd Montessori-Holzspielzeug",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/motorikspielzeug-test", "/artikel/spielzeug-unter-20-euro"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für das Preislimit-Produkt; aktuellen Preis und konkrete Altersfreigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "3RK9zHe",
+      "status": "pending-human-review",
+      "replaces": ["3SQIpi2"],
+      "finalUrl": "https://www.amazon.de/Badespielzeug-Aufzieh-Badespielzeug-Badewannen-Spielzeug-Bad-Schwimm-Spielzeug-Kleinkinder/dp/B0FG2KWC14",
+      "asin": "B0FG2KWC14",
+      "observedTitle": "Aufzieh-Badespielzeug für die Badewanne",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/badespielzeug-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für das zuvor als Aufziehfisch beschriebene Hape-Schlauchboot.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4b1Mruk",
+      "status": "pending-human-review",
+      "replaces": ["3QvxlGy"],
+      "finalUrl": "https://www.amazon.de/PLAYMOBIL-1-2-3-70267-Fröhliche-Wasserbahn/dp/B082YP8T4Q",
+      "asin": "B082YP8T4Q",
+      "observedTitle": "PLAYMOBIL 1.2.3 Fröhliche Wasserbahn",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/badespielzeug-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für die bisherige Wasserbahn; Altersfreigabe vor Nutzung im Artikel prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "4fru8jE",
+      "status": "pending-human-review",
+      "replaces": ["3QhZxws", "4uuaSav"],
+      "finalUrl": "https://www.amazon.de/Tiny-Land-Kinderküche-Kochgeschirr-Pretend-Spielset/dp/B08SPY6SRG",
+      "asin": "B08SPY6SRG",
+      "observedTitle": "Tiny Land Kinderküche mit Kochgeschirr",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/spielzeug-12-18-monate", "/artikel/spielzeug-18-24-monate", "/artikel/sprache-foerdern-spielzeug", "/artikel/weihnachtsgeschenke-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für Spielküchen-Links; Altersfreigabe und Indoor-/Rollenspiel-Kontext vor Veröffentlichung bestätigen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "45e4gD0",
+      "status": "pending-human-review",
+      "replaces": ["44ibqWm"],
+      "finalUrl": "https://www.amazon.de/CubicFun-Sandspielzeug-Strandspielzeug-Sandschaufel-Wasserspielzeug/dp/B08519L41Q",
+      "asin": "B08519L41Q",
+      "observedTitle": "CubicFun Sandspielzeug/Strandspielzeug",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/outdoor-spielzeug-kleinkind"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für die zuvor unpassende Wasserspielmatte.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "44zDxkb",
+      "status": "pending-human-review",
+      "replaces": ["43L24T0"],
+      "finalUrl": "https://www.amazon.de/Lernuhr-Kalender-erklärt-Jahreszeit-10496/dp/B0756KQ5WF",
+      "asin": "B0756KQ5WF",
+      "observedTitle": "Lernuhr mit Kalender und Jahreszeiten",
+      "observedAt": "2026-07-20",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Vom Nutzer bereitgestellter Ersatz für den entfernten 404-Link.",
+      "humanApproved": false
+    }
+  ]
+}

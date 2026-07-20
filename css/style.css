@@ -1124,6 +1124,16 @@ nav a:hover { color: var(--primary); }
 
 .btn-amazon:hover { background: #E68900; color: var(--text); }
 
+.affiliate-link--blocked {
+  opacity: 0.78;
+  cursor: help;
+}
+
+.affiliate-link--blocked:hover,
+.affiliate-link--blocked:focus-visible {
+  opacity: 1;
+}
+
 /* ===== PRODUKT-KACHELN (redaktionelle Affiliate-Cards) ===== */
 .kw-product-stack {
   display: grid;
@@ -1869,7 +1879,8 @@ footer ul a:hover { color: white; }
 
 .article-body .table-scroll,
 .article-body .budget-table-wrap,
-.article-body .vergleich-tabelle-wrap {
+.article-body .vergleich-tabelle-wrap,
+.article-body .comparison-table-wrapper {
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
@@ -3189,7 +3200,8 @@ footer ul a:hover { color: white; }
 @media (max-width: 640px) {
   .article-body .table-scroll,
   .article-body .budget-table-wrap,
-  .article-body .vergleich-tabelle-wrap {
+  .article-body .vergleich-tabelle-wrap,
+  .article-body .comparison-table-wrapper {
     margin: 20px 0 30px;
     border-radius: 8px;
     box-shadow: var(--shadow);
@@ -3225,6 +3237,13 @@ footer ul a:hover { color: white; }
   .table--multi-col thead {
     display: none;
   }
+  .table--multi-col caption {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    text-align: left;
+  }
   .table--multi-col tbody {
     display: block;
   }
@@ -3250,6 +3269,18 @@ footer ul a:hover { color: white; }
     overflow-wrap: break-word;
     word-break: break-word;
     font-size: 0.9rem;
+  }
+  .table--multi-col th[scope="row"] {
+    display: block;
+    padding: 0 0 2px;
+    border: none;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    text-align: left;
+  }
+  .table--multi-col th[scope="row"]::before {
+    display: none;
   }
   .table--multi-col td[data-label]::before {
     content: attr(data-label);
@@ -3287,6 +3318,17 @@ footer ul a:hover { color: white; }
     padding-bottom: 2px;
   }
   .vergleich-tabelle.table--multi-col td:nth-child(2)::before {
+    display: none;
+  }
+
+  /* Generische Vergleichstabellen: erste Zelle = Kartenüberschrift */
+  .comparison-table.table--multi-col td:first-child {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    padding-bottom: 2px;
+  }
+  .comparison-table.table--multi-col td:first-child::before {
     display: none;
   }
 
@@ -3722,8 +3764,7 @@ footer ul a:hover { color: white; }
   .age-hub-page .ueber-uns-hero h1 {
     width: 100%;
     max-width: 300px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline: auto;
     font-size: clamp(1.55rem, 7vw, 1.85rem);
     line-height: 1.18;
     overflow-wrap: anywhere;
@@ -3732,12 +3773,11 @@ footer ul a:hover { color: white; }
   .age-hub-page .ueber-uns-hero p {
     width: 100%;
     max-width: 300px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline: auto;
   }
 
   .age-hub-page .ueber-uns-hero.kaufhilfen-hero {
-    text-align: left;
+    text-align: center;
   }
 
   .age-hub-page .article-body.kaufhilfen-body {
@@ -3746,8 +3786,7 @@ footer ul a:hover { color: white; }
 
   .age-hub-page .article-body.kaufhilfen-body > * {
     max-width: 300px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline: auto;
   }
 
   .age-hub-page .age-nav {
@@ -3767,13 +3806,13 @@ footer ul a:hover { color: white; }
     grid-template-columns: minmax(0, 1fr);
     width: 100%;
     max-width: 300px;
+    margin-inline: auto;
   }
 
   .age-hub-page .card {
     width: 100%;
     max-width: 300px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline: auto;
   }
 
   .kaufhilfe-card,

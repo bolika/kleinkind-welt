@@ -79,6 +79,7 @@ for (const route of routes) {
   const evidenceIds = [...html.matchAll(/data-evidence-id=["']([^"']+)/g)].map((match) => match[1]);
   const hasProductCards = /class=["'][^"']*(?:produkt-box|kw-product-card|testsieger-box)[^"']*["']/i.test(html);
   const hasFaq = /class=["'][^"']*faq-section[^"']*["']/i.test(html);
+  const hasMobileTable = /class=["'][^"']*(?:budget-table|vergleich-tabelle|kaufhilfe-table|comparison-table)[^"']*["']/i.test(html);
 
   check(title, `${route}: Title fehlt.`);
   if (title) warn(title.length <= 60, `${route}: Title ist ${title.length} Zeichen lang.`);
@@ -89,6 +90,8 @@ for (const route of routes) {
   check(/<main\b[^>]*id=["']main-content["']/i.test(html), `${route}: main#main-content fehlt.`);
   check(missingAlt === 0, `${route}: ${missingAlt} Bild(er) ohne Alt-Attribut.`);
   for (const table of dataTables) check(/aria-label(?:ledby)?=["'][^"']+["']/i.test(table), `${route}: Tabelle ohne zugängliche Beschriftung.`);
+  if (hasMobileTable) check(/src=["']\/js\/mobile-tables\.js/i.test(html), `${route}: mobile Tabelle nutzt nicht die zentrale Tabellen-Komponente.`);
+  check(!/classList\.toggle\(["']show["']\)/i.test(html), `${route}: Navigation verwendet den veralteten .show-Zustand statt .open.`);
   check(affiliateCount === sponsoredCount, `${route}: ${affiliateCount} Affiliate-Links, aber ${sponsoredCount} davon als sponsored markiert.`);
   if (affiliateCount > 0) {
     check(/affiliate-hinweis|affiliate-links/i.test(html), `${route}: Affiliate-Links ohne sichtbaren Hinweis.`);
@@ -139,6 +142,8 @@ for (const id of evidenceRecords.keys()) check(renderedEvidenceIds.has(id), `${e
 const headers = read("_headers");
 check(/\/docs\/\*[\s\S]*?X-Robots-Tag:\s*noindex,\s*nofollow/i.test(headers), `_headers: /docs/* ist nicht noindex, nofollow.`);
 const affiliateTrackingFile = "js/affiliate-tracking.js";
+const affiliateLedgerFile = "data/affiliate-product-ledger.json";
+check(fs.existsSync(path.join(root, affiliateLedgerFile)), "data/affiliate-product-ledger.json fehlt.");
 check(fs.existsSync(path.join(root, affiliateTrackingFile)), `${affiliateTrackingFile} fehlt.`);
 if (fs.existsSync(path.join(root, affiliateTrackingFile))) {
   const affiliateTracking = read(affiliateTrackingFile);

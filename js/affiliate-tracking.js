@@ -1,6 +1,43 @@
 (function () {
+  var ledgerUrl = '/data/affiliate-product-ledger.json';
+
   function cleanText(value) {
     return (value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function shortCode(link) {
+    var match = (link.getAttribute('href') || '').match(/amzn\.to\/([A-Za-z0-9]+)/i);
+    return match ? match[1] : null;
+  }
+
+  function applyBlockedLinks(ledger) {
+    var blocked = new Set((ledger.entries || [])
+      .filter(function (entry) { return /^blocked-/.test(entry.status || ''); })
+      .map(function (entry) { return entry.shortCode; }));
+
+    document.querySelectorAll('a[href*="amzn.to/"]').forEach(function (link) {
+      var code = shortCode(link);
+      if (!code || !blocked.has(code)) return;
+
+      link.classList.add('affiliate-link--blocked');
+      link.dataset.affiliateBlocked = 'true';
+      link.dataset.originalHref = link.href;
+      link.removeAttribute('data-affiliate');
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('title', 'Produktlink vorübergehend deaktiviert: redaktionelle Prüfung ausstehend.');
+      link.setAttribute('href', '/bewertungsmethode#produktpruefung');
+      if (!link.querySelector('img')) {
+        link.textContent = 'Produktprüfung ansehen';
+      }
+    });
+  }
+
+  function loadAffiliateLedger() {
+    if (!window.fetch) return;
+    fetch(ledgerUrl, { credentials: 'same-origin', cache: 'no-store' })
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (ledger) { if (ledger) applyBlockedLinks(ledger); })
+      .catch(function () {});
   }
 
   function pageSlug(link) {
@@ -65,4 +102,14 @@
       }
     });
   });
+
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    var blockedLink = target && target.closest ? target.closest('a[data-affiliate-blocked="true"]') : null;
+    if (!blockedLink) return;
+    event.preventDefault();
+    window.location.href = '/bewertungsmethode#produktpruefung';
+  });
+
+  loadAffiliateLedger();
 })();
