@@ -4,7 +4,7 @@
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-20
+last-updated: 2026-07-21
 
 ## Über diese Seite
 

@@ -3783,6 +3783,25 @@ footer ul a:hover { color: white; }
   gap: 10px;
 }
 
+.pinterest-next-box {
+  margin-top: 28px;
+  border-left: 4px solid var(--accent);
+}
+
+.pinterest-next-box h2 {
+  margin: 0 0 8px;
+  font-size: 1.22rem;
+}
+
+.pinterest-next-box p {
+  max-width: 58ch;
+}
+
+.pinterest-next-box .bonus-next-links .btn-inline {
+  flex: 1 1 190px;
+  text-align: center;
+}
+
 @media (max-width: 640px) {
   .ueber-uns-hero.kaufhilfen-hero {
     width: 100%;
@@ -3894,6 +3913,10 @@ footer ul a:hover { color: white; }
 
   .bonus-next-links {
     flex-direction: column;
+  }
+
+  .pinterest-next-box .bonus-next-links .btn-inline {
+    flex-basis: auto;
   }
 
   .newsletter-signup {
