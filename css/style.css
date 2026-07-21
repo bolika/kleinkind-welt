@@ -942,6 +942,14 @@ nav a:hover { color: var(--primary); }
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+.hero-affiliate-hinweis {
+  margin: 16px 0 10px;
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  background: rgba(255,255,255,0.55);
+}
+
 .hero-product-teaser:hover {
   color: var(--text);
   box-shadow: 0 9px 24px rgba(32,58,73,0.14);
@@ -1003,16 +1011,16 @@ nav a:hover { color: var(--primary); }
 }
 
 .page-geschenke-1-jahr .article-body {
-  padding-top: 16px;
+  padding-top: 4px;
 }
 
 .page-geschenke-1-jahr .article-hero {
-  padding-bottom: 24px;
+  padding-bottom: 8px;
 }
 
-.page-geschenke-1-jahr .affiliate-hinweis {
+.page-geschenke-1-jahr .article-body .affiliate-hinweis {
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .article-body > *,
@@ -2702,6 +2710,7 @@ footer ul a:hover { color: white; }
 
 .page-geschenke-1-jahr .kaufbox--decision {
   margin-bottom: 20px;
+  padding-top: 10px;
 }
 
 .kaufbox--decision .kaufbox-hero {
