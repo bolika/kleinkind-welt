@@ -412,7 +412,7 @@
       "asin": "3845820233",
       "observedTitle": "Meine ersten 100 Wörter – Foto-Wörterbuch",
       "observedAt": "2026-07-20",
-      "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/spielzeug-unter-20-euro", "/artikel/sprache-foerdern-spielzeug"],
+      "affectedPages": ["/artikel/spielzeug-unter-20-euro", "/artikel/sprache-foerdern-spielzeug"],
       "reason": "Händlerziel der Pappbilderbuch-Option; Ausgabe, Format und Hersteller-/Verlagshinweise vor menschlicher Freigabe prüfen.",
       "humanApproved": true,
       "humanApprovedAt": "2026-07-21",
@@ -1582,6 +1582,7 @@
       "observedTitle": "Mushie Stapelbecher Spielzeug Stapelturm Hergestellt",
       "observedAt": "2026-07-20",
       "affectedPages": [
+        "/artikel/geschenke-1-jahr",
         "/artikel/spielzeug-12-18-monate",
         "/artikel/spielzeug-6-12-monate",
         "/artikel/spielzeug-unter-20-euro"
