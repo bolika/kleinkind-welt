@@ -2710,7 +2710,11 @@ footer ul a:hover { color: white; }
 
 .page-geschenke-1-jahr .kaufbox--decision {
   margin-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 4px;
+}
+
+.page-geschenke-1-jahr .kaufbox--decision > .kaufbox-heading {
+  margin: 0 0 8px;
 }
 
 .kaufbox--decision .kaufbox-hero {
