@@ -649,6 +649,61 @@
     });
   })();
 </script>
+<script>
+  (function() {
+    var page = 'geschenke-1-jahr';
+    var product = 'Kidpop PULA · Lauflernwagen';
+    var device = window.innerWidth <= 640 ? 'mobile' : 'desktop';
+    var referrer = document.referrer || '';
+    var trafficChannel = /pinterest/i.test(referrer) ? 'pinterest' : (/google\.|bing\.com|duckduckgo/i.test(referrer) ? 'organic-search' : (referrer ? 'referral' : 'direct'));
+    var sent = {};
+
+    function track(eventName, props) {
+      var key = eventName + JSON.stringify(props || {});
+      if (!window.plausible || sent[key]) return;
+      sent[key] = true;
+      window.plausible(eventName, {
+        props: Object.assign({
+          seite: page,
+          produkt: product,
+          traffic_channel: trafficChannel,
+          device: device
+        }, props || {})
+      });
+    }
+
+    function observe(selector, eventName, placement) {
+      var element = document.querySelector(selector);
+      if (!element) return;
+      if (!('IntersectionObserver' in window)) {
+        track(eventName, { platzierung: placement });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries, instance) {
+        if (!entries.some(function(entry) { return entry.isIntersecting; })) return;
+        track(eventName, { platzierung: placement });
+        instance.disconnect();
+      }, { threshold: 0.5 });
+      observer.observe(element);
+    }
+
+    observe('.hero-product-teaser', 'product_teaser_viewed', 'hero-product-teaser');
+    observe('.kaufbox--decision .kaufbox-hero', 'product_box_viewed', 'kaufbox-primary');
+    observe('.kaufbox-primary-cta', 'product_cta_viewed', 'kaufbox-primary');
+
+    var scrollMarks = [25, 50, 75];
+    function trackScrollDepth() {
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      var depth = Math.round((window.scrollY / scrollable) * 100);
+      scrollMarks.forEach(function(mark) {
+        if (depth >= mark) track('scroll_depth_reached', { tiefe: mark });
+      });
+    }
+    window.addEventListener('scroll', trackScrollDepth, { passive: true });
+    window.addEventListener('load', trackScrollDepth);
+  })();
+</script>
 <script src="/js/mobile-tables.js" defer></script>
 </body>
 </html>
