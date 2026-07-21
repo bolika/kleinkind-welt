@@ -363,7 +363,7 @@
       "observedTitle": "Pinolino Lauflernwagen Kimi",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
-      "reason": "Historisches Händlerziel der Primärempfehlung; durch den vom Nutzer bereitgestellten Kiddoop-Link ersetzt.",
+      "reason": "Historisches Händlerziel der Primärempfehlung; durch den vom Nutzer bereitgestellten Kidpop-Link ersetzt.",
       "humanApproved": false
     },
     {
@@ -1504,10 +1504,10 @@
       "replaces": ["43tTmZd"],
       "finalUrl": "https://www.amazon.de/Schiebewagen-Balance-Lauflernwagen-M%C3%A4dchen-Monaten-Geburtstagsgeschenk/dp/B0DCG62S1Y",
       "asin": "B0DCG62S1Y",
-      "observedTitle": "Kiddoop Schiebe- und Lauflernwagen",
+      "observedTitle": "Kidpop PULA 2-in-1 Baby Lauflernwagen",
       "observedAt": "2026-07-21",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
-      "reason": "Vom Nutzer bereitgestellter Ersatzlink; Produktbild exemplarisch integriert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang vor menschlicher Freigabe prüfen.",
+      "reason": "Vom Nutzer bereitgestellter Ersatzlink; Produktbild und Amazon-Review-Snapshot exemplarisch integriert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang vor menschlicher Freigabe prüfen.",
       "humanApproved": false
     }
   ]

@@ -1669,6 +1669,16 @@ nav a:hover { color: var(--primary); }
   object-fit: contain;
   background: var(--white);
 }
+.produkt-review-note {
+  padding: 10px 12px;
+  margin: 12px 0 16px;
+  border-left: 3px solid var(--accent);
+  background: rgba(43,111,103,0.06);
+  color: var(--text-light);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.produkt-review-note strong { color: var(--text); }
 
 /* ===== INHALTSVERZEICHNIS ===== */
 .toc {

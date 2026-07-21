@@ -209,17 +209,24 @@
     {
       "id": "geschenke-1-jahr-recommendation-1",
       "page": "/artikel/geschenke-1-jahr",
-      "item": "Kiddoop Schiebe- und Lauflernwagen",
+      "item": "Kidpop PULA 2-in-1 Schiebe- und Lauflernwagen",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
       "reviewedAt": "2026-07-21",
       "articleSourceUrls": [
         "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
         "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
+        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
+        "https://www.amazon.de/dp/B0DCG62S1Y"
       ],
       "approvalStatus": "pending-human-review",
-      "limitation": "Kein eigener Produkttest; Produktbild und Händlerziel wurden aktualisiert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang des konkreten Modells müssen vor einer Freigabe geprüft werden."
+      "limitation": "Kein eigener Produkttest; Produktbild, Händlerziel und ein datierter Amazon-Review-Snapshot wurden aktualisiert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang des konkreten Modells müssen vor einer Freigabe geprüft werden; Bewertungsdaten können sich ändern.",
+      "amazonReviewSnapshot": {
+        "observedAt": "2026-07-21",
+        "rating": "4.7/5",
+        "reviewCount": 1000,
+        "summaryAttribution": "Amazon-KI-Zusammenfassung der Kundenrezensionen"
+      }
     },
     {
       "id": "geschenke-1-jahr-recommendation-2",
