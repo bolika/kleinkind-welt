@@ -357,12 +357,13 @@
     {
       "shortCode": "43tTmZd",
       "status": "pending-human-review",
+      "replacedBy": ["44GQPeF"],
       "finalUrl": "https://www.amazon.de/Pinolino-269416-Lauflernwagen-Kimi-grau/dp/B01N6JBE7X",
       "asin": "B01N6JBE7X",
       "observedTitle": "Pinolino Lauflernwagen Kimi",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
-      "reason": "Händlerziel der Primärempfehlung; Herstelleralter, Bremsmechanik und Sicherheitskontext vor menschlicher Freigabe prüfen.",
+      "reason": "Historisches Händlerziel der Primärempfehlung; durch den vom Nutzer bereitgestellten Kiddoop-Link ersetzt.",
       "humanApproved": false
     },
     {
@@ -1495,6 +1496,18 @@
         "/artikel/spielzeug-unter-20-euro"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
+      "humanApproved": false
+    },
+    {
+      "shortCode": "44GQPeF",
+      "status": "pending-human-review",
+      "replaces": ["43tTmZd"],
+      "finalUrl": "https://www.amazon.de/Schiebewagen-Balance-Lauflernwagen-M%C3%A4dchen-Monaten-Geburtstagsgeschenk/dp/B0DCG62S1Y",
+      "asin": "B0DCG62S1Y",
+      "observedTitle": "Kiddoop Schiebe- und Lauflernwagen",
+      "observedAt": "2026-07-21",
+      "affectedPages": ["/artikel/geschenke-1-jahr"],
+      "reason": "Vom Nutzer bereitgestellter Ersatzlink; Produktbild exemplarisch integriert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang vor menschlicher Freigabe prüfen.",
       "humanApproved": false
     }
   ]
