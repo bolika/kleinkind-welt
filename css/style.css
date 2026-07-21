@@ -922,6 +922,76 @@ nav a:hover { color: var(--primary); }
   overflow-wrap: anywhere;
 }
 
+.hero-product-teaser {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 8px 12px 8px 8px;
+  border: 1px solid rgba(43,111,103,0.22);
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 6px 18px rgba(32,58,73,0.08);
+  color: var(--text);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hero-product-teaser:hover {
+  color: var(--text);
+  box-shadow: 0 9px 24px rgba(32,58,73,0.14);
+  transform: translateY(-1px);
+}
+
+.hero-product-teaser picture,
+.hero-product-teaser img {
+  display: block;
+  width: 78px;
+  height: 78px;
+}
+
+.hero-product-teaser img {
+  object-fit: contain;
+  border-radius: 7px;
+  background: var(--white);
+}
+
+.hero-product-teaser-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hero-product-teaser-copy strong {
+  color: var(--primary);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-product-teaser-copy > span {
+  display: block;
+  min-width: 0;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.hero-product-teaser-copy small {
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 .article-body {
   max-width: 760px;
   width: 100%;
@@ -930,6 +1000,19 @@ nav a:hover { color: var(--primary); }
   padding: 48px 20px;
   overflow-wrap: anywhere;
   overflow-x: hidden;
+}
+
+.page-geschenke-1-jahr .article-body {
+  padding-top: 16px;
+}
+
+.page-geschenke-1-jahr .article-hero {
+  padding-bottom: 24px;
+}
+
+.page-geschenke-1-jahr .affiliate-hinweis {
+  margin-top: 0;
+  margin-bottom: 14px;
 }
 
 .article-body > *,
@@ -2617,6 +2700,10 @@ footer ul a:hover { color: white; }
   letter-spacing: 0.06em;
 }
 
+.page-geschenke-1-jahr .kaufbox--decision {
+  margin-bottom: 20px;
+}
+
 .kaufbox--decision .kaufbox-hero {
   border: 1px solid rgba(43,111,103,0.24);
   border-left: 5px solid var(--primary);
@@ -4105,8 +4192,29 @@ footer ul a:hover { color: white; }
     overflow-wrap: anywhere;
   }
 
+  .hero-product-teaser {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+    padding: 7px 10px 7px 7px;
+  }
+
+  .hero-product-teaser picture,
+  .hero-product-teaser img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .hero-product-teaser-copy > span {
+    font-size: 0.86rem;
+  }
+
+  .hero-product-teaser-copy small {
+    font-size: 0.74rem;
+  }
+
   .article-body {
-    padding: 36px 20px;
+    padding: 24px 20px;
   }
 
   .artikel-autor-line {
