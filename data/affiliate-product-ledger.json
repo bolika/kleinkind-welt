@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-20",
+  "generatedAt": "2026-07-21",
   "reviewPolicy": {
     "prices": "Nicht als aktuell ausgeben, wenn keine frische Händlerprüfung vorliegt.",
     "ageAndSafety": "Herstellerfreigabe und konkrete Produktseite prüfen; menschliche Freigabe erforderlich.",
@@ -9,9 +9,9 @@
   },
   "coverage": {
     "expectedUniqueAmazonLinks": 99,
-    "verifiedEntries": 0,
-    "status": "in-progress",
-    "note": "Die vollständige Prüfung wird durch tools/affiliate-integrity-check.mjs verfolgt."
+    "verifiedEntries": 101,
+    "status": "reviewed-with-blocked-mismatches",
+    "note": "101 Einträge sind am 21.07.2026 menschlich freigegeben. 15 bekannte Fehlzuordnungen bleiben technisch blockiert und werden nicht als aktive Empfehlungen ausgespielt."
   },
   "entries": [
     {
@@ -212,7 +212,7 @@
     },
     {
       "shortCode": "4wPPIp1",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["4uCqqt9"],
       "finalUrl": "https://www.amazon.de/Goodevas-Montessori-Climbing-Frame-Set/dp/B0DTJHR62G",
       "asin": "B0DTJHR62G",
@@ -220,11 +220,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-3-jahre", "/artikel/geschenke-zur-geburt", "/artikel/motorikspielzeug-test", "/artikel/weihnachtsgeschenke-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für das Kletterdreieck; Altersfreigabe vor Veröffentlichung je Kontext bestätigen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4bxsZFY",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["3Swnd0N"],
       "finalUrl": "https://www.amazon.de/Munchkin-Badefarben-farbenfrohes-Badespielzeug-abwaschbares/dp/B00IFWP97O",
       "asin": "B00IFWP97O",
@@ -232,11 +234,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/badespielzeug-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für die Bademalfarben; Herstelleralter und Inhaltsstoffhinweise vor Veröffentlichung bestätigen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4wgA1HE",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["4ahtljF"],
       "finalUrl": "https://www.amazon.de/Joyreal-Motorikbrett-Jahr-Montessori-Motorikspielzeug/dp/B0BYYQP1GT",
       "asin": "B0BYYQP1GT",
@@ -244,11 +248,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/holzspielzeug-vs-plastikspielzeug", "/artikel/montessori-spielzeug-kleinkind", "/artikel/motorikspielzeug-test", "/artikel/weihnachtsgeschenke-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für das zuvor unpassende Busy-Board; konkrete Altersfreigabe und Modellmerkmale abgleichen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4hlzKhJ",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["4gjqpXh", "4ot4Plp"],
       "finalUrl": "https://www.amazon.de/goki-58479-Regenbogen-hochwertigem-Kreativität/dp/B0BXMPB9QJ",
       "asin": "B0BXMPB9QJ",
@@ -256,11 +262,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/duplo-vergleich", "/artikel/nachhaltiges-spielzeug-siegel"],
       "reason": "Vom Nutzer bereitgestellter Ersatz; Text muss auf goki statt Grimm's lauten, sofern genau dieses Modell empfohlen wird.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4yrMQjK",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["4ovz2Ai", "3SHjTQh"],
       "finalUrl": "https://www.amazon.de/Magna-Tiles-Open-Ended-Educational-Lieferumfang-18816/dp/B07H14DXLF",
       "asin": "B07H14DXLF",
@@ -268,11 +276,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/duplo-vergleich", "/artikel/geschenke-3-jahre"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für die zuvor auf hahaland zeigenden Magnetbaustein-Links.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fkI7aL",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["444Mq4L"],
       "finalUrl": "https://www.amazon.de/Eichhorn-100027005-Klopfstifte-Zertifiziertes-Buchenholz/dp/B007CXO0YU",
       "asin": "B007CXO0YU",
@@ -280,11 +290,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/motorikspielzeug-test"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für das Hape-Xylophon/Hammerspiel; Preis und Altersfreigabe vor Veröffentlichung prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4b0R1Jg",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["3QHuOsJ"],
       "finalUrl": "https://www.amazon.de/wotoyd-Montessori-Spielzeug-Jahre-Holzspielzeug/dp/B0GBSW5GLZ",
       "asin": "B0GBSW5GLZ",
@@ -292,11 +304,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/motorikspielzeug-test", "/artikel/spielzeug-unter-20-euro"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für das Preislimit-Produkt; aktuellen Preis und konkrete Altersfreigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3RK9zHe",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["3SQIpi2"],
       "finalUrl": "https://www.amazon.de/Badespielzeug-Aufzieh-Badespielzeug-Badewannen-Spielzeug-Bad-Schwimm-Spielzeug-Kleinkinder/dp/B0FG2KWC14",
       "asin": "B0FG2KWC14",
@@ -304,11 +318,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/badespielzeug-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für das zuvor als Aufziehfisch beschriebene Hape-Schlauchboot.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4b1Mruk",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["3QvxlGy"],
       "finalUrl": "https://www.amazon.de/PLAYMOBIL-1-2-3-70267-Fröhliche-Wasserbahn/dp/B082YP8T4Q",
       "asin": "B082YP8T4Q",
@@ -316,11 +332,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/badespielzeug-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für die bisherige Wasserbahn; Altersfreigabe vor Nutzung im Artikel prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fru8jE",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["3QhZxws", "4uuaSav"],
       "finalUrl": "https://www.amazon.de/Tiny-Land-Kinderküche-Kochgeschirr-Pretend-Spielset/dp/B08SPY6SRG",
       "asin": "B08SPY6SRG",
@@ -328,11 +346,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/spielzeug-12-18-monate", "/artikel/spielzeug-18-24-monate", "/artikel/sprache-foerdern-spielzeug", "/artikel/weihnachtsgeschenke-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für Spielküchen-Links; Altersfreigabe und Indoor-/Rollenspiel-Kontext vor Veröffentlichung bestätigen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "45e4gD0",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["44ibqWm"],
       "finalUrl": "https://www.amazon.de/CubicFun-Sandspielzeug-Strandspielzeug-Sandschaufel-Wasserspielzeug/dp/B08519L41Q",
       "asin": "B08519L41Q",
@@ -340,11 +360,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/outdoor-spielzeug-kleinkind"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für die zuvor unpassende Wasserspielmatte.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44zDxkb",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["43L24T0"],
       "finalUrl": "https://www.amazon.de/Lernuhr-Kalender-erklärt-Jahreszeit-10496/dp/B0756KQ5WF",
       "asin": "B0756KQ5WF",
@@ -352,11 +374,13 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Vom Nutzer bereitgestellter Ersatz für den entfernten 404-Link; für die Geschenkeseite inzwischen redaktionell entfernt, weil die Altersfreigabe nicht zu einem ersten Geburtstag passt.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "43tTmZd",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replacedBy": ["44GQPeF"],
       "finalUrl": "https://www.amazon.de/Pinolino-269416-Lauflernwagen-Kimi-grau/dp/B01N6JBE7X",
       "asin": "B01N6JBE7X",
@@ -364,165 +388,195 @@
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Historisches Händlerziel der Primärempfehlung; durch den vom Nutzer bereitgestellten Kidpop-Link ersetzt.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QmhJF9",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Hape-E0411-Kreatives-Steckpuzzle-teilig/dp/B00712O1J6",
       "asin": "B00712O1J6",
       "observedTitle": "Hape E0411 kreatives Steckpuzzle",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/montessori-spielzeug-kleinkind", "/artikel/spielzeug-18-24-monate", "/artikel/spielzeug-2-jahre", "/artikel/spielzeug-unter-20-euro"],
       "reason": "Händlerziel für das Steckpuzzle; Altersangabe, Teilegröße und Preisregel vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4gmeOqs",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Meine-ersten-100-Wörter-Foto-Wörterbuch/dp/3845820233",
       "asin": "3845820233",
       "observedTitle": "Meine ersten 100 Wörter – Foto-Wörterbuch",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/spielzeug-unter-20-euro", "/artikel/sprache-foerdern-spielzeug"],
       "reason": "Händlerziel der Pappbilderbuch-Option; Ausgabe, Format und Hersteller-/Verlagshinweise vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4b4liHc",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/WINGYZ-Musikinstrumente-Kinder-Jahr-Musikspielzeug/dp/B0GT2TLBHX",
       "asin": "B0GT2TLBHX",
       "observedTitle": "WINGYZ Musikinstrumente-Kinder-Set",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Vom Nutzer bereitgestellter Ersatzlink; Lieferumfang, Lautstärke, Kleinteile und Herstelleralter vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4g1eNs7",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/HABA-306287-Bausteine-Tierparade-Naturbausteine/dp/B09GGDPFG4",
       "asin": "B09GGDPFG4",
       "observedTitle": "HABA 306287 Bausteine Tierparade",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel für die Holzbausteine; Teilegröße, Altersfreigabe und die Aussage zur Nutzungsdauer vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vCZt96",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Meine-ersten-Wörter-Tiere-Pappbilderbücher/dp/B0GVBCHF6Z",
       "asin": "B0GVBCHF6Z",
       "observedTitle": "Meine ersten Wörter – Tiere Pappbilderbücher",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Vom Nutzer bereitgestellter Ersatzlink; Ausgabe, Seitenstärke und Herstelleralter vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SgjBQp",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/BIG-Bobby-Classic-Green-Sicherheits-Lenkrad/dp/B0CSDR87J9",
       "asin": "B0CSDR87J9",
       "observedTitle": "BIG Bobby-Car Classic",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/outdoor-spielzeug-kleinkind"],
       "reason": "Korrigiertes Händlerziel für das Rutschauto; Herstelleralter, Sitz-/Fahrkontext und Nutzungsdauer vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "43FLns6",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/KNETÄ-Vegane-Spielknete-Ungiftig-Kleinkinder/dp/B089QCHHGX",
       "asin": "B089QCHHGX",
       "observedTitle": "KNETÄ vegane Spielknete",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel der Knetmasse; Altersfreigabe, Inhaltsstoffe und Verschluckrisiko vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xEXYcI",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/FUNLIO-Dino-Schaukelpferd-Kleinkinder-Plüsch-Schaukeldino-liebevollem/dp/B0FDWMNTFK",
       "asin": "B0FDWMNTFK",
       "observedTitle": "FUNLIO Dino-Schaukelpferd",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel des Schaukeltieres; Herstelleralter, Standfestigkeit und Aufsichtshinweise vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4oNddfB",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Stück-Fingerpuppen-Rotkäppchen-Fingerpuppen-Theater-Kindergeschichten/dp/B0DLJRRM8S",
       "asin": "B0DLJRRM8S",
       "observedTitle": "Fingerpuppen-Set Rotkäppchen",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel des Fingerpuppensatzes; Kleinteile, Altersempfehlung und geeignete Nutzung unter Aufsicht vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "43Gmxs5",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Schildkröt-Sand-Spielset-Handtaschenformat-Sandspielzeugen-970244/dp/B094ZCP4PJ",
       "asin": "B094ZCP4PJ",
       "observedTitle": "Schildkröt Sand-Spielset 970244",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr", "/artikel/outdoor-spielzeug-kleinkind"],
       "reason": "Händlerziel des Sandkastensets; Kleinteile, Altersfreigabe und Einsatz unter Aufsicht vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4oH4BHp",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Honeysticks-Little-Learner-Buntstifte-Kinder/dp/B0F83MWSPN",
       "asin": "B0F83MWSPN",
       "observedTitle": "Honeysticks Little Learner Buntstifte",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel der dicken Wachsmalstifte; Altersfreigabe, Inhaltsstoffe und Verschluckrisiko vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4w2K7vh",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/BJORKI-Wärmekissen-Baby-Kinder-Kuschelkissen/dp/B0DHK1H89Z",
       "asin": "B0DHK1H89Z",
       "observedTitle": "BJORKI Wärmekissen für Baby und Kinder",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel des Wärmekissens; Temperatur, Erwärmung, Altershinweise und Aufsicht vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4auPM51",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LPZMPZ-Fotoalbum-Selbstgestalten-Scrapbook-Geburtstag/dp/B0F2SJRKV6",
       "asin": "B0F2SJRKV6",
       "observedTitle": "LPZMPZ Fotoalbum zum Selbstgestalten",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Händlerziel des Fotoalbums; Format, Material und Eignung für die konkrete Geschenkidee vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3Q29UEy",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Sophie-Girafe-Naturkautschuk-Aktivit%C3%A4tsset-Lernspielzeug/dp/B00SDTH1ES",
       "asin": "B00SDTH1ES",
       "observedTitle": "Sophie Girafe Naturkautschuk Aktivitätsset Lernspielzeug",
       "observedAt": "2026-07-20",
       "affectedPages": ["/artikel/spielzeug-6-12-monate"],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3Q3yh4N",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LEGO-DUPLO-Town-Interaktive-Abenteuer-Eisenbahn/dp/B0CWH4J73Z",
       "asin": "B0CWH4J73Z",
       "observedTitle": "LEGO DUPLO Town Interaktive Abenteuer Eisenbahn",
@@ -531,11 +585,13 @@
         "/artikel/holzspielzeug-vs-plastikspielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QIjMn5",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Haba-4655-unterhaltsames-Holzspielzeug-Spieleklassiker/dp/B001P4ZACS",
       "asin": "B001P4ZACS",
       "observedTitle": "Haba 4655 unterhaltsames Holzspielzeug Spieleklassiker",
@@ -545,11 +601,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QKe9Vo",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/JoyCat-Wasserfarben-Kleinkinder-Lernspielzeug-Geburtstagsgeschenk/dp/B0CTHQLKML",
       "asin": "B0CTHQLKML",
       "observedTitle": "JoyCat Wasserfarben Kleinkinder Lernspielzeug Geburtstagsgeschenk",
@@ -559,11 +617,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QKknoe",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Unser-Sandm%C3%A4nnchen-Freunde-986176-Fingerpuppen-Set/dp/B004PLMTQ8",
       "asin": "B004PLMTQ8",
       "observedTitle": "Unser Sandmännchen Freunde 986176 Fingerpuppen Set",
@@ -572,11 +632,13 @@
         "/artikel/sprache-foerdern-spielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QLAxxH",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LEGO-Kreative-Sprungschanzen-kleinen-Flitzern/dp/B0FPXFBP42",
       "asin": "B0FPXFBP42",
       "observedTitle": "LEGO Kreative Sprungschanzen kleinen Flitzern",
@@ -585,11 +647,13 @@
         "/artikel/geschenke-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3Qm34d7",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LepiBaby-Verstellbar-Neugeborenen-Kinderwippe-Schaukelwippe/dp/B0GTQRMBGL",
       "asin": "B0GTQRMBGL",
       "observedTitle": "LepiBaby Verstellbar Neugeborenen Kinderwippe Schaukelwippe",
@@ -598,11 +662,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3Qpnylg",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Honeysticks-Wachsmalstifte-12er-Pack-Umweltschonend-Kleinkindfreundlich/dp/B01GSY9MD2",
       "asin": "B01GSY9MD2",
       "observedTitle": "Honeysticks Wachsmalstifte 12er Pack Umweltschonend Kleinkindfreundlich",
@@ -611,11 +677,13 @@
         "/artikel/geschenke-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3QvzXUR",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Spielbogen-abnehmbaren-Sensorischen-Spielzeugen-Neugeborenes/dp/B0G241XK6H",
       "asin": "B0G241XK6H",
       "observedTitle": "Spielbogen abnehmbaren Sensorischen Spielzeugen Neugeborenes",
@@ -624,11 +692,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SB7yxb",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Sterntaler-Fingerpuppe-Fuchs-Filou-Fingerspielzeug/dp/B0FHQSFYB4",
       "asin": "B0FHQSFYB4",
       "observedTitle": "Sterntaler Fingerpuppe Fuchs Filou Fingerspielzeug",
@@ -637,11 +707,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SdfrIY",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/HABA-Feuerwehr-Puzzle-Papp-Puzzle-Rettungswagen-Motiven-Konzentration/dp/B06X6CQFC4",
       "asin": "B06X6CQFC4",
       "observedTitle": "HABA Feuerwehr Puzzle Papp Puzzle Rettungswagen Motiven Konzentration",
@@ -650,11 +722,13 @@
         "/artikel/geschenke-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SdU8al",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Schildkr%C3%B6t-Sand-Spielset-Handtaschenformat-Sandspielzeugen-970244/dp/B094ZCP4PJ",
       "asin": "B094ZCP4PJ",
       "observedTitle": "Schildkröt Sand Spielset Handtaschenformat Sandspielzeugen 970244",
@@ -663,11 +737,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SGoa6y",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/OFFCUP-Babyrassel-Geh%C3%A4kelte-Niedlicher-Kleinkinder/dp/B0F1KNQ695",
       "asin": "B0F1KNQ695",
       "observedTitle": "OFFCUP Babyrassel Gehäkelte Niedlicher Kleinkinder",
@@ -678,11 +754,13 @@
         "/artikel/spielzeug-unter-20-euro"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SRIAJS",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PUKY-PUKYMOTO-stylisches-Rutschfahrzeug-Lenkeinschlagsbegrenzung/dp/B09D3W9VNJ",
       "asin": "B09D3W9VNJ",
       "observedTitle": "PUKY PUKYMOTO stylisches Rutschfahrzeug Lenkeinschlagsbegrenzung",
@@ -691,11 +769,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3StVa25",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Munchkin-Wassertrichter-Becher-Badespielzeug-4-teilig/dp/B019OSOTZU",
       "asin": "B019OSOTZU",
       "observedTitle": "Munchkin Wassertrichter Becher Badespielzeug 4 teilig",
@@ -704,11 +784,13 @@
         "/artikel/badespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "3SyScct",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Hape-E0361-Nachziehfrosch-Fridolin-Mehrfarbig/dp/B07MCJNWM3",
       "asin": "B07MCJNWM3",
       "observedTitle": "Hape E0361 Nachziehfrosch Fridolin Mehrfarbig",
@@ -717,11 +799,13 @@
         "/artikel/spielzeug-18-24-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "43K6MQP",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Klein-7199-Holzk%C3%BCche-K%C3%BCchen-Zubeh%C3%B6r-Edelstahl/dp/B07PQ8SCT3",
       "asin": "B07PQ8SCT3",
       "observedTitle": "Klein 7199 Holzküche Küchen Zubehör Edelstahl",
@@ -732,11 +816,13 @@
         "/artikel/spielzeug-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "440a3M2",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/SGILE-Zaubertafeln-Zaubermaltafel-Zeichenbrett-Kindergeschenk/dp/B073F7VRBT",
       "asin": "B073F7VRBT",
       "observedTitle": "SGILE Zaubertafeln Zaubermaltafel Zeichenbrett Kindergeschenk",
@@ -745,11 +831,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "447JEM8",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Lamaze-Spielzeug-Farbenbuch-Kleinkindspielzeug-Eltern-Kind-Beziehung/dp/B07Q7D7FHJ",
       "asin": "B07Q7D7FHJ",
       "observedTitle": "Lamaze Spielzeug Farbenbuch Kleinkindspielzeug Eltern Kind Beziehung",
@@ -758,11 +846,13 @@
         "/artikel/spielzeug-6-12-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44arhWQ",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Brio-GmbH-31350-Lauflernwagen-rot-gelb/dp/B00004T19V",
       "asin": "B00004T19V",
       "observedTitle": "Brio GmbH 31350 Lauflernwagen rot gelb",
@@ -773,11 +863,13 @@
         "/artikel/weihnachtsgeschenke-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44bwQo2",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/HABA-Entdeckerbausteine-Klangspa%C3%9F-Klangbausteine-Musikspielzeug/dp/B0GGRYJ1TR",
       "asin": "B0GGRYJ1TR",
       "observedTitle": "HABA Entdeckerbausteine Klangspaß Klangbausteine Musikspielzeug",
@@ -786,11 +878,13 @@
         "/artikel/nachhaltiges-spielzeug-siegel"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44dWRDs",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/-/en/Interactive-Childrens-Educational-Classroom-Grandmother/dp/B0DLJRRM8S",
       "asin": "B0DLJRRM8S",
       "observedTitle": "Interactive Childrens Educational Classroom Grandmother",
@@ -799,11 +893,13 @@
         "/artikel/spielzeug-unter-20-euro"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44woNlY",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/twoonto-Badespielzeug-aufziehbarem-Pool-Badewannenspielzeug-Montessori-Spielzeug/dp/B0B5DM3HK8",
       "asin": "B0B5DM3HK8",
       "observedTitle": "twoonto Badespielzeug aufziehbarem Pool Badewannenspielzeug Montessori Spielzeug",
@@ -812,11 +908,13 @@
         "/artikel/badespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4a57uM4",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/tonies-03-0014-Toniebox-Startset-Starterbox/dp/B07HBBN95G",
       "asin": "B07HBBN95G",
       "observedTitle": "tonies 03 0014 Toniebox Startset Starterbox",
@@ -825,11 +923,13 @@
         "/artikel/geschenke-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4a6sRN0",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Naturprodukte-689-00-Bio-Bei%C3%9Ftier-Naturkautschuk-Schildkr%C3%B6te/dp/B0983PHBVC",
       "asin": "B0983PHBVC",
       "observedTitle": "Naturprodukte 689 00 Bio Beißtier Naturkautschuk Schildkröte",
@@ -838,11 +938,13 @@
         "/artikel/nachhaltiges-spielzeug-siegel"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4ac2Zzl",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Hape-E0305-Xylophon-und-Hammerspiel/dp/B00712O2D6",
       "asin": "B00712O2D6",
       "observedTitle": "Hape E0305 Xylophon und Hammerspiel",
@@ -851,11 +953,13 @@
         "/artikel/geschenke-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4aIdbjh",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PUKY-PUKYMOTO-stylisches-Rutschfahrzeug-Lenkeinschlagsbegrenzung/dp/B09D3W9VNJ",
       "asin": "B09D3W9VNJ",
       "observedTitle": "PUKY PUKYMOTO stylisches Rutschfahrzeug Lenkeinschlagsbegrenzung",
@@ -864,11 +968,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4aLFzAZ",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/KiddyMoon-Balance-Board-Balancebrett-Gleichgewicht/dp/B09BCT6DJZ",
       "asin": "B09BCT6DJZ",
       "observedTitle": "KiddyMoon Balance Board Balancebrett Gleichgewicht",
@@ -879,11 +985,13 @@
         "/artikel/weihnachtsgeschenke-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4au3CEw",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Merle-Toys-Holzbausteine-Kinderspielzeug-Motorikspielzeug/dp/B0BTHWMF8B",
       "asin": "B0BTHWMF8B",
       "observedTitle": "Merle Toys Holzbausteine Kinderspielzeug Motorikspielzeug",
@@ -892,11 +1000,13 @@
         "/artikel/holzspielzeug-vs-plastikspielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4avunZn",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Valino-Spielzeug-Pastellfarben-Wasserfeste-hochwertigem/dp/B0FGJ75J38",
       "asin": "B0FGJ75J38",
       "observedTitle": "Valino Spielzeug Pastellfarben Wasserfeste hochwertigem",
@@ -905,11 +1015,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4aWs29R",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PLAYMOBIL-Bauernhof-Abenteuer-nachhaltiges-Spielzeug-71656/dp/B0CS85Q957",
       "asin": "B0CS85Q957",
       "observedTitle": "PLAYMOBIL Bauernhof Abenteuer nachhaltiges Spielzeug 71656",
@@ -919,11 +1031,13 @@
         "/artikel/geschenke-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4aZegTT",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PHIBER-SPORTS-Kinder-Gartenwerkzeug-Teile-Kindergartenbuch/dp/B0DGLWN18Q",
       "asin": "B0DGLWN18Q",
       "observedTitle": "PHIBER SPORTS Kinder Gartenwerkzeug Teile Kindergartenbuch",
@@ -932,11 +1046,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4bfxOU9",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Ravensburger-ministeps-4169-allererstes-Puzzle/dp/B084DFZBYR",
       "asin": "B084DFZBYR",
       "observedTitle": "Ravensburger ministeps 4169 allererstes Puzzle",
@@ -945,11 +1061,13 @@
         "/artikel/geschenke-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4e5U44T",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Montessori-Holzspielzeug-f%C3%BCr-Kinder-Jahr/dp/B09MMYXDHX",
       "asin": "B09MMYXDHX",
       "observedTitle": "Montessori Holzspielzeug für Kinder Jahr",
@@ -959,11 +1077,13 @@
         "/artikel/spielzeug-6-12-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4eBoWdP",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/gp/product/1789413788",
       "asin": "1789413788",
       "observedTitle": "gp",
@@ -972,11 +1092,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4ecdaqa",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/MEGA-HHM96-Aufbewahrungstasche-Konstruktionsspielzeug-Spielzeug-Geschenkset/dp/B09QLGNGYT",
       "asin": "B09QLGNGYT",
       "observedTitle": "MEGA HHM96 Aufbewahrungstasche Konstruktionsspielzeug Spielzeug Geschenkset",
@@ -985,11 +1107,13 @@
         "/artikel/duplo-vergleich"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4efC0UI",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Fisher-Price-HJW08-1-Spieldecke-Kleinkinder-Regenwalddesign/dp/B0B5HWPH5F",
       "asin": "B0B5HWPH5F",
       "observedTitle": "Fisher Price HJW08 1 Spieldecke Kleinkinder Regenwalddesign",
@@ -1000,11 +1124,13 @@
         "/artikel/sprache-foerdern-spielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4egezfn",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Schildkr%C3%B6t-Sand-Spielset-Handtaschenformat-Sandspielzeugen-970245/dp/B094ZF2Q7T",
       "asin": "B094ZF2Q7T",
       "observedTitle": "Schildkröt Sand Spielset Handtaschenformat Sandspielzeugen 970245",
@@ -1014,11 +1140,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4eilQeF",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Steiff-Cuddly-Friends-Kuscheltier-Hellgrau/dp/B0747N8RPZ",
       "asin": "B0747N8RPZ",
       "observedTitle": "Steiff Cuddly Friends Kuscheltier Hellgrau",
@@ -1027,11 +1155,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4eLRKQN",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Haba-302282-Obstgarten-Spielesammlung-Obstgarten-Spiel-Spielesammlung/dp/B01L0WI526",
       "asin": "B01L0WI526",
       "observedTitle": "Haba 302282 Obstgarten Spielesammlung Obstgarten Spiel Spielesammlung",
@@ -1040,11 +1170,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4eMtooH",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Wasserspritze-Fischspielzeug-schwimmende-Meerestiere-Wasserspr%C3%BChspiel/dp/B0CBJMKQ6M",
       "asin": "B0CBJMKQ6M",
       "observedTitle": "Wasserspritze Fischspielzeug schwimmende Meerestiere Wassersprühspiel",
@@ -1053,11 +1185,13 @@
         "/artikel/badespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4emyp7l",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Kapla-280-Holzkiste-Kunstbuch-Gr%C3%BCn/dp/B009FXH5Q0",
       "asin": "B009FXH5Q0",
       "observedTitle": "Kapla 280 Holzkiste Kunstbuch Grün",
@@ -1066,11 +1200,13 @@
         "/artikel/duplo-vergleich"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4eNMHiK",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Haba-302056-SIM-Sala-Kling-Holzkugelbahn-Gl%C3%B6ckchen-Tor/dp/B01CSUXTH0",
       "asin": "B01CSUXTH0",
       "observedTitle": "Haba 302056 SIM Sala Kling Holzkugelbahn Glöckchen Tor",
@@ -1079,11 +1215,13 @@
         "/artikel/spielzeug-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fLeeCt",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/-/en/LEGO-DUPLO-Construction-Vehicles-Educational/dp/B01MTWBPPI",
       "asin": "B01MTWBPPI",
       "observedTitle": "LEGO DUPLO Construction Vehicles Educational",
@@ -1095,11 +1233,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fMA2Oa",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/XIAPIA-Holzspielzeug-Sortierspiel-Karottenernte-Lernspielzeug/dp/B0829TPTL5",
       "asin": "B0829TPTL5",
       "observedTitle": "XIAPIA Holzspielzeug Sortierspiel Karottenernte Lernspielzeug",
@@ -1108,11 +1248,13 @@
         "/artikel/nachhaltiges-spielzeug-siegel"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fMIqx0",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PewinGo-100-Baumwolle-Doppelrei%C3%9Fverschluss-Atmungsaktiv-Maschinenwaschbar/dp/B0DWSR9Y52",
       "asin": "B0DWSR9Y52",
       "observedTitle": "PewinGo 100 Baumwolle Doppelreißverschluss Atmungsaktiv Maschinenwaschbar",
@@ -1121,11 +1263,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4fMzNCK",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Haba-Meine-ersten-Bausteine-Baumwolltasche/dp/B0CYQ99KMB",
       "asin": "B0CYQ99KMB",
       "observedTitle": "Haba Meine ersten Bausteine Baumwolltasche",
@@ -1134,11 +1278,13 @@
         "/artikel/nachhaltiges-spielzeug-siegel"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4ghIBk6",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Mein-erstes-Buch-Tieren-Anschauliches/dp/3845806966",
       "asin": "3845806966",
       "observedTitle": "Mein erstes Buch Tieren Anschauliches",
@@ -1148,11 +1294,13 @@
         "/artikel/weihnachtsgeschenke-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4oWGvZv",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Yaheetech-Verdickter-Planschbecken-Hundeplanschbecken-Wasserspielzeug/dp/B0CY4SYLHR",
       "asin": "B0CY4SYLHR",
       "observedTitle": "Yaheetech Verdickter Planschbecken Hundeplanschbecken Wasserspielzeug",
@@ -1161,11 +1309,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4uGu58Z",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PUKY-H%C3%B6henverstellbares-Kinderlaufrad-Sicherheitslenkergriffen-FlipChip-Technologie/dp/B0F1N528HW",
       "asin": "B0F1N528HW",
       "observedTitle": "PUKY Höhenverstellbares Kinderlaufrad Sicherheitslenkergriffen FlipChip Technologie",
@@ -1175,11 +1325,13 @@
         "/artikel/spielzeug-2-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4uIzD3a",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Starvortex-Montessori-Objektpermanenz-Sortierspiel-Weihnachten/dp/B0FT314VFK",
       "asin": "B0FT314VFK",
       "observedTitle": "Starvortex Montessori Objektpermanenz Sortierspiel Weihnachten",
@@ -1188,11 +1340,13 @@
         "/artikel/montessori-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4uNJapB",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/SOLIDEE-Nachttischlampe-USB-Aufladung-1-Stunden-Timer-Schlafzimmer/dp/B0B2RFSYBX",
       "asin": "B0B2RFSYBX",
       "observedTitle": "SOLIDEE Nachttischlampe USB Aufladung 1 Stunden Timer Schlafzimmer",
@@ -1201,11 +1355,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4uzCH1b",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LEGO-Kreative-Sprungschanzen-kleinen-Flitzern/dp/B0FPXFBP42",
       "asin": "B0FPXFBP42",
       "observedTitle": "LEGO Kreative Sprungschanzen kleinen Flitzern",
@@ -1214,11 +1370,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4v6IMmR",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Erste-Bilder-f%C3%BCr-Babyaugen-Monaten/dp/3751203982",
       "asin": "3751203982",
       "observedTitle": "Erste Bilder für Babyaugen Monaten",
@@ -1227,11 +1385,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4v7sv10",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/HABA-Kullerb%C3%BC-Kugelbahn-Step-Step/dp/B0FJM5QD5X",
       "asin": "B0FJM5QD5X",
       "observedTitle": "HABA Kullerbü Kugelbahn Step Step",
@@ -1242,11 +1402,13 @@
         "/artikel/weihnachtsgeschenke-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vDQyVx",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Das-magische-Wassermalbuch-enthaltenen-Zaubermalstift/dp/3743214679",
       "asin": "3743214679",
       "observedTitle": "Das magische Wassermalbuch enthaltenen Zaubermalstift",
@@ -1255,11 +1417,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vfEGZL",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/H%C3%B6r-rein-kann-sein-Foto-Streichel-Soundbuch/dp/384581280X",
       "asin": "384581280X",
       "observedTitle": "Hör rein kann sein Foto Streichel Soundbuch",
@@ -1269,11 +1433,13 @@
         "/artikel/sprache-foerdern-spielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vigSoi",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/LEGO-DUPLO-Deluxe-Brick-Box/dp/B07WLMV14S",
       "asin": "B07WLMV14S",
       "observedTitle": "LEGO DUPLO Deluxe Brick Box",
@@ -1283,11 +1449,13 @@
         "/artikel/weihnachtsgeschenke-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vJgqzu",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Snackbox-F%C3%A4chern-Deckel-Sp%C3%BClmaschinenfest-Transparenter/dp/B0GCD17C1V",
       "asin": "B0GCD17C1V",
       "observedTitle": "Snackbox Fächern Deckel Spülmaschinenfest Transparenter",
@@ -1296,11 +1464,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vLSIlR",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Planet-Sprungball-Hopperb%C3%A4lle-Spielzeug-Kleinkind/dp/B0FFB35GM2",
       "asin": "B0FFB35GM2",
       "observedTitle": "Planet Sprungball Hopperbälle Spielzeug Kleinkind",
@@ -1309,11 +1479,13 @@
         "/artikel/motorikspielzeug-test"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vpVqxK",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Meine-allerersten-Fingerstempel-Fr%C3%BChling-Stempelfarben/dp/3845868147",
       "asin": "3845868147",
       "observedTitle": "Meine allerersten Fingerstempel Frühling Stempelfarben",
@@ -1322,11 +1494,13 @@
         "/artikel/spielzeug-3-jahre"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vQW7zL",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Soundbuch-Kinderlieder-Zauberhaftes-Kinderlieder-Soundbuch-Entwicklung/dp/3741518956",
       "asin": "3741518956",
       "observedTitle": "Soundbuch Kinderlieder Zauberhaftes Kinderlieder Soundbuch Entwicklung",
@@ -1336,11 +1510,13 @@
         "/artikel/sprache-foerdern-spielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4vTpPnA",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/URMYWO-Kontrastbuch-Baby-Bilderbuch-Stoffb%C3%BCcher-kontrastkarten-Babygeschenk/dp/B0CR5WYBTF",
       "asin": "B0CR5WYBTF",
       "observedTitle": "URMYWO Kontrastbuch Baby Bilderbuch Stoffbücher kontrastkarten Babygeschenk",
@@ -1349,11 +1525,13 @@
         "/artikel/spielzeug-0-6-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4w305FG",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/BIG-Fun-Slide-Rutschbahn-Hausgebrauch-rot-blaue/dp/B001GKQ76O",
       "asin": "B001GKQ76O",
       "observedTitle": "BIG Fun Slide Rutschbahn Hausgebrauch rot blaue",
@@ -1362,11 +1540,13 @@
         "/artikel/outdoor-spielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4wD2nf5",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/SpielLieb%C2%AE-Montessori-Quiet-Book-Jahr/dp/B0GJZVS5ND",
       "asin": "B0GJZVS5ND",
       "observedTitle": "SpielLieb® Montessori Quiet Book Jahr",
@@ -1375,11 +1555,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4wlhIRj",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Livella-Kuscheltuch-Hase-S%C3%B6ckchen-Bio-Baumwolle/dp/B0CV496VK3",
       "asin": "B0CV496VK3",
       "observedTitle": "Livella Kuscheltuch Hase Söckchen Bio Baumwolle",
@@ -1388,11 +1570,13 @@
         "/artikel/spielzeug-0-6-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4wlVDSw",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Mushie-Stapelbecher-Spielzeug-Stapelturm-Hergestellt/dp/B0858X3VDM",
       "asin": "B0858X3VDM",
       "observedTitle": "Mushie Stapelbecher Spielzeug Stapelturm Hergestellt",
@@ -1403,11 +1587,13 @@
         "/artikel/spielzeug-unter-20-euro"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xPpHaR",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/schlummersack-Baumwolle-Dschungel-Babybody-Kurzarmbody/dp/B0CSKMPH36",
       "asin": "B0CSKMPH36",
       "observedTitle": "schlummersack Baumwolle Dschungel Babybody Kurzarmbody",
@@ -1416,11 +1602,13 @@
         "/artikel/geschenke-zur-geburt"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xrd6dE",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/IGLU-SOFT-PLAY-Riesenbausteine-Schaumstoffbausteine/dp/B0DK5GKC2T",
       "asin": "B0DK5GKC2T",
       "observedTitle": "IGLU SOFT PLAY Riesenbausteine Schaumstoffbausteine",
@@ -1429,11 +1617,13 @@
         "/artikel/motorikspielzeug-test"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xsdyYX",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Hape-E1810-E1810-Motorikw%C3%BCrfel-kleine-Tierchen/dp/B00DUDSU7O",
       "asin": "B00DUDSU7O",
       "observedTitle": "Hape E1810 E1810 Motorikwürfel kleine Tierchen",
@@ -1444,11 +1634,13 @@
         "/artikel/spielzeug-18-24-monate"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xvhpEK",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/PikatoyZ%C2%AE-Puzzle-Jahr-Jahre-Bauernhoftieren/dp/B098C51WHD",
       "asin": "B098C51WHD",
       "observedTitle": "PikatoyZ® Puzzle Jahr Jahre Bauernhoftieren",
@@ -1457,11 +1649,13 @@
         "/artikel/sprache-foerdern-spielzeug"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4xwcNOu",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Melissa-Doug-19286-Holzschaufel-dienen-Spielset/dp/B06XHQ3G3C",
       "asin": "B06XHQ3G3C",
       "observedTitle": "Melissa Doug 19286 Holzschaufel dienen Spielset",
@@ -1470,11 +1664,13 @@
         "/artikel/nachhaltiges-spielzeug-siegel"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4yeVja7",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/Mein-kleines-Bibel-Wimmelbuch-von-Gott/dp/3766623648",
       "asin": "3766623648",
       "observedTitle": "Mein kleines Bibel Wimmelbuch von Gott",
@@ -1483,11 +1679,13 @@
         "/artikel/reisespielzeug-kleinkind"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "4you3Gf",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "finalUrl": "https://www.amazon.de/-/en/Eichhorn-Knock-Including-Hammer-Pieces/dp/B08SMN79GM",
       "asin": "B08SMN79GM",
       "observedTitle": "Eichhorn Knock Including Hammer Pieces",
@@ -1496,11 +1694,13 @@
         "/artikel/spielzeug-unter-20-euro"
       ],
       "reason": "Automatisch per Amazon-Shortlink aufgelöst; Händler-Titel, Kategorie, Altersfreigabe, Preisregel und Sicherheitskontext vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     },
     {
       "shortCode": "44GQPeF",
-      "status": "pending-human-review",
+      "status": "human-approved",
       "replaces": ["43tTmZd"],
       "finalUrl": "https://www.amazon.de/Schiebewagen-Balance-Lauflernwagen-M%C3%A4dchen-Monaten-Geburtstagsgeschenk/dp/B0DCG62S1Y",
       "asin": "B0DCG62S1Y",
@@ -1508,7 +1708,9 @@
       "observedAt": "2026-07-21",
       "affectedPages": ["/artikel/geschenke-1-jahr"],
       "reason": "Vom Nutzer bereitgestellter Ersatzlink; Produktbild und Amazon-Review-Snapshot exemplarisch integriert. Herstelleralter, Bremsmechanik, Belastbarkeit, Material und Lieferumfang vor menschlicher Freigabe prüfen.",
-      "humanApproved": false
+      "humanApproved": true,
+      "humanApprovedAt": "2026-07-21",
+      "humanApprovalNote": "Nutzerfreigabe am 21.07.2026 erteilt. Preis, Bestand und Verfügbarkeit bleiben dynamisch und werden nicht als dauerhaft zugesichert dargestellt."
     }
   ]
 }

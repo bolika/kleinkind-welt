@@ -2726,6 +2726,37 @@ footer ul a:hover { color: white; }
   gap: 10px;
 }
 
+/* Desktop: product visual and decision copy sit side by side. The mobile
+   layout stays stacked so the Pinterest entry path remains compact. */
+@media (min-width: 641px) {
+  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 24px;
+    row-gap: 8px;
+    align-items: center;
+  }
+
+  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero > :not(.kaufbox-product-visual) {
+    grid-column: 2;
+  }
+
+  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual img {
+    height: 280px;
+  }
+
+  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-trust {
+    align-self: start;
+  }
+}
+
 .kaufbox-product-visual {
   display: flex;
   align-items: center;
