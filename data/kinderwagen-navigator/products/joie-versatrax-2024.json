@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "joie-versatrax-2024",
+  "identity": {
+    "brand": "Joie",
+    "model": "Versatrax",
+    "generation": "2024 model S1803IAXXX000",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-22",
+    "reviewDueAt": "2026-08-22",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Preisorientierter Reisesystem-Wagen",
+    "notes": "Der offizielle Einzelpreis der kompatiblen Babywanne ist nicht belastbar veröffentlicht. Das blockiert strikte Budget-Matches im Pilot."
+  },
+  "sources": [
+    {
+      "id": "joie-versatrax-product",
+      "url": "https://joiebaby.com/de/versatrax-kombi-kinderwagen-2024",
+      "kind": "manufacturer",
+      "title": "Joie Versatrax 2024 Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "joie-versatrax-current",
+      "url": "https://joiebaby.com/de/kinderwagen/versatrax-kombi-kinderwagen",
+      "kind": "manufacturer",
+      "title": "Joie Versatrax Produktdetails",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "joie-ramble-support",
+      "url": "https://desupport.joiebaby.com/hc/de/articles/4435519437972-Ramble-XL-Verwendung",
+      "kind": "manufacturer",
+      "title": "Joie Ramble XL Verwendung und Kompatibilität",
+      "checkedAt": "2026-07-22"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_retailer_only", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Aktuelles Produkt, im Hersteller-Shop online nicht verfügbar; Kauf wird über externe Händler geführt.", "freshUntil": "2026-08-05" },
+    "newbornApproved": { "value": true, "sourceIds": ["joie-versatrax-product", "joie-ramble-support"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Für den MVP wird die separate Ramble-XL-Babywanne verwendet." },
+    "newbornConfiguration": { "value": "Versatrax plus Ramble XL", "sourceIds": ["joie-versatrax-current", "joie-ramble-support"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "carrycotIncluded": { "value": false, "sourceIds": ["joie-versatrax-product", "joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": null, "unit": "EUR", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "unknown", "note": "Wagenpreis 359,95 Euro dokumentiert; belastbarer aktueller Herstellerpreis der erforderlichen Ramble-XL-Wanne fehlt." },
+    "unfoldedWidthCm": { "value": 65.5, "unit": "cm", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 86, "width": 65.5, "height": 36, "configuration": "manufacturer-folded-state" }, "unit": "cm", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "frameWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "seatWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 12.98, "unit": "kg", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Produktgewicht der dargestellten Kinderwagenkonfiguration; Komponenten sind nicht separat ausgewiesen." },
+    "pushbarMinCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Ältere Supportseite nennt einen Bereich, kann aber nicht sicher der 2024-Generation zugeordnet werden." },
+    "pushbarMaxCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelDiameterFrontCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelDiameterRearCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelMaterial": { "value": "foam-filled puncture-proof", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "suspension": { "value": "individual wheel suspension", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketLoadKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "basketVolumeL": { "value": null, "unit": "l", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "oneHandFold": { "value": null, "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "unknown", "note": "Automatischer Faltmechanismus beschrieben, aber Einhand-Bedienung nicht eindeutig belegt." },
+    "foldWithSeat": { "value": true, "sourceIds": ["joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Faltung unabhängig von der Sitzrichtung beschrieben." },
+    "selfStandingFold": { "value": true, "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "reversibleSeat": { "value": true, "sourceIds": ["joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["joie-versatrax-product", "joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Adapter im Lieferumfang." },
+    "canopyCoverage": { "value": "extended", "sourceIds": ["joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyVentilation": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "rainCoverIncluded": { "value": false, "sourceIds": ["joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Nicht im veröffentlichten Einzelwagen-Lieferumfang." },
+    "sparePartsAvailability": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "repairService": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "warrantyYears": { "value": null, "unit": "years", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg"], "rationale": "Relativ breit und knapp 13 kg; keine unabhängige Handhabungsprüfung." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelMaterial", "suspension", "wheelDiameterFrontCm"], "rationale": "Schaumgefüllte Räder und Einzelfederung dokumentiert; Radmaße und unabhängige Fahrprüfung fehlen." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Mit Sitz faltbar und selbststehend, aber Einhand-Bedienung unklar." },
+    "storageCapacity": { "value": null, "status": "unknown", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "Marketingbegriff XXL ohne belastbaren Traglast- oder Volumenwert reicht nicht für einen Teilscore." },
+    "weatherProtection": { "value": 0.5, "status": "proxy", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Erweitertes Verdeck dokumentiert; Belüftung offen und Regenschutz nicht enthalten." },
+    "repairabilityService": { "value": null, "status": "unknown", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Im Pilot fehlen konkrete Ersatzteil-, Reparatur- und Garantiedaten." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Separate Babywanne, wendbarer Sitz und Adapter für ein Reisesystem sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["preisorientierte Familien ohne strikte Gesamtpreisberechnung", "gemischter Alltag", "Reisesystem-Nutzung"],
+    "tradeoffs": ["65,5 cm breit", "Gesamtpreis mit Babywanne derzeit nicht belastbar", "mehrere Komfort- und Servicedaten fehlen"],
+    "openChecks": ["Gesamtpreis der aktuellen Ramble-XL-Konfiguration verifizieren", "Faltvorgang praktisch testen", "Korb-Traglast prüfen"],
+    "dataConflicts": ["Ältere und 2024er Versatrax-Seiten nennen unterschiedliche Maße und Gewichte; dieser Datensatz nutzt ausschließlich die 2024-Produkt-ID."],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

@@ -9,10 +9,10 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="robots" content="noindex,follow">
-  <meta name="description" content="Konzept für einen unabhängigen Kinderwagen-Navigator: herstellerübergreifendes Matching mit belegtem Passungsnachweis statt Blackbox-Score.">
-  <title>Kinderwagen-Navigator – unabhängiges Matching | Kleinkind-Welt</title>
+  <meta name="description" content="Unabhängiger Kinderwagen-Navigator im Daten-Pilot: Anforderungen prüfen, Passung erklären und Kompromisse sowie Datenlücken transparent sehen.">
+  <title>Kinderwagen-Navigator – unabhängiger Daten-Pilot | Kleinkind-Welt</title>
   <link rel="stylesheet" href="/css/style.css?v=20260722-navigator">
-  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260722-2">
+  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260722-3">
   <link rel="canonical" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
@@ -47,126 +47,58 @@
   <section class="navigator-hero" aria-labelledby="navigator-title">
     <div class="navigator-shell navigator-hero-grid">
       <div class="navigator-hero-copy">
-        <span class="navigator-eyebrow">Unabhängiger Finder · in Entwicklung</span>
+        <span class="navigator-eyebrow">Unabhängiger Daten-Pilot · 6 Modelle</span>
         <h1 id="navigator-title">Welcher Kinderwagen passt wirklich zu eurem Alltag?</h1>
-        <p>Der Kinderwagen-Navigator soll Modelle verschiedener Marken anhand eurer tatsächlichen Anforderungen vergleichen – mit belegter Passung und ohne bezahlten Einfluss auf das Ergebnis.</p>
-        <a class="navigator-primary-link" href="#konzept">So soll das Matching funktionieren</a>
+        <p>Beantwortet konkrete Fragen zu Budget, Treppen, Auto, ÖPNV und Wegen. Der Navigator prüft zuerst eure Muss-Kriterien und erklärt danach Passung, Kompromisse und Datenlücken.</p>
+        <a class="navigator-primary-link" href="#navigator-tool" data-navigator-hero-start>Daten-Pilot starten</a>
+        <p class="navigator-hero-note">Aktuell für den ersten Kombi-Kinderwagen ab Geburt · kein eigener Produkttest</p>
       </div>
 
       <aside class="navigator-trust-card" aria-label="Unabhängigkeitsversprechen">
-        <span class="navigator-card-kicker">Unser Versprechen</span>
+        <span class="navigator-card-kicker">Was anders ist</span>
         <ul>
-          <li>Hersteller- und händlerübergreifend</li>
-          <li>Harte Anforderungen vor Vorlieben</li>
-          <li>Passungsnachweis statt Blackbox-Score</li>
-          <li>Sponsoring verändert niemals das Ranking</li>
+          <li>Gesamtpreis statt Lockpreis ohne Babywanne</li>
+          <li>Gemessene Maße statt pauschalem „passt ins Auto“</li>
+          <li>Kein Score bei zu dünner Datenlage</li>
+          <li>Provisionen verändern niemals die Reihenfolge</li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <section class="navigator-section" id="konzept" aria-labelledby="konzept-title">
+  <section class="navigator-tool-section" id="navigator-tool" aria-labelledby="tool-title">
+    <div class="navigator-tool-shell">
+      <h2 id="tool-title" class="visually-hidden">Kinderwagen-Navigator starten</h2>
+      <div class="navigator-app" data-navigator-app aria-live="polite">
+        <div class="navigator-app-card navigator-loading-card">
+          <p>Navigator wird geladen …</p>
+        </div>
+      </div>
+      <noscript><p class="navigator-noscript">Der interaktive Navigator benötigt JavaScript. Die Methodik könnt ihr weiter unten nachlesen.</p></noscript>
+    </div>
+  </section>
+
+  <section class="navigator-section" aria-labelledby="method-title">
     <div class="navigator-shell">
       <div class="navigator-section-heading">
-        <span class="navigator-eyebrow">Der geplante Ablauf</span>
-        <h2 id="konzept-title">Von eurem Alltag zu drei passenden Modellen</h2>
-        <p>Der Navigator soll zuerst ungeeignete Wagen ausschließen und erst danach persönliche Prioritäten gewichten.</p>
+        <span class="navigator-eyebrow">Nachvollziehbar statt Blackbox</span>
+        <h2 id="method-title">So entsteht eure Empfehlung</h2>
       </div>
 
       <ol class="navigator-process">
         <li>
           <span class="navigator-step">1</span>
-          <div><strong>Rahmenbedingungen klären</strong><p>Kind, Budget, Treppen, Kofferraum, Aufzug und notwendige Funktionen.</p></div>
+          <div><strong>Muss-Kriterien zuerst</strong><p>Geburtskonfiguration, Gesamtbudget, gemessene Maße und unverzichtbare Funktionen können ein Modell ausschließen.</p></div>
         </li>
         <li>
           <span class="navigator-step">2</span>
-          <div><strong>Alltag priorisieren</strong><p>Stadt, Gelände, Auto, ÖPNV, Gewicht, Komfort und Faltmechanismus.</p></div>
+          <div><strong>Prioritäten gewichten</strong><p>Stadt, Gelände, Auto, ÖPNV, Stauraum und Service zählen passend zu eurem Alltag.</p></div>
         </li>
         <li>
           <span class="navigator-step">3</span>
-          <div><strong>Ergebnis erklären</strong><p>Beste Übereinstimmung, sinnvolle Alternative und sichtbarer Kompromiss.</p></div>
+          <div><strong>Ergebnis belegen</strong><p>Ihr seht den stärksten Grund, den wichtigsten Kompromiss, offene Prüfungen und die verwendeten Quellen.</p></div>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <section class="navigator-section navigator-section--warm" aria-labelledby="match-title">
-    <div class="navigator-shell navigator-result-layout">
-      <div class="navigator-section-heading navigator-section-heading--left">
-        <span class="navigator-eyebrow">Beispiel für die Ergebnislogik</span>
-        <h2 id="match-title">Der Passungsnachweis zeigt mehr als eine Zahl</h2>
-        <p>Muss-Kriterien, persönliche Passung, Datenlage und offene Prüfungen bleiben sichtbar getrennt. Der Prozentwert ist keine Sicherheits-, Qualitäts- oder Testnote.</p>
-      </div>
-
-      <article class="navigator-result-card" aria-label="Beispielergebnis mit 95 Prozent Passung">
-        <div class="navigator-result-topline">
-          <div>
-            <span class="navigator-card-kicker">Kleinkind-Welt Passungsnachweis</span>
-            <h3>Leichter City-Allrounder</h3>
-          </div>
-          <div class="navigator-score" aria-label="95 Prozent passend">
-            <strong>95%</strong>
-            <span>passend</span>
-          </div>
-        </div>
-        <ul class="navigator-match-list">
-          <li class="is-match">Passt in den angegebenen Kofferraum</li>
-          <li class="is-match">Leicht genug für regelmäßiges Tragen</li>
-          <li class="is-match">Sehr passend für Stadt und ÖPNV</li>
-          <li class="is-compromise">Auf Waldwegen nur eingeschränkt komfortabel</li>
-        </ul>
-        <div class="navigator-proof-metrics" aria-label="Bestandteile des Passungsnachweises">
-          <div><strong>6/6</strong><span>Muss-Kriterien belegt</span></div>
-          <div><strong>95%</strong><span>Datenabdeckung</span></div>
-          <div><strong>v0.1</strong><span>Regelwerk</span></div>
-        </div>
-        <div class="navigator-open-check">
-          <strong>Vor dem Kauf prüfen</strong>
-          <span>Schieberhöhe selbst testen und tatsächliche Kofferraumöffnung nachmessen.</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="navigator-section" aria-labelledby="criteria-title">
-    <div class="navigator-shell">
-      <div class="navigator-section-heading">
-        <span class="navigator-eyebrow">Nicht nur Produktfilter</span>
-        <h2 id="criteria-title">Was in die Empfehlung einfließen soll</h2>
-      </div>
-
-      <div class="navigator-criteria-grid">
-        <article>
-          <span aria-hidden="true">🏠</span>
-          <h3>Wohnsituation</h3>
-          <p>Treppen, Aufzug, Türbreite, Stauraum und tägliches Tragen.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">🚗</span>
-          <h3>Transport</h3>
-          <p>Kofferraummaße, ÖPNV, Reisen, Faltmaß und Gewicht.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">🌲</span>
-          <h3>Untergrund</h3>
-          <p>Asphalt, Kopfsteinpflaster, Waldwege, Schotter und Gefälle.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">👶</span>
-          <h3>Familie</h3>
-          <p>Nutzung ab Geburt, Geschwisteroption und geplanter Nutzungszeitraum.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">↕️</span>
-          <h3>Ergonomie</h3>
-          <p>Schieberhöhe, Babywanne, Sitzmaße und Bedienbarkeit.</p>
-        </article>
-        <article>
-          <span aria-hidden="true">🔎</span>
-          <h3>Datenqualität</h3>
-          <p>Quellen, Modellgeneration, Prüfdatum, Datenkonflikte und fehlende Angaben.</p>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -191,9 +123,9 @@
 
   <section class="navigator-section navigator-status" aria-labelledby="status-title">
     <div class="navigator-shell">
-      <span class="navigator-eyebrow">Aktueller Stand</span>
-      <h2 id="status-title">Das Entscheidungsmodell Version 0.1 steht</h2>
-      <p>21 Kriterien, 17 adaptive Fragen und zehn Referenzfamilien sind strukturiert und automatisch prüfbar. Als Nächstes wird mit fünf unterschiedlichen Modellen getestet, ob die benötigten Daten markenübergreifend belastbar verfügbar sind.</p>
+      <span class="navigator-eyebrow">Bewusste Pilotgrenze</span>
+      <h2 id="status-title">Sechs Modelle sind ein Testkatalog, noch kein vollständiger Marktüberblick</h2>
+      <p>Version 0.1 prüft 21 Kriterien, 17 adaptive Fragen und zehn Referenzprofile. Die Seite bleibt bis zu einem breiteren Katalog und realen Nutzertests von Suchmaschinen ausgeschlossen.</p>
     </div>
   </section>
 </main>
@@ -247,5 +179,6 @@
     });
   })();
 </script>
+<script type="module" src="/js/kinderwagen-navigator-app.mjs?v=20260722-1"></script>
 </body>
 </html>

@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kleinkind-welt.de/data/kinderwagen-navigator/product.schema.json",
+  "title": "Kleinkind-Welt Kinderwagen-Produktdatensatz",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelVersion", "productId", "identity", "review", "sources", "facts", "signals", "editorial"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "modelVersion": { "type": "string", "pattern": "^0\\.1\\.[0-9]+$" },
+    "productId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brand", "model", "generation", "market", "category", "supportedChildren"],
+      "properties": {
+        "brand": { "type": "string", "minLength": 2 },
+        "model": { "type": "string", "minLength": 2 },
+        "generation": { "type": "string", "minLength": 1 },
+        "market": { "const": "DE" },
+        "category": { "const": "single-combi-from-birth" },
+        "supportedChildren": { "const": 1 }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checkedAt", "reviewDueAt", "reviewedBy", "pilotArchetype"],
+      "properties": {
+        "status": { "enum": ["pilot", "review_required", "approved", "retired"] },
+        "checkedAt": { "$ref": "#/$defs/date" },
+        "reviewDueAt": { "$ref": "#/$defs/date" },
+        "reviewedBy": { "type": "string" },
+        "pilotArchetype": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "url", "kind", "title", "checkedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "url": { "type": "string", "pattern": "^https://" },
+          "kind": { "enum": ["manufacturer", "manual", "official_notice", "independent_test", "retailer"] },
+          "title": { "type": "string", "minLength": 3 },
+          "checkedAt": { "$ref": "#/$defs/date" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "marketStatus", "newbornApproved", "newbornConfiguration", "carrycotIncluded", "requiredConfigurationPriceEur",
+        "unfoldedWidthCm", "foldedDimensionsCm", "frameWeightKg", "seatWeightKg", "carrycotWeightKg",
+        "liftReadyWeightKg", "liftReadyConfiguration", "pushbarMinCm", "pushbarMaxCm", "wheelDiameterFrontCm", "wheelDiameterRearCm",
+        "wheelMaterial", "suspension", "basketLoadKg", "basketVolumeL", "oneHandFold", "foldWithSeat",
+        "selfStandingFold", "reversibleSeat", "travelSystem", "canopyCoverage", "canopyVentilation",
+        "rainCoverIncluded", "sparePartsAvailability", "repairService", "warrantyYears", "officialSafetyNoticeStatus"
+      ],
+      "properties": {
+        "marketStatus": { "$ref": "#/$defs/marketStatusFact" },
+        "newbornApproved": { "$ref": "#/$defs/fact" },
+        "newbornConfiguration": { "$ref": "#/$defs/fact" },
+        "carrycotIncluded": { "$ref": "#/$defs/fact" },
+        "requiredConfigurationPriceEur": { "$ref": "#/$defs/fact" },
+        "unfoldedWidthCm": { "$ref": "#/$defs/fact" },
+        "foldedDimensionsCm": { "$ref": "#/$defs/fact" },
+        "frameWeightKg": { "$ref": "#/$defs/fact" },
+        "seatWeightKg": { "$ref": "#/$defs/fact" },
+        "carrycotWeightKg": { "$ref": "#/$defs/fact" },
+        "liftReadyWeightKg": { "$ref": "#/$defs/fact" },
+        "liftReadyConfiguration": { "$ref": "#/$defs/liftConfigurationFact" },
+        "pushbarMinCm": { "$ref": "#/$defs/fact" },
+        "pushbarMaxCm": { "$ref": "#/$defs/fact" },
+        "wheelDiameterFrontCm": { "$ref": "#/$defs/fact" },
+        "wheelDiameterRearCm": { "$ref": "#/$defs/fact" },
+        "wheelMaterial": { "$ref": "#/$defs/fact" },
+        "suspension": { "$ref": "#/$defs/fact" },
+        "basketLoadKg": { "$ref": "#/$defs/fact" },
+        "basketVolumeL": { "$ref": "#/$defs/fact" },
+        "oneHandFold": { "$ref": "#/$defs/fact" },
+        "foldWithSeat": { "$ref": "#/$defs/fact" },
+        "selfStandingFold": { "$ref": "#/$defs/fact" },
+        "reversibleSeat": { "$ref": "#/$defs/fact" },
+        "travelSystem": { "$ref": "#/$defs/fact" },
+        "canopyCoverage": { "$ref": "#/$defs/fact" },
+        "canopyVentilation": { "$ref": "#/$defs/fact" },
+        "rainCoverIncluded": { "$ref": "#/$defs/fact" },
+        "sparePartsAvailability": { "$ref": "#/$defs/fact" },
+        "repairService": { "$ref": "#/$defs/fact" },
+        "warrantyYears": { "$ref": "#/$defs/fact" },
+        "officialSafetyNoticeStatus": { "$ref": "#/$defs/fact" }
+      }
+    },
+    "signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cityManeuverability", "roughSurfaceFit", "foldingConvenience", "storageCapacity",
+        "weatherProtection", "repairabilityService", "longTermFlexibility"
+      ],
+      "properties": {
+        "cityManeuverability": { "$ref": "#/$defs/signal" },
+        "roughSurfaceFit": { "$ref": "#/$defs/signal" },
+        "foldingConvenience": { "$ref": "#/$defs/signal" },
+        "storageCapacity": { "$ref": "#/$defs/signal" },
+        "weatherProtection": { "$ref": "#/$defs/signal" },
+        "repairabilityService": { "$ref": "#/$defs/signal" },
+        "longTermFlexibility": { "$ref": "#/$defs/signal" }
+      }
+    },
+    "editorial": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bestFor", "tradeoffs", "openChecks", "dataConflicts", "testingDisclosure"],
+      "properties": {
+        "bestFor": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "tradeoffs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "openChecks": { "type": "array", "items": { "type": "string" } },
+        "dataConflicts": { "type": "array", "items": { "type": "string" } },
+        "testingDisclosure": { "const": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet." }
+      }
+    }
+  },
+  "$defs": {
+    "date": { "type": "string", "format": "date", "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$" },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "sourceIds", "checkedAt", "status"],
+      "properties": {
+        "value": {},
+        "unit": { "type": "string" },
+        "sourceIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "checkedAt": { "$ref": "#/$defs/date" },
+        "status": { "enum": ["officially_documented", "independently_observed", "derived_proxy", "unknown", "conflict", "stale"] },
+        "note": { "type": "string" },
+        "freshUntil": { "$ref": "#/$defs/date" }
+      }
+    },
+    "marketStatusFact": {
+      "allOf": [
+        { "$ref": "#/$defs/fact" },
+        {
+          "properties": {
+            "value": {
+              "enum": [
+                "current_available",
+                "current_color_dependent",
+                "current_temporarily_unavailable_manufacturer",
+                "current_retailer_only",
+                "discontinued",
+                "retired",
+                "unknown"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "liftConfigurationFact": {
+      "allOf": [
+        { "$ref": "#/$defs/fact" },
+        {
+          "properties": {
+            "value": { "enum": ["frame_only", "frame_with_seat", "frame_with_carrycot", "unspecified", "unknown"] }
+          }
+        }
+      ]
+    },
+    "signal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "status", "evidenceFields", "rationale"],
+      "properties": {
+        "value": { "type": ["number", "null"], "enum": [0, 0.5, 1, null] },
+        "status": { "enum": ["documented", "proxy", "unknown"] },
+        "evidenceFields": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "rationale": { "type": "string", "minLength": 8 }
+      }
+    }
+  }
+}

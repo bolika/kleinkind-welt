@@ -57,7 +57,7 @@
       "options": [
         { "value": "strict", "label": "Ja, keinesfalls darüber", "constraint": { "criterionId": "total_required_price", "mode": "gate" } },
         { "value": "flexible_10", "label": "Bis zu 10 % Spielraum bei klarer Begründung", "constraint": { "criterionId": "total_required_price", "mode": "soft_plus_10_percent" } },
-        { "value": "orientation", "label": "Das Budget dient nur zur Orientierung", "constraint": { "criterionId": "total_required_price", "mode": "preference" } }
+        { "value": "orientation", "label": "Nur anzeigen, nicht danach ausschließen", "constraint": { "criterionId": "total_required_price", "mode": "information" } }
       ]
     },
     {
@@ -83,7 +83,7 @@
       "options": [
         { "value": "frame_only", "label": "Nur das Gestell", "output": { "field": "liftUnit" } },
         { "value": "frame_with_seat", "label": "Gestell mit Sitzeinheit", "output": { "field": "liftUnit" } },
-        { "value": "folded_complete", "label": "Die komplette gefaltete Einheit", "output": { "field": "liftUnit" } },
+        { "value": "frame_with_carrycot", "label": "Gestell mit Babywanne", "output": { "field": "liftUnit" } },
         { "value": "unknown", "label": "Noch unklar", "output": { "field": "liftUnit", "value": null } }
       ]
     },
@@ -93,8 +93,8 @@
       "type": "number",
       "required": false,
       "prompt": "Gibt es ein verbindliches Maximalgewicht zum Tragen?",
-      "help": "Optional. Wenn ihr unsicher seid, wird Gewicht als Präferenz statt als Ausschlusskriterium behandelt.",
-      "showWhen": { "questionId": "lift_unit", "operator": "in", "value": ["frame_only", "frame_with_seat", "folded_complete"] },
+      "help": "Optional. Ohne verbindliche Grenze wird kein Modell wegen des Gewichts ausgeschlossen; der praktische Tragecheck bleibt offen.",
+      "showWhen": { "questionId": "lift_unit", "operator": "in", "value": ["frame_only", "frame_with_seat", "frame_with_carrycot"] },
       "validation": { "unit": "kg", "minimum": 5, "maximum": 30, "step": 0.5 },
       "output": { "criterionId": "lift_weight_limit", "field": "maximumLiftWeightKg" }
     },

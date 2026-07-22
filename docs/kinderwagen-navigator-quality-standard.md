@@ -110,11 +110,15 @@ Die eigentliche Eligibility- und Score-Berechnung bleibt deterministisch und tes
 Ein Produkt darf als Top-Empfehlung erscheinen, wenn:
 
 1. alle anwendbaren Muss-Kriterien belegt erfüllt sind,
-2. keine einschlägige aktuelle offizielle Sicherheitswarnung bekannt ist,
+2. keine erfasste aktive offizielle Sicherheitswarnung der Empfehlung entgegensteht; ein unbekannter Status gilt nicht als Sicherheitsbestätigung,
 3. mindestens 85 Prozent der gewichteten relevanten Daten vorliegen,
 4. Modellgeneration und Quellen eindeutig sind,
 5. mindestens ein Kompromiss oder eine offene Praxisprüfung gezeigt wird,
 6. das Ergebnis durch die Referenzprofile reproduzierbar bleibt.
+
+Ein verbindliches Tragegewicht darf nur gegen dieselbe dokumentierte Konfiguration geprüft werden: Gestell allein, Gestell mit Sportsitz oder Gestell mit Babywanne. Ein Gesamtgewicht mit Sitz darf fehlende Babywannen- oder Gestellwerte nicht ersetzen.
+
+Ein ausdrücklich priorisiertes Kriterium mit Erfüllungswert `0` verhindert eine veröffentlichte Top-Empfehlung, selbst wenn weniger wichtige Vorteile den rechnerischen Gesamtscore über 60 Prozent heben würden.
 
 Ein Flow darf öffentlich indexiert werden, wenn:
 

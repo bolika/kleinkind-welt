@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "my-junior-liyo",
+  "identity": {
+    "brand": "my junior",
+    "model": "LIYO",
+    "generation": "Current DE 2in1 Starter-Set listing 1010",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-22",
+    "reviewDueAt": "2026-08-22",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Leichter und sehr kompakter Stadt- und Reisewagen",
+    "notes": "Gezielt aufgenommen, um die zuvor unbesetzte Kombination aus Geburtsnutzung, maximal 11 kg Tragegewicht und Budget bis 900 Euro abzudecken. Herstellerangaben sind noch nicht unabhängig praktisch geprüft."
+  },
+  "sources": [
+    {
+      "id": "myjunior-liyo-product",
+      "url": "https://my-junior.com/de/kinderwagen/1010-my-junior-kinderwagen-liyo.html",
+      "kind": "manufacturer",
+      "title": "my junior LIYO 2in1 Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "myjunior-liyo-manual",
+      "url": "https://my-junior.com/img/cms/cms/21/User-Manual-LIYO.pdf",
+      "kind": "manual",
+      "title": "my junior LIYO Bedienungsanleitung",
+      "checkedAt": "2026-07-22",
+      "note": "Anleitung bezeichnet die Wanne allgemein als separat erhältlich; maßgeblich für Preis und Set-Inhalt ist deshalb die konkrete aktuelle 2in1-Angebotsseite."
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "2in1 Starter-Set laut Herstellerseite mit Lieferzeit von vier bis acht Tagen.", "freshUntil": "2026-08-05" },
+    "newbornApproved": { "value": true, "sourceIds": ["myjunior-liyo-product", "myjunior-liyo-manual"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Geburtsnutzung mit Babywanne." },
+    "newbornConfiguration": { "value": "LIYO 2in1 Starter-Set mit klappbarer Babywanne", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Die konkrete 2in1-Konfiguration listet Gestell, Sportsitz, Einkaufskorb und Babywanne." },
+    "requiredConfigurationPriceEur": { "value": 520.2, "unit": "EUR", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Geprüfter Aktionspreis des 2in1 Starter-Sets; regulär 578 Euro.", "freshUntil": "2026-08-05" },
+    "unfoldedWidthCm": { "value": 45, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 54, "width": 45, "height": 23, "configuration": "manufacturer-folded-state-with-seat_or_carrycot" }, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Hersteller bewirbt das Falten mit Sitz oder Babywanne; reale Airline- und Kofferraumtauglichkeit bleibt praktisch zu prüfen." },
+    "frameWeightKg": { "value": 5.6, "unit": "kg", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "seatWeightKg": { "value": 1.7, "unit": "kg", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "derived_proxy", "note": "Aus 7,3 kg Gesamtgewicht mit Sitz minus 5,6 kg Gestell abgeleitet." },
+    "carrycotWeightKg": { "value": 4.4, "unit": "kg", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "derived_proxy", "note": "Aus 10 kg Gesamtgewicht mit Babywanne minus 5,6 kg Gestell abgeleitet." },
+    "liftReadyWeightKg": { "value": 10, "unit": "kg", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Konservativ wird für die Geburtsphase das Gewicht mit Babywanne verwendet; mit Sportsitz nennt der Hersteller 7,3 kg." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 107, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Feste veröffentlichte Schiebehöhe, kein Verstellbereich." },
+    "pushbarMaxCm": { "value": 107, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Feste veröffentlichte Schiebehöhe, kein Verstellbereich." },
+    "wheelDiameterFrontCm": { "value": 12.5, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 15, "unit": "cm", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "wheelMaterial": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "suspension": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "basketLoadKg": { "value": 8, "unit": "kg", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketVolumeL": { "value": 36.7, "unit": "l", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kompakte Faltung ist beschrieben, eine vollständige Einhand-Faltung aber nicht eindeutig belegt." },
+    "foldWithSeat": { "value": true, "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "EvoOne-Faltung wird mit Sitz oder Babywanne beschrieben." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "reversibleSeat": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "travelSystem": { "value": true, "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "3in1-Konfigurationen und separate Babyschalenadapter werden angeboten; nicht Bestandteil des 2in1-Preises." },
+    "canopyCoverage": { "value": "extended_with_integrated_sunshield", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Panorama- und Belüftungsfenster dokumentiert." },
+    "rainCoverIncluded": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Im kompakten Lieferumfang der geprüften Seite nicht eindeutig genannt." },
+    "sparePartsAvailability": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "repairService": { "value": true, "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Hersteller nennt eine Mobilitätsgarantie; Ablauf und reale Servicequalität sind im Pilot nicht unabhängig geprüft." },
+    "warrantyYears": { "value": 10, "unit": "years", "sourceIds": ["myjunior-liyo-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Beworbene Garantie; Bedingungen und Registrierung vor Kauf prüfen." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg", "wheelDiameterFrontCm"], "rationale": "Sehr schmal und leicht; Fahrverhalten wurde noch nicht unabhängig praktisch geprüft." },
+    "roughSurfaceFit": { "value": 0, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "suspension"], "rationale": "Sehr kleine Räder und keine belastbar dokumentierte Federung sprechen gegen regelmäßige unebene Wege; Praxistest fehlt." },
+    "foldingConvenience": { "value": 1, "status": "documented", "evidenceFields": ["foldedDimensionsCm", "foldWithSeat", "oneHandFold"], "rationale": "Sehr kleines Faltmaß und Faltung mit Sitz oder Babywanne sind dokumentiert; Einhandbedienung bleibt offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "8 Kilogramm Traglast und 36,7 Liter Volumen sind offiziell angegeben." },
+    "weatherProtection": { "value": 0.5, "status": "proxy", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Erweitertes Sonnensegel und Belüftung sind dokumentiert; Regenschutz im 2in1-Lieferumfang ist offen." },
+    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["repairService", "warrantyYears", "sparePartsAvailability"], "rationale": "Garantie und Mobilitätsservice werden beworben; Ersatzteile und unabhängige Serviceerfahrung sind offen." },
+    "longTermFlexibility": { "value": 0.5, "status": "proxy", "evidenceFields": ["newbornConfiguration", "travelSystem", "reversibleSeat"], "rationale": "Geburtswanne und Travel-System-Option sind dokumentiert; Sitzrichtung und reale Langzeitnutzung sind offen." }
+  },
+  "editorial": {
+    "bestFor": ["Stadtwohnungen mit Treppen", "sehr schmale Zugänge", "ÖPNV und kleine Kofferräume"],
+    "tradeoffs": ["Kleine Räder und ungeklärte Federung machen ihn nicht zur ersten Wahl für häufige Wald- und Feldwege", "Feste Schiebehöhe sollte praktisch getestet werden"],
+    "openChecks": ["Faltvorgang mit Babywanne und Sportsitz praktisch ausprobieren", "Fahrverhalten auf typischen Wegen testen", "Garantiebedingungen und Lieferumfang vor Kauf prüfen"],
+    "dataConflicts": ["Die allgemeine Anleitung nennt die Babywanne als separat erhältlich; das konkrete aktuelle 2in1-Angebot führt sie ausdrücklich im Lieferumfang."],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

@@ -44,15 +44,15 @@
   "criteria": [
     {
       "id": "official_market_safety_status",
-      "label": "Kein bekannter offizieller Sicherheitsrückruf",
-      "kind": "gate",
+      "label": "Erfasster Status offizieller Sicherheitswarnungen",
+      "kind": "information",
       "dimension": "guardrail",
       "baseWeight": 0,
       "productFields": ["officialSafetyNoticeStatus"],
       "sourceRequirement": ["official_notice", "manufacturer"],
-      "missingPolicy": "manual_review",
-      "evaluation": "Ein aktueller, einschlägiger offizieller Rückruf blockiert die Empfehlung. Fehlende Rückrufdaten werden manuell geprüft.",
-      "explanation": "Sicherheitsstatus separat vom Match-Score anzeigen."
+      "missingPolicy": "show_unknown_not_safe",
+      "evaluation": "Eine erfasste aktuelle, einschlägige offizielle Warnung blockiert die Empfehlung. Kein Treffer oder ein unbekannter Status wird niemals als Sicherheitsbestätigung dargestellt.",
+      "explanation": "Warnungsstatus separat vom Match-Score und ohne pauschale Sicherheitsaussage anzeigen."
     },
     {
       "id": "newborn_configuration",
@@ -120,10 +120,10 @@
       "kind": "gate",
       "dimension": "home",
       "baseWeight": 0,
-      "productFields": ["frameWeightKg", "seatWeightKg", "carrycotWeightKg", "liftReadyWeightKg"],
+      "productFields": ["frameWeightKg", "seatWeightKg", "carrycotWeightKg", "liftReadyWeightKg", "liftReadyConfiguration"],
       "sourceRequirement": ["manual", "manufacturer"],
       "missingPolicy": "exclude_from_top_results_when_user_sets_limit",
-      "evaluation": "Verglichen wird genau die Einheit, die der Nutzer tatsächlich tragen will: Gestell, Gestell mit Sitz oder komplette gefaltete Einheit.",
+      "evaluation": "Verglichen wird genau die Einheit, die der Nutzer tatsächlich tragen will: Gestell, Gestell mit Sitz oder Gestell mit Babywanne.",
       "explanation": "Verhindert den irreführenden Vergleich unterschiedlicher Gewichtsangaben."
     },
     {
@@ -201,14 +201,14 @@
     {
       "id": "pushbar_height_fit",
       "label": "Schieberhöhe passend zu den schiebenden Personen",
-      "kind": "preference",
+      "kind": "information",
       "dimension": "ergonomics",
-      "baseWeight": 1,
+      "baseWeight": 0,
       "productFields": ["pushbarMinCm", "pushbarMaxCm", "pushbarAdjustmentType"],
       "sourceRequirement": ["manual", "manufacturer"],
-      "missingPolicy": "reduce_coverage",
-      "evaluation": "Bewertet den Verstellbereich gegen die Körpergrößen der regelmäßig schiebenden Personen; eine Probefahrt bleibt empfohlen.",
-      "explanation": "Zeigt Verstellbereich und weist auf den Praxistest hin."
+      "missingPolicy": "show_unknown",
+      "evaluation": "Zeigt den Verstellbereich und erzeugt bei sehr unterschiedlichen oder extremen Körpergrößen eine verpflichtende Praxisprüfung. Ohne validiertes Ergonomiemodell entsteht daraus kein numerischer Teilscore.",
+      "explanation": "Vermeidet eine scheinpräzise Ergonomieaussage allein aus Körper- und Schieberhöhe."
     },
     {
       "id": "folding_convenience",

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "bugaboo-fox-5-renew",
+  "identity": {
+    "brand": "Bugaboo",
+    "model": "Fox 5 Renew",
+    "generation": "Fox 5 Renew current DE 2-in-1",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-22",
+    "reviewDueAt": "2026-08-22",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Premium-Modell für gemischte und unebene Wege",
+    "notes": "Offizielle Bugaboo-Seiten nennen beim Gewicht 12,3 kg und 13 kg; konservativer Wert wird verwendet und Konflikt bleibt sichtbar."
+  },
+  "sources": [
+    {
+      "id": "bugaboo-fox-product",
+      "url": "https://www.bugaboo.com/de-de/kinderwagen/bugaboo-fox-5-renew/bugaboo-fox-5-renew-2-in-1-kinderwagen-PM007563.html",
+      "kind": "manufacturer",
+      "title": "Bugaboo Fox 5 Renew 2-in-1 Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "bugaboo-compare",
+      "url": "https://www.bugaboo.com/de-de/kinderwagen-vergleichen/",
+      "kind": "manufacturer",
+      "title": "Bugaboo Kinderwagenvergleich",
+      "checkedAt": "2026-07-22"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_color_dependent", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Aktuelles Modell; Verfügbarkeit unterscheidet sich laut Herstellerseite je nach Farb- und Gestellkombination.", "freshUntil": "2026-08-05" },
+    "newbornApproved": { "value": true, "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "Fox 5 Renew mit enthaltener Liegewanne", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 1299, "unit": "EUR", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "freshUntil": "2026-08-05" },
+    "unfoldedWidthCm": { "value": 60, "unit": "cm", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 45, "width": 60, "height": 90, "configuration": "one_piece_with_seat" }, "unit": "cm", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Kompakter zweiteiliger Zustand 89 x 53 x 34 cm wird zusätzlich in der Quelle genannt, aber nicht als Standard-Faltzustand verwendet." },
+    "frameWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "seatWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 13, "unit": "kg", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "conflict", "note": "Produktseite: 12,3 kg mit Sitz; Vergleichsseite: 13 kg. Konservativer Wert 13 kg." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 92, "unit": "cm", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 108, "unit": "cm", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 22, "unit": "cm", "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 30, "unit": "cm", "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "wheelMaterial": { "value": "puncture-proof", "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "suspension": { "value": "front wheels and chassis", "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketLoadKg": { "value": 10, "unit": "kg", "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketVolumeL": { "value": 45, "unit": "l", "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "oneHandFold": { "value": true, "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldWithSeat": { "value": true, "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "selfStandingFold": { "value": true, "sourceIds": ["bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "reversibleSeat": { "value": true, "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Autokindersitzadapter separat erforderlich." },
+    "canopyCoverage": { "value": "large extendable UPF 50+", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["bugaboo-fox-product", "bugaboo-compare"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "rainCoverIncluded": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Modulares Design und Teileangebot; konkrete Verfügbarkeitsdauer offen." },
+    "repairService": { "value": "modular repair and refurbishment claimed", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "warrantyYears": { "value": 4, "unit": "years", "sourceIds": ["bugaboo-fox-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Als erweiterte Garantie ausgewiesen; Bedingungen vor Kauf prüfen." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg", "wheelDiameterFrontCm"], "rationale": "60 cm Breite, aber höheres Gewicht und keine unabhängige Handhabungsprüfung im Pilot." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Große Räder und Federung sind konkret dokumentiert; Herstellerangaben allein werden ohne unabhängige Fahrprüfung auf 0,5 begrenzt." },
+    "foldingConvenience": { "value": 1, "status": "documented", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Einhand-, Sitz- und Standfunktion sind offiziell dokumentiert." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "45 Liter und 10 kg sind offiziell angegeben." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Großes UPF-50+-Verdeck und Belüftung sind dokumentiert; Regenschutz bleibt als offener Lieferumfangspunkt bestehen." },
+    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Modularität und erweiterte Garantie dokumentiert; tatsächliche Reparaturabdeckung nicht unabhängig geprüft." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Liegewanne, wendbarer Sitz und Reisesystem sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["gemischte und unebene Wege", "großer Einkaufskorb", "komplette Geburtskonfiguration ohne Zusatzwanne"],
+    "tradeoffs": ["höherer Anschaffungspreis", "relativ hohes Gewicht für tägliches Tragen"],
+    "openChecks": ["13-kg-Tragegewicht praktisch testen", "einteiliges Faltmaß im eigenen Kofferraum prüfen"],
+    "dataConflicts": ["Offizielle Seiten nennen 12,3 kg und 13 kg mit Sitz; der Navigator verwendet konservativ 13 kg."],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

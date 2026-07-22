@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "cybex-balios-s-lux-current",
+  "identity": {
+    "brand": "CYBEX",
+    "model": "Balios S Lux",
+    "generation": "Current DE listing product 10109665",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-22",
+    "reviewDueAt": "2026-08-22",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "City-Allrounder mit großem Korb",
+    "notes": "Generation wird über Produkt-ID fixiert, da offizielle Seiten mehrere Balios-S-Lux-Generationen parallel führen."
+  },
+  "sources": [
+    {
+      "id": "cybex-balios-product",
+      "url": "https://www.cybex-online.com/de/de/p/10109665.html",
+      "kind": "manufacturer",
+      "title": "CYBEX Balios S Lux Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "cybex-balios-cot",
+      "url": "https://www.cybex-online.com/de/de/p/10102822.html",
+      "kind": "manufacturer",
+      "title": "CYBEX Cot S Lux Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "cybex-balios-bundle",
+      "url": "https://www.cybex-online.com/de/de/p/10110794.html",
+      "kind": "manufacturer",
+      "title": "CYBEX Balios S Lux mit Balios Cot S Lux",
+      "checkedAt": "2026-07-22"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_temporarily_unavailable_manufacturer", "sourceIds": ["cybex-balios-bundle"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Das geprüfte Komplett-Bundle ist im Hersteller-Shop als bald verfügbar, aktuell aber nicht verfügbar gekennzeichnet.", "freshUntil": "2026-08-05" },
+    "newbornApproved": { "value": true, "sourceIds": ["cybex-balios-product", "cybex-balios-cot"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Für den MVP wird die separate Cot-S-Lux-Konfiguration verwendet." },
+    "newbornConfiguration": { "value": "Balios S Lux plus Cot S Lux", "sourceIds": ["cybex-balios-cot", "cybex-balios-bundle"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "carrycotIncluded": { "value": false, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Im Einzelwagen nicht enthalten; Bundle separat gelistet." },
+    "requiredConfigurationPriceEur": { "value": 699.95, "unit": "EUR", "sourceIds": ["cybex-balios-bundle"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Offizieller Bundle-Listenpreis; Bundle war beim Check nicht verfügbar.", "freshUntil": "2026-08-05" },
+    "unfoldedWidthCm": { "value": 60, "unit": "cm", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 45, "width": 60, "height": 77.5, "configuration": "manufacturer-folded-state" }, "unit": "cm", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Quelle benennt nicht ausdrücklich, ob die Sitzeinheit montiert bleibt." },
+    "frameWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "seatWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "carrycotWeightKg": { "value": 4.6, "unit": "kg", "sourceIds": ["cybex-balios-cot"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "liftReadyWeightKg": { "value": 11.2, "unit": "kg", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Gewicht der veröffentlichten Kinderwagenkonfiguration; Einzelkomponenten fehlen." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Als Gewicht der auf der Produktseite gezeigten Kinderwagenkonfiguration mit Sitzeinheit erfasst." },
+    "pushbarMinCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "pushbarMaxCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Veröffentlichte Gesamthöhe von 108 cm ist nicht eindeutig als Verstellbereich bezeichnet." },
+    "wheelDiameterFrontCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelDiameterRearCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelMaterial": { "value": "puncture-proof unspecified material", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "suspension": { "value": "all-wheel suspension", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketLoadKg": { "value": 10, "unit": "kg", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketVolumeL": { "value": null, "unit": "l", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "oneHandFold": { "value": true, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldWithSeat": { "value": null, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "unknown", "note": "Faltmaß vorhanden, Montagezustand des Sitzes nicht eindeutig beschrieben." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyCoverage": { "value": "XXL", "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyVentilation": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "rainCoverIncluded": { "value": false, "sourceIds": ["cybex-balios-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Nicht im veröffentlichten Lieferumfang." },
+    "sparePartsAvailability": { "value": "selected dealers", "sourceIds": ["cybex-balios-product", "cybex-balios-cot"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "repairService": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "warrantyYears": { "value": null, "unit": "years", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg", "suspension"], "rationale": "60 cm Breite und dokumentierte Stadtpositionierung; unabhängige Handhabungsbeobachtung fehlt." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelMaterial", "suspension"], "rationale": "Allradfederung und pannensichere Räder sind dokumentiert, Radmaße und unabhängige Fahrprüfung fehlen." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat"], "rationale": "Einhand-Faltung dokumentiert; Sitzkonfiguration des veröffentlichten Faltmaßes ist offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "Hohe Traglast von 10 kg dokumentiert; Volumen bleibt offen." },
+    "weatherProtection": { "value": 0.5, "status": "proxy", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "XXL-Verdeck dokumentiert, Belüftung offen und Regenverdeck nicht enthalten." },
+    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteile über ausgewählte Händler, aber Reparatur- und Garantiedaten im Pilot unvollständig." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Babywanne, wendbarer Sitz und Reisesystem sind offiziell dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["Stadt und gemischte Wege", "viel Einkauf", "Familien mit Wunsch nach Reisesystem"],
+    "tradeoffs": ["Babywanne im Einzelangebot separat", "Gewicht der einzelnen Baugruppen fehlt"],
+    "openChecks": ["Faltmaß mit der gewünschten Sitzkonfiguration praktisch prüfen", "Schieberhöhe ausprobieren"],
+    "dataConflicts": ["Mehrere offizielle Balios-S-Lux-Generationen mit abweichenden Maßen werden parallel geführt; dieser Datensatz gilt nur für Produkt-ID 10109665."],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

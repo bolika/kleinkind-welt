@@ -163,7 +163,7 @@
       "expected": {
         "route": "supported",
         "mustUseGates": ["newborn_configuration", "required_features"],
-        "dominantCriteria": ["pushbar_height_fit", "long_term_flexibility", "repairability_service"],
+        "dominantCriteria": ["long_term_flexibility", "repairability_service"],
         "mustExplain": ["Schieberbereich", "Probefahrt wegen Körpergröße", "konkrete Ersatzteil- und Serviceangaben"],
         "requiredOpenChecks": ["pushbar_practical_test"],
         "resultPolicy": "Schiebermaße dürfen nicht als Garantie für ergonomische Passung dargestellt werden."
@@ -230,7 +230,7 @@
         "budget": 1000,
         "budget_strictness": "strict",
         "stairs_frequency": "daily",
-        "lift_unit": "folded_complete",
+        "lift_unit": "frame_with_carrycot",
         "maximum_lift_weight": 12,
         "maximum_access_width": 62,
         "car_frequency": "weekly",

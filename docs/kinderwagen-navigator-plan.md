@@ -1,6 +1,6 @@
 # Kinderwagen-Navigator: Produktplan
 
-Status: Entscheidungsmodell Version 0.1
+Status: interaktiver Daten-Pilot Version 0.1
 Öffentliche Route: `/kinderwagen-navigator`  
 Indexierung: bis zur funktionsfähigen Beta deaktiviert
 
@@ -64,8 +64,8 @@ Werdende Eltern oder Eltern eines Neugeborenen, die ihren ersten Kombi-Kinderwag
 - Kombi-Kinderwagen mit Babywanne und späterer Sitzeinheit
 - Stadt, gemischter Alltag und moderates Gelände
 - Budget-, Gewichts-, Faltmaß-, Kofferraum- und Wohnsituationsanforderungen
-- 15 bis 25 recherchierte Modelle aus mehreren Preisstufen und Marken
-- drei Empfehlungen: beste Passung, Alternative, anderer Schwerpunkt
+- zunächst sechs quellengeprüfte Pilotmodelle; vor Indexierung 15 bis 25 relevante Modelle
+- bis zu drei Empfehlungen; bei einer Daten- oder Kataloglücke bewusst weniger oder kein Treffer
 
 ### Bewusst nicht im MVP
 
@@ -149,7 +149,7 @@ Ein Produkt wird ausgeschlossen, wenn ein verifiziertes hartes Kriterium nicht e
 - falsche Kinderanzahl
 - zu breit für die angegebene Öffnung
 - Faltmaß überschreitet ein verbindliches Limit
-- Gewicht überschreitet ein verbindliches Limit
+- Gewicht der konkret gewählten Trageeinheit überschreitet ein verbindliches Limit
 - Budget überschreitet eine strikt gesetzte Obergrenze
 - notwendige Babywanne oder Geschwisteroption fehlt
 
@@ -198,13 +198,14 @@ Jedes Attribut benötigt Wert, Quelle, Prüfdatum und Datenstatus.
 - Modell
 - Modelljahr/Generation
 - Kategorie
-- aktuell erhältlich / ausgelaufen / gebraucht relevant
+- aktuelles Modell / variantenabhängig verfügbar / vorübergehend nicht verfügbar / ausgelaufen
 - offizielle Produktseite
 
 ### Maße und Transport
 
 - Gesamtgewicht
 - Gewicht von Gestell, Sitz und Babywanne getrennt
+- eindeutige Tragekonfiguration für jedes verwendete Vergleichsgewicht
 - Faltmaß mit und ohne Sitz
 - aufgeklappte Maße
 - Gesamtbreite
@@ -241,14 +242,14 @@ Jedes Attribut benötigt Wert, Quelle, Prüfdatum und Datenstatus.
 - Datenabdeckungsgrad
 - Hinweis „kein eigener Produkttest“, sofern zutreffend
 
-### Monetarisierung getrennt speichern
+### Monetarisierung und Händlerbestand getrennt speichern
 
 - Händlerlinks
 - Affiliate-Programm
 - Sponsoringstatus
-- Verfügbarkeit
+- Händler- und Affiliate-Verfügbarkeit
 
-Diese Felder werden von der Match-Berechnung nicht gelesen.
+Diese Felder werden von der Match-Berechnung nicht gelesen. Der Produktlebenszyklus eines Modells darf dagegen berücksichtigt werden: Ein eingestelltes Modell wird nicht als aktueller Top-Treffer ausgegeben. Kurzfristiger Hersteller- oder Händlerbestand verändert den Score nicht, erzeugt aber eine sichtbare Verfügbarkeitsprüfung.
 
 ## 7. Unabhängigkeitsregeln
 
@@ -271,18 +272,7 @@ Eine Empfehlung zählt, wenn der Nutzer den Flow abschließt und das Ergebnis al
 
 ### Events
 
-- `navigator_viewed`
-- `navigator_started`
-- `navigator_question_answered`
-- `navigator_question_back`
-- `navigator_abandoned`
-- `navigator_completed`
-- `navigator_result_helpful`
-- `navigator_result_not_helpful`
-- `navigator_match_explained_opened`
-- `navigator_product_compared`
-- `navigator_product_clicked`
-- `navigator_restarted`
+Im Daten-Pilot wird ein Plausible-Event `Kinderwagen-Navigator` mit datensparsamer Aktion verwendet. Erfasst werden Start, beantwortete Frage ohne konkrete Antwortwerte, Zurück-Nutzung, Zusammenfassung, Ergebnisanzahl, Top-Match, Quellenöffnung, Hilfreichkeitsfeedback und Neustart. Exakte Maße, Budgets und Körpergrößen werden nicht als Analytics-Eigenschaften übertragen.
 
 ### Erste Erfolgsschwellen
 
@@ -304,7 +294,7 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 - Gewichte und Score-Regeln dokumentieren
 - zehn realistische Familienprofile als Testfälle anlegen
 
-**Stand:** Kriterienmatrix, adaptiver Fragenbaum und zehn Referenzprofile sind als versionierte JSON-Daten angelegt. Der Quality-Gate prüft IDs, Abhängigkeiten, Antwortwerte, Muss-Kriterien und erwartete Ergebnisregeln. Die vollständige Reproduzierbarkeit des Rankings kann erst mit der Match-Engine und ersten Produktdaten geprüft werden.
+**Stand:** Kriterienmatrix, adaptiver Fragenbaum und zehn Referenzprofile sind als versionierte JSON-Daten angelegt. Der Quality-Gate prüft IDs, Abhängigkeiten, Antwortwerte, Muss-Kriterien und erwartete Ergebnisregeln. Die Match-Engine bestätigt inzwischen auch reproduzierbare Rankings unabhängig von der Eingabereihenfolge des Katalogs.
 
 **Gate:** Zwei Personen mit gleichen Angaben erhalten reproduzierbar das gleiche Ergebnis; harte Anforderungen können nicht durch weiche Vorteile überstimmt werden.
 
@@ -318,6 +308,8 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 **Gate:** Kein Top-Match besitzt unbekannte harte Kriterien; mindestens 85 Prozent gewichtete Datenabdeckung.
 
+**Stand:** Versioniertes Produktschema, Katalogmanifest und sechs Modelle sind erfasst. Jeder Fakt besitzt Quellen- und Prüfstatus. Marktstatus und Gesamtpreis laufen ab; unterschiedliche Gewichtsdefinitionen werden über die konkrete Tragekonfiguration getrennt. Der Produktdaten-Gate meldet verbleibende harte Lücken, statt sie zu schätzen.
+
 ### Phase 3: Interaktiver Prototyp
 
 - mobile One-Question-per-Screen-Oberfläche
@@ -328,6 +320,8 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 - vollständiges Tracking
 
 **Gate:** Zehn vorbereitete Profile liefern die erwarteten Ergebnisstufen und funktionieren per Tastatur sowie auf kleinen Smartphones.
+
+**Stand:** Deterministische Match-Engine, adaptive One-Question-per-Screen-Oberfläche, Antwortzusammenfassung, Ergebnisnachweis, Quellenansicht und Plausible-Tracking sind implementiert. Zehn Referenzprofile sowie Gate-, Reihenfolge-, Prioritäts- und Gewichtsgrenzfälle laufen automatisiert. Der echte Browser-Test für Tastatur, Smartphone und Desktop steht vor der Beta-Freigabe noch aus.
 
 ### Phase 4: Geschlossene Beta
 
@@ -348,18 +342,12 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 ## 10. Nächster konkreter Arbeitsschritt
 
-Die drei Grundlagen aus Phase 1 sind umgesetzt:
+Der technische Daten-Pilot ist umgesetzt. Die Reihenfolge für eine belastbare geschlossene Beta lautet nun:
 
-1. `data/kinderwagen-navigator/criteria.v0.1.json`
-2. `data/kinderwagen-navigator/questions.v0.1.json`
-3. `data/kinderwagen-navigator/reference-profiles.v0.1.json`
+1. vollständigen Klickpfad mobil und auf Desktop im echten Browser prüfen, einschließlich Tastatur und Fehlermeldungen,
+2. fünf kurze moderierte Tests mit werdenden Eltern durchführen und unklare Fragen protokollieren,
+3. Completion, Abbruch pro Frage, Kein-Match-Quote und Hilfreichkeitsfeedback mit Plausible messen,
+4. Katalog anhand realer Kein-Match-Gründe gezielt von sechs auf mindestens 15 relevante Modelle erweitern,
+5. erst danach Indexierung, SEO-Landingtext oder Händler-/Affiliate-Aktionen ergänzen.
 
-Der nächste sinnvolle Risikotest ist noch nicht die komplette Benutzeroberfläche. Zuerst muss bewiesen werden, dass die für den Passungsnachweis benötigten Produktdaten belastbar und markenübergreifend verfügbar sind:
-
-1. Produktschema mit Wert, Quelle, Prüfdatum, Modellgeneration und Konfliktstatus definieren.
-2. Fünf bewusst unterschiedliche Kombi-Kinderwagen als Daten-Pilot erfassen.
-3. Prüfen, welche Muss- und Präferenzfelder aus Handbuch und Herstellerquelle tatsächlich vergleichbar sind.
-4. Eine deterministische Match-Engine gegen die zehn Referenzprofile laufen lassen.
-5. Erst danach den interaktiven Mobile-Flow bauen und auf 15 bis 25 Modelle erweitern.
-
-**Pilot-Gate:** Kein Wert wird geschätzt, Preisbestandteile werden vollständig getrennt, unterschiedliche Gewichtsdefinitionen werden nicht vermischt und die Match-Engine kann Affiliate-Felder technisch nicht lesen.
+**Beta-Gate:** Kein Wert wird geschätzt, Preisbestandteile und Tragekonfigurationen bleiben vergleichbar, Affiliate-Felder sind technisch vom Matching getrennt und alle sichtbaren Ergebnisse bestehen den mobilen Klick- und Verständlichkeitstest.

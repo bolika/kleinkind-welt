@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "joolz-hub2",
+  "identity": {
+    "brand": "Joolz",
+    "model": "Hub²",
+    "generation": "Hub2 current DE listing 2026",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-22",
+    "reviewDueAt": "2026-08-22",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Kompakter und leichter Stadtwagen",
+    "notes": "Geburtsnutzung setzt die separat angebotene Hub2-Wanne voraus."
+  },
+  "sources": [
+    {
+      "id": "joolz-hub2-product",
+      "url": "https://www.joolz.com/de/de/schwarze-kinderwagen/100001.html",
+      "kind": "manufacturer",
+      "title": "Joolz Hub2 Produktseite",
+      "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "joolz-hub2-carrycot",
+      "url": "https://www.joolz.com/de/de/zubehor/100030.html",
+      "kind": "manufacturer",
+      "title": "Joolz Hub2 Wanne",
+      "checkedAt": "2026-07-22"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Geprüfte Kinderwagenvariante im Hersteller-Shop auf Lager; die separat nötige Wanne muss vor Kauf zusätzlich geprüft werden.", "freshUntil": "2026-08-05" },
+    "newbornApproved": { "value": true, "sourceIds": ["joolz-hub2-product", "joolz-hub2-carrycot"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Nur in der Konfiguration mit separater Wanne." },
+    "newbornConfiguration": { "value": "Joolz Hub2 plus Hub2-Wanne", "sourceIds": ["joolz-hub2-carrycot"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "carrycotIncluded": { "value": false, "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 1058, "unit": "EUR", "sourceIds": ["joolz-hub2-product", "joolz-hub2-carrycot"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "799 Euro Wagen plus 259 Euro Wanne; aktuelle Aktionspreise können abweichen.", "freshUntil": "2026-08-05" },
+    "unfoldedWidthCm": { "value": 52.5, "unit": "cm", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 29.2, "width": 52.5, "height": 66.5, "configuration": "with_seat" }, "unit": "cm", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "frameWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Offizielle Seite nennt nur Kinderwagen plus Sitz." },
+    "seatWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 9.3, "unit": "kg", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Kinderwagen mit Sitzeinheit laut Herstellerseite." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "pushbarMinCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Die veröffentlichte Gesamthöhe ist nicht eindeutig als Schieberhöhe bezeichnet." },
+    "pushbarMaxCm": { "value": null, "unit": "cm", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "wheelDiameterFrontCm": { "value": 16.2, "unit": "cm", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "derived_proxy", "note": "Aus 6,38 Zoll umgerechnet und gerundet." },
+    "wheelDiameterRearCm": { "value": 19.8, "unit": "cm", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "derived_proxy", "note": "Aus 7,8 Zoll umgerechnet und gerundet." },
+    "wheelMaterial": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "suspension": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Sanfte Fahrt wird beworben, die technische Federungsart ist in der geprüften Quelle nicht eindeutig." },
+    "basketLoadKg": { "value": 10, "unit": "kg", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "basketVolumeL": { "value": 20, "unit": "l", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "foldWithSeat": { "value": true, "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Separates Faltmaß mit Sitz veröffentlicht." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "reversibleSeat": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "travelSystem": { "value": true, "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Autositzadapter separat erhältlich." },
+    "canopyCoverage": { "value": "extended", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
+    "canopyVentilation": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "rainCoverIncluded": { "value": false, "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Nicht im veröffentlichten Lieferumfang; als Zubehör gelistet." },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Ersatzteilbereich vorhanden; konkrete Langzeitverfügbarkeit nicht belegt." },
+    "repairService": { "value": null, "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
+    "warrantyYears": { "value": 2, "unit": "years", "sourceIds": ["joolz-hub2-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Übertragbare 10-Jahres-Garantie nur nach fristgerechter Registrierung; Basiswert 2 Jahre verwendet." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "wheelDiameterFrontCm", "liftReadyWeightKg"], "rationale": "Sehr schmal und relativ leicht; keine unabhängige Handhabungsprüfung im Pilot." },
+    "roughSurfaceFit": { "value": null, "status": "unknown", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "suspension"], "rationale": "Räder sind dokumentiert, die technische Federung und unabhängige Fahrbeobachtung fehlen." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "foldWithSeat", "oneHandFold"], "rationale": "Kompaktes Faltmaß mit Sitz belegt; Bedienablauf und Einhand-Faltung sind offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "20 Liter Volumen und 10 Kilogramm Traglast sind offiziell angegeben." },
+    "weatherProtection": { "value": 0.5, "status": "proxy", "evidenceFields": ["canopyCoverage", "rainCoverIncluded", "canopyVentilation"], "rationale": "Erweitertes Verdeck dokumentiert, Belüftung offen und Regenschutz separat." },
+    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteilbereich und Basisgarantie sind dokumentiert; Reparaturservice bleibt offen." },
+    "longTermFlexibility": { "value": 0.5, "status": "proxy", "evidenceFields": ["newbornConfiguration", "travelSystem", "reversibleSeat"], "rationale": "Wanne und Travel-System sind dokumentiert; Sitzrichtung ist im Pilot noch nicht belastbar erfasst." }
+  },
+  "editorial": {
+    "bestFor": ["schmale Zugänge", "Stadt und ÖPNV", "regelmäßiges Tragen mit Sitzeinheit"],
+    "tradeoffs": ["Babywanne kostet zusätzlich", "Federungs- und Ergonomiedaten sind im Pilot unvollständig"],
+    "openChecks": ["Schieberhöhe praktisch testen", "Faltvorgang und Tragegurt selbst ausprobieren"],
+    "dataConflicts": ["Herstellerseite nennt Altersspanne ab 0 Monaten, kennzeichnet den Wagen ohne separate Wanne zugleich als nicht von Geburt an."],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}
