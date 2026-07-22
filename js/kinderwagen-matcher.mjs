@@ -6,6 +6,14 @@ const FEATURE_FACTS = {
   self_standing: 'selfStandingFold'
 };
 
+const FEATURE_LABELS = {
+  reversible_seat: 'Sitz in beide Richtungen',
+  travel_system: 'kompatibles Reisesystem',
+  one_hand_fold: 'Einhand-Faltung',
+  fold_with_seat: 'Faltung mit Sitzeinheit',
+  self_standing: 'selbststehende Faltung'
+};
+
 const SIGNAL_MAP = {
   city_maneuverability: 'cityManeuverability',
   rough_surface_fit: 'roughSurfaceFit',
@@ -26,6 +34,14 @@ const PRIORITY_MAP = {
   long_use: ['long_term_flexibility'],
   service: ['repairability_service'],
   weather: ['weather_protection']
+};
+
+const VISUAL_STYLE_LABELS = {
+  minimal_clean: 'minimalistisch und klar',
+  classic_elegant: 'klassisch und elegant',
+  sporty_technical: 'sportlich und technisch',
+  natural_soft: 'natürlich und weich',
+  bold_color: 'markant und farbig'
 };
 
 function unique(values) {
@@ -154,6 +170,9 @@ function eligibility(product, answers) {
 
   const trunkDimensions = answers.trunk_dimensions;
   const folded = fact(product, 'foldedDimensionsCm');
+  if (answers.vehicle_selection) {
+    openChecks.push('Fahrzeugdaten dienen nur zur Vorbelegung: Heckklappenöffnung, Radkästen, Schrägen und reale Ladebewegung am eigenen Fahrzeug prüfen.');
+  }
   if (trunkDimensions) {
     if (!measured) {
       openChecks.push('Kofferraummaße nachmessen; geschätzte Maße gelten nicht als belegter Fit.');
@@ -280,6 +299,20 @@ function applicableEvaluations(product, answers) {
     if (priorities.has(criterionId)) addStatic(criterionId);
   }
 
+  const selectedStyles = answers.visual_style ?? [];
+  if (selectedStyles.length) {
+    const productStyles = product.editorial?.visualStyles ?? [];
+    const matches = selectedStyles.filter((style) => productStyles.includes(style));
+    evaluations.push({
+      criterionId: 'visual_style_fit',
+      value: productStyles.length ? matches.length / selectedStyles.length : null,
+      status: productStyles.length ? 'editorial' : 'unknown',
+      rationale: matches.length
+        ? `Redaktionell eingeordnete Optik passt zu ${matches.map((style) => VISUAL_STYLE_LABELS[style]).join(' und ')}.`
+        : 'Die gewählte Stilrichtung ist in der aktuellen redaktionellen Einordnung nicht vertreten.'
+    });
+  }
+
   return [...new Map(evaluations.map((evaluation) => [evaluation.criterionId, evaluation])).values()];
 }
 
@@ -358,11 +391,16 @@ export function matchStrollers({ answers, products, criteriaData }) {
 
   const publishable = eligible.filter((result) => result.matchScore !== null && result.matchScore >= criteriaData.scoreRules.minimumScoreToRecommend && result.priorityConflicts.length === 0);
   const preliminary = eligible.filter((result) => !publishable.includes(result));
+  const topResults = publishable.slice(0, 3).map((result, index) => ({
+    ...result,
+    rankRole: ['Beste Gesamtpassung', 'Stärkste Alternative', 'Weitere passende Alternative'][index],
+    scoreGapToBest: index === 0 ? 0 : publishable[0].matchScore - result.matchScore
+  }));
 
   return {
     modelVersion: criteriaData.modelVersion,
     route,
-    results: publishable.slice(0, 3),
+    results: topResults,
     preliminary,
     excluded: scored.filter((result) => !result.eligible),
     resultCount: publishable.length,
@@ -370,10 +408,34 @@ export function matchStrollers({ answers, products, criteriaData }) {
   };
 }
 
+export function compromiseOptions({ answers, excluded }) {
+  const failureCodes = new Set(excluded.flatMap((result) => result.failures.map((failure) => failure.code)));
+  const options = [];
+  if (answers.budget_strictness === 'strict' && failureCodes.has('budget')) {
+    options.push({ id: 'budget_flexible_10', label: 'Bis zu 10 % mehr Budget zulassen', detail: 'Der neue Preisrahmen wird sichtbar als akzeptierter Kompromiss markiert.' });
+  }
+  if (answers.trunk_dimensions && failureCodes.has('folded_fit')) {
+    options.push({ id: 'trunk_measure_later', label: 'Kofferraum-Fit später praktisch prüfen', detail: 'Das gemessene Faltmaß wird nicht mehr als Ausschluss genutzt und bleibt als offene Prüfung sichtbar.' });
+  }
+  for (const featureId of answers.required_features ?? []) {
+    if ([...failureCodes].some((code) => code === `feature_${featureId}` || code === `feature_${featureId}_unknown`)) {
+      options.push({ id: `remove_feature:${featureId}`, label: `Auf Muss-Funktion „${FEATURE_LABELS[featureId] ?? featureId}“ verzichten`, detail: 'Nur diese eine Muss-Funktion wird entfernt; alle anderen Angaben bleiben bestehen.' });
+    }
+  }
+  if (failureCodes.has('access_width') || failureCodes.has('width_unknown')) {
+    options.push({ id: 'edit_access_width', label: 'Engste Öffnung noch einmal prüfen', detail: 'Eine gemessene Breite wird nie automatisch gelockert.' });
+  }
+  if (failureCodes.has('lift_weight') || failureCodes.has('lift_weight_unknown')) {
+    options.push({ id: 'edit_lift_weight', label: 'Trageeinheit oder Maximalgewicht prüfen', detail: 'Eine persönliche Tragegrenze wird nie automatisch angehoben.' });
+  }
+  return options;
+}
+
 export const matcherInternals = {
   eligibility,
   permutationsFit,
   routeFor,
   applicableEvaluations,
-  liftWeightFor
+  liftWeightFor,
+  topPriorityCriteria
 };

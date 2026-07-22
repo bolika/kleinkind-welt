@@ -82,6 +82,7 @@
     "tradeoffs": ["Babywanne kostet zusätzlich", "Federungs- und Ergonomiedaten sind im Pilot unvollständig"],
     "openChecks": ["Schieberhöhe praktisch testen", "Faltvorgang und Tragegurt selbst ausprobieren"],
     "dataConflicts": ["Herstellerseite nennt Altersspanne ab 0 Monaten, kennzeichnet den Wagen ohne separate Wanne zugleich als nicht von Geburt an."],
+    "visualStyles": ["minimal_clean", "classic_elegant", "natural_soft"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

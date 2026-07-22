@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { matchStrollers, matcherInternals } from '../js/kinderwagen-matcher.mjs';
+import { compromiseOptions, matchStrollers, matcherInternals } from '../js/kinderwagen-matcher.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'data', 'kinderwagen-navigator');
@@ -40,6 +40,7 @@ for (const profile of profileData.profiles) {
     assert(recommendation.matchScore >= criteriaData.scoreRules.minimumScoreToRecommend, `${profile.id}: zu niedriger Score veröffentlicht`);
     assert(recommendation.compromise, `${profile.id}: Empfehlung ohne Kompromiss`);
     assert(recommendation.testingDisclosure.startsWith('Kein eigener Produkttest'), `${profile.id}: Testing-Disclosure fehlt`);
+    assert(recommendation.rankRole, `${profile.id}: Ergebnisrolle fehlt`);
   }
 
   const reversed = matchStrollers({ answers: profile.answers, products: [...products].reverse(), criteriaData });
@@ -58,6 +59,8 @@ assert(!ids(allEligible(cityWalkup)).includes('cybex-balios-s-lux-current'), 'ci
 
 const compactCar = outputs.get('elevator_compact_car');
 assert(compactCar.excluded.some((item) => item.productId === 'cybex-balios-s-lux-current' && item.failures.some((failure) => failure.code === 'feature_fold_with_seat_unknown')), 'elevator_compact_car: unbekannte Muss-Faltfunktion muss CYBEX ausschließen');
+assert(allEligible(compactCar).every((item) => item.openChecks.some((check) => check.includes('Fahrzeugdaten dienen nur zur Vorbelegung'))), 'elevator_compact_car: Fahrzeugauswahl muss bei jedem Treffer einen offenen Praxistest erzeugen');
+assert(allEligible(compactCar).every((item) => item.openChecks.some((check) => check.includes('Kofferraumöffnung'))), 'elevator_compact_car: Rechnerischer Fit darf Öffnung und reale Ladebewegung nicht als geprüft darstellen');
 
 const narrowElevator = outputs.get('narrow_elevator');
 assert(JSON.stringify(ids(allEligible(narrowElevator))) === JSON.stringify(['joolz-hub2', 'my-junior-liyo']), 'narrow_elevator: Nur LIYO und Joolz Hub2 dürfen das 59-cm-Gate erfüllen');
@@ -72,6 +75,7 @@ assert(JSON.stringify(ids(allEligible(dailyCar))) === JSON.stringify(['bugaboo-f
 const lowBudget = outputs.get('strict_low_budget');
 assert(allEligible(lowBudget).length === 0, 'strict_low_budget: Es darf kein künstlicher Treffer innerhalb von 500 Euro entstehen');
 assert(lowBudget.excluded.some((item) => item.failures.some((failure) => failure.code === 'price_unknown')), 'strict_low_budget: unbekannter Gesamtpreis muss sichtbar ausschließen');
+assert(compromiseOptions({ answers: profileData.profiles.find((profile) => profile.id === 'strict_low_budget').answers, excluded: lowBudget.excluded }).some((option) => option.id === 'budget_flexible_10'), 'strict_low_budget: explizite Budget-Kompromissoption fehlt');
 
 const estimated = outputs.get('estimated_measurements');
 assert(allEligible(estimated).every((item) => item.openChecks.some((check) => check.includes('geschätzte Maße') || check.includes('nachmessen') || check.includes('Tragegrenze'))), 'estimated_measurements: geschätzte Maße müssen offene Prüfungen erzeugen');
@@ -100,6 +104,10 @@ assert(matcherInternals.liftWeightFor(liyo, 'frame_with_seat')?.value === 7.3, '
 assert(matcherInternals.liftWeightFor(liyo, 'frame_with_carrycot')?.value === 10, 'Tragegewicht: LIYO mit Babywanne muss 10 kg ergeben');
 assert(matcherInternals.liftWeightFor(abc, 'frame_with_carrycot') === null, 'Tragegewicht: fehlendes ABC-Babywannengewicht darf nicht durch Sitzgewicht ersetzt werden');
 assert(matcherInternals.liftWeightFor(joolz, 'frame_only') === null, 'Tragegewicht: unbekanntes Joolz-Gestellgewicht darf nicht aus Gesamtgewicht geraten werden');
+
+const visualAnswers = { ...profileData.profiles.find((profile) => profile.id === 'rural_rough_terrain').answers, visual_style: ['natural_soft'] };
+const visualResult = matchStrollers({ answers: visualAnswers, products, criteriaData });
+assert([...visualResult.results, ...visualResult.preliminary].some((item) => item.evaluations.some((evaluation) => evaluation.criterionId === 'visual_style_fit')), 'Optikpräferenz muss als weiches Kriterium ausgewertet werden');
 
 for (const [profileId, result] of outputs) {
   if (result.route !== 'supported') {

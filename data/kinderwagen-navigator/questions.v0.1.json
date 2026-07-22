@@ -6,7 +6,7 @@
     "oneQuestionPerScreen": true,
     "showBackButton": true,
     "showAnswerSummaryBeforeResult": true,
-    "estimatedQuestions": "9 bis 15, abhängig von den Antworten",
+    "estimatedQuestions": "10 bis 19, abhängig von den Antworten",
     "doNotPromiseDurationUntilMeasured": true
   },
   "questions": [
@@ -99,18 +99,48 @@
       "output": { "criterionId": "lift_weight_limit", "field": "maximumLiftWeightKg" }
     },
     {
-      "id": "maximum_access_width",
+      "id": "access_context",
       "order": 8,
+      "type": "single_choice",
+      "required": false,
+      "prompt": "Gibt es auf eurem regelmäßigen Weg eine enge Stelle?",
+      "help": "Die Auswahl hilft bei der nächsten Frage. Ein Bildtyp ersetzt kein gemessenes Innenmaß.",
+      "options": [
+        { "value": "elevator", "label": "Ja, einen Aufzug", "visual": "elevator" },
+        { "value": "doorway", "label": "Ja, eine Tür oder einen Durchgang", "visual": "doorway" },
+        { "value": "none", "label": "Nein, keine relevante Engstelle", "visual": "open" },
+        { "value": "unsure", "label": "Noch unsicher", "visual": "unknown" }
+      ]
+    },
+    {
+      "id": "elevator_visual_type",
+      "order": 9,
+      "type": "single_choice",
+      "required": false,
+      "prompt": "Welches Bild ähnelt eurem Aufzug am ehesten?",
+      "help": "Nur zur Orientierung: Auch ähnlich aussehende Aufzüge können innen und an der Tür unterschiedlich breit sein.",
+      "showWhen": { "questionId": "access_context", "operator": "equals", "value": "elevator" },
+      "options": [
+        { "value": "narrow_single", "label": "Schmaler älterer Aufzug", "visual": "lift-narrow" },
+        { "value": "single_sliding", "label": "Aufzug mit seitlicher Schiebetür", "visual": "lift-single" },
+        { "value": "double_sliding", "label": "Breitere mittig öffnende Schiebetür", "visual": "lift-double" },
+        { "value": "unknown", "label": "Keines passt / weiß ich nicht", "visual": "unknown" }
+      ]
+    },
+    {
+      "id": "maximum_access_width",
+      "order": 10,
       "type": "number",
       "required": false,
-      "prompt": "Gibt es einen engen Aufzug, eine Tür oder einen Durchgang?",
-      "help": "Optional: Innenbreite an der engsten regelmäßig genutzten Stelle messen.",
+      "prompt": "Wie breit ist die schmalste lichte Öffnung?",
+      "help": "Optional: den freien Abstand zwischen den geöffneten Türkanten messen – nicht das Türblatt oder die Kabinenbreite.",
+      "showWhen": { "questionId": "access_context", "operator": "in", "value": ["elevator", "doorway", "unsure"] },
       "validation": { "unit": "cm", "minimum": 45, "maximum": 100, "step": 0.5 },
       "output": { "criterionId": "access_width", "field": "maximumWidthCm" }
     },
     {
       "id": "car_frequency",
-      "order": 9,
+      "order": 11,
       "type": "single_choice",
       "required": true,
       "prompt": "Wie oft wird der Kinderwagen im Auto transportiert?",
@@ -123,31 +153,48 @@
     },
     {
       "id": "trunk_measurement_known",
-      "order": 10,
+      "order": 12,
       "type": "single_choice",
       "required": true,
-      "prompt": "Kennt ihr die nutzbaren Innenmaße des Kofferraums?",
+      "prompt": "Wie möchtet ihr den Kofferraum erfassen?",
+      "help": "Die Fahrzeugauswahl kann Breite und Bodenlänge vorbelegen. Für einen echten Fit fehlen aber meist Höhe und Öffnungsmaße.",
       "showWhen": { "questionId": "car_frequency", "operator": "in", "value": ["monthly", "weekly", "daily"] },
       "options": [
-        { "value": "yes", "label": "Ja, ich kann sie angeben" },
+        { "value": "vehicle_lookup", "label": "Fahrzeug auswählen und Daten übernehmen" },
+        { "value": "yes", "label": "Maße direkt selbst eingeben" },
         { "value": "measure_later", "label": "Noch nicht – ich messe später", "openCheck": "trunk_dimensions" },
         { "value": "not_relevant", "label": "Das Faltmaß ist für uns nicht entscheidend" }
       ]
     },
     {
+      "id": "vehicle_selection",
+      "order": 13,
+      "type": "vehicle_select",
+      "required": true,
+      "prompt": "Welches Fahrzeug fahrt ihr?",
+      "help": "Pilot mit zehn aktuellen Volkswagen-Baureihen. Achtet besonders auf Baureihe und Antriebs-Scope.",
+      "showWhen": { "questionId": "trunk_measurement_known", "operator": "equals", "value": "vehicle_lookup" }
+    },
+    {
       "id": "trunk_dimensions",
-      "order": 11,
+      "order": 14,
       "type": "dimensions",
       "required": true,
       "prompt": "Welche nutzbaren Innenmaße stehen zur Verfügung?",
-      "help": "Bitte Breite, Höhe und Tiefe an der tatsächlich nutzbaren Stelle angeben.",
-      "showWhen": { "questionId": "trunk_measurement_known", "operator": "equals", "value": "yes" },
-      "validation": { "unit": "cm", "fields": ["width", "height", "depth"], "minimum": 20, "maximum": 250, "step": 0.5 },
+      "help": "Bitte alle drei Werte an der tatsächlich nutzbaren Stelle prüfen. Vorbelegte Herstellerwerte sind nur Startwerte und keine Fit-Garantie.",
+      "showWhen": {
+        "operator": "any",
+        "conditions": [
+          { "questionId": "trunk_measurement_known", "operator": "equals", "value": "yes" },
+          { "questionId": "vehicle_selection", "operator": "answered" }
+        ]
+      },
+      "validation": { "unit": "cm", "fields": ["width", "height", "depth"], "minimum": 20, "maximum": 250, "step": 0.1 },
       "output": { "criterionId": "folded_fit", "field": "maximumFoldedDimensionsCm" }
     },
     {
       "id": "public_transport_frequency",
-      "order": 12,
+      "order": 15,
       "type": "single_choice",
       "required": true,
       "prompt": "Wie wichtig sind Bus und Bahn in eurem Alltag?",
@@ -160,7 +207,7 @@
     },
     {
       "id": "terrain",
-      "order": 13,
+      "order": 16,
       "type": "multi_choice",
       "required": true,
       "prompt": "Auf welchen Untergründen seid ihr regelmäßig unterwegs?",
@@ -176,7 +223,7 @@
     },
     {
       "id": "pusher_heights",
-      "order": 14,
+      "order": 17,
       "type": "number_list",
       "required": false,
       "prompt": "Wie groß sind die Personen, die regelmäßig schieben?",
@@ -186,7 +233,7 @@
     },
     {
       "id": "required_features",
-      "order": 15,
+      "order": 18,
       "type": "multi_choice",
       "required": false,
       "prompt": "Welche Funktionen sind für euch wirklich unverzichtbar?",
@@ -202,12 +249,30 @@
       "output": { "criterionId": "required_features", "field": "requiredFeatureIds" }
     },
     {
+      "id": "visual_style",
+      "order": 19,
+      "type": "multi_choice",
+      "required": false,
+      "prompt": "Welche Optik spricht euch spontan an?",
+      "help": "Wählt höchstens zwei Stilrichtungen. Das ist eine weiche, subjektive Präferenz und nie ein Ausschlusskriterium.",
+      "validation": { "maximumSelections": 2 },
+      "options": [
+        { "value": "minimal_clean", "label": "Minimalistisch & klar", "visual": "style-minimal" },
+        { "value": "classic_elegant", "label": "Klassisch & elegant", "visual": "style-classic" },
+        { "value": "sporty_technical", "label": "Sportlich & technisch", "visual": "style-sporty" },
+        { "value": "natural_soft", "label": "Natürlich & weich", "visual": "style-natural" },
+        { "value": "bold_color", "label": "Markant & farbig", "visual": "style-bold" }
+      ],
+      "output": { "criterionId": "visual_style_fit", "field": "visualStyleIds" }
+    },
+    {
       "id": "top_priorities",
-      "order": 16,
+      "order": 20,
       "type": "multi_choice",
       "required": true,
-      "prompt": "Welche zwei Eigenschaften sind euch am wichtigsten?",
-      "validation": { "minimumSelections": 2, "maximumSelections": 2 },
+      "prompt": "Welche zwei bis drei Eigenschaften sind euch am wichtigsten?",
+      "help": "Mindestens zwei, höchstens drei. Mehr würde fast alles priorisieren und die Rangfolge weniger aussagekräftig machen.",
+      "validation": { "minimumSelections": 2, "maximumSelections": 3 },
       "options": [
         { "value": "easy_to_carry", "label": "Leicht zu tragen", "criteriaIds": ["frequent_carrying_fit"] },
         { "value": "compact_in_car", "label": "Kompakt und einfach im Auto", "criteriaIds": ["car_transport_fit", "folding_convenience"] },
@@ -222,14 +287,14 @@
     },
     {
       "id": "measurement_confirmation",
-      "order": 17,
+      "order": 21,
       "type": "confirmation",
       "required": true,
       "prompt": "Sind verbindliche Maße wirklich gemessen oder nur geschätzt?",
       "help": "Geschätzte Maße erzeugen eine offene Prüfung und keinen belegten harten Treffer.",
       "showWhen": { "operator": "any_answered", "questionIds": ["maximum_lift_weight", "maximum_access_width", "trunk_dimensions"] },
       "options": [
-        { "value": "measured", "label": "Gemessen" },
+        { "value": "measured", "label": "Alle verwendeten Maße am Fahrzeug gemessen oder bestätigt" },
         { "value": "estimated", "label": "Geschätzt – vor dem Kauf prüfen", "openCheck": "confirm_measurements" }
       ]
     }

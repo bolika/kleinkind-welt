@@ -271,6 +271,18 @@
       "explanation": "Zeigt Möglichkeiten und Grenzen getrennt."
     },
     {
+      "id": "visual_style_fit",
+      "label": "Subjektive Stilpassung",
+      "kind": "preference",
+      "dimension": "design",
+      "baseWeight": 0.5,
+      "productFields": ["visualStyles"],
+      "sourceRequirement": ["manufacturer"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Vergleicht freiwillig gewählte Stilrichtungen mit einer transparenten redaktionellen Einordnung der aktuellen Produktgestaltung.",
+      "explanation": "Die Optik wirkt nur als kleine weiche Präferenz und wird weder zur Qualitätsaussage noch zum Ausschlusskriterium."
+    },
+    {
       "id": "independent_test_context",
       "label": "Verfügbare unabhängige Testinformationen",
       "kind": "information",

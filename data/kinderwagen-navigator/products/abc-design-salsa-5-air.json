@@ -82,6 +82,7 @@
     "tradeoffs": ["14,9 kg mit Sitzeinheit", "63 cm breit", "Zweihand-Faltung"],
     "openChecks": ["Standard-Faltmaß inklusive Sitz im eigenen Auto prüfen", "Lufträder und Wartungsaufwand abwägen"],
     "dataConflicts": [],
+    "visualStyles": ["sporty_technical", "classic_elegant"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

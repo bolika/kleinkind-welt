@@ -23,6 +23,7 @@ const allowedFactStatuses = new Set(schema.$defs?.fact?.properties?.status?.enum
 const allowedSignalStatuses = new Set(schema.$defs?.signal?.properties?.status?.enum ?? []);
 const allowedMarketStatuses = new Set(schema.$defs?.marketStatusFact?.allOf?.[1]?.properties?.value?.enum ?? []);
 const allowedLiftConfigurations = new Set(schema.$defs?.liftConfigurationFact?.allOf?.[1]?.properties?.value?.enum ?? []);
+const allowedVisualStyles = new Set(schema.properties?.editorial?.properties?.visualStyles?.items?.enum ?? []);
 const criticalFacts = [
   'marketStatus',
   'newbornApproved',
@@ -114,6 +115,8 @@ for (const file of files) {
   if (!allowedLiftConfigurations.has(product.facts?.liftReadyConfiguration?.value)) errors.push(`${relative}: ungültige Tragekonfiguration ${product.facts?.liftReadyConfiguration?.value}`);
   if (unknownCritical.length) warnings.push(`${relative}: nicht bereit für alle strikten Matches (${unknownCritical.join(', ')})`);
   if (!(product.editorial?.tradeoffs ?? []).length) errors.push(`${relative}: kein Kompromiss dokumentiert`);
+  if (!(product.editorial?.visualStyles ?? []).length) errors.push(`${relative}: keine redaktionelle Stil-Einordnung dokumentiert`);
+  for (const style of product.editorial?.visualStyles ?? []) if (!allowedVisualStyles.has(style)) errors.push(`${relative}: unbekannter visueller Stil ${style}`);
   if (product.editorial?.testingDisclosure !== 'Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet.') {
     errors.push(`${relative}: Testing-Disclosure fehlt oder wurde verändert`);
   }

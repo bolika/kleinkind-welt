@@ -8,6 +8,8 @@ export function hasAnswerValue(answers, questionId) {
 export function matchesQuestionCondition(condition, answers) {
   if (!condition) return true;
   if (condition.operator === 'any_answered') return condition.questionIds.some((questionId) => hasAnswerValue(answers, questionId));
+  if (condition.operator === 'any') return (condition.conditions ?? []).some((item) => matchesQuestionCondition(item, answers));
+  if (condition.operator === 'all') return (condition.conditions ?? []).every((item) => matchesQuestionCondition(item, answers));
   const value = answers[condition.questionId];
   if (condition.operator === 'answered') return hasAnswerValue(answers, condition.questionId);
   if (condition.operator === 'equals') return value === condition.value;

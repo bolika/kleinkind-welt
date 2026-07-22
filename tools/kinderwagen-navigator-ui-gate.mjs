@@ -11,6 +11,7 @@ const css = read('css/kinderwagen-navigator.css');
 const app = read('js/kinderwagen-navigator-app.mjs');
 const questions = JSON.parse(read('data/kinderwagen-navigator/questions.v0.1.json'));
 const catalog = JSON.parse(read('data/kinderwagen-navigator/catalog.v0.1.json'));
+const vehicleCatalog = JSON.parse(read('data/kinderwagen-navigator/vehicles.v0.1.json'));
 const errors = [];
 
 function assert(condition, message) {
@@ -35,18 +36,26 @@ for (const action of ['gestartet', 'frage_beantwortet', 'zurueck', 'zusammenfass
   assert(app.includes(`'${action}'`), `Plausible-Aktion ${action} fehlt`);
 }
 
-const supportedTypes = new Set(['single_choice', 'multi_choice', 'budget', 'number', 'dimensions', 'number_list', 'confirmation']);
+const supportedTypes = new Set(['single_choice', 'multi_choice', 'budget', 'number', 'dimensions', 'number_list', 'confirmation', 'vehicle_select']);
 for (const question of questions.questions) assert(supportedTypes.has(question.type), `Nicht unterstützter Fragetyp ${question.type} bei ${question.id}`);
 
 const expectedAnswerKeys = [
   'search_goal', 'children_count', 'budget', 'budget_strictness', 'stairs_frequency', 'lift_unit',
-  'maximum_lift_weight', 'maximum_access_width', 'car_frequency', 'trunk_measurement_known',
-  'trunk_dimensions', 'public_transport_frequency', 'terrain', 'pusher_heights', 'required_features',
-  'top_priorities', 'measurement_confirmation'
+  'maximum_lift_weight', 'access_context', 'elevator_visual_type', 'maximum_access_width', 'car_frequency', 'trunk_measurement_known',
+  'vehicle_selection', 'trunk_dimensions', 'public_transport_frequency', 'terrain', 'pusher_heights', 'required_features',
+  'visual_style', 'top_priorities', 'measurement_confirmation'
 ];
 assert(JSON.stringify(questions.questions.map((question) => question.id)) === JSON.stringify(expectedAnswerKeys), 'Frage-IDs passen nicht zum Matcher-Vertrag');
 assert(questions.questions.find((question) => question.id === 'top_priorities')?.validation?.minimumSelections === 2, 'Zwei Top-Prioritäten müssen erzwungen werden');
+assert(questions.questions.find((question) => question.id === 'top_priorities')?.validation?.maximumSelections === 3, 'Höchstens drei Top-Prioritäten dürfen gewählt werden');
+assert(/Maximum erreicht/.test(app) && /input\.disabled/.test(app), 'Mehrfachauswahl muss ihr Maximum live ankündigen und weitere Optionen sperren');
+assert(/navigator-choice__visual/.test(css), 'Visuelle Aufzug- und Stiloptionen fehlen');
+assert(/vehicleSelectControl/.test(app) && /fahrzeug_ausgewaehlt/.test(app), 'Fahrzeugauswahl oder Tracking fehlt');
+assert(/fahrzeugquelle_geoeffnet/.test(app), 'Tracking für geöffnete Fahrzeugquelle fehlt');
 assert(questions.questions.find((question) => question.id === 'measurement_confirmation')?.showWhen?.operator === 'any_answered', 'Maßbestätigung muss adaptiv erscheinen');
+
+assert(vehicleCatalog.vehicles.length >= 10, `Fahrzeugpilot benötigt mindestens 10 Profile, gefunden ${vehicleCatalog.vehicles.length}`);
+assert(vehicleCatalog.vehicles.every((vehicle) => vehicle.source?.url && vehicle.cargo?.usableHeightCm === null), 'Fahrzeugprofile müssen Quelle enthalten und unbekannte nutzbare Höhe offenlassen');
 
 assert(catalog.products.length >= 6, `Katalogpilot benötigt mindestens 6 Modelle, gefunden ${catalog.products.length}`);
 for (const filename of catalog.products) {
@@ -63,4 +72,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Navigator-UI-Gate bestanden: ${questions.questions.length} adaptive Fragen, ${catalog.products.length} Katalogmodelle, Mobile- und Tracking-Vertrag geprüft.`);
+console.log(`Navigator-UI-Gate bestanden: ${questions.questions.length} adaptive Fragen, ${catalog.products.length} Kinderwagen, ${vehicleCatalog.vehicles.length} Fahrzeugprofile, Mobile- und Tracking-Vertrag geprüft.`);

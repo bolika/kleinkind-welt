@@ -144,20 +144,25 @@ const questions = questionsData.questions ?? [];
 const questionIds = duplicateIds(questions, 'Fragen');
 const questionById = new Map(questions.map((question) => [question.id, question]));
 const orders = new Set();
-for (const question of questions) {
-  if (!Number.isInteger(question.order) || orders.has(question.order)) errors.push(`Frage ${question.id}: ungültige oder doppelte Reihenfolge`);
-  orders.add(question.order);
-  if (!question.prompt || typeof question.required !== 'boolean') errors.push(`Frage ${question.id}: Prompt oder Pflichtstatus fehlt`);
-  if (question.showWhen?.questionId) {
-    const dependency = questionById.get(question.showWhen.questionId);
-    if (!dependency) errors.push(`Frage ${question.id}: unbekannte Abhängigkeit ${question.showWhen.questionId}`);
+function validateConditionDependencies(condition, question) {
+  if (!condition) return;
+  if (condition.questionId) {
+    const dependency = questionById.get(condition.questionId);
+    if (!dependency) errors.push(`Frage ${question.id}: unbekannte Abhängigkeit ${condition.questionId}`);
     else if (dependency.order >= question.order) errors.push(`Frage ${question.id}: Abhängigkeit muss früher stehen`);
   }
-  for (const dependencyId of question.showWhen?.questionIds ?? []) {
+  for (const dependencyId of condition.questionIds ?? []) {
     const dependency = questionById.get(dependencyId);
     if (!dependency) errors.push(`Frage ${question.id}: unbekannte Abhängigkeit ${dependencyId}`);
     else if (dependency.order >= question.order) errors.push(`Frage ${question.id}: Abhängigkeit ${dependencyId} muss früher stehen`);
   }
+  for (const nested of condition.conditions ?? []) validateConditionDependencies(nested, question);
+}
+for (const question of questions) {
+  if (!Number.isInteger(question.order) || orders.has(question.order)) errors.push(`Frage ${question.id}: ungültige oder doppelte Reihenfolge`);
+  orders.add(question.order);
+  if (!question.prompt || typeof question.required !== 'boolean') errors.push(`Frage ${question.id}: Prompt oder Pflichtstatus fehlt`);
+  validateConditionDependencies(question.showWhen, question);
 }
 
 for (const criterionId of collectCriterionReferences(questionsData)) {

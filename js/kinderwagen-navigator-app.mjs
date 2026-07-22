@@ -1,4 +1,4 @@
-import { matchStrollers } from '/js/kinderwagen-matcher.mjs';
+import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
@@ -11,10 +11,12 @@ const state = {
   questions: [],
   criteriaData: null,
   products: [],
+  vehicles: [],
   currentQuestionId: null,
   started: false,
   ready: false,
-  pendingStart: false
+  pendingStart: false,
+  acceptedCompromises: []
 };
 
 const marketLabels = {
@@ -98,10 +100,12 @@ function renderProgress(question) {
 }
 
 function choiceControl(question, multi = false) {
+  const wrap = element('div', 'navigator-choice-control');
   const group = element('div', `navigator-choice-grid${multi ? ' is-multi' : ''}`);
   const selected = state.answers[question.id];
   for (const option of question.options) {
     const label = element('label', 'navigator-choice');
+    if (option.visual) label.classList.add('has-visual');
     const input = document.createElement('input');
     input.type = multi ? 'checkbox' : 'radio';
     input.name = question.id;
@@ -109,10 +113,90 @@ function choiceControl(question, multi = false) {
     input.checked = multi ? (selected ?? []).includes(option.value) : selected === option.value;
     const marker = element('span', 'navigator-choice__marker');
     const copy = element('span', 'navigator-choice__copy', option.label);
-    label.append(input, marker, copy);
+    label.append(input);
+    if (option.visual) {
+      const visual = element('span', `navigator-choice__visual is-${option.visual}`);
+      visual.setAttribute('aria-hidden', 'true');
+      label.append(visual);
+    }
+    label.append(marker, copy);
     group.append(label);
   }
-  return group;
+  wrap.append(group);
+  if (multi) {
+    const status = element('p', 'navigator-selection-status');
+    status.setAttribute('aria-live', 'polite');
+    const updateLimit = () => {
+      const inputs = [...group.querySelectorAll('input')];
+      const count = inputs.filter((input) => input.checked).length;
+      const min = question.validation?.minimumSelections ?? 0;
+      const max = question.validation?.maximumSelections ?? Infinity;
+      inputs.forEach((input) => { input.disabled = Number.isFinite(max) && count >= max && !input.checked; });
+      if (Number.isFinite(max) && count >= max) {
+        status.textContent = `${count} ausgewählt · Maximum erreicht. Zum Ändern zuerst eine Auswahl entfernen.`;
+      } else if (min && Number.isFinite(max)) {
+        status.textContent = `${count} ausgewählt · mindestens ${min}, höchstens ${max}`;
+      } else if (Number.isFinite(max)) {
+        status.textContent = `${count} ausgewählt · höchstens ${max}`;
+      } else {
+        status.textContent = `${count} ausgewählt`;
+      }
+    };
+    group.addEventListener('change', updateLimit);
+    updateLimit();
+    wrap.append(status);
+  }
+  return wrap;
+}
+
+function selectedVehicle() {
+  return state.vehicles.find((vehicle) => vehicle.id === state.answers.vehicle_selection) ?? null;
+}
+
+function vehicleSelectControl(question) {
+  const wrap = element('div', 'navigator-vehicle-select');
+  const label = element('label', 'navigator-select-field');
+  label.append(element('span', '', 'Modell und Baureihe'));
+  const select = document.createElement('select');
+  select.name = question.id;
+  const placeholder = element('option', '', 'Bitte Fahrzeug auswählen');
+  placeholder.value = '';
+  select.append(placeholder);
+  for (const vehicle of state.vehicles) {
+    const option = element('option', '', `${vehicle.make} ${vehicle.model} · ${vehicle.generationLabel}`);
+    option.value = vehicle.id;
+    option.selected = state.answers[question.id] === vehicle.id;
+    select.append(option);
+  }
+  label.append(select);
+  const preview = element('div', 'navigator-vehicle-preview');
+  const updatePreview = () => {
+    const vehicle = state.vehicles.find((item) => item.id === select.value);
+    preview.replaceChildren();
+    if (!vehicle) {
+      preview.hidden = true;
+      return;
+    }
+    preview.hidden = false;
+    preview.append(element('strong', '', `${vehicle.bodyStyle} · ${vehicle.powertrainScope}`));
+    const facts = element('ul');
+    facts.append(
+      element('li', '', `${vehicle.cargo.widthBetweenWheelArchesCm} cm zwischen den Radkästen`),
+      element('li', '', `${vehicle.cargo.floorLengthSecondRowCm} cm Bodenlänge bis zur zweiten Sitzreihe`),
+      element('li', '', `${vehicle.cargo.volumeLiters} l Hersteller-Volumen – nicht als Fit-Maß verwendet`)
+    );
+    preview.append(facts, element('p', '', 'Höhe und Öffnung fehlen: Bitte am eigenen Fahrzeug messen. Die Werte werden erst nach eurer Bestätigung hart geprüft.'));
+    const source = element('a', '', 'Offizielle Fahrzeugquelle öffnen');
+    source.href = vehicle.source.url;
+    source.target = '_blank';
+    source.rel = 'noopener';
+    source.addEventListener('click', () => track('fahrzeugquelle_geoeffnet', { fahrzeug: vehicle.id }));
+    preview.append(source);
+  };
+  select.addEventListener('change', updatePreview);
+  updatePreview();
+  wrap.append(label, preview);
+  return wrap;
 }
 
 function numberControl(question, idSuffix = '', value = '') {
@@ -134,6 +218,11 @@ function numberControl(question, idSuffix = '', value = '') {
 function dimensionsControl(question) {
   const wrap = element('div', 'navigator-dimensions');
   const existing = state.answers[question.id] ?? {};
+  const vehicle = selectedVehicle();
+  const suggested = vehicle ? {
+    width: vehicle.cargo.widthBetweenWheelArchesCm,
+    depth: vehicle.cargo.floorLengthSecondRowCm
+  } : {};
   const labels = { width: 'Breite', height: 'Höhe', depth: 'Tiefe' };
   for (const field of question.validation.fields) {
     const item = element('label', 'navigator-dimension');
@@ -145,9 +234,13 @@ function dimensionsControl(question) {
     input.min = question.validation.minimum;
     input.max = question.validation.maximum;
     input.step = question.validation.step;
-    input.value = existing[field] ?? '';
+    input.value = existing[field] ?? suggested[field] ?? '';
     item.append(input, element('small', '', 'cm'));
     wrap.append(item);
+  }
+  if (vehicle) {
+    const note = element('p', 'navigator-vehicle-prefill-note', `Vorbelegt für ${vehicle.make} ${vehicle.model}: Breite zwischen den Radkästen und Bodenlänge. Höhe sowie reale Öffnung bitte selbst messen; alle Werte können überschrieben werden.`);
+    wrap.append(note);
   }
   return wrap;
 }
@@ -187,6 +280,7 @@ function renderControl(question) {
   if (question.type === 'single_choice' || question.type === 'confirmation') return choiceControl(question);
   if (question.type === 'multi_choice') return choiceControl(question, true);
   if (question.type === 'dimensions') return dimensionsControl(question);
+  if (question.type === 'vehicle_select') return vehicleSelectControl(question);
   if (question.type === 'number_list') return numberListControl(question);
   return numberControl(question, '', state.answers[question.id] ?? '');
 }
@@ -198,6 +292,7 @@ function valuesFromInputs(question) {
   if (question.type === 'multi_choice') {
     return [...app.querySelectorAll(`input[name="${question.id}"]:checked`)].map((input) => input.value);
   }
+  if (question.type === 'vehicle_select') return app.querySelector(`select[name="${question.id}"]`)?.value || undefined;
   if (question.type === 'dimensions') {
     return Object.fromEntries(question.validation.fields.map((field) => {
       const value = app.querySelector(`input[name="${question.id}.${field}"]`)?.value;
@@ -246,6 +341,7 @@ function showError(message) {
 
 function saveAndContinue(question, skip = false) {
   const value = skip ? undefined : valuesFromInputs(question);
+  const previousValue = state.answers[question.id];
   const error = skip ? null : validate(question, value);
   if (error) {
     showError(error);
@@ -255,8 +351,14 @@ function saveAndContinue(question, skip = false) {
     delete state.answers[question.id];
     state.skipped.add(question.id);
   } else {
+    if (question.id === 'vehicle_selection' && previousValue && previousValue !== value) delete state.answers.trunk_dimensions;
+    if (question.id === 'trunk_measurement_known' && previousValue && previousValue !== value) delete state.answers.trunk_dimensions;
     state.answers[question.id] = value;
     state.skipped.delete(question.id);
+  }
+  if (question.id === 'vehicle_selection') {
+    const vehicle = state.vehicles.find((item) => item.id === value);
+    track('fahrzeug_ausgewaehlt', { fahrzeug: value, marke: vehicle?.make ?? 'unbekannt', modell: vehicle?.model ?? 'unbekannt' });
   }
   pruneHiddenAnswers();
   track('frage_beantwortet', { frage: question.id, typ: question.type });
@@ -318,7 +420,7 @@ function renderQuestion(questionId) {
   });
   card.append(form);
   app.replaceChildren(card);
-  card.querySelector('input')?.focus({ preventScroll: true });
+  card.querySelector('input, select')?.focus({ preventScroll: true });
   app.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -327,6 +429,10 @@ function answerSummary(question, value) {
   if (question.type === 'number_list') return `${value.join(' cm, ')} cm`;
   if (question.type === 'budget') return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
   if (question.type === 'number') return `${value} ${question.validation?.unit ?? ''}`.trim();
+  if (question.type === 'vehicle_select') {
+    const vehicle = state.vehicles.find((item) => item.id === value);
+    return vehicle ? `${vehicle.make} ${vehicle.model} · ${vehicle.generationLabel}` : value;
+  }
   return optionLabel(question, value);
 }
 
@@ -388,10 +494,13 @@ function resultCard(result, rank, preliminary = false) {
   const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}`);
   const header = element('div', 'navigator-live-result__header');
   const heading = element('div');
-  heading.append(element('span', 'navigator-card-kicker', preliminary ? 'Noch nicht belastbar genug' : `${rank}. Match`));
+  const role = result.rankRole ?? `${rank}. Match`;
+  const preliminaryLabel = result.matchScore === null ? 'Datenlage reicht noch nicht' : 'Unter der Empfehlungsschwelle';
+  heading.append(element('span', 'navigator-card-kicker', preliminary ? preliminaryLabel : role));
   heading.append(element('h3', '', `${result.brand} ${result.model}`));
+  if (!preliminary && result.scoreGapToBest > 0) heading.append(element('p', 'navigator-rank-context', `${result.scoreGapToBest} Punkte hinter der besten Gesamtpassung`));
   const score = element('div', 'navigator-score');
-  if (preliminary || result.matchScore === null) {
+  if (result.matchScore === null) {
     score.classList.add('is-data-gap');
     score.append(element('strong', '', `${result.dataCoverage}%`), element('span', '', 'Datenlage'));
   } else {
@@ -460,11 +569,71 @@ function resultCard(result, rank, preliminary = false) {
 }
 
 function blockerSummary(excluded) {
-  const counts = new Map();
+  const byCode = new Map();
   for (const result of excluded) {
-    for (const failure of result.failures) counts.set(failure.text, (counts.get(failure.text) ?? 0) + 1);
+    for (const failure of result.failures) {
+      const entry = byCode.get(failure.code) ?? { count: 0, text: failure.text };
+      entry.count += 1;
+      byCode.set(failure.code, entry);
+    }
   }
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([text]) => text);
+  const copy = {
+    budget: (count) => `${count} ${count === 1 ? 'Modell liegt' : 'Modelle liegen'} über eurer berücksichtigten Budgetgrenze.`,
+    price_unknown: (count) => `Bei ${count} ${count === 1 ? 'Modell ist' : 'Modellen ist'} der Gesamtpreis der Geburtskonfiguration noch nicht belastbar bekannt.`,
+    folded_fit: (count) => `${count} ${count === 1 ? 'Faltmaß passt' : 'Faltmaße passen'} rechnerisch nicht in den gemessenen Kofferraum.`,
+    access_width: (count) => `${count} ${count === 1 ? 'Modell ist' : 'Modelle sind'} breiter als die gemessene Öffnung.`,
+    lift_weight: (count) => `${count} ${count === 1 ? 'Modell überschreitet' : 'Modelle überschreiten'} eure bestätigte Tragegrenze.`
+  };
+  return [...byCode.entries()]
+    .sort((a, b) => b[1].count - a[1].count)
+    .slice(0, 4)
+    .map(([code, entry]) => copy[code]?.(entry.count) ?? entry.text);
+}
+
+function applyCompromise(option) {
+  if (option.id === 'budget_flexible_10') state.answers.budget_strictness = 'flexible_10';
+  if (option.id === 'trunk_measure_later') {
+    state.answers.trunk_measurement_known = 'measure_later';
+    delete state.answers.vehicle_selection;
+    delete state.answers.trunk_dimensions;
+  }
+  if (option.id.startsWith('remove_feature:')) {
+    const featureId = option.id.split(':')[1];
+    state.answers.required_features = (state.answers.required_features ?? []).filter((id) => id !== featureId);
+  }
+  if (option.id === 'edit_access_width') {
+    track('kompromiss_pruefen', { kompromiss: option.id });
+    renderQuestion('maximum_access_width');
+    return;
+  }
+  if (option.id === 'edit_lift_weight') {
+    track('kompromiss_pruefen', { kompromiss: option.id });
+    renderQuestion('lift_unit');
+    return;
+  }
+  state.acceptedCompromises.push(option.label);
+  pruneHiddenAnswers();
+  track('kompromiss_akzeptiert', { kompromiss: option.id });
+  renderResults();
+}
+
+function renderCompromisePanel(result) {
+  const options = compromiseOptions({ answers: state.answers, excluded: result.excluded });
+  if (!options.length) return null;
+  const panel = element('aside', 'navigator-compromise-panel');
+  panel.append(element('span', 'navigator-card-kicker', 'Nur mit eurer Zustimmung'));
+  panel.append(element('h3', '', 'Welcher Abstrich wäre für euch denkbar?'));
+  panel.append(element('p', '', 'Der Navigator lockert keine Muss-Anforderung still. Wählt nur eine Änderung, die für euch wirklich in Ordnung ist.'));
+  const list = element('div', 'navigator-compromise-options');
+  for (const option of options) {
+    const button = element('button', 'navigator-compromise-option');
+    button.type = 'button';
+    button.append(element('strong', '', option.label), element('span', '', option.detail));
+    button.addEventListener('click', () => applyCompromise(option));
+    list.append(button);
+  }
+  panel.append(list);
+  return panel;
 }
 
 function renderResults() {
@@ -476,6 +645,17 @@ function renderResults() {
   intro.append(element('p', '', result.results.length
     ? 'Die Reihenfolge entsteht ausschließlich aus euren Anforderungen und der dokumentierten Datenlage – nicht aus Provisionen oder Verfügbarkeit bei Amazon.'
     : 'Wir zeigen lieber ehrlich eine Daten- oder Kataloglücke als ein künstlich passendes Produkt.'));
+  if (result.results.length > 0 && result.results.length < 3) {
+    intro.append(element('p', 'navigator-result-count-note', `${result.results.length} statt 3 Ergebnissen: Weitere Modelle erfüllen die Muss-Kriterien oder die Mindest-Datenqualität derzeit nicht.`));
+  }
+  if (state.acceptedCompromises.length) {
+    const accepted = element('div', 'navigator-accepted-compromises');
+    accepted.append(element('strong', '', 'Von euch akzeptierte Anpassung'));
+    const list = element('ul');
+    state.acceptedCompromises.forEach((item) => list.append(element('li', '', item)));
+    accepted.append(list);
+    intro.append(accepted);
+  }
   wrap.append(intro);
 
   const cards = element('div', 'navigator-live-results');
@@ -494,6 +674,8 @@ function renderResults() {
     if (!blockers.length) list.append(element('li', '', 'Für relevante Kriterien fehlen noch genug belastbare Daten für einen Prozentwert.'));
     panel.append(list);
     wrap.append(panel);
+    const compromisePanel = renderCompromisePanel(result);
+    if (compromisePanel) wrap.append(compromisePanel);
   }
 
   const note = element('p', 'navigator-result-disclaimer', 'Der Prozentwert ist eine Passung zu euren Angaben – keine Sicherheits-, Qualitäts- oder Testnote. Produktdaten und Verfügbarkeit vor dem Kauf beim Anbieter prüfen.');
@@ -539,6 +721,7 @@ function renderResults() {
 function restartNavigator() {
   state.answers = {};
   state.skipped = new Set();
+  state.acceptedCompromises = [];
   state.started = true;
   track('neu_gestartet');
   renderQuestion(state.questions[0].id);
@@ -553,11 +736,11 @@ function startNavigator(source = 'tool') {
 function renderStart() {
   const card = element('div', 'navigator-app-card navigator-start-card');
   const copy = element('div');
-  copy.append(element('span', 'navigator-card-kicker', 'Daten-Pilot · 6 aktuelle Modelle'));
+  copy.append(element('span', 'navigator-card-kicker', 'Daten-Pilot · 6 Kinderwagen · 10 Fahrzeugprofile'));
   copy.append(element('h2', '', 'Findet heraus, welcher Kinderwagen zu eurem Alltag passt'));
-  copy.append(element('p', 'navigator-question-help', 'Ihr beantwortet je nach Alltag etwa 9 bis 15 Fragen. Maße werden nur dann als Ausschlusskriterium genutzt, wenn ihr sie als gemessen bestätigt.'));
+  copy.append(element('p', 'navigator-question-help', 'Ihr beantwortet je nach Alltag etwa 10 bis 19 Fragen. Maße werden nur dann als Ausschlusskriterium genutzt, wenn ihr sie als gemessen bestätigt.'));
   const facts = element('ul', 'navigator-start-facts');
-  ['Gesamtpreis inklusive benötigter Babywanne', 'Harte Anforderungen werden zuerst geprüft', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
+  ['Gesamtpreis inklusive benötigter Babywanne', 'Fahrzeugdaten nur als bestätigungspflichtige Vorbelegung', 'Harte Anforderungen werden zuerst geprüft', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
   copy.append(facts);
   const start = element('button', 'navigator-primary-button navigator-start-button', 'Navigator starten');
   start.type = 'button';
@@ -568,15 +751,17 @@ function renderStart() {
 }
 
 async function loadData() {
-  const [questionsData, criteriaData, catalog] = await Promise.all([
+  const [questionsData, criteriaData, catalog, vehicleCatalog] = await Promise.all([
     fetch(`${DATA_ROOT}/questions.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/criteria.v0.1.json`).then((response) => response.json()),
-    fetch(`${DATA_ROOT}/catalog.v0.1.json`).then((response) => response.json())
+    fetch(`${DATA_ROOT}/catalog.v0.1.json`).then((response) => response.json()),
+    fetch(`${DATA_ROOT}/vehicles.v0.1.json`).then((response) => response.json())
   ]);
   const products = await Promise.all(catalog.products.map((filename) => fetch(`${DATA_ROOT}/products/${filename}`).then((response) => response.json())));
   state.questions = questionsData.questions.sort((a, b) => a.order - b.order);
   state.criteriaData = criteriaData;
   state.products = products;
+  state.vehicles = vehicleCatalog.vehicles;
   state.ready = true;
   if (state.pendingStart) startNavigator('hero');
   else renderStart();

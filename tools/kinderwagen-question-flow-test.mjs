@@ -17,8 +17,16 @@ assert(visibleIds({ search_goal: 'first_combo_from_birth' }).includes('children_
 assert(!visibleIds({ search_goal: 'first_combo_from_birth', children_count: 'one', car_frequency: 'never' }).includes('trunk_measurement_known'), 'Kofferraumfrage muss ohne Autonutzung entfallen');
 assert(visibleIds({ search_goal: 'first_combo_from_birth', children_count: 'one', car_frequency: 'weekly' }).includes('trunk_measurement_known'), 'Kofferraumfrage muss bei regelmäßiger Autonutzung erscheinen');
 assert(visibleIds({ trunk_measurement_known: 'yes' }).includes('trunk_dimensions'), 'Kofferraummaße müssen nach Ja erscheinen');
+assert(visibleIds({ trunk_measurement_known: 'vehicle_lookup' }).includes('vehicle_selection'), 'Fahrzeugauswahl muss nach Fahrzeug-Lookup erscheinen');
+assert(!visibleIds({ trunk_measurement_known: 'vehicle_lookup' }).includes('trunk_dimensions'), 'Maße dürfen vor konkreter Fahrzeugwahl noch nicht erscheinen');
+assert(visibleIds({ trunk_measurement_known: 'vehicle_lookup', vehicle_selection: 'vw-golf-variant-current' }).includes('trunk_dimensions'), 'Maße müssen nach konkreter Fahrzeugwahl erscheinen');
 assert(!visibleIds({ trunk_measurement_known: 'measure_later' }).includes('trunk_dimensions'), 'Kofferraummaße dürfen nach später messen nicht erzwungen werden');
-assert(visibleIds({ maximum_access_width: 59 }).includes('measurement_confirmation'), 'Maßbestätigung muss nach Zugangsmaß erscheinen');
+assert(questions.find((question) => question.id === 'trunk_dimensions')?.validation?.step === 0.1, 'Kofferraummaße müssen offizielle Zehntelzentimeter-Werte akzeptieren');
+assert(visibleIds({ access_context: 'elevator' }).includes('elevator_visual_type'), 'Aufzugbilder müssen nach Auswahl Aufzug erscheinen');
+assert(!visibleIds({ access_context: 'doorway' }).includes('elevator_visual_type'), 'Aufzugbilder dürfen bei normaler Tür nicht erscheinen');
+assert(visibleIds({ access_context: 'elevator' }).includes('maximum_access_width'), 'Lichte Breite muss für den Aufzug angeboten werden');
+assert(!visibleIds({ access_context: 'none' }).includes('maximum_access_width'), 'Breitenfrage muss ohne Engstelle entfallen');
+assert(visibleIds({ access_context: 'elevator', maximum_access_width: 59 }).includes('measurement_confirmation'), 'Maßbestätigung muss nach Zugangsmaß erscheinen');
 assert(!visibleIds({}).includes('measurement_confirmation'), 'Maßbestätigung darf ohne Maßangabe nicht erscheinen');
 assert(visibleIds({ stairs_frequency: 'daily', lift_unit: 'frame_with_carrycot' }).includes('maximum_lift_weight'), 'Tragegrenze muss für Gestell mit Babywanne angeboten werden');
 
@@ -27,7 +35,9 @@ assert(validateQuestionValue(byId.get('budget'), 900) === null, 'Gültiges Budge
 assert(validateQuestionValue(byId.get('trunk_dimensions'), { width: 90, height: null, depth: 70 }) !== null, 'Unvollständige Pflichtmaße müssen abgelehnt werden');
 assert(validateQuestionValue(byId.get('trunk_dimensions'), { width: 90, height: 50, depth: 70 }) === null, 'Vollständige gültige Pflichtmaße müssen akzeptiert werden');
 assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit']) !== null, 'Nur eine Top-Priorität muss abgelehnt werden');
-assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry']) === null, 'Genau zwei Top-Prioritäten müssen akzeptiert werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry']) === null, 'Zwei Top-Prioritäten müssen akzeptiert werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry', 'service']) === null, 'Drei Top-Prioritäten müssen akzeptiert werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry', 'service', 'weather']) !== null, 'Vier Top-Prioritäten müssen abgelehnt werden');
 assert(hasAnswerValue({ pusher_heights: [] }, 'pusher_heights') === false, 'Leere optionale Liste darf nicht als beantwortet gelten');
 
 if (errors.length) {

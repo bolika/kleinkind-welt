@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "0.1.0",
+  "checkedAt": "2026-07-22",
+  "scope": "Pilot mit aktuellen deutschen Volkswagen-Modellseiten, deren Gepäckraumbreite und Bodenlänge offiziell veröffentlicht sind.",
+  "limitations": [
+    "Die Auswahl ist noch keine vollständige Fahrzeugdatenbank und deckt zunächst nur eine Marke ab.",
+    "Breite zwischen den Radkästen und Bodenlänge beschreiben keinen vollständigen rechteckigen Kofferraum.",
+    "Nutzbare Höhe, Öffnungsmaße, Radkästen, Schrägen und Ladebewegung müssen am eigenen Fahrzeug geprüft werden.",
+    "Kein Fahrzeugdatensatz darf ohne bestätigte Nutzermessung einen harten Kinderwagen-Fit erzeugen."
+  ],
+  "vehicles": [
+    {
+      "id": "vw-passat-current-non-phev",
+      "make": "Volkswagen",
+      "model": "Passat",
+      "generationLabel": "aktuelle deutsche Baureihe · ohne Plug-in-Hybrid",
+      "bodyStyle": "Kombi",
+      "powertrainScope": "Benzin, Diesel oder Mild-Hybrid",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/der-passat.html/__ui/technische-daten.app", "title": "Volkswagen Passat – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 101, "floorLengthSecondRowCm": 112.7, "volumeLiters": 690, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-golf-variant-current",
+      "make": "Volkswagen",
+      "model": "Golf Variant",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Kombi",
+      "powertrainScope": "Benzin, Diesel oder Mild-Hybrid",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/golf-variant.html/__ui/technische-daten.app", "title": "Volkswagen Golf Variant – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.3, "floorLengthSecondRowCm": 106.2, "volumeLiters": 611, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-tiguan-current-non-phev",
+      "make": "Volkswagen",
+      "model": "Tiguan",
+      "generationLabel": "aktuelle deutsche Baureihe · ohne Plug-in-Hybrid",
+      "bodyStyle": "SUV",
+      "powertrainScope": "Benzin, Diesel oder Mild-Hybrid",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/tiguan.html/__ui/technische-daten.app", "title": "Volkswagen Tiguan – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.3, "floorLengthSecondRowCm": 97.5, "volumeLiters": 652, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-tayron-current-non-phev",
+      "make": "Volkswagen",
+      "model": "Tayron",
+      "generationLabel": "aktuelle deutsche Baureihe · ohne Plug-in-Hybrid",
+      "bodyStyle": "SUV",
+      "powertrainScope": "Benzin oder Diesel",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/tayron.html/__ui/technische-daten.app", "title": "Volkswagen Tayron – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.4, "floorLengthSecondRowCm": 110.5, "volumeLiters": 885, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-id4-current",
+      "make": "Volkswagen",
+      "model": "ID.4",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Elektro-SUV",
+      "powertrainScope": "Elektro",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/id4.html/__ui/technische-daten.app", "title": "Volkswagen ID.4 – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.1, "floorLengthSecondRowCm": 96.5, "volumeLiters": 533, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-id5-current",
+      "make": "Volkswagen",
+      "model": "ID.5",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Elektro-SUV-Coupé",
+      "powertrainScope": "Elektro",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/id5.html/__ui/technische-daten.app", "title": "Volkswagen ID.5 – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.1, "floorLengthSecondRowCm": 96.5, "volumeLiters": 539, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-id7-tourer-current",
+      "make": "Volkswagen",
+      "model": "ID.7 Tourer",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Elektro-Kombi",
+      "powertrainScope": "Elektro",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/id-7-tourer.html/__ui/technische-daten.app", "title": "Volkswagen ID.7 Tourer – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100, "floorLengthSecondRowCm": 107.4, "volumeLiters": 605, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-t-roc-current",
+      "make": "Volkswagen",
+      "model": "T-Roc",
+      "generationLabel": "aktuelle deutsche Modellseite",
+      "bodyStyle": "SUV",
+      "powertrainScope": "Benzin",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/t-roc.html/__ui/technische-daten.app", "title": "Volkswagen T-Roc – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 99.7, "floorLengthSecondRowCm": 81.2, "volumeLiters": 475, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-t-cross-current",
+      "make": "Volkswagen",
+      "model": "T-Cross",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Kompakt-SUV",
+      "powertrainScope": "Benzin",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/der-t-cross.html/__ui/technische-daten.app", "title": "Volkswagen T-Cross – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 99.8, "floorLengthSecondRowCm": 74.8, "volumeLiters": 455, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    },
+    {
+      "id": "vw-taigo-current",
+      "make": "Volkswagen",
+      "model": "Taigo",
+      "generationLabel": "aktuelle deutsche Baureihe",
+      "bodyStyle": "Crossover",
+      "powertrainScope": "Benzin",
+      "source": { "url": "https://www.volkswagen.de/de/modelle/taigo.html/__ui/technische-daten.app", "title": "Volkswagen Taigo – technische Daten", "checkedAt": "2026-07-22" },
+      "cargo": { "widthBetweenWheelArchesCm": 100.2, "floorLengthSecondRowCm": 94.3, "volumeLiters": 440, "usableHeightCm": null, "openingWidthCm": null, "openingHeightCm": null }
+    }
+  ]
+}
