@@ -6,19 +6,33 @@
     "oneQuestionPerScreen": true,
     "showBackButton": true,
     "showAnswerSummaryBeforeResult": true,
-    "estimatedQuestions": "10 bis 19, abhängig von den Antworten",
+    "estimatedQuestions": "10 bis 17, abhängig von den Antworten",
     "doNotPromiseDurationUntilMeasured": true
   },
   "questions": [
+    {
+      "id": "experience_level",
+      "order": 0,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Wie viel Erfahrung habt ihr schon mit Kinderwagen?",
+      "help": "Damit passen wir nur die Erklärungen an – nicht das Ergebnis.",
+      "options": [
+        { "value": "first_time", "label": "Noch keine – es ist unser erster Kinderwagen" },
+        { "value": "some_experience", "label": "Etwas – wir kennen die wichtigsten Begriffe" },
+        { "value": "experienced", "label": "Viel – bitte kurz und direkt" }
+      ]
+    },
     {
       "id": "search_goal",
       "order": 1,
       "type": "single_choice",
       "required": true,
       "prompt": "Was sucht ihr gerade?",
-      "help": "Der erste MVP unterstützt gezielt den ersten Kombi-Kinderwagen ab Geburt.",
+      "help": "Der Pilot unterstützt aktuell Kinderwagen, die ab Geburt und später mit einem Sitz genutzt werden können.",
+      "beginnerHelp": "Ein Kombi-Kinderwagen beginnt meist mit einer flachen Babywanne. Später wird diese gegen die Sitzeinheit getauscht – oft auch Sportwagensitz genannt.",
       "options": [
-        { "value": "first_combo_from_birth", "label": "Erster Kombi-Kinderwagen ab Geburt", "route": "supported" },
+        { "value": "first_combo_from_birth", "label": "Kinderwagen ab Geburt, später mit Sitz", "route": "supported" },
         { "value": "buggy", "label": "Buggy für ein älteres Kind", "route": "unsupported_buggy" },
         { "value": "siblings_twins", "label": "Geschwister- oder Zwillingswagen", "route": "unsupported_siblings" },
         { "value": "unsure", "label": "Noch unsicher", "route": "scope_help" }
@@ -44,7 +58,7 @@
       "prompt": "Wie hoch ist euer Gesamtbudget?",
       "help": "Gemeint ist die benötigte Konfiguration inklusive Babywanne – nicht nur das Gestell.",
       "showWhen": { "questionId": "children_count", "operator": "equals", "value": "one" },
-      "validation": { "currency": "EUR", "minimum": 200, "maximum": 3000 },
+      "validation": { "currency": "EUR", "minimum": 300, "maximum": 2000, "step": 50, "suggested": 900 },
       "output": { "criterionId": "total_required_price", "field": "maximumBudgetEur" }
     },
     {
@@ -79,6 +93,7 @@
       "required": true,
       "prompt": "Welche Einheit würdet ihr dabei tragen?",
       "help": "Gewichtsangaben sind nur vergleichbar, wenn klar ist, welche Teile mitgetragen werden.",
+      "beginnerHelp": "Mit Gestell ist nur das Fahrwerk gemeint. Sitzeinheit bezeichnet den später genutzten Sitz; die Babywanne ist die flache Liegefläche für den Anfang.",
       "showWhen": { "questionId": "stairs_frequency", "operator": "in", "value": ["occasionally", "daily"] },
       "options": [
         { "value": "frame_only", "label": "Nur das Gestell", "output": { "field": "liftUnit" } },
@@ -152,45 +167,19 @@
       ]
     },
     {
-      "id": "trunk_measurement_known",
+      "id": "car_space",
       "order": 12,
       "type": "single_choice",
       "required": true,
-      "prompt": "Wie möchtet ihr den Kofferraum erfassen?",
-      "help": "Die Fahrzeugauswahl kann Breite und Bodenlänge vorbelegen. Für einen echten Fit fehlen aber meist Höhe und Öffnungsmaße.",
+      "prompt": "Wie knapp ist der Platz im Kofferraum?",
+      "help": "Eine grobe Einschätzung reicht. Sie beeinflusst die Rangfolge, schließt aber kein Modell automatisch aus.",
       "showWhen": { "questionId": "car_frequency", "operator": "in", "value": ["monthly", "weekly", "daily"] },
       "options": [
-        { "value": "vehicle_lookup", "label": "Fahrzeug auswählen und Daten übernehmen" },
-        { "value": "yes", "label": "Maße direkt selbst eingeben" },
-        { "value": "measure_later", "label": "Noch nicht – ich messe später", "openCheck": "trunk_dimensions" },
-        { "value": "not_relevant", "label": "Das Faltmaß ist für uns nicht entscheidend" }
+        { "value": "generous", "label": "Genug Platz – das Faltmaß ist eher unkritisch", "visual": "car-roomy" },
+        { "value": "limited", "label": "Eher knapp – der Wagen sollte kompakt faltbar sein", "visual": "car-compact" },
+        { "value": "unsure", "label": "Nicht sicher – lieber kompakt planen", "visual": "unknown" },
+        { "value": "not_important", "label": "Für uns nicht entscheidend", "visual": "open" }
       ]
-    },
-    {
-      "id": "vehicle_selection",
-      "order": 13,
-      "type": "vehicle_select",
-      "required": true,
-      "prompt": "Welches Fahrzeug fahrt ihr?",
-      "help": "Pilot mit zehn aktuellen Volkswagen-Baureihen. Achtet besonders auf Baureihe und Antriebs-Scope.",
-      "showWhen": { "questionId": "trunk_measurement_known", "operator": "equals", "value": "vehicle_lookup" }
-    },
-    {
-      "id": "trunk_dimensions",
-      "order": 14,
-      "type": "dimensions",
-      "required": true,
-      "prompt": "Welche nutzbaren Innenmaße stehen zur Verfügung?",
-      "help": "Bitte alle drei Werte an der tatsächlich nutzbaren Stelle prüfen. Vorbelegte Herstellerwerte sind nur Startwerte und keine Fit-Garantie.",
-      "showWhen": {
-        "operator": "any",
-        "conditions": [
-          { "questionId": "trunk_measurement_known", "operator": "equals", "value": "yes" },
-          { "questionId": "vehicle_selection", "operator": "answered" }
-        ]
-      },
-      "validation": { "unit": "cm", "fields": ["width", "height", "depth"], "minimum": 20, "maximum": 250, "step": 0.1 },
-      "output": { "criterionId": "folded_fit", "field": "maximumFoldedDimensionsCm" }
     },
     {
       "id": "public_transport_frequency",
@@ -249,21 +238,21 @@
       "output": { "criterionId": "required_features", "field": "requiredFeatureIds" }
     },
     {
-      "id": "visual_style",
+      "id": "color_preference",
       "order": 19,
-      "type": "multi_choice",
+      "type": "single_choice",
       "required": false,
-      "prompt": "Welche Optik spricht euch spontan an?",
-      "help": "Wählt höchstens zwei Stilrichtungen. Das ist eine weiche, subjektive Präferenz und nie ein Ausschlusskriterium.",
-      "validation": { "maximumSelections": 2 },
+      "prompt": "Welche Farbrichtung gefällt euch am ehesten?",
+      "help": "Nur eine weiche Präferenz: Farbe entscheidet nie darüber, ob ein Wagen grundsätzlich passt.",
       "options": [
-        { "value": "minimal_clean", "label": "Minimalistisch & klar", "visual": "style-minimal" },
-        { "value": "classic_elegant", "label": "Klassisch & elegant", "visual": "style-classic" },
-        { "value": "sporty_technical", "label": "Sportlich & technisch", "visual": "style-sporty" },
-        { "value": "natural_soft", "label": "Natürlich & weich", "visual": "style-natural" },
-        { "value": "bold_color", "label": "Markant & farbig", "visual": "style-bold" }
+        { "value": "dark_neutral", "label": "Schwarz, Anthrazit oder dunkles Grau", "visual": "color-dark" },
+        { "value": "light_neutral", "label": "Beige, Creme oder helles Grau", "visual": "color-light" },
+        { "value": "green_earth", "label": "Grün- und Naturtöne", "visual": "color-green" },
+        { "value": "blue_cool", "label": "Blau- und kühle Farbtöne", "visual": "color-blue" },
+        { "value": "warm_color", "label": "Warme oder auffälligere Farben", "visual": "color-warm" },
+        { "value": "no_preference", "label": "Farbe ist uns nicht wichtig", "visual": "color-any" }
       ],
-      "output": { "criterionId": "visual_style_fit", "field": "visualStyleIds" }
+      "output": { "criterionId": "color_preference_fit", "field": "colorPreferenceId" }
     },
     {
       "id": "top_priorities",
@@ -290,11 +279,11 @@
       "order": 21,
       "type": "confirmation",
       "required": true,
-      "prompt": "Sind verbindliche Maße wirklich gemessen oder nur geschätzt?",
-      "help": "Geschätzte Maße erzeugen eine offene Prüfung und keinen belegten harten Treffer.",
-      "showWhen": { "operator": "any_answered", "questionIds": ["maximum_lift_weight", "maximum_access_width", "trunk_dimensions"] },
+      "prompt": "Sind eure persönlichen Grenzwerte bestätigt oder nur geschätzt?",
+      "help": "Geschätzte Breiten- oder Gewichtsgrenzen erzeugen eine offene Prüfung und keinen belegten harten Treffer.",
+      "showWhen": { "operator": "any_answered", "questionIds": ["maximum_lift_weight", "maximum_access_width"] },
       "options": [
-        { "value": "measured", "label": "Alle verwendeten Maße am Fahrzeug gemessen oder bestätigt" },
+        { "value": "measured", "label": "Gemessen oder praktisch bestätigt" },
         { "value": "estimated", "label": "Geschätzt – vor dem Kauf prüfen", "openCheck": "confirm_measurements" }
       ]
     }

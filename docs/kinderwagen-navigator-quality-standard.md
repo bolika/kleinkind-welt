@@ -86,6 +86,8 @@ Die Match-Engine darf diese Felder nicht lesen:
 
 Eine spätere gesponserte Alternative muss außerhalb des organischen Rankings stehen, klar gekennzeichnet sein und dennoch alle harten Anforderungen erfüllen.
 
+Händlerangebote werden in einem separaten Datensatz gespeichert und erst nach der fertigen Match-Berechnung an veröffentlichungsfähige Ergebnisse angehängt. Ein Angebot darf nur erscheinen, wenn Händlerprodukt, Modellgeneration und erforderliche Geburtskonfiguration anhand einer kuratierten Produkt-ID oder GTIN-Zuordnung bestätigt wurden. Preis- oder Bestandsdaten erhalten ein Ablaufdatum; abgelaufene Werte werden nicht als aktuell ausgegeben.
+
 ### Deterministische Logik und KI
 
 Die KI darf:

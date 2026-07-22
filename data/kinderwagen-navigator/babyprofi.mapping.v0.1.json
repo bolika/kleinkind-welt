@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": 14986,
+  "advertiserName": "Babyprofi-online DE",
+  "merchant": {
+    "id": "babyprofi",
+    "name": "Babyprofi"
+  },
+  "mappings": []
+}

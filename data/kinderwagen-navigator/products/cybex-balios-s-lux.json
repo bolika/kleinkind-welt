@@ -89,7 +89,7 @@
     "tradeoffs": ["Babywanne im Einzelangebot separat", "Gewicht der einzelnen Baugruppen fehlt"],
     "openChecks": ["Faltmaß mit der gewünschten Sitzkonfiguration praktisch prüfen", "Schieberhöhe ausprobieren"],
     "dataConflicts": ["Mehrere offizielle Balios-S-Lux-Generationen mit abweichenden Maßen werden parallel geführt; dieser Datensatz gilt nur für Produkt-ID 10109665."],
-    "visualStyles": ["minimal_clean", "sporty_technical"],
+    "colorDirections": ["dark_neutral", "light_neutral", "blue_cool"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

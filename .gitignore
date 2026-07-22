@@ -4,3 +4,9 @@
 
 # Lokale Render-/Prüfartefakte
 tmp/
+
+# Lokale Affiliate-Feeds können API-Schlüssel in Download-URLs oder Rohdaten enthalten
+imports/awin/
+.env
+.env.*
+!.env.example

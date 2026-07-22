@@ -95,10 +95,16 @@
       props: {
         seite: pageSlug(link),
         produkt: productName(link),
+        produkt_id: link.dataset.productId || 'nicht_gesetzt',
         platzierung: placement(link),
         partner: link.dataset.affiliate || destinationHost(link),
+        haendler: link.dataset.merchant || destinationHost(link),
+        angebot: link.dataset.offerId || 'nicht_gesetzt',
+        ergebnisrang: link.dataset.resultRank || 'nicht_gesetzt',
+        match_score: link.dataset.matchScore || 'nicht_gesetzt',
+        clickref: link.dataset.clickref || 'nicht_gesetzt',
         ziel_host: destinationHost(link),
-        event_schema: '2'
+        event_schema: '3'
       }
     });
   });

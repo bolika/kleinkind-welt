@@ -89,7 +89,7 @@
     "tradeoffs": ["65,5 cm breit", "Gesamtpreis mit Babywanne derzeit nicht belastbar", "mehrere Komfort- und Servicedaten fehlen"],
     "openChecks": ["Gesamtpreis der aktuellen Ramble-XL-Konfiguration verifizieren", "Faltvorgang praktisch testen", "Korb-Traglast prüfen"],
     "dataConflicts": ["Ältere und 2024er Versatrax-Seiten nennen unterschiedliche Maße und Gewichte; dieser Datensatz nutzt ausschließlich die 2024-Produkt-ID."],
-    "visualStyles": ["sporty_technical", "classic_elegant"],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

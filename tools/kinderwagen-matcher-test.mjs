@@ -59,8 +59,8 @@ assert(!ids(allEligible(cityWalkup)).includes('cybex-balios-s-lux-current'), 'ci
 
 const compactCar = outputs.get('elevator_compact_car');
 assert(compactCar.excluded.some((item) => item.productId === 'cybex-balios-s-lux-current' && item.failures.some((failure) => failure.code === 'feature_fold_with_seat_unknown')), 'elevator_compact_car: unbekannte Muss-Faltfunktion muss CYBEX ausschließen');
-assert(allEligible(compactCar).every((item) => item.openChecks.some((check) => check.includes('Fahrzeugdaten dienen nur zur Vorbelegung'))), 'elevator_compact_car: Fahrzeugauswahl muss bei jedem Treffer einen offenen Praxistest erzeugen');
-assert(allEligible(compactCar).every((item) => item.openChecks.some((check) => check.includes('Kofferraumöffnung'))), 'elevator_compact_car: Rechnerischer Fit darf Öffnung und reale Ladebewegung nicht als geprüft darstellen');
+assert(allEligible(compactCar).every((item) => item.openChecks.some((check) => check.includes('grobe Einschätzung'))), 'elevator_compact_car: knappe Platzangabe muss bei jedem Treffer einen offenen Praxistest erzeugen');
+assert(compactCar.excluded.every((item) => !item.failures.some((failure) => failure.code === 'folded_fit')), 'elevator_compact_car: grobe Kofferraumangabe darf kein Modell hart ausschließen');
 
 const narrowElevator = outputs.get('narrow_elevator');
 assert(JSON.stringify(ids(allEligible(narrowElevator))) === JSON.stringify(['joolz-hub2', 'my-junior-liyo']), 'narrow_elevator: Nur LIYO und Joolz Hub2 dürfen das 59-cm-Gate erfüllen');
@@ -75,7 +75,12 @@ assert(JSON.stringify(ids(allEligible(dailyCar))) === JSON.stringify(['bugaboo-f
 const lowBudget = outputs.get('strict_low_budget');
 assert(allEligible(lowBudget).length === 0, 'strict_low_budget: Es darf kein künstlicher Treffer innerhalb von 500 Euro entstehen');
 assert(lowBudget.excluded.some((item) => item.failures.some((failure) => failure.code === 'price_unknown')), 'strict_low_budget: unbekannter Gesamtpreis muss sichtbar ausschließen');
-assert(compromiseOptions({ answers: profileData.profiles.find((profile) => profile.id === 'strict_low_budget').answers, excluded: lowBudget.excluded }).some((option) => option.id === 'budget_flexible_10'), 'strict_low_budget: explizite Budget-Kompromissoption fehlt');
+const lowBudgetAnswers = profileData.profiles.find((profile) => profile.id === 'strict_low_budget').answers;
+const budgetCompromise = compromiseOptions({ answers: lowBudgetAnswers, excluded: lowBudget.excluded }).find((option) => option.id === 'budget_to_next');
+assert(budgetCompromise?.value === 550, 'strict_low_budget: nächster konkrete Reglerstufe muss 550 Euro betragen');
+assert(lowBudget.closest.length > 0, 'strict_low_budget: No-Match muss konkrete nächste Optionen statt eines Neustarts liefern');
+const afterBudgetCompromise = matchStrollers({ answers: { ...lowBudgetAnswers, budget: budgetCompromise?.value }, products, criteriaData });
+assert(allEligible(afterBudgetCompromise).length > 0, 'strict_low_budget: angebotener Budgetkompromiss muss tatsächlich mindestens eine Option öffnen');
 
 const estimated = outputs.get('estimated_measurements');
 assert(allEligible(estimated).every((item) => item.openChecks.some((check) => check.includes('geschätzte Maße') || check.includes('nachmessen') || check.includes('Tragegrenze'))), 'estimated_measurements: geschätzte Maße müssen offene Prüfungen erzeugen');
@@ -105,9 +110,10 @@ assert(matcherInternals.liftWeightFor(liyo, 'frame_with_carrycot')?.value === 10
 assert(matcherInternals.liftWeightFor(abc, 'frame_with_carrycot') === null, 'Tragegewicht: fehlendes ABC-Babywannengewicht darf nicht durch Sitzgewicht ersetzt werden');
 assert(matcherInternals.liftWeightFor(joolz, 'frame_only') === null, 'Tragegewicht: unbekanntes Joolz-Gestellgewicht darf nicht aus Gesamtgewicht geraten werden');
 
-const visualAnswers = { ...profileData.profiles.find((profile) => profile.id === 'rural_rough_terrain').answers, visual_style: ['natural_soft'] };
-const visualResult = matchStrollers({ answers: visualAnswers, products, criteriaData });
-assert([...visualResult.results, ...visualResult.preliminary].some((item) => item.evaluations.some((evaluation) => evaluation.criterionId === 'visual_style_fit')), 'Optikpräferenz muss als weiches Kriterium ausgewertet werden');
+const colorAnswers = { ...profileData.profiles.find((profile) => profile.id === 'rural_rough_terrain').answers, color_preference: 'green_earth' };
+const colorResult = matchStrollers({ answers: colorAnswers, products, criteriaData });
+assert([...colorResult.results, ...colorResult.preliminary].some((item) => item.evaluations.some((evaluation) => evaluation.criterionId === 'color_preference_fit')), 'Farbrichtung muss als weiches Kriterium ausgewertet werden');
+assert(matcherInternals.foldedCompactness(liyo) === 1, 'Kofferraum-Proxy: sehr kompaktes LIYO-Faltmaß muss volle Kompaktheit erhalten');
 
 for (const [profileId, result] of outputs) {
   if (result.route !== 'supported') {

@@ -148,7 +148,8 @@ check(fs.existsSync(path.join(root, affiliateTrackingFile)), `${affiliateTrackin
 if (fs.existsSync(path.join(root, affiliateTrackingFile))) {
   const affiliateTracking = read(affiliateTrackingFile);
   check(/plausible\(["']Affiliate-Klick["']/.test(affiliateTracking), `${affiliateTrackingFile}: kanonischer Eventname Affiliate-Klick fehlt.`);
-  check(/event_schema:\s*["']2["']/.test(affiliateTracking), `${affiliateTrackingFile}: Event-Schema-Version fehlt.`);
+  check(/event_schema:\s*["']3["']/.test(affiliateTracking), `${affiliateTrackingFile}: Event-Schema-Version fehlt.`);
+  check(/produkt_id:/.test(affiliateTracking) && /haendler:/.test(affiliateTracking) && /angebot:/.test(affiliateTracking), `${affiliateTrackingFile}: Händlerangebots-Dimensionen fehlen.`);
 }
 
 if (!localOnly) {

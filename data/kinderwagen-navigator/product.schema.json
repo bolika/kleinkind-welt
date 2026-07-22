@@ -118,17 +118,17 @@
     "editorial": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["bestFor", "tradeoffs", "openChecks", "dataConflicts", "visualStyles", "testingDisclosure"],
+      "required": ["bestFor", "tradeoffs", "openChecks", "dataConflicts", "colorDirections", "testingDisclosure"],
       "properties": {
         "bestFor": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "tradeoffs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "openChecks": { "type": "array", "items": { "type": "string" } },
         "dataConflicts": { "type": "array", "items": { "type": "string" } },
-        "visualStyles": {
+        "colorDirections": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "enum": ["minimal_clean", "classic_elegant", "sporty_technical", "natural_soft", "bold_color"] }
+          "items": { "enum": ["dark_neutral", "light_neutral", "green_earth", "blue_cool", "warm_color"] }
         },
         "testingDisclosure": { "const": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet." }
       }

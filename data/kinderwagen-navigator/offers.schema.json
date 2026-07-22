@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kleinkind-welt.de/data/kinderwagen-navigator/offers.schema.json",
+  "title": "Kleinkind-Welt Kinderwagen-Händlerangebote",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "sources", "offers"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "$ref": "#/$defs/dateTime" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["network", "advertiserId", "advertiserName", "mode"],
+        "properties": {
+          "network": { "enum": ["awin", "amazon", "direct"] },
+          "advertiserId": { "type": "integer", "minimum": 1 },
+          "advertiserName": { "type": "string", "minLength": 2 },
+          "mode": { "enum": ["prepared", "feed", "manual"] },
+          "feedId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "offers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/offer" }
+    }
+  },
+  "$defs": {
+    "date": { "type": "string", "format": "date", "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$" },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "offer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "offerId", "productId", "merchant", "network", "merchantProductId", "title",
+        "deeplink", "price", "availability", "configuration", "identifiers", "importedAt"
+      ],
+      "properties": {
+        "offerId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "productId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "merchant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "name"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+            "name": { "type": "string", "minLength": 2 }
+          }
+        },
+        "network": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "advertiserId"],
+          "properties": {
+            "id": { "enum": ["awin", "amazon", "direct"] },
+            "advertiserId": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "merchantProductId": { "type": "string", "minLength": 1 },
+        "awinProductId": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 3 },
+        "deeplink": { "type": "string", "pattern": "^https://" },
+        "imageUrl": { "type": "string", "pattern": "^https://" },
+        "price": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["amount", "currency", "freshUntil"],
+          "properties": {
+            "amount": { "type": "number", "exclusiveMinimum": 0 },
+            "currency": { "const": "EUR" },
+            "oldAmount": { "type": "number", "exclusiveMinimum": 0 },
+            "shippingAmount": { "type": "number", "minimum": 0 },
+            "freshUntil": { "$ref": "#/$defs/date" }
+          }
+        },
+        "availability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "freshUntil"],
+          "properties": {
+            "status": { "enum": ["in_stock", "out_of_stock", "preorder", "unknown"] },
+            "stockQuantity": { "type": "integer", "minimum": 0 },
+            "freshUntil": { "$ref": "#/$defs/date" }
+          }
+        },
+        "configuration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "label", "verifiedAt"],
+          "properties": {
+            "status": { "enum": ["exact_required_configuration", "partial_configuration", "unclear"] },
+            "label": { "type": "string", "minLength": 3 },
+            "verifiedAt": { "$ref": "#/$defs/date" }
+          }
+        },
+        "identifiers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["gtins"],
+          "properties": {
+            "gtins": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "pattern": "^[0-9]{8,14}$" }
+            }
+          }
+        },
+        "feedUpdatedAt": { "type": "string", "minLength": 4 },
+        "importedAt": { "$ref": "#/$defs/dateTime" }
+      }
+    }
+  }
+}

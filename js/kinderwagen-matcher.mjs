@@ -36,12 +36,12 @@ const PRIORITY_MAP = {
   weather: ['weather_protection']
 };
 
-const VISUAL_STYLE_LABELS = {
-  minimal_clean: 'minimalistisch und klar',
-  classic_elegant: 'klassisch und elegant',
-  sporty_technical: 'sportlich und technisch',
-  natural_soft: 'natürlich und weich',
-  bold_color: 'markant und farbig'
+const COLOR_DIRECTION_LABELS = {
+  dark_neutral: 'dunklen neutralen Tönen',
+  light_neutral: 'hellen neutralen Tönen',
+  green_earth: 'Grün- und Naturtönen',
+  blue_cool: 'Blau- und kühlen Tönen',
+  warm_color: 'warmen oder auffälligeren Farben'
 };
 
 function unique(values) {
@@ -95,6 +95,18 @@ function permutationsFit(productDimensions, containerDimensions) {
   const containerValues = [containerDimensions.width, containerDimensions.height, containerDimensions.depth].sort((a, b) => a - b);
   if ([...productValues, ...containerValues].some((value) => typeof value !== 'number')) return null;
   return productValues.every((value, index) => value <= containerValues[index]);
+}
+
+function foldedCompactness(product) {
+  const dimensions = fact(product, 'foldedDimensionsCm');
+  if (!isKnown(dimensions)) return null;
+  const { length, width, height } = dimensions.value ?? {};
+  if (![length, width, height].every((value) => typeof value === 'number')) return null;
+  const boundingVolumeLiters = (length * width * height) / 1000;
+  if (boundingVolumeLiters <= 110) return 1;
+  if (boundingVolumeLiters <= 180) return 0.75;
+  if (boundingVolumeLiters <= 230) return 0.5;
+  return 0.25;
 }
 
 function routeFor(answers) {
@@ -168,24 +180,8 @@ function eligibility(product, answers) {
     }
   }
 
-  const trunkDimensions = answers.trunk_dimensions;
-  const folded = fact(product, 'foldedDimensionsCm');
-  if (answers.vehicle_selection) {
-    openChecks.push('Fahrzeugdaten dienen nur zur Vorbelegung: Heckklappenöffnung, Radkästen, Schrägen und reale Ladebewegung am eigenen Fahrzeug prüfen.');
-  }
-  if (trunkDimensions) {
-    if (!measured) {
-      openChecks.push('Kofferraummaße nachmessen; geschätzte Maße gelten nicht als belegter Fit.');
-    } else if (!isKnown(folded)) {
-      failures.push({ code: 'folded_unknown', text: 'Faltmaß fehlt für den gemessenen Kofferraum.' });
-    } else if (!permutationsFit(folded.value, trunkDimensions)) {
-      failures.push({ code: 'folded_fit', text: 'Das dokumentierte Faltmaß passt in keiner rechteckigen Orientierung in die angegebenen Innenmaße.' });
-    } else {
-      passed.push({ code: 'folded_fit', text: 'Das dokumentierte Faltmaß passt rechnerisch in die angegebenen Innenmaße.' });
-      openChecks.push('Kofferraumöffnung, Radkästen und reale Ladebewegung zusätzlich praktisch prüfen.');
-    }
-  } else if (answers.trunk_measurement_known === 'measure_later') {
-    openChecks.push('Kofferraum an der tatsächlich nutzbaren Stelle ausmessen.');
+  if (['limited', 'unsure'].includes(answers.car_space)) {
+    openChecks.push('Die Kofferraumangabe ist eine grobe Einschätzung: Faltmaß, Öffnung und reale Ladebewegung vor dem Kauf am eigenen Auto prüfen.');
   }
 
   const maxLift = answers.maximum_lift_weight;
@@ -268,16 +264,15 @@ function applicableEvaluations(product, answers) {
 
   if (answers.car_frequency && answers.car_frequency !== 'never') {
     const folding = staticEvaluation(product, 'folding_convenience');
-    const exactFit = answers.trunk_dimensions && answers.measurement_confirmation === 'measured'
-      ? permutationsFit(fact(product, 'foldedDimensionsCm')?.value, answers.trunk_dimensions)
-      : null;
+    const compactness = foldedCompactness(product);
+    const compactnessRelevant = ['limited', 'unsure'].includes(answers.car_space);
     evaluations.push({
       criterionId: 'car_transport_fit',
-      value: average([exactFit === true ? 1 : null, folding.value]),
-      status: exactFit === true ? 'documented-plus-proxy' : 'proxy',
-      rationale: exactFit === true
-        ? 'Rechnerischer Kofferraum-Fit und dokumentierte Faltmerkmale kombiniert.'
-        : 'Ohne gemessenen Kofferraum nur aus dokumentierten Faltmerkmalen abgeleitet.'
+      value: average([folding.value, compactnessRelevant ? compactness : null]),
+      status: 'proxy',
+      rationale: compactnessRelevant
+        ? 'Aus dokumentiertem Faltmaß und Faltmerkmalen abgeleitete Kompaktheits-Einschätzung; kein garantierter Fahrzeug-Fit.'
+        : 'Aus dokumentierten Faltmerkmalen abgeleitet; der konkrete Fahrzeug-Fit bleibt offen.'
     });
   }
 
@@ -299,17 +294,17 @@ function applicableEvaluations(product, answers) {
     if (priorities.has(criterionId)) addStatic(criterionId);
   }
 
-  const selectedStyles = answers.visual_style ?? [];
-  if (selectedStyles.length) {
-    const productStyles = product.editorial?.visualStyles ?? [];
-    const matches = selectedStyles.filter((style) => productStyles.includes(style));
+  const selectedColor = answers.color_preference;
+  if (selectedColor && selectedColor !== 'no_preference') {
+    const productColors = product.editorial?.colorDirections ?? [];
+    const matches = productColors.includes(selectedColor);
     evaluations.push({
-      criterionId: 'visual_style_fit',
-      value: productStyles.length ? matches.length / selectedStyles.length : null,
-      status: productStyles.length ? 'editorial' : 'unknown',
-      rationale: matches.length
-        ? `Redaktionell eingeordnete Optik passt zu ${matches.map((style) => VISUAL_STYLE_LABELS[style]).join(' und ')}.`
-        : 'Die gewählte Stilrichtung ist in der aktuellen redaktionellen Einordnung nicht vertreten.'
+      criterionId: 'color_preference_fit',
+      value: productColors.length ? (matches ? 1 : 0) : null,
+      status: productColors.length ? 'editorial' : 'unknown',
+      rationale: matches
+        ? `Das erfasste aktuelle Farbsortiment enthält Varianten in ${COLOR_DIRECTION_LABELS[selectedColor]}.`
+        : 'Die gewählte Farbrichtung ist im aktuell erfassten Sortiment nicht vertreten; andere Varianten können verfügbar sein.'
     });
   }
 
@@ -342,6 +337,10 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
   const sortedStrengths = known.filter((evaluation) => evaluation.value >= 0.5).sort((a, b) => (b.value * b.weight) - (a.value * a.weight));
   const weakest = known.slice().sort((a, b) => a.value - b.value)[0];
   const calculatedCompromise = weakest && weakest.value < 1 ? weakest.rationale : null;
+  const reasons = sortedStrengths.slice(0, 3).map((evaluation) => evaluation.rationale);
+  const compromise = calculatedCompromise && !reasons.includes(calculatedCompromise)
+    ? calculatedCompromise
+    : product.editorial.tradeoffs[0];
 
   return {
     productId: product.productId,
@@ -359,8 +358,8 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
     mustCriteria: eligibilityResult.passed,
     failures: eligibilityResult.failures,
     evaluations,
-    reasons: sortedStrengths.slice(0, 3).map((evaluation) => evaluation.rationale),
-    compromise: calculatedCompromise ?? product.editorial.tradeoffs[0],
+    reasons,
+    compromise,
     openChecks: unique([...eligibilityResult.openChecks, ...product.editorial.openChecks]),
     sourceCount: product.sources.length,
     sources: product.sources.map((source) => ({ id: source.id, title: source.title, url: source.url, kind: source.kind, checkedAt: source.checkedAt })),
@@ -397,11 +396,32 @@ export function matchStrollers({ answers, products, criteriaData }) {
     scoreGapToBest: index === 0 ? 0 : publishable[0].matchScore - result.matchScore
   }));
 
+  const nonNegotiableFailures = new Set(['official_warning', 'not_current', 'newborn_configuration', 'scope']);
+  const closest = [...preliminary, ...scored.filter((result) => !result.eligible && !result.failures.some((failure) => nonNegotiableFailures.has(failure.code)))]
+    .sort((a, b) => {
+      if (a.failures.length !== b.failures.length) return a.failures.length - b.failures.length;
+      const aBudgetGap = a.failures.some((failure) => failure.code === 'budget') && typeof a.priceEur === 'number' ? Math.max(0, a.priceEur - answers.budget) : Infinity;
+      const bBudgetGap = b.failures.some((failure) => failure.code === 'budget') && typeof b.priceEur === 'number' ? Math.max(0, b.priceEur - answers.budget) : Infinity;
+      if (aBudgetGap !== bBudgetGap) return aBudgetGap - bBudgetGap;
+      const aScore = a.provisionalScore ?? -1;
+      const bScore = b.provisionalScore ?? -1;
+      if (bScore !== aScore) return bScore - aScore;
+      if (b.dataCoverage !== a.dataCoverage) return b.dataCoverage - a.dataCoverage;
+      return a.productId.localeCompare(b.productId);
+    })
+    .slice(0, 3)
+    .map((result, index) => ({
+      ...result,
+      rankRole: index === 0 ? 'Nächste sinnvolle Option' : 'Weitere Option mit Abstrich',
+      unmetCount: result.failures.length
+    }));
+
   return {
     modelVersion: criteriaData.modelVersion,
     route,
     results: topResults,
     preliminary,
+    closest,
     excluded: scored.filter((result) => !result.eligible),
     resultCount: publishable.length,
     catalogSize: products.length
@@ -412,10 +432,13 @@ export function compromiseOptions({ answers, excluded }) {
   const failureCodes = new Set(excluded.flatMap((result) => result.failures.map((failure) => failure.code)));
   const options = [];
   if (answers.budget_strictness === 'strict' && failureCodes.has('budget')) {
-    options.push({ id: 'budget_flexible_10', label: 'Bis zu 10 % mehr Budget zulassen', detail: 'Der neue Preisrahmen wird sichtbar als akzeptierter Kompromiss markiert.' });
-  }
-  if (answers.trunk_dimensions && failureCodes.has('folded_fit')) {
-    options.push({ id: 'trunk_measure_later', label: 'Kofferraum-Fit später praktisch prüfen', detail: 'Das gemessene Faltmaß wird nicht mehr als Ausschluss genutzt und bleibt als offene Prüfung sichtbar.' });
+    const nextPrice = excluded
+      .filter((result) => result.failures.some((failure) => failure.code === 'budget') && typeof result.priceEur === 'number')
+      .map((result) => result.priceEur)
+      .filter((price) => price > answers.budget)
+      .sort((a, b) => a - b)[0];
+    const nextBudgetStep = nextPrice ? Math.ceil(nextPrice / 50) * 50 : null;
+    if (nextBudgetStep) options.push({ id: 'budget_to_next', value: nextBudgetStep, label: `Budget auf ${nextBudgetStep} € anheben`, detail: 'Das öffnet mindestens die preislich nächste dokumentierte Option; alle anderen Anforderungen bleiben bestehen.' });
   }
   for (const featureId of answers.required_features ?? []) {
     if ([...failureCodes].some((code) => code === `feature_${featureId}` || code === `feature_${featureId}_unknown`)) {
@@ -423,10 +446,10 @@ export function compromiseOptions({ answers, excluded }) {
     }
   }
   if (failureCodes.has('access_width') || failureCodes.has('width_unknown')) {
-    options.push({ id: 'edit_access_width', label: 'Engste Öffnung noch einmal prüfen', detail: 'Eine gemessene Breite wird nie automatisch gelockert.' });
+    options.push({ id: 'access_as_open_check', label: 'Tür- oder Aufzugsbreite vor Ort prüfen', detail: 'Das Maß wird nicht mehr als Ausschluss genutzt, bleibt aber deutlich als offene Prüfung sichtbar.' });
   }
   if (failureCodes.has('lift_weight') || failureCodes.has('lift_weight_unknown')) {
-    options.push({ id: 'edit_lift_weight', label: 'Trageeinheit oder Maximalgewicht prüfen', detail: 'Eine persönliche Tragegrenze wird nie automatisch angehoben.' });
+    options.push({ id: 'lift_as_open_check', label: 'Tragegewicht praktisch ausprobieren', detail: 'Die Gewichtsgrenze wird nicht mehr als Ausschluss genutzt, sondern als offene Prüfung markiert.' });
   }
   return options;
 }
@@ -436,6 +459,7 @@ export const matcherInternals = {
   permutationsFit,
   routeFor,
   applicableEvaluations,
+  foldedCompactness,
   liftWeightFor,
   topPriorityCriteria
 };

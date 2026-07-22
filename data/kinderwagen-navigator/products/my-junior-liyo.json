@@ -83,7 +83,7 @@
     "tradeoffs": ["Kleine Räder und ungeklärte Federung machen ihn nicht zur ersten Wahl für häufige Wald- und Feldwege", "Feste Schiebehöhe sollte praktisch getestet werden"],
     "openChecks": ["Faltvorgang mit Babywanne und Sportsitz praktisch ausprobieren", "Fahrverhalten auf typischen Wegen testen", "Garantiebedingungen und Lieferumfang vor Kauf prüfen"],
     "dataConflicts": ["Die allgemeine Anleitung nennt die Babywanne als separat erhältlich; das konkrete aktuelle 2in1-Angebot führt sie ausdrücklich im Lieferumfang."],
-    "visualStyles": ["minimal_clean", "natural_soft"],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth", "blue_cool", "warm_color"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

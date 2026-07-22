@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": 14986,
+  "advertiserName": "Babyprofi-online DE",
+  "merchant": {
+    "id": "babyprofi",
+    "name": "Babyprofi"
+  },
+  "mappings": [
+    {
+      "productId": "bugaboo-fox-5-renew",
+      "merchantProductIds": ["BP-TEST-1"],
+      "gtins": ["1234567890123"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Kinderwagen inklusive Babywanne",
+        "verifiedAt": "2026-07-22"
+      }
+    },
+    {
+      "productId": "bugaboo-fox-5-renew",
+      "merchantProductIds": ["BP-TEST-2"],
+      "gtins": ["1234567890124"],
+      "configuration": {
+        "status": "partial_configuration",
+        "label": "Nur Gestell",
+        "verifiedAt": "2026-07-22"
+      }
+    }
+  ]
+}

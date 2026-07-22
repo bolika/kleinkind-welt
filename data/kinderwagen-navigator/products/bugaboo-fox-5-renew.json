@@ -82,7 +82,7 @@
     "tradeoffs": ["höherer Anschaffungspreis", "relativ hohes Gewicht für tägliches Tragen"],
     "openChecks": ["13-kg-Tragegewicht praktisch testen", "einteiliges Faltmaß im eigenen Kofferraum prüfen"],
     "dataConflicts": ["Offizielle Seiten nennen 12,3 kg und 13 kg mit Sitz; der Navigator verwendet konservativ 13 kg."],
-    "visualStyles": ["minimal_clean", "bold_color", "natural_soft"],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth", "blue_cool", "warm_color"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
   }
 }

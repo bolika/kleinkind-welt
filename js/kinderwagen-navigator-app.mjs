@@ -1,5 +1,6 @@
 import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs';
+import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
@@ -11,7 +12,7 @@ const state = {
   questions: [],
   criteriaData: null,
   products: [],
-  vehicles: [],
+  offers: [],
   currentQuestionId: null,
   started: false,
   ready: false,
@@ -149,56 +150,6 @@ function choiceControl(question, multi = false) {
   return wrap;
 }
 
-function selectedVehicle() {
-  return state.vehicles.find((vehicle) => vehicle.id === state.answers.vehicle_selection) ?? null;
-}
-
-function vehicleSelectControl(question) {
-  const wrap = element('div', 'navigator-vehicle-select');
-  const label = element('label', 'navigator-select-field');
-  label.append(element('span', '', 'Modell und Baureihe'));
-  const select = document.createElement('select');
-  select.name = question.id;
-  const placeholder = element('option', '', 'Bitte Fahrzeug auswählen');
-  placeholder.value = '';
-  select.append(placeholder);
-  for (const vehicle of state.vehicles) {
-    const option = element('option', '', `${vehicle.make} ${vehicle.model} · ${vehicle.generationLabel}`);
-    option.value = vehicle.id;
-    option.selected = state.answers[question.id] === vehicle.id;
-    select.append(option);
-  }
-  label.append(select);
-  const preview = element('div', 'navigator-vehicle-preview');
-  const updatePreview = () => {
-    const vehicle = state.vehicles.find((item) => item.id === select.value);
-    preview.replaceChildren();
-    if (!vehicle) {
-      preview.hidden = true;
-      return;
-    }
-    preview.hidden = false;
-    preview.append(element('strong', '', `${vehicle.bodyStyle} · ${vehicle.powertrainScope}`));
-    const facts = element('ul');
-    facts.append(
-      element('li', '', `${vehicle.cargo.widthBetweenWheelArchesCm} cm zwischen den Radkästen`),
-      element('li', '', `${vehicle.cargo.floorLengthSecondRowCm} cm Bodenlänge bis zur zweiten Sitzreihe`),
-      element('li', '', `${vehicle.cargo.volumeLiters} l Hersteller-Volumen – nicht als Fit-Maß verwendet`)
-    );
-    preview.append(facts, element('p', '', 'Höhe und Öffnung fehlen: Bitte am eigenen Fahrzeug messen. Die Werte werden erst nach eurer Bestätigung hart geprüft.'));
-    const source = element('a', '', 'Offizielle Fahrzeugquelle öffnen');
-    source.href = vehicle.source.url;
-    source.target = '_blank';
-    source.rel = 'noopener';
-    source.addEventListener('click', () => track('fahrzeugquelle_geoeffnet', { fahrzeug: vehicle.id }));
-    preview.append(source);
-  };
-  select.addEventListener('change', updatePreview);
-  updatePreview();
-  wrap.append(label, preview);
-  return wrap;
-}
-
 function numberControl(question, idSuffix = '', value = '') {
   const wrap = element('label', 'navigator-number');
   const input = document.createElement('input');
@@ -215,33 +166,47 @@ function numberControl(question, idSuffix = '', value = '') {
   return wrap;
 }
 
-function dimensionsControl(question) {
-  const wrap = element('div', 'navigator-dimensions');
-  const existing = state.answers[question.id] ?? {};
-  const vehicle = selectedVehicle();
-  const suggested = vehicle ? {
-    width: vehicle.cargo.widthBetweenWheelArchesCm,
-    depth: vehicle.cargo.floorLengthSecondRowCm
-  } : {};
-  const labels = { width: 'Breite', height: 'Höhe', depth: 'Tiefe' };
-  for (const field of question.validation.fields) {
-    const item = element('label', 'navigator-dimension');
-    item.append(element('span', '', labels[field]));
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.name = `${question.id}.${field}`;
-    input.inputMode = 'decimal';
-    input.min = question.validation.minimum;
-    input.max = question.validation.maximum;
-    input.step = question.validation.step;
-    input.value = existing[field] ?? suggested[field] ?? '';
-    item.append(input, element('small', '', 'cm'));
-    wrap.append(item);
-  }
-  if (vehicle) {
-    const note = element('p', 'navigator-vehicle-prefill-note', `Vorbelegt für ${vehicle.make} ${vehicle.model}: Breite zwischen den Radkästen und Bodenlänge. Höhe sowie reale Öffnung bitte selbst messen; alle Werte können überschrieben werden.`);
-    wrap.append(note);
-  }
+function productPrice(product) {
+  const item = product.facts?.requiredConfigurationPriceEur;
+  if (!item || typeof item.value !== 'number' || ['unknown', 'stale'].includes(item.status)) return null;
+  return item.value;
+}
+
+function budgetControl(question) {
+  const wrap = element('div', 'navigator-budget-control');
+  const value = state.answers[question.id] ?? question.validation.suggested ?? question.validation.minimum;
+  const valueRow = element('div', 'navigator-budget-value');
+  valueRow.append(element('span', '', 'Gesamtbudget'), element('output', '', `${Math.round(value)} €`));
+  const input = document.createElement('input');
+  input.type = 'range';
+  input.name = question.id;
+  input.min = question.validation.minimum;
+  input.max = question.validation.maximum;
+  input.step = question.validation.step ?? 50;
+  input.value = value;
+  input.setAttribute('aria-label', question.prompt);
+  const scale = element('div', 'navigator-budget-scale');
+  scale.append(element('span', '', `${question.validation.minimum} €`), element('span', '', `${question.validation.maximum} €`));
+  const feedback = element('div', 'navigator-budget-feedback');
+  feedback.setAttribute('aria-live', 'polite');
+  const update = () => {
+    const budget = Number(input.value);
+    valueRow.querySelector('output').textContent = `${budget.toLocaleString('de-DE')} €`;
+    const prices = state.products.map(productPrice).filter((price) => price !== null).sort((a, b) => a - b);
+    const within = prices.filter((price) => price <= budget).length;
+    const unknown = state.products.length - prices.length;
+    const next = prices.find((price) => price > budget);
+    feedback.replaceChildren();
+    feedback.append(element('strong', '', `${within} von ${prices.length} Modellen mit bekanntem Gesamtpreis liegen innerhalb.`));
+    const nextStep = next ? Math.ceil(next / Number(question.validation.step ?? 50)) * Number(question.validation.step ?? 50) : null;
+    const detail = nextStep
+      ? ` Ab ${nextStep.toLocaleString('de-DE')} € käme mindestens eine weitere dokumentierte Option hinzu.`
+      : ' Alle Modelle mit bekanntem Gesamtpreis sind im Rahmen.';
+    feedback.append(element('span', '', `${detail}${unknown ? ` Bei ${unknown} Modell ist der Gesamtpreis noch offen.` : ''}`));
+  };
+  input.addEventListener('input', update);
+  update();
+  wrap.append(valueRow, input, scale, feedback);
   return wrap;
 }
 
@@ -279,8 +244,7 @@ function numberListControl(question) {
 function renderControl(question) {
   if (question.type === 'single_choice' || question.type === 'confirmation') return choiceControl(question);
   if (question.type === 'multi_choice') return choiceControl(question, true);
-  if (question.type === 'dimensions') return dimensionsControl(question);
-  if (question.type === 'vehicle_select') return vehicleSelectControl(question);
+  if (question.type === 'budget') return budgetControl(question);
   if (question.type === 'number_list') return numberListControl(question);
   return numberControl(question, '', state.answers[question.id] ?? '');
 }
@@ -291,13 +255,6 @@ function valuesFromInputs(question) {
   }
   if (question.type === 'multi_choice') {
     return [...app.querySelectorAll(`input[name="${question.id}"]:checked`)].map((input) => input.value);
-  }
-  if (question.type === 'vehicle_select') return app.querySelector(`select[name="${question.id}"]`)?.value || undefined;
-  if (question.type === 'dimensions') {
-    return Object.fromEntries(question.validation.fields.map((field) => {
-      const value = app.querySelector(`input[name="${question.id}.${field}"]`)?.value;
-      return [field, value === '' ? null : Number(value)];
-    }));
   }
   if (question.type === 'number_list') return collectNumberList(question);
   const raw = app.querySelector(`input[name="${question.id}"]`)?.value;
@@ -341,7 +298,6 @@ function showError(message) {
 
 function saveAndContinue(question, skip = false) {
   const value = skip ? undefined : valuesFromInputs(question);
-  const previousValue = state.answers[question.id];
   const error = skip ? null : validate(question, value);
   if (error) {
     showError(error);
@@ -351,17 +307,18 @@ function saveAndContinue(question, skip = false) {
     delete state.answers[question.id];
     state.skipped.add(question.id);
   } else {
-    if (question.id === 'vehicle_selection' && previousValue && previousValue !== value) delete state.answers.trunk_dimensions;
-    if (question.id === 'trunk_measurement_known' && previousValue && previousValue !== value) delete state.answers.trunk_dimensions;
     state.answers[question.id] = value;
     state.skipped.delete(question.id);
   }
-  if (question.id === 'vehicle_selection') {
-    const vehicle = state.vehicles.find((item) => item.id === value);
-    track('fahrzeug_ausgewaehlt', { fahrzeug: value, marke: vehicle?.make ?? 'unbekannt', modell: vehicle?.model ?? 'unbekannt' });
-  }
   pruneHiddenAnswers();
   track('frage_beantwortet', { frage: question.id, typ: question.type });
+  if (question.id === 'experience_level') track('erfahrungsniveau_gewaehlt', { niveau: value });
+  if (question.id === 'budget') {
+    const knownPrices = state.products.map(productPrice).filter((price) => price !== null);
+    track('budget_gewaehlt', { budget: String(value), modelle_im_budget: String(knownPrices.filter((price) => price <= value).length) });
+  }
+  if (question.id === 'car_space') track('kofferraum_eingeschaetzt', { platz: value });
+  if (question.id === 'color_preference') track('farbrichtung_gewaehlt', { farbe: value });
 
   const route = immediateRoute(question, value);
   if (route && route !== 'supported') {
@@ -385,6 +342,11 @@ function renderQuestion(questionId) {
   card.setAttribute('aria-labelledby', title.id);
   card.append(kicker, title);
   if (question.help) card.append(element('p', 'navigator-question-help', question.help));
+  if (question.beginnerHelp && state.answers.experience_level === 'first_time') {
+    const explanation = element('aside', 'navigator-beginner-help');
+    explanation.append(element('strong', '', 'Kurz erklärt'), element('span', '', question.beginnerHelp));
+    card.append(explanation);
+  }
 
   const form = element('form', 'navigator-question-form');
   form.append(renderControl(question));
@@ -425,14 +387,9 @@ function renderQuestion(questionId) {
 }
 
 function answerSummary(question, value) {
-  if (question.type === 'dimensions') return `${value.width} × ${value.height} × ${value.depth} cm (B × H × T)`;
   if (question.type === 'number_list') return `${value.join(' cm, ')} cm`;
   if (question.type === 'budget') return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
   if (question.type === 'number') return `${value} ${question.validation?.unit ?? ''}`.trim();
-  if (question.type === 'vehicle_select') {
-    const vehicle = state.vehicles.find((item) => item.id === value);
-    return vehicle ? `${vehicle.make} ${vehicle.model} · ${vehicle.generationLabel}` : value;
-  }
   return optionLabel(question, value);
 }
 
@@ -490,17 +447,101 @@ function formatPrice(value) {
   return `Geburtskonfiguration: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)}`;
 }
 
-function resultCard(result, rank, preliminary = false) {
-  const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}`);
+function offerAvailability(offer) {
+  if (!isFreshDate(offer.availability?.freshUntil)) return 'Verfügbarkeit beim Händler prüfen';
+  return {
+    in_stock: 'Online verfügbar',
+    preorder: 'Vorbestellbar',
+    unknown: 'Verfügbarkeit prüfen'
+  }[offer.availability?.status] ?? 'Verfügbarkeit prüfen';
+}
+
+function offerPrice(offer) {
+  if (!isFreshDate(offer.price?.freshUntil) || typeof offer.price?.amount !== 'number') return 'Aktuellen Preis prüfen';
+  const price = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(offer.price.amount);
+  return offer.price.shippingAmount > 0 ? `${price} zzgl. Versand` : price;
+}
+
+function offerSection(result, rank) {
+  const offers = offersForProduct(state.offers, result.productId);
+  if (!offers.length) return null;
+  const section = element('section', 'navigator-offers');
+  section.setAttribute('aria-label', `Händlerangebote für ${result.brand} ${result.model}`);
+  const heading = element('div', 'navigator-offers__heading');
+  heading.append(element('strong', '', offers.length === 1 ? 'Passendes Händlerangebot' : 'Passende Händlerangebote'));
+  heading.append(element('span', '', 'Affiliate-Links · ohne Einfluss auf den Match-Score'));
+  section.append(heading);
+
+  const list = element('div', 'navigator-offer-list');
+  for (const offer of offers) {
+    const placement = `navigator_result_${rank}`;
+    const row = element('div', 'navigator-offer');
+    row.dataset.offerImpression = '';
+    row.dataset.offerId = offer.offerId;
+    row.dataset.productId = result.productId;
+    row.dataset.merchant = offer.merchant.name;
+    row.dataset.resultRank = String(rank);
+    row.dataset.matchScore = String(result.matchScore ?? 'kein_score');
+    const copy = element('div', 'navigator-offer__copy');
+    copy.append(element('strong', '', offer.merchant.name));
+    copy.append(element('span', 'navigator-offer__price', offerPrice(offer)));
+    copy.append(element('small', '', `${offerAvailability(offer)} · ${offer.configuration.label}`));
+    const link = element('a', 'navigator-offer__cta', `Bei ${offer.merchant.name} ansehen`);
+    link.href = trackingLink(offer, placement);
+    link.target = '_blank';
+    link.rel = 'sponsored nofollow noopener';
+    link.dataset.affiliate = offer.network.id;
+    link.dataset.product = `${result.brand} ${result.model}`;
+    link.dataset.productId = result.productId;
+    link.dataset.placement = placement;
+    link.dataset.merchant = offer.merchant.name;
+    link.dataset.offerId = offer.offerId;
+    link.dataset.resultRank = String(rank);
+    link.dataset.matchScore = String(result.matchScore ?? 'kein_score');
+    link.dataset.clickref = placement;
+    row.append(copy, link);
+    list.append(row);
+  }
+  section.append(list);
+  section.append(element('p', 'navigator-offers__note', 'Preis und Lieferbarkeit können sich kurzfristig ändern. Maßgeblich sind die Angaben beim Händler.'));
+  return section;
+}
+
+function observeOfferImpressions(root) {
+  const offerNodes = [...root.querySelectorAll('[data-offer-impression]')];
+  if (!offerNodes.length) return;
+  if (!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
+      const node = entry.target;
+      track('haendlerangebot_gesehen', {
+        produkt: node.dataset.productId,
+        haendler: node.dataset.merchant,
+        angebot: node.dataset.offerId,
+        rang: node.dataset.resultRank,
+        match_score: node.dataset.matchScore
+      });
+      observer.unobserve(node);
+    }
+  }, { threshold: 0.5 });
+  offerNodes.forEach((node) => observer.observe(node));
+}
+
+function resultCard(result, rank, preliminary = false, fallback = false) {
+  const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}${fallback ? ' is-fallback' : ''}`);
   const header = element('div', 'navigator-live-result__header');
   const heading = element('div');
   const role = result.rankRole ?? `${rank}. Match`;
   const preliminaryLabel = result.matchScore === null ? 'Datenlage reicht noch nicht' : 'Unter der Empfehlungsschwelle';
-  heading.append(element('span', 'navigator-card-kicker', preliminary ? preliminaryLabel : role));
+  heading.append(element('span', 'navigator-card-kicker', fallback ? role : (preliminary ? preliminaryLabel : role)));
   heading.append(element('h3', '', `${result.brand} ${result.model}`));
   if (!preliminary && result.scoreGapToBest > 0) heading.append(element('p', 'navigator-rank-context', `${result.scoreGapToBest} Punkte hinter der besten Gesamtpassung`));
   const score = element('div', 'navigator-score');
-  if (result.matchScore === null) {
+  if (fallback && result.failures.length) {
+    score.classList.add('is-data-gap');
+    score.append(element('strong', '', String(result.failures.length)), element('span', '', result.failures.length === 1 ? 'Abstrich' : 'Abstriche'));
+  } else if (result.matchScore === null) {
     score.classList.add('is-data-gap');
     score.append(element('strong', '', `${result.dataCoverage}%`), element('span', '', 'Datenlage'));
   } else {
@@ -518,6 +559,15 @@ function resultCard(result, rank, preliminary = false) {
   );
   card.append(meta);
 
+  if (fallback && result.failures.length) {
+    const blockers = element('div', 'navigator-fallback-blockers');
+    blockers.append(element('strong', '', 'Was noch nicht zu euren Angaben passt'));
+    const list = element('ul');
+    result.failures.slice(0, 3).forEach((failure) => list.append(element('li', '', failure.text)));
+    blockers.append(list);
+    card.append(blockers);
+  }
+
   if (result.priorityConflicts?.length) {
     const warning = element('div', 'navigator-priority-warning');
     warning.append(element('strong', '', 'Eine eurer Top-Prioritäten wird nicht erfüllt'), element('span', '', result.priorityConflicts[0].rationale));
@@ -529,6 +579,11 @@ function resultCard(result, rank, preliminary = false) {
   for (const reason of reasons.slice(0, 3)) list.append(element('li', 'is-match', reason));
   if (result.compromise) list.append(element('li', 'is-compromise', result.compromise));
   card.append(list);
+
+  if (!preliminary && !fallback) {
+    const offers = offerSection(result, rank);
+    if (offers) card.append(offers);
+  }
 
   const proof = element('div', 'navigator-proof-metrics');
   const must = element('div');
@@ -591,26 +646,13 @@ function blockerSummary(excluded) {
 }
 
 function applyCompromise(option) {
-  if (option.id === 'budget_flexible_10') state.answers.budget_strictness = 'flexible_10';
-  if (option.id === 'trunk_measure_later') {
-    state.answers.trunk_measurement_known = 'measure_later';
-    delete state.answers.vehicle_selection;
-    delete state.answers.trunk_dimensions;
-  }
+  if (option.id === 'budget_to_next') state.answers.budget = option.value;
   if (option.id.startsWith('remove_feature:')) {
     const featureId = option.id.split(':')[1];
     state.answers.required_features = (state.answers.required_features ?? []).filter((id) => id !== featureId);
   }
-  if (option.id === 'edit_access_width') {
-    track('kompromiss_pruefen', { kompromiss: option.id });
-    renderQuestion('maximum_access_width');
-    return;
-  }
-  if (option.id === 'edit_lift_weight') {
-    track('kompromiss_pruefen', { kompromiss: option.id });
-    renderQuestion('lift_unit');
-    return;
-  }
+  if (option.id === 'access_as_open_check') delete state.answers.maximum_access_width;
+  if (option.id === 'lift_as_open_check') delete state.answers.maximum_lift_weight;
   state.acceptedCompromises.push(option.label);
   pruneHiddenAnswers();
   track('kompromiss_akzeptiert', { kompromiss: option.id });
@@ -628,7 +670,7 @@ function renderCompromisePanel(result) {
   for (const option of options) {
     const button = element('button', 'navigator-compromise-option');
     button.type = 'button';
-    button.append(element('strong', '', option.label), element('span', '', option.detail));
+    button.append(element('strong', '', option.label), element('span', '', option.detail), element('small', '', 'Anwenden und Ergebnis aktualisieren →'));
     button.addEventListener('click', () => applyCompromise(option));
     list.append(button);
   }
@@ -638,13 +680,18 @@ function renderCompromisePanel(result) {
 
 function renderResults() {
   const result = matchStrollers({ answers: state.answers, products: state.products, criteriaData: state.criteriaData });
+  const adjustedFallback = !result.results.length && state.acceptedCompromises.length > 0 && result.closest[0]?.eligible;
   const wrap = element('div', 'navigator-results');
   const intro = element('div', 'navigator-results__intro');
   intro.append(element('span', 'navigator-card-kicker', 'Euer unabhängiger Passungsnachweis'));
-  intro.append(element('h2', '', result.results.length ? `${result.results.length === 1 ? 'Ein belastbares Match' : `${result.results.length} belastbare Matches`}` : 'Noch kein belastbares Match'));
+  intro.append(element('h2', '', result.results.length
+    ? `${result.results.length === 1 ? 'Ein belastbares Match' : `${result.results.length} belastbare Matches`}`
+    : (adjustedFallback ? 'Eure beste verfügbare Lösung' : 'Eure besten Optionen – mit offenen Abstrichen')));
   intro.append(element('p', '', result.results.length
     ? 'Die Reihenfolge entsteht ausschließlich aus euren Anforderungen und der dokumentierten Datenlage – nicht aus Provisionen oder Verfügbarkeit bei Amazon.'
-    : 'Wir zeigen lieber ehrlich eine Daten- oder Kataloglücke als ein künstlich passendes Produkt.'));
+    : (adjustedFallback
+      ? 'Die erste Option erfüllt nach eurer Anpassung die Muss-Anforderungen. Sie bleibt unter unserer Schwelle für eine volle Empfehlung, deshalb zeigen wir die offenen Punkte weiterhin transparent.'
+      : 'Ihr müsst nicht von vorne beginnen. Wir zeigen die nächstliegenden Optionen, erklären die Abweichungen und lassen euch gezielt nur den Abstrich ändern, der wirklich blockiert.')));
   if (result.results.length > 0 && result.results.length < 3) {
     intro.append(element('p', 'navigator-result-count-note', `${result.results.length} statt 3 Ergebnissen: Weitere Modelle erfüllen die Muss-Kriterien oder die Mindest-Datenqualität derzeit nicht.`));
   }
@@ -660,9 +707,7 @@ function renderResults() {
 
   const cards = element('div', 'navigator-live-results');
   result.results.forEach((item, index) => cards.append(resultCard(item, index + 1)));
-  if (!result.results.length && result.preliminary.length) {
-    cards.append(resultCard(result.preliminary[0], 1, true));
-  }
+  if (!result.results.length) result.closest.forEach((item, index) => cards.append(resultCard(item, index + 1, item.eligible, true)));
   wrap.append(cards);
 
   if (!result.results.length) {
@@ -702,12 +747,22 @@ function renderResults() {
     track('angaben_aendern');
     renderSummary();
   });
-  const restart = element('button', 'navigator-primary-button', 'Neu starten');
+  const restart = element('button', 'navigator-text-button', 'Komplett neu starten');
   restart.type = 'button';
   restart.addEventListener('click', restartNavigator);
+  if (!result.results.length) {
+    const compromisePanel = wrap.querySelector('.navigator-compromise-panel');
+    if (compromisePanel) {
+      const focusCompromise = element('button', 'navigator-primary-button', 'Gezielt einen Abstrich wählen');
+      focusCompromise.type = 'button';
+      focusCompromise.addEventListener('click', () => compromisePanel.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+      actions.append(focusCompromise);
+    }
+  }
   actions.append(change, restart);
   wrap.append(actions);
   app.replaceChildren(wrap);
+  observeOfferImpressions(wrap);
   track('ergebnis_berechnet', {
     route: result.route,
     matches: String(result.results.length),
@@ -736,11 +791,11 @@ function startNavigator(source = 'tool') {
 function renderStart() {
   const card = element('div', 'navigator-app-card navigator-start-card');
   const copy = element('div');
-  copy.append(element('span', 'navigator-card-kicker', 'Daten-Pilot · 6 Kinderwagen · 10 Fahrzeugprofile'));
+  copy.append(element('span', 'navigator-card-kicker', 'Daten-Pilot · 6 Kinderwagen'));
   copy.append(element('h2', '', 'Findet heraus, welcher Kinderwagen zu eurem Alltag passt'));
-  copy.append(element('p', 'navigator-question-help', 'Ihr beantwortet je nach Alltag etwa 10 bis 19 Fragen. Maße werden nur dann als Ausschlusskriterium genutzt, wenn ihr sie als gemessen bestätigt.'));
+  copy.append(element('p', 'navigator-question-help', 'Ihr beantwortet je nach Alltag etwa 10 bis 17 kurze Fragen. Fachbegriffe erklären wir nur dann ausführlicher, wenn ihr noch wenig Erfahrung habt.'));
   const facts = element('ul', 'navigator-start-facts');
-  ['Gesamtpreis inklusive benötigter Babywanne', 'Fahrzeugdaten nur als bestätigungspflichtige Vorbelegung', 'Harte Anforderungen werden zuerst geprüft', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
+  ['Gesamtpreis inklusive benötigter Babywanne', 'Grobe Kofferraum-Einschätzung statt Maßarbeit', 'Harte Anforderungen werden zuerst geprüft', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
   copy.append(facts);
   const start = element('button', 'navigator-primary-button navigator-start-button', 'Navigator starten');
   start.type = 'button';
@@ -751,17 +806,17 @@ function renderStart() {
 }
 
 async function loadData() {
-  const [questionsData, criteriaData, catalog, vehicleCatalog] = await Promise.all([
+  const [questionsData, criteriaData, catalog, offerData] = await Promise.all([
     fetch(`${DATA_ROOT}/questions.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/criteria.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/catalog.v0.1.json`).then((response) => response.json()),
-    fetch(`${DATA_ROOT}/vehicles.v0.1.json`).then((response) => response.json())
+    fetch(`${DATA_ROOT}/offers.v0.1.json`).then((response) => response.ok ? response.json() : { offers: [] }).catch(() => ({ offers: [] }))
   ]);
   const products = await Promise.all(catalog.products.map((filename) => fetch(`${DATA_ROOT}/products/${filename}`).then((response) => response.json())));
   state.questions = questionsData.questions.sort((a, b) => a.order - b.order);
   state.criteriaData = criteriaData;
   state.products = products;
-  state.vehicles = vehicleCatalog.vehicles;
+  state.offers = offerData.offers ?? [];
   state.ready = true;
   if (state.pendingStart) startNavigator('hero');
   else renderStart();
