@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "flowVersion": "0.1.0",
+  "designRules": {
+    "oneQuestionPerScreen": true,
+    "showBackButton": true,
+    "showAnswerSummaryBeforeResult": true,
+    "estimatedQuestions": "9 bis 15, abhängig von den Antworten",
+    "doNotPromiseDurationUntilMeasured": true
+  },
+  "questions": [
+    {
+      "id": "search_goal",
+      "order": 1,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Was sucht ihr gerade?",
+      "help": "Der erste MVP unterstützt gezielt den ersten Kombi-Kinderwagen ab Geburt.",
+      "options": [
+        { "value": "first_combo_from_birth", "label": "Erster Kombi-Kinderwagen ab Geburt", "route": "supported" },
+        { "value": "buggy", "label": "Buggy für ein älteres Kind", "route": "unsupported_buggy" },
+        { "value": "siblings_twins", "label": "Geschwister- oder Zwillingswagen", "route": "unsupported_siblings" },
+        { "value": "unsure", "label": "Noch unsicher", "route": "scope_help" }
+      ]
+    },
+    {
+      "id": "children_count",
+      "order": 2,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Für wie viele Kinder soll der Wagen gleichzeitig passen?",
+      "showWhen": { "questionId": "search_goal", "operator": "equals", "value": "first_combo_from_birth" },
+      "options": [
+        { "value": "one", "label": "Für ein Kind", "constraint": { "criterionId": "single_child_combo_scope", "value": true } },
+        { "value": "more_than_one", "label": "Für mehr als ein Kind", "route": "unsupported_siblings" }
+      ]
+    },
+    {
+      "id": "budget",
+      "order": 3,
+      "type": "budget",
+      "required": true,
+      "prompt": "Wie hoch ist euer Gesamtbudget?",
+      "help": "Gemeint ist die benötigte Konfiguration inklusive Babywanne – nicht nur das Gestell.",
+      "showWhen": { "questionId": "children_count", "operator": "equals", "value": "one" },
+      "validation": { "currency": "EUR", "minimum": 200, "maximum": 3000 },
+      "output": { "criterionId": "total_required_price", "field": "maximumBudgetEur" }
+    },
+    {
+      "id": "budget_strictness",
+      "order": 4,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Ist diese Obergrenze verbindlich?",
+      "showWhen": { "questionId": "budget", "operator": "answered" },
+      "options": [
+        { "value": "strict", "label": "Ja, keinesfalls darüber", "constraint": { "criterionId": "total_required_price", "mode": "gate" } },
+        { "value": "flexible_10", "label": "Bis zu 10 % Spielraum bei klarer Begründung", "constraint": { "criterionId": "total_required_price", "mode": "soft_plus_10_percent" } },
+        { "value": "orientation", "label": "Das Budget dient nur zur Orientierung", "constraint": { "criterionId": "total_required_price", "mode": "preference" } }
+      ]
+    },
+    {
+      "id": "stairs_frequency",
+      "order": 5,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Wie oft müsst ihr den Wagen über Treppen tragen?",
+      "options": [
+        { "value": "never", "label": "Praktisch nie", "weight": { "criterionId": "frequent_carrying_fit", "level": 0 } },
+        { "value": "occasionally", "label": "Gelegentlich", "weight": { "criterionId": "frequent_carrying_fit", "level": 1 } },
+        { "value": "daily", "label": "Täglich oder fast täglich", "weight": { "criterionId": "frequent_carrying_fit", "level": 2 } }
+      ]
+    },
+    {
+      "id": "lift_unit",
+      "order": 6,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Welche Einheit würdet ihr dabei tragen?",
+      "help": "Gewichtsangaben sind nur vergleichbar, wenn klar ist, welche Teile mitgetragen werden.",
+      "showWhen": { "questionId": "stairs_frequency", "operator": "in", "value": ["occasionally", "daily"] },
+      "options": [
+        { "value": "frame_only", "label": "Nur das Gestell", "output": { "field": "liftUnit" } },
+        { "value": "frame_with_seat", "label": "Gestell mit Sitzeinheit", "output": { "field": "liftUnit" } },
+        { "value": "folded_complete", "label": "Die komplette gefaltete Einheit", "output": { "field": "liftUnit" } },
+        { "value": "unknown", "label": "Noch unklar", "output": { "field": "liftUnit", "value": null } }
+      ]
+    },
+    {
+      "id": "maximum_lift_weight",
+      "order": 7,
+      "type": "number",
+      "required": false,
+      "prompt": "Gibt es ein verbindliches Maximalgewicht zum Tragen?",
+      "help": "Optional. Wenn ihr unsicher seid, wird Gewicht als Präferenz statt als Ausschlusskriterium behandelt.",
+      "showWhen": { "questionId": "lift_unit", "operator": "in", "value": ["frame_only", "frame_with_seat", "folded_complete"] },
+      "validation": { "unit": "kg", "minimum": 5, "maximum": 30, "step": 0.5 },
+      "output": { "criterionId": "lift_weight_limit", "field": "maximumLiftWeightKg" }
+    },
+    {
+      "id": "maximum_access_width",
+      "order": 8,
+      "type": "number",
+      "required": false,
+      "prompt": "Gibt es einen engen Aufzug, eine Tür oder einen Durchgang?",
+      "help": "Optional: Innenbreite an der engsten regelmäßig genutzten Stelle messen.",
+      "validation": { "unit": "cm", "minimum": 45, "maximum": 100, "step": 0.5 },
+      "output": { "criterionId": "access_width", "field": "maximumWidthCm" }
+    },
+    {
+      "id": "car_frequency",
+      "order": 9,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Wie oft wird der Kinderwagen im Auto transportiert?",
+      "options": [
+        { "value": "never", "label": "Praktisch nie", "weight": { "criterionId": "car_transport_fit", "level": 0 } },
+        { "value": "monthly", "label": "Gelegentlich", "weight": { "criterionId": "car_transport_fit", "level": 1 } },
+        { "value": "weekly", "label": "Mehrmals pro Woche", "weight": { "criterionId": "car_transport_fit", "level": 2 } },
+        { "value": "daily", "label": "Täglich", "weight": { "criterionId": "car_transport_fit", "level": 3 } }
+      ]
+    },
+    {
+      "id": "trunk_measurement_known",
+      "order": 10,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Kennt ihr die nutzbaren Innenmaße des Kofferraums?",
+      "showWhen": { "questionId": "car_frequency", "operator": "in", "value": ["monthly", "weekly", "daily"] },
+      "options": [
+        { "value": "yes", "label": "Ja, ich kann sie angeben" },
+        { "value": "measure_later", "label": "Noch nicht – ich messe später", "openCheck": "trunk_dimensions" },
+        { "value": "not_relevant", "label": "Das Faltmaß ist für uns nicht entscheidend" }
+      ]
+    },
+    {
+      "id": "trunk_dimensions",
+      "order": 11,
+      "type": "dimensions",
+      "required": true,
+      "prompt": "Welche nutzbaren Innenmaße stehen zur Verfügung?",
+      "help": "Bitte Breite, Höhe und Tiefe an der tatsächlich nutzbaren Stelle angeben.",
+      "showWhen": { "questionId": "trunk_measurement_known", "operator": "equals", "value": "yes" },
+      "validation": { "unit": "cm", "fields": ["width", "height", "depth"], "minimum": 20, "maximum": 250, "step": 0.5 },
+      "output": { "criterionId": "folded_fit", "field": "maximumFoldedDimensionsCm" }
+    },
+    {
+      "id": "public_transport_frequency",
+      "order": 12,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Wie wichtig sind Bus und Bahn in eurem Alltag?",
+      "options": [
+        { "value": "never", "label": "Kaum oder nie", "weight": { "criterionId": "public_transport_fit", "level": 0 } },
+        { "value": "sometimes", "label": "Gelegentlich", "weight": { "criterionId": "public_transport_fit", "level": 1 } },
+        { "value": "often", "label": "Mehrmals pro Woche", "weight": { "criterionId": "public_transport_fit", "level": 2 } },
+        { "value": "daily", "label": "Täglich", "weight": { "criterionId": "public_transport_fit", "level": 3 } }
+      ]
+    },
+    {
+      "id": "terrain",
+      "order": 13,
+      "type": "multi_choice",
+      "required": true,
+      "prompt": "Auf welchen Untergründen seid ihr regelmäßig unterwegs?",
+      "help": "Wählt höchstens zwei, damit der Navigator echte Prioritäten erkennt.",
+      "validation": { "minimumSelections": 1, "maximumSelections": 2 },
+      "options": [
+        { "value": "smooth_city", "label": "Glatte Gehwege und Stadt", "weight": { "criterionId": "city_maneuverability", "level": 2 } },
+        { "value": "cobblestone", "label": "Kopfsteinpflaster und schlechte Gehwege", "weight": { "criterionId": "rough_surface_fit", "level": 2 } },
+        { "value": "gravel_park", "label": "Schotter und Parkwege", "weight": { "criterionId": "rough_surface_fit", "level": 2 } },
+        { "value": "forest_field", "label": "Wald- und Feldwege", "weight": { "criterionId": "rough_surface_fit", "level": 3 } },
+        { "value": "mixed", "label": "Ein ausgewogener Mix", "weight": { "criterionId": "city_maneuverability", "level": 1 }, "additionalWeight": { "criterionId": "rough_surface_fit", "level": 1 } }
+      ]
+    },
+    {
+      "id": "pusher_heights",
+      "order": 14,
+      "type": "number_list",
+      "required": false,
+      "prompt": "Wie groß sind die Personen, die regelmäßig schieben?",
+      "help": "Optional. Der Schieberbereich ist ein Anhaltspunkt; eine Probefahrt bleibt sinnvoll.",
+      "validation": { "unit": "cm", "minimum": 140, "maximum": 210, "maximumEntries": 3 },
+      "output": { "criterionId": "pushbar_height_fit", "field": "pusherHeightsCm" }
+    },
+    {
+      "id": "required_features",
+      "order": 15,
+      "type": "multi_choice",
+      "required": false,
+      "prompt": "Welche Funktionen sind für euch wirklich unverzichtbar?",
+      "help": "Nur auswählen, wenn ein Modell ohne diese Funktion ausscheiden soll.",
+      "validation": { "maximumSelections": 3 },
+      "options": [
+        { "value": "reversible_seat", "label": "Sitz in beide Richtungen nutzbar" },
+        { "value": "travel_system", "label": "Kompatibles Reisesystem" },
+        { "value": "one_hand_fold", "label": "Mit einer Hand faltbar" },
+        { "value": "fold_with_seat", "label": "Mit Sitzeinheit faltbar" },
+        { "value": "self_standing", "label": "Gefaltet selbststehend" }
+      ],
+      "output": { "criterionId": "required_features", "field": "requiredFeatureIds" }
+    },
+    {
+      "id": "top_priorities",
+      "order": 16,
+      "type": "multi_choice",
+      "required": true,
+      "prompt": "Welche zwei Eigenschaften sind euch am wichtigsten?",
+      "validation": { "minimumSelections": 2, "maximumSelections": 2 },
+      "options": [
+        { "value": "easy_to_carry", "label": "Leicht zu tragen", "criteriaIds": ["frequent_carrying_fit"] },
+        { "value": "compact_in_car", "label": "Kompakt und einfach im Auto", "criteriaIds": ["car_transport_fit", "folding_convenience"] },
+        { "value": "city_transit", "label": "Wendig in Stadt und ÖPNV", "criteriaIds": ["city_maneuverability", "public_transport_fit"] },
+        { "value": "rough_terrain", "label": "Komfortabel auf unebenen Wegen", "criteriaIds": ["rough_surface_fit"] },
+        { "value": "storage", "label": "Viel gut nutzbarer Stauraum", "criteriaIds": ["storage_capacity"] },
+        { "value": "easy_folding", "label": "Möglichst unkompliziert faltbar", "criteriaIds": ["folding_convenience"] },
+        { "value": "long_use", "label": "Flexibel über mehrere Nutzungsphasen", "criteriaIds": ["long_term_flexibility"] },
+        { "value": "service", "label": "Ersatzteile und Reparaturmöglichkeiten", "criteriaIds": ["repairability_service"] },
+        { "value": "weather", "label": "Guter Wetter- und Sonnenschutz", "criteriaIds": ["weather_protection"] }
+      ]
+    },
+    {
+      "id": "measurement_confirmation",
+      "order": 17,
+      "type": "confirmation",
+      "required": true,
+      "prompt": "Sind verbindliche Maße wirklich gemessen oder nur geschätzt?",
+      "help": "Geschätzte Maße erzeugen eine offene Prüfung und keinen belegten harten Treffer.",
+      "showWhen": { "operator": "any_answered", "questionIds": ["maximum_lift_weight", "maximum_access_width", "trunk_dimensions"] },
+      "options": [
+        { "value": "measured", "label": "Gemessen" },
+        { "value": "estimated", "label": "Geschätzt – vor dem Kauf prüfen", "openCheck": "confirm_measurements" }
+      ]
+    }
+  ]
+}

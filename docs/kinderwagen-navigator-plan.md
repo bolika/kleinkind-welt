@@ -1,6 +1,6 @@
 # Kinderwagen-Navigator: Produktplan
 
-Status: Konzeptphase  
+Status: Entscheidungsmodell Version 0.1
 Öffentliche Route: `/kinderwagen-navigator`  
 Indexierung: bis zur funktionsfähigen Beta deaktiviert
 
@@ -25,6 +25,12 @@ Eltern müssen harte Einschränkungen wie Kofferraum, Treppen, Aufzug oder Gesch
 
 „Allumfassend“ wird erst verwendet, wenn die Marktabdeckung messbar hoch ist. Bis dahin lautet die belastbare Positionierung „herstellerübergreifend“.
 
+### Eigenständiges Qualitätsmerkmal
+
+Der Match-Score allein ist nicht die Differenzierung. Jede Empfehlung erhält einen **Kleinkind-Welt Passungsnachweis**, der Muss-Kriterien, persönliche Passung, wichtigsten Kompromiss, offene Prüfungen und Datenqualität getrennt zeigt.
+
+Der verbindliche Standard steht in [`docs/kinderwagen-navigator-quality-standard.md`](kinderwagen-navigator-quality-standard.md). Er stellt ausdrücklich keine pauschale Sicherheits-, Qualitäts- oder Testnote für einen Kinderwagen dar.
+
 ## 2. Wettbewerbsbild und Differenzierung
 
 ### Beobachtete Angebote
@@ -40,7 +46,7 @@ Eltern müssen harte Einschränkungen wie Kofferraum, Treppen, Aufzug oder Gesch
 1. Mehrere Hersteller und Händler statt geschlossenem Sortiment.
 2. Harte Ausschlusskriterien vor Marketing- und Komfortpräferenzen.
 3. Persönliche Gewichtung statt pauschaler Bestenliste.
-4. Match-Score mit sichtbarer Herleitung.
+4. Belegter Passungsnachweis statt eines Blackbox-Scores.
 5. Datenqualität und fehlende Angaben werden angezeigt.
 6. Jeder Treffer erklärt auch den wichtigsten Kompromiss.
 7. Sponsoring und Match-Berechnung sind technisch und redaktionell getrennt.
@@ -132,6 +138,8 @@ Jedes Ergebnis enthält:
 - Hinweis auf sinnvolle Probefahrt oder Maßprüfung
 
 ## 5. Matching-Modell Version 0.1
+
+Die maschinenlesbare Kriterienmatrix liegt in `data/kinderwagen-navigator/criteria.v0.1.json`. Fragenbaum und Referenzprofile verwenden dieselbe Modellversion und werden automatisiert gegeneinander geprüft.
 
 ### Stufe 1: Eligibility Gate
 
@@ -296,6 +304,8 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 - Gewichte und Score-Regeln dokumentieren
 - zehn realistische Familienprofile als Testfälle anlegen
 
+**Stand:** Kriterienmatrix, adaptiver Fragenbaum und zehn Referenzprofile sind als versionierte JSON-Daten angelegt. Der Quality-Gate prüft IDs, Abhängigkeiten, Antwortwerte, Muss-Kriterien und erwartete Ergebnisregeln. Die vollständige Reproduzierbarkeit des Rankings kann erst mit der Match-Engine und ersten Produktdaten geprüft werden.
+
 **Gate:** Zwei Personen mit gleichen Angaben erhalten reproduzierbar das gleiche Ergebnis; harte Anforderungen können nicht durch weiche Vorteile überstimmt werden.
 
 ### Phase 2: Datenbasis
@@ -338,10 +348,18 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 ## 10. Nächster konkreter Arbeitsschritt
 
-Als Nächstes werden nicht Produkte gesammelt, sondern zunächst diese drei Artefakte erstellt:
+Die drei Grundlagen aus Phase 1 sind umgesetzt:
 
-1. finale Kriterienliste mit Kennzeichnung `hart`, `weich` oder `nur Information`
-2. adaptiver Fragenbaum Version 0.1
-3. zehn Familienprofile mit erwarteten Ergebnistypen
+1. `data/kinderwagen-navigator/criteria.v0.1.json`
+2. `data/kinderwagen-navigator/questions.v0.1.json`
+3. `data/kinderwagen-navigator/reference-profiles.v0.1.json`
 
-Erst danach wird das JSON-Produktschema finalisiert. So verhindert das Projekt, dass verfügbare Produktdaten die Nutzerlogik unbemerkt bestimmen.
+Der nächste sinnvolle Risikotest ist noch nicht die komplette Benutzeroberfläche. Zuerst muss bewiesen werden, dass die für den Passungsnachweis benötigten Produktdaten belastbar und markenübergreifend verfügbar sind:
+
+1. Produktschema mit Wert, Quelle, Prüfdatum, Modellgeneration und Konfliktstatus definieren.
+2. Fünf bewusst unterschiedliche Kombi-Kinderwagen als Daten-Pilot erfassen.
+3. Prüfen, welche Muss- und Präferenzfelder aus Handbuch und Herstellerquelle tatsächlich vergleichbar sind.
+4. Eine deterministische Match-Engine gegen die zehn Referenzprofile laufen lassen.
+5. Erst danach den interaktiven Mobile-Flow bauen und auf 15 bis 25 Modelle erweitern.
+
+**Pilot-Gate:** Kein Wert wird geschätzt, Preisbestandteile werden vollständig getrennt, unterschiedliche Gewichtsdefinitionen werden nicht vermischt und die Match-Engine kann Affiliate-Felder technisch nicht lesen.

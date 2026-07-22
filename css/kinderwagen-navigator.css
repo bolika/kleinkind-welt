@@ -289,6 +289,54 @@
   color: var(--text-light);
 }
 
+.navigator-proof-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.navigator-proof-metrics div {
+  display: grid;
+  gap: 3px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  background: rgba(43, 111, 103, 0.08);
+}
+
+.navigator-proof-metrics strong {
+  color: var(--primary-dark);
+  font-size: 1rem;
+}
+
+.navigator-proof-metrics span {
+  color: var(--text-light);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.navigator-open-check {
+  display: grid;
+  gap: 3px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(240, 111, 91, 0.26);
+  border-radius: 10px;
+  background: rgba(240, 111, 91, 0.08);
+}
+
+.navigator-open-check strong {
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.navigator-open-check span {
+  color: var(--text-light);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
 .navigator-criteria-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -450,5 +498,9 @@
 
   .navigator-score strong {
     font-size: 1.4rem;
+  }
+
+  .navigator-proof-metrics {
+    grid-template-columns: 1fr;
   }
 }

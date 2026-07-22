@@ -9,10 +9,10 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="robots" content="noindex,follow">
-  <meta name="description" content="Konzept für einen unabhängigen Kinderwagen-Navigator: herstellerübergreifendes Matching nach Alltag, Anforderungen und transparentem Passungs-Score.">
+  <meta name="description" content="Konzept für einen unabhängigen Kinderwagen-Navigator: herstellerübergreifendes Matching mit belegtem Passungsnachweis statt Blackbox-Score.">
   <title>Kinderwagen-Navigator – unabhängiges Matching | Kleinkind-Welt</title>
   <link rel="stylesheet" href="/css/style.css?v=20260722-navigator">
-  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260722-1">
+  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260722-2">
   <link rel="canonical" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
@@ -49,7 +49,7 @@
       <div class="navigator-hero-copy">
         <span class="navigator-eyebrow">Unabhängiger Finder · in Entwicklung</span>
         <h1 id="navigator-title">Welcher Kinderwagen passt wirklich zu eurem Alltag?</h1>
-        <p>Der Kinderwagen-Navigator soll Modelle verschiedener Marken anhand eurer tatsächlichen Anforderungen vergleichen – ohne bezahlten Einfluss auf das Ergebnis.</p>
+        <p>Der Kinderwagen-Navigator soll Modelle verschiedener Marken anhand eurer tatsächlichen Anforderungen vergleichen – mit belegter Passung und ohne bezahlten Einfluss auf das Ergebnis.</p>
         <a class="navigator-primary-link" href="#konzept">So soll das Matching funktionieren</a>
       </div>
 
@@ -58,7 +58,7 @@
         <ul>
           <li>Hersteller- und händlerübergreifend</li>
           <li>Harte Anforderungen vor Vorlieben</li>
-          <li>Match-Score mit nachvollziehbarer Begründung</li>
+          <li>Passungsnachweis statt Blackbox-Score</li>
           <li>Sponsoring verändert niemals das Ranking</li>
         </ul>
       </aside>
@@ -94,14 +94,14 @@
     <div class="navigator-shell navigator-result-layout">
       <div class="navigator-section-heading navigator-section-heading--left">
         <span class="navigator-eyebrow">Beispiel für die Ergebnislogik</span>
-        <h2 id="match-title">Ein Match-Score, der sich erklären lässt</h2>
-        <p>Der Prozentwert bewertet ausschließlich die Passung zu den gemachten Angaben. Er ist keine Sicherheits-, Qualitäts- oder Testnote.</p>
+        <h2 id="match-title">Der Passungsnachweis zeigt mehr als eine Zahl</h2>
+        <p>Muss-Kriterien, persönliche Passung, Datenlage und offene Prüfungen bleiben sichtbar getrennt. Der Prozentwert ist keine Sicherheits-, Qualitäts- oder Testnote.</p>
       </div>
 
       <article class="navigator-result-card" aria-label="Beispielergebnis mit 95 Prozent Passung">
         <div class="navigator-result-topline">
           <div>
-            <span class="navigator-card-kicker">Beispielmodell</span>
+            <span class="navigator-card-kicker">Kleinkind-Welt Passungsnachweis</span>
             <h3>Leichter City-Allrounder</h3>
           </div>
           <div class="navigator-score" aria-label="95 Prozent passend">
@@ -115,9 +115,14 @@
           <li class="is-match">Sehr passend für Stadt und ÖPNV</li>
           <li class="is-compromise">Auf Waldwegen nur eingeschränkt komfortabel</li>
         </ul>
-        <div class="navigator-data-confidence">
-          <strong>Datenlage: hoch</strong>
-          <span>18 von 19 relevanten Eigenschaften geprüft</span>
+        <div class="navigator-proof-metrics" aria-label="Bestandteile des Passungsnachweises">
+          <div><strong>6/6</strong><span>Muss-Kriterien belegt</span></div>
+          <div><strong>95%</strong><span>Datenabdeckung</span></div>
+          <div><strong>v0.1</strong><span>Regelwerk</span></div>
+        </div>
+        <div class="navigator-open-check">
+          <strong>Vor dem Kauf prüfen</strong>
+          <span>Schieberhöhe selbst testen und tatsächliche Kofferraumöffnung nachmessen.</span>
         </div>
       </article>
     </div>
@@ -159,7 +164,7 @@
         <article>
           <span aria-hidden="true">🔎</span>
           <h3>Datenqualität</h3>
-          <p>Quellen, Prüfdatum, unabhängige Tests und fehlende Angaben.</p>
+          <p>Quellen, Modellgeneration, Prüfdatum, Datenkonflikte und fehlende Angaben.</p>
         </article>
       </div>
     </div>
@@ -178,6 +183,7 @@
           <li>Gesponserte Alternativen wären immer separat gekennzeichnet.</li>
           <li>Der organisch beste Treffer bleibt an erster Stelle.</li>
           <li>Fehlende oder veraltete Daten senken die Datenqualität.</li>
+          <li>Die KI erklärt Ergebnisse, darf Score und Ranking aber nicht frei erzeugen.</li>
         </ul>
       </div>
     </div>
@@ -186,8 +192,8 @@
   <section class="navigator-section navigator-status" aria-labelledby="status-title">
     <div class="navigator-shell">
       <span class="navigator-eyebrow">Aktueller Stand</span>
-      <h2 id="status-title">Der Navigator wird zuerst als unabhängige Beta entwickelt</h2>
-      <p>Diese Seite zeigt das Produktkonzept. Der interaktive Fragenfluss und konkrete Modelle werden erst veröffentlicht, wenn Fragenlogik, Datenbasis und Matching-Regeln geprüft sind.</p>
+      <h2 id="status-title">Das Entscheidungsmodell Version 0.1 steht</h2>
+      <p>21 Kriterien, 17 adaptive Fragen und zehn Referenzfamilien sind strukturiert und automatisch prüfbar. Als Nächstes wird mit fünf unterschiedlichen Modellen getestet, ob die benötigten Daten markenübergreifend belastbar verfügbar sind.</p>
     </div>
   </section>
 </main>

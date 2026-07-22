@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "status": "decision-model",
+  "scope": {
+    "supportedUseCase": "Erster Kombi-Kinderwagen ab Geburt für ein einzelnes Kind",
+    "unsupportedUseCases": [
+      "Reisebuggy",
+      "Jogger",
+      "Geschwister- oder Zwillingswagen",
+      "Fahrradanhänger",
+      "Reha-Kinderwagen"
+    ]
+  },
+  "qualityPromise": {
+    "name": "Kleinkind-Welt Passungsnachweis",
+    "statement": "Jede Empfehlung trennt belegte Passung, Kompromisse, offene Prüfungen und Datenqualität.",
+    "notAClaim": "Der Passungsnachweis ist keine Sicherheits-, Qualitäts- oder Testnote für das Produkt."
+  },
+  "scoreRules": {
+    "eligibilityBeforeScoring": true,
+    "minimumScoreToRecommend": 60,
+    "minimumCoverageForNumericScore": 85,
+    "unknownHardCriterionBlocksTopResult": true,
+    "preferenceValues": {
+      "full": 1,
+      "partial": 0.5,
+      "none": 0
+    },
+    "priorityMultiplier": 1.5,
+    "scoreBands": [
+      { "min": 90, "max": 100, "label": "sehr passend" },
+      { "min": 75, "max": 89, "label": "gut passend" },
+      { "min": 60, "max": 74, "label": "passend mit deutlichen Kompromissen" }
+    ]
+  },
+  "evidenceRules": {
+    "requiredPerProductValue": ["value", "sourceUrl", "sourceKind", "checkedAt", "status"],
+    "allowedSourceKinds": ["manufacturer", "manual", "official_notice", "independent_test", "retailer"],
+    "sourcePriority": ["official_notice", "manual", "manufacturer", "independent_test", "retailer"],
+    "conflictPolicy": "Abweichende Werte bleiben sichtbar; für harte Kriterien gilt der konservativere belastbare Wert.",
+    "staleDataPolicy": "Veraltete Daten werden nicht still weiterverwendet, sondern als erneut zu prüfen markiert."
+  },
+  "criteria": [
+    {
+      "id": "official_market_safety_status",
+      "label": "Kein bekannter offizieller Sicherheitsrückruf",
+      "kind": "gate",
+      "dimension": "guardrail",
+      "baseWeight": 0,
+      "productFields": ["officialSafetyNoticeStatus"],
+      "sourceRequirement": ["official_notice", "manufacturer"],
+      "missingPolicy": "manual_review",
+      "evaluation": "Ein aktueller, einschlägiger offizieller Rückruf blockiert die Empfehlung. Fehlende Rückrufdaten werden manuell geprüft.",
+      "explanation": "Sicherheitsstatus separat vom Match-Score anzeigen."
+    },
+    {
+      "id": "newborn_configuration",
+      "label": "Vom Hersteller ab Geburt freigegebene Konfiguration",
+      "kind": "gate",
+      "dimension": "family",
+      "baseWeight": 0,
+      "productFields": ["newbornApproved", "newbornConfiguration", "carrycotIncluded"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "exclude_from_top_results",
+      "evaluation": "Nur eine offiziell für die Nutzung ab Geburt freigegebene Konfiguration erfüllt das Kriterium.",
+      "explanation": "Zeigt die konkret benötigte Konfiguration und ob die Babywanne enthalten ist."
+    },
+    {
+      "id": "single_child_combo_scope",
+      "label": "Kombi-Kinderwagen für ein einzelnes Kind",
+      "kind": "gate",
+      "dimension": "family",
+      "baseWeight": 0,
+      "productFields": ["category", "supportedChildren"],
+      "sourceRequirement": ["manufacturer"],
+      "missingPolicy": "exclude",
+      "evaluation": "Das Modell muss dem unterstützten MVP-Anwendungsfall entsprechen.",
+      "explanation": "Verhindert irreführende Ergebnisse außerhalb des getesteten Scopes."
+    },
+    {
+      "id": "total_required_price",
+      "label": "Gesamtpreis der benötigten Konfiguration",
+      "kind": "gate",
+      "dimension": "budget",
+      "baseWeight": 0,
+      "productFields": ["requiredConfigurationPrice", "priceCheckedAt", "includedComponents"],
+      "sourceRequirement": ["manufacturer", "retailer"],
+      "missingPolicy": "exclude_from_top_results_when_budget_is_strict",
+      "evaluation": "Bei einer strikten Obergrenze zählt der Gesamtpreis aller für den angegebenen Einsatz benötigten Komponenten, nicht nur der Gestellpreis.",
+      "explanation": "Nennt Preisstand und zusätzlich benötigte Komponenten."
+    },
+    {
+      "id": "access_width",
+      "label": "Passt durch den engsten regelmäßig genutzten Zugang",
+      "kind": "gate",
+      "dimension": "home",
+      "baseWeight": 0,
+      "productFields": ["unfoldedWidthCm"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "exclude_from_top_results_when_user_sets_limit",
+      "evaluation": "Die Wagenbreite darf das vom Nutzer bestätigte Maximalmaß nicht überschreiten.",
+      "explanation": "Zeigt Wagenbreite, Nutzerlimit und verbleibenden Spielraum."
+    },
+    {
+      "id": "folded_fit",
+      "label": "Passt in den gemessenen Stauraum oder Kofferraum",
+      "kind": "gate",
+      "dimension": "transport",
+      "baseWeight": 0,
+      "productFields": ["foldedDimensionsCm", "foldedWithSeat", "wheelRemovalRequired"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "exclude_from_top_results_when_user_sets_limit",
+      "evaluation": "Alle drei Faltmaße müssen in mindestens einer realistischen Orientierung innerhalb der bestätigten Innenmaße liegen. Ausbau von Rädern oder Sitz wird sichtbar ausgewiesen.",
+      "explanation": "Zeigt Faltmaß, Messgrundlage und notwendige Demontage."
+    },
+    {
+      "id": "lift_weight_limit",
+      "label": "Unterschreitet das bestätigte Tragegewicht",
+      "kind": "gate",
+      "dimension": "home",
+      "baseWeight": 0,
+      "productFields": ["frameWeightKg", "seatWeightKg", "carrycotWeightKg", "liftReadyWeightKg"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "exclude_from_top_results_when_user_sets_limit",
+      "evaluation": "Verglichen wird genau die Einheit, die der Nutzer tatsächlich tragen will: Gestell, Gestell mit Sitz oder komplette gefaltete Einheit.",
+      "explanation": "Verhindert den irreführenden Vergleich unterschiedlicher Gewichtsangaben."
+    },
+    {
+      "id": "required_features",
+      "label": "Erfüllt ausdrücklich gewählte Muss-Funktionen",
+      "kind": "gate",
+      "dimension": "function",
+      "baseWeight": 0,
+      "productFields": ["features", "compatibleAccessories"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "exclude_from_top_results_when_selected",
+      "evaluation": "Nur vom Nutzer ausdrücklich als zwingend markierte Funktionen werden zu Ausschlusskriterien.",
+      "explanation": "Listet jede Muss-Funktion einzeln als erfüllt, nicht erfüllt oder unbekannt."
+    },
+    {
+      "id": "city_maneuverability",
+      "label": "Wendigkeit im Stadtalltag",
+      "kind": "preference",
+      "dimension": "terrain",
+      "baseWeight": 1,
+      "productFields": ["turningCharacteristics", "frontWheelMode", "unfoldedWidthCm"],
+      "sourceRequirement": ["manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet kompakte Abmessungen und belegte Handhabung im Stadtumfeld ohne pauschale Marketingaussagen.",
+      "explanation": "Nennt die konkreten Eigenschaften hinter der Bewertung."
+    },
+    {
+      "id": "rough_surface_fit",
+      "label": "Passung für unebene Wege",
+      "kind": "preference",
+      "dimension": "terrain",
+      "baseWeight": 1,
+      "productFields": ["wheelDiameterCm", "wheelMaterial", "suspension", "independentHandlingEvidence"],
+      "sourceRequirement": ["manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet belegte Rad-, Federungs- und Handhabungseigenschaften für den angegebenen Untergrund.",
+      "explanation": "Keine pauschale All-Terrain-Zusage ohne nachvollziehbare Daten."
+    },
+    {
+      "id": "public_transport_fit",
+      "label": "Passung für Bus und Bahn",
+      "kind": "preference",
+      "dimension": "transport",
+      "baseWeight": 1,
+      "productFields": ["unfoldedWidthCm", "liftReadyWeightKg", "parkingBrakeOperation", "turningCharacteristics"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Gewichtet Breite, real zu tragendes Gewicht und Bedienbarkeit entsprechend der Nutzungshäufigkeit.",
+      "explanation": "Erklärt, ob Breite oder Gewicht den größten Unterschied machen."
+    },
+    {
+      "id": "car_transport_fit",
+      "label": "Passung für häufigen Autotransport",
+      "kind": "preference",
+      "dimension": "transport",
+      "baseWeight": 1,
+      "productFields": ["foldedDimensionsCm", "foldOperation", "liftReadyWeightKg", "wheelRemovalRequired"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet Faltmaß, Faltvorgang, Gewicht und nötige Demontage gemeinsam.",
+      "explanation": "Ein passendes Faltmaß allein wird nicht automatisch als komfortabler Autotransport gewertet."
+    },
+    {
+      "id": "frequent_carrying_fit",
+      "label": "Passung für regelmäßiges Tragen",
+      "kind": "preference",
+      "dimension": "home",
+      "baseWeight": 1,
+      "productFields": ["liftReadyWeightKg", "carryHandle", "foldLock", "foldedBalance"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Berücksichtigt neben Gewicht auch Griff, Verriegelung und Handhabung der gefalteten Einheit.",
+      "explanation": "Tragbarkeit ist mehr als das niedrigste Gewicht im Datenblatt."
+    },
+    {
+      "id": "pushbar_height_fit",
+      "label": "Schieberhöhe passend zu den schiebenden Personen",
+      "kind": "preference",
+      "dimension": "ergonomics",
+      "baseWeight": 1,
+      "productFields": ["pushbarMinCm", "pushbarMaxCm", "pushbarAdjustmentType"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet den Verstellbereich gegen die Körpergrößen der regelmäßig schiebenden Personen; eine Probefahrt bleibt empfohlen.",
+      "explanation": "Zeigt Verstellbereich und weist auf den Praxistest hin."
+    },
+    {
+      "id": "folding_convenience",
+      "label": "Einfachheit des Faltens",
+      "kind": "preference",
+      "dimension": "handling",
+      "baseWeight": 1,
+      "productFields": ["foldOperation", "oneHandFold", "selfStandingFold", "foldWithSeat"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet den vollständigen Ablauf einschließlich Sitzrichtung und zusätzlicher Handgriffe.",
+      "explanation": "Nennt die Bedingungen statt nur das Label Einhand-Faltung."
+    },
+    {
+      "id": "storage_capacity",
+      "label": "Stauraum für den Familienalltag",
+      "kind": "preference",
+      "dimension": "everyday",
+      "baseWeight": 1,
+      "productFields": ["basketLoadKg", "basketAccess", "basketVolumeL"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Berücksichtigt Belastbarkeit und Zugänglichkeit; Volumen nur, wenn belastbar angegeben.",
+      "explanation": "Vermeidet subjektive Begriffe wie riesig ohne Messwert."
+    },
+    {
+      "id": "weather_protection",
+      "label": "Wetter- und Sonnenschutz",
+      "kind": "preference",
+      "dimension": "everyday",
+      "baseWeight": 0.75,
+      "productFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"],
+      "sourceRequirement": ["manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet dokumentierte Ausstattung und unabhängige Beobachtungen, sofern vorhanden.",
+      "explanation": "Zeigt enthaltenes und optionales Zubehör getrennt."
+    },
+    {
+      "id": "repairability_service",
+      "label": "Ersatzteile, Reparatur und Service",
+      "kind": "preference",
+      "dimension": "ownership",
+      "baseWeight": 0.75,
+      "productFields": ["sparePartsAvailability", "repairService", "warrantyYears"],
+      "sourceRequirement": ["manufacturer"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet dokumentierte Ersatzteil- und Reparaturmöglichkeiten, nicht Markenimage.",
+      "explanation": "Nennt konkret verfügbare Leistungen und den Prüfstand."
+    },
+    {
+      "id": "long_term_flexibility",
+      "label": "Nutzungsflexibilität über mehrere Phasen",
+      "kind": "preference",
+      "dimension": "family",
+      "baseWeight": 0.75,
+      "productFields": ["seatDirection", "seatWeightLimitKg", "carrycotInternalLengthCm", "compatibleAccessories"],
+      "sourceRequirement": ["manual", "manufacturer", "independent_test"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Bewertet belegte Konfigurations- und Nutzungsoptionen ohne Entwicklungs- oder Haltbarkeitsversprechen.",
+      "explanation": "Zeigt Möglichkeiten und Grenzen getrennt."
+    },
+    {
+      "id": "independent_test_context",
+      "label": "Verfügbare unabhängige Testinformationen",
+      "kind": "information",
+      "dimension": "evidence",
+      "baseWeight": 0,
+      "productFields": ["independentTests"],
+      "sourceRequirement": ["independent_test"],
+      "missingPolicy": "show_unknown_not_negative",
+      "evaluation": "Vorhandene lizenzierbare Testergebnisse werden separat gezeigt und nicht mit dem persönlichen Match-Score vermischt.",
+      "explanation": "Fehlende Testdaten sind kein positiver oder negativer Qualitätsbeleg."
+    },
+    {
+      "id": "data_freshness",
+      "label": "Aktualität der Produktdaten",
+      "kind": "information",
+      "dimension": "evidence",
+      "baseWeight": 0,
+      "productFields": ["checkedAt", "modelGeneration", "marketStatus"],
+      "sourceRequirement": ["manufacturer", "manual", "retailer"],
+      "missingPolicy": "show_unknown",
+      "evaluation": "Jeder Ergebnisdatensatz nennt Modellgeneration und letztes Prüfdatum.",
+      "explanation": "Verhindert stilles Vermischen verschiedener Modelljahre."
+    }
+  ]
+}
