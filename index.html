@@ -12,7 +12,7 @@
   <meta name="robots" content="index, follow">
   <title>Kleinkind-Welt.de – Spielzeug & Förderung für Kleinkinder</title>
   <link rel="preload" as="image" href="/images/hero-spielzeug-finden-640.webp" imagesrcset="/images/hero-spielzeug-finden-640.webp 640w, /images/hero-spielzeug-finden-1200.webp 1200w, /images/hero-spielzeug-finden.webp 1920w" imagesizes="100vw" fetchpriority="high" type="image/webp">
-  <link rel="stylesheet" href="/css/style.css?v=20260715-cluster">
+  <link rel="stylesheet" href="/css/style.css?v=20260723-navigator-entry">
   <link rel="canonical" href="https://kleinkind-welt.de/">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de/">
   <link rel="alternate" hreflang="x-default" href="https://kleinkind-welt.de/">
@@ -174,6 +174,50 @@
     </div>
   </div>
 </div>
+
+<!-- KINDERWAGEN-NAVIGATOR -->
+<section class="home-navigator-section" aria-labelledby="home-navigator-title">
+  <div class="container home-navigator-preview">
+    <div class="home-navigator-copy">
+      <span class="home-navigator-kicker">Neuer unabhängiger Daten-Pilot</span>
+      <h2 id="home-navigator-title">Welcher Kinderwagen passt zu eurem Alltag?</h2>
+      <p>Beantwortet fünf kurze Fragen zu Wegen, Budget und Alltag. Der Navigator vergleicht aktuell <span data-navigator-catalog-count>15</span> Kombikinderwagen und zeigt bis zu drei nachvollziehbare Matches – inklusive wichtigstem Kompromiss.</p>
+      <ul class="home-navigator-points" aria-label="Vorteile des Kinderwagen-Navigators">
+        <li>Provisionen ändern nie die Reihenfolge</li>
+        <li>Gesamtpreis mit Babywanne</li>
+        <li>Kein Score bei zu dünnen Daten</li>
+      </ul>
+      <div class="home-navigator-actions">
+        <a href="/kinderwagen-navigator" class="home-navigator-cta" data-navigator-link data-placement="home-preview-primary">Kinderwagen-Match starten</a>
+        <span class="home-navigator-meta">5 Kernfragen · kostenlos · ohne Anmeldung</span>
+      </div>
+    </div>
+
+    <div class="home-navigator-demo" aria-label="Beispiel eines Navigator-Ergebnisses">
+      <div class="home-navigator-demo__top">
+        <span>So sieht ein Match aus</span>
+        <small>Beispielprofil</small>
+      </div>
+      <div class="home-navigator-profile" aria-label="Beispielangaben">
+        <span>Stadt</span>
+        <span>kleines Auto</span>
+        <span>Budget bis 800 €</span>
+      </div>
+      <div class="home-navigator-result">
+        <div class="home-navigator-score" aria-label="Beispiel: 84 Prozent Passung">84 %</div>
+        <div class="home-navigator-result__copy">
+          <small>Solide Übereinstimmung</small>
+          <strong>Passender Kombikinderwagen</strong>
+          <span>Begründete Stärken, sichtbarer Kompromiss und offene Prüfungen.</span>
+        </div>
+      </div>
+      <ul class="home-navigator-proof">
+        <li>Der Prozentwert ist eine Passung zum Profil – keine Test- oder Sicherheitsnote.</li>
+        <li>Preis, Verfügbarkeit und Datenstand werden transparent ausgewiesen.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- SAISONALE HIGHLIGHTS -->
 <section class="seasonal-section" id="sommer">
@@ -682,6 +726,7 @@
     </div>
   </div>
 </footer>
+<script src="/js/navigator-link-tracking.js?v=20260723" defer></script>
 <script>
   (function() {
     document.querySelectorAll('a[data-bonus]').forEach(function(link) {

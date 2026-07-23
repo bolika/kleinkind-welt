@@ -10,6 +10,14 @@ const html = read('kinderwagen-navigator.html');
 const css = read('css/kinderwagen-navigator.css');
 const app = read('js/kinderwagen-navigator-app.mjs');
 const offers = read('js/kinderwagen-offers.mjs');
+const linkTracking = read('js/navigator-link-tracking.js');
+const siteCss = read('css/style.css');
+const entryPages = {
+  home: read('index.html'),
+  kaufhilfen: read('kaufhilfen.html'),
+  geburt: read('artikel/geschenke-zur-geburt.html'),
+  bewertungsmethode: read('bewertungsmethode.html')
+};
 const questions = JSON.parse(read('data/kinderwagen-navigator/questions.v0.1.json'));
 const catalog = JSON.parse(read('data/kinderwagen-navigator/catalog.v0.1.json'));
 const errors = [];
@@ -77,6 +85,16 @@ assert(!/vehicleSelectControl|trunk_dimensions/.test(app), 'Komplexe Fahrzeug- o
 assert(!expectedAnswerKeys.some((id) => ['maximum_lift_weight', 'maximum_access_width', 'pusher_heights'].includes(id)), 'Manuelle Maße dürfen nicht im Kernflow liegen');
 
 assert(catalog.products.length >= 6, `Katalogpilot benötigt mindestens 6 Modelle, gefunden ${catalog.products.length}`);
+for (const [page, source] of Object.entries(entryPages)) {
+  assert(/href="\/kinderwagen-navigator"/.test(source), `${page}: interner Navigator-Link fehlt`);
+  assert(/data-navigator-link/.test(source), `${page}: Navigator-Einstieg benötigt Klicktracking`);
+  assert(/navigator-link-tracking\.js/.test(source), `${page}: Navigator-Linktracking wird nicht geladen`);
+}
+assert(/home-navigator-section/.test(entryPages.home) && /home-navigator-demo/.test(entryPages.home), 'Startseite benötigt eine prominente Navigator-Vorschau');
+assert(/data-navigator-catalog-count/.test(entryPages.home), 'Startseiten-Vorschau benötigt einen dynamischen Katalogzähler');
+assert(/home-navigator-section/.test(siteCss) && /navigator-inline-card/.test(siteCss), 'Styles für Startseiten-Vorschau und kontextuelle Links fehlen');
+assert(/interner_einstieg/.test(linkTracking) && /data-navigator-catalog-count/.test(linkTracking), 'Internes Navigator-Tracking oder Katalogzählersynchronisierung fehlt');
+assert(!/95\s*%/.test(entryPages.home), 'Startseiten-Vorschau darf keinen überhöhten Beispielscore versprechen');
 for (const filename of catalog.products) {
   const file = path.join(root, 'data', 'kinderwagen-navigator', 'products', filename);
   assert(fs.existsSync(file), `Katalogdatei fehlt: ${filename}`);
