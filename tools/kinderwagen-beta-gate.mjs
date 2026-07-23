@@ -15,7 +15,9 @@ const gates = [
   'tools/kinderwagen-persona-coverage.mjs',
   'tools/kinderwagen-source-registry-gate.mjs',
   'tools/kinderwagen-catalog-expansion-gate.mjs',
+  'tools/kinderwagen-research-batch-gate.mjs',
   'tools/kinderwagen-vehicle-data-gate.mjs',
+  'tools/kinderwagen-awin-program-gate.mjs',
   'tools/kinderwagen-offer-data-gate.mjs',
   'tools/kinderwagen-offer-import-test.mjs',
   'tools/kinderwagen-navigator-ui-gate.mjs'

@@ -7,26 +7,41 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataRoot = path.join(root, 'data', 'kinderwagen-navigator');
 const offers = JSON.parse(fs.readFileSync(path.join(dataRoot, 'offers.v0.1.json'), 'utf8'));
+const programs = JSON.parse(fs.readFileSync(path.join(dataRoot, 'awin-programs.v0.1.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(dataRoot, 'catalog.v0.1.json'), 'utf8'));
 const productIds = new Set(catalog.products.map((filename) => JSON.parse(fs.readFileSync(path.join(dataRoot, 'products', filename), 'utf8')).productId));
 const errors = [];
 const ids = new Set();
+const sourceKeys = new Set((offers.sources ?? []).map((source) => `${source.network}:${source.advertiserId}`));
+const programByAdvertiser = new Map((programs.programs ?? [])
+  .filter((program) => Number.isInteger(program.advertiserId))
+  .map((program) => [program.advertiserId, program]));
 
 function errorIf(condition, message) {
   if (condition) errors.push(message);
 }
 
 errorIf(offers.schemaVersion !== 1, 'Angebotsdaten benötigen schemaVersion 1.');
-const babyprofiSource = (offers.sources ?? []).find((source) => source.network === 'awin' && source.advertiserId === 14986);
-errorIf(!babyprofiSource, 'Vorbereitete Babyprofi-Awin-Quelle mit Advertiser-ID 14986 fehlt.');
 errorIf(!Array.isArray(offers.offers), 'offers muss eine Liste sein.');
+for (const source of offers.sources ?? []) {
+  if (source.network !== 'awin') continue;
+  const program = programByAdvertiser.get(source.advertiserId);
+  errorIf(!program, `Awin-Quelle ${source.advertiserId} ist nicht in der Programm-Registry bestätigt`);
+  if (program) errorIf(source.advertiserName !== program.advertiserName, `Awin-Quelle ${source.advertiserId}: Advertiser-Name weicht von Registry ab`);
+}
 
 for (const offer of offers.offers ?? []) {
   errorIf(ids.has(offer.offerId), `Doppelte offerId ${offer.offerId}`);
   ids.add(offer.offerId);
   errorIf(!productIds.has(offer.productId), `${offer.offerId}: unbekannte productId ${offer.productId}`);
-  errorIf(offer.network?.id !== 'awin' || offer.network?.advertiserId !== 14986, `${offer.offerId}: falsches Affiliate-Netzwerk oder Advertiser-ID`);
-  errorIf(offer.merchant?.id !== 'babyprofi', `${offer.offerId}: falscher Händler`);
+  errorIf(offer.network?.id !== 'awin', `${offer.offerId}: falsches Affiliate-Netzwerk`);
+  errorIf(!sourceKeys.has(`${offer.network?.id}:${offer.network?.advertiserId}`), `${offer.offerId}: zugehörige Angebotsquelle fehlt`);
+  const program = programByAdvertiser.get(offer.network?.advertiserId);
+  errorIf(!program, `${offer.offerId}: Advertiser-ID ist nicht in der Programm-Registry bestätigt`);
+  if (program) {
+    errorIf(program.applicationStatus !== 'joined', `${offer.offerId}: Programm ${program.merchant.id} ist noch nicht freigegeben`);
+    errorIf(offer.merchant?.id !== program.merchant.id || offer.merchant?.name !== program.merchant.name, `${offer.offerId}: Händler passt nicht zur Programm-Registry`);
+  }
   errorIf(!/^https:\/\//.test(offer.deeplink ?? ''), `${offer.offerId}: kein HTTPS-Deeplink`);
   try {
     const hostname = new URL(offer.deeplink).hostname;
@@ -41,6 +56,7 @@ for (const offer of offers.offers ?? []) {
   errorIf(typeof offer.title !== 'string' || offer.title.length < 3, `${offer.offerId}: Produkttitel fehlt`);
   errorIf(!offer.price?.freshUntil || !offer.availability?.freshUntil, `${offer.offerId}: Preis oder Bestand ohne Ablaufdatum`);
 }
+errorIf(/commission|provision|epc|approvalRate/i.test(JSON.stringify(offers)), 'Angebotsdaten dürfen keine Provisions- oder Programmrankingfelder enthalten.');
 
 const matcher = fs.readFileSync(path.join(root, 'js', 'kinderwagen-matcher.mjs'), 'utf8');
 errorIf(/offers\.v0\.1|merchantProductId|advertiserId|commission|provision(?!al)/i.test(matcher), 'Matcher darf Händler-, Angebots- oder Provisionsdaten nicht lesen.');

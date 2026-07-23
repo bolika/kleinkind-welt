@@ -16,11 +16,11 @@
       "id": "awin-product-feeds",
       "name": "Awin Product Feeds",
       "kind": "affiliate_feed",
-      "status": "awaiting_credentials_and_program_approval",
+      "status": "six_applications_pending",
       "documentationUrl": "https://help.awin.com/developers/docs/product-feed-publisher-guide-intro",
       "discoveryUrl": null,
       "automatedDiscovery": false,
-      "notes": "Nach Freischaltung zur Kandidaten-, Angebots- und Bildversorgung nutzen. Technische Match-Fakten anschließend gegen Hersteller oder Anleitung prüfen."
+      "notes": "Bewerbungen bei Babyprofi, Bugaboo, Joolz, CYBEX, Lidl und TFK sind vorgemerkt. Nach individueller Freischaltung zur Kandidaten-, Angebots- und – nur nach Rechteprüfung – Bildversorgung nutzen. Technische Match-Fakten anschließend gegen Hersteller oder Anleitung prüfen."
     },
     {
       "id": "cybex-de",

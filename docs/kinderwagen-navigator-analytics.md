@@ -21,7 +21,8 @@ Die Events enthalten keine frei eingegebenen Texte, exakten Maße oder dauerhaft
 5. `Kinderwagen-Navigator · match_gesehen`
 6. `Kinderwagen-Navigator · haendlerangebot_gesehen`
 7. `Kinderwagen-Navigator · haendlerangebot_geoeffnet`
-8. zentrales Event `Affiliate-Klick`
+8. `Kinderwagen-Navigator · ergebnis_feedbackgrund` nach negativem Feedback
+9. zentrales Event `Affiliate-Klick`
 
 `navigator_bereit` liefert zusätzlich Modellzahl, Angebotszahl und einen groben Ladezeit-Bucket. `ladefehler` macht technische Abbrüche sichtbar. Frage-Events übertragen nur Frage-ID und Fragetyp, nicht die konkrete Antwort.
 
@@ -32,6 +33,7 @@ Die Events enthalten keine frei eingegebenen Texte, exakten Maße oder dauerhaft
 - Frageverlust = angezeigte Frage ohne folgende gültige Antwort, getrennt nach `frage`
 - Kein-Match-Quote = `ergebnis_berechnet` mit `matches = 0`
 - Hilfreichkeitsquote = `ergebnis_bewertet` mit `hilfreich = ja` / alle Ergebnisbewertungen
+- Häufigster negativer Grund = `ergebnis_feedbackgrund`, getrennt nach `grund`
 - Match-Sichtquote = eindeutige `match_gesehen` / eindeutige `ergebnis_berechnet`
 - Angebots-Sichtquote = eindeutige `haendlerangebot_gesehen` / eindeutige `match_gesehen`
 - Händler-Klickrate = eindeutige `haendlerangebot_geoeffnet` / eindeutige `haendlerangebot_gesehen`

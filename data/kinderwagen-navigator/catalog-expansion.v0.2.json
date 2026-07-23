@@ -6,6 +6,7 @@
     "oneRecordPerCanonicalModel": true,
     "colorVariantsAreNotSeparateModels": true,
     "candidateDoesNotEqualRecommendation": true,
+    "affiliateProgramAvailabilityDoesNotChangeCandidatePriority": true,
     "requiredBeforePublication": [
       "offizielle Modellseite und Generation verifiziert",
       "vollständige Geburtskonfiguration und Gesamtpreis belegt",
@@ -79,15 +80,15 @@
       "reason": "Breitere Funktionsalternative aus der überwachten Herstellerquelle."
     },
     {
-      "canonicalModelId": "cybex-mios-3",
+      "canonicalModelId": "cybex-mios-current",
       "brand": "CYBEX",
-      "model": "Mios 3",
+      "model": "Mios (Neue Generation)",
       "scopeRoute": "supported_combo_from_birth",
       "priority": "P1",
-      "status": "ready_for_data_research",
-      "officialUrl": "https://www.cybex-online.com/de/de/p/set-st-pl-mios-3.html",
+      "status": "researched_pending_safety_gate",
+      "officialUrl": "https://www.cybex-online.com/de/de/p/st-pl-mios-5.html",
       "coverageTargets": ["premium_mobile_family", "tight_access_transit"],
-      "reason": "Premium-Stadtalternative mit offizieller Set-Seite."
+      "reason": "Aktuelle Premium-Stadtalternative mit 50 Zentimetern Breite; die frühere Mios-3-Kandidatenreferenz wurde bewusst nicht mit der neuen Generation vermischt."
     },
     {
       "canonicalModelId": "cybex-priam-4",
@@ -117,8 +118,8 @@
       "model": "Day5",
       "scopeRoute": "supported_combo_from_birth",
       "priority": "P1",
-      "status": "ready_for_data_research",
-      "officialUrl": "https://www.joolz.com/de/de/strollers/joolz-day5.html",
+      "status": "researched_pending_safety_gate",
+      "officialUrl": "https://www.joolz.com/de/de/kinderwagen-2-in-1/540004.html",
       "coverageTargets": ["premium_mobile_family", "service_weather_long_use"],
       "reason": "Premium-Komfort- und Garantiealternative zum bereits vorhandenen Hub2."
     },
@@ -128,8 +129,8 @@
       "model": "Geo5",
       "scopeRoute": "supported_combo_from_birth",
       "priority": "P1",
-      "status": "ready_for_data_research",
-      "officialUrl": "https://www.joolz.com/de/de/joolz-geo.html",
+      "status": "researched_pending_safety_gate",
+      "officialUrl": "https://www.joolz.com/de/de/kinderwagen/072000-M.html",
       "coverageTargets": ["rural_rough_routes", "service_weather_long_use"],
       "reason": "Robuste, erweiterbare Alternative; nur die Mono-Konfiguration gehört in den aktuellen Matcher."
     },

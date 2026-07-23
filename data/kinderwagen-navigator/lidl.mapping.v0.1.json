@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": null,
+  "advertiserName": "Lidl DE",
+  "merchant": { "id": "lidl", "name": "Lidl" },
+  "mappings": []
+}

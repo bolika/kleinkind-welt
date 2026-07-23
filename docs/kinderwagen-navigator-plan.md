@@ -337,8 +337,8 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 Der technische Daten-Pilot ist umgesetzt. Die Reihenfolge für eine belastbare geschlossene Beta lautet nun:
 
 1. vollständigen Tastatur- und Screenreader-Kernpfad manuell abschließen,
-2. fünf kurze moderierte Tests mit werdenden Eltern durchführen und unklare Fragen protokollieren,
-3. die zwei dünn abgedeckten Niedrigbudget-/Kleinwagen-Segmente mit tatsächlich verfügbaren Alternativen stärken und den Katalog auf mindestens 20 Modelle vor der Indexierung erweitern,
+2. fünf kurze moderierte Tests nach `docs/kinderwagen-navigator-beta-testplan.md` durchführen und unklare Fragen protokollieren,
+3. den ersten Research-Batch aus `docs/kinderwagen-catalog-research-batch-01.md` bearbeiten, die zwei dünn abgedeckten Niedrigbudget-/Kleinwagen-Segmente stärken und den Katalog auf mindestens 20 Modelle vor der Indexierung erweitern,
 4. mindestens 50 abgeschlossene Beta-Ergebnisse sammeln und Completion, Abbruch pro Frage, Kein-Match-Quote und Hilfreichkeitsfeedback mit Plausible auswerten,
 5. nach Babyprofi-Freigabe nur exakt zugeordnete, frische Geburtskonfigurationen als getrennte Händlerangebote importieren,
 6. erst nach bestandenem Eltern-, Daten- und Index-Readiness-Gate `noindex` entfernen sowie Sitemap und `llms.txt` ergänzen.

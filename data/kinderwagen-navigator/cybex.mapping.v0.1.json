@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": null,
+  "advertiserName": "Cybex DE",
+  "merchant": { "id": "cybex", "name": "CYBEX" },
+  "mappings": []
+}

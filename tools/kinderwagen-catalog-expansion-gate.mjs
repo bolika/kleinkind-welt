@@ -19,7 +19,17 @@ const candidateIds = new Set();
 const urls = new Set();
 const allowedRoutes = new Set(['supported_combo_from_birth', 'future_travel_buggy', 'future_siblings_twins', 'future_jogger']);
 const allowedPriorities = new Set(['P0', 'P1', 'P2']);
-const allowedStatuses = new Set(['ready_for_data_research', 'future_scope_candidate', 'needs_official_url_verification', 'blocked_missing_exact_bundle_price']);
+const allowedStatuses = new Set([
+  'ready_for_data_research',
+  'researched_pending_safety_gate',
+  'future_scope_candidate',
+  'needs_official_url_verification',
+  'blocked_missing_exact_bundle_price'
+]);
+
+if (backlog.policy?.affiliateProgramAvailabilityDoesNotChangeCandidatePriority !== true) {
+  errors.push('Affiliate-Verfügbarkeit darf die Kandidatenpriorität nicht verändern');
+}
 
 for (const candidate of backlog.candidates ?? []) {
   if (!candidate.canonicalModelId || candidateIds.has(candidate.canonicalModelId)) {

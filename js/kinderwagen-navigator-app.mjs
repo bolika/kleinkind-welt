@@ -511,17 +511,21 @@ function offerAvailability(offer) {
 
 function offerPrice(offer) {
   if (!isFreshDate(offer.price?.freshUntil) || typeof offer.price?.amount !== 'number') return 'Aktuellen Preis prüfen';
-  const price = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(offer.price.amount);
-  return offer.price.shippingAmount > 0 ? `${price} zzgl. Versand` : price;
+  const format = (amount) => new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
+  if (typeof offer.price.shippingAmount !== 'number') return `${format(offer.price.amount)} · Versand prüfen`;
+  const total = offer.price.amount + offer.price.shippingAmount;
+  return offer.price.shippingAmount > 0
+    ? `${format(total)} gesamt inkl. Versand`
+    : `${format(total)} inkl. Versand`;
 }
 
 function offerSection(result, rank) {
-  const offers = offersForProduct(state.offers, result.productId);
+  const offers = offersForProduct(state.offers, result.productId).slice(0, 3);
   if (!offers.length) return null;
   const section = element('section', 'navigator-offers');
   section.setAttribute('aria-label', `Händlerangebote für ${result.brand} ${result.model}`);
   const heading = element('div', 'navigator-offers__heading');
-  heading.append(element('strong', '', offers.length === 1 ? 'Passendes Händlerangebot' : 'Passende Händlerangebote'));
+  heading.append(element('strong', '', offers.length === 1 ? 'Passendes Händlerangebot' : `${offers.length} passende Händlerangebote`));
   heading.append(element('span', '', 'Affiliate-Links · ohne Einfluss auf den Match-Score'));
   section.append(heading);
 
@@ -848,7 +852,40 @@ function renderResults() {
     button.addEventListener('click', () => {
       track('ergebnis_bewertet', { hilfreich: value, matches: String(result.results.length) });
       feedbackActions.querySelectorAll('button').forEach((item) => { item.disabled = true; });
-      feedback.append(element('span', 'navigator-feedback__thanks', 'Danke – das hilft uns, den Pilot zu verbessern.'));
+      if (value === 'ja') {
+        feedback.append(element('span', 'navigator-feedback__thanks', 'Danke – das hilft uns, den Pilot zu verbessern.'));
+        return;
+      }
+      const reasons = [
+        ['kein_passendes_modell', 'Kein passendes Modell'],
+        ['passt_nicht_zum_alltag', 'Passt nicht zu unserem Alltag'],
+        ['score_nicht_nachvollziehbar', 'Match-Score nicht nachvollziehbar'],
+        ['frage_unklar', 'Eine Frage war unklar'],
+        ['zu_wenig_information', 'Zu wenig Informationen'],
+        ['haendlerangebot_fehlt', 'Passendes Händlerangebot fehlt']
+      ];
+      const reasonPanel = element('div', 'navigator-feedback-reasons');
+      reasonPanel.setAttribute('role', 'group');
+      reasonPanel.setAttribute('aria-label', 'Grund für negatives Feedback');
+      reasonPanel.append(element('strong', '', 'Was hat euch vor allem gefehlt?'));
+      const reasonActions = element('div', 'navigator-feedback-reasons__actions');
+      for (const [reasonId, reasonLabel] of reasons) {
+        const reasonButton = element('button', 'navigator-feedback-reason', reasonLabel);
+        reasonButton.type = 'button';
+        reasonButton.addEventListener('click', () => {
+          track('ergebnis_feedbackgrund', {
+            grund: reasonId,
+            matches: String(result.results.length),
+            top_produkt: result.results[0]?.productId ?? 'kein_match'
+          });
+          reasonActions.querySelectorAll('button').forEach((item) => { item.disabled = true; });
+          reasonPanel.append(element('span', 'navigator-feedback__thanks', 'Danke – damit wissen wir, wo wir nachbessern müssen.'));
+        }, { once: true });
+        reasonActions.append(reasonButton);
+      }
+      reasonPanel.append(reasonActions);
+      feedback.append(reasonPanel);
+      reasonActions.querySelector('button')?.focus();
     }, { once: true });
     feedbackActions.append(button);
   }

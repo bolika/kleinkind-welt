@@ -1,5 +1,7 @@
 # Awin/Babyprofi-Integration für den Kinderwagen-Navigator
 
+> Historische Babyprofi-spezifische Anleitung. Der aktuelle Mehrhändler-Prozess steht in `docs/awin-kinderwagen-integration.md`.
+
 Status: technisch vorbereitet, echte Angebote warten auf die Aufnahme in das Babyprofi-Programm 14986.
 
 ## Verbindliche Produktregel
@@ -40,10 +42,11 @@ Beispiel für einen kuratierten Mapping-Eintrag:
 ## Import
 
 ```bash
-node tools/import-awin-babyprofi-offers.mjs \
+node tools/import-awin-offers.mjs \
   --input imports/awin/babyprofi.csv.gz \
   --mapping data/kinderwagen-navigator/babyprofi.mapping.v0.1.json \
-  --output data/kinderwagen-navigator/offers.v0.1.json
+  --output data/kinderwagen-navigator/offers.v0.1.json \
+  --merge data/kinderwagen-navigator/offers.v0.1.json
 ```
 
 Der Importer:

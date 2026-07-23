@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "checkedAt": "2026-07-23",
+  "policy": {
+    "affiliateAvailabilityDoesNotAffectResearchPriority": true,
+    "manufacturerFactsRequiredForHardFit": true,
+    "noAutomaticCatalogPromotion": true,
+    "manualSafetyGateCheckBeforePromotion": true,
+    "absenceOfKnownAlertIsNotSafetyApproval": true
+  },
+  "records": [
+    {
+      "canonicalModelId": "joie-finiti",
+      "officialModelName": "Joie Signature Finiti mit Ramble XL",
+      "status": "blocked_source_conflict",
+      "sourceUrl": "https://joiebaby.com/de/kinderwagen/signature-finiti-kombi-kinderwagen-mit-ramble-xl",
+      "requiredConfiguration": "Finiti Kinderwagen plus Ramble XL Babywanne",
+      "currentPriceEur": null,
+      "marketStatus": "unknown",
+      "unfoldedWidthCm": 63,
+      "foldedDimensionsCm": {
+        "length": 68,
+        "width": 63,
+        "height": 43,
+        "configuration": "manufacturer-folded-state"
+      },
+      "liftReadyWeightKg": 12.53,
+      "liftReadyConfiguration": "frame_with_seat",
+      "carrycotIncluded": true,
+      "safetyGate": {
+        "status": "manual_search_pending",
+        "checkedAt": null
+      },
+      "tradeoffs": [
+        "Mit 63 Zentimetern breiter als die kompaktesten Stadtkandidaten.",
+        "Der offizielle Bundle-Preis ist aktuell nicht belastbar."
+      ],
+      "blockers": [
+        "Die offizielle Bundle-Seite zeigt 0,00 Euro; ohne eindeutigen Gesamtpreis darf das Modell nicht in strikte Budget-Matches."
+      ]
+    },
+    {
+      "canonicalModelId": "kinderkraft-vesto-2-2in1",
+      "officialModelName": "Kinderkraft VESTO 2 2in1",
+      "status": "blocked_source_conflict",
+      "sourceUrl": "https://kinderkraft.de/produkte/vesto-2-2w1",
+      "requiredConfiguration": "VESTO 2 2in1 mit Babywanne und Sitzeinheit",
+      "currentPriceEur": null,
+      "marketStatus": "unknown",
+      "unfoldedWidthCm": null,
+      "foldedDimensionsCm": null,
+      "liftReadyWeightKg": null,
+      "liftReadyConfiguration": "unknown",
+      "carrycotIncluded": true,
+      "safetyGate": {
+        "status": "manual_search_pending",
+        "checkedAt": null
+      },
+      "tradeoffs": [
+        "Preis, Bestand und kritische Maße sind auf den offiziellen Oberflächen nicht konsistent genug für einen belastbaren Match."
+      ],
+      "blockers": [
+        "Die offizielle Kategorie nennt 259 Euro, während die konkrete Produktseite 0,00 Euro beziehungsweise variantenabhängige Nichtverfügbarkeit meldet.",
+        "Breite, Faltzustand und real zu tragende Konfiguration müssen vor Veröffentlichung eindeutig belegt werden."
+      ]
+    },
+    {
+      "canonicalModelId": "cybex-mios-current",
+      "officialModelName": "CYBEX Mios (Neue Generation)",
+      "status": "researched_pending_safety_gate",
+      "sourceUrl": "https://www.cybex-online.com/de/de/p/st-pl-mios-5.html",
+      "catalogNumber": "526000089",
+      "requiredConfiguration": "Mios Comfort Set mit Rahmen, Fold Lux Carry Cot und Sitzeinheit",
+      "currentPriceEur": 1049.95,
+      "priceCheckedAt": "2026-07-23",
+      "priceFreshUntil": "2026-08-06",
+      "marketStatus": "current_available",
+      "unfoldedWidthCm": 50,
+      "foldedDimensionsCm": {
+        "length": 30,
+        "width": 50,
+        "height": 65,
+        "configuration": "with_seat_compact_state"
+      },
+      "liftReadyWeightKg": 9.8,
+      "liftReadyConfiguration": "frame_with_seat",
+      "carrycotIncluded": true,
+      "safetyGate": {
+        "status": "manual_search_pending",
+        "checkedAt": null
+      },
+      "tradeoffs": [
+        "Der dokumentierte Korb hat auf der Produktseite keine belastbare Traglast- oder Volumenangabe.",
+        "Das Gewicht der Babywanne und einzelner Baugruppen ist in der geprüften Quelle nicht separat ausgewiesen."
+      ],
+      "blockers": [
+        "Manuelle Suche im offiziellen EU Safety Gate und Dokumentation des Ergebnisses stehen aus."
+      ]
+    },
+    {
+      "canonicalModelId": "joolz-day5",
+      "officialModelName": "Joolz Day5",
+      "status": "researched_pending_safety_gate",
+      "sourceUrl": "https://www.joolz.com/de/de/kinderwagen-2-in-1/540004.html",
+      "requiredConfiguration": "Joolz Day5 Set mit Gestell, Wanne und Sitz",
+      "currentPriceEur": 1299,
+      "priceCheckedAt": "2026-07-23",
+      "priceFreshUntil": "2026-08-06",
+      "marketStatus": "current_available",
+      "unfoldedWidthCm": 60,
+      "foldedDimensionsCm": {
+        "length": 83,
+        "width": 60,
+        "height": 46,
+        "configuration": "with_seat"
+      },
+      "liftReadyWeightKg": 12,
+      "liftReadyConfiguration": "frame_with_seat",
+      "carrycotIncluded": true,
+      "safetyGate": {
+        "status": "manual_search_pending",
+        "checkedAt": null
+      },
+      "tradeoffs": [
+        "Mit 60 Zentimetern Breite und 12 Kilogramm in Sitzkonfiguration nicht so kompakt oder leicht wie der Mios.",
+        "Einhand-Faltung und konkrete Federungsart sind in der geprüften Produktquelle nicht eindeutig genug dokumentiert."
+      ],
+      "blockers": [
+        "Manuelle Suche im offiziellen EU Safety Gate und Dokumentation des Ergebnisses stehen aus."
+      ]
+    },
+    {
+      "canonicalModelId": "joolz-geo5",
+      "officialModelName": "Joolz Geo5 Single",
+      "status": "researched_pending_safety_gate",
+      "sourceUrl": "https://www.joolz.com/de/de/kinderwagen/072000-M.html",
+      "requiredConfiguration": "Joolz Geo5 Single mit Gestell, Wanne und Sitz",
+      "currentPriceEur": 1299,
+      "priceCheckedAt": "2026-07-23",
+      "priceFreshUntil": "2026-08-06",
+      "marketStatus": "current_available",
+      "unfoldedWidthCm": 60,
+      "foldedDimensionsCm": {
+        "length": 93,
+        "width": 60,
+        "height": 47,
+        "configuration": "with_seat"
+      },
+      "liftReadyWeightKg": 12.9,
+      "liftReadyConfiguration": "frame_with_seat",
+      "carrycotIncluded": true,
+      "safetyGate": {
+        "status": "manual_search_pending",
+        "checkedAt": null
+      },
+      "tradeoffs": [
+        "Mit Sitz größer gefaltet und schwerer zu tragen als kompakte Stadtkandidaten.",
+        "Der Ausbau zum Double oder Twin braucht zusätzliche Komponenten und gehört nicht zum aktuellen Single-Matcher."
+      ],
+      "blockers": [
+        "Manuelle Suche im offiziellen EU Safety Gate und Dokumentation des Ergebnisses stehen aus."
+      ]
+    }
+  ]
+}

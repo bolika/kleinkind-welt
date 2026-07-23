@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-07-23",
+  "policy": {
+    "programAvailabilityDoesNotAffectMatchScore": true,
+    "commissionDoesNotAffectOfferOrder": true,
+    "offerOrder": [
+      "exact_required_configuration",
+      "fresh_availability",
+      "fresh_total_price_including_shipping",
+      "merchant_name"
+    ],
+    "unknownAdvertiserIdBlocksImport": true,
+    "feedImagesRequireTermsReview": true
+  },
+  "programs": [
+    {
+      "merchant": { "id": "babyprofi", "name": "Babyprofi" },
+      "advertiserName": "Babyprofi-online DE",
+      "advertiserId": 14986,
+      "applicationStatus": "pending",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "terms_review_required",
+      "priority": "P0",
+      "mappingFile": "data/kinderwagen-navigator/babyprofi.mapping.v0.1.json",
+      "catalogProductIds": [],
+      "plannedModelIds": [],
+      "role": "Markenübergreifender Händler für exakte Geburtskonfigurationen."
+    },
+    {
+      "merchant": { "id": "bugaboo", "name": "Bugaboo" },
+      "advertiserName": "Bugaboo DE",
+      "advertiserId": null,
+      "applicationStatus": "pending",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "terms_review_required",
+      "priority": "P0",
+      "mappingFile": "data/kinderwagen-navigator/bugaboo.mapping.v0.1.json",
+      "catalogProductIds": ["bugaboo-dragonfly-plus", "bugaboo-fox-5-renew"],
+      "plannedModelIds": [],
+      "role": "Direkter Markenkanal für bereits veröffentlichte Bugaboo-Matches."
+    },
+    {
+      "merchant": { "id": "joolz", "name": "Joolz" },
+      "advertiserName": "Joolz DE",
+      "advertiserId": null,
+      "applicationStatus": "pending",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "terms_review_required",
+      "priority": "P0",
+      "mappingFile": "data/kinderwagen-navigator/joolz.mapping.v0.1.json",
+      "catalogProductIds": ["joolz-hub2"],
+      "plannedModelIds": ["joolz-day5", "joolz-geo5"],
+      "role": "Direkter Markenkanal und geplanter Ausbau für Komfort- und robuste Alltagsprofile."
+    },
+    {
+      "merchant": { "id": "cybex", "name": "CYBEX" },
+      "advertiserName": "Cybex DE",
+      "advertiserId": null,
+      "applicationStatus": "pending",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "terms_review_required",
+      "priority": "P1",
+      "mappingFile": "data/kinderwagen-navigator/cybex.mapping.v0.1.json",
+      "catalogProductIds": ["cybex-balios-s-lux-current"],
+      "plannedModelIds": ["cybex-mios-current", "cybex-priam-4", "cybex-e-priam-2"],
+      "role": "Direkter Markenkanal für Stadt-, Premium- und Geländeprofile."
+    },
+    {
+      "merchant": { "id": "lidl", "name": "Lidl" },
+      "advertiserName": "Lidl DE",
+      "advertiserId": null,
+      "applicationStatus": "pending",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "terms_review_required",
+      "priority": "P2",
+      "mappingFile": "data/kinderwagen-navigator/lidl.mapping.v0.1.json",
+      "catalogProductIds": [],
+      "plannedModelIds": [],
+      "role": "Nur für exakt identifizierte, dauerhaft prüfbare Aktionsangebote; nicht als Produktdatenquelle."
+    },
+    {
+      "merchant": { "id": "tfk", "name": "TFK" },
+      "advertiserName": "TFK Buggy",
+      "advertiserId": null,
+      "applicationStatus": "pending",
+      "integrationMode": "manual_awin_link",
+      "productFeedAvailable": false,
+      "feedImageUsageStatus": "no_feed",
+      "priority": "P2",
+      "mappingFile": "data/kinderwagen-navigator/tfk.mapping.v0.1.json",
+      "catalogProductIds": [],
+      "plannedModelIds": [],
+      "role": "Späterer Kanal für eine getrennte Buggy- oder Jogger-Route; nicht Teil des Kombi-MVP."
+    }
+  ]
+}

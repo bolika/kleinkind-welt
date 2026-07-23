@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": null,
+  "advertiserName": "TFK Buggy",
+  "merchant": { "id": "tfk", "name": "TFK" },
+  "mappings": []
+}

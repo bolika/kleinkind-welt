@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": null,
+  "advertiserName": "Bugaboo DE",
+  "merchant": { "id": "bugaboo", "name": "Bugaboo" },
+  "mappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "advertiserId": null,
+  "advertiserName": "Joolz DE",
+  "merchant": { "id": "joolz", "name": "Joolz" },
+  "mappings": []
+}
