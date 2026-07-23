@@ -45,6 +45,29 @@
       "reason": "Sport- und Jogging-Kinderwagen brauchen eigene Sicherheits- und Nutzungsfragen und dürfen nicht in den allgemeinen Kombi-Matcher gelangen."
     },
     {
+      "canonicalModelId": "kinderkraft-vesto-2-2in1",
+      "brand": "Kinderkraft",
+      "model": "VESTO 2 2in1",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P0",
+      "status": "blocked_missing_exact_bundle_price",
+      "officialUrl": "https://kinderkraft.de/produkte/vesto-2-2w1",
+      "coverageTargets": ["low_budget_city_walkup", "tight_access_transit", "compact_car_fixed_budget"],
+      "reason": "Aktuelle günstige 2in1-Geburtskonfiguration. Faltung mit Sitzeinheit und tatsächliche Breite müssen gezielt gegen Stadt-, Zugangs- und Kleinwagenprofile geprüft werden.",
+      "blocker": "Die offizielle Kategorieseite nennt 259 Euro und einen Warenkorb-CTA, während die konkrete Produktseite 0,00 Euro beziehungsweise variantenabhängig Nichtverfügbarkeit meldet. Erst nach eindeutigem aktuellem Setpreis veröffentlichen."
+    },
+    {
+      "canonicalModelId": "kinderkraft-prime-3-2in1",
+      "brand": "Kinderkraft",
+      "model": "PRIME 3 2in1",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://kinderkraft.de/produkte/prime-3-2w1",
+      "coverageTargets": ["mid_budget_function_first", "service_weather_long_use"],
+      "reason": "Aktuelle mittlere Preisklasse als Funktions- und Servicealternative. Aufnahme erst nach vollständigem Preis-, Gewichts- und Maßvergleich der Geburtskonfiguration."
+    },
+    {
       "canonicalModelId": "my-junior-vigo",
       "brand": "my junior",
       "model": "VIGO",

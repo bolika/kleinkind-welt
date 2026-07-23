@@ -300,7 +300,7 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 **Gate:** Kein Top-Match besitzt unbekannte harte Kriterien; mindestens 85 Prozent gewichtete Datenabdeckung.
 
-**Stand:** Versioniertes Produktschema, Katalogmanifest und 15 Modelle sind erfasst. Jeder Fakt besitzt Quellen- und Prüfstatus. Marktstatus und Gesamtpreis laufen ab; unterschiedliche Gewichtsdefinitionen werden über die konkrete Tragekonfiguration getrennt. Der Produktdaten-Gate meldet verbleibende harte Lücken, statt sie zu schätzen. YOXI und ESME erhalten wegen aktueller Hersteller-Nichtverfügbarkeit im Ergebnis einen sichtbaren Warnhinweis und ohne frisches Händlerangebot keinen Kauf-CTA. Eine persona-gesteuerte Ausbau-Queue enthält sieben weitere Kombi-Modelle sowie getrennte Kandidaten für spätere Reisebuggy-, Geschwisterwagen- und Jogger-Routen. Der Joie Finiti bleibt wegen widersprüchlicher offizieller Setpreise ausdrücklich blockiert.
+**Stand:** Versioniertes Produktschema, Katalogmanifest und 15 Modelle sind erfasst. Jeder Fakt besitzt Quellen- und Prüfstatus. Marktstatus und Gesamtpreis laufen ab; unterschiedliche Gewichtsdefinitionen werden über die konkrete Tragekonfiguration getrennt. Der Produktdaten-Gate meldet verbleibende harte Lücken, statt sie zu schätzen. Vier öffentlich nicht belegbare ungefaltete Wagenbreiten werden zusätzlich in einer versionierten Datenlücken-Registry mit Quelle, Begründung und nächstem Prüfdatum geführt. YOXI und ESME erhalten wegen aktueller Hersteller-Nichtverfügbarkeit im Ergebnis einen sichtbaren Warnhinweis und ohne frisches Händlerangebot keinen Kauf-CTA. Eine persona-gesteuerte Ausbau-Queue enthält neun weitere Kombi-Modelle sowie getrennte Kandidaten für spätere Reisebuggy-, Geschwisterwagen- und Jogger-Routen. Der Joie Finiti bleibt wegen widersprüchlicher offizieller Setpreise ausdrücklich blockiert.
 
 ### Phase 3: Interaktiver Prototyp
 
@@ -313,7 +313,7 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 **Gate:** Zehn vorbereitete Profile liefern die erwarteten Ergebnisstufen und funktionieren per Tastatur sowie auf kleinen Smartphones.
 
-**Stand:** Deterministische Match-Engine, adaptive One-Question-per-Screen-Oberfläche, Ergebnisnachweis, verständliche Match-Stufen, Quellenansicht und Plausible-Tracking sind implementiert. Zehn Referenzprofile sowie Gate-, Reihenfolge-, Prioritäts-, Persona- und Gewichtsgrenzfälle laufen automatisiert. Smartphone- und Desktop-Kernpfad wurden im echten Browser geprüft; ein vollständiger moderierter Tastatur- und Verständlichkeitstest mit Eltern bleibt vor der Beta-Freigabe offen.
+**Stand:** Deterministische Match-Engine, adaptive One-Question-per-Screen-Oberfläche, Ergebnisnachweis, verständliche Match-Stufen, Quellenansicht und Plausible-Tracking sind implementiert. Der Browser lädt den synchron geprüften Produktkatalog als einen kompakten Payload statt über 15 einzelne Produkt-Requests; Ladeerfolg, Ladezeit-Bucket und Ladefehler sind messbar. Zehn Referenzprofile sowie Gate-, Reihenfolge-, Prioritäts-, Persona- und Gewichtsgrenzfälle laufen automatisiert. Smartphone- und Desktop-Kernpfad wurden im echten Browser geprüft; ein vollständiger moderierter Tastatur- und Verständlichkeitstest mit Eltern bleibt vor der Beta-Freigabe offen.
 
 ### Phase 4: Geschlossene Beta
 
@@ -336,11 +336,12 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 Der technische Daten-Pilot ist umgesetzt. Die Reihenfolge für eine belastbare geschlossene Beta lautet nun:
 
-1. vollständigen Klickpfad mobil und auf Desktop im echten Browser prüfen, einschließlich Tastatur und Fehlermeldungen,
+1. vollständigen Tastatur- und Screenreader-Kernpfad manuell abschließen,
 2. fünf kurze moderierte Tests mit werdenden Eltern durchführen und unklare Fragen protokollieren,
-3. Completion, Abbruch pro Frage, Kein-Match-Quote und Hilfreichkeitsfeedback mit Plausible messen,
-4. die zwei dünn abgedeckten Niedrigbudget-/Kleinwagen-Segmente mit tatsächlich verfügbaren Alternativen stärken und den Katalog auf mindestens 20 Modelle vor der Indexierung erweitern,
-5. erst nach bestandener Eltern-Beta und Safety-Gate Indexierung, SEO-Landingtext oder Händler-/Affiliate-Aktionen ergänzen.
+3. die zwei dünn abgedeckten Niedrigbudget-/Kleinwagen-Segmente mit tatsächlich verfügbaren Alternativen stärken und den Katalog auf mindestens 20 Modelle vor der Indexierung erweitern,
+4. mindestens 50 abgeschlossene Beta-Ergebnisse sammeln und Completion, Abbruch pro Frage, Kein-Match-Quote und Hilfreichkeitsfeedback mit Plausible auswerten,
+5. nach Babyprofi-Freigabe nur exakt zugeordnete, frische Geburtskonfigurationen als getrennte Händlerangebote importieren,
+6. erst nach bestandenem Eltern-, Daten- und Index-Readiness-Gate `noindex` entfernen sowie Sitemap und `llms.txt` ergänzen.
 
 **Beta-Gate:** Kein Wert wird geschätzt, Preisbestandteile und Tragekonfigurationen bleiben vergleichbar, Affiliate-Felder sind technisch vom Matching getrennt und alle sichtbaren Ergebnisse bestehen den mobilen Klick- und Verständlichkeitstest.
 

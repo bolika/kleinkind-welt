@@ -9,6 +9,8 @@ const gates = [
   'tools/kinderwagen-navigator-gate.mjs',
   'tools/kinderwagen-question-flow-test.mjs',
   'tools/kinderwagen-product-data-gate.mjs',
+  'tools/kinderwagen-data-gap-gate.mjs',
+  'tools/build-kinderwagen-catalog-bundle.mjs --check',
   'tools/kinderwagen-matcher-test.mjs',
   'tools/kinderwagen-persona-coverage.mjs',
   'tools/kinderwagen-source-registry-gate.mjs',
@@ -20,8 +22,9 @@ const gates = [
 ];
 
 for (const gate of gates) {
+  const [script, ...args] = gate.split(' ');
   console.log(`\n→ ${gate}`);
-  const result = spawnSync(process.execPath, [path.join(root, gate)], {
+  const result = spawnSync(process.execPath, [path.join(root, script), ...args], {
     cwd: root,
     stdio: 'inherit'
   });

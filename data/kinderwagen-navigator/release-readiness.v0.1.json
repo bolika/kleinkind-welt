@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-07-23",
+  "manualGates": {
+    "keyboardAndSmallScreenTest": {
+      "status": "partial",
+      "note": "Smartphone- und Desktop-Kernpfad wurden geprüft; ein vollständiger manueller Tastatur- und Screenreader-Durchlauf steht aus."
+    },
+    "moderatedParentTests": {
+      "status": "pending",
+      "completed": 0,
+      "target": 5,
+      "note": "Fünf kurze Tests mit werdenden Eltern oder Eltern mit aktueller Kinderwagen-Erfahrung."
+    },
+    "betaFunnelSample": {
+      "status": "pending",
+      "completedResultSessions": 0,
+      "target": 50,
+      "note": "Erst nach einer belastbaren Stichprobe Completion, Kein-Match, Hilfreichkeit und Händlerinteresse bewerten."
+    },
+    "systematicMismatchReview": {
+      "status": "pending",
+      "note": "Negative Rückmeldungen und No-Match-Fälle müssen einzeln gegen Eingaben, Regeln und Datenlage geprüft werden."
+    }
+  }
+}

@@ -43,7 +43,7 @@ assert(/min-height: 48px/.test(css), 'Touch-Ziel-Mindesthöhe fehlt');
 
 assert(!/\.innerHTML\s*=/.test(app), 'App darf dynamische Daten nicht per innerHTML rendern');
 assert(!/localStorage|sessionStorage/.test(app), 'Pilot soll keine Antworten im Browser speichern');
-for (const action of ['gestartet', 'frage_angezeigt', 'frage_beantwortet', 'zurueck', 'zusammenfassung_angesehen', 'ergebnis_berechnet', 'ergebnis_bewertet', 'route_nicht_unterstuetzt']) {
+for (const action of ['navigator_bereit', 'ladefehler', 'gestartet', 'frage_angezeigt', 'frage_beantwortet', 'zurueck', 'zusammenfassung_angesehen', 'ergebnis_berechnet', 'ergebnis_bewertet', 'route_nicht_unterstuetzt']) {
   assert(app.includes(`'${action}'`), `Plausible-Aktion ${action} fehlt`);
 }
 for (const action of ['match_gesehen', 'haendlerangebot_geoeffnet', 'score_erlaeuterung_geoeffnet']) {
@@ -58,6 +58,8 @@ assert(/coreQuestionIds/.test(app) && /top_priorities/.test(app), 'Fortschritt m
 assert(/question\.id === 'top_priorities' \? 'Ergebnis anzeigen' : 'Weiter'/.test(app), 'Nur die letzte Kernfrage darf „Ergebnis anzeigen“ ankündigen');
 assert(/affiliateDisclosure\.hidden = false/.test(app), 'Affiliate-Hinweis muss sich bei veröffentlichten Angeboten automatisch aktivieren');
 assert(/offers\.v0\.1\.json/.test(app), 'Separate Händlerangebotsdaten werden nicht geladen');
+assert(/catalog\.bundle\.v0\.1\.json/.test(app) && !/catalog\.products\.map/.test(app), 'Browser muss den validierten Katalog als einen Payload laden');
+assert(/catalog_empty/.test(app) && /catalog_version_mismatch/.test(app), 'Browser muss leere oder inkompatible Katalog-Bundles sichtbar ablehnen');
 assert(/haendlerangebot_gesehen/.test(app), 'Sichtbares Händlerangebot wird nicht gemessen');
 assert(/dataset\.affiliate/.test(app) && /sponsored nofollow noopener/.test(app), 'Affiliate-Angebote benötigen Trackingdaten und rel-Kennzeichnung');
 assert(/exact_required_configuration/.test(offers), 'Nur bestätigte vollständige Konfigurationen dürfen angezeigt werden');

@@ -5,6 +5,7 @@ import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-off
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
 const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
+const loadStartedAt = performance.now();
 
 const state = {
   answers: {},
@@ -41,6 +42,13 @@ function track(action, props = {}) {
       ...props
     }
   });
+}
+
+function loadTimeBucket(milliseconds) {
+  if (milliseconds < 1000) return 'unter_1s';
+  if (milliseconds < 2000) return '1_bis_2s';
+  if (milliseconds < 4000) return '2_bis_4s';
+  return 'ueber_4s';
 }
 
 function element(tag, className, text) {
@@ -893,13 +901,15 @@ function restartNavigator() {
 }
 
 async function loadData() {
-  const [questionsData, criteriaData, catalog, offerData] = await Promise.all([
+  const [questionsData, criteriaData, catalogBundle, offerData] = await Promise.all([
     fetch(`${DATA_ROOT}/questions.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/criteria.v0.1.json`).then((response) => response.json()),
-    fetch(`${DATA_ROOT}/catalog.v0.1.json`).then((response) => response.json()),
+    fetch(`${DATA_ROOT}/catalog.bundle.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/offers.v0.1.json`).then((response) => response.ok ? response.json() : { offers: [] }).catch(() => ({ offers: [] }))
   ]);
-  const products = await Promise.all(catalog.products.map((filename) => fetch(`${DATA_ROOT}/products/${filename}`).then((response) => response.json())));
+  const products = catalogBundle.products ?? [];
+  if (!Array.isArray(products) || !products.length) throw new Error('catalog_empty');
+  if (catalogBundle.modelVersion !== criteriaData.modelVersion) throw new Error('catalog_version_mismatch');
   state.questions = questionsData.questions.sort((a, b) => a.order - b.order);
   state.flowVersion = questionsData.flowVersion ?? '0.2.0';
   state.criteriaData = criteriaData;
@@ -913,10 +923,16 @@ async function loadData() {
   });
   state.ready = true;
   renderQuestion(state.questions[0].id, { scroll: false, focus: false });
+  track('navigator_bereit', {
+    modelle: String(products.length),
+    angebote: String(state.offers.length),
+    ladezeit: loadTimeBucket(performance.now() - loadStartedAt)
+  });
 }
 
 if (app) {
-  loadData().catch(() => {
+  loadData().catch((loadError) => {
+    track('ladefehler', { phase: 'initiale_daten', typ: loadError?.name ?? 'unbekannt' });
     const error = element('div', 'navigator-app-card navigator-route-card');
     error.append(element('h2', '', 'Der Daten-Pilot konnte nicht geladen werden'));
     error.append(element('p', 'navigator-question-help', 'Bitte ladet die Seite neu. Falls das Problem bleibt, ist der Navigator vorübergehend nicht verfügbar.'));
