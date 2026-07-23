@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-07-23",
+  "reviewDueAt": "2027-01-23",
+  "guides": [
+    {
+      "slug": "kinderwagen-arten",
+      "primaryQuery": "kinderwagen arten",
+      "title": "Kinderwagen-Arten: Welcher Typ passt zu euch?",
+      "description": "Kombi-Kinderwagen, Buggy oder Reisebuggy? Die Kinderwagen-Arten verständlich erklärt – mit Einsatzgebiet, Grenzen und Entscheidungshilfe.",
+      "category": "Grundlagen",
+      "readTime": "6 Min.",
+      "lead": "Kombi-Kinderwagen, Buggy und Reisebuggy lösen unterschiedliche Probleme. Entscheidend ist nicht der beliebteste Typ, sondern wann, wo und ab welchem Entwicklungsstand ihr ihn nutzen möchtet.",
+      "shortAnswer": "Für die Zeit ab Geburt ist meist eine geeignete flache Liegelösung nötig. Ein Kombi-Kinderwagen verbindet diese erste Phase mit einem späteren Sitz. Buggys und Reisebuggys sind kompakter, aber nicht automatisch für Neugeborene geeignet. Prüft deshalb immer die konkrete Herstellerfreigabe – nicht nur die Produktbezeichnung.",
+      "sections": [
+        {
+          "id": "vergleich",
+          "heading": "Die wichtigsten Kinderwagen-Arten im Vergleich",
+          "paragraphs": [
+            "Die Namen im Handel sind nicht immer einheitlich. Zwei Wagen mit derselben Bezeichnung können sich bei Liegeposition, Gewicht, Rädern und Lieferumfang deutlich unterscheiden. Nutzt die Kategorie daher nur als ersten Filter."
+          ],
+          "bullets": [
+            "<strong>Kombi-Kinderwagen:</strong> meist Gestell plus Babywanne und späterer Sitz. Sinnvoll, wenn ein Wagen mehrere Phasen abdecken soll.",
+            "<strong>Buggy oder Sportwagen:</strong> auf das sitzende Kind und einen kompakteren Alltag ausgerichtet. Die individuelle Freigabe und Sitzposition müssen zum Kind passen.",
+            "<strong>Reisebuggy:</strong> besonders kompakt und leicht gedacht. Der Gewinn beim Packmaß kann mit kleineren Rädern, weniger Stauraum oder weniger Komfort auf unebenen Wegen verbunden sein.",
+            "<strong>Geschwister- oder Zwillingswagen:</strong> für zwei Kinder, aber breiter, länger oder schwerer. Türen, Aufzug und Kofferraum werden zu harten Ausschlusskriterien."
+          ]
+        },
+        {
+          "id": "ab-geburt",
+          "heading": "Was bedeutet „ab Geburt“ wirklich?",
+          "paragraphs": [
+            "Eine werbliche Formulierung reicht nicht. Klärt, in welcher Konfiguration der Wagen für ein Neugeborenes freigegeben ist: mit Babywanne, separater Tragetasche oder einer ausdrücklich geeigneten flachen Liegeposition.",
+            "Eine Babyschale ist praktisch für kurze Übergänge am Auto, ersetzt aber nicht automatisch eine geeignete Kinderwagen-Liegelösung. Stiftung Warentest weist darauf hin, dass Babys nicht länger als nötig in der engen Autoschale bleiben sollten."
+          ]
+        },
+        {
+          "id": "entscheidung",
+          "heading": "Vier Fragen reichen für die erste Auswahl",
+          "bullets": [
+            "<strong>Ab wann?</strong> Ab Geburt oder erst, wenn das Kind selbstständig sitzen kann?",
+            "<strong>Wo hauptsächlich?</strong> Enge Stadtwege, Wald- und Feldwege oder Reisen?",
+            "<strong>Wie oft tragen?</strong> Treppen, ÖPNV und Kofferraum machen Gewicht praktisch relevant.",
+            "<strong>Was ist enthalten?</strong> Babywanne, Sitz, Regenverdeck und Adapter können den Gesamtpreis verändern."
+          ],
+          "paragraphs": [
+            "Der Typ ist nur der Start. Für eine belastbare Entscheidung müssen konkrete Maße, Gewichte, Freigaben und der tatsächliche Lieferumfang des Modells folgen."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Ist ein Buggy für Neugeborene geeignet?",
+          "answer": "Nicht automatisch. Entscheidend sind die konkrete Herstellerfreigabe und eine für das Alter geeignete Konfiguration. Die Bezeichnung „Buggy“ allein beantwortet das nicht."
+        },
+        {
+          "question": "Braucht jede Familie einen Kombi-Kinderwagen?",
+          "answer": "Nein. Die passende Lösung hängt von Nutzungsbeginn, Wegen, Transport und Platz ab. Manche Familien kombinieren eine andere Trage- oder Fahrlösung mit einem späteren Buggy."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Stiftung Warentest",
+          "url": "https://www.test.de/Kinderwagen-im-Test-4805700-5496439/",
+          "label": "Checkliste für den Kinderwagenkauf"
+        },
+        {
+          "name": "Mehr Sicherheit für Kinder",
+          "url": "https://www.kindersicherheit.de/kindersicherheit/produktdatenbank/kinderwagen",
+          "label": "Kauf- und Nutzungstipps für Kinderwagen"
+        }
+      ]
+    },
+    {
+      "slug": "kinderwagen-stadt-oder-land",
+      "primaryQuery": "kinderwagen stadt oder gelände",
+      "title": "Kinderwagen für Stadt oder Gelände auswählen",
+      "description": "Kinderwagen für Stadt oder Gelände: Welche Räder, Maße und Gewichte im Alltag wirklich relevant sind – mit klarer Entscheidungshilfe.",
+      "category": "Alltag",
+      "readTime": "6 Min.",
+      "lead": "Ein wendiger Stadtwagen und ein geländetauglicher Wagen optimieren unterschiedliche Situationen. Wer beides braucht, sollte den häufigsten schwierigen Weg priorisieren – nicht den schönsten Ausnahmeausflug.",
+      "shortAnswer": "Für enge Läden, Bus und Gehwege helfen eine moderate Breite, schwenkbare Vorderräder und einfaches Falten. Für Kopfsteinpflaster, Feld- und Waldwege werden größere Räder und gute Federung wichtiger. Wenn euer Alltag gemischt ist, bewertet zuerst die Strecke, auf der ein unpassender Wagen am meisten nerven würde.",
+      "sections": [
+        {
+          "id": "stadt",
+          "heading": "Was einen Stadt-Kinderwagen praktisch macht",
+          "bullets": [
+            "Wendigkeit in engen Gängen und an Bordsteinen",
+            "Breite passend zu Haustür, Aufzug und häufig genutzten Geschäften",
+            "ein Faltvorgang, der auch unter Zeitdruck funktioniert",
+            "tragbares Gewicht, wenn Treppen oder ÖPNV dazugehören",
+            "gut zugänglicher Korb für Einkäufe"
+          ],
+          "paragraphs": [
+            "Ein kleines Faltmaß ist nur dann ein Vorteil, wenn der Wagen in der benötigten Konfiguration faltbar ist. Manche Maße gelten ohne Sitz oder mit dem Sitz in einer bestimmten Richtung."
+          ]
+        },
+        {
+          "id": "land",
+          "heading": "Was auf unebenen Wegen wichtiger wird",
+          "bullets": [
+            "größere Räder statt rein auf Kompaktheit optimierter Rollen",
+            "Federung und stabile Spur auf wechselndem Untergrund",
+            "ausreichender Wetterschutz",
+            "robuste, gut zugängliche Bremse",
+            "genügend Stauraum für längere Wege"
+          ],
+          "paragraphs": [
+            "Stiftung Warentest ordnet schwenkbare Vorderräder als praktisch in engen Läden ein und sieht große, luftbereifte Räder mit Federung auf unebenen Wegen im Vorteil. Das ist eine hilfreiche Richtung, aber keine pauschale Qualitätsnote für ein einzelnes Modell."
+          ]
+        },
+        {
+          "id": "mischalltag",
+          "heading": "So entscheidet ihr bei einem gemischten Alltag",
+          "paragraphs": [
+            "Notiert eure drei häufigsten Wege und den schwierigsten davon. Ein tägliches enges Treppenhaus sollte stärker zählen als ein monatlicher Waldspaziergang. Umgekehrt darf ein täglich holpriger Weg nicht durch ein besonders kleines Faltmaß schöngerechnet werden.",
+            "Im Navigator werden deshalb harte Anforderungen von Vorlieben getrennt. Ein Wagen, der nicht durch die relevante Tür passt oder das feste Budget sprengt, sollte keinen hohen Match-Score erhalten."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Sind drei Räder automatisch besser im Gelände?",
+          "answer": "Nein. Radzahl allein reicht nicht. Radgröße, Material, Federung, Spur und die konkrete Konstruktion müssen gemeinsam betrachtet werden."
+        },
+        {
+          "question": "Was ist wichtiger: kleines Faltmaß oder große Räder?",
+          "answer": "Das hängt vom häufigsten Engpass ab. Bei täglichem Autotransport kann das Faltmaß dominieren; bei überwiegend unebenen Wegen können Radgröße und Federung wichtiger sein."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Stiftung Warentest",
+          "url": "https://www.test.de/Kinderwagen-im-Test-4805700-5496439/",
+          "label": "Praktische Kriterien für Stadt und unebene Wege"
+        },
+        {
+          "name": "Mehr Sicherheit für Kinder",
+          "url": "https://www.kindersicherheit.de/kindersicherheit/produktdatenbank/kinderwagen",
+          "label": "Kauf- und Nutzungstipps für Kinderwagen"
+        }
+      ]
+    },
+    {
+      "slug": "kinderwagen-kofferraum",
+      "primaryQuery": "kinderwagen kofferraum passen",
+      "title": "Passt der Kinderwagen ins Auto? Einfach prüfen",
+      "description": "Passt der Kinderwagen in den Kofferraum? So prüfst du Faltmaß, Öffnung und Alltagstauglichkeit ohne komplizierte Fahrzeugdaten.",
+      "category": "Auto & Platz",
+      "readTime": "5 Min.",
+      "lead": "Literangaben des Autos und drei Zahlen am Kinderwagen beantworten die Frage nicht immer zuverlässig. Entscheidend sind Form, Kofferraumöffnung, Ladekante und die tatsächlich gefaltete Konfiguration.",
+      "shortAnswer": "Wenn möglich, faltet euren Favoriten im Geschäft und ladet ihn probeweise ins eigene Auto. Ist das nicht möglich, vergleicht das vollständige Faltmaß mit der nutzbaren Kofferraumöffnung und plant Platz für Babywanne, Einkauf und Gepäck ein. Ein „passt wahrscheinlich“ bleibt bis zur Probebeladung eine offene Prüfung.",
+      "sections": [
+        {
+          "id": "warum-liter-nicht-reichen",
+          "heading": "Warum das Kofferraumvolumen allein nicht reicht",
+          "paragraphs": [
+            "Der ADAC weist darauf hin, dass Herstellerangaben zum Kofferraum unterschiedlich ermittelt werden und die für einen Kinderwagen wichtigen Innenmaße häufig fehlen. Ein großes Volumen kann durch eine schmale Öffnung, eine schräge Heckklappe oder eine hohe Ladekante weniger nutzbar sein.",
+            "Deshalb fragt der Navigator keine komplizierten Automaße ab. Die einfache Angabe „passt sicher“, „passt eher nicht“ oder „weiß ich nicht“ ist ehrlicher als eine Scheingenauigkeit aus unvollständigen Fahrzeugdaten."
+          ]
+        },
+        {
+          "id": "pruefen",
+          "heading": "Der alltagstaugliche Drei-Schritte-Check",
+          "bullets": [
+            "<strong>Konfiguration klären:</strong> Wird mit Sitz, ohne Sitz oder zusammen mit der Babywanne gefaltet?",
+            "<strong>Öffnung beachten:</strong> Nicht nur den Innenraum, sondern engste Breite und Höhe der Kofferraumöffnung berücksichtigen.",
+            "<strong>Beladung simulieren:</strong> Passt daneben noch, was ihr regelmäßig braucht?"
+          ],
+          "paragraphs": [
+            "Prüft auch, ob Räder abgenommen werden müssen. Das kann gelegentlich akzeptabel sein, aber bei täglicher Nutzung schnell lästig werden."
+          ]
+        },
+        {
+          "id": "probieren",
+          "heading": "Wann die Probebeladung unverzichtbar ist",
+          "paragraphs": [
+            "Bei knappem Platz, hoher Ladekante oder häufigem Autotransport ist der Test am eigenen Auto die verlässlichste Lösung. Stiftung Warentest empfiehlt ebenfalls, wenn möglich auszuprobieren, ob der gefaltete Wagen gut ins Familienauto passt.",
+            "Sichert den Kinderwagen bei der Fahrt wie andere Ladung. Der Navigator bewertet den vermuteten Platzbedarf, ersetzt aber weder Probebeladung noch sichere Ladungssicherung."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Kann man allein über Literangaben erkennen, ob ein Kinderwagen passt?",
+          "answer": "Nicht zuverlässig. Form, Öffnung, Ladekante und gefaltete Konfiguration können wichtiger sein als das nominelle Volumen."
+        },
+        {
+          "question": "Muss ich mein Auto im Navigator auswählen?",
+          "answer": "Nein. Eine einfache Einschätzung zum Platz reicht zunächst. Bei einem knappen Match wird die Probebeladung als offene Prüfung ausgewiesen."
+        }
+      ],
+      "sources": [
+        {
+          "name": "ADAC",
+          "url": "https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/kauftipps/fahrzeuge-fuer-kinderwagen/",
+          "label": "Kinderwagenfreundliche Autos und Kofferraumkriterien"
+        },
+        {
+          "name": "ADAC",
+          "url": "https://www.adac.de/rund-ums-fahrzeug/autokatalog/autotest/kofferraumvolumen-vergleich-2026/",
+          "label": "Vergleich von Hersteller- und ADAC-Messwerten"
+        },
+        {
+          "name": "Stiftung Warentest",
+          "url": "https://www.test.de/Kinderwagen-im-Test-4805700-5496439/",
+          "label": "Checkliste für den Kinderwagenkauf"
+        }
+      ]
+    },
+    {
+      "slug": "kinderwagen-gesamtpreis",
+      "primaryQuery": "kinderwagen kosten gesamtpreis",
+      "title": "Kinderwagen-Kosten: Den Gesamtpreis vergleichen",
+      "description": "Kinderwagen-Kosten richtig vergleichen: Babywanne, Adapter, Wetterschutz und Zubehör einrechnen, damit aus dem Einstiegspreis kein Fehlvergleich wird.",
+      "category": "Budget",
+      "readTime": "5 Min.",
+      "lead": "Der sichtbare Einstiegspreis ist häufig nicht der Preis der Konfiguration, die ihr ab Geburt oder im eigenen Alltag wirklich benötigt.",
+      "shortAnswer": "Vergleicht immer dieselbe nutzbare Konfiguration. Zum Grundpreis können Babywanne, Adapter, Regenverdeck, Fußsack oder notwendige Ersatzteile kommen. Im Navigator zählt deshalb nach Möglichkeit der erforderliche Preis für die passende Konfiguration – nicht nur der günstigste Händlerpreis.",
+      "sections": [
+        {
+          "id": "konfiguration",
+          "heading": "Zuerst dieselbe Konfiguration vergleichen",
+          "bullets": [
+            "Gestell und Sitzeinheit",
+            "für Neugeborene benötigte Babywanne oder andere freigegebene Lösung",
+            "notwendige Adapter",
+            "Regen- und Wetterschutz",
+            "Versandkosten und realistisch benötigtes Zubehör"
+          ],
+          "paragraphs": [
+            "Ein günstiger Einzelpreis ist kein fairer Vergleich, wenn bei einem anderen Angebot die benötigte Babywanne bereits enthalten ist. Händlerbezeichnungen wie „Set“, „Bundle“ oder „3-in-1“ müssen deshalb in ihre tatsächlichen Bestandteile zerlegt werden."
+          ]
+        },
+        {
+          "id": "optional",
+          "heading": "Notwendig, nützlich oder nur bequem?",
+          "paragraphs": [
+            "Trennt Zubehör in drei Gruppen: für eure Nutzung zwingend, häufig hilfreich und rein optional. So wird aus einer langen Zubehörliste kein künstlicher Pflichtkauf.",
+            "Eine Babyschale sollte nicht allein deshalb Teil des Vergleichs sein, weil sie in einem Paket steckt. Prüft die Eignung und Nutzung unabhängig vom Kinderwagenangebot."
+          ]
+        },
+        {
+          "id": "langfristig",
+          "heading": "Kosten über die Nutzungszeit betrachten",
+          "bullets": [
+            "Wie lange ist die benötigte Konfiguration nutzbar?",
+            "Sind Ersatzteile und Reparaturservice dokumentiert?",
+            "Lässt sich das Modell voraussichtlich weiterverkaufen?",
+            "Müsst ihr für Reisen später trotzdem einen zweiten kompakten Wagen kaufen?"
+          ],
+          "paragraphs": [
+            "Ein höherer Kaufpreis kann sich lohnen, muss es aber nicht. Service, Ersatzteile und tatsächliche Nutzungsdauer sind relevanter als die Marke allein."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Warum zeigt der Navigator keinen tagesaktuellen Bestpreis?",
+          "answer": "Preise und Verfügbarkeit ändern sich. Der Navigator trennt den dokumentierten Konfigurationspreis von aktuellen Händlerangeboten und kennzeichnet den Datenstand."
+        },
+        {
+          "question": "Ist ein Komplettset immer günstiger?",
+          "answer": "Nein. Entscheidend ist, ob alle enthaltenen Teile benötigt werden und ob wirklich dieselbe Konfiguration verglichen wird."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Stiftung Warentest",
+          "url": "https://www.test.de/Kinderwagen-im-Test-4805700-5496439/",
+          "label": "Kaufkriterien, Nutzungsdauer und Ersatzteile"
+        },
+        {
+          "name": "Mehr Sicherheit für Kinder",
+          "url": "https://www.kindersicherheit.de/kindersicherheit/produktdatenbank/kinderwagen",
+          "label": "Kauf- und Nutzungstipps"
+        }
+      ]
+    },
+    {
+      "slug": "kinderwagen-gebraucht-kaufen",
+      "primaryQuery": "kinderwagen gebraucht kaufen checkliste",
+      "title": "Kinderwagen gebraucht kaufen: Prüfliste",
+      "description": "Kinderwagen gebraucht kaufen: kompakte Prüfliste für Vorgeschichte, Bremse, Gurt, Faltmechanismus, Räder, Rückrufe und Ersatzteile.",
+      "category": "Gebrauchtkauf",
+      "readTime": "6 Min.",
+      "lead": "Ein gebrauchter Kinderwagen kann Budget und Ressourcen schonen. Ohne bekannte Vorgeschichte und gründliche Prüfung ist ein günstiger Preis aber kein ausreichendes Kaufargument.",
+      "shortAnswer": "Prüft Modell und Generation, bekannte Vorgeschichte, Rückrufe, Bremse, Gurt, Verriegelungen, Rahmen, Räder und alle für das Kind relevanten Flächen. Lasst euch Bedienungsanleitung und enthaltene Teile zeigen. Bei Rissen, verbogenem Rahmen, unsicherer Verriegelung oder ungeklärtem Rückrufstatus lieber nicht kaufen.",
+      "sections": [
+        {
+          "id": "vorher",
+          "heading": "Vor der Besichtigung klären",
+          "bullets": [
+            "exakte Modellbezeichnung und Generation",
+            "Kaufjahr, Vorbesitz und bekannte Unfälle oder starke Stöße",
+            "vollständiger Lieferumfang und Bedienungsanleitung",
+            "Rückruf- oder Sicherheitshinweise des Herstellers",
+            "Verfügbarkeit von Ersatzteilen"
+          ],
+          "paragraphs": [
+            "Bei Onlineangeboten können ähnlich aussehende Generationen unterschiedliche Freigaben oder Ersatzteile haben. Verlasst euch nicht nur auf den verkürzten Anzeigentitel."
+          ]
+        },
+        {
+          "id": "vor-ort",
+          "heading": "Vor Ort mechanisch prüfen",
+          "bullets": [
+            "<strong>Feststellbremse:</strong> greift sie zuverlässig und wirkt sie wie vorgesehen?",
+            "<strong>Gurt und Verschlüsse:</strong> vollständig, unbeschädigt und leicht korrekt zu schließen?",
+            "<strong>Faltmechanismus:</strong> rasten alle Teile vollständig ein?",
+            "<strong>Rahmen:</strong> keine sichtbaren Risse, starken Verformungen oder lockeren Verbindungen?",
+            "<strong>Räder:</strong> laufen sie sauber, ohne starkes Spiel oder offensichtliche Schäden?",
+            "<strong>Textilien und Liegeflächen:</strong> trocken, sauber, ohne Schimmelgeruch und nach Anleitung reinigbar?"
+          ],
+          "paragraphs": [
+            "Mehr Sicherheit für Kinder empfiehlt unter anderem Feststellbremse, Anschnallgurte und stabile Konstruktion zu prüfen. Die konkrete Bedienungsanleitung bleibt für das einzelne Modell maßgeblich."
+          ]
+        },
+        {
+          "id": "probefahrt",
+          "heading": "Probefahrt und realistischer Transport",
+          "paragraphs": [
+            "Schiebt, bremst, faltet und tragt den Wagen selbst. Testet bei Bedarf Haustür, Aufzug und Auto. Ein Problem, das bei der Besichtigung schon auffällt, wird im Alltag selten angenehmer.",
+            "Stiftung Warentest weist beim Gebrauchtkauf darauf hin, dass die Vorgeschichte bei Internet- oder Flohmarktangeboten unbekannt sein kann. Wenn wesentliche Fragen offenbleiben, ist ein anderes Angebot die bessere Entscheidung."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Wie alt darf ein gebrauchter Kinderwagen sein?",
+          "answer": "Eine pauschale Altersgrenze gibt es nicht. Zustand, Modellgeneration, Rückrufstatus, Ersatzteilversorgung und bekannte Vorgeschichte sind aussagekräftiger als das Alter allein."
+        },
+        {
+          "question": "Was ist ein sofortiger Ausschlussgrund?",
+          "answer": "Zum Beispiel Risse oder starke Verformungen am Rahmen, eine unzuverlässige Bremse, nicht einrastende Verriegelungen, beschädigte Gurte oder ein ungeklärter relevanter Sicherheitshinweis."
+        }
+      ],
+      "sources": [
+        {
+          "name": "Mehr Sicherheit für Kinder",
+          "url": "https://www.kindersicherheit.de/kindersicherheit/produktdatenbank/kinderwagen",
+          "label": "Sicherheits- und Nutzungshinweise"
+        },
+        {
+          "name": "Stiftung Warentest",
+          "url": "https://www.test.de/FAQ-Kinderwagen-und-Buggy-Antworten-auf-haeufig-gestellte-Fragen-5236917-0/",
+          "label": "FAQ zu Kinderwagen und Gebrauchtkauf"
+        }
+      ]
+    }
+  ]
+}

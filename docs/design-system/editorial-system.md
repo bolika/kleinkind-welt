@@ -1,6 +1,6 @@
 # Editorial System
 
-Stand: 2026-06-17
+Stand: 2026-07-23
 
 ## Stimme
 
@@ -26,12 +26,20 @@ Nicht:
 
 Jeder Artikel muss eine echte Elternfrage beantworten:
 
-- Was passt zum Alter?
-- Was foerdert wirklich?
-- Was ist sicher?
+- Was passt zum Kind oder zur aktuellen Nutzungsphase?
+- Was passt zu unserem Alltag und Platz?
 - Was lohnt sich?
 - Was wuerden wir nicht kaufen?
-- Was passt in kleine Wohnungen?
+- Welche Abstriche gehen wir ein?
+
+Die gemeinsame Entscheidungslogik über alle Kategorien:
+
+1. Kind oder Nutzungsphase
+2. Alltag und Platz
+3. überprüfbare Produktdaten und Quellen
+4. Nutzungsdauer, Service und Folgekosten
+5. nutzbarer Gesamtpreis statt Lockpreis
+6. sichtbare Abstriche und Datenlücken
 
 ## Trust-Regeln
 
@@ -94,21 +102,23 @@ Kurz, ehrlich, frueh.
 
 Standard-Hinweis:
 
-> Hinweis: Diese Seite enthaelt Affiliate-Links zu Amazon.de. Bei einem Kauf ueber diese Links erhalten wir eine kleine Provision - fuer dich entstehen keine Mehrkosten.
+> Hinweis: Diese Seite enthaelt Affiliate-Links. Bei einem Kauf ueber diese Links erhalten wir moeglicherweise eine Provision - fuer dich entstehen keine Mehrkosten.
 
 Regeln:
 
 - Affiliate-Hinweis vor den Produktboxen.
 - Affiliate-Links mit `rel="sponsored noopener nofollow"`.
 - Keine Formulierungen wie "Jetzt unbedingt kaufen".
-- CTA darf sachlich sein: "Bei Amazon ansehen", "Aktuellen Preis pruefen".
+- CTA darf sachlich sein: "Angebot ansehen", "Aktuellen Preis pruefen".
+- Haendlername nur nennen, wenn der Link tatsaechlich zu diesem Haendler fuehrt.
+- Produktbewertung und Haendlerangebot werden technisch und redaktionell getrennt.
 
 ## Produktempfehlungen
 
 Jede Produktbox soll enthalten:
 
-- Alterseignung
-- Warum sinnvoll
+- Zielgruppe oder Nutzungsphase
+- Warum passend
 - Vorteile
 - Nachteile oder Einschränkungen
 - Wohnungs-/Alltagseignung, wenn relevant
@@ -176,6 +186,35 @@ Muss enthalten:
 - Vergleichstabelle
 - Gewinner nach Situation
 - klare Einschraenkungen
+
+### Kinderwagen-Kaufhilfe
+
+Ziel:
+
+- Eine konkrete Alltagsfrage beantworten, bevor ein Modell empfohlen wird.
+
+Muss enthalten:
+
+- Einsatzprofil oder Platzproblem klar benennen
+- mess- oder belegbare Kriterien von Einschätzungen trennen
+- Gesamtpreis samt nötigem Zubehör berücksichtigen
+- mindestens einen sichtbaren Zielkonflikt erklären
+- zum Navigator verlinken, wenn dessen Abfrage die Entscheidung sinnvoll verkürzt
+
+### Kinderwagen-Navigator und Ergebnis
+
+Ziel:
+
+- Mit wenigen Angaben bis zu drei nachvollziehbare Matches liefern.
+
+Muss enthalten:
+
+- Score-Erklärung und harte Ausschlusskriterien
+- konkrete Treffer sowie Abstriche pro Modell
+- Datenstand und Datenlücken
+- keine Platzierung aufgrund einer Provision
+- Produktdaten getrennt von Händlerangeboten
+- Produktbilder nur aus dokumentiert erlaubten Quellen
 
 ## Sprache
 

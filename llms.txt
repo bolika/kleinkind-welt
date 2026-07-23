@@ -1,23 +1,35 @@
 # Kleinkind-Welt.de
 
-> Eltern-Ratgeber für Spielzeug, Geschenke und Auswahlfragen von 0 bis 3 Jahren. Von Boris Nazarov, Vater in München. Unabhängig, keine bezahlten Empfehlungen von Herstellern. Affiliate-Links zu Amazon sind als solche gekennzeichnet.
+> Nachvollziehbare Kaufhilfen für Familien mit Babys und Kleinkindern. Aktuelle Schwerpunkte: altersgerechtes Spielzeug und Kinderwagen passend zu Alltag, Platz und Budget. Von Boris Nazarov, Vater in München. Affiliate-Links zu teilnehmenden Händlern sind gekennzeichnet und beeinflussen keine redaktionelle Reihenfolge.
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-21
+last-updated: 2026-07-23
 
 ## Über diese Seite
 
-- [Startseite](https://kleinkind-welt.de/): Einstieg zu Alters-, Situations- und Ratgeberseiten
+- [Startseite](https://kleinkind-welt.de/): Einstieg zu Spielzeug, Kinderwagen, Geschenken und Kaufhilfen
 
 - [Über uns](https://kleinkind-welt.de/ueber-uns): Wer schreibt hier, persönlicher Hintergrund von Boris Nazarov
-- [Bewertungsmethode](https://kleinkind-welt.de/bewertungsmethode): Auswahlkriterien, Transparenz, wie Empfehlungen entstehen
-- [Kostenlose Kaufhilfen](https://kleinkind-welt.de/kaufhilfen): 3-Minuten-Fehlkauf-Check, Alters-Matrix, Sicherheitscheck und Geschenk-Finder
+- [Bewertungsmethode](https://kleinkind-welt.de/bewertungsmethode): gemeinsame Auswahlregeln, Evidenzarten sowie Methoden für Spielzeug und Kinderwagen
+- [Kostenlose Kaufhilfen](https://kleinkind-welt.de/kaufhilfen): Kinderwagen-Navigator, Fehlkauf-Check, Alters-Matrix, Sicherheitscheck und Geschenk-Finder
+
+## Kinderwagen
+
+- [Kinderwagen-Hub](https://kleinkind-welt.de/kinderwagen): Einstieg zu Navigator, Grundlagen und Entscheidungshilfen
+- [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierter Daten-Pilot mit fünf Kernfragen, transparenten Match-Scores und sichtbaren Kompromissen
+- [Kinderwagen-Arten](https://kleinkind-welt.de/artikel/kinderwagen-arten): Kombi-Kinderwagen, Buggy, Reisebuggy und Mehrlingswagen einordnen
+- [Kinderwagen für Stadt oder Gelände](https://kleinkind-welt.de/artikel/kinderwagen-stadt-oder-land): Räder, Breite, Federung und Gewicht nach Alltag priorisieren
+- [Kinderwagen und Kofferraum](https://kleinkind-welt.de/artikel/kinderwagen-kofferraum): Faltmaß, Kofferraumöffnung und Probebeladung
+- [Kinderwagen-Gesamtpreis](https://kleinkind-welt.de/artikel/kinderwagen-gesamtpreis): benötigte Konfiguration, Zubehör und Angebotsvergleich
+- [Kinderwagen gebraucht kaufen](https://kleinkind-welt.de/artikel/kinderwagen-gebraucht-kaufen): Vorgeschichte, Bremse, Gurt, Verriegelungen und Sicherheitshinweise prüfen
 
 ## Strukturierte Daten und Evidenz
 
 - [Evidenzregister der Empfehlungen](https://kleinkind-welt.de/data/editorial-evidence.json): Evidenztyp, Prüftag, Grenzen und Quellenbasis der redaktionellen Produktkarten
 - [Affiliate-Produktledger](https://kleinkind-welt.de/data/affiliate-product-ledger.json): geprüfte Händlerziele, Alters-/Marken-/Preisstatus und blockierte Links während der laufenden Integritätsprüfung
+- [Kinderwagen-Produktdaten](https://kleinkind-welt.de/data/kinderwagen-navigator/catalog.bundle.v0.1.json): dokumentierte Produkteigenschaften, Quellen, Datenstand, Signale und redaktionelle Grenzen
+- [Kinderwagen-Händlerangebote](https://kleinkind-welt.de/data/kinderwagen-navigator/offers.v0.1.json): vom Produkt getrennte Händlerangebote, Konfiguration, Preis, Verfügbarkeit und Bildrechtsstatus
 - [Offener Spielzeug-Siegel-Datensatz (JSON)](https://kleinkind-welt.de/data/spielzeug-siegel.json): Geltungsbereich, Prüfart, Grenzen, Verbrauchercheck und offizielle Primärquelle
 - [Offener Spielzeug-Siegel-Datensatz (CSV)](https://kleinkind-welt.de/data/spielzeug-siegel.csv): tabellarische Distribution unter CC BY 4.0
 

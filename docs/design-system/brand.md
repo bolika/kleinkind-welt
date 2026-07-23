@@ -1,12 +1,32 @@
 # Brand System
 
-Stand: 2026-06-17
+Stand: 2026-07-23
 
 ## Markenhaltung
 
 Kleinkind-Welt soll wie ein ruhiger, ehrlicher Eltern-Ratgeber wirken: praktisch, warm, transparent und ohne Hersteller-Sprech.
 
 Die visuelle Sprache darf freundlich sein, aber nicht nach Kindergeburtstag aussehen. Zielgruppe sind Eltern, Grosseltern und Schenkende, nicht Kleinkinder selbst.
+
+## Positionierung
+
+Kleinkind-Welt ist keine reine Spielzeugseite. Die Marke hilft Familien bei
+Kaufentscheidungen rund um Babys und Kleinkinder. Aktuell gibt es zwei klar
+getrennte Themenbereiche:
+
+- Spielzeug: passende Auswahl nach Alter, Spielweise, Platz und Budget
+- Kinderwagen: passender Alltag-Fit anhand nachvollziehbarer Produktdaten
+
+Markenversprechen:
+
+> Nachvollziehbare Kaufhilfen, die Kind, Alltag und Budget zusammenbringen.
+
+Die Startseite muss beide Bereiche sichtbar eröffnen. Innerhalb eines
+Themenbereichs bleibt die Nutzerführung fokussiert; Spielzeug- und
+Kinderwagen-Logiken werden nicht in einer gemeinsamen Produktliste vermischt.
+
+Neue Produktkategorien werden erst sichtbar ausgebaut, wenn sie den
+Kategorie-Expansion-Gate in `docs/category-expansion-gate.md` erfüllen.
 
 ## Logo
 
@@ -81,7 +101,7 @@ Charakter:
 - freundlich
 - rund
 - gut lesbar
-- passend zu Eltern-Ratgeber und Spielzeug-Thema
+- passend zu einem ruhigen Eltern-Ratgeber
 
 Regeln:
 
@@ -92,19 +112,18 @@ Regeln:
 
 ## Bildwelt
 
-Aktueller Hero:
-
-- `images/hero-kind-holzspielzeug.jpg`
-
 Bildprinzip:
 
-- echte Spielsituationen
+- echte Nutzungs- und Alltagssituationen
 - warmes Licht
-- Kind/Handlung sichtbar
-- Holz, Alltag, ruhige Umgebung
+- Produktfunktion oder Handlung klar erkennbar
+- ruhige, natürliche Umgebung
+- pro Themenbereich eine eindeutige Bildlogik: Spielen und Lernen bzw. Unterwegssein
+- Produktbilder nur mit dokumentierter Nutzungsberechtigung
 
 Nicht verwenden:
 
 - generische Stockbilder mit uebertriebenem Lachen
 - klinisch weisse Produktfreisteller als Hauptbild
 - dunkle, unscharfe oder rein atmosphaerische Bilder
+- ungeprüft kopierte Händler- oder Herstellerbilder

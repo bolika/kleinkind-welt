@@ -35,10 +35,14 @@ jobs:
         run: |
           node --check js/affiliate-tracking.js
           node --check js/faq-accordion.js
+          node --check tools/build-kinderwagen-guides.mjs
           node --check tools/content-brief-gate.mjs
           node --check tools/generate-seal-assets.mjs
           node --check tools/internal-link-audit.mjs
+          node --check tools/kinderwagen-media-rights-gate.mjs
           node --check tools/seo-smoke-test.mjs
+          node --check tools/site-positioning-gate.mjs
+          node --check tools/sync-site-navigation.mjs
 
       - name: Validate GSC monitoring script syntax
         run: python3 -c 'from pathlib import Path; compile(Path("tools/gsc-growth-snapshot.py").read_text(), "tools/gsc-growth-snapshot.py", "exec")'
@@ -47,14 +51,21 @@ jobs:
         run: |
           jq empty data/editorial-evidence.json
           jq empty data/content-brief.schema.json
+          jq empty data/kinderwagen-guides.v0.1.json
+          jq empty data/kinderwagen-navigator/media.schema.json
+          jq empty data/kinderwagen-navigator/media.v0.1.json
           jq empty data/spielzeug-siegel.json
           jq empty data/seo-monitoring-config.json
           jq empty content-briefs/*.json
 
       - name: Validate AI publishing inputs and generated assets
         run: |
+          node tools/build-kinderwagen-guides.mjs --check
           node tools/content-brief-gate.mjs
           node tools/generate-seal-assets.mjs --check
+          node tools/kinderwagen-media-rights-gate.mjs
+          node tools/site-positioning-gate.mjs
+          node tools/sync-site-navigation.mjs --check
 
       - name: Run local SEO smoke test
         run: |

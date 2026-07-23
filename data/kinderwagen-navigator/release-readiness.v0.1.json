@@ -2,6 +2,12 @@
   "schemaVersion": 1,
   "checkedAt": "2026-07-23",
   "manualGates": {
+    "productMediaCoverage": {
+      "status": "pending",
+      "completed": 0,
+      "target": 15,
+      "note": "Für jedes veröffentlichte Modell wird mindestens ein rechtssicher nutzbares Produktbild mit Quelle und Nutzungsumfang benötigt."
+    },
     "keyboardAndSmallScreenTest": {
       "status": "partial",
       "note": "Smartphone- und Desktop-Kernpfad wurden geprüft; ein vollständiger manueller Tastatur- und Screenreader-Durchlauf steht aus."

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kleinkind-welt.de/data/kinderwagen-navigator/media.schema.json",
+  "title": "Kleinkind-Welt Kinderwagen-Medienregister",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "updatedAt", "assets"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "updatedAt": { "$ref": "#/$defs/date" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetId",
+          "productId",
+          "kind",
+          "sourceUrl",
+          "rightsBasis",
+          "usageScope",
+          "checkedAt",
+          "alt"
+        ],
+        "properties": {
+          "assetId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "productId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "kind": { "enum": ["product_cutout", "product_lifestyle", "diagram"] },
+          "sourceUrl": { "type": "string", "pattern": "^https://" },
+          "localPath": { "type": "string", "pattern": "^/images/products/[a-z0-9._/-]+$" },
+          "remoteUrl": { "type": "string", "pattern": "^https://" },
+          "rightsBasis": {
+            "enum": [
+              "affiliate_feed",
+              "manufacturer_written_permission",
+              "owned_original",
+              "licensed_stock"
+            ]
+          },
+          "usageScope": {
+            "enum": [
+              "affiliate_context_only",
+              "site_editorial_and_affiliate",
+              "site_owned_unrestricted"
+            ]
+          },
+          "rightsReference": { "type": "string", "minLength": 3 },
+          "validUntil": { "$ref": "#/$defs/date" },
+          "checkedAt": { "$ref": "#/$defs/date" },
+          "alt": { "type": "string", "minLength": 8 },
+          "status": { "enum": ["approved", "expired", "revoked"], "default": "approved" }
+        },
+        "oneOf": [
+          { "required": ["localPath"] },
+          { "required": ["remoteUrl"] }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

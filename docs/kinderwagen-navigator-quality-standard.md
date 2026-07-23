@@ -136,7 +136,10 @@ Ein Flow darf öffentlich indexiert werden, wenn:
 2. die zehn Referenzprofile die erwarteten Entscheidungsregeln erfüllen,
 3. Tastatur- und Smartphone-Nutzung geprüft sind,
 4. Ergebnisabbrüche und „nicht hilfreich“-Feedback messbar sind,
-5. kein Affiliate-Feld in Eligibility oder Score einfließt.
+5. kein Affiliate-Feld in Eligibility oder Score einfließt,
+6. jedes sichtbare Produktbild mit Quelle, Nutzungsrecht, Nutzungsumfang und Prüftag im Medienregister steht.
+
+Produktbilder werden nicht von Händler- oder Herstellerseiten gescrapt. Zulässige Wege sind freigegebene Affiliate-Feeds, schriftliche Herstellerfreigaben, lizenzierte Medien oder eigene Originale. Ein Feed-Bild darf nur im erlaubten Affiliate-Kontext eingesetzt und nach Ablauf oder Entzug der Berechtigung nicht weiter ausgeliefert werden.
 
 ## Messbare Marktabdeckung statt „allumfassend“
 

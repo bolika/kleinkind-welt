@@ -1,12 +1,13 @@
 # Kleinkind-Welt Design System
 
-Stand: 2026-06-17
+Stand: 2026-07-23
 
 Dieses Design System beschreibt den aktuellen visuellen und redaktionellen Rahmen von Kleinkind-Welt.de. Es ist die Arbeitsgrundlage fuer neue Seiten, Artikel, Komponenten und Design-Entscheidungen.
 
 ## Ziel der Website
 
-Kleinkind-Welt.de ist ein ehrlicher Eltern-Ratgeber fuer Spielzeug und Foerderung von Kindern von 0 bis 3 Jahren.
+Kleinkind-Welt.de ist ein ehrlicher Kaufhilfe-Ratgeber fuer Familien mit Babys
+und Kleinkindern. Die zwei aktuellen Saeulen sind Spielzeug und Kinderwagen.
 
 Die Seite soll wirken:
 
@@ -21,7 +22,8 @@ Der aktuelle Stand passt grundsaetzlich gut zum Markenversprechen:
 
 - Das neue Logo wirkt moderner und eigenstaendiger als das alte Emoji-Logo.
 - Die Farbwelt wurde an das Logo angepasst: Teal, Dunkelblau, Coral und warme Cremeflaechen.
-- Die Startseite fuehrt Nutzer schnell ueber Alter, Situationen und Ratgeber-Themen.
+- Die Startseite trennt Spielzeug und Kinderwagen in zwei klare Einstiege.
+- Der Kinderwagen-Bereich verbindet Grundlagen mit einem datenbasierten Navigator.
 - Artikel nutzen bereits starke Trust-Elemente: Autorzeile, Kurzantwort, Kaufbox, Affiliate-Hinweis, Quellenbox und Bewertungsmethode.
 
 Wichtig fuer kuenftige Arbeit:
@@ -29,6 +31,8 @@ Wichtig fuer kuenftige Arbeit:
 - Mobile Lesbarkeit hat Prioritaet vor grossen Desktop-Hero-Effekten.
 - Sichtbare Texte sprechen von Empfehlungen, Vergleichen und Auswahlkriterien, nicht von "Test" oder "Testsieger".
 - Affiliate-Transparenz muss frueh sichtbar sein.
+- Produktbewertung und Haendlerangebot bleiben voneinander getrennt.
+- Produktbilder duerfen nur mit dokumentierter Nutzungsberechtigung erscheinen.
 - Das Logo darf klein eingesetzt werden, aber die Tagline im Logo ist im Header eher dekorativ als lesbarer Inhalt.
 
 ## Source Of Truth
@@ -39,6 +43,8 @@ Primaere technische Quelle:
 - `images/logo-horizontal.svg`
 - `images/logo-mark.svg`
 - `index.html`
+- `kinderwagen.html`
+- `kaufhilfen.html`
 - `bewertungsmethode.html`
 - `ueber-uns.html`
 
@@ -55,3 +61,4 @@ Primaere redaktionelle Quelle:
 - `editorial-system.md` - Tonalitaet, Trust, Affiliate, Empfehlungs-Wording
 - `article-template.md` - empfohlene Artikelstruktur
 - `qa-checklist.md` - Pruefliste vor Veroeffentlichung
+- `../category-expansion-gate.md` - Pflichtkriterien vor einer weiteren Produktkategorie

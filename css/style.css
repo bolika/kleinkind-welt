@@ -4730,6 +4730,385 @@ footer ul a:hover { color: white; }
   }
 }
 
+/* ===== CROSS-CATEGORY POSITIONING + KINDERWAGEN HUB ===== */
+.home-pathways {
+  padding: 24px 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.home-pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-pathway {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(32, 58, 73, 0.06);
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+.home-pathway:hover {
+  color: var(--text);
+  border-color: rgba(43, 111, 103, 0.4);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.home-pathway span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-pathway strong {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.home-pathway small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-light);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.home-pathway::after {
+  content: "→";
+  color: var(--primary);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.kinderwagen-hub-hero {
+  padding: 64px 20px;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(179, 61, 49, 0.11), transparent 30%),
+    linear-gradient(135deg, #e8f0ea 0%, #f5eee4 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.kinderwagen-hub-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.kinderwagen-hub-hero h1 {
+  max-width: 17ch;
+  margin-bottom: 18px;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.kinderwagen-hub-hero__grid > div:first-child > p:not(.hero-kicker):not(.kinderwagen-hub-hero__meta) {
+  max-width: 62ch;
+  color: var(--text-light);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.kinderwagen-hub-hero__meta {
+  margin-top: 14px;
+  color: var(--text-light);
+  font-size: 0.84rem;
+  font-weight: 650;
+}
+
+.kinderwagen-hub-proof {
+  padding: 28px;
+  border: 1px solid rgba(43, 111, 103, 0.24);
+  border-radius: 20px;
+  background: rgba(253, 250, 246, 0.96);
+  box-shadow: 0 22px 48px rgba(32, 58, 73, 0.13);
+}
+
+.kinderwagen-hub-proof__eyebrow,
+.section-eyebrow,
+.navigator-guide-cta > span,
+.kinderwagen-final-cta > span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kinderwagen-hub-proof > strong {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.kinderwagen-hub-proof ol {
+  margin: 0 0 18px;
+  padding-left: 1.25rem;
+  color: var(--text-light);
+}
+
+.kinderwagen-hub-proof li {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.kinderwagen-hub-proof a {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.section-heading-left {
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.section-heading-left h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.7rem, 3.6vw, 2.55rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.section-heading-left p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.kinderwagen-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.kinderwagen-guide-card {
+  display: flex;
+  min-width: 0;
+  min-height: 220px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+.kinderwagen-guide-card--wide {
+  grid-column: 1 / -1;
+  min-height: 0;
+  background:
+    linear-gradient(105deg, rgba(43, 111, 103, 0.1), transparent 58%),
+    var(--white);
+}
+
+.kinderwagen-guide-card:hover {
+  color: var(--text);
+  border-color: rgba(43, 111, 103, 0.42);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.kinderwagen-guide-card > span {
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.kinderwagen-guide-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.kinderwagen-guide-card p {
+  margin-bottom: 18px;
+  color: var(--text-light);
+  line-height: 1.55;
+}
+
+.kinderwagen-guide-card strong {
+  margin-top: auto;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.kinderwagen-principles {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.kinderwagen-principles h2,
+.kinderwagen-final-cta h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.7rem, 3.4vw, 2.45rem);
+  line-height: 1.12;
+}
+
+.kinderwagen-principles p,
+.kinderwagen-final-cta p {
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+.kinderwagen-principles ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kinderwagen-principles li {
+  padding: 15px 17px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.kinderwagen-final-cta {
+  max-width: 760px;
+  padding: 36px;
+  border: 1px solid rgba(43, 111, 103, 0.25);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(43, 111, 103, 0.09), rgba(179, 61, 49, 0.05));
+  text-align: center;
+}
+
+.kinderwagen-final-cta p {
+  margin: 0 auto 22px;
+}
+
+.kinderwagen-guide-hero {
+  padding-top: 44px;
+  padding-bottom: 32px;
+  background: linear-gradient(135deg, #e8f0ea 0%, #f5eee4 100%);
+}
+
+.kinderwagen-guide-hero .article-hero-inner {
+  max-width: var(--container-article);
+}
+
+.navigator-guide-cta {
+  margin: 38px 0;
+  padding: 28px;
+  border: 1px solid rgba(43, 111, 103, 0.25);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(43, 111, 103, 0.1), rgba(255, 255, 255, 0.8));
+}
+
+.navigator-guide-cta h2 {
+  margin-bottom: 10px;
+}
+
+.navigator-guide-cta p {
+  max-width: 58ch;
+}
+
+@media (max-width: 768px) {
+  .home-pathways {
+    padding: 14px 0;
+  }
+
+  .home-pathways-grid,
+  .kinderwagen-guide-grid,
+  .kinderwagen-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .home-pathways-grid {
+    gap: 10px;
+  }
+
+  .home-pathway {
+    padding: 16px;
+  }
+
+  .kinderwagen-hub-hero {
+    padding: 34px 18px 38px;
+  }
+
+  .kinderwagen-hub-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .kinderwagen-hub-hero h1 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .kinderwagen-hub-hero .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .kinderwagen-hub-proof,
+  .kinderwagen-guide-card,
+  .navigator-guide-cta {
+    padding: 20px;
+  }
+
+  .kinderwagen-guide-card {
+    min-height: 0;
+  }
+
+  .kinderwagen-guide-card--wide {
+    grid-column: auto;
+  }
+
+  .kinderwagen-principles {
+    gap: 24px;
+  }
+
+  .kinderwagen-final-cta {
+    margin-right: 16px;
+    margin-left: 16px;
+    padding: 26px 20px;
+  }
+
+  .kinderwagen-guide-hero {
+    padding: 28px 16px 22px;
+  }
+
+  .kinderwagen-guide-hero .article-meta {
+    margin-bottom: 10px;
+  }
+
+  .kinderwagen-guide-hero h1 {
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+}
+
 /* ===== PINTEREST LANDING: GESCHENKE 1. GEBURTSTAG =====
    Keep the first decision path visual and compact. Long-form SEO content
    remains available below the recommendation and table of contents. */

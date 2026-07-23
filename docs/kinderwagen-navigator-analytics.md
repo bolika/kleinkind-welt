@@ -14,6 +14,16 @@ Die Events enthalten keine frei eingegebenen Texte, exakten Maße oder dauerhaft
 
 ## Plausible-Funnel
 
+Vor dem eigentlichen Funnel messen zwei vorgeschaltete Events die neue
+Themenarchitektur:
+
+- `Themenbereich-Klick` mit `thema`, `seite` und `platzierung`
+- `Kinderwagen-Kaufhilfe` mit `ratgeber`, `seite` und `platzierung`
+
+Damit lassen sich Startseiten-Einstiege in Spielzeug und Kinderwagen sowie die
+Nutzung der fünf Kaufhilfen getrennt beurteilen. Die bestehenden
+`Kinderwagen-Navigator`-Einstiege bleiben die Brücke in den Tool-Funnel.
+
 1. `Kinderwagen-Navigator · navigator_bereit`
 2. `Kinderwagen-Navigator · gestartet`
 3. `Kinderwagen-Navigator · frage_beantwortet`

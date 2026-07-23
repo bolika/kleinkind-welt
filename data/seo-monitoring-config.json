@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "property": "sc-domain:kleinkind-welt.de",
-  "releaseDate": "2026-07-15",
+  "releaseDate": "2026-07-23",
   "gscDataLagDays": 3,
   "checkpointsDays": [14, 28],
   "priorityPages": [
@@ -11,7 +11,13 @@
     "/artikel/nachhaltiges-spielzeug-siegel",
     "/artikel/motorikspielzeug-test",
     "/spielzeug-nach-alter",
-    "/kaufhilfen"
+    "/kaufhilfen",
+    "/kinderwagen",
+    "/artikel/kinderwagen-arten",
+    "/artikel/kinderwagen-stadt-oder-land",
+    "/artikel/kinderwagen-kofferraum",
+    "/artikel/kinderwagen-gesamtpreis",
+    "/artikel/kinderwagen-gebraucht-kaufen"
   ],
   "kpis": [
     "clicks",

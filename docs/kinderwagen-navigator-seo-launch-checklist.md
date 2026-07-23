@@ -13,6 +13,7 @@ Der Navigator bleibt während der geschlossenen Beta `noindex,follow`. Ein index
 - mindestens 50 abgeschlossene Beta-Ergebnisse ausgewertet
 - negative Rückmeldungen und systematische Fehlmatches geprüft
 - Bewertungsmethode, Datenquellen und Affiliate-Unabhängigkeit sichtbar
+- rechtssicheres Produktbild je veröffentlichtem Modell im Medienregister dokumentiert
 
 Der aktuelle Stand lässt sich ohne Veröffentlichung prüfen:
 
@@ -30,7 +31,7 @@ node tools/kinderwagen-index-readiness.mjs --strict
 
 1. `noindex,follow` entfernen.
 2. Route mit aktuellem `lastmod` in `sitemap.xml` aufnehmen.
-3. Route in `llms.txt` aufnehmen.
+3. Pilotstatus in `llms.txt` auf öffentlich indexierbar aktualisieren.
 4. WebApplication-Strukturdaten und Canonical erneut prüfen.
 5. Dedicated Social-/Open-Graph-Vorschau erstellen.
 6. Indexierung in Google Search Console anstoßen und echte Suchanfragen beobachten.
