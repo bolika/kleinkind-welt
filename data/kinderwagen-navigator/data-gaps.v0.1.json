@@ -51,6 +51,16 @@
       "nextReviewAt": "2026-08-23",
       "reason": "Die offizielle Seite nennt 63 cm nur als Faltbreite mit Rädern. Daraus darf die ungefaltete Gesamtbreite nicht abgeleitet werden.",
       "resolution": "Aktualisierte technische Daten prüfen oder die ungefaltete Gesamtbreite schriftlich beim Hersteller erfragen."
+    },
+    {
+      "productId": "my-junior-vigo",
+      "field": "unfoldedWidthCm",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
+      "sourceCheckedAt": "2026-07-23",
+      "nextReviewAt": "2026-08-23",
+      "reason": "Die offizielle Seite nennt 55 cm nur als Faltbreite mit Rädern. Eine ungefaltete Gesamtbreite ist nicht eindeutig veröffentlicht.",
+      "resolution": "Aktualisierte technische Daten prüfen oder die ungefaltete Gesamtbreite schriftlich beim Hersteller erfragen."
     }
   ]
 }

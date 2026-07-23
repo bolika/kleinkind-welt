@@ -21,7 +21,9 @@ const gates = [
   'tools/kinderwagen-offer-data-gate.mjs',
   'tools/kinderwagen-offer-import-test.mjs',
   'tools/kinderwagen-result-presentation-test.mjs',
-  'tools/kinderwagen-navigator-ui-gate.mjs'
+  'tools/kinderwagen-navigator-ui-gate.mjs',
+  'tools/kinderwagen-tracking-contract-gate.mjs',
+  'tools/kinderwagen-media-rights-gate.mjs'
 ];
 
 for (const gate of gates) {

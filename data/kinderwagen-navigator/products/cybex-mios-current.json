@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "cybex-mios-current",
+  "identity": {"brand":"CYBEX","model":"Mios","generation":"Neue Generation 2026 · Katalognummer 526000089","market":"DE","category":"single-combi-from-birth","supportedChildren":1},
+  "review": {"status":"pilot","checkedAt":"2026-07-23","reviewDueAt":"2026-08-23","reviewedBy":"AI research pilot","pilotArchetype":"Schmaler Premium-Stadtwagen","notes":"Datensatz gilt nur für das aktuelle Mios Comfort Set mit Fold Lux Carry Cot."},
+  "sources": [
+    {"id":"cybex-mios-product","url":"https://www.cybex-online.com/de/de/p/st-pl-mios-5.html","kind":"manufacturer","title":"CYBEX Mios Comfort Set","checkedAt":"2026-07-23"}
+  ],
+  "facts": {
+    "marketStatus":{"value":"current_available","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","freshUntil":"2026-08-06"},
+    "newbornApproved":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "newbornConfiguration":{"value":"Mios Comfort Set mit Fold Lux Carry Cot","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "carrycotIncluded":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "requiredConfigurationPriceEur":{"value":1049.95,"unit":"EUR","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","freshUntil":"2026-08-06"},
+    "unfoldedWidthCm":{"value":50,"unit":"cm","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "foldedDimensionsCm":{"value":{"length":30,"width":50,"height":65,"configuration":"with_seat_compact_state"},"unit":"cm","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "frameWeightKg":{"value":null,"unit":"kg","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "seatWeightKg":{"value":null,"unit":"kg","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "carrycotWeightKg":{"value":null,"unit":"kg","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "liftReadyWeightKg":{"value":9.8,"unit":"kg","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Herstellergewicht für Wagen mit Sitzeinheit."},
+    "liftReadyConfiguration":{"value":"frame_with_seat","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "pushbarMinCm":{"value":null,"unit":"cm","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "pushbarMaxCm":{"value":null,"unit":"cm","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "wheelDiameterFrontCm":{"value":null,"unit":"cm","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "wheelDiameterRearCm":{"value":null,"unit":"cm","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "wheelMaterial":{"value":null,"sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "suspension":{"value":"all-wheel suspension","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "basketLoadKg":{"value":null,"unit":"kg","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "basketVolumeL":{"value":null,"unit":"l","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "oneHandFold":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "foldWithSeat":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "selfStandingFold":{"value":null,"sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "reversibleSeat":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "travelSystem":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "canopyCoverage":{"value":"extended","sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "canopyVentilation":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Atmungsaktive Mesh-Rückenlehne dokumentiert; Verdeckbelüftung nicht separat quantifiziert."},
+    "rainCoverIncluded":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Regenverdeck für Sitz und Babywanne im Set gelistet."},
+    "sparePartsAvailability":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "repairService":{"value":true,"sourceIds":["cybex-mios-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Garantieabwicklung über Händler oder CYBEX Kontakt."},
+    "warrantyYears":{"value":null,"unit":"years","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "officialSafetyNoticeStatus":{"value":"not_checked_in_pilot","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown","note":"Kein Sicherheitsurteil ableiten."}
+  },
+  "signals": {
+    "cityManeuverability":{"value":0.5,"status":"proxy","evidenceFields":["unfoldedWidthCm","liftReadyWeightKg"],"rationale":"50 cm Breite und 9,8 kg sind dokumentiert; unabhängiger Handhabungstest fehlt."},
+    "roughSurfaceFit":{"value":0.5,"status":"proxy","evidenceFields":["suspension","wheelDiameterFrontCm"],"rationale":"Allradfederung dokumentiert, Radmaße und unabhängige Geländeprüfung fehlen."},
+    "foldingConvenience":{"value":1,"status":"documented","evidenceFields":["foldedDimensionsCm","oneHandFold","foldWithSeat"],"rationale":"Einhandfaltung mit Sitz und kompaktes Faltmaß sind offiziell dokumentiert."},
+    "storageCapacity":{"value":null,"status":"unknown","evidenceFields":["basketLoadKg","basketVolumeL"],"rationale":"Keine belastbare Traglast oder Volumenangabe in der geprüften Quelle."},
+    "weatherProtection":{"value":1,"status":"documented","evidenceFields":["rainCoverIncluded","canopyVentilation","canopyCoverage"],"rationale":"Zwei Regenverdecke, erweitertes Verdeck und Mesh-Belüftung sind dokumentiert."},
+    "repairabilityService":{"value":0.5,"status":"proxy","evidenceFields":["sparePartsAvailability","repairService","warrantyYears"],"rationale":"Ersatzteil- und Kontaktwege sind vorhanden; Garantiedauer bleibt offen."},
+    "longTermFlexibility":{"value":1,"status":"documented","evidenceFields":["newbornConfiguration","reversibleSeat","travelSystem"],"rationale":"Babywanne, umkehrbarer Sitz und Reisesystem sind enthalten beziehungsweise dokumentiert."}
+  },
+  "editorial": {
+    "bestFor":["enge Stadtwege und ÖPNV","kompaktes Falten","Premium-Budget mit häufigem Autotransport"],
+    "tradeoffs":["hoher Gesamtpreis","Korb- und Einzelgewichte sind nicht vollständig dokumentiert"],
+    "openChecks":["Schieberhöhe praktisch testen","Faltpaket im eigenen Kofferraum prüfen"],
+    "dataConflicts":[],
+    "colorDirections":["dark_neutral","light_neutral","warm_color"],
+    "testingDisclosure":"Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

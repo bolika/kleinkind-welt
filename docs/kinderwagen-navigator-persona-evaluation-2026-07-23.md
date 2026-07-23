@@ -1,7 +1,7 @@
 # Kinderwagen-Navigator: Abdeckung der Hypothesen-Archetypen in Flow 0.2
 
 Stand: 23. Juli 2026  
-Katalog: 15 quellengeprüfte Pilotmodelle  
+Katalog: 20 quellengeprüfte Pilotmodelle
 Bewertung: deterministische Match-Engine, kein eigener Produkttest
 
 ## Evidenzgrenze
@@ -27,7 +27,7 @@ Ein Prozentwert erscheint nur bei mindestens 85 Prozent relevanter Datenabdeckun
 | Hypothesen-Archetyp | Bestes Ergebnis | Veröffentlichte Treffer | Urteil |
 |---|---:|---:|---|
 | Preisbewusste Stadtfamilie ohne Aufzug | my junior LIYO 88 % | 1 | Guter Match; günstige Alternativen fehlen noch. |
-| Mobile Familie mit hohem Orientierungsbudget | Bugaboo Dragonfly Plus 87 % | 3 | Guter Match; einteilige Faltung, Breite und Transportdaten tragen das Ergebnis. |
+| Mobile Familie mit hohem Orientierungsbudget | CYBEX Mios 88 % | 3 | Guter Match; kompakte Breite, Faltmaß und Transportdaten tragen das Ergebnis. |
 | Funktionalitätsorientierte Familie mit mittlerem Budget | my junior MAVI 89 % | 3 | Guter Match; Faltung, Stauraum und Langzeitflexibilität werden korrekt priorisiert. |
 | Familie mit Wald-, Feld- und Schotterwegen | Bugaboo Dragonfly Plus 84 % | 3 | Solider Match; die nur teilweise belegte Geländepassung verhindert bewusst eine höhere Stufe. |
 | Stadtfamilie mit engem Zugang und ÖPNV | Bugaboo Dragonfly Plus 89 % | 3 | Guter Match; kein physischer Tür- oder ÖPNV-Fit wird versprochen. |
@@ -46,13 +46,13 @@ Ein zusätzlicher Querschnittstest „Erstkauf ohne besonderen Logistik-Sonderfa
 
 ## Schlussfolgerung
 
-Der Fragenumfang ist nicht der aktuelle Engpass. Die Logik liefert unterschiedliche, erklärbare Rangfolgen und unterdrückt zu dünn belegte oder schwache Treffer. Mit 15 Modellen ist das definierte Katalogziel für eine geschlossene Beta erreicht. Zwei Modelle sind beim Hersteller aktuell nicht verfügbar; sie erhalten im Ergebnis deshalb einen sichtbaren Verfügbarkeitshinweis und keinen Händler-CTA ohne frisches Angebot. Für eine öffentliche Vollständigkeitsbehauptung ist der Katalog weiterhin zu klein.
+Der Fragenumfang ist nicht der aktuelle Engpass. Die Logik liefert unterschiedliche, erklärbare Rangfolgen und unterdrückt zu dünn belegte oder schwache Treffer. Mit 20 Modellen ist das definierte Katalogziel für die Indexierungsprüfung erreicht. Modelle mit aktueller Hersteller-Nichtverfügbarkeit erhalten im Ergebnis deshalb einen sichtbaren Verfügbarkeitshinweis und keinen Händler-CTA ohne frisches Angebot. Für eine vollständige Marktbehauptung ist der Katalog weiterhin zu klein.
 
 Die Ausbaupriorität folgt deshalb den Abdeckungslücken der Hypothesen-Archetypen:
 
 1. weitere aktuell verfügbare günstige, kompakte 2-in-1-Modelle für Stadt, Treppen und kleine Autos,
 2. weitere belastbare Alternativen für kleine Autos,
-3. zusätzliche City-/ÖPNV- und Geländeoptionen bis mindestens 20 Modelle,
+3. gezielte City-/ÖPNV- und Geländeoptionen nur dort ergänzen, wo echte Daten- oder Preisabdeckung fehlt,
 4. erst danach zusätzliche Premium-Dopplungen.
 
 Die maschinenlesbare Archetypen-Definition liegt aus Kompatibilitätsgründen weiterhin in `data/kinderwagen-navigator/persona-segments.v0.2.json`; `tools/kinderwagen-persona-coverage.mjs` reproduziert diese Auswertung.

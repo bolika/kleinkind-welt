@@ -2,15 +2,21 @@
   "schemaVersion": 1,
   "checkedAt": "2026-07-23",
   "manualGates": {
+    "modelSafetyNoticeReview": {
+      "status": "pending",
+      "completed": 0,
+      "target": 20,
+      "note": "Vor Indexierung muss für jedes Modell eine aktuelle manuelle Suche in offiziellen Rückruf- und Safety-Gate-Quellen dokumentiert werden. Kein Treffer ist kein Sicherheitsurteil."
+    },
     "productMediaCoverage": {
       "status": "pending",
       "completed": 0,
-      "target": 15,
+      "target": 20,
       "note": "Für jedes veröffentlichte Modell wird mindestens ein rechtssicher nutzbares Produktbild mit Quelle und Nutzungsumfang benötigt."
     },
     "keyboardAndSmallScreenTest": {
       "status": "partial",
-      "note": "Smartphone- und Desktop-Kernpfad wurden geprüft; ein vollständiger manueller Tastatur- und Screenreader-Durchlauf steht aus."
+      "note": "Automatisierter Browser-Smoke-Test bei 320 und 1440 Pixeln bestanden: kein horizontaler Überlauf, Tool im ersten Viewport, Skip-Link per Tastatur, Fehler-Live-Region, Auswahlgrenzen und No-Match-Kompromiss ohne Neustart. Manueller Screenreader-Durchlauf steht aus."
     },
     "moderatedParentTests": {
       "status": "pending",
@@ -25,8 +31,8 @@
       "note": "Erst nach einer belastbaren Stichprobe Completion, Kein-Match, Hilfreichkeit und Händlerinteresse bewerten."
     },
     "systematicMismatchReview": {
-      "status": "pending",
-      "note": "Negative Rückmeldungen und No-Match-Fälle müssen einzeln gegen Eingaben, Regeln und Datenlage geprüft werden."
+      "status": "partial",
+      "note": "Elf Referenzprofile und sieben Hypothesen-Archetypen sind automatisiert geprüft; der strikte Niedrigbudget-No-Match endet nach bewusst gewähltem Kompromiss ohne Neustart. Echte negative Rückmeldungen müssen nach Beta-Start weiterhin einzeln geprüft werden."
     }
   }
 }

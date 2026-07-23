@@ -1,22 +1,27 @@
 {
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
-  "checkedAt": "2026-07-22",
+  "checkedAt": "2026-07-23",
   "products": [
     "abc-design-samba-2.json",
     "abc-design-salsa-5-air.json",
     "bugaboo-dragonfly-plus.json",
     "bugaboo-fox-5-renew.json",
     "cybex-balios-s-lux.json",
+    "cybex-mios-current.json",
     "joie-versatrax-2024.json",
     "joolz-hub2.json",
+    "joolz-day5.json",
+    "joolz-geo5.json",
     "kinderkraft-esme-2in1.json",
     "kinderkraft-nea-2.json",
     "kinderkraft-yoxi-2in1.json",
+    "kinderkraft-prime-3-2in1.json",
     "my-junior-liyo.json",
     "my-junior-mavi.json",
     "my-junior-miyo2.json",
     "my-junior-noax-2.json",
-    "my-junior-vita-unique3.json"
+    "my-junior-vita-unique3.json",
+    "my-junior-vigo.json"
   ]
 }

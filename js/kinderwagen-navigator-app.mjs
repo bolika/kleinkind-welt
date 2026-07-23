@@ -7,9 +7,27 @@ const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
 const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
 const loadStartedAt = performance.now();
+let mobileQuestionActionObserver = null;
 
 function preferredScrollBehavior() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
+function resetMobileQuestionAction() {
+  mobileQuestionActionObserver?.disconnect();
+  mobileQuestionActionObserver = null;
+}
+
+function observeMobileQuestionAction(card, action) {
+  resetMobileQuestionAction();
+  if (!('IntersectionObserver' in window)) {
+    action.classList.add('is-mobile-action-visible');
+    return;
+  }
+  mobileQuestionActionObserver = new IntersectionObserver(([entry]) => {
+    action.classList.toggle('is-mobile-action-visible', entry.isIntersecting);
+  }, { threshold: 0 });
+  mobileQuestionActionObserver.observe(card);
 }
 
 const state = {
@@ -20,6 +38,7 @@ const state = {
   criteriaData: null,
   products: [],
   offers: [],
+  mediaAssets: [],
   currentQuestionId: null,
   started: false,
   ready: false,
@@ -407,8 +426,13 @@ function renderQuestion(questionId, options = {}) {
   const form = element('form', 'navigator-question-form');
   form.append(renderControl(question));
   const error = element('p', 'navigator-question-error');
+  error.id = 'navigator-question-error';
   error.dataset.questionError = '';
+  error.setAttribute('role', 'alert');
+  error.setAttribute('aria-live', 'assertive');
+  error.setAttribute('aria-atomic', 'true');
   error.hidden = true;
+  form.setAttribute('aria-describedby', error.id);
   form.append(error);
 
   const actions = element('div', 'navigator-app-actions');
@@ -430,6 +454,7 @@ function renderQuestion(questionId, options = {}) {
   }
   const next = element('button', 'navigator-primary-button', question.id === 'top_priorities' ? 'Ergebnis anzeigen' : 'Weiter');
   next.type = 'submit';
+  next.dataset.mobileFixedAction = '';
   actions.append(next);
   form.append(actions);
   form.addEventListener('submit', (event) => {
@@ -438,7 +463,11 @@ function renderQuestion(questionId, options = {}) {
   });
   card.append(form);
   app.replaceChildren(card);
-  if (shouldFocus) card.querySelector('input, select')?.focus({ preventScroll: true });
+  observeMobileQuestionAction(card, next);
+  if (shouldFocus) {
+    title.tabIndex = -1;
+    title.focus({ preventScroll: true });
+  }
   if (shouldScroll) app.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
 }
 
@@ -485,6 +514,7 @@ function renderSummary() {
 }
 
 function renderUnsupported(route) {
+  resetMobileQuestionAction();
   const copy = {
     unsupported_buggy: ['Der Pilot vergleicht noch keine reinen Buggys', 'Damit die Ergebnisse belastbar bleiben, startet Version 0.1 mit Kombi-Kinderwagen ab Geburt.'],
     unsupported_travel_buggy: ['Reisebuggys sind jetzt als eigenes Segment erfasst', 'Für ein belastbares Reisebuggy-Ranking brauchen wir eigene Daten zu Gewicht, Handgepäckmaßen, Faltmechanik und Reisealltag. Eure Auswahl wird als Nachfrage gemessen und nicht mit Kombi-Kinderwagen vermischt.'],
@@ -638,7 +668,28 @@ function approvedImageOffer(result) {
     .find((offer) => offer.imageUrl && offer.imageRightsStatus === 'approved_for_feed_only') ?? null;
 }
 
+function approvedProductMedia(result) {
+  const today = new Date().toISOString().slice(0, 10);
+  return state.mediaAssets.find((asset) =>
+    asset.productId === result.productId &&
+    (asset.status ?? 'approved') === 'approved' &&
+    (!asset.validUntil || asset.validUntil >= today) &&
+    (asset.localPath || asset.remoteUrl)
+  ) ?? null;
+}
+
 function productMedia(result, rank) {
+  const asset = approvedProductMedia(result);
+  if (asset) {
+    const figure = element('figure', 'navigator-product-media');
+    const image = element('img');
+    image.src = asset.localPath ?? asset.remoteUrl;
+    image.alt = asset.alt;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    figure.append(image, element('figcaption', '', 'Produktbild · Nutzungsrecht dokumentiert'));
+    return figure;
+  }
   const offer = approvedImageOffer(result);
   if (!offer) return null;
   const figure = element('figure', 'navigator-product-media');
@@ -698,11 +749,18 @@ function comparisonCriterionLabel(criterionId) {
   return state.criteriaData?.criteria?.find((criterion) => criterion.id === criterionId)?.label ?? criterionId;
 }
 
-function comparisonStrength(result) {
-  const strongest = (result.evaluations ?? [])
+function comparisonStrengths(result, limit = 1) {
+  const strengths = (result.evaluations ?? [])
     .filter((evaluation) => typeof evaluation.value === 'number')
-    .sort((a, b) => (b.value * b.weight) - (a.value * a.weight))[0];
-  return strongest ? comparisonCriterionLabel(strongest.criterionId) : (result.bestFor[0] ?? 'Nicht belegt');
+    .sort((a, b) => (b.value * b.weight) - (a.value * a.weight))
+    .map((evaluation) => comparisonCriterionLabel(evaluation.criterionId));
+  const unique = [...new Set(strengths)].slice(0, limit);
+  if (unique.length) return unique;
+  return result.bestFor.slice(0, limit).length ? result.bestFor.slice(0, limit) : ['Nicht belegt'];
+}
+
+function comparisonStrength(result) {
+  return comparisonStrengths(result, 1)[0];
 }
 
 function comparisonTradeoff(result) {
@@ -752,16 +810,24 @@ function comparisonSection(results, badges) {
   scroller.tabIndex = 0;
   scroller.setAttribute('aria-label', 'Seitlich scrollbarer Kinderwagenvergleich');
   const table = element('table', 'navigator-comparison__table');
+  const productColumnWidth = 190;
+  const criterionColumnWidth = 104;
+  table.style.setProperty('--navigator-comparison-width', `${criterionColumnWidth + (results.length * productColumnWidth)}px`);
+  const colgroup = element('colgroup');
+  colgroup.append(element('col', 'navigator-comparison__criterion-col'));
+  results.forEach(() => colgroup.append(element('col', 'navigator-comparison__product-col')));
+  table.append(colgroup);
   const head = element('thead');
   const headRow = element('tr');
   headRow.append(element('th', 'navigator-comparison__criterion', 'Kriterium'));
   results.forEach((result, index) => {
     const cell = element('th', 'navigator-comparison__product');
     cell.scope = 'col';
+    const mediaAsset = approvedProductMedia(result);
     const imageOffer = approvedImageOffer(result);
-    if (imageOffer) {
+    if (mediaAsset || imageOffer) {
       const image = element('img', 'navigator-comparison__image');
-      image.src = imageOffer.imageUrl;
+      image.src = mediaAsset?.localPath ?? mediaAsset?.remoteUrl ?? imageOffer.imageUrl;
       image.alt = '';
       image.loading = 'lazy';
       image.decoding = 'async';
@@ -815,13 +881,20 @@ function comparisonSection(results, badges) {
   }
   table.append(body);
   scroller.append(table);
-  details.append(element('p', 'navigator-comparison__hint', 'Auf dem Smartphone seitlich wischen, um alle Modelle zu sehen. Tippt auf einen Produktnamen, um zur ausführlichen Bewertung zu springen.'), scroller);
+  const hint = element('p', 'navigator-comparison__hint');
+  hint.append(
+    element('span', '', 'Seitlich wischen, um alle Modelle zu sehen.'),
+    element('strong', 'navigator-comparison__position', `1 von ${results.length}`)
+  );
+  details.append(hint, scroller);
   details.addEventListener('toggle', () => {
     if (!details.open || details.dataset.tracked) return;
     details.dataset.tracked = 'true';
     track('vergleich_geoeffnet', { modelle: String(results.length) });
   });
   scroller.addEventListener('scroll', () => {
+    const position = Math.min(results.length, Math.max(1, Math.round(scroller.scrollLeft / productColumnWidth) + 1));
+    hint.querySelector('.navigator-comparison__position').textContent = `${position} von ${results.length}`;
     if (scroller.scrollLeft < 24 || scroller.dataset.trackedScroll) return;
     scroller.dataset.trackedScroll = 'true';
     track('vergleich_gescrollt', { modelle: String(results.length) });
@@ -897,13 +970,27 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
 
   const list = element('ul', 'navigator-match-list');
   const reasons = result.reasons.length ? result.reasons : result.bestFor.slice(0, 2);
-  for (const reason of reasons.slice(0, 3)) list.append(element('li', 'is-match', reason));
-  if (result.compromise) list.append(element('li', 'is-compromise', result.compromise));
+  for (const strength of comparisonStrengths(result, 2)) list.append(element('li', 'is-match', strength));
+  if (result.compromise) list.append(element('li', 'is-compromise', `Wichtigster Abstrich: ${comparisonTradeoff(result)}`));
   card.append(list);
 
   if (!preliminary && !fallback) {
     const offers = offerSection(result, rank);
     if (offers) card.append(offers);
+  }
+
+  const evidence = element('details', 'navigator-result-more');
+  if (window.matchMedia('(min-width: 769px)').matches) evidence.open = true;
+  evidence.append(element('summary', '', 'Details, Prüfpunkte und Quellen'));
+
+  if (reasons.length || result.compromise) {
+    const rationale = element('div', 'navigator-result-rationale');
+    rationale.append(element('strong', '', 'So entsteht diese Passung'));
+    const rationaleList = element('ul');
+    reasons.slice(0, 3).forEach((reason) => rationaleList.append(element('li', '', reason)));
+    if (result.compromise) rationaleList.append(element('li', '', result.compromise));
+    rationale.append(rationaleList);
+    evidence.append(rationale);
   }
 
   const proof = element('div', 'navigator-proof-metrics');
@@ -914,7 +1001,7 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
   const sources = element('div');
   sources.append(element('strong', '', `${result.sourceCount}`), element('span', '', 'geprüfte Quellen'));
   proof.append(must, coverage, sources);
-  card.append(proof);
+  evidence.append(proof);
 
   if (result.openChecks.length) {
     const checks = element('div', 'navigator-open-check');
@@ -922,7 +1009,7 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
     const checkList = element('ul');
     result.openChecks.slice(0, 3).forEach((check) => checkList.append(element('li', '', check)));
     checks.append(checkList);
-    card.append(checks);
+    evidence.append(checks);
   }
 
   const details = element('details', 'navigator-source-details');
@@ -940,7 +1027,8 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
     sourceList.append(item);
   });
   details.append(sourceList);
-  card.append(details);
+  evidence.append(details);
+  card.append(evidence);
   return card;
 }
 
@@ -1026,6 +1114,7 @@ function renderCompromisePanel(result) {
 }
 
 function renderResults() {
+  resetMobileQuestionAction();
   const result = matchStrollers({ answers: state.answers, products: state.products, criteriaData: state.criteriaData });
   const adjustedFallback = !result.results.length && state.acceptedCompromises.length > 0 && result.closest[0]?.eligible;
   const wrap = element('div', 'navigator-results');
@@ -1034,13 +1123,13 @@ function renderResults() {
   intro.append(element('h2', '', result.results.length
     ? `${result.results.length === 1 ? 'Ein belastbares Match' : `${result.results.length} belastbare Matches`}`
     : (adjustedFallback ? 'Eure beste verfügbare Lösung' : 'Eure besten Optionen – mit offenen Abstrichen')));
-  intro.append(element('p', '', result.results.length
-    ? 'Die Reihenfolge entsteht ausschließlich aus euren Anforderungen und der dokumentierten Datenlage – nicht aus Provisionen oder Händlerverfügbarkeit.'
+  intro.append(element('p', 'navigator-results__lead-copy', result.results.length
+    ? 'Sortiert nach eurer Passung – unabhängig von Provisionen und Händlerverfügbarkeit.'
     : (adjustedFallback
       ? 'Die erste Option erfüllt nach eurer Anpassung die Muss-Anforderungen. Sie bleibt unter unserer Schwelle für eine volle Empfehlung, deshalb zeigen wir die offenen Punkte weiterhin transparent.'
       : 'Ihr müsst nicht von vorne beginnen. Wir zeigen die nächstliegenden Optionen, erklären die Abweichungen und lassen euch gezielt nur den Abstrich ändern, der wirklich blockiert.')));
   if (result.results.length > 0 && result.results.length < 3) {
-    intro.append(element('p', 'navigator-result-count-note', `${result.results.length} statt 3 Ergebnissen: Weitere Modelle erfüllen die Muss-Kriterien oder die Mindest-Datenqualität derzeit nicht.`));
+    intro.append(element('p', 'navigator-result-count-note', `${result.results.length} statt 3: Weitere Modelle scheitern aktuell an Muss-Kriterien oder Datenqualität.`));
   }
   if (state.acceptedCompromises.length) {
     const accepted = element('div', 'navigator-accepted-compromises');
@@ -1173,11 +1262,12 @@ function restartNavigator() {
 }
 
 async function loadData() {
-  const [questionsData, criteriaData, catalogBundle, offerData] = await Promise.all([
+  const [questionsData, criteriaData, catalogBundle, offerData, mediaData] = await Promise.all([
     fetch(`${DATA_ROOT}/questions.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/criteria.v0.1.json`).then((response) => response.json()),
     fetch(`${DATA_ROOT}/catalog.bundle.v0.1.json`).then((response) => response.json()),
-    fetch(`${DATA_ROOT}/offers.v0.1.json`).then((response) => response.ok ? response.json() : { offers: [] }).catch(() => ({ offers: [] }))
+    fetch(`${DATA_ROOT}/offers.v0.1.json`).then((response) => response.ok ? response.json() : { offers: [] }).catch(() => ({ offers: [] })),
+    fetch(`${DATA_ROOT}/media.v0.1.json`).then((response) => response.ok ? response.json() : { assets: [] }).catch(() => ({ assets: [] }))
   ]);
   const products = catalogBundle.products ?? [];
   if (!Array.isArray(products) || !products.length) throw new Error('catalog_empty');
@@ -1187,6 +1277,7 @@ async function loadData() {
   state.criteriaData = criteriaData;
   state.products = products;
   state.offers = offerData.offers ?? [];
+  state.mediaAssets = mediaData.assets ?? [];
   if (affiliateDisclosure && state.offers.length > 0) {
     affiliateDisclosure.hidden = false;
   }

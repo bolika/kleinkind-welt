@@ -40,6 +40,9 @@ jobs:
           node --check tools/generate-seal-assets.mjs
           node --check tools/internal-link-audit.mjs
           node --check tools/kinderwagen-media-rights-gate.mjs
+          node --check tools/kinderwagen-beta-gate.mjs
+          node --check tools/kinderwagen-tracking-contract-gate.mjs
+          node --check tools/prepare-kinderwagen-product-image.mjs
           node --check tools/seo-smoke-test.mjs
           node --check tools/site-positioning-gate.mjs
           node --check tools/sync-site-navigation.mjs
@@ -54,6 +57,7 @@ jobs:
           jq empty data/kinderwagen-guides.v0.1.json
           jq empty data/kinderwagen-navigator/media.schema.json
           jq empty data/kinderwagen-navigator/media.v0.1.json
+          jq empty data/kinderwagen-navigator/tracking-contract.v0.1.json
           jq empty data/spielzeug-siegel.json
           jq empty data/seo-monitoring-config.json
           jq empty content-briefs/*.json
@@ -64,6 +68,7 @@ jobs:
           node tools/content-brief-gate.mjs
           node tools/generate-seal-assets.mjs --check
           node tools/kinderwagen-media-rights-gate.mjs
+          node tools/kinderwagen-beta-gate.mjs
           node tools/site-positioning-gate.mjs
           node tools/sync-site-navigation.mjs --check
 

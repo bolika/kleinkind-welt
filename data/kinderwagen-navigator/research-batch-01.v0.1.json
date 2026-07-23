@@ -68,7 +68,7 @@
     {
       "canonicalModelId": "cybex-mios-current",
       "officialModelName": "CYBEX Mios (Neue Generation)",
-      "status": "researched_pending_safety_gate",
+      "status": "promoted_to_pilot_pending_safety_gate",
       "sourceUrl": "https://www.cybex-online.com/de/de/p/st-pl-mios-5.html",
       "catalogNumber": "526000089",
       "requiredConfiguration": "Mios Comfort Set mit Rahmen, Fold Lux Carry Cot und Sitzeinheit",
@@ -101,7 +101,7 @@
     {
       "canonicalModelId": "joolz-day5",
       "officialModelName": "Joolz Day5",
-      "status": "researched_pending_safety_gate",
+      "status": "promoted_to_pilot_pending_safety_gate",
       "sourceUrl": "https://www.joolz.com/de/de/kinderwagen-2-in-1/540004.html",
       "requiredConfiguration": "Joolz Day5 Set mit Gestell, Wanne und Sitz",
       "currentPriceEur": 1299,
@@ -133,7 +133,7 @@
     {
       "canonicalModelId": "joolz-geo5",
       "officialModelName": "Joolz Geo5 Single",
-      "status": "researched_pending_safety_gate",
+      "status": "promoted_to_pilot_pending_safety_gate",
       "sourceUrl": "https://www.joolz.com/de/de/kinderwagen/072000-M.html",
       "requiredConfiguration": "Joolz Geo5 Single mit Gestell, Wanne und Sitz",
       "currentPriceEur": 1299,

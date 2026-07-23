@@ -21,6 +21,38 @@
     "publishedModelsPerCorePersona": 2,
     "publishedModelsPerCorePersonaPreferred": 3
   },
+  "promotedPilotModels": [
+    {
+      "canonicalModelId": "kinderkraft-prime-3-2in1",
+      "promotedAt": "2026-07-23",
+      "status": "pilot_pending_manual_safety_gate",
+      "note": "Produktdaten-Gate bestanden; eine dokumentierte Safety-Gate-Suche bleibt vor Indexierung erforderlich."
+    },
+    {
+      "canonicalModelId": "my-junior-vigo",
+      "promotedAt": "2026-07-23",
+      "status": "pilot_pending_manual_safety_gate",
+      "note": "Produktdaten-Gate bestanden; die ungefaltete Gesamtbreite und eine dokumentierte Safety-Gate-Suche bleiben offen."
+    },
+    {
+      "canonicalModelId": "cybex-mios-current",
+      "promotedAt": "2026-07-23",
+      "status": "pilot_pending_manual_safety_gate",
+      "note": "Produktdaten-Gate bestanden; eine dokumentierte Safety-Gate-Suche bleibt vor Indexierung erforderlich."
+    },
+    {
+      "canonicalModelId": "joolz-day5",
+      "promotedAt": "2026-07-23",
+      "status": "pilot_pending_manual_safety_gate",
+      "note": "Produktdaten-Gate bestanden; eine dokumentierte Safety-Gate-Suche bleibt vor Indexierung erforderlich."
+    },
+    {
+      "canonicalModelId": "joolz-geo5",
+      "promotedAt": "2026-07-23",
+      "status": "pilot_pending_manual_safety_gate",
+      "note": "Produktdaten-Gate bestanden; eine dokumentierte Safety-Gate-Suche bleibt vor Indexierung erforderlich."
+    }
+  ],
   "candidates": [
     {
       "canonicalModelId": "joie-finiti",
@@ -58,39 +90,6 @@
       "blocker": "Die offizielle Kategorieseite nennt 259 Euro und einen Warenkorb-CTA, während die konkrete Produktseite 0,00 Euro beziehungsweise variantenabhängig Nichtverfügbarkeit meldet. Erst nach eindeutigem aktuellem Setpreis veröffentlichen."
     },
     {
-      "canonicalModelId": "kinderkraft-prime-3-2in1",
-      "brand": "Kinderkraft",
-      "model": "PRIME 3 2in1",
-      "scopeRoute": "supported_combo_from_birth",
-      "priority": "P1",
-      "status": "ready_for_data_research",
-      "officialUrl": "https://kinderkraft.de/produkte/prime-3-2w1",
-      "coverageTargets": ["mid_budget_function_first", "service_weather_long_use"],
-      "reason": "Aktuelle mittlere Preisklasse als Funktions- und Servicealternative. Aufnahme erst nach vollständigem Preis-, Gewichts- und Maßvergleich der Geburtskonfiguration."
-    },
-    {
-      "canonicalModelId": "my-junior-vigo",
-      "brand": "my junior",
-      "model": "VIGO",
-      "scopeRoute": "supported_combo_from_birth",
-      "priority": "P1",
-      "status": "ready_for_data_research",
-      "officialUrl": "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
-      "coverageTargets": ["mid_budget_function_first", "service_weather_long_use"],
-      "reason": "Breitere Funktionsalternative aus der überwachten Herstellerquelle."
-    },
-    {
-      "canonicalModelId": "cybex-mios-current",
-      "brand": "CYBEX",
-      "model": "Mios (Neue Generation)",
-      "scopeRoute": "supported_combo_from_birth",
-      "priority": "P1",
-      "status": "researched_pending_safety_gate",
-      "officialUrl": "https://www.cybex-online.com/de/de/p/st-pl-mios-5.html",
-      "coverageTargets": ["premium_mobile_family", "tight_access_transit"],
-      "reason": "Aktuelle Premium-Stadtalternative mit 50 Zentimetern Breite; die frühere Mios-3-Kandidatenreferenz wurde bewusst nicht mit der neuen Generation vermischt."
-    },
-    {
       "canonicalModelId": "cybex-priam-4",
       "brand": "CYBEX",
       "model": "Priam 4",
@@ -111,28 +110,6 @@
       "officialUrl": "https://www.cybex-online.com/de/de/p/set-st-pl-e-priam-2.html",
       "coverageTargets": ["premium_mobile_family", "rural_rough_routes"],
       "reason": "Spezialfall für elektrische Unterstützung; erst nach den breiteren Kernlücken erfassen."
-    },
-    {
-      "canonicalModelId": "joolz-day5",
-      "brand": "Joolz",
-      "model": "Day5",
-      "scopeRoute": "supported_combo_from_birth",
-      "priority": "P1",
-      "status": "researched_pending_safety_gate",
-      "officialUrl": "https://www.joolz.com/de/de/kinderwagen-2-in-1/540004.html",
-      "coverageTargets": ["premium_mobile_family", "service_weather_long_use"],
-      "reason": "Premium-Komfort- und Garantiealternative zum bereits vorhandenen Hub2."
-    },
-    {
-      "canonicalModelId": "joolz-geo5",
-      "brand": "Joolz",
-      "model": "Geo5",
-      "scopeRoute": "supported_combo_from_birth",
-      "priority": "P1",
-      "status": "researched_pending_safety_gate",
-      "officialUrl": "https://www.joolz.com/de/de/kinderwagen/072000-M.html",
-      "coverageTargets": ["rural_rough_routes", "service_weather_long_use"],
-      "reason": "Robuste, erweiterbare Alternative; nur die Mono-Konfiguration gehört in den aktuellen Matcher."
     },
     {
       "canonicalModelId": "my-junior-pico360",

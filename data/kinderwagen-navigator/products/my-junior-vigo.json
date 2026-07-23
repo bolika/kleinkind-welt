@@ -1,0 +1,53 @@
+{
+  "schemaVersion":1,"modelVersion":"0.1.0","productId":"my-junior-vigo",
+  "identity":{"brand":"my junior","model":"VIGO","generation":"Current DE listing 2026","market":"DE","category":"single-combi-from-birth","supportedChildren":1},
+  "review":{"status":"pilot","checkedAt":"2026-07-23","reviewDueAt":"2026-08-23","reviewedBy":"AI research pilot","pilotArchetype":"Service- und Wetterorientierter Allrounder"},
+  "sources":[
+    {"id":"myjunior-vigo-product","url":"https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html","kind":"manufacturer","title":"my junior VIGO Produktseite","checkedAt":"2026-07-23"},
+    {"id":"myjunior-service","url":"https://my-junior.com/de/content/5-herstellergarantie-und-reparaturservice-kinderwagen","kind":"manufacturer","title":"my junior Garantie- und Reparaturservice","checkedAt":"2026-07-23"}
+  ],
+  "facts":{
+    "marketStatus":{"value":"current_available","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented","freshUntil":"2026-08-06"},
+    "newbornApproved":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "newbornConfiguration":{"value":"VIGO 2in1 Starter-Set mit Wanne und Sportsitz","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "carrycotIncluded":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "requiredConfigurationPriceEur":{"value":999,"unit":"EUR","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Regulärer Setpreis; temporäre Rabatte nicht als dauerhafter Preis verwendet.","freshUntil":"2026-08-06"},
+    "unfoldedWidthCm":{"value":null,"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"unknown","note":"Hersteller nennt 55 cm nur als Faltbreite mit Rädern. Daraus wird keine ungefaltete Gesamtbreite abgeleitet."},
+    "foldedDimensionsCm":{"value":{"length":72,"width":55,"height":34,"configuration":"with_wheels"},"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "frameWeightKg":{"value":9,"unit":"kg","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "seatWeightKg":{"value":4.5,"unit":"kg","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"derived_proxy"},
+    "carrycotWeightKg":{"value":4,"unit":"kg","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"derived_proxy"},
+    "liftReadyWeightKg":{"value":13,"unit":"kg","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "liftReadyConfiguration":{"value":"frame_with_carrycot","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "pushbarMinCm":{"value":80,"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "pushbarMaxCm":{"value":110,"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelDiameterFrontCm":{"value":19,"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelDiameterRearCm":{"value":26.5,"unit":"cm","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelMaterial":{"value":"unspecified","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"unknown"},
+    "suspension":{"value":"adjustable suspension","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "basketLoadKg":{"value":null,"unit":"kg","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "basketVolumeL":{"value":50,"unit":"l","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "oneHandFold":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "foldWithSeat":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "selfStandingFold":{"value":null,"sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "reversibleSeat":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "travelSystem":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Adapter separat."},
+    "canopyCoverage":{"value":"xxl_upf50","sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "canopyVentilation":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "rainCoverIncluded":{"value":true,"sourceIds":["myjunior-vigo-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "sparePartsAvailability":{"value":true,"sourceIds":["myjunior-service"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "repairService":{"value":true,"sourceIds":["myjunior-service"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "warrantyYears":{"value":10,"unit":"years","sourceIds":["myjunior-service"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Unter Registrierungs- und Garantiebedingungen."},
+    "officialSafetyNoticeStatus":{"value":"not_checked_in_pilot","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown","note":"Kein Sicherheitsurteil ableiten."}
+  },
+  "signals":{
+    "cityManeuverability":{"value":0.5,"status":"proxy","evidenceFields":["unfoldedWidthCm","liftReadyWeightKg"],"rationale":"Relativ kompakte Breite, aber höheres Systemgewicht und kein unabhängiger Test."},
+    "roughSurfaceFit":{"value":0.5,"status":"proxy","evidenceFields":["wheelDiameterFrontCm","wheelDiameterRearCm","suspension"],"rationale":"Verstellbare Federung und Radmaße dokumentiert; Fahrverhalten nicht unabhängig geprüft."},
+    "foldingConvenience":{"value":0.5,"status":"proxy","evidenceFields":["foldedDimensionsCm","oneHandFold","foldWithSeat"],"rationale":"Einhandfaltung mit Aufsatz dokumentiert, Paket bleibt mittelgroß."},
+    "storageCapacity":{"value":1,"status":"documented","evidenceFields":["basketVolumeL","basketLoadKg"],"rationale":"Bis zu 50 Liter Volumen dokumentiert; Traglast offen."},
+    "weatherProtection":{"value":1,"status":"documented","evidenceFields":["canopyCoverage","canopyVentilation","rainCoverIncluded"],"rationale":"XXL-Verdeck, Belüftung und Regenschutz enthalten."},
+    "repairabilityService":{"value":1,"status":"documented","evidenceFields":["sparePartsAvailability","repairService","warrantyYears"],"rationale":"Ersatzteile, Service und bedingte Langzeitgarantie dokumentiert."},
+    "longTermFlexibility":{"value":1,"status":"documented","evidenceFields":["newbornConfiguration","reversibleSeat","travelSystem"],"rationale":"Wanne, umkehrbarer Sitz und Travel-System-Kompatibilität dokumentiert."}
+  },
+  "editorial":{"bestFor":["Service und lange Nutzung","Wetterausstattung","viel Stauraum"],"tradeoffs":["13 kg mit Wanne","nicht der kompakteste Wagen","Breite nicht als unabhängige Messung belegt"],"openChecks":["Feldweg praktisch testen","Faltpaket im eigenen Auto prüfen"],"dataConflicts":["Herstellerbewertungen enthalten sowohl sehr positive als auch einzelne deutliche Langzeitkritik; sie sind kein Sicherheits- oder Haltbarkeitsnachweis."],"colorDirections":["dark_neutral","light_neutral","green_earth","warm_color"],"testingDisclosure":"Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."}
+}

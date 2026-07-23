@@ -1,0 +1,53 @@
+{
+  "schemaVersion":1,"modelVersion":"0.1.0","productId":"joolz-day5",
+  "identity":{"brand":"Joolz","model":"Day⁵","generation":"Current DE listing 2026","market":"DE","category":"single-combi-from-birth","supportedChildren":1},
+  "review":{"status":"pilot","checkedAt":"2026-07-23","reviewDueAt":"2026-08-23","reviewedBy":"AI research pilot","pilotArchetype":"Premium-Komfort mit moderatem Gewicht"},
+  "sources":[
+    {"id":"joolz-day5-product","url":"https://www.joolz.com/de/de/kinderwagen/joolz-day/540002.html","kind":"manufacturer","title":"Joolz Day5 Produktseite","checkedAt":"2026-07-23"},
+    {"id":"joolz-compare","url":"https://www.joolz.com/de/de/compare-the-rides.html","kind":"manufacturer","title":"Joolz Kinderwagenvergleich","checkedAt":"2026-07-23"}
+  ],
+  "facts":{
+    "marketStatus":{"value":"current_available","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented","freshUntil":"2026-08-06"},
+    "newbornApproved":{"value":true,"sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "newbornConfiguration":{"value":"Day5 Set mit Gestell, Wanne und Sitz","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "carrycotIncluded":{"value":true,"sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "requiredConfigurationPriceEur":{"value":1299,"unit":"EUR","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented","freshUntil":"2026-08-06"},
+    "unfoldedWidthCm":{"value":60,"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "foldedDimensionsCm":{"value":{"length":83,"width":60,"height":36.5,"configuration":"with_seat"},"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "frameWeightKg":{"value":5.8,"unit":"kg","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "seatWeightKg":{"value":6.2,"unit":"kg","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"derived_proxy","note":"12 kg mit Sitz minus 5,8 kg Gestell plus Räder."},
+    "carrycotWeightKg":{"value":6.7,"unit":"kg","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"derived_proxy","note":"12,5 kg mit Wanne minus 5,8 kg Gestell plus Räder."},
+    "liftReadyWeightKg":{"value":12.5,"unit":"kg","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "liftReadyConfiguration":{"value":"frame_with_carrycot","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "pushbarMinCm":{"value":103,"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "pushbarMaxCm":{"value":113,"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelDiameterFrontCm":{"value":19,"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelDiameterRearCm":{"value":30,"unit":"cm","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "wheelMaterial":{"value":"puncture-proof rubber eva mix","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "suspension":{"value":"individual four-wheel suspension","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "basketLoadKg":{"value":10,"unit":"kg","sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "basketVolumeL":{"value":25,"unit":"l","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "oneHandFold":{"value":false,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "foldWithSeat":{"value":true,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "selfStandingFold":{"value":true,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "reversibleSeat":{"value":true,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "travelSystem":{"value":true,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Mit separat nötigen Adaptern."},
+    "canopyCoverage":{"value":"extended_upf50","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "canopyVentilation":{"value":true,"sourceIds":["joolz-compare"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "rainCoverIncluded":{"value":false,"sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "sparePartsAvailability":{"value":true,"sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented"},
+    "repairService":{"value":null,"sourceIds":[],"checkedAt":"2026-07-23","status":"unknown"},
+    "warrantyYears":{"value":2,"unit":"years","sourceIds":["joolz-day5-product"],"checkedAt":"2026-07-23","status":"officially_documented","note":"Auf 10 Jahre nach Registrierung verlängerbar."},
+    "officialSafetyNoticeStatus":{"value":"not_checked_in_pilot","sourceIds":[],"checkedAt":"2026-07-23","status":"unknown","note":"Kein Sicherheitsurteil ableiten."}
+  },
+  "signals":{
+    "cityManeuverability":{"value":0.5,"status":"proxy","evidenceFields":["unfoldedWidthCm","liftReadyWeightKg"],"rationale":"60 cm und moderates Systemgewicht sind dokumentiert; Handhabung nicht unabhängig geprüft."},
+    "roughSurfaceFit":{"value":0.5,"status":"proxy","evidenceFields":["wheelDiameterFrontCm","wheelDiameterRearCm","suspension"],"rationale":"Große Räder und Vier-Rad-Federung sind dokumentiert; Praxistest fehlt."},
+    "foldingConvenience":{"value":0.5,"status":"proxy","evidenceFields":["foldedDimensionsCm","oneHandFold","selfStandingFold"],"rationale":"Selbststehend mit Sitz, jedoch dokumentierte Zweihand-Faltung."},
+    "storageCapacity":{"value":1,"status":"documented","evidenceFields":["basketLoadKg","basketVolumeL"],"rationale":"25 Liter und 10 kg Traglast sind dokumentiert."},
+    "weatherProtection":{"value":0.5,"status":"proxy","evidenceFields":["canopyCoverage","canopyVentilation","rainCoverIncluded"],"rationale":"Erweitertes belüftetes Verdeck, Regenschutz nicht enthalten."},
+    "repairabilityService":{"value":0.5,"status":"proxy","evidenceFields":["sparePartsAvailability","repairService","warrantyYears"],"rationale":"Ersatzteile und Garantie dokumentiert, Reparaturprozess offen."},
+    "longTermFlexibility":{"value":1,"status":"documented","evidenceFields":["newbornConfiguration","reversibleSeat","travelSystem"],"rationale":"Wanne, umkehrbarer Sitz und Autositz-Kompatibilität dokumentiert."}
+  },
+  "editorial":{"bestFor":["Komfort und Stauraum","gemischte Wege","lange Nutzungsdauer"],"tradeoffs":["hoher Preis","Zweihand-Faltung","mit Wanne nicht leicht für tägliche Treppen"],"openChecks":["Faltmaß im Auto testen","Griffhöhe für kleinere Personen prüfen"],"dataConflicts":[],"colorDirections":["dark_neutral","light_neutral","green_earth","blue_cool"],"testingDisclosure":"Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."}
+}

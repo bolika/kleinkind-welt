@@ -52,8 +52,8 @@
       "feedImageUsageStatus": "terms_review_required",
       "priority": "P0",
       "mappingFile": "data/kinderwagen-navigator/joolz.mapping.v0.1.json",
-      "catalogProductIds": ["joolz-hub2"],
-      "plannedModelIds": ["joolz-day5", "joolz-geo5"],
+      "catalogProductIds": ["joolz-hub2", "joolz-day5", "joolz-geo5"],
+      "plannedModelIds": [],
       "role": "Direkter Markenkanal und geplanter Ausbau für Komfort- und robuste Alltagsprofile."
     },
     {
@@ -66,8 +66,8 @@
       "feedImageUsageStatus": "terms_review_required",
       "priority": "P1",
       "mappingFile": "data/kinderwagen-navigator/cybex.mapping.v0.1.json",
-      "catalogProductIds": ["cybex-balios-s-lux-current"],
-      "plannedModelIds": ["cybex-mios-current", "cybex-priam-4", "cybex-e-priam-2"],
+      "catalogProductIds": ["cybex-balios-s-lux-current", "cybex-mios-current"],
+      "plannedModelIds": ["cybex-priam-4", "cybex-e-priam-2"],
       "role": "Direkter Markenkanal für Stadt-, Premium- und Geländeprofile."
     },
     {

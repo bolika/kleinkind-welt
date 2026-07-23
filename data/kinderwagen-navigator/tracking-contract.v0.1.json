@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "eventName": "Kinderwagen-Navigator",
+  "checkedAt": "2026-07-23",
+  "privacy": {
+    "freeTextAnswersForbidden": true,
+    "exactMeasurementsForbidden": true,
+    "persistentUserIdsForbidden": true,
+    "allowedBudgetProperty": "budget_stufe"
+  },
+  "requiredActions": [
+    "navigator_bereit",
+    "ladefehler",
+    "gestartet",
+    "frage_angezeigt",
+    "frage_beantwortet",
+    "budget_gewaehlt",
+    "zurueck",
+    "zusammenfassung_angesehen",
+    "ergebnis_berechnet",
+    "match_gesehen",
+    "haendlerangebot_gesehen",
+    "haendlerangebot_geoeffnet",
+    "score_erlaeuterung_geoeffnet",
+    "vergleich_gesehen",
+    "vergleich_geoeffnet",
+    "vergleich_gescrollt",
+    "vergleich_modell_geoeffnet",
+    "produktbild_geoeffnet",
+    "ergebnis_bewertet",
+    "ergebnis_feedbackgrund",
+    "kompromiss_akzeptiert",
+    "angaben_aendern",
+    "neu_gestartet",
+    "quelle_geoeffnet",
+    "route_nicht_unterstuetzt"
+  ],
+  "requiredContextProperties": [
+    "flow_version"
+  ],
+  "forbiddenPropertyNames": [
+    "email",
+    "name",
+    "antwort_text",
+    "exakte_breite",
+    "exaktes_gewicht",
+    "user_id"
+  ]
+}
