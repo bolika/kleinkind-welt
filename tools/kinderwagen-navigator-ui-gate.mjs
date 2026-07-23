@@ -28,7 +28,9 @@ function assert(condition, message) {
 
 assert(/<meta name="robots" content="noindex,follow">/.test(html), 'Pilotseite muss noindex,follow bleiben');
 assert(/data-navigator-app/.test(html), 'App-Mountpoint fehlt');
-assert(/data-navigator-hero-start/.test(html), 'Hero-CTA startet den Flow nicht direkt');
+assert(html.indexOf('data-navigator-app') < html.indexOf('navigator-quick-proof'), 'App muss vor den erklärenden SEO-Inhalten liegen');
+assert(/navigator-hero-grid--tool/.test(html), 'Tool muss im ersten Hero-Viewport verankert sein');
+assert(/data-navigator-affiliate-disclosure/.test(html), 'Vorbereiteter Affiliate-Hinweis oberhalb des Tools fehlt');
 assert(/type="module" src="\/js\/kinderwagen-navigator-app\.mjs/.test(html), 'Browser-App wird nicht als Modul geladen');
 assert(/affiliate-tracking\.js/.test(html), 'Zentrales Affiliate-Klicktracking fehlt auf der Navigator-Seite');
 assert(/data-navigator-model-count/.test(html), 'Hero benötigt einen dynamischen Katalogzähler');
@@ -51,6 +53,10 @@ for (const action of ['budget_gewaehlt', 'kompromiss_akzeptiert']) {
   assert(app.includes(`'${action}'`), `Plausible-Detailaktion ${action} fehlt`);
 }
 assert(/flow_version/.test(app), 'Tracking muss die Flow-Version mitsenden');
+assert(/erste_gueltige_antwort/.test(app) && /renderQuestion\(state\.questions\[0\]\.id,\s*\{\s*scroll:\s*false,\s*focus:\s*false\s*\}\)/.test(app), 'Erste Frage muss ohne Startscreen und ohne automatischen Scrollsprung erscheinen; Start zählt erst nach einer gültigen Antwort');
+assert(/coreQuestionIds/.test(app) && /top_priorities/.test(app), 'Fortschritt muss die fünf Kernfragen statt nur aktuell sichtbarer Fragen zählen');
+assert(/question\.id === 'top_priorities' \? 'Ergebnis anzeigen' : 'Weiter'/.test(app), 'Nur die letzte Kernfrage darf „Ergebnis anzeigen“ ankündigen');
+assert(/affiliateDisclosure\.hidden = false/.test(app), 'Affiliate-Hinweis muss sich bei veröffentlichten Angeboten automatisch aktivieren');
 assert(/offers\.v0\.1\.json/.test(app), 'Separate Händlerangebotsdaten werden nicht geladen');
 assert(/haendlerangebot_gesehen/.test(app), 'Sichtbares Händlerangebot wird nicht gemessen');
 assert(/dataset\.affiliate/.test(app) && /sponsored nofollow noopener/.test(app), 'Affiliate-Angebote benötigen Trackingdaten und rel-Kennzeichnung');
@@ -79,7 +85,6 @@ assert(/90–100 %/.test(app) && /85–89 %/.test(app) && /75–84 %/.test(app),
 assert(/unbekannte Kernpassung verhindert/.test(app) && /teilweise belegte Kernpassung begrenzt/.test(app), 'Score-Erklärung muss die Kernkontext-Begrenzung offenlegen');
 assert(/applicableCriteriaCount/.test(app) && /knownCriteriaCount/.test(app), 'Ergebnis muss die bewertete Kriterienbasis offenlegen');
 assert(/resultHeading.*focus/.test(app), 'Ergebnis benötigt sichtbares Fokusmanagement für Tastatur und Screenreader');
-assert(/state\.products\.length.*Kinderwagen/.test(app), 'Startkarte muss die Kataloggröße dynamisch ausgeben');
 assert(/data-navigator-model-count/.test(app) && /products\.length/.test(app), 'Hero-Katalogzähler muss aus dem geladenen Katalog aktualisiert werden');
 assert(!/vehicleSelectControl|trunk_dimensions/.test(app), 'Komplexe Fahrzeug- oder Kofferraummaßstrecke darf nicht im Hauptflow bleiben');
 assert(!expectedAnswerKeys.some((id) => ['maximum_lift_weight', 'maximum_access_width', 'pusher_heights'].includes(id)), 'Manuelle Maße dürfen nicht im Kernflow liegen');
@@ -91,6 +96,7 @@ for (const [page, source] of Object.entries(entryPages)) {
   assert(/navigator-link-tracking\.js/.test(source), `${page}: Navigator-Linktracking wird nicht geladen`);
 }
 assert(/home-navigator-section/.test(entryPages.home) && /home-navigator-demo/.test(entryPages.home), 'Startseite benötigt eine prominente Navigator-Vorschau');
+assert(/data-placement="home-hero-secondary"/.test(entryPages.home), 'Startseiten-Hero benötigt einen direkt messbaren Navigator-Einstieg');
 assert(/data-navigator-catalog-count/.test(entryPages.home), 'Startseiten-Vorschau benötigt einen dynamischen Katalogzähler');
 assert(/home-navigator-section/.test(siteCss) && /navigator-inline-card/.test(siteCss), 'Styles für Startseiten-Vorschau und kontextuelle Links fehlen');
 assert(/interner_einstieg/.test(linkTracking) && /data-navigator-catalog-count/.test(linkTracking), 'Internes Navigator-Tracking oder Katalogzählersynchronisierung fehlt');

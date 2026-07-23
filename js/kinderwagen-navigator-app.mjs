@@ -4,7 +4,7 @@ import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-off
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
-const heroStart = document.querySelector('[data-navigator-hero-start]');
+const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
 
 const state = {
   answers: {},
@@ -17,7 +17,6 @@ const state = {
   currentQuestionId: null,
   started: false,
   ready: false,
-  pendingStart: false,
   acceptedCompromises: []
 };
 
@@ -84,9 +83,13 @@ function pruneHiddenAnswers() {
 }
 
 function progressFor(question) {
-  const visible = visibleQuestions();
-  const index = Math.max(0, visible.findIndex((item) => item.id === question.id));
-  return { index, total: visible.length, percent: Math.round(((index + 1) / visible.length) * 100) };
+  const coreQuestionIds = new Set(['search_goal', 'daily_context', 'terrain', 'budget', 'top_priorities']);
+  const sequence = state.questions.filter((item) => {
+    if (coreQuestionIds.has(item.id)) return true;
+    return item.id === 'lift_unit' && matchesCondition(item.showWhen);
+  });
+  const index = Math.max(0, sequence.findIndex((item) => item.id === question.id));
+  return { index, total: sequence.length, percent: Math.round(((index + 1) / sequence.length) * 100) };
 }
 
 function renderProgress(question) {
@@ -335,6 +338,10 @@ function saveAndContinue(question, skip = false) {
     showError(error);
     return;
   }
+  if (!state.started) {
+    state.started = true;
+    track('gestartet', { einstieg: 'erste_gueltige_antwort' });
+  }
   if (skip) {
     delete state.answers[question.id];
     state.skipped.add(question.id);
@@ -366,9 +373,11 @@ function saveAndContinue(question, skip = false) {
   else renderResults();
 }
 
-function renderQuestion(questionId) {
+function renderQuestion(questionId, options = {}) {
   const question = state.questions.find((item) => item.id === questionId);
   if (!question) return;
+  const shouldScroll = options.scroll !== false;
+  const shouldFocus = options.focus !== false;
   state.currentQuestionId = questionId;
   const progress = progressFor(question);
   track('frage_angezeigt', { frage: question.id, position: String(progress.index + 1), fragen_gesamt: String(progress.total) });
@@ -404,7 +413,7 @@ function renderQuestion(questionId) {
     skip.addEventListener('click', () => saveAndContinue(question, true));
     actions.append(skip);
   }
-  const next = element('button', 'navigator-primary-button', nextQuestionId(question.id) ? 'Weiter' : 'Ergebnis anzeigen');
+  const next = element('button', 'navigator-primary-button', question.id === 'top_priorities' ? 'Ergebnis anzeigen' : 'Weiter');
   next.type = 'submit';
   actions.append(next);
   form.append(actions);
@@ -414,8 +423,8 @@ function renderQuestion(questionId) {
   });
   card.append(form);
   app.replaceChildren(card);
-  card.querySelector('input, select')?.focus({ preventScroll: true });
-  app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (shouldFocus) card.querySelector('input, select')?.focus({ preventScroll: true });
+  if (shouldScroll) app.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function answerSummary(question, value) {
@@ -883,29 +892,6 @@ function restartNavigator() {
   renderQuestion(state.questions[0].id);
 }
 
-function startNavigator(source = 'tool') {
-  state.started = true;
-  track('gestartet', { einstieg: source });
-  renderQuestion(state.questions[0].id);
-}
-
-function renderStart() {
-  const card = element('div', 'navigator-app-card navigator-start-card');
-  const copy = element('div');
-  copy.append(element('span', 'navigator-card-kicker', `Daten-Pilot · ${state.products.length} Kinderwagen`));
-  copy.append(element('h2', '', 'Findet heraus, welcher Kinderwagen zu eurem Alltag passt'));
-  copy.append(element('p', 'navigator-question-help', 'Fünf kurze Kernfragen reichen für die erste Einordnung. Nur wenn ihr regelmäßig tragen müsst, kommt eine gezielte Zusatzfrage hinzu.'));
-  const facts = element('ul', 'navigator-start-facts');
-  ['Gesamtpreis inklusive benötigter Babywanne', 'Keine Auto-, Aufzug- oder Körpermaße nötig', 'Alltag und zwei echte Prioritäten entscheiden', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
-  copy.append(facts);
-  const start = element('button', 'navigator-primary-button navigator-start-button', 'Navigator starten');
-  start.type = 'button';
-  start.addEventListener('click', () => startNavigator('tool'));
-  copy.append(start);
-  card.append(copy);
-  app.replaceChildren(card);
-}
-
 async function loadData() {
   const [questionsData, criteriaData, catalog, offerData] = await Promise.all([
     fetch(`${DATA_ROOT}/questions.v0.1.json`).then((response) => response.json()),
@@ -919,21 +905,17 @@ async function loadData() {
   state.criteriaData = criteriaData;
   state.products = products;
   state.offers = offerData.offers ?? [];
+  if (affiliateDisclosure && state.offers.length > 0) {
+    affiliateDisclosure.hidden = false;
+  }
   document.querySelectorAll('[data-navigator-model-count]').forEach((node) => {
     node.textContent = String(products.length);
   });
   state.ready = true;
-  if (state.pendingStart) startNavigator('hero');
-  else renderStart();
+  renderQuestion(state.questions[0].id, { scroll: false, focus: false });
 }
 
 if (app) {
-  heroStart?.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (state.ready) startNavigator('hero');
-    else state.pendingStart = true;
-    app.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
   loadData().catch(() => {
     const error = element('div', 'navigator-app-card navigator-route-card');
     error.append(element('h2', '', 'Der Daten-Pilot konnte nicht geladen werden'));
