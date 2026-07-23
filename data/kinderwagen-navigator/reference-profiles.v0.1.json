@@ -2,7 +2,8 @@
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
   "flowVersion": "0.2.0",
-  "purpose": "Die Profile testen den verkürzten Flow, seine drei Kernpersonas und wichtige Randfälle deterministisch.",
+  "purpose": "Die Profile testen den verkürzten Flow, Hypothesen-Archetypen, einen Erstkauf ohne Sonderfall und wichtige Randfälle deterministisch. Sie sind keine validierten Nutzer-Personas.",
+  "researchStatus": "assumption_based_reference_profiles",
   "profiles": [
     {
       "id": "persona_low_budget_city_no_elevator",
@@ -163,6 +164,27 @@
         "mustExplain": ["relatives Faltvolumen", "keine Fahrzeuggarantie"],
         "requiredOpenChecks": ["Kofferraum praktisch prüfen"],
         "resultPolicy": "Eine grobe Kofferraumangabe gewichtet kompakte Modelle, schließt ohne Messung aber keines hart aus."
+      }
+    },
+    {
+      "id": "first_time_balanced_no_special_case",
+      "label": "Erstkauf ohne besonderen Logistik-Sonderfall",
+      "researchLens": "first_time_overwhelmed",
+      "answers": {
+        "search_goal": "first_combo_from_birth",
+        "daily_context": ["none_special"],
+        "terrain": ["smooth_city"],
+        "budget": 900,
+        "budget_strictness": "orientation",
+        "top_priorities": ["easy_folding", "long_use"]
+      },
+      "expected": {
+        "route": "supported",
+        "mustUseGates": ["newborn_configuration", "single_child_combo_scope"],
+        "dominantCriteria": ["city_maneuverability", "folding_convenience", "long_term_flexibility"],
+        "mustExplain": ["allgemeine Kombi-Kinderwagen-Baseline", "Match statt Testurteil"],
+        "requiredOpenChecks": [],
+        "resultPolicy": "Auch ohne Sonderfall muss der vollständig beantwortete Kernflow einen numerischen Match liefern können, ohne eine zusätzliche Pflichtfrage zu erfinden."
       }
     },
     {

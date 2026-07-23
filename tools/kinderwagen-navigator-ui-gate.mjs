@@ -9,6 +9,7 @@ const read = (relative) => fs.readFileSync(path.join(root, relative), 'utf8');
 const html = read('kinderwagen-navigator.html');
 const css = read('css/kinderwagen-navigator.css');
 const app = read('js/kinderwagen-navigator-app.mjs');
+const presentation = read('js/kinderwagen-result-presentation.mjs');
 const offers = read('js/kinderwagen-offers.mjs');
 const linkTracking = read('js/navigator-link-tracking.js');
 const siteCss = read('css/style.css');
@@ -46,7 +47,7 @@ assert(!/localStorage|sessionStorage/.test(app), 'Pilot soll keine Antworten im 
 for (const action of ['navigator_bereit', 'ladefehler', 'gestartet', 'frage_angezeigt', 'frage_beantwortet', 'zurueck', 'zusammenfassung_angesehen', 'ergebnis_berechnet', 'ergebnis_bewertet', 'ergebnis_feedbackgrund', 'route_nicht_unterstuetzt']) {
   assert(app.includes(`'${action}'`), `Plausible-Aktion ${action} fehlt`);
 }
-for (const action of ['match_gesehen', 'haendlerangebot_geoeffnet', 'score_erlaeuterung_geoeffnet']) {
+for (const action of ['match_gesehen', 'haendlerangebot_geoeffnet', 'score_erlaeuterung_geoeffnet', 'vergleich_gesehen', 'vergleich_geoeffnet', 'vergleich_gescrollt', 'vergleich_modell_geoeffnet', 'produktbild_geoeffnet']) {
   assert(app.includes(`'${action}'`), `Plausible-Ergebnisaktion ${action} fehlt`);
 }
 for (const action of ['budget_gewaehlt', 'kompromiss_akzeptiert']) {
@@ -63,6 +64,14 @@ assert(/catalog_empty/.test(app) && /catalog_version_mismatch/.test(app), 'Brows
 assert(/haendlerangebot_gesehen/.test(app), 'Sichtbares Händlerangebot wird nicht gemessen');
 assert(/gesamt inkl\. Versand/.test(app) && /slice\(0, 3\)/.test(app), 'Mehrhändlerbox muss Gesamtpreis zeigen und auf drei Angebote begrenzt sein');
 assert(/kein_passendes_modell/.test(app) && /haendlerangebot_fehlt/.test(app), 'Negatives Ergebnisfeedback benötigt konkrete Diagnosegründe');
+assert(/navigator-comparison/.test(app) && /Wagenbreite/.test(app) && /Größter Abstrich/.test(app), 'Direktvergleich mit entscheidungsrelevanten Kriterien fehlt');
+assert(/Beste Passung zu euren Angaben/.test(presentation) && /Preisgünstigere Alternative/.test(presentation), 'Transparente Ergebnisrollen und relationale Preisalternative fehlen');
+assert(/observeComparisonImpression/.test(app), 'Der Direktvergleich benötigt ein geräteunabhängiges Sichtbarkeitssignal');
+assert(/element\('fieldset', `navigator-choice-grid/.test(app) && /visually-hidden', question\.prompt/.test(app), 'Auswahlgruppen benötigen semantische Fieldsets und eine zugängliche Legende');
+assert(/preferredScrollBehavior/.test(app) && /prefers-reduced-motion/.test(app), 'Automatische Scrollbewegungen müssen reduzierte Bewegung respektieren');
+assert(/--navigator-touch-target: 44px/.test(css) && /navigator-comparison__jump[\s\S]*min-height: var\(--navigator-touch-target\)/.test(css), 'Vergleichsaktionen benötigen mindestens 44 Pixel hohe Touch-Ziele');
+assert(/navigator-comparison__summary-close/.test(css) && /Vergleich schließen/.test(app), 'Geöffneter Vergleich benötigt eine eindeutige Schließen-Beschriftung');
+assert(/imageRightsStatus === 'approved_for_feed_only'/.test(app), 'Produktbilder dürfen nur mit freigegebenem Feed-Rechtestatus erscheinen');
 assert(/dataset\.affiliate/.test(app) && /sponsored nofollow noopener/.test(app), 'Affiliate-Angebote benötigen Trackingdaten und rel-Kennzeichnung');
 assert(/exact_required_configuration/.test(offers), 'Nur bestätigte vollständige Konfigurationen dürfen angezeigt werden');
 assert(/clickref/.test(offers), 'Awin-Link benötigt eine placement-spezifische Clickref');

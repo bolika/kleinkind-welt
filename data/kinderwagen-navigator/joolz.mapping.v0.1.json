@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": null,
   "advertiserName": "Joolz DE",
+  "feedImageUsageStatus": "terms_review_required",
   "merchant": { "id": "joolz", "name": "Joolz" },
   "mappings": []
 }

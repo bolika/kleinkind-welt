@@ -21,8 +21,13 @@ Die Events enthalten keine frei eingegebenen Texte, exakten Maße oder dauerhaft
 5. `Kinderwagen-Navigator · match_gesehen`
 6. `Kinderwagen-Navigator · haendlerangebot_gesehen`
 7. `Kinderwagen-Navigator · haendlerangebot_geoeffnet`
-8. `Kinderwagen-Navigator · ergebnis_feedbackgrund` nach negativem Feedback
-9. zentrales Event `Affiliate-Klick`
+8. `Kinderwagen-Navigator · vergleich_gesehen`
+9. `Kinderwagen-Navigator · vergleich_geoeffnet`
+10. `Kinderwagen-Navigator · vergleich_gescrollt`
+11. `Kinderwagen-Navigator · vergleich_modell_geoeffnet`
+12. `Kinderwagen-Navigator · produktbild_geoeffnet`
+13. `Kinderwagen-Navigator · ergebnis_feedbackgrund` nach negativem Feedback
+14. zentrales Event `Affiliate-Klick`
 
 `navigator_bereit` liefert zusätzlich Modellzahl, Angebotszahl und einen groben Ladezeit-Bucket. `ladefehler` macht technische Abbrüche sichtbar. Frage-Events übertragen nur Frage-ID und Fragetyp, nicht die konkrete Antwort.
 
@@ -37,6 +42,11 @@ Die Events enthalten keine frei eingegebenen Texte, exakten Maße oder dauerhaft
 - Match-Sichtquote = eindeutige `match_gesehen` / eindeutige `ergebnis_berechnet`
 - Angebots-Sichtquote = eindeutige `haendlerangebot_gesehen` / eindeutige `match_gesehen`
 - Händler-Klickrate = eindeutige `haendlerangebot_geoeffnet` / eindeutige `haendlerangebot_gesehen`
+- Vergleichs-Sichtquote = eindeutige `vergleich_gesehen` / eindeutige `ergebnis_berechnet` mit mindestens zwei Matches
+- Vergleichs-Öffnungsquote auf Mobile = eindeutige `vergleich_geoeffnet` / eindeutige `vergleich_gesehen` mit `zustand = geschlossen`
+- Horizontale Vergleichsnutzung = eindeutige `vergleich_gescrollt` / eindeutige `vergleich_gesehen`
+- Vergleich-zu-Detail-Quote = eindeutige `vergleich_modell_geoeffnet` / eindeutige `vergleich_gesehen`
+- Produktbild-Klickrate = eindeutige `produktbild_geoeffnet` / eindeutige `match_gesehen` mit freigegebenem Produktbild
 
 Die ersten Werte sind Lernwerte, keine belastbaren Benchmarks. Vor Änderungen am Fragenbaum müssen mindestens 50 abgeschlossene Ergebnis-Sessions vorliegen oder wiederholt eindeutige qualitative Probleme beobachtet werden.
 

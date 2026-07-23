@@ -47,6 +47,7 @@ for (const program of registry.programs ?? []) {
   if (mapping.merchant?.id !== merchantId || mapping.merchant?.name !== program.merchant.name) errors.push(`${merchantId}: Mapping-Händler passt nicht zur Registry`);
   if (mapping.advertiserId !== program.advertiserId) errors.push(`${merchantId}: Mapping-Advertiser-ID passt nicht zur Registry`);
   if (mapping.advertiserName !== program.advertiserName) errors.push(`${merchantId}: Mapping-Advertiser-Name passt nicht zur Registry`);
+  if (mapping.feedImageUsageStatus !== program.feedImageUsageStatus) errors.push(`${merchantId}: Bildrechte-Status in Registry und Mapping weicht ab`);
   for (const item of mapping.mappings ?? []) {
     if (!productIds.has(item.productId)) errors.push(`${merchantId}: Mapping referenziert unbekanntes Produkt ${item.productId}`);
     if (!(item.merchantProductIds?.length || item.gtins?.length)) errors.push(`${merchantId}/${item.productId}: kuratierte Produkt-ID oder GTIN fehlt`);

@@ -1,11 +1,16 @@
-import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260723-3';
+import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260723-ux-audit';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs?v=20260723-3';
-import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-3';
+import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-images';
+import { resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
 const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
 const loadStartedAt = performance.now();
+
+function preferredScrollBehavior() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
 
 const state = {
   answers: {},
@@ -104,7 +109,7 @@ function renderProgress(question) {
   const progress = progressFor(question);
   const wrap = element('div', 'navigator-app-progress');
   const labels = element('div', 'navigator-app-progress__labels');
-  labels.append(element('span', '', `Frage ${progress.index + 1} von derzeit ${progress.total}`), element('span', '', `${progress.percent}%`));
+  labels.append(element('span', '', `Frage ${progress.index + 1} von ${progress.total}`), element('span', '', `${progress.percent}%`));
   const bar = element('div', 'navigator-app-progress__bar');
   const fill = element('span');
   fill.style.width = `${progress.percent}%`;
@@ -115,7 +120,8 @@ function renderProgress(question) {
 
 function choiceControl(question, multi = false) {
   const wrap = element('div', 'navigator-choice-control');
-  const group = element('div', `navigator-choice-grid${multi ? ' is-multi' : ''}`);
+  const group = element('fieldset', `navigator-choice-grid${multi ? ' is-multi' : ''}`);
+  group.append(element('legend', 'visually-hidden', question.prompt));
   const selected = state.answers[question.id];
   for (const option of question.options) {
     const label = element('label', 'navigator-choice');
@@ -222,6 +228,7 @@ function budgetControl(question) {
   const update = () => {
     const budget = Number(input.value);
     valueRow.querySelector('output').textContent = `${budget.toLocaleString('de-DE')} €`;
+    input.setAttribute('aria-valuetext', `${budget.toLocaleString('de-DE')} Euro Gesamtbudget`);
     const prices = state.products.map(productPrice).filter((price) => price !== null).sort((a, b) => a - b);
     const within = prices.filter((price) => price <= budget).length;
     const unknown = state.products.length - prices.length;
@@ -432,7 +439,7 @@ function renderQuestion(questionId, options = {}) {
   card.append(form);
   app.replaceChildren(card);
   if (shouldFocus) card.querySelector('input, select')?.focus({ preventScroll: true });
-  if (shouldScroll) app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (shouldScroll) app.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
 }
 
 function answerSummary(question, value) {
@@ -474,7 +481,7 @@ function renderSummary() {
   card.append(actions);
   app.replaceChildren(card);
   track('zusammenfassung_angesehen', { fragen: String(Object.keys(state.answers).length) });
-  app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  app.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
 }
 
 function renderUnsupported(route) {
@@ -611,8 +618,221 @@ function observeResultImpressions(root) {
   resultNodes.forEach((node) => observer.observe(node));
 }
 
-function resultCard(result, rank, preliminary = false, fallback = false) {
+function observeComparisonImpression(root) {
+  const comparison = root.querySelector('[data-comparison-impression]');
+  if (!comparison || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    const entry = entries.find((item) => item.isIntersecting);
+    if (!entry) return;
+    track('vergleich_gesehen', {
+      modelle: comparison.dataset.modelCount,
+      zustand: comparison.open ? 'offen' : 'geschlossen'
+    });
+    observer.unobserve(comparison);
+  }, { threshold: 0.1 });
+  observer.observe(comparison);
+}
+
+function approvedImageOffer(result) {
+  return offersForProduct(state.offers, result.productId)
+    .find((offer) => offer.imageUrl && offer.imageRightsStatus === 'approved_for_feed_only') ?? null;
+}
+
+function productMedia(result, rank) {
+  const offer = approvedImageOffer(result);
+  if (!offer) return null;
+  const figure = element('figure', 'navigator-product-media');
+  const link = element('a', 'navigator-product-media__link');
+  link.href = trackingLink(offer, `navigator_result_${rank}_image`);
+  link.target = '_blank';
+  link.rel = 'sponsored nofollow noopener';
+  link.dataset.affiliate = offer.network.id;
+  link.dataset.product = result.productId;
+  link.dataset.merchant = offer.merchant.name;
+  link.setAttribute('aria-label', `${result.brand} ${result.model} bei ${offer.merchant.name} ansehen`);
+  const image = element('img');
+  image.src = offer.imageUrl;
+  image.alt = `${result.brand} ${result.model}`;
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  link.append(image, element('span', 'navigator-product-media__cta', 'Produkt ansehen ↗'));
+  link.addEventListener('click', () => track('produktbild_geoeffnet', {
+    produkt: result.productId,
+    haendler: offer.merchant.name,
+    rang: String(rank)
+  }));
+  figure.append(link, element('figcaption', '', `Produktbild: ${offer.merchant.name} · Affiliate-Link`));
+  return figure;
+}
+
+function formatDimensions(value) {
+  if (!value || !['length', 'width', 'height'].every((key) => typeof value[key] === 'number')) return 'Nicht belegt';
+  return `${value.length} × ${value.width} × ${value.height} cm`;
+}
+
+function formatComparisonPrice(value) {
+  if (typeof value !== 'number') return 'Nicht belegt';
+  return new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: 2
+  }).format(value);
+}
+
+function formatYesNo(value) {
+  if (value === true) return 'Ja';
+  if (value === false) return 'Nein';
+  return 'Nicht belegt';
+}
+
+function formatStorage(facts) {
+  const formatNumber = (value) => new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value);
+  const parts = [];
+  if (typeof facts?.basketVolumeL === 'number') parts.push(`${formatNumber(facts.basketVolumeL)} l`);
+  if (typeof facts?.basketLoadKg === 'number') parts.push(`${formatNumber(facts.basketLoadKg)} kg`);
+  return parts.length ? parts.join(' · ') : 'Nicht belegt';
+}
+
+function comparisonCriterionLabel(criterionId) {
+  return state.criteriaData?.criteria?.find((criterion) => criterion.id === criterionId)?.label ?? criterionId;
+}
+
+function comparisonStrength(result) {
+  const strongest = (result.evaluations ?? [])
+    .filter((evaluation) => typeof evaluation.value === 'number')
+    .sort((a, b) => (b.value * b.weight) - (a.value * a.weight))[0];
+  return strongest ? comparisonCriterionLabel(strongest.criterionId) : (result.bestFor[0] ?? 'Nicht belegt');
+}
+
+function comparisonTradeoff(result) {
+  const weakest = (result.evaluations ?? [])
+    .filter((evaluation) => typeof evaluation.value === 'number')
+    .sort((a, b) => a.value - b.value || b.weight - a.weight)[0];
+  if (!weakest || weakest.value >= 1) return 'Kein Daten-Abstrich; Praxistest bleibt offen';
+  const degree = weakest.value >= 0.75
+    ? 'kleiner Abstrich'
+    : weakest.value >= 0.5
+      ? 'teilweise passend'
+      : 'deutlicher Abstrich';
+  return `${comparisonCriterionLabel(weakest.criterionId)}: ${degree}`;
+}
+
+function comparisonWeightLabel(results) {
+  const configurations = new Set(results.map((result) => result.comparisonFacts?.liftConfiguration).filter(Boolean));
+  if (configurations.size !== 1) return 'Gewicht der dokumentierten Konfiguration';
+  return {
+    frame_only: 'Gestellgewicht',
+    frame_with_seat: 'Gewicht mit Sitz',
+    frame_with_carrycot: 'Gewicht mit Babywanne'
+  }[[...configurations][0]] ?? 'Vergleichsgewicht';
+}
+
+function comparisonSection(results, badges) {
+  if (results.length < 2) return null;
+  const details = element('details', 'navigator-comparison');
+  details.dataset.comparisonImpression = '';
+  details.dataset.modelCount = String(results.length);
+  if (window.matchMedia('(min-width: 769px)').matches) details.open = true;
+  const summary = element('summary', '');
+  const summaryCopy = element('span');
+  summaryCopy.append(
+    element('strong', '', `${results.length} Modelle direkt vergleichen`),
+    element('small', '', 'Preis, Maße und Alltagseigenschaften nebeneinander')
+  );
+  const summaryCta = element('span', 'navigator-comparison__summary-cta');
+  summaryCta.append(
+    element('span', 'navigator-comparison__summary-open', 'Vergleich öffnen'),
+    element('span', 'navigator-comparison__summary-close', 'Vergleich schließen')
+  );
+  summary.append(summaryCopy, summaryCta);
+  details.append(summary);
+
+  const scroller = element('div', 'navigator-comparison__scroller');
+  scroller.tabIndex = 0;
+  scroller.setAttribute('aria-label', 'Seitlich scrollbarer Kinderwagenvergleich');
+  const table = element('table', 'navigator-comparison__table');
+  const head = element('thead');
+  const headRow = element('tr');
+  headRow.append(element('th', 'navigator-comparison__criterion', 'Kriterium'));
+  results.forEach((result, index) => {
+    const cell = element('th', 'navigator-comparison__product');
+    cell.scope = 'col';
+    const imageOffer = approvedImageOffer(result);
+    if (imageOffer) {
+      const image = element('img', 'navigator-comparison__image');
+      image.src = imageOffer.imageUrl;
+      image.alt = '';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      cell.append(image);
+    }
+    cell.append(element('span', `navigator-result-badge is-${badges[index].kind}`, badges[index].label));
+    const jump = element('button', 'navigator-comparison__jump', `${result.brand} ${result.model}`);
+    jump.type = 'button';
+    jump.addEventListener('click', () => {
+      document.getElementById(`navigator-result-${result.productId}`)?.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
+      track('vergleich_modell_geoeffnet', { produkt: result.productId, rang: String(index + 1) });
+    });
+    cell.append(jump);
+    headRow.append(cell);
+  });
+  head.append(headRow);
+  table.append(head);
+
+  const numericValues = (getter) => results.map(getter).filter((value) => typeof value === 'number');
+  const bestMatch = Math.max(...numericValues((result) => result.matchScore));
+  const lowestPrice = Math.min(...numericValues((result) => result.priceEur));
+  const lowestWidth = Math.min(...numericValues((result) => result.comparisonFacts?.unfoldedWidthCm));
+  const lowestWeight = Math.min(...numericValues((result) => result.comparisonFacts?.liftWeightKg));
+  const largestVolume = Math.max(...numericValues((result) => result.comparisonFacts?.basketVolumeL));
+  const comparableWeightConfigurations = new Set(results.map((result) => result.comparisonFacts?.liftConfiguration).filter(Boolean));
+  const weightBest = comparableWeightConfigurations.size === 1 ? lowestWeight : null;
+  const rows = [
+    { label: 'Passung', value: (result) => result.matchScore, format: (value) => typeof value === 'number' ? `${value}%` : 'Keine Zahl', best: bestMatch },
+    { label: 'Gesamtpreis ab Geburt', value: (result) => result.priceEur, format: formatComparisonPrice, best: lowestPrice },
+    { label: 'Wagenbreite', value: (result) => result.comparisonFacts?.unfoldedWidthCm, format: (value) => typeof value === 'number' ? `${value} cm` : 'Nicht belegt', best: lowestWidth },
+    { label: comparisonWeightLabel(results), value: (result) => result.comparisonFacts?.liftWeightKg, format: (value) => typeof value === 'number' ? `${new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value)} kg` : 'Nicht belegt', best: weightBest },
+    { label: 'Faltmaß', value: (result) => result.comparisonFacts?.foldedDimensionsCm, format: formatDimensions },
+    { label: 'Korb: Liter · kg', value: (result) => result.comparisonFacts, format: formatStorage, bestValue: (facts) => facts?.basketVolumeL, best: largestVolume },
+    { label: 'Einhand-Faltung', value: (result) => result.comparisonFacts?.oneHandFold, format: formatYesNo },
+    { label: 'Stärkste Passung', value: comparisonStrength, format: (value) => value ?? 'Nicht belegt', long: true },
+    { label: 'Größter Abstrich', value: comparisonTradeoff, format: (value) => value ?? 'Nicht belegt', long: true }
+  ];
+  const body = element('tbody');
+  for (const row of rows) {
+    const tableRow = element('tr', row.long ? 'is-long' : '');
+    const label = element('th', 'navigator-comparison__criterion', row.label);
+    label.scope = 'row';
+    tableRow.append(label);
+    results.forEach((result) => {
+      const rawValue = row.value(result);
+      const compareValue = row.bestValue ? row.bestValue(rawValue) : rawValue;
+      const isBest = typeof row.best === 'number' && typeof compareValue === 'number' && compareValue === row.best;
+      tableRow.append(element('td', isBest ? 'is-best-value' : '', row.format(rawValue)));
+    });
+    body.append(tableRow);
+  }
+  table.append(body);
+  scroller.append(table);
+  details.append(element('p', 'navigator-comparison__hint', 'Auf dem Smartphone seitlich wischen, um alle Modelle zu sehen. Tippt auf einen Produktnamen, um zur ausführlichen Bewertung zu springen.'), scroller);
+  details.addEventListener('toggle', () => {
+    if (!details.open || details.dataset.tracked) return;
+    details.dataset.tracked = 'true';
+    track('vergleich_geoeffnet', { modelle: String(results.length) });
+  });
+  scroller.addEventListener('scroll', () => {
+    if (scroller.scrollLeft < 24 || scroller.dataset.trackedScroll) return;
+    scroller.dataset.trackedScroll = 'true';
+    track('vergleich_gescrollt', { modelle: String(results.length) });
+  }, { passive: true });
+  return details;
+}
+
+function resultCard(result, rank, preliminary = false, fallback = false, badge = null) {
   const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}${fallback ? ' is-fallback' : ''}`);
+  card.id = `navigator-result-${result.productId}`;
+  if (badge?.kind === 'recommended') card.classList.add('is-primary-match');
   card.dataset.resultImpression = '';
   card.dataset.productId = result.productId;
   card.dataset.resultRank = String(rank);
@@ -622,7 +842,10 @@ function resultCard(result, rank, preliminary = false, fallback = false) {
   const heading = element('div');
   const role = result.rankRole ?? `${rank}. Match`;
   const preliminaryLabel = result.matchScore === null ? 'Datenlage reicht noch nicht' : 'Unter der Empfehlungsschwelle';
-  heading.append(element('span', 'navigator-card-kicker', fallback ? role : (preliminary ? preliminaryLabel : role)));
+  const visibleBadge = fallback || preliminary
+    ? { label: fallback ? role : preliminaryLabel, kind: 'alternative' }
+    : (badge ?? { label: role, kind: 'alternative' });
+  heading.append(element('span', `navigator-result-badge is-${visibleBadge.kind}`, visibleBadge.label));
   heading.append(element('h3', '', `${result.brand} ${result.model}`));
   if (!preliminary && result.scoreGapToBest > 0) heading.append(element('p', 'navigator-rank-context', `${result.scoreGapToBest} Punkte hinter der besten Gesamtpassung`));
   const score = element('div', 'navigator-score');
@@ -637,7 +860,14 @@ function resultCard(result, rank, preliminary = false, fallback = false) {
     score.append(element('strong', '', `${result.matchScore}%`), element('span', '', 'Passung'));
   }
   header.append(heading, score);
-  card.append(header);
+  const lead = element('div', 'navigator-live-result__lead');
+  const media = !preliminary && !fallback ? productMedia(result, rank) : null;
+  if (media) {
+    lead.classList.add('has-media');
+    lead.append(media);
+  }
+  lead.append(header);
+  card.append(lead);
   if (result.matchScore !== null) {
     card.append(element('p', 'navigator-score-band', `${result.matchBand} · ${result.knownCriteriaCount} von ${result.applicableCriteriaCount} relevanten Kriterien bewertet`));
   }
@@ -805,7 +1035,7 @@ function renderResults() {
     ? `${result.results.length === 1 ? 'Ein belastbares Match' : `${result.results.length} belastbare Matches`}`
     : (adjustedFallback ? 'Eure beste verfügbare Lösung' : 'Eure besten Optionen – mit offenen Abstrichen')));
   intro.append(element('p', '', result.results.length
-    ? 'Die Reihenfolge entsteht ausschließlich aus euren Anforderungen und der dokumentierten Datenlage – nicht aus Provisionen oder Verfügbarkeit bei Amazon.'
+    ? 'Die Reihenfolge entsteht ausschließlich aus euren Anforderungen und der dokumentierten Datenlage – nicht aus Provisionen oder Händlerverfügbarkeit.'
     : (adjustedFallback
       ? 'Die erste Option erfüllt nach eurer Anpassung die Muss-Anforderungen. Sie bleibt unter unserer Schwelle für eine volle Empfehlung, deshalb zeigen wir die offenen Punkte weiterhin transparent.'
       : 'Ihr müsst nicht von vorne beginnen. Wir zeigen die nächstliegenden Optionen, erklären die Abweichungen und lassen euch gezielt nur den Abstrich ändern, der wirklich blockiert.')));
@@ -823,8 +1053,12 @@ function renderResults() {
   intro.append(scoreExplanation());
   wrap.append(intro);
 
+  const badges = result.results.map((item, index) => resultBadge(item, index + 1, result.results));
+  const comparison = comparisonSection(result.results, badges);
+  if (comparison) wrap.append(comparison);
+
   const cards = element('div', 'navigator-live-results');
-  result.results.forEach((item, index) => cards.append(resultCard(item, index + 1)));
+  result.results.forEach((item, index) => cards.append(resultCard(item, index + 1, false, false, badges[index])));
   if (!result.results.length) result.closest.forEach((item, index) => cards.append(resultCard(item, index + 1, item.eligible, true)));
   wrap.append(cards);
 
@@ -906,7 +1140,7 @@ function renderResults() {
     if (compromisePanel) {
       const focusCompromise = element('button', 'navigator-primary-button', 'Gezielt einen Abstrich wählen');
       focusCompromise.type = 'button';
-      focusCompromise.addEventListener('click', () => compromisePanel.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+      focusCompromise.addEventListener('click', () => compromisePanel.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'center' }));
       actions.append(focusCompromise);
     }
   }
@@ -915,6 +1149,7 @@ function renderResults() {
   app.replaceChildren(wrap);
   observeOfferImpressions(wrap);
   observeResultImpressions(wrap);
+  observeComparisonImpression(wrap);
   track('ergebnis_berechnet', {
     route: result.route,
     matches: String(result.results.length),
@@ -922,7 +1157,7 @@ function renderResults() {
     top_produkt: result.results[0]?.productId ?? 'kein_match',
     top_score: result.results[0]?.matchScore ? String(result.results[0].matchScore) : 'kein_score'
   });
-  app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  app.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
   const resultHeading = wrap.querySelector('.navigator-results__intro h2');
   resultHeading?.setAttribute('tabindex', '-1');
   resultHeading?.focus({ preventScroll: true });

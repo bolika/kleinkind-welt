@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": null,
   "advertiserName": "Bugaboo DE",
+  "feedImageUsageStatus": "terms_review_required",
   "merchant": { "id": "bugaboo", "name": "Bugaboo" },
   "mappings": []
 }

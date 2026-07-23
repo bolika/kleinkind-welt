@@ -205,7 +205,10 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
     const imageUrl = first(row, ['aw_image_url', 'merchant_image_url', 'large_image']);
     const feedUpdatedAt = first(row, ['last_updated']);
     if (awinProductId) offer.awinProductId = awinProductId;
-    if (imageUrl.startsWith('https://')) offer.imageUrl = imageUrl;
+    if (mappingData.feedImageUsageStatus === 'approved_for_feed_only' && imageUrl.startsWith('https://')) {
+      offer.imageUrl = imageUrl;
+      offer.imageRightsStatus = 'approved_for_feed_only';
+    }
     if (feedUpdatedAt) offer.feedUpdatedAt = feedUpdatedAt;
     offers.push(offer);
   }

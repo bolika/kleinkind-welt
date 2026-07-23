@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": null,
   "advertiserName": "Cybex DE",
+  "feedImageUsageStatus": "terms_review_required",
   "merchant": { "id": "cybex", "name": "CYBEX" },
   "mappings": []
 }

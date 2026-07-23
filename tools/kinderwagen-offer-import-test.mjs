@@ -23,6 +23,14 @@ assert(report.displayableOffers === 1, 'Nur die vollständige Geburtskonfigurati
 assert(document.offers[0].price.amount === 799.9, 'Preis wurde nicht korrekt eingelesen.');
 assert(document.offers[0].identifiers.gtins[0] === '1234567890123', 'GTIN wurde nicht normalisiert.');
 assert(document.offers[0].availability.stockQuantity === undefined, 'Leerer Lagerbestand darf nicht als 0 Stück importiert werden.');
+assert(document.offers[0].imageUrl === undefined, 'Feed-Bilder dürfen vor geklärter Bildnutzung nicht importiert werden.');
+const approvedImageDocument = importOffers({
+  rows,
+  mappingData: { ...mappingData, feedImageUsageStatus: 'approved_for_feed_only' },
+  now
+}).document;
+assert(approvedImageDocument.offers[0].imageUrl === 'https://example.invalid/testmodell.jpg', 'Freigegebenes Feed-Bild muss importiert werden.');
+assert(approvedImageDocument.offers[0].imageRightsStatus === 'approved_for_feed_only', 'Freigegebenes Feed-Bild benötigt einen expliziten Rechte-Status.');
 assert(displayableOffer(document.offers[0], now), 'Vollständiges verfügbares Angebot muss darstellbar sein.');
 assert(!displayableOffer(document.offers[1], now), 'Teilkonfiguration darf nicht als Kaufangebot erscheinen.');
 assert(offersForProduct(document.offers, 'bugaboo-fox-5-renew', now).length === 1, 'UI-Auswahl muss Teilkonfiguration ausfiltern.');

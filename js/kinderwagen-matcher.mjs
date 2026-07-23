@@ -348,8 +348,9 @@ function applicableEvaluations(product, answers) {
     });
   }
 
+  const baselineCriteria = new Set(['folding_convenience', 'storage_capacity', 'long_term_flexibility']);
   for (const criterionId of ['folding_convenience', 'storage_capacity', 'weather_protection', 'repairability_service', 'long_term_flexibility']) {
-    if (criterionId === 'long_term_flexibility' || priorities.has(criterionId)) addStatic(criterionId);
+    if (baselineCriteria.has(criterionId) || priorities.has(criterionId)) addStatic(criterionId);
   }
 
   return [...new Map(evaluations.map((evaluation) => [evaluation.criterionId, evaluation])).values()];
@@ -387,6 +388,17 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
   const compromise = calculatedCompromise && !reasons.includes(calculatedCompromise)
     ? calculatedCompromise
     : product.editorial.tradeoffs[0];
+  const comparisonFact = (key) => {
+    const item = fact(product, key);
+    return isKnown(item) ? item.value : null;
+  };
+  const requestedLiftUnit = answers.lift_unit ?? 'frame_with_seat';
+  const selectedLiftWeight = requestedLiftUnit === 'unknown'
+    ? fact(product, 'liftReadyWeightKg')
+    : liftWeightFor(product, requestedLiftUnit);
+  const selectedLiftConfiguration = requestedLiftUnit === 'unknown'
+    ? comparisonFact('liftReadyConfiguration')
+    : requestedLiftUnit;
 
   return {
     productId: product.productId,
@@ -413,6 +425,16 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
     sources: product.sources.map((source) => ({ id: source.id, title: source.title, url: source.url, kind: source.kind, checkedAt: source.checkedAt })),
     bestFor: product.editorial.bestFor,
     tradeoffs: product.editorial.tradeoffs,
+    comparisonFacts: {
+      unfoldedWidthCm: comparisonFact('unfoldedWidthCm'),
+      foldedDimensionsCm: comparisonFact('foldedDimensionsCm'),
+      liftWeightKg: isKnown(selectedLiftWeight) ? selectedLiftWeight.value : null,
+      liftConfiguration: selectedLiftConfiguration,
+      basketLoadKg: comparisonFact('basketLoadKg'),
+      basketVolumeL: comparisonFact('basketVolumeL'),
+      oneHandFold: comparisonFact('oneHandFold'),
+      foldWithSeat: comparisonFact('foldWithSeat')
+    },
     testingDisclosure: product.editorial.testingDisclosure
   };
 }

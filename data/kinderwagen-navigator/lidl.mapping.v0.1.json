@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": null,
   "advertiserName": "Lidl DE",
+  "feedImageUsageStatus": "terms_review_required",
   "merchant": { "id": "lidl", "name": "Lidl" },
   "mappings": []
 }

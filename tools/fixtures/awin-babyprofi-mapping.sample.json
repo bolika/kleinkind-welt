@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": 14986,
   "advertiserName": "Babyprofi-online DE",
+  "feedImageUsageStatus": "terms_review_required",
   "merchant": {
     "id": "babyprofi",
     "name": "Babyprofi"

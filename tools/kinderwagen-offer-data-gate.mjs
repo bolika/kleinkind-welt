@@ -41,7 +41,9 @@ for (const offer of offers.offers ?? []) {
   if (program) {
     errorIf(program.applicationStatus !== 'joined', `${offer.offerId}: Programm ${program.merchant.id} ist noch nicht freigegeben`);
     errorIf(offer.merchant?.id !== program.merchant.id || offer.merchant?.name !== program.merchant.name, `${offer.offerId}: Händler passt nicht zur Programm-Registry`);
+    if (offer.imageUrl) errorIf(program.feedImageUsageStatus !== 'approved_for_feed_only', `${offer.offerId}: Produktbild ohne freigegebene Feed-Bildnutzung`);
   }
+  errorIf(Boolean(offer.imageUrl) !== (offer.imageRightsStatus === 'approved_for_feed_only'), `${offer.offerId}: Bild-URL und Bildrechte-Status müssen gemeinsam gesetzt sein`);
   errorIf(!/^https:\/\//.test(offer.deeplink ?? ''), `${offer.offerId}: kein HTTPS-Deeplink`);
   try {
     const hostname = new URL(offer.deeplink).hostname;

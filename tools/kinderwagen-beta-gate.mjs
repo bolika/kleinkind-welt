@@ -20,6 +20,7 @@ const gates = [
   'tools/kinderwagen-awin-program-gate.mjs',
   'tools/kinderwagen-offer-data-gate.mjs',
   'tools/kinderwagen-offer-import-test.mjs',
+  'tools/kinderwagen-result-presentation-test.mjs',
   'tools/kinderwagen-navigator-ui-gate.mjs'
 ];
 

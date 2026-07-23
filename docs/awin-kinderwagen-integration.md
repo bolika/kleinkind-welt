@@ -77,6 +77,7 @@ Gestell, Sitzeinheit, Babywanne oder Adapter als Einzelteil erhalten `partial_co
 - Preis und Versandkosten sind frisch.
 - Bestand ist frisch oder wird neutral als „prüfen“ angezeigt.
 - Bildnutzung ist laut Programmbedingungen erlaubt.
+- `feedImageUsageStatus` steht in Registry und Mapping nur dann auf `approved_for_feed_only`; vorher verwirft der Importer Bild-URLs technisch.
 - Awin-Testklick enthält die erwartete Clickref.
 
 ## Validierung

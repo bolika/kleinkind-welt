@@ -67,6 +67,12 @@ assert(mid.results.every((item) => item.priceEur <= 950), 'Persona 3: feste 950-
 assert(mid.results[0]?.evaluations.some((item) => item.criterionId === 'storage_capacity'), 'Persona 3: Stauraum-Priorität fehlt');
 assert(mid.results[0]?.evaluations.some((item) => item.criterionId === 'long_term_flexibility'), 'Persona 3: Nutzungsflexibilität fehlt');
 
+const firstTime = outputs.get('first_time_balanced_no_special_case');
+assert(firstTime.results.length >= 1, 'Erstkauf ohne Sonderfall: vollständige Kernantworten müssen ohne zusätzliche Pflichtfrage zu einem Match führen');
+assert(firstTime.results.every((item) => item.applicableCriteriaCount >= criteriaData.scoreRules.minimumApplicableCriteriaForNumericScore), 'Erstkauf ohne Sonderfall: Baseline muss genügend anwendbare Kriterien liefern');
+assert(firstTime.results[0]?.evaluations.some((item) => item.criterionId === 'folding_convenience'), 'Erstkauf ohne Sonderfall: Faltung fehlt in der Baseline');
+assert(firstTime.results[0]?.evaluations.some((item) => item.criterionId === 'storage_capacity'), 'Erstkauf ohne Sonderfall: Stauraum fehlt in der Baseline');
+
 const strictLow = outputs.get('strict_low_budget');
 assert(strictLow.results.length === 0, 'Sehr niedriges Budget: Es darf kein künstlicher veröffentlichter Treffer innerhalb von 500 Euro entstehen');
 assert(strictLow.preliminary.every((item) => item.matchScore === null || item.matchScore < criteriaData.scoreRules.minimumScoreToRecommend), 'Sehr niedriges Budget: nicht veröffentlichte Optionen müssen nachvollziehbar unter der Match-Schwelle bleiben');
@@ -117,4 +123,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Matcher-Test bestanden: ${profileData.profiles.length} Referenzprofile, drei Kernpersonas und ${products.length} Pilotprodukte geprüft.`);
+console.log(`Matcher-Test bestanden: ${profileData.profiles.length} Referenzprofile, sieben Hypothesen-Archetypen und ${products.length} Pilotprodukte geprüft.`);

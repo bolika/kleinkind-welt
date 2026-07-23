@@ -110,6 +110,7 @@
           }
         },
         "feedUpdatedAt": { "type": "string", "minLength": 4 },
+        "imageRightsStatus": { "const": "approved_for_feed_only" },
         "importedAt": { "$ref": "#/$defs/dateTime" }
       }
     }

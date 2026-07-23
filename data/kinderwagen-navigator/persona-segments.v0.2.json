@@ -1,6 +1,38 @@
 {
   "schemaVersion": 1,
   "flowVersion": "0.2.0",
+  "researchMaturity": {
+    "status": "hypothesis_archetypes",
+    "validatedPersonas": false,
+    "currentEvidence": [
+      "deterministische Matcher-Szenarien",
+      "dokumentierte Katalog- und Datenabdeckung",
+      "interne Produktannahmen aus dem bisherigen Aufbau"
+    ],
+    "missingEvidence": [
+      "moderierte Smartphone-Tests mit echten Eltern",
+      "qualitative Aussagen und beobachtete Entscheidungswege",
+      "aggregierte Nutzungsdaten je Entscheidungskontext"
+    ],
+    "claimPolicy": "Bis mindestens fünf qualitativen Sessions und einer zweiten Datenquelle heißen diese Profile Hypothesen-Archetypen, nicht validierte Personas."
+  },
+  "crossCuttingResearchLenses": [
+    {
+      "id": "first_time_overwhelmed",
+      "decisionNeed": "Begriffe ohne Vorwissen verstehen und trotz geringer Produkterfahrung sicher zu einer Shortlist kommen.",
+      "designImplication": "Alltagsnahe Antwortoptionen, keine Fachbegriffe als Voraussetzung und klarer Unterschied zwischen Match, Datenlage und Praxistest."
+    },
+    {
+      "id": "experienced_fast_path",
+      "decisionNeed": "Bekannte Anforderungen schnell eingeben und ohne zusätzliche Erklärschritte vergleichen.",
+      "designImplication": "Ein Kernflow ohne vorgeschaltetes Onboarding; Vertiefungen bleiben optional."
+    },
+    {
+      "id": "visual_shortlist",
+      "decisionNeed": "Nach der funktionalen Passung Modelle optisch einordnen und eine persönliche Shortlist bilden.",
+      "designImplication": "Freigegebene Produktbilder und Farbrichtungen unterstützen die Auswahl, verändern aber nicht den funktionalen Match-Score."
+    }
+  ],
   "scoreDefinition": {
     "90-100": "Sehr hohe Übereinstimmung: Anforderungen und Prioritäten werden nahezu vollständig erfüllt. Ein Praxistest bleibt trotzdem nötig.",
     "85-89": "Gute Übereinstimmung: Der Wagen passt klar zum Profil; einzelne überprüfbare Kompromisse bleiben.",
@@ -16,9 +48,9 @@
     "scoreIsNot": ["Sicherheitsnote", "Qualitätsnote", "Testurteil", "Kaufgarantie"]
   },
   "betaTargets": {
-    "personasWithPublishedMatchPercent": 100,
-    "personasWithGoodMatchPercent": 50,
-    "personasWithAtLeastTwoPublishedMatchesPercent": 70
+    "archetypesWithPublishedMatchPercent": 100,
+    "archetypesWithGoodMatchPercent": 50,
+    "archetypesWithAtLeastTwoPublishedMatchesPercent": 70
   },
   "segments": [
     {
@@ -26,6 +58,9 @@
       "label": "Preisbewusste Stadtfamilie ohne Aufzug",
       "profileId": "persona_low_budget_city_no_elevator",
       "whyItMatters": "Prüft günstige Geburtskonfiguration, tägliches Tragen und ÖPNV.",
+      "decisionJob": "Einen bezahlbaren Wagen finden, der im Stadtalltag ohne Aufzug realistisch handhabbar bleibt.",
+      "mainDecisionRisk": "Ein günstiger Preis verdeckt zu hohes Tragegewicht oder schlechte Faltbarkeit.",
+      "comparisonNeed": "Gesamtpreis, vergleichbares Tragegewicht und Faltung zuerst sehen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 2
     },
@@ -34,6 +69,9 @@
       "label": "Mobile Familie mit hohem Orientierungsbudget",
       "profileId": "persona_high_budget_frequent_travel",
       "whyItMatters": "Prüft häufigen Auto- und ÖPNV-Einsatz ohne künstliche Premium-Bevorzugung.",
+      "decisionJob": "Logistische Reibung bei häufigem Wechsel zwischen Auto, Bus und Bahn minimieren.",
+      "mainDecisionRisk": "Ein Premiumpreis wird fälschlich als bessere Alltagspassung interpretiert.",
+      "comparisonNeed": "Faltmaß, Faltvorgang, Breite und Gewicht unabhängig vom Preis vergleichen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 3
     },
@@ -42,6 +80,9 @@
       "label": "Funktionalitätsorientierte Familie mit mittlerem Budget",
       "profileId": "persona_mid_budget_functionality",
       "whyItMatters": "Prüft Stauraum, Nutzungsflexibilität und kompakten Autotransport.",
+      "decisionJob": "Mit begrenztem Budget möglichst viele alltagsrelevante Funktionen sinnvoll abdecken.",
+      "mainDecisionRisk": "Eine lange Ausstattungsliste verdrängt den tatsächlich nutzbaren Stauraum und Transportaufwand.",
+      "comparisonNeed": "Stauraum, Langzeitflexibilität und Faltmaß kompakt gegenüberstellen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 3
     },
@@ -50,6 +91,9 @@
       "label": "Familie mit Wald-, Feld- und Schotterwegen",
       "profileId": "rural_rough_terrain",
       "whyItMatters": "Prüft, ob reine Stadtmodelle trotz guter Nebenwerte zurückfallen.",
+      "decisionJob": "Regelmäßige unebene Wege bewältigen, ohne Transport und Stauraum auszublenden.",
+      "mainDecisionRisk": "Marketingbegriffe wie All-Terrain ersetzen nicht belegte Rad-, Federungs- oder Praxiseigenschaften.",
+      "comparisonNeed": "Untergrundpassung und deren Datenqualität vor Nebenmerkmalen erkennen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 3
     },
@@ -58,6 +102,9 @@
       "label": "Stadtfamilie mit engem Zugang und ÖPNV",
       "profileId": "tight_access_transit",
       "whyItMatters": "Prüft relative Breite, Wendigkeit und Gewicht ohne falsche Aufzugsgarantie.",
+      "decisionJob": "Enge Zugänge und ÖPNV meistern, ohne einen nicht gemessenen Fit versprochen zu bekommen.",
+      "mainDecisionRisk": "Eine geringe Wagenbreite wird als garantierter Aufzug- oder Tür-Fit missverstanden.",
+      "comparisonNeed": "Wagenbreite, Gewicht und offene Vor-Ort-Prüfung gleichzeitig sehen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 3
     },
@@ -66,6 +113,9 @@
       "label": "Familie mit Service- und Wetterschutzfokus",
       "profileId": "balanced_service_weather",
       "whyItMatters": "Prüft dokumentierte Serviceangebote statt Markenimage.",
+      "decisionJob": "Einen langfristig nutzbaren Wagen mit nachvollziehbarem Wetterschutz und Service finden.",
+      "mainDecisionRisk": "Garantie- und Servicewerbung wird ohne Bedingungen oder praktische Prüfung überbewertet.",
+      "comparisonNeed": "Dokumentierte Service- und Wettermerkmale samt Einschränkungen vergleichen.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 2
     },
@@ -74,6 +124,9 @@
       "label": "Familie mit kleinem Auto und fester Budgetgrenze",
       "profileId": "compact_car_strict_budget",
       "whyItMatters": "Prüft Faltvolumen und Ladegewicht ohne garantierten Fahrzeug-Fit.",
+      "decisionJob": "Ein Modell innerhalb der festen Grenze finden, das wahrscheinlich in ein kleines Auto passt.",
+      "mainDecisionRisk": "Ein kompaktes Einzelmaß wird mit einem garantierten Kofferraum-Fit verwechselt.",
+      "comparisonNeed": "Gesamtpreis, dreidimensionales Faltmaß und Faltaufwand priorisieren.",
       "requiredPublishedMatches": 1,
       "desiredPublishedMatches": 3
     }

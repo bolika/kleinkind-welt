@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "advertiserId": null,
   "advertiserName": "TFK Buggy",
+  "feedImageUsageStatus": "no_feed",
   "merchant": { "id": "tfk", "name": "TFK" },
   "mappings": []
 }

@@ -16,7 +16,7 @@
       "type": "single_choice",
       "required": true,
       "prompt": "Welchen Kinderwagen sucht ihr?",
-      "help": "So vergleichen wir nur Modelle derselben Produktart. Der aktuelle Daten-Pilot kann Kombi-Kinderwagen ab Geburt bereits belastbar einordnen.",
+      "help": "Der Daten-Pilot vergleicht aktuell Kombi-Kinderwagen ab Geburt; andere Typen führen wir separat.",
       "options": [
         { "value": "first_combo_from_birth", "label": "Kombi-Kinderwagen ab Geburt", "route": "supported" },
         { "value": "buggy", "label": "Buggy für ein älteres Kind", "route": "unsupported_buggy" },

@@ -176,6 +176,25 @@ Reihenfolge in starken Kaufartikeln:
 9. Quellenbox
 10. FAQ
 
+## Kinderwagen-Navigator
+
+Der Navigator nutzt eine eigene, aber an die globalen Marken-Tokens angebundene Komponentenfamilie:
+
+- `.navigator-choice-grid` und `.navigator-choice`: semantische Radio- oder Checkbox-Gruppe mit unsichtbarer Legende; Auswahlkarten mindestens 44 Pixel hoch.
+- `.navigator-budget-control`: Gesamtbudget, Live-Katalogfeedback und Verbindlichkeitsmodus in einer Komponente.
+- `.navigator-result-badge`: genau eine Rolle pro Ergebnis. Varianten sind Passung zu den Angaben, günstigste Alternative, kompaktere Alternative, Funktionsvorteil oder neutrale Alternative.
+- `.navigator-comparison`: auf Mobile standardmäßig geschlossen und horizontal bedienbar, auf Desktop standardmäßig geöffnet und ohne horizontalen Zwangsscroll.
+- `.navigator-live-result`: vollständige Ergebnisbegründung mit Score, Datenbasis, Abstrich, offenen Prüfungen und optional freigegebenem Feed-Bild.
+
+Regeln:
+
+- „Beste Passung“ immer mit „zu euren Angaben“ begrenzen; kein Badge darf wie ein eigener Produkttest wirken.
+- Das Preis-Badge erhält nur die tatsächlich günstigste Alternative zur Hauptpassung.
+- Produktbilder erscheinen nur bei freigegebenem Feed-Rechtestatus und verändern den Match-Score nicht.
+- Vergleichstabellen zeigen kurze Kriteriennamen; ausführliche Begründungen bleiben in den Ergebnis-Karten.
+- Gewichte werden nur als Bestwert markiert, wenn dieselbe Konfiguration verglichen wird.
+- Interaktive Controls verwenden `--navigator-touch-target`, Fokuszustände und `prefers-reduced-motion`.
+
 ## Footer
 
 Regeln:
@@ -192,4 +211,3 @@ Regeln:
 - Kurz halten.
 - Kein Claim "keine Tracking-Cookies", wenn Plausible aktiv ist, ohne Plausible direkt zu erklaeren.
 - Mobile muss voll umbrechen und darf nicht horizontal abschneiden.
-

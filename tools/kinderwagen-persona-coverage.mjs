@@ -47,19 +47,22 @@ const matchCoverage = percent(rows.filter((row) => row.solid).length);
 const goodCoverage = percent(rows.filter((row) => row.good).length);
 const alternativeCoverage = percent(rows.filter((row) => row.publishedCount >= 2).length);
 
-if (matchCoverage < segments.betaTargets.personasWithPublishedMatchPercent) {
-  errors.push(`Match-Abdeckung ${matchCoverage}% liegt unter ${segments.betaTargets.personasWithPublishedMatchPercent}%`);
+if (segments.researchMaturity?.validatedPersonas !== false || segments.researchMaturity?.status !== 'hypothesis_archetypes') {
+  errors.push('Profile müssen bis zur Nutzerforschung ausdrücklich als unvalidierte Hypothesen-Archetypen markiert bleiben');
 }
-if (goodCoverage < segments.betaTargets.personasWithGoodMatchPercent) {
-  errors.push(`Gute-Match-Abdeckung ${goodCoverage}% liegt unter ${segments.betaTargets.personasWithGoodMatchPercent}%`);
+if (matchCoverage < segments.betaTargets.archetypesWithPublishedMatchPercent) {
+  errors.push(`Match-Abdeckung ${matchCoverage}% liegt unter ${segments.betaTargets.archetypesWithPublishedMatchPercent}%`);
+}
+if (goodCoverage < segments.betaTargets.archetypesWithGoodMatchPercent) {
+  errors.push(`Gute-Match-Abdeckung ${goodCoverage}% liegt unter ${segments.betaTargets.archetypesWithGoodMatchPercent}%`);
 }
 
 for (const row of rows) {
   console.log(`${row.segment}: ${row.top}; ${row.publishedCount} veröffentlichte Treffer; ${row.good ? 'gut' : row.solid ? 'solide' : 'unzureichend'}`);
 }
-console.log(`Persona-Abdeckung: ${matchCoverage}% mit solidem Match, ${goodCoverage}% mit gutem Match, ${alternativeCoverage}% mit mindestens zwei Treffern.`);
-if (alternativeCoverage < segments.betaTargets.personasWithAtLeastTwoPublishedMatchesPercent) {
-  errors.push(`Alternativen-Abdeckung ${alternativeCoverage}% liegt unter dem Beta-Ziel ${segments.betaTargets.personasWithAtLeastTwoPublishedMatchesPercent}%`);
+console.log(`Archetypen-Abdeckung: ${matchCoverage}% mit solidem Match, ${goodCoverage}% mit gutem Match, ${alternativeCoverage}% mit mindestens zwei Treffern.`);
+if (alternativeCoverage < segments.betaTargets.archetypesWithAtLeastTwoPublishedMatchesPercent) {
+  errors.push(`Alternativen-Abdeckung ${alternativeCoverage}% liegt unter dem Beta-Ziel ${segments.betaTargets.archetypesWithAtLeastTwoPublishedMatchesPercent}%`);
 }
 
 if (errors.length) {
@@ -67,4 +70,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Persona-Coverage-Gate bestanden: ${rows.length} Kernsegmente gegen ${products.length} Pilotmodelle geprüft.`);
+console.log(`Archetypen-Coverage-Gate bestanden: ${rows.length} Hypothesen-Segmente gegen ${products.length} Pilotmodelle geprüft.`);
