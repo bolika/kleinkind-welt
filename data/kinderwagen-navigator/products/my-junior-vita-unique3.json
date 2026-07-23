@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "my-junior-vita-unique3",
+  "identity": {
+    "brand": "my junior",
+    "model": "VITA unique 3",
+    "generation": "Current DE 2in1 Starter-Set listing 931",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Geräumiger Komfortwagen für Stauraum, Wetter und längere Nutzung",
+    "notes": "Große Luftreifen und 6-fach-Federung sind Herstellerangaben; der praktische Geländeeindruck ist noch nicht unabhängig geprüft."
+  },
+  "sources": [
+    {
+      "id": "myjunior-vita3-product",
+      "url": "https://my-junior.com/de/kinderwagen/931-my-junior-vita-unique3.html",
+      "kind": "manufacturer",
+      "title": "my junior VITA unique 3 Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "myjunior-service",
+      "url": "https://my-junior.com/de/content/5-herstellergarantie-und-reparaturservice-kinderwagen",
+      "kind": "manufacturer",
+      "title": "my junior Garantie- und Reparaturservice",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktuelle 2in1-Konfiguration mit mehreren Farben und Lieferzeit von fünf bis sechs Wochen.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "VITA unique 3 2in1 Starter-Set mit Gestell, Babywanne und Sportsitz", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 892.06, "unit": "EUR", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Geprüfter Aktionspreis des 2in1 Starter-Sets; vorheriger Preis 949 Euro.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "63 cm sind als Faltbreite mit Rädern veröffentlicht und werden nicht als ungefaltete Gesamtbreite übernommen." },
+    "foldedDimensionsCm": { "value": { "length": 87, "width": 63, "height": 42, "configuration": "with_wheels" }, "unit": "cm", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mit Rädern; ohne Räder 78 x 59 x 32 cm." },
+    "frameWeightKg": { "value": 9.9, "unit": "kg", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "seatWeightKg": { "value": 4.7, "unit": "kg", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus 14,6 kg mit Sportsitz minus 9,9 kg Gestell abgeleitet." },
+    "carrycotWeightKg": { "value": 4.8, "unit": "kg", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus 14,7 kg mit Babywanne minus 9,9 kg Gestell abgeleitet." },
+    "liftReadyWeightKg": { "value": 14.7, "unit": "kg", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 77, "unit": "cm", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 114.5, "unit": "cm", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 19, "unit": "cm", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 26.5, "unit": "cm", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "air_tires", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "six_point_adjustable_with_sas", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "basketVolumeL": { "value": 63, "unit": "l", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "foldWithSeat": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Laut Hersteller in beiden Sitzrichtungen." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Kompatible Babyschalen dokumentiert; Adapter im 2in1 Set nicht enthalten." },
+    "canopyCoverage": { "value": "xxl_upf50", "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["myjunior-vita3-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "repairService": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "warrantyYears": { "value": 10, "unit": "years", "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Bis zu 10 Jahre unter Produkt-, Registrierungs- und Ausschlussbedingungen." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "frameWeightKg", "wheelDiameterFrontCm"], "rationale": "Schwenkräder und verstellbarer Schieber sind dokumentiert; Gewicht, Breite und fehlender Fahrtest begrenzen die Aussage." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Luftreifen und 6-fach-Federung sind dokumentiert; ohne unabhängigen Fahrtest bleibt es ein Proxy." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Falten mit Sportsitz ist dokumentiert, das Paket ist aber groß und Einhand-/Standfunktion sind offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "Bis zu 63 Liter Volumen sind dokumentiert; Traglast bleibt offen." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "XXL-Verdeck, UV-Schutz, Belüftung und Regencape sind dokumentiert." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteile, Reparaturservice und bedingte Langzeitgarantie sind dokumentiert." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Babywanne, umsetzbarer Sportsitz bis 22 kg und Travel-System-Kompatibilität sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["lange Spaziergänge mit viel Stauraum", "wechselnde Untergründe ohne tägliches Tragen", "Wetter- und Serviceorientierung"],
+    "tradeoffs": ["14,7 kg mit Babywanne sind für Treppen schwer", "großes Faltmaß für kleine Kofferräume", "ungefaltete Gesamtbreite ist nicht veröffentlicht"],
+    "openChecks": ["Fahrkomfort auf Kopfsteinpflaster unabhängig prüfen", "Faltpaket im eigenen Kofferraum testen", "ungefaltete Breite bei engem Zugang erfragen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth", "blue_cool"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

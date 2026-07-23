@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "0.1.0",
+  "checkedAt": "2026-07-23",
+  "policy": {
+    "discoveryDoesNotGrantReuseRights": true,
+    "automaticPublication": false,
+    "imagesRequireExplicitFeedOrRightsApproval": true,
+    "retailerFeedsMaySupply": ["candidate discovery", "offer price", "availability", "approved affiliate image"],
+    "retailerFeedsMayNotAloneSupply": ["hard fit facts", "safety claims", "independent quality claims"],
+    "manufacturerSourcesMaySupply": ["official dimensions", "weights", "configuration", "manuals", "market status"],
+    "requiredHumanReviewBeforeCatalog": true
+  },
+  "sources": [
+    {
+      "id": "awin-product-feeds",
+      "name": "Awin Product Feeds",
+      "kind": "affiliate_feed",
+      "status": "awaiting_credentials_and_program_approval",
+      "documentationUrl": "https://help.awin.com/developers/docs/product-feed-publisher-guide-intro",
+      "discoveryUrl": null,
+      "automatedDiscovery": false,
+      "notes": "Nach Freischaltung zur Kandidaten-, Angebots- und Bildversorgung nutzen. Technische Match-Fakten anschließend gegen Hersteller oder Anleitung prüfen."
+    },
+    {
+      "id": "cybex-de",
+      "name": "CYBEX Deutschland",
+      "kind": "manufacturer",
+      "status": "active",
+      "robotsUrl": "https://www.cybex-online.com/robots.txt",
+      "discoveryUrl": "https://www.cybex-online.com/de/de/sitemap_index.xml",
+      "automatedDiscovery": true,
+      "candidatePattern": "(kinderwagen|buggy|stroller|travel)",
+      "notes": "Sitemap ist erreichbar. Nur Kandidaten erkennen; Fakten müssen pro Produktseite oder Anleitung belegt werden."
+    },
+    {
+      "id": "abc-design-de",
+      "name": "ABC Design Deutschland",
+      "kind": "manufacturer",
+      "status": "active",
+      "robotsUrl": "https://www.abc-design.de/robots.txt",
+      "discoveryUrl": "https://www.abc-design.de/sitemap.xml",
+      "automatedDiscovery": true,
+      "candidatePattern": "(kinderwagen|buggy|stroller|salsa|samba|ping|zoom)",
+      "candidatePathPattern": "^https://www\\.abc-design\\.de/(?:kinderwagen(?:/[^/]+)?/?|(?:buggy|kombi-kinderwagen|geschwisterkinderwagen|jogger|sportwagen)-[^/]+)$",
+      "candidateExcludePattern": "^https://www\\.abc-design\\.de/kinderwagen(?:/|$)",
+      "canonicalPrefixPattern": "^(?:kombi-kinderwagen|sportwagen|jogger|buggy|geschwisterkinderwagen)-",
+      "variantSuffixPattern": "-(?:almond|avocado|black|camel|coal|nature|nut|pea|pine|wheat)$",
+      "notes": "Sitemap ist erreichbar."
+    },
+    {
+      "id": "joie-de",
+      "name": "Joie Deutschland",
+      "kind": "manufacturer",
+      "status": "manual_check_required",
+      "robotsUrl": "https://joiebaby.com/robots.txt",
+      "discoveryUrl": "https://joiebaby.com/sitemap/sitemap_joie_de.xml",
+      "automatedDiscovery": false,
+      "candidatePattern": "(kinderwagen|buggy|stroller|versatrax|finiti|parcel|pact|tourist)",
+      "notes": "Deutsche Sitemap wird in robots.txt ausgewiesen, antwortete beim automatisierten Node-Abruf am 23.07.2026 jedoch mit HTTP 403. Bis zu einer erlaubten Abruflösung manuell prüfen."
+    },
+    {
+      "id": "my-junior-de",
+      "name": "my junior",
+      "kind": "manufacturer",
+      "status": "active",
+      "robotsUrl": "https://my-junior.com/robots.txt",
+      "discoveryUrl": "https://my-junior.com/1_index_sitemap.xml",
+      "automatedDiscovery": true,
+      "candidatePattern": "(kinderwagen|buggy|liyo|vita|plia|sienna)",
+      "candidatePathPattern": "^https://my-junior\\.com/de/(?:kinderwagen|buggys)/[0-9]+-[^/]+\\.html$",
+      "notes": "Index-Sitemap wird in robots.txt ausgewiesen."
+    },
+    {
+      "id": "kinderkraft-de",
+      "name": "Kinderkraft Deutschland",
+      "kind": "manufacturer",
+      "status": "active",
+      "robotsUrl": "https://kinderkraft.de/robots.txt",
+      "discoveryUrl": "https://kinderkraft.de/media/wysiwyg/sitemap/index-sitemapDE.xml",
+      "automatedDiscovery": true,
+      "candidatePattern": "(kinderwagen|buggy|stroller|nea|moov|prime|newly|nubi|apino|mitzy|trig)",
+      "candidatePathPattern": "^https://kinderkraft\\.de/produkte/[^/?]+$",
+      "candidateExcludePattern": "(?:^|/)(?:adapters?|aufsatz|einkaufskorb|hinterrad|vorderrad|rad|regen|moskitonetz|bezug|gestell|matratze|tasche|kinderwagen)$|(?:adapters?|hinterrad|vorderrad|einkaufskorb|aufsatz|kinderwagentasche|kolko-tylne|rad)-",
+      "canonicalPrefixPattern": "^(?:(?:kinderwagen-)?(?:2in1|3in1|4in1)-|kinderwagen-)",
+      "canonicalTokenPattern": "(?:^|-)(?:kinderwagen|kombikinderwagen|multifunktionaler|wozek-dzieciecy|2in1|3in1|4in1|2w1|3w1|4w1|3-in-1)(?=-|$)",
+      "variantSuffixPattern": "-(?:beige|grau|hellgrau|schwarz|grun|blau|rosa|burgund|braun|dunkelgrun|bezowy|szary|zielony|lunar-black|whisper-dune|happy-shapes|nature-vibes-dark-gray|nature-vibes-light-gray)(?:-[0-9]+)?$",
+      "notes": "Die Sitemap ist in robots.txt ausgewiesen. Produkt-URLs werden zusätzlich nach Kinderwagen- und Buggy-Begriffen gefiltert."
+    },
+    {
+      "id": "joolz-de",
+      "name": "Joolz Deutschland",
+      "kind": "manufacturer",
+      "status": "manual_check_required",
+      "robotsUrl": "https://www.joolz.com/robots.txt",
+      "discoveryUrl": "https://joolz.com/de/de/sitemap_index.xml",
+      "automatedDiscovery": false,
+      "candidatePattern": "(kinderwagen|buggy|stroller|hub|day|aer|geo)",
+      "notes": "Die in robots.txt genannte deutsche Sitemap leitete am 23.07.2026 auf eine 404-Seite weiter. Bis zur Korrektur manuell über offizielle Kategorien prüfen."
+    },
+    {
+      "id": "bugaboo-de",
+      "name": "Bugaboo Deutschland",
+      "kind": "manufacturer",
+      "status": "manual_check_required",
+      "robotsUrl": "https://www.bugaboo.com/robots.txt",
+      "discoveryUrl": null,
+      "automatedDiscovery": false,
+      "candidatePattern": "(kinderwagen|buggy|stroller|fox|dragonfly|donkey|butterfly)",
+      "notes": "Im geprüften robots.txt war keine deutsche Sitemap ausgewiesen. Produkt- und Anleitungsseiten vorerst manuell erfassen."
+    },
+    {
+      "id": "eu-safety-gate",
+      "name": "EU Safety Gate",
+      "kind": "official_notice",
+      "status": "active_manual_monitoring",
+      "documentationUrl": "https://ec.europa.eu/safety-gate/",
+      "discoveryUrl": null,
+      "automatedDiscovery": false,
+      "notes": "Wöchentlich nach Marke, Modell und Produktkategorie prüfen. Ein fehlender Treffer ist keine Sicherheitsbestätigung."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "bugaboo-dragonfly-plus",
+  "identity": {
+    "brand": "Bugaboo",
+    "model": "Dragonfly Plus",
+    "generation": "Dragonfly Plus current DE 2-in-1",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Kompakter Premium-Stadtwagen mit einteiliger Faltung",
+    "notes": "Neue Plus-Generation, getrennt vom älteren Dragonfly erfasst. Herstellerdaten sind noch nicht unabhängig praktisch geprüft."
+  },
+  "sources": [
+    {
+      "id": "bugaboo-dragonfly-plus-product",
+      "url": "https://www.bugaboo.com/de-de/kinderwagen/bugaboo-dragonfly-plus-2-in-1/bugaboo-dragonfly-plus-2-in-1-kinderwagen-PM007950.html",
+      "kind": "manufacturer",
+      "title": "Bugaboo Dragonfly Plus 2-in-1 Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "bugaboo-dragonfly-plus-overview",
+      "url": "https://www.bugaboo.com/de-de/bugaboo-dragonfly-kompakt-city-kinderwagen/",
+      "kind": "manufacturer",
+      "title": "Bugaboo Dragonfly Plus Modellübersicht",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "bugaboo-parts",
+      "url": "https://www.bugaboo.com/de-de/teile/",
+      "kind": "manufacturer",
+      "title": "Bugaboo Ersatzteile",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "bugaboo-warranty",
+      "url": "https://cdn.bugaboo.com/de-de/garantie/",
+      "kind": "manufacturer",
+      "title": "Bugaboo Garantiebedingungen",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_color_dependent", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktuelle Plus-Generation; Lagerstatus unterscheidet sich innerhalb der Farbkonfigurationen.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Geburtsnutzung in der geprüften 2-in-1-Konfiguration mit Liegewanne." },
+    "newbornConfiguration": { "value": "Dragonfly Plus 2-in-1 mit enthaltener Liegewanne und Sitz", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 1099, "unit": "EUR", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Preis der aktuellen 2-in-1-Konfiguration; Farbe und Aktionen können abweichen.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": 52, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Ausgeklappte Maße mit Sitz: 106 x 52 x 104 cm." },
+    "foldedDimensionsCm": { "value": { "length": 32, "width": 52, "height": 90, "configuration": "one_piece_with_carrycot" }, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Einteilig mit Liegewanne; mit Sitz nennt der Hersteller 36 x 52 x 90 cm." },
+    "frameWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Ein separates Gestellgewicht ist in den geprüften Quellen nicht veröffentlicht." },
+    "seatWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 10.69, "unit": "kg", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Komplettgewicht mit Liegewanne; mit Sitz werden 9,9 kg genannt." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 98, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 105, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 17.85, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 21.57, "unit": "cm", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Als leistungsstarke Stadträder beschrieben, Materialart nicht eindeutig genannt." },
+    "suspension": { "value": "full_suspension", "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": 10, "unit": "kg", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Zusätzliche Hecktasche mit bis zu 2,5 kg bei Nutzung am Schiebebügel." },
+    "basketVolumeL": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "oneHandFold": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "foldWithSeat": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Einteilig mit Sitz und separat auch mit Liegewanne dokumentiert." },
+    "selfStandingFold": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "reversibleSeat": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Kompatible Autokindersitze möglich; Adapter separat erforderlich." },
+    "canopyCoverage": { "value": "fully_extendable_UPF_50_plus_with_sunshield", "sourceIds": ["bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-dragonfly-plus-overview"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Lüftungseinsatz und luftdurchlässige Matratze der Liegewanne dokumentiert." },
+    "rainCoverIncluded": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "In der geprüften Box-Liste nicht eindeutig genannt; vor Kauf Lieferumfang prüfen." },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["bugaboo-parts"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller führt aktuell 13 mit Dragonfly Plus kompatible Ersatzteile; künftige Verfügbarkeit ist nicht garantiert." },
+    "repairService": { "value": "modular repair and refurbishment claimed", "sourceIds": ["bugaboo-dragonfly-plus-product", "bugaboo-warranty"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Modulare Reparatur und Generalüberholung werden beschrieben; praktische Servicequalität nicht unabhängig geprüft." },
+    "warrantyYears": { "value": 4, "unit": "years", "sourceIds": ["bugaboo-warranty", "bugaboo-dragonfly-plus-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Zwei Jahre Standard plus zwei Jahre nach fristgerechter Registrierung; bei Direktkauf laut Hersteller automatisch erweitert. Bedingungen und Ausschlüsse prüfen." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten; Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg", "wheelDiameterFrontCm", "suspension"], "rationale": "52 cm Breite, 10,69 kg mit Liegewanne und Stadtfederung sind dokumentiert; Handhabung wurde nicht unabhängig praktisch geprüft." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Vollfederung und Radmaße sind dokumentiert, die Konstruktion ist aber auf Stadtwege ausgerichtet und ohne unabhängigen Fahrtest nur ein Proxy." },
+    "foldingConvenience": { "value": 1, "status": "documented", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Einteilige Einhand-Faltung mit Sitz oder Liegewanne sowie Standfunktion sind offiziell dokumentiert." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "10 Kilogramm Korblast und eine zusätzliche Hecktasche sind dokumentiert; ein Volumenwert fehlt." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Ausziehbares UPF-50+-Sonnendach, Sonnenblende und Wannenventilation sind dokumentiert; Regenschutz im Lieferumfang bleibt offen." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteile, modularer Reparaturansatz und erweiterbare Garantie sind dokumentiert; die Serviceerfahrung wurde nicht unabhängig getestet." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Liegewanne, wendbarer Sitz bis 22 Kilogramm und Travel-System-Kompatibilität sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["enge Stadtzugänge und ÖPNV", "einteilige Faltung ohne Abnehmen der Liegewanne", "kleine Haushalte mit Premium-Budget"],
+    "tradeoffs": ["hoher Anschaffungspreis", "relativ langes einteiliges Faltmaß von 90 cm", "nicht als erster Spezialist für häufige Wald- und Feldwege einzuordnen"],
+    "openChecks": ["Faltmaß und Ladebewegung am eigenen Kofferraum prüfen", "10,69-kg-Geburtskonfiguration praktisch tragen", "Lagerstatus der gewünschten Farbe und Regenschutz-Lieferumfang prüfen"],
+    "dataConflicts": ["Die Produktseite zeigt je nach Stelle und Farbkonfiguration unterschiedliche Lagerhinweise; deshalb wird kein pauschaler Verfügbarkeitsstatus behauptet."],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth", "warm_color"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

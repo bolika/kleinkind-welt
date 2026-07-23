@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "kinderkraft-esme-2in1",
+  "identity": {
+    "brand": "Kinderkraft",
+    "model": "ESME 2in1",
+    "generation": "Current DE 2in1 manufacturer listing",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Sehr preisgünstiger 2in1-Wagen für flexible Budgets",
+    "notes": "Das 2in1-Set ist beim Hersteller aktuell nicht verfügbar. Maße und Gewichte stammen zusätzlich von der offiziellen ESME-3in1-Seite mit identischem Wagenaufbau."
+  },
+  "sources": [
+    {
+      "id": "kinderkraft-esme-2in1-product",
+      "url": "https://kinderkraft.de/produkte/esme-2w1?color=grau",
+      "kind": "manufacturer",
+      "title": "Kinderkraft ESME 2in1 Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "kinderkraft-esme-3in1-specs",
+      "url": "https://kinderkraft.de/produkte/esme?color=schwarz",
+      "kind": "manufacturer",
+      "title": "Kinderkraft ESME 3in1 technische Daten desselben Wagenaufbaus",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_temporarily_unavailable_manufacturer", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Produktseite aktiv, ausgewählte Farbe aktuell nicht verfügbar.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "ESME 2in1 mit Gestell und wandelbarer Babywannen-/Sitzeinheit", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Die Einheit wird von der Babywanne zum Sportsitz umgebaut." },
+    "requiredConfigurationPriceEur": { "value": 179, "unit": "EUR", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerpreis der aktuell nicht verfügbaren 2in1-Konfiguration.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": 60, "unit": "cm", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Offizielle Abmessung des ESME-Wagenaufbaus." },
+    "foldedDimensionsCm": { "value": { "length": 72, "width": 60, "height": 40, "configuration": "with_seat" }, "unit": "cm", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "frameWeightKg": { "value": 8, "unit": "kg", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "seatWeightKg": { "value": 2.45, "unit": "kg", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Wandelbare 2in1-Sitzeinheit." },
+    "carrycotWeightKg": { "value": 2.45, "unit": "kg", "sourceIds": ["kinderkraft-esme-2in1-product", "kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Dieselbe wandelbare Einheit dient als Babywanne und Sportsitz; kein separates Wannen-Gewicht ausgewiesen." },
+    "liftReadyWeightKg": { "value": 10.45, "unit": "kg", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "8 kg Gestell plus 2,45 kg wandelbare Einheit." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["kinderkraft-esme-2in1-product", "kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "derived_proxy" },
+    "pushbarMinCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "pushbarMaxCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "wheelDiameterFrontCm": { "value": 18, "unit": "cm", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 25, "unit": "cm", "sourceIds": ["kinderkraft-esme-3in1-specs"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "puncture-resistant_tpe_rubber", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "full_suspension", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": 3, "unit": "kg", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketVolumeL": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Einfaches Falten ist dokumentiert, nicht aber eine eindeutige Einhand-Faltung." },
+    "foldWithSeat": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Auf der geprüften 2in1-Seite nicht eindeutig dokumentiert." },
+    "travelSystem": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Babyschalenadapter sind enthalten; Babyschale nicht Teil der 2in1-Bewertung." },
+    "canopyCoverage": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "canopyVentilation": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Ersatzteilbereich und Ersatz bei nicht möglicher Reparatur sind dokumentiert." },
+    "repairService": { "value": true, "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "warrantyYears": { "value": 2, "unit": "years", "sourceIds": ["kinderkraft-esme-2in1-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Standardgarantie; eine Verlängerung bis zehn Jahre ist nur unter Bedingungen möglich." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Die 2in1-Konfiguration enthält keinen Autositz; Safety-Gate-Prüfung des Kinderwagens bleibt erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "frameWeightKg", "wheelDiameterFrontCm"], "rationale": "60 cm Breite, schwenkbare Räder und moderates Gewicht sind dokumentiert; unabhängiger Fahrtest fehlt." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "TPE-Räder und volle Federung sind dokumentiert; ohne unabhängigen Fahrtest bleibt es ein Proxy." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Faltung mit Einheit ist dokumentiert; Einhand- und Selbststandfunktion bleiben offen." },
+    "storageCapacity": { "value": 0.5, "status": "proxy", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "Nur 3 kg Korblast sind dokumentiert; Volumen ist offen." },
+    "weatherProtection": { "value": 0.5, "status": "proxy", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "Regenschutz und Belüftung sind dokumentiert, Verdeckgröße und UV-Schutz nicht eindeutig." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Reparatur, Ersatz und zweijährige Standardgarantie sind dokumentiert." },
+    "longTermFlexibility": { "value": 0.5, "status": "proxy", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Geburtskonfiguration und Travel System sind dokumentiert; Sitzrichtung bleibt offen." }
+  },
+  "editorial": {
+    "bestFor": ["sehr knappes Budget bei späterer Verfügbarkeit", "einfaches 2in1-Konzept ohne separate Wannenlagerung", "Stadt und befestigte Wege"],
+    "tradeoffs": ["beim Hersteller aktuell nicht verfügbar", "nur 3 kg dokumentierte Korblast", "Sitzrichtung, Einhand-Faltung und Verdeckschutz sind offen"],
+    "openChecks": ["Verfügbarkeit und Preis erneut prüfen", "Sitzrichtung und Faltablauf vor Ort verifizieren", "Fahrkomfort unabhängig testen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

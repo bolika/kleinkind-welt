@@ -74,7 +74,7 @@
     "foldingConvenience": { "value": 1, "status": "documented", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Einhand-, Sitz- und Standfunktion sind offiziell dokumentiert." },
     "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "45 Liter und 10 kg sind offiziell angegeben." },
     "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Großes UPF-50+-Verdeck und Belüftung sind dokumentiert; Regenschutz bleibt als offener Lieferumfangspunkt bestehen." },
-    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Modularität und erweiterte Garantie dokumentiert; tatsächliche Reparaturabdeckung nicht unabhängig geprüft." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteile, modulare Reparatur- beziehungsweise Aufbereitungsangebote und erweiterte Garantie sind beim Hersteller dokumentiert; die Serviceerfahrung wurde nicht unabhängig getestet." },
     "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Liegewanne, wendbarer Sitz und Reisesystem sind dokumentiert." }
   },
   "editorial": {

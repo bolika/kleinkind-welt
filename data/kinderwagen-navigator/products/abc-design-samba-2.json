@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "abc-design-samba-2",
+  "identity": {
+    "brand": "ABC Design",
+    "model": "Samba 2",
+    "generation": "Current DE 2-in-1 listing 12005022302",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Preisreduzierter kompakter Allround-Kombiwagen",
+    "notes": "Der Hersteller dokumentiert Konfiguration, Komponenten, Maße, Räder, Korblast und Service auf einer aktuellen deutschen Produktseite."
+  },
+  "sources": [
+    {
+      "id": "abc-samba2-product",
+      "url": "https://www.abc-design.de/kombi-kinderwagen-samba-2-pine",
+      "kind": "manufacturer",
+      "title": "ABC Design Samba 2 Starterset Produktseite",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_color_dependent", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Pine und mehrere weitere Designs werden als sofort verfügbar geführt; Almond ist nicht verfügbar.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "Samba 2 Starterset mit Babywanne", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 549.9, "unit": "EUR", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktionspreis des geprüften 2-in-1-Startersets; regulärer Herstellerpreis 899,80 Euro.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": 60, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 74, "width": 60, "height": 42.5, "configuration": "with_wheels_and_seat" }, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Ohne Räder nennt der Hersteller 67 × 51,5 × 21 cm." },
+    "frameWeightKg": { "value": 9.1, "unit": "kg", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "seatWeightKg": { "value": 3.9, "unit": "kg", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 13, "unit": "kg", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Gestell 9,1 kg plus Sitzeinheit 3,9 kg; 0,2 kg separat genanntes Zubehör nicht eingerechnet." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy" },
+    "pushbarMinCm": { "value": 101, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 111, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 23.5, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 26.5, "unit": "cm", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "puncture-resistant air-chamber", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "individual wheel suspension", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": 5, "unit": "kg", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketVolumeL": { "value": null, "unit": "l", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "oneHandFold": { "value": false, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Zweihand-Falten laut technischen Daten." },
+    "foldWithSeat": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mit Sitz in beiden Blickrichtungen faltbar." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Optionale Adapter erforderlich." },
+    "canopyCoverage": { "value": "extendable UPF 50+ with fold-out shade", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mesh-Fenster im Sitz und Verdeck dokumentiert." },
+    "rainCoverIncluded": { "value": false, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Nicht im veröffentlichten Lieferumfang." },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller verlinkt einen Ersatzteilbereich; Verfügbarkeit je Komponente noch nicht geprüft." },
+    "repairService": { "value": "two-year premium manufacturer service", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "warrantyYears": { "value": 2, "unit": "years", "sourceIds": ["abc-samba2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten; EU Safety Gate separat prüfen." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg", "wheelDiameterFrontCm"], "rationale": "60 cm Breite und kleinere Maße als der Salsa 5 Air; unabhängige Handhabungsprüfung fehlt." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Luftkammerräder und Einzelfederung sind dokumentiert; Herstellerangaben werden ohne unabhängige Fahrprüfung auf 0,5 begrenzt." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Mit Sitz in beiden Richtungen faltbar, aber Zweihand-Vorgang und kein belegter Standmodus." },
+    "storageCapacity": { "value": 0.5, "status": "documented", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "5 kg Korb-Traglast ist dokumentiert; ein Volumen fehlt." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Erweitertes UPF-50+-Verdeck, zusätzliche Sonnenblende und Belüftung sind dokumentiert; Regenverdeck ist nicht enthalten." },
+    "repairabilityService": { "value": 0.5, "status": "proxy", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteilbereich, zweijähriger Herstellerservice und Garantie sind genannt; konkrete Reparaturwege bleiben offen." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Babywanne enthalten, Sitz wendbar und Travel-System optional möglich." }
+  },
+  "editorial": {
+    "bestFor": ["preisbewusste 2-in-1-Käufer", "Stadt und gemischte Wege", "Familien mit 60-cm-Wagenbreite"],
+    "tradeoffs": ["13 kg mit Sitzeinheit", "Zweihand-Faltung", "Regenverdeck nicht enthalten"],
+    "openChecks": ["Aktionspreis und gewünschte Farbe prüfen", "Faltmaß im eigenen Auto testen", "Fahrverhalten auf typischen Wegen praktisch vergleichen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth", "warm_color"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

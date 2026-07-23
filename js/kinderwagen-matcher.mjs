@@ -26,22 +26,12 @@ const SIGNAL_MAP = {
 
 const PRIORITY_MAP = {
   easy_to_carry: ['frequent_carrying_fit'],
-  compact_in_car: ['car_transport_fit', 'folding_convenience'],
-  city_transit: ['city_maneuverability', 'public_transport_fit'],
-  rough_terrain: ['rough_surface_fit'],
+  compact_in_car: ['car_transport_fit'],
   storage: ['storage_capacity'],
   easy_folding: ['folding_convenience'],
   long_use: ['long_term_flexibility'],
   service: ['repairability_service'],
   weather: ['weather_protection']
-};
-
-const COLOR_DIRECTION_LABELS = {
-  dark_neutral: 'dunklen neutralen Tönen',
-  light_neutral: 'hellen neutralen Tönen',
-  green_earth: 'Grün- und Naturtönen',
-  blue_cool: 'Blau- und kühlen Tönen',
-  warm_color: 'warmen oder auffälligeren Farben'
 };
 
 function unique(values) {
@@ -109,16 +99,65 @@ function foldedCompactness(product) {
   return 0.25;
 }
 
+function contextSelected(answers, value) {
+  return (answers.daily_context ?? []).includes(value);
+}
+
+function relativeCarryingScore(product, liftUnit = 'unknown') {
+  const selectedWeight = liftUnit === 'unknown' ? fact(product, 'liftReadyWeightKg') : liftWeightFor(product, liftUnit);
+  if (!isKnown(selectedWeight) || typeof selectedWeight.value !== 'number') return null;
+  if (selectedWeight.value <= 9.5) return 1;
+  if (selectedWeight.value <= 11.5) return 0.75;
+  if (selectedWeight.value <= 13.5) return 0.5;
+  if (selectedWeight.value <= 15) return 0.25;
+  return 0;
+}
+
+function relativeAccessScore(product) {
+  const width = fact(product, 'unfoldedWidthCm');
+  if (!isKnown(width) || typeof width.value !== 'number') return null;
+  if (width.value <= 53) return 1;
+  if (width.value <= 60) return 0.75;
+  if (width.value <= 63) return 0.5;
+  if (width.value <= 66) return 0.25;
+  return 0;
+}
+
 function routeFor(answers) {
-  if (answers.search_goal === 'siblings_twins' || answers.children_count === 'more_than_one') return 'unsupported_siblings';
+  if (answers.search_goal === 'siblings_twins') return 'unsupported_siblings';
   if (answers.search_goal === 'buggy') return 'unsupported_buggy';
+  if (answers.search_goal === 'travel_buggy') return 'unsupported_travel_buggy';
   if (answers.search_goal === 'unsure') return 'scope_help';
-  if (answers.search_goal !== 'first_combo_from_birth' || answers.children_count !== 'one') return 'incomplete';
+  if (answers.search_goal !== 'first_combo_from_birth') return 'incomplete';
   return 'supported';
 }
 
 function topPriorityCriteria(answers) {
   return new Set((answers.top_priorities ?? []).flatMap((priority) => PRIORITY_MAP[priority] ?? []));
+}
+
+function coreContextCriteria(answers, criteriaData) {
+  return new Set((criteriaData.scoreRules?.coreContextRules ?? [])
+    .filter((rule) => {
+      const answer = answers[rule.answerKey];
+      const values = Array.isArray(answer) ? answer : [answer];
+      return (rule.includesAny ?? []).some((value) => values.includes(value));
+    })
+    .map((rule) => rule.criterionId));
+}
+
+function applyCoreContextCap(score, evaluations, answers, criteriaData) {
+  if (score === null) return null;
+  const coreCriteria = coreContextCriteria(answers, criteriaData);
+  if (!coreCriteria.size) return score;
+  const relevant = [...coreCriteria].map((criterionId) => evaluations.find((evaluation) => evaluation.criterionId === criterionId));
+  if (criteriaData.scoreRules?.unknownCoreContextBlocksNumericScore && relevant.some((evaluation) => typeof evaluation?.value !== 'number')) return null;
+  const weakest = Math.min(...relevant.map((evaluation) => evaluation.value));
+  const caps = criteriaData.scoreRules?.coreContextScoreCaps ?? {};
+  if (weakest <= 0) return Math.min(score, caps.none ?? 64);
+  if (weakest <= 0.5) return Math.min(score, caps.partial ?? 84);
+  if (weakest < 1) return Math.min(score, caps.strongPartial ?? 89);
+  return score;
 }
 
 function eligibility(product, answers) {
@@ -150,6 +189,16 @@ function eligibility(product, answers) {
     failures.push({ code: 'scope', text: 'Modell liegt außerhalb des unterstützten MVP-Scopes.' });
   } else {
     passed.push({ code: 'scope', text: 'Kombi-Kinderwagen für ein Kind.' });
+  }
+
+  if (contextSelected(answers, 'tight_access')) {
+    openChecks.push('Wagenbreite mit der tatsächlich schmalsten Aufzugstür oder Durchgangsöffnung abgleichen.');
+  }
+  if (contextSelected(answers, 'regular_car') || contextSelected(answers, 'small_trunk')) {
+    openChecks.push('Faltmaß, Kofferraumöffnung und reale Ladebewegung vor dem Kauf am eigenen Auto prüfen.');
+  }
+  if (contextSelected(answers, 'regular_carrying')) {
+    openChecks.push(`Das dokumentierte Gewicht für ${liftUnitLabel(answers.lift_unit)} praktisch ausprobieren; Ergonomie und Griffposition werden vom Datenwert allein nicht abgebildet.`);
   }
 
   const budget = answers.budget;
@@ -241,71 +290,66 @@ function applicableEvaluations(product, answers) {
   const priorities = topPriorityCriteria(answers);
   const addStatic = (criterionId) => evaluations.push(staticEvaluation(product, criterionId));
 
-  if (terrain.some((value) => ['smooth_city', 'mixed'].includes(value)) || answers.public_transport_frequency !== 'never') {
+  if (terrain.some((value) => ['smooth_city', 'mixed'].includes(value)) || contextSelected(answers, 'regular_transit')) {
     addStatic('city_maneuverability');
   }
   if (terrain.some((value) => ['cobblestone', 'gravel_park', 'forest_field', 'mixed'].includes(value))) {
     addStatic('rough_surface_fit');
   }
 
-  if (answers.public_transport_frequency && answers.public_transport_frequency !== 'never') {
+  if (contextSelected(answers, 'regular_transit')) {
     const city = staticEvaluation(product, 'city_maneuverability');
-    let carrying = null;
-    if (typeof answers.maximum_lift_weight === 'number' && answers.measurement_confirmation === 'measured') carrying = 1;
+    const carrying = relativeCarryingScore(product, answers.lift_unit);
+    const access = relativeAccessScore(product);
     evaluations.push({
       criterionId: 'public_transport_fit',
-      value: average([city.value, carrying]),
+      value: average([city.value, carrying, access]),
       status: 'proxy',
-      rationale: carrying === null
-        ? 'Aus dokumentierter Stadtpassung abgeleitet; persönliche Tragegrenze fehlt.'
-        : 'Aus Stadtpassung und bestätigter Tragegrenze abgeleitet.'
+      rationale: 'Aus dokumentierter Stadtpassung, Wagenbreite und dem vergleichbaren Konfigurationsgewicht abgeleitet; kein garantierter ÖPNV-Komfort.'
     });
   }
 
-  if (answers.car_frequency && answers.car_frequency !== 'never') {
+  if (contextSelected(answers, 'regular_car') || contextSelected(answers, 'small_trunk') || priorities.has('car_transport_fit')) {
     const folding = staticEvaluation(product, 'folding_convenience');
     const compactness = foldedCompactness(product);
-    const compactnessRelevant = ['limited', 'unsure'].includes(answers.car_space);
+    const carrying = relativeCarryingScore(product, 'unknown');
+    const compactnessRelevant = contextSelected(answers, 'small_trunk') || priorities.has('car_transport_fit');
     evaluations.push({
       criterionId: 'car_transport_fit',
-      value: average([folding.value, compactnessRelevant ? compactness : null]),
+      value: average([folding.value, compactnessRelevant ? compactness : null, carrying]),
       status: 'proxy',
       rationale: compactnessRelevant
-        ? 'Aus dokumentiertem Faltmaß und Faltmerkmalen abgeleitete Kompaktheits-Einschätzung; kein garantierter Fahrzeug-Fit.'
-        : 'Aus dokumentierten Faltmerkmalen abgeleitet; der konkrete Fahrzeug-Fit bleibt offen.'
+        ? 'Aus Faltmaß, Faltmerkmalen und vergleichbarem Konfigurationsgewicht abgeleitet; kein garantierter Fahrzeug-Fit.'
+        : 'Aus dokumentierten Faltmerkmalen und vergleichbarem Konfigurationsgewicht abgeleitet; der konkrete Fahrzeug-Fit bleibt offen.'
     });
   }
 
-  if (answers.stairs_frequency && answers.stairs_frequency !== 'never') {
-    const liftWeight = liftWeightFor(product, answers.lift_unit);
-    const hasMeasuredLimit = typeof answers.maximum_lift_weight === 'number' && answers.measurement_confirmation === 'measured';
+  if (contextSelected(answers, 'regular_carrying') || priorities.has('frequent_carrying_fit')) {
+    const carrying = relativeCarryingScore(product, answers.lift_unit);
     evaluations.push({
       criterionId: 'frequent_carrying_fit',
-      value: hasMeasuredLimit && isKnown(liftWeight) ? 1 : null,
-      status: hasMeasuredLimit ? 'documented' : 'unknown',
-      rationale: hasMeasuredLimit
-        ? 'Dokumentiertes Gewicht liegt innerhalb der bestätigten persönlichen Tragegrenze.'
-        : 'Ohne persönliche Tragegrenze wird aus dem Gewicht kein scheinpräziser Komfort-Score erzeugt.'
+      value: carrying,
+      status: carrying === null ? 'unknown' : 'derived_proxy',
+      rationale: carrying === null
+        ? 'Für die gewählte Trageeinheit fehlt ein belastbar vergleichbares Gewicht.'
+        : `Relative Einordnung anhand des dokumentierten Gewichts für ${liftUnitLabel(answers.lift_unit)}; persönlichen Tragekomfort vor dem Kauf praktisch prüfen.`
     });
   }
 
-  if (answers.car_frequency !== 'never' || priorities.has('folding_convenience')) addStatic('folding_convenience');
-  for (const criterionId of ['storage_capacity', 'weather_protection', 'repairability_service', 'long_term_flexibility']) {
-    if (priorities.has(criterionId)) addStatic(criterionId);
-  }
-
-  const selectedColor = answers.color_preference;
-  if (selectedColor && selectedColor !== 'no_preference') {
-    const productColors = product.editorial?.colorDirections ?? [];
-    const matches = productColors.includes(selectedColor);
+  if (contextSelected(answers, 'tight_access')) {
+    const width = fact(product, 'unfoldedWidthCm');
     evaluations.push({
-      criterionId: 'color_preference_fit',
-      value: productColors.length ? (matches ? 1 : 0) : null,
-      status: productColors.length ? 'editorial' : 'unknown',
-      rationale: matches
-        ? `Das erfasste aktuelle Farbsortiment enthält Varianten in ${COLOR_DIRECTION_LABELS[selectedColor]}.`
-        : 'Die gewählte Farbrichtung ist im aktuell erfassten Sortiment nicht vertreten; andere Varianten können verfügbar sein.'
+      criterionId: 'compact_access_fit',
+      value: relativeAccessScore(product),
+      status: isKnown(width) ? width.status : 'unknown',
+      rationale: isKnown(width)
+        ? `${width.value} cm Wagenbreite werden relativ zum Pilotkatalog eingeordnet; der konkrete Aufzug oder Durchgang muss vor dem Kauf geprüft werden.`
+        : 'Die Wagenbreite ist nicht belastbar dokumentiert.'
     });
+  }
+
+  for (const criterionId of ['folding_convenience', 'storage_capacity', 'weather_protection', 'repairability_service', 'long_term_flexibility']) {
+    if (criterionId === 'long_term_flexibility' || priorities.has(criterionId)) addStatic(criterionId);
   }
 
   return [...new Map(evaluations.map((evaluation) => [evaluation.criterionId, evaluation])).values()];
@@ -327,7 +371,9 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
   const weightedScore = known.reduce((sum, evaluation) => sum + (evaluation.value * evaluation.weight), 0);
   const dataCoverage = applicableWeight ? Math.round((knownWeight / applicableWeight) * 100) : 0;
   const rawScore = knownWeight ? Math.round((weightedScore / knownWeight) * 100) : null;
-  const numericScore = dataCoverage >= criteriaData.scoreRules.minimumCoverageForNumericScore ? rawScore : null;
+  const minimumCriteria = criteriaData.scoreRules.minimumApplicableCriteriaForNumericScore ?? 1;
+  const coverageQualifiedScore = dataCoverage >= criteriaData.scoreRules.minimumCoverageForNumericScore && known.length >= minimumCriteria ? rawScore : null;
+  const numericScore = applyCoreContextCap(coverageQualifiedScore, evaluations, answers, criteriaData);
   const priorityConflicts = evaluations.filter((evaluation) => priorityCriteria.has(evaluation.criterionId) && evaluation.value === 0);
   let scoreBand = numericScore === null
     ? 'Datenlage ergänzen'
@@ -354,6 +400,8 @@ function scoreProduct(product, answers, criteriaData, eligibilityResult) {
     provisionalScore: rawScore,
     matchBand: scoreBand,
     dataCoverage,
+    applicableCriteriaCount: evaluations.length,
+    knownCriteriaCount: known.length,
     priorityConflicts: priorityConflicts.map((evaluation) => ({ criterionId: evaluation.criterionId, rationale: evaluation.rationale })),
     mustCriteria: eligibilityResult.passed,
     failures: eligibilityResult.failures,
@@ -383,7 +431,8 @@ export function matchStrollers({ answers, products, criteriaData }) {
     .sort((a, b) => {
       const aScore = a.matchScore ?? -1;
       const bScore = b.matchScore ?? -1;
-      if (bScore !== aScore) return bScore - aScore;
+    if (bScore !== aScore) return bScore - aScore;
+      if ((b.provisionalScore ?? -1) !== (a.provisionalScore ?? -1)) return (b.provisionalScore ?? -1) - (a.provisionalScore ?? -1);
       if (b.dataCoverage !== a.dataCoverage) return b.dataCoverage - a.dataCoverage;
       return a.productId.localeCompare(b.productId);
     });
@@ -461,5 +510,9 @@ export const matcherInternals = {
   applicableEvaluations,
   foldedCompactness,
   liftWeightFor,
-  topPriorityCriteria
+  relativeAccessScore,
+  relativeCarryingScore,
+  topPriorityCriteria,
+  coreContextCriteria,
+  applyCoreContextCap
 };

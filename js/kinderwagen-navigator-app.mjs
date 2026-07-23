@@ -1,6 +1,6 @@
-import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs';
-import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs';
-import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs';
+import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260723-3';
+import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs?v=20260723-3';
+import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-3';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
@@ -10,6 +10,7 @@ const state = {
   answers: {},
   skipped: new Set(),
   questions: [],
+  flowVersion: '0.2.0',
   criteriaData: null,
   products: [],
   offers: [],
@@ -36,6 +37,7 @@ function track(action, props = {}) {
     props: {
       aktion: action,
       version: state.criteriaData?.modelVersion ?? '0.1.0',
+      flow_version: state.flowVersion,
       device: window.innerWidth <= 640 ? 'mobile' : 'desktop',
       ...props
     }
@@ -143,7 +145,24 @@ function choiceControl(question, multi = false) {
         status.textContent = `${count} ausgewählt`;
       }
     };
-    group.addEventListener('change', updateLimit);
+    group.addEventListener('change', (event) => {
+      const changed = event.target;
+      const exclusive = question.validation?.exclusiveOptions ?? [];
+      if (changed.checked && exclusive.includes(changed.value)) {
+        group.querySelectorAll('input').forEach((input) => { if (input !== changed) input.checked = false; });
+      } else if (changed.checked) {
+        group.querySelectorAll('input').forEach((input) => {
+          if (exclusive.includes(input.value)) input.checked = false;
+        });
+        for (const exclusiveGroup of question.validation?.exclusiveGroups ?? []) {
+          if (!exclusiveGroup.includes(changed.value)) continue;
+          group.querySelectorAll('input').forEach((input) => {
+            if (input !== changed && exclusiveGroup.includes(input.value)) input.checked = false;
+          });
+        }
+      }
+      updateLimit();
+    });
     updateLimit();
     wrap.append(status);
   }
@@ -206,7 +225,20 @@ function budgetControl(question) {
   };
   input.addEventListener('input', update);
   update();
-  wrap.append(valueRow, input, scale, feedback);
+  const modes = element('fieldset', 'navigator-budget-modes');
+  modes.append(element('legend', '', 'Wie verbindlich ist das Budget?'));
+  const selectedMode = state.answers.budget_strictness ?? question.defaultBudgetMode ?? 'strict';
+  for (const mode of question.budgetModes ?? []) {
+    const label = element('label', 'navigator-budget-mode');
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = `${question.id}_mode`;
+    radio.value = mode.value;
+    radio.checked = selectedMode === mode.value;
+    label.append(radio, element('span', '', mode.label));
+    modes.append(label);
+  }
+  wrap.append(valueRow, input, scale, feedback, modes);
   return wrap;
 }
 
@@ -308,17 +340,21 @@ function saveAndContinue(question, skip = false) {
     state.skipped.add(question.id);
   } else {
     state.answers[question.id] = value;
+    if (question.type === 'budget') {
+      state.answers.budget_strictness = app.querySelector(`input[name="${question.id}_mode"]:checked`)?.value ?? question.defaultBudgetMode ?? 'strict';
+    }
     state.skipped.delete(question.id);
   }
   pruneHiddenAnswers();
   track('frage_beantwortet', { frage: question.id, typ: question.type });
-  if (question.id === 'experience_level') track('erfahrungsniveau_gewaehlt', { niveau: value });
   if (question.id === 'budget') {
     const knownPrices = state.products.map(productPrice).filter((price) => price !== null);
-    track('budget_gewaehlt', { budget: String(value), modelle_im_budget: String(knownPrices.filter((price) => price <= value).length) });
+    track('budget_gewaehlt', {
+      budget_stufe: value < 600 ? 'unter_600' : value < 900 ? '600_bis_899' : value < 1200 ? '900_bis_1199' : 'ab_1200',
+      budget_modus: state.answers.budget_strictness,
+      modelle_im_budget: String(knownPrices.filter((price) => price <= value).length)
+    });
   }
-  if (question.id === 'car_space') track('kofferraum_eingeschaetzt', { platz: value });
-  if (question.id === 'color_preference') track('farbrichtung_gewaehlt', { farbe: value });
 
   const route = immediateRoute(question, value);
   if (route && route !== 'supported') {
@@ -327,13 +363,15 @@ function saveAndContinue(question, skip = false) {
   }
   const nextId = nextQuestionId(question.id);
   if (nextId) renderQuestion(nextId);
-  else renderSummary();
+  else renderResults();
 }
 
 function renderQuestion(questionId) {
   const question = state.questions.find((item) => item.id === questionId);
   if (!question) return;
   state.currentQuestionId = questionId;
+  const progress = progressFor(question);
+  track('frage_angezeigt', { frage: question.id, position: String(progress.index + 1), fragen_gesamt: String(progress.total) });
   const card = element('div', 'navigator-app-card navigator-question-card');
   card.append(renderProgress(question));
   const kicker = element('span', 'navigator-card-kicker', question.required ? 'Für das Matching erforderlich' : 'Optional – verbessert die Passung');
@@ -342,12 +380,6 @@ function renderQuestion(questionId) {
   card.setAttribute('aria-labelledby', title.id);
   card.append(kicker, title);
   if (question.help) card.append(element('p', 'navigator-question-help', question.help));
-  if (question.beginnerHelp && state.answers.experience_level === 'first_time') {
-    const explanation = element('aside', 'navigator-beginner-help');
-    explanation.append(element('strong', '', 'Kurz erklärt'), element('span', '', question.beginnerHelp));
-    card.append(explanation);
-  }
-
   const form = element('form', 'navigator-question-form');
   form.append(renderControl(question));
   const error = element('p', 'navigator-question-error');
@@ -372,7 +404,7 @@ function renderQuestion(questionId) {
     skip.addEventListener('click', () => saveAndContinue(question, true));
     actions.append(skip);
   }
-  const next = element('button', 'navigator-primary-button', nextQuestionId(question.id) ? 'Weiter' : 'Angaben prüfen');
+  const next = element('button', 'navigator-primary-button', nextQuestionId(question.id) ? 'Weiter' : 'Ergebnis anzeigen');
   next.type = 'submit';
   actions.append(next);
   form.append(actions);
@@ -388,7 +420,10 @@ function renderQuestion(questionId) {
 
 function answerSummary(question, value) {
   if (question.type === 'number_list') return `${value.join(' cm, ')} cm`;
-  if (question.type === 'budget') return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
+  if (question.type === 'budget') {
+    const budget = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
+    return `${budget} · ${state.answers.budget_strictness === 'orientation' ? 'als Orientierung' : 'feste Obergrenze'}`;
+  }
   if (question.type === 'number') return `${value} ${question.validation?.unit ?? ''}`.trim();
   return optionLabel(question, value);
 }
@@ -428,6 +463,7 @@ function renderSummary() {
 function renderUnsupported(route) {
   const copy = {
     unsupported_buggy: ['Der Pilot vergleicht noch keine reinen Buggys', 'Damit die Ergebnisse belastbar bleiben, startet Version 0.1 mit Kombi-Kinderwagen ab Geburt.'],
+    unsupported_travel_buggy: ['Reisebuggys sind jetzt als eigenes Segment erfasst', 'Für ein belastbares Reisebuggy-Ranking brauchen wir eigene Daten zu Gewicht, Handgepäckmaßen, Faltmechanik und Reisealltag. Eure Auswahl wird als Nachfrage gemessen und nicht mit Kombi-Kinderwagen vermischt.'],
     unsupported_siblings: ['Geschwister- und Zwillingswagen folgen später', 'Diese Wagen brauchen eigene Kriterien für Sitzkombinationen, Breite und Gewichtsverteilung. Wir mischen sie nicht in ein unpassendes Ranking.'],
     scope_help: ['Der Pilot hilft aktuell bei der ersten Geburtskonfiguration', 'Wenn ihr einen Kinderwagen ab Geburt sucht, könnt ihr den unterstützten Weg testen. Für einen reinen Buggy oder Geschwisterwagen folgt ein eigener Vergleich.']
   }[route] ?? ['Dieser Weg ist noch nicht unterstützt', 'Der Pilot beschränkt sich bewusst auf eine belastbar definierte Produktgruppe.'];
@@ -499,6 +535,13 @@ function offerSection(result, rank) {
     link.dataset.resultRank = String(rank);
     link.dataset.matchScore = String(result.matchScore ?? 'kein_score');
     link.dataset.clickref = placement;
+    link.addEventListener('click', () => track('haendlerangebot_geoeffnet', {
+      produkt: result.productId,
+      haendler: offer.merchant.name,
+      angebot: offer.offerId,
+      rang: String(rank),
+      match_score: String(result.matchScore ?? 'kein_score')
+    }));
     row.append(copy, link);
     list.append(row);
   }
@@ -528,8 +571,32 @@ function observeOfferImpressions(root) {
   offerNodes.forEach((node) => observer.observe(node));
 }
 
+function observeResultImpressions(root) {
+  const resultNodes = [...root.querySelectorAll('[data-result-impression]')];
+  if (!resultNodes.length || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
+      const node = entry.target;
+      track('match_gesehen', {
+        produkt: node.dataset.productId,
+        rang: node.dataset.resultRank,
+        match_score: node.dataset.matchScore,
+        match_stufe: node.dataset.matchBand
+      });
+      observer.unobserve(node);
+    }
+  }, { threshold: 0.5 });
+  resultNodes.forEach((node) => observer.observe(node));
+}
+
 function resultCard(result, rank, preliminary = false, fallback = false) {
   const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}${fallback ? ' is-fallback' : ''}`);
+  card.dataset.resultImpression = '';
+  card.dataset.productId = result.productId;
+  card.dataset.resultRank = String(rank);
+  card.dataset.matchScore = String(result.matchScore ?? 'kein_score');
+  card.dataset.matchBand = result.matchBand ?? 'keine_einstufung';
   const header = element('div', 'navigator-live-result__header');
   const heading = element('div');
   const role = result.rankRole ?? `${rank}. Match`;
@@ -550,6 +617,9 @@ function resultCard(result, rank, preliminary = false, fallback = false) {
   }
   header.append(heading, score);
   card.append(header);
+  if (result.matchScore !== null) {
+    card.append(element('p', 'navigator-score-band', `${result.matchBand} · ${result.knownCriteriaCount} von ${result.applicableCriteriaCount} relevanten Kriterien bewertet`));
+  }
 
   const meta = element('div', 'navigator-result-meta');
   meta.append(
@@ -621,6 +691,32 @@ function resultCard(result, rank, preliminary = false, fallback = false) {
   details.append(sourceList);
   card.append(details);
   return card;
+}
+
+function scoreExplanation() {
+  const details = element('details', 'navigator-score-explanation');
+  details.append(element('summary', '', 'Was bedeutet ein Match von 75, 85 oder 90 Prozent?'));
+  const list = element('ul');
+  [
+    ['90–100 %', 'Sehr hohe Übereinstimmung – nahezu alle relevanten Anforderungen sind erfüllt.'],
+    ['85–89 %', 'Gute Übereinstimmung – klar passend, mit einzelnen überprüfbaren Kompromissen.'],
+    ['75–84 %', 'Solide Übereinstimmung – empfehlbar, der wichtigste Abstrich wird sichtbar genannt.'],
+    ['Unter 75 %', 'Keine reguläre Empfehlung; höchstens als transparente Alternative nach einem bewusst gewählten Abstrich.']
+  ].forEach(([band, description]) => {
+    const item = element('li');
+    item.append(element('strong', '', band), document.createTextNode(` ${description}`));
+    list.append(item);
+  });
+  details.append(
+    list,
+    element('p', '', 'Der Wert misst nur die Passung zu euren Angaben. Er ist keine Sicherheits-, Qualitäts- oder Testnote. Eine unbekannte Kernpassung verhindert einen Prozentwert; eine nur teilweise belegte Kernpassung begrenzt die erreichbare Match-Stufe.')
+  );
+  details.addEventListener('toggle', () => {
+    if (!details.open || details.dataset.tracked) return;
+    details.dataset.tracked = 'true';
+    track('score_erlaeuterung_geoeffnet');
+  });
+  return details;
 }
 
 function blockerSummary(excluded) {
@@ -703,6 +799,7 @@ function renderResults() {
     accepted.append(list);
     intro.append(accepted);
   }
+  intro.append(scoreExplanation());
   wrap.append(intro);
 
   const cards = element('div', 'navigator-live-results');
@@ -763,6 +860,7 @@ function renderResults() {
   wrap.append(actions);
   app.replaceChildren(wrap);
   observeOfferImpressions(wrap);
+  observeResultImpressions(wrap);
   track('ergebnis_berechnet', {
     route: result.route,
     matches: String(result.results.length),
@@ -771,6 +869,9 @@ function renderResults() {
     top_score: result.results[0]?.matchScore ? String(result.results[0].matchScore) : 'kein_score'
   });
   app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const resultHeading = wrap.querySelector('.navigator-results__intro h2');
+  resultHeading?.setAttribute('tabindex', '-1');
+  resultHeading?.focus({ preventScroll: true });
 }
 
 function restartNavigator() {
@@ -791,11 +892,11 @@ function startNavigator(source = 'tool') {
 function renderStart() {
   const card = element('div', 'navigator-app-card navigator-start-card');
   const copy = element('div');
-  copy.append(element('span', 'navigator-card-kicker', 'Daten-Pilot · 6 Kinderwagen'));
+  copy.append(element('span', 'navigator-card-kicker', `Daten-Pilot · ${state.products.length} Kinderwagen`));
   copy.append(element('h2', '', 'Findet heraus, welcher Kinderwagen zu eurem Alltag passt'));
-  copy.append(element('p', 'navigator-question-help', 'Ihr beantwortet je nach Alltag etwa 10 bis 17 kurze Fragen. Fachbegriffe erklären wir nur dann ausführlicher, wenn ihr noch wenig Erfahrung habt.'));
+  copy.append(element('p', 'navigator-question-help', 'Fünf kurze Kernfragen reichen für die erste Einordnung. Nur wenn ihr regelmäßig tragen müsst, kommt eine gezielte Zusatzfrage hinzu.'));
   const facts = element('ul', 'navigator-start-facts');
-  ['Gesamtpreis inklusive benötigter Babywanne', 'Grobe Kofferraum-Einschätzung statt Maßarbeit', 'Harte Anforderungen werden zuerst geprüft', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
+  ['Gesamtpreis inklusive benötigter Babywanne', 'Keine Auto-, Aufzug- oder Körpermaße nötig', 'Alltag und zwei echte Prioritäten entscheiden', 'Offene Daten und Kompromisse bleiben sichtbar'].forEach((fact) => facts.append(element('li', '', fact)));
   copy.append(facts);
   const start = element('button', 'navigator-primary-button navigator-start-button', 'Navigator starten');
   start.type = 'button';
@@ -814,9 +915,13 @@ async function loadData() {
   ]);
   const products = await Promise.all(catalog.products.map((filename) => fetch(`${DATA_ROOT}/products/${filename}`).then((response) => response.json())));
   state.questions = questionsData.questions.sort((a, b) => a.order - b.order);
+  state.flowVersion = questionsData.flowVersion ?? '0.2.0';
   state.criteriaData = criteriaData;
   state.products = products;
   state.offers = offerData.offers ?? [];
+  document.querySelectorAll('[data-navigator-model-count]').forEach((node) => {
+    node.textContent = String(products.length);
+  });
   state.ready = true;
   if (state.pendingStart) startNavigator('hero');
   else renderStart();

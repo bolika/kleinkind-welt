@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "my-junior-mavi",
+  "identity": {
+    "brand": "my junior",
+    "model": "MAVI",
+    "generation": "Current DE 2in1 Starter-Set listing 984",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Leichter Premium-Kombiwagen für häufiges Falten und Tragen",
+    "notes": "Die patentierte Faltung mit Babywanne ist offiziell dokumentiert, aber noch nicht unabhängig praktisch geprüft."
+  },
+  "sources": [
+    {
+      "id": "myjunior-mavi-product",
+      "url": "https://my-junior.com/de/kinderwagen/984-my-junior-mavi.html",
+      "kind": "manufacturer",
+      "title": "my junior MAVI Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "myjunior-service",
+      "url": "https://my-junior.com/de/content/5-herstellergarantie-und-reparaturservice-kinderwagen",
+      "kind": "manufacturer",
+      "title": "my junior Garantie- und Reparaturservice",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktuelle 2in1-Konfiguration mit mehreren Farben und Lieferzeit von vier bis acht Tagen.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "MAVI 2in1 Starter-Set mit Gestell, EvoOne-Babywanne und Sportsitz", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 827.08, "unit": "EUR", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Geprüfter Aktionspreis des 2in1 Starter-Sets; vorheriger Preis 899 Euro.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "55 cm sind als Faltbreite mit Rädern veröffentlicht und werden nicht als ungefaltete Gesamtbreite übernommen." },
+    "foldedDimensionsCm": { "value": { "length": 66, "width": 55, "height": 34, "configuration": "with_wheels_and_carrycot" }, "unit": "cm", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mit Rädern und Babywanne; dasselbe Maß wird mit Sportsitz genannt." },
+    "frameWeightKg": { "value": 7, "unit": "kg", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Gestell mit Rädern." },
+    "seatWeightKg": { "value": 3.85, "unit": "kg", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotWeightKg": { "value": 4, "unit": "kg", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "liftReadyWeightKg": { "value": 11, "unit": "kg", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Gestell mit Babywanne; mit Sportsitz 10,85 kg." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 93, "unit": "cm", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 110.5, "unit": "cm", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 20.5, "unit": "cm", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 28.5, "unit": "cm", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "puncture-resistant_e-tpu", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "front_and_rear_suspension", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": 10, "unit": "kg", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketVolumeL": { "value": 52, "unit": "l", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "oneHandFold": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt Allover-Einhand-Faltmechanismen; praktische Bedienbarkeit nicht unabhängig geprüft." },
+    "foldWithSeat": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Kompatibilität dokumentiert; Adapter im 2in1 Starter-Set nicht enthalten." },
+    "canopyCoverage": { "value": "xxl_upf50", "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["myjunior-mavi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "repairService": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Door2Door-Service nach Bedingungen; Servicequalität nicht unabhängig geprüft." },
+    "warrantyYears": { "value": 10, "unit": "years", "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Bis zu 10 Jahre unter Produkt-, Registrierungs- und Ausschlussbedingungen." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "frameWeightKg", "wheelDiameterFrontCm"], "rationale": "Leichtes Gestell und kleine Vorderräder sprechen für Mobilität; ungefaltete Breite und unabhängiger Fahrtest fehlen." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "E-TPU-Räder und Vorder-/Hinterfederung sind dokumentiert; unabhängiger Fahrtest fehlt." },
+    "foldingConvenience": { "value": 1, "status": "documented", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Einhand-Faltung sowie Faltung mit Wanne und Sitz sind offiziell dokumentiert; Selbststand bleibt offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "Bis zu 52 Liter und 10 kg Korblast sind dokumentiert." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "XXL-Verdeck, UV-Schutz, Belüftung und Regenschutz sind dokumentiert." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteile, Reparaturservice und bedingte Langzeitgarantie sind dokumentiert." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Babywanne, umsetzbarer Sportsitz und Travel-System-Kompatibilität sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["häufiges Falten mit Babywanne oder Sportsitz", "Treppen und mobile Alltage mit moderatem Tragegewicht", "großer Einkaufskorb trotz kompaktem Faltmaß"],
+    "tradeoffs": ["ungefaltete Gesamtbreite ist nicht veröffentlicht", "Premiumpreis trotz Herstelleraktion", "Fahrverhalten und Einhandmechanismus sind noch nicht unabhängig geprüft"],
+    "openChecks": ["Faltvorgang mit beladener Wickeltasche praktisch testen", "Kofferraum-Fit prüfen", "ungefaltete Breite bei engem Aufzug erfragen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

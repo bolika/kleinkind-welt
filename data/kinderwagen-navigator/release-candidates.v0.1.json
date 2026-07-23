@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-23T08:44:37.408Z",
+  "registryVersion": "0.1.0",
+  "candidates": [
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-coal",
+      "canonicalModelHint": "abc-design-salsa-5-air",
+      "canonicalGroup": "abc-design-de:salsa-5-air",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-avocado",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-camel",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-coal",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-inkl.-wickeltasche-urban-moskitonetz-regenschutz-avocado",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-inkl.-wickeltasche-urban-moskitonetz-regenschutz-camel",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-inkl.-wickeltasche-urban-moskitonetz-regenschutz-nature",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-inkl.-wickeltasche-urban-moskitonetz-regenschutz-pine",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-nature",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-pine"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/jogger-salsa-5-run-coal",
+      "canonicalModelHint": "abc-design-salsa-5-run",
+      "canonicalGroup": "abc-design-de:salsa-5-run",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/jogger-salsa-5-run-avocado",
+        "https://www.abc-design.de/jogger-salsa-5-run-camel",
+        "https://www.abc-design.de/jogger-salsa-5-run-coal",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-run-avocado",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-run-camel",
+        "https://www.abc-design.de/kombi-kinderwagen-salsa-5-run-coal"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/sportwagen-samba-2-pine",
+      "canonicalModelHint": "abc-design-samba-2",
+      "canonicalGroup": "abc-design-de:samba-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/kombi-kinderwagen-samba-2-almond",
+        "https://www.abc-design.de/kombi-kinderwagen-samba-2-avocado",
+        "https://www.abc-design.de/kombi-kinderwagen-samba-2-camel",
+        "https://www.abc-design.de/kombi-kinderwagen-samba-2-nature",
+        "https://www.abc-design.de/kombi-kinderwagen-samba-2-pine",
+        "https://www.abc-design.de/sportwagen-samba-2-almond",
+        "https://www.abc-design.de/sportwagen-samba-2-avocado",
+        "https://www.abc-design.de/sportwagen-samba-2-camel",
+        "https://www.abc-design.de/sportwagen-samba-2-nature",
+        "https://www.abc-design.de/sportwagen-samba-2-pine"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/buggy-avus-2-air-pine",
+      "canonicalModelHint": null,
+      "canonicalGroup": "abc-design-de:avus-2-air",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/buggy-avus-2-air-pine"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/buggy-avus-3-pea",
+      "canonicalModelHint": null,
+      "canonicalGroup": "abc-design-de:avus-3",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/buggy-avus-3-nut",
+        "https://www.abc-design.de/buggy-avus-3-pea"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/buggy-s-two-wheat",
+      "canonicalModelHint": null,
+      "canonicalGroup": "abc-design-de:s-two",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/buggy-s-two-wheat"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/geschwisterkinderwagen-d-two-black",
+      "canonicalModelHint": null,
+      "canonicalGroup": "abc-design-de:d-two",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/geschwisterkinderwagen-d-two-black",
+        "https://www.abc-design.de/geschwisterkinderwagen-d-two-wheat"
+      ]
+    },
+    {
+      "sourceId": "abc-design-de",
+      "url": "https://www.abc-design.de/kombi-kinderwagen-city-life-nature",
+      "canonicalModelHint": null,
+      "canonicalGroup": "abc-design-de:city-life",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.abc-design.de/kombi-kinderwagen-city-life-avocado",
+        "https://www.abc-design.de/kombi-kinderwagen-city-life-nature"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/cs/cz/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/cs/cz/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/de/at/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/de/at/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/de/ch/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/de/ch/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/de/de/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/de/de/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/de/lu/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/de/lu/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/en/be/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/en/be/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/en/cz/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/en/cz/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "cybex-de",
+      "url": "https://www.cybex-online.com/en/de/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://www.cybex-online.com/en/de/p/ac-pl-travel-bag-coya-orfeo-eezy-s-beezy-line.html"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/3in1-xmoov-ct",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:xmoov-ct",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/3in1-xmoov-ct"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/apino",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:apino",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/apino",
+        "https://kinderkraft.de/produkte/kinderwagen-apino-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-apino-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-apino-happy-shapes",
+        "https://kinderkraft.de/produkte/kinderwagen-apino-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/buggy-kinderwagen-pilot-2-grau",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:buggy-pilot-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/buggy-kinderwagen-pilot-2-beige",
+        "https://kinderkraft.de/produkte/buggy-kinderwagen-pilot-2-grau",
+        "https://kinderkraft.de/produkte/buggy-kinderwagen-pilot-2-schwarz",
+        "https://kinderkraft.de/produkte/buggy-kinderwagen-pilot-2-schwarz-1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-3in1-b-tour-pro-schwarz",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:b-tour-pro",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-b-tour-pro-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-3in1-esme-grau",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:esme",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-esme-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-esme-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-esme-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-3in1-prime-2020-mink-pro-blau",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:prime-2020-mink-pro",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-prime-2020-mink-pro-blau"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-grande-plus-happy-shapes",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:grande-plus",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-grande-plus-happy-shapes"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-leichter-loom-grun",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:leichter-loom",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-leichter-loom-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-leichter-loom-grun",
+        "https://kinderkraft.de/produkte/kinderwagen-leichter-loom-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kinderwagen-yoxi-grau",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:yoxi",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-2in1-yoxi-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-2in1-yoxi-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-2in1-yoxi-grun",
+        "https://kinderkraft.de/produkte/kinderwagen-2in1-yoxi-schwarz",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-yoxi-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-yoxi-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-yoxi-grun",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-yoxi-schwarz",
+        "https://kinderkraft.de/produkte/kinderwagen-yoxi-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-yoxi-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-yoxi-grun",
+        "https://kinderkraft.de/produkte/kinderwagen-yoxi-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kombikinderwagen-2in1-nea-rosa",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:nea",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kombikinderwagen-2in1-nea-hellgrau",
+        "https://kinderkraft.de/produkte/kombikinderwagen-2in1-nea-rosa",
+        "https://kinderkraft.de/produkte/kombikinderwagen-2in1-nea-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/kombikinderwagen-3-in-1-b-tour-grau-1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:b-tour",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kombikinderwagen-3-in-1-b-tour-grau-1",
+        "https://kinderkraft.de/produkte/kombikinderwagen-3-in-1-b-tour-hellgrau-1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/mitzy",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:mitzy",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-beige-1",
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-grun-2",
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-lunar-black",
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-schwarz-2",
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-whisper-dune",
+        "https://kinderkraft.de/produkte/mitzy"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/mitzy-air",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:mitzy-air",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-mitzy-air-schwarz",
+        "https://kinderkraft.de/produkte/mitzy-air"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/moov",
+        "https://kinderkraft.de/produkte/moov-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov-2",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-schwarz",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-schwarz",
+        "https://kinderkraft.de/produkte/moov-2",
+        "https://kinderkraft.de/produkte/moov-2-4in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov-2-air",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov-2-air",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-air-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-air-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-air-hellgrau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-moov-2-air-schwarz",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-air-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-air-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-moov-2-air-schwarz",
+        "https://kinderkraft.de/produkte/moov-2-air",
+        "https://kinderkraft.de/produkte/moov-2-air-4in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov-2-xl",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov-2-xl",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/moov-2-xl",
+        "https://kinderkraft.de/produkte/multifunktionaler-3in1-kinderwagen-moov-2-xl-grau",
+        "https://kinderkraft.de/produkte/multifunktionaler-3in1-kinderwagen-moov-2-xl-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov-ct-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov-ct",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/moov-ct-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/moov-mink-pro-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:moov-mink-pro",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/moov-mink-pro-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/newly-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:newly",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-newly-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-newly-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-3in1-newly-schwarz",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-newly-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-newly-grau",
+        "https://kinderkraft.de/produkte/kinderwagen-4in1-newly-schwarz",
+        "https://kinderkraft.de/produkte/newly-3in1",
+        "https://kinderkraft.de/produkte/newly-4in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/nubi",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:nubi",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/nubi"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/nubi-2",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:nubi-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-2-happy-shapes-1",
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-2-rosa",
+        "https://kinderkraft.de/produkte/nubi-2"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/nubi-3",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:nubi-3",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-3-beige",
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-3-burgund",
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-3-grun",
+        "https://kinderkraft.de/produkte/kinderwagen-nubi-3-schwarz",
+        "https://kinderkraft.de/produkte/nubi-3"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/prime-2-2in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:prime-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/kinderwagen-2in1-prime-2-schwarz",
+        "https://kinderkraft.de/produkte/prime-2-2in1",
+        "https://kinderkraft.de/produkte/wozek-dzieciecy-2w1-prime-2-bezowy",
+        "https://kinderkraft.de/produkte/wozek-dzieciecy-2w1-prime-2-szary",
+        "https://kinderkraft.de/produkte/wozek-dzieciecy-2w1-prime-2-zielony"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/prime-2020-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:prime-2020",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/prime-2020-2in1",
+        "https://kinderkraft.de/produkte/prime-2020-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/prime-3-3w1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:prime-3",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/prime-3-2w1",
+        "https://kinderkraft.de/produkte/prime-3-2w1-beige",
+        "https://kinderkraft.de/produkte/prime-3-2w1-braun",
+        "https://kinderkraft.de/produkte/prime-3-2w1-dunkelgrun",
+        "https://kinderkraft.de/produkte/prime-3-2w1-schwarz",
+        "https://kinderkraft.de/produkte/prime-3-3w1",
+        "https://kinderkraft.de/produkte/prime-3-3w1-beige",
+        "https://kinderkraft.de/produkte/prime-3-3w1-braun",
+        "https://kinderkraft.de/produkte/prime-3-3w1-dunkelgrun",
+        "https://kinderkraft.de/produkte/prime-3-3w1-schwarz"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/prime-lite-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:prime-lite",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/prime-lite-2in1",
+        "https://kinderkraft.de/produkte/prime-lite-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/reisebuggy-pilot-2-whisper-dune",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:reisebuggy-pilot-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/reisebuggy-pilot-2-whisper-dune"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/spazierbuggy-regenschirm-siesta-grau",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:spazierbuggy-regenschirm-siesta",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/spazierbuggy-regenschirm-siesta-grau",
+        "https://kinderkraft.de/produkte/spazierbuggy-regenschirm-siesta-rosa"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/trig",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:trig",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/trig"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/trig-2",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:trig-2",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/trig-2"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/trig-2-tr",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:trig-2-tr",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/trig-2-tr"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/trig-3",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:trig-3",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/trig-3"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/xmoov-3in1",
+      "canonicalModelHint": null,
+      "canonicalGroup": "kinderkraft-de:xmoov",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/xmoov-3in1"
+      ]
+    },
+    {
+      "sourceId": "kinderkraft-de",
+      "url": "https://kinderkraft.de/produkte/nea-2",
+      "canonicalModelHint": "kinderkraft-nea-2",
+      "canonicalGroup": "kinderkraft-de:nea",
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-beige",
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-dunkelgrau",
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-hellgrau",
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-lunar-black",
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-schwarz",
+        "https://kinderkraft.de/produkte/multifunktionaler-kinderwagen-nea-2-whisper-dune",
+        "https://kinderkraft.de/produkte/nea-2",
+        "https://kinderkraft.de/produkte/nea-2in1"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/buggys/164-my-junior-pico.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/buggys/164-my-junior-pico.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/buggys/967-my-junior-plia2.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/buggys/967-my-junior-plia2.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/buggys/968-my-junior-plia2-air.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/buggys/968-my-junior-plia2-air.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/172-my-junior-vita-hope.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/172-my-junior-vita-hope.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/902-my-junior-pico-buggy-mit-wanne.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/902-my-junior-pico-buggy-mit-wanne.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/910-my-junior-noax.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/910-my-junior-noax.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/931-my-junior-vita-unique3.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/931-my-junior-vita-unique3.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/944-my-junior-miyo2-kinderwagen.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/944-my-junior-miyo2-kinderwagen.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/973-my-junior-vita-hope2-icon-of-light.html",
+      "canonicalModelHint": null,
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/973-my-junior-vita-hope2-icon-of-light.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/buggys/1001-my-junior-liyo-buggy.html",
+      "canonicalModelHint": "my-junior-liyo",
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/buggys/1001-my-junior-liyo-buggy.html",
+        "https://my-junior.com/de/kinderwagen/1010-my-junior-kinderwagen-liyo.html",
+        "https://my-junior.com/de/kinderwagen/1011-my-junior-liyo-bundle.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/984-my-junior-mavi.html",
+      "canonicalModelHint": "my-junior-mavi",
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/984-my-junior-mavi.html",
+        "https://my-junior.com/de/kinderwagen/995-my-junior-mavi-bundle.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/buggys/977-my-junior-pico360.html",
+      "canonicalModelHint": "my-junior-pico360",
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/buggys/977-my-junior-pico360.html"
+      ]
+    },
+    {
+      "sourceId": "my-junior-de",
+      "url": "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
+      "canonicalModelHint": "my-junior-vigo",
+      "canonicalGroup": null,
+      "status": "candidate_needs_review",
+      "variantUrls": [
+        "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
+        "https://my-junior.com/de/kinderwagen/936-my-junior-vigo-x-sarah-engels.html",
+        "https://my-junior.com/de/kinderwagen/939-my-junior-vigo-x-ptit-giu.html",
+        "https://my-junior.com/de/kinderwagen/981-my-junior-vigo-atelier.html",
+        "https://my-junior.com/de/kinderwagen/982-my-junior-vigo.html"
+      ]
+    }
+  ]
+}

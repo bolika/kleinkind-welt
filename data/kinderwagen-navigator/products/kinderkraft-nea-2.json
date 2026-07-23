@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "kinderkraft-nea-2",
+  "identity": {
+    "brand": "Kinderkraft",
+    "model": "NEA 2",
+    "generation": "Current DE 2-in-1 model",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Preisbewusster 2-in-1-Alltagswagen",
+    "notes": "Die Herstellerseite dokumentiert viele Maße, nennt aber keine belastbare Korb-Traglast und keine getrennten Gewichte von Sitz und Babywanne."
+  },
+  "sources": [
+    {
+      "id": "kinderkraft-nea2-product",
+      "url": "https://kinderkraft.de/produkte/nea-2",
+      "kind": "manufacturer",
+      "title": "Kinderkraft NEA 2 Produktseite und Spezifikationen",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "kinderkraft-combi-category",
+      "url": "https://kinderkraft.de/produkte/kinderwagen/2-in-1-kinderwagen?product_list_limit=all",
+      "kind": "manufacturer",
+      "title": "Kinderkraft 2-in-1-Kinderwagen mit aktuellem NEA-2-Preis",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_color_dependent", "sourceIds": ["kinderkraft-nea2-product", "kinderkraft-combi-category"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mehrere Farben werden aktuell mit unterschiedlicher Verfügbarkeit und teils unterschiedlichem Preis geführt.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Babywanne ab Geburt bis 9 kg; Sitzeinheit laut Hersteller ebenfalls ab Geburt bis 22 kg." },
+    "newbornConfiguration": { "value": "NEA 2 2-in-1 mit Babywanne und Sitzeinheit", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 549, "unit": "EUR", "sourceIds": ["kinderkraft-combi-category"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Niedrigster aktuell gelisteter Herstellerpreis einer Standardfarbe; Sonderkollektionen kosten mehr.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": 60, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 67, "width": 60, "height": 40, "configuration": "with-seat-manufacturer-folded-state" }, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerangabe 40 × 67 × 60 cm wurde als Höhe × Länge × Breite abgebildet; vor einem garantierten Kofferraum-Fit nachmessen." },
+    "frameWeightKg": { "value": 7.9, "unit": "kg", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus 4,85 kg Rahmen ohne Räder plus 3,05 kg Räder addiert." },
+    "seatWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 11.6, "unit": "kg", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerwert für den Kinderwagen; getrennte Komponenten sind nicht vollständig ausgewiesen." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 100, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 109, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 20, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 29, "unit": "cm", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "maintenance-free rubber", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "four-wheel suspension", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "basketVolumeL": { "value": null, "unit": "l", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "unknown", "note": "Außenmaße des Korbs sind dokumentiert, aber kein nutzbares Volumen oder eine Traglast." },
+    "oneHandFold": { "value": null, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "unknown", "note": "Einfache Faltung ist beschrieben, eine Einhand-Faltung jedoch nicht eindeutig." },
+    "foldWithSeat": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mit Sitzeinheit in beiden Sitzrichtungen faltbar." },
+    "selfStandingFold": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "reversibleSeat": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Adapter im Set; kompatible Babyschalen separat." },
+    "canopyCoverage": { "value": "extended weather equipment", "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Doppelte Belüftung der Babywanne ist dokumentiert." },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["kinderkraft-nea2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Regenschutz und Moskitonetz werden im Zubehörumfang genannt." },
+    "sparePartsAvailability": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "repairService": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "warrantyYears": { "value": null, "unit": "years", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten; EU Safety Gate separat prüfen." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "liftReadyWeightKg"], "rationale": "60 cm Breite und Herstellerangaben zur Wendigkeit sprechen für Stadtalltag; unabhängige Handhabungsprüfung fehlt." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelMaterial", "suspension", "wheelDiameterFrontCm", "wheelDiameterRearCm"], "rationale": "Große Gummiräder und 4-Rad-Federung sind dokumentiert; reale Geländefahrt wurde nicht unabhängig geprüft." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Mit Sitz beidseitig faltbar und selbststehend; Einhandbedienung und praktischer Kraftaufwand bleiben offen." },
+    "storageCapacity": { "value": 0.5, "status": "proxy", "evidenceFields": ["basketLoadKg", "basketVolumeL"], "rationale": "Der Korb ist mit Maßen dokumentiert, aber ohne belastbare Traglast oder nutzbares Volumen." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["canopyCoverage", "canopyVentilation", "rainCoverIncluded"], "rationale": "Belüftete Babywanne sowie mitgelieferter Regen- und Insektenschutz sind offiziell dokumentiert." },
+    "repairabilityService": { "value": null, "status": "unknown", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Konkrete Ersatzteil-, Reparatur- und Garantiedaten wurden noch nicht belastbar erfasst." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "2-in-1-Geburtskonfiguration, wendbarer Sitz und Travel-System-Adapter sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["preisbewusste Familien mit 2-in-1-Fokus", "Stadt und gemischte Wege", "Familien mit Wetterschutz-Priorität"],
+    "tradeoffs": ["11,6 kg in der dokumentierten Wagenkonfiguration", "Einhand-Faltung nicht eindeutig belegt", "Service- und Korb-Traglastdaten fehlen"],
+    "openChecks": ["Faltung und Tragen praktisch testen", "Korb-Traglast beim Hersteller erfragen", "Faltmaß im eigenen Kofferraum prüfen", "aktuelle Farbe und Lieferumfang vor Kauf kontrollieren"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "warm_color"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

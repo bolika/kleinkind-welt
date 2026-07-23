@@ -19,19 +19,54 @@
   },
   "scoreRules": {
     "eligibilityBeforeScoring": true,
-    "minimumScoreToRecommend": 60,
+    "minimumScoreToRecommend": 75,
     "minimumCoverageForNumericScore": 85,
+    "minimumApplicableCriteriaForNumericScore": 4,
     "unknownHardCriterionBlocksTopResult": true,
+    "unknownCoreContextBlocksNumericScore": true,
     "preferenceValues": {
       "full": 1,
       "partial": 0.5,
       "none": 0
     },
-    "priorityMultiplier": 1.5,
+    "priorityMultiplier": 2.5,
+    "coreContextScoreCaps": {
+      "none": 64,
+      "partial": 84,
+      "strongPartial": 89
+    },
+    "coreContextRules": [
+      {
+        "answerKey": "terrain",
+        "includesAny": ["cobblestone", "gravel_park", "forest_field"],
+        "criterionId": "rough_surface_fit"
+      },
+      {
+        "answerKey": "daily_context",
+        "includesAny": ["regular_carrying"],
+        "criterionId": "frequent_carrying_fit"
+      },
+      {
+        "answerKey": "daily_context",
+        "includesAny": ["tight_access"],
+        "criterionId": "compact_access_fit"
+      },
+      {
+        "answerKey": "daily_context",
+        "includesAny": ["regular_transit"],
+        "criterionId": "public_transport_fit"
+      },
+      {
+        "answerKey": "daily_context",
+        "includesAny": ["small_trunk"],
+        "criterionId": "car_transport_fit"
+      }
+    ],
     "scoreBands": [
-      { "min": 90, "max": 100, "label": "sehr passend" },
-      { "min": 75, "max": 89, "label": "gut passend" },
-      { "min": 60, "max": 74, "label": "passend mit deutlichen Kompromissen" }
+      { "min": 90, "max": 100, "label": "sehr hohe Übereinstimmung" },
+      { "min": 85, "max": 89, "label": "gute Übereinstimmung" },
+      { "min": 75, "max": 84, "label": "solide Übereinstimmung mit Kompromissen" },
+      { "min": 65, "max": 74, "label": "eingeschränkte Passung – nur als Alternative" }
     ]
   },
   "evidenceRules": {
@@ -197,6 +232,18 @@
       "missingPolicy": "reduce_coverage",
       "evaluation": "Berücksichtigt neben Gewicht auch Griff, Verriegelung und Handhabung der gefalteten Einheit.",
       "explanation": "Tragbarkeit ist mehr als das niedrigste Gewicht im Datenblatt."
+    },
+    {
+      "id": "compact_access_fit",
+      "label": "Relative Passung für enge Zugänge",
+      "kind": "preference",
+      "dimension": "home",
+      "baseWeight": 1,
+      "productFields": ["unfoldedWidthCm"],
+      "sourceRequirement": ["manual", "manufacturer"],
+      "missingPolicy": "reduce_coverage",
+      "evaluation": "Ordnet die dokumentierte Wagenbreite relativ zum Pilotkatalog ein. Ohne gemessene Öffnung entsteht daraus keine Garantie für einen konkreten Aufzug oder Durchgang.",
+      "explanation": "Zeigt die Wagenbreite und fordert vor dem Kauf den Abgleich mit der schmalsten realen Öffnung."
     },
     {
       "id": "pushbar_height_fit",

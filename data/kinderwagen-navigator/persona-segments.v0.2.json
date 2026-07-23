@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "flowVersion": "0.2.0",
+  "scoreDefinition": {
+    "90-100": "Sehr hohe Übereinstimmung: Anforderungen und Prioritäten werden nahezu vollständig erfüllt. Ein Praxistest bleibt trotzdem nötig.",
+    "85-89": "Gute Übereinstimmung: Der Wagen passt klar zum Profil; einzelne überprüfbare Kompromisse bleiben.",
+    "75-84": "Solide Übereinstimmung: Als Empfehlung geeignet, aber mindestens ein relevanter Kompromiss muss sichtbar sein.",
+    "65-74": "Eingeschränkte Passung: Nur als Alternative mit deutlichem Abstrich zeigen, nicht als Empfehlung.",
+    "0-64": "Kein ausreichender Match: Nicht als Empfehlung veröffentlichen."
+  },
+  "guardrails": {
+    "minimumPublishedScore": 75,
+    "goodMatchScore": 85,
+    "minimumDataCoveragePercent": 85,
+    "minimumApplicableCriteria": 4,
+    "scoreIsNot": ["Sicherheitsnote", "Qualitätsnote", "Testurteil", "Kaufgarantie"]
+  },
+  "betaTargets": {
+    "personasWithPublishedMatchPercent": 100,
+    "personasWithGoodMatchPercent": 50,
+    "personasWithAtLeastTwoPublishedMatchesPercent": 70
+  },
+  "segments": [
+    {
+      "id": "low_budget_city_walkup",
+      "label": "Preisbewusste Stadtfamilie ohne Aufzug",
+      "profileId": "persona_low_budget_city_no_elevator",
+      "whyItMatters": "Prüft günstige Geburtskonfiguration, tägliches Tragen und ÖPNV.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 2
+    },
+    {
+      "id": "premium_mobile_family",
+      "label": "Mobile Familie mit hohem Orientierungsbudget",
+      "profileId": "persona_high_budget_frequent_travel",
+      "whyItMatters": "Prüft häufigen Auto- und ÖPNV-Einsatz ohne künstliche Premium-Bevorzugung.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 3
+    },
+    {
+      "id": "mid_budget_function_first",
+      "label": "Funktionalitätsorientierte Familie mit mittlerem Budget",
+      "profileId": "persona_mid_budget_functionality",
+      "whyItMatters": "Prüft Stauraum, Nutzungsflexibilität und kompakten Autotransport.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 3
+    },
+    {
+      "id": "rural_rough_routes",
+      "label": "Familie mit Wald-, Feld- und Schotterwegen",
+      "profileId": "rural_rough_terrain",
+      "whyItMatters": "Prüft, ob reine Stadtmodelle trotz guter Nebenwerte zurückfallen.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 3
+    },
+    {
+      "id": "tight_access_transit",
+      "label": "Stadtfamilie mit engem Zugang und ÖPNV",
+      "profileId": "tight_access_transit",
+      "whyItMatters": "Prüft relative Breite, Wendigkeit und Gewicht ohne falsche Aufzugsgarantie.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 3
+    },
+    {
+      "id": "service_weather_long_use",
+      "label": "Familie mit Service- und Wetterschutzfokus",
+      "profileId": "balanced_service_weather",
+      "whyItMatters": "Prüft dokumentierte Serviceangebote statt Markenimage.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 2
+    },
+    {
+      "id": "compact_car_fixed_budget",
+      "label": "Familie mit kleinem Auto und fester Budgetgrenze",
+      "profileId": "compact_car_strict_budget",
+      "whyItMatters": "Prüft Faltvolumen und Ladegewicht ohne garantierten Fahrzeug-Fit.",
+      "requiredPublishedMatches": 1,
+      "desiredPublishedMatches": 3
+    }
+  ],
+  "stressTests": [
+    {
+      "profileId": "strict_low_budget",
+      "expected": "Kein künstlicher Treffer; konkreter Budgetkompromiss öffnet direkt eine Option."
+    },
+    {
+      "profileId": "travel_buggy_out_of_scope",
+      "expected": "Eigene Reisebuggy-Route statt falscher Kombi-Empfehlung."
+    },
+    {
+      "profileId": "siblings_out_of_scope",
+      "expected": "Eigene Geschwisterwagen-Route statt falscher Einzelwagen-Empfehlung."
+    }
+  ]
+}

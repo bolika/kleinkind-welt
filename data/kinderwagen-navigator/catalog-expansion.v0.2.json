@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "version": "0.2.0",
+  "checkedAt": "2026-07-23",
+  "policy": {
+    "oneRecordPerCanonicalModel": true,
+    "colorVariantsAreNotSeparateModels": true,
+    "candidateDoesNotEqualRecommendation": true,
+    "requiredBeforePublication": [
+      "offizielle Modellseite und Generation verifiziert",
+      "vollständige Geburtskonfiguration und Gesamtpreis belegt",
+      "kritische Maße und Gewichte belegt",
+      "Marktstatus und Safety-Gate-Prüfung aktuell",
+      "Produktdaten-Gate bestanden"
+    ]
+  },
+  "targets": {
+    "publishedComboModelsForBeta": 15,
+    "publishedComboModelsForIndexing": 20,
+    "publishedModelsPerCorePersona": 2,
+    "publishedModelsPerCorePersonaPreferred": 3
+  },
+  "candidates": [
+    {
+      "canonicalModelId": "joie-finiti",
+      "brand": "Joie",
+      "model": "Finiti",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P0",
+      "status": "blocked_missing_exact_bundle_price",
+      "officialUrl": "https://joiebaby.com/de/kinderwagen/signature-finiti-kombi-kinderwagen-mit-ramble-xl",
+      "coverageTargets": ["low_budget_city_walkup", "premium_mobile_family", "compact_car_fixed_budget"],
+      "reason": "Kompakter City-Kandidat mit offizieller Finiti-Ramble-XL-Konfiguration.",
+      "blocker": "Die Bundle-Seite zeigt aktuell 0,00 Euro; Einzelpreise und Übersichtsseiten liefern abweichende Gesamtpreise. Veröffentlichung erst nach eindeutigem aktuellem Setpreis."
+    },
+    {
+      "canonicalModelId": "abc-design-salsa-5-run",
+      "brand": "ABC Design",
+      "model": "Salsa 5 Run",
+      "scopeRoute": "future_jogger",
+      "priority": "P1",
+      "status": "future_scope_candidate",
+      "officialUrl": "https://www.abc-design.de/kombi-kinderwagen-salsa-5-run-coal",
+      "coverageTargets": ["jogger_route"],
+      "reason": "Sport- und Jogging-Kinderwagen brauchen eigene Sicherheits- und Nutzungsfragen und dürfen nicht in den allgemeinen Kombi-Matcher gelangen."
+    },
+    {
+      "canonicalModelId": "my-junior-vigo",
+      "brand": "my junior",
+      "model": "VIGO",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
+      "coverageTargets": ["mid_budget_function_first", "service_weather_long_use"],
+      "reason": "Breitere Funktionsalternative aus der überwachten Herstellerquelle."
+    },
+    {
+      "canonicalModelId": "cybex-mios-3",
+      "brand": "CYBEX",
+      "model": "Mios 3",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://www.cybex-online.com/de/de/p/set-st-pl-mios-3.html",
+      "coverageTargets": ["premium_mobile_family", "tight_access_transit"],
+      "reason": "Premium-Stadtalternative mit offizieller Set-Seite."
+    },
+    {
+      "canonicalModelId": "cybex-priam-4",
+      "brand": "CYBEX",
+      "model": "Priam 4",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://www.cybex-online.com/de/de/p/set-st-pl-priam-4.html",
+      "coverageTargets": ["premium_mobile_family", "rural_rough_routes"],
+      "reason": "Premium-Gegenpol für Komfort- und Geländeprofile."
+    },
+    {
+      "canonicalModelId": "cybex-e-priam-2",
+      "brand": "CYBEX",
+      "model": "e-Priam 2",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P2",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://www.cybex-online.com/de/de/p/set-st-pl-e-priam-2.html",
+      "coverageTargets": ["premium_mobile_family", "rural_rough_routes"],
+      "reason": "Spezialfall für elektrische Unterstützung; erst nach den breiteren Kernlücken erfassen."
+    },
+    {
+      "canonicalModelId": "joolz-day5",
+      "brand": "Joolz",
+      "model": "Day5",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://www.joolz.com/de/de/strollers/joolz-day5.html",
+      "coverageTargets": ["premium_mobile_family", "service_weather_long_use"],
+      "reason": "Premium-Komfort- und Garantiealternative zum bereits vorhandenen Hub2."
+    },
+    {
+      "canonicalModelId": "joolz-geo5",
+      "brand": "Joolz",
+      "model": "Geo5",
+      "scopeRoute": "supported_combo_from_birth",
+      "priority": "P1",
+      "status": "ready_for_data_research",
+      "officialUrl": "https://www.joolz.com/de/de/joolz-geo.html",
+      "coverageTargets": ["rural_rough_routes", "service_weather_long_use"],
+      "reason": "Robuste, erweiterbare Alternative; nur die Mono-Konfiguration gehört in den aktuellen Matcher."
+    },
+    {
+      "canonicalModelId": "my-junior-pico360",
+      "brand": "my junior",
+      "model": "PICO360",
+      "scopeRoute": "future_travel_buggy",
+      "priority": "P2",
+      "status": "future_scope_candidate",
+      "officialUrl": "https://my-junior.com/de/buggys/977-my-junior-pico360.html",
+      "coverageTargets": ["travel_buggy_route"],
+      "reason": "Kandidat für das eigenständige Reisebuggy-Datenmodell; darf nicht in den Kombi-Matcher gelangen."
+    },
+    {
+      "canonicalModelId": "joolz-aer2",
+      "brand": "Joolz",
+      "model": "Aer2",
+      "scopeRoute": "future_travel_buggy",
+      "priority": "P2",
+      "status": "needs_official_url_verification",
+      "officialUrl": "https://www.joolz.com/de/de/buggy",
+      "coverageTargets": ["travel_buggy_route"],
+      "reason": "Premium-Reisebuggy als späterer Vergleichsanker; konkrete kanonische Modellseite vor Datenerfassung prüfen."
+    },
+    {
+      "canonicalModelId": "joie-estrella",
+      "brand": "Joie",
+      "model": "Estrella",
+      "scopeRoute": "future_siblings_twins",
+      "priority": "P2",
+      "status": "needs_official_url_verification",
+      "officialUrl": "https://joiebaby.com/de/kinderwagen/signature-kinderwagen",
+      "coverageTargets": ["siblings_twins_route"],
+      "reason": "Kandidat für die spätere Geschwisterwagen-Route; bleibt technisch vollständig vom Einzelwagen-Matcher getrennt."
+    }
+  ]
+}

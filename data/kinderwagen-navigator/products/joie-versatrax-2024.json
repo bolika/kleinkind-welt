@@ -12,11 +12,11 @@
   },
   "review": {
     "status": "pilot",
-    "checkedAt": "2026-07-22",
+    "checkedAt": "2026-07-23",
     "reviewDueAt": "2026-08-22",
     "reviewedBy": "AI research pilot",
     "pilotArchetype": "Preisorientierter Reisesystem-Wagen",
-    "notes": "Der offizielle Einzelpreis der kompatiblen Babywanne ist nicht belastbar veröffentlicht. Das blockiert strikte Budget-Matches im Pilot."
+    "notes": "Für den belastbaren Gesamtpreis nutzt der Pilot das aktuell offiziell angebotene Versatrax-Trio inklusive Ramble XL und zusätzlicher Babyschale. Der günstigste Einzelkauf aus Wagen und Wanne bleibt offen."
   },
   "sources": [
     {
@@ -39,14 +39,21 @@
       "kind": "manufacturer",
       "title": "Joie Ramble XL Verwendung und Kompatibilität",
       "checkedAt": "2026-07-22"
+    },
+    {
+      "id": "joie-versatrax-trio",
+      "url": "https://joiebaby.com/de/kinderwagen/versatrax-isnug-3in1-travel-system",
+      "kind": "manufacturer",
+      "title": "Joie Versatrax Trio mit Ramble XL und i-Snug 2",
+      "checkedAt": "2026-07-23"
     }
   ],
   "facts": {
-    "marketStatus": { "value": "current_retailer_only", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Aktuelles Produkt, im Hersteller-Shop online nicht verfügbar; Kauf wird über externe Händler geführt.", "freshUntil": "2026-08-05" },
-    "newbornApproved": { "value": true, "sourceIds": ["joie-versatrax-product", "joie-ramble-support"], "checkedAt": "2026-07-22", "status": "officially_documented", "note": "Für den MVP wird die separate Ramble-XL-Babywanne verwendet." },
-    "newbornConfiguration": { "value": "Versatrax plus Ramble XL", "sourceIds": ["joie-versatrax-current", "joie-ramble-support"], "checkedAt": "2026-07-22", "status": "officially_documented" },
-    "carrycotIncluded": { "value": false, "sourceIds": ["joie-versatrax-product", "joie-versatrax-current"], "checkedAt": "2026-07-22", "status": "officially_documented" },
-    "requiredConfigurationPriceEur": { "value": null, "unit": "EUR", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "unknown", "note": "Wagenpreis 359,95 Euro dokumentiert; belastbarer aktueller Herstellerpreis der erforderlichen Ramble-XL-Wanne fehlt." },
+    "marketStatus": { "value": "current_available", "sourceIds": ["joie-versatrax-trio"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Das offiziell angebotene Versatrax-Trio ist die verwendete Geburtskonfiguration.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["joie-versatrax-trio", "joie-ramble-support"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Für den MVP wird die im Trio enthaltene Ramble-XL-Babywanne verwendet." },
+    "newbornConfiguration": { "value": "Versatrax Trio inklusive Ramble XL und i-Snug 2", "sourceIds": ["joie-versatrax-trio"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["joie-versatrax-trio"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Im ausgewerteten Trio enthalten; beim Einzelwagen separat." },
+    "requiredConfigurationPriceEur": { "value": 599.95, "unit": "EUR", "sourceIds": ["joie-versatrax-trio"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Offizieller Preis des vollständigen Trios. Es enthält zusätzlich die Babyschale i-Snug 2; dies ist nicht als Preisvorteil im Score gewertet." },
     "unfoldedWidthCm": { "value": 65.5, "unit": "cm", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
     "foldedDimensionsCm": { "value": { "length": 86, "width": 65.5, "height": 36, "configuration": "manufacturer-folded-state" }, "unit": "cm", "sourceIds": ["joie-versatrax-product"], "checkedAt": "2026-07-22", "status": "officially_documented" },
     "frameWeightKg": { "value": null, "unit": "kg", "sourceIds": [], "checkedAt": "2026-07-22", "status": "unknown" },
@@ -85,9 +92,9 @@
     "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Separate Babywanne, wendbarer Sitz und Adapter für ein Reisesystem sind dokumentiert." }
   },
   "editorial": {
-    "bestFor": ["preisorientierte Familien ohne strikte Gesamtpreisberechnung", "gemischter Alltag", "Reisesystem-Nutzung"],
-    "tradeoffs": ["65,5 cm breit", "Gesamtpreis mit Babywanne derzeit nicht belastbar", "mehrere Komfort- und Servicedaten fehlen"],
-    "openChecks": ["Gesamtpreis der aktuellen Ramble-XL-Konfiguration verifizieren", "Faltvorgang praktisch testen", "Korb-Traglast prüfen"],
+    "bestFor": ["preisorientierte Familien, die ein vollständiges Reisesystem suchen", "gemischter Alltag", "Reisesystem-Nutzung"],
+    "tradeoffs": ["65,5 cm breit", "der belegte Gesamtpreis gilt für ein Trio mit zusätzlicher Babyschale", "mehrere Komfort- und Servicedaten fehlen"],
+    "openChecks": ["prüfen, ob das Trio oder ein günstigeres Wagen-Wannen-Set aktuell lieferbar ist", "Faltvorgang praktisch testen", "Korb-Traglast prüfen"],
     "dataConflicts": ["Ältere und 2024er Versatrax-Seiten nennen unterschiedliche Maße und Gewichte; dieser Datensatz nutzt ausschließlich die 2024-Produkt-ID."],
     "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
     "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."

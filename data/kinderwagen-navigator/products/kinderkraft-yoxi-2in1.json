@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "kinderkraft-yoxi-2in1",
+  "identity": {
+    "brand": "Kinderkraft",
+    "model": "YOXI 2in1",
+    "generation": "Current DE 2in1 manufacturer listing",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Funktionsreicher Mittelklassewagen mit 59-cm-Breite",
+    "notes": "Das Modell ist beim Hersteller aktuell nicht verfügbar. Das veröffentlichte Produktgewicht nennt keine Komponentenaufteilung."
+  },
+  "sources": [
+    {
+      "id": "kinderkraft-yoxi-product",
+      "url": "https://kinderkraft.de/produkte/yoxi-2in1?color=schwarz",
+      "kind": "manufacturer",
+      "title": "Kinderkraft YOXI 2in1 Produktseite",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_temporarily_unavailable_manufacturer", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Produktseite aktiv, ausgewählte Farbe aktuell nicht verfügbar.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "newbornConfiguration": { "value": "YOXI 2in1 mit Gestell, Babywanne und Sportsitz", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 429, "unit": "EUR", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerpreis der aktuell nicht verfügbaren 2in1-Konfiguration.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": 59, "unit": "cm", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "foldedDimensionsCm": { "value": { "length": 73, "width": 59, "height": 31, "configuration": "with_seat" }, "unit": "cm", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerangabe 59 x 31 x 73 cm in Länge/Breite/Höhe normalisiert." },
+    "frameWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Nur ein nicht aufgeschlüsseltes Produktgewicht veröffentlicht." },
+    "seatWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "carrycotWeightKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "liftReadyWeightKg": { "value": 10.9, "unit": "kg", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt 10,9 kg Produktgewicht; Konfiguration wird auf der Datenseite nicht weiter aufgeschlüsselt." },
+    "liftReadyConfiguration": { "value": "frame_with_seat", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Zuordnung zur abgebildeten Wagen-/Sitzkonfiguration; vor strengem Trage-Match praktisch verifizieren." },
+    "pushbarMinCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "pushbarMaxCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Verstellung dokumentiert, Werte nicht veröffentlicht." },
+    "wheelDiameterFrontCm": { "value": 17, "unit": "cm", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterRearCm": { "value": 25, "unit": "cm", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelMaterial": { "value": "puncture-resistant", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": "full_suspension", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": 5, "unit": "kg", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketVolumeL": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Mit einem Handgriff ist dokumentiert, eine eindeutige Einhand-Bedienung jedoch nicht." },
+    "foldWithSeat": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Adapter im Zubehörset enthalten." },
+    "canopyCoverage": { "value": "large_upf50_water_resistant", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "canopyVentilation": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "repairService": { "value": true, "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "warrantyYears": { "value": 2, "unit": "years", "sourceIds": ["kinderkraft-yoxi-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Standardgarantie; eine Verlängerung ist nur unter Bedingungen möglich." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "frameWeightKg", "wheelDiameterFrontCm"], "rationale": "59 cm Breite und kleine, schwenkbare Vorderräder sind dokumentiert; Komponentengewicht und unabhängiger Fahrtest fehlen." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Pannensichere Räder und volle Federung sind dokumentiert; ohne unabhängigen Fahrtest bleibt es ein Proxy." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Kompaktes Faltmaß und Faltung mit Sitz sind dokumentiert; Einhand- und Standfunktion bleiben offen." },
+    "storageCapacity": { "value": 0.5, "status": "proxy", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "5 kg Korblast sind dokumentiert; das Volumen bleibt offen." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "Große wasserabweisende UPF50+-Verdecke, Lüftung und Regenschutz sind dokumentiert." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Reparatur, Ersatzteile und zweijährige Standardgarantie sind dokumentiert." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Babywanne, umsetzbarer Sitz und Travel System sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["59-cm-Breite bei Stadt- und Autonutzung", "Wetterausstattung und Travel System im Set", "mittleres Budget bei späterer Verfügbarkeit"],
+    "tradeoffs": ["beim Hersteller aktuell nicht verfügbar", "Gewicht ist nicht nach Gestell und Aufsätzen aufgeschlüsselt", "Einhand- und Selbststandfunktion sind nicht eindeutig belegt"],
+    "openChecks": ["Verfügbarkeit und Preis erneut prüfen", "10,9-kg-Konfiguration praktisch verifizieren", "Faltmechanismus und Kofferraum-Fit testen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

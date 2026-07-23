@@ -1,6 +1,6 @@
 # Kinderwagen-Navigator: Produktplan
 
-Status: interaktiver Daten-Pilot Version 0.1
+Status: interaktiver Daten-Pilot, Matching-Modell 0.1 und Flow 0.2
 Öffentliche Route: `/kinderwagen-navigator`  
 Indexierung: bis zur funktionsfähigen Beta deaktiviert
 
@@ -64,7 +64,7 @@ Werdende Eltern oder Eltern eines Neugeborenen, die ihren ersten Kombi-Kinderwag
 - Kombi-Kinderwagen mit Babywanne und späterer Sitzeinheit
 - Stadt, gemischter Alltag und moderates Gelände
 - Budget-, Gewichts-, Faltmaß-, Kofferraum- und Wohnsituationsanforderungen
-- zunächst sechs quellengeprüfte Pilotmodelle; vor Indexierung 15 bis 25 relevante Modelle
+- derzeit 15 quellengeprüfte Pilotmodelle; das Katalogziel für eine geschlossene Beta ist erreicht, vor Indexierung werden mindestens 20 relevante Modelle benötigt
 - bis zu drei Empfehlungen; bei einer Daten- oder Kataloglücke bewusst weniger oder kein Treffer
 
 ### Bewusst nicht im MVP
@@ -91,37 +91,27 @@ Die erste Frage erkennt diese Fälle trotzdem. Nicht unterstützte Nutzer erhalt
 - Unabhängigkeit direkt sichtbar
 - kein Login
 
-### Adaptive Fragen
+### Verkürzter adaptiver Flow 0.2
 
-#### A. Suchkontext
-
-1. Was suchst du?
-   - erster Kombi-Kinderwagen ab Geburt
-   - Buggy für ein älteres Kind
+1. Welche Produktart wird gesucht?
+   - Kombi-Kinderwagen ab Geburt
+   - Buggy
+   - Reisebuggy
    - Geschwister-/Zwillingswagen
    - noch unsicher
+2. Was prägt den Alltag?
+   - häufiges Tragen
+   - regelmäßiger Autotransport mit normalem oder knappem Platz
+   - Bus und Bahn
+   - enge Zugänge
+   - nichts davon besonders
+3. Welche ein bis zwei Untergründe sind typisch?
+4. Wie hoch ist das Gesamtbudget und ist es feste Grenze oder Orientierung?
+5. Welche genau zwei Eigenschaften entscheiden?
 
-2. Für wie viele Kinder soll der Wagen gleichzeitig passen?
+Nur bei häufigem Tragen erscheint eine sechste Frage zur tatsächlich getragenen Einheit. Fahrzeugmodell, Aufzugtyp, Körpergröße und exakte Maße entfallen im Kernflow: Ohne Messung dienen dokumentiertes Gewicht, Breite und Faltvolumen transparent nur als relative Proxys. Ein physischer Fit wird nie garantiert.
 
-#### B. Harte Anforderungen
-
-3. Gibt es Treppen und wie häufig muss der Wagen getragen werden?
-4. Gibt es einen Aufzug oder eine maximale Türbreite?
-5. Wird der Wagen regelmäßig im Auto transportiert?
-6. Sind konkrete maximale Kofferraummaße bekannt?
-7. Gibt es ein verbindliches Maximalgewicht?
-8. Wie hoch ist das maximale Budget?
-9. Welche Funktionen sind zwingend erforderlich?
-
-#### C. Alltag und Prioritäten
-
-10. Auf welchen Untergründen wird der Wagen überwiegend genutzt?
-11. Welches Verkehrsmittel prägt den Alltag?
-12. Welche zwei Eigenschaften sind am wichtigsten?
-13. Wie groß sind die hauptsächlich schiebenden Personen?
-14. Welche Komfortfunktionen sind wünschenswert, aber nicht zwingend?
-
-Nicht jede Person sieht alle Fragen. Auto- und Kofferraumfragen entfallen beispielsweise ohne Autonutzung.
+Nach der letzten Frage erscheint direkt das Ergebnis. Angaben können von dort aus überprüft und geändert werden; ein vorgeschalteter Bestätigungsscreen entfällt.
 
 ### Ergebnis
 
@@ -143,15 +133,14 @@ Die maschinenlesbare Kriterienmatrix liegt in `data/kinderwagen-navigator/criter
 
 ### Stufe 1: Eligibility Gate
 
-Ein Produkt wird ausgeschlossen, wenn ein verifiziertes hartes Kriterium nicht erfüllt ist:
+Ein Produkt wird im aktuellen Kernflow ausgeschlossen, wenn ein verifiziertes hartes Kriterium nicht erfüllt ist:
 
 - falscher Einsatzzweck oder Altersbereich
-- falsche Kinderanzahl
-- zu breit für die angegebene Öffnung
-- Faltmaß überschreitet ein verbindliches Limit
-- Gewicht der konkret gewählten Trageeinheit überschreitet ein verbindliches Limit
 - Budget überschreitet eine strikt gesetzte Obergrenze
-- notwendige Babywanne oder Geschwisteroption fehlt
+- notwendige Geburtskonfiguration fehlt
+- das Modell ist eingestellt oder eine erfasste aktive offizielle Warnung blockiert die Empfehlung
+
+Exakte Breiten-, Kofferraum- und Tragegrenzen können später als freiwillige Ergebnisverfeinerung ergänzt werden. Grobe Alltagseinschätzungen werden bewusst nicht zu harten Gates.
 
 Fehlt bei einem Produkt eine Angabe zu einem harten Kriterium, wird es nicht als Top-Empfehlung ausgegeben.
 
@@ -167,7 +156,7 @@ Formel:
 
 `Match = Summe(Kriteriumsgewicht × Erfüllung) / Summe(anwendbare Gewichte) × 100`
 
-Die Nutzerprioritäten verändern die Gewichte. Zwei ausgewählte Top-Prioritäten erhalten beispielsweise Faktor 1,5.
+Die Nutzerprioritäten verändern die Gewichte. Die genau zwei ausgewählten Top-Prioritäten erhalten Faktor 2,5.
 
 ### Stufe 3: Datenabdeckung
 
@@ -181,10 +170,13 @@ Regeln:
 
 ### Ergebnisstufen
 
-- 90–100: sehr passend
-- 75–89: gut passend
-- 60–74: passend mit deutlichen Kompromissen
-- unter 60: nicht als Empfehlung ausgeben
+- 90–100: sehr hohe Übereinstimmung
+- 85–89: gute Übereinstimmung
+- 75–84: solide Übereinstimmung mit sichtbarem Kompromiss
+- 65–74: nur als eingeschränkte Alternative nach einem bewusst gewählten Abstrich
+- unter 65: nicht als Empfehlung ausgeben
+
+Ein Prozentwert wird nur veröffentlicht, wenn mindestens 85 Prozent der relevanten gewichteten Daten und mindestens vier anwendbare Kriterien bekannt sind. Damit bleibt ein hoher Wert aus nur ein oder zwei Datenpunkten ausgeschlossen.
 
 Der Score ist ausdrücklich keine Sicherheits-, Qualitäts- oder Testnote.
 
@@ -272,7 +264,7 @@ Eine Empfehlung zählt, wenn der Nutzer den Flow abschließt und das Ergebnis al
 
 ### Events
 
-Im Daten-Pilot wird ein Plausible-Event `Kinderwagen-Navigator` mit datensparsamer Aktion verwendet. Erfasst werden Start, beantwortete Frage ohne konkrete Antwortwerte, Zurück-Nutzung, Zusammenfassung, Ergebnisanzahl, Top-Match, Quellenöffnung, Hilfreichkeitsfeedback und Neustart. Exakte Maße, Budgets und Körpergrößen werden nicht als Analytics-Eigenschaften übertragen.
+Im Daten-Pilot wird ein Plausible-Event `Kinderwagen-Navigator` mit datensparsamer Aktion verwendet. Erfasst werden Start, angezeigte und beantwortete Frage ohne konkrete Antwortwerte, Zurück-Nutzung, Ergebnisanzahl, sichtbare Match-Karten, Match-Stufe, Angebotsimpression und -klick, Quellen- und Score-Erklärung, Hilfreichkeitsfeedback und Neustart. Das Budget wird nur als grobe Stufe übertragen; exakte Maße oder persönliche Angaben werden nicht als Analytics-Eigenschaften übertragen.
 
 ### Erste Erfolgsschwellen
 
@@ -308,7 +300,7 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 **Gate:** Kein Top-Match besitzt unbekannte harte Kriterien; mindestens 85 Prozent gewichtete Datenabdeckung.
 
-**Stand:** Versioniertes Produktschema, Katalogmanifest und sechs Modelle sind erfasst. Jeder Fakt besitzt Quellen- und Prüfstatus. Marktstatus und Gesamtpreis laufen ab; unterschiedliche Gewichtsdefinitionen werden über die konkrete Tragekonfiguration getrennt. Der Produktdaten-Gate meldet verbleibende harte Lücken, statt sie zu schätzen.
+**Stand:** Versioniertes Produktschema, Katalogmanifest und 15 Modelle sind erfasst. Jeder Fakt besitzt Quellen- und Prüfstatus. Marktstatus und Gesamtpreis laufen ab; unterschiedliche Gewichtsdefinitionen werden über die konkrete Tragekonfiguration getrennt. Der Produktdaten-Gate meldet verbleibende harte Lücken, statt sie zu schätzen. YOXI und ESME erhalten wegen aktueller Hersteller-Nichtverfügbarkeit im Ergebnis einen sichtbaren Warnhinweis und ohne frisches Händlerangebot keinen Kauf-CTA. Eine persona-gesteuerte Ausbau-Queue enthält sieben weitere Kombi-Modelle sowie getrennte Kandidaten für spätere Reisebuggy-, Geschwisterwagen- und Jogger-Routen. Der Joie Finiti bleibt wegen widersprüchlicher offizieller Setpreise ausdrücklich blockiert.
 
 ### Phase 3: Interaktiver Prototyp
 
@@ -321,7 +313,7 @@ Die Schwellen werden nach der ersten realen Stichprobe kalibriert.
 
 **Gate:** Zehn vorbereitete Profile liefern die erwarteten Ergebnisstufen und funktionieren per Tastatur sowie auf kleinen Smartphones.
 
-**Stand:** Deterministische Match-Engine, adaptive One-Question-per-Screen-Oberfläche, Antwortzusammenfassung, Ergebnisnachweis, Quellenansicht und Plausible-Tracking sind implementiert. Zehn Referenzprofile sowie Gate-, Reihenfolge-, Prioritäts- und Gewichtsgrenzfälle laufen automatisiert. Der echte Browser-Test für Tastatur, Smartphone und Desktop steht vor der Beta-Freigabe noch aus.
+**Stand:** Deterministische Match-Engine, adaptive One-Question-per-Screen-Oberfläche, Ergebnisnachweis, verständliche Match-Stufen, Quellenansicht und Plausible-Tracking sind implementiert. Zehn Referenzprofile sowie Gate-, Reihenfolge-, Prioritäts-, Persona- und Gewichtsgrenzfälle laufen automatisiert. Smartphone- und Desktop-Kernpfad wurden im echten Browser geprüft; ein vollständiger moderierter Tastatur- und Verständlichkeitstest mit Eltern bleibt vor der Beta-Freigabe offen.
 
 ### Phase 4: Geschlossene Beta
 
@@ -347,7 +339,11 @@ Der technische Daten-Pilot ist umgesetzt. Die Reihenfolge für eine belastbare g
 1. vollständigen Klickpfad mobil und auf Desktop im echten Browser prüfen, einschließlich Tastatur und Fehlermeldungen,
 2. fünf kurze moderierte Tests mit werdenden Eltern durchführen und unklare Fragen protokollieren,
 3. Completion, Abbruch pro Frage, Kein-Match-Quote und Hilfreichkeitsfeedback mit Plausible messen,
-4. Katalog anhand realer Kein-Match-Gründe gezielt von sechs auf mindestens 15 relevante Modelle erweitern,
-5. erst danach Indexierung, SEO-Landingtext oder Händler-/Affiliate-Aktionen ergänzen.
+4. die zwei dünn abgedeckten Niedrigbudget-/Kleinwagen-Segmente mit tatsächlich verfügbaren Alternativen stärken und den Katalog auf mindestens 20 Modelle vor der Indexierung erweitern,
+5. erst nach bestandener Eltern-Beta und Safety-Gate Indexierung, SEO-Landingtext oder Händler-/Affiliate-Aktionen ergänzen.
 
 **Beta-Gate:** Kein Wert wird geschätzt, Preisbestandteile und Tragekonfigurationen bleiben vergleichbar, Affiliate-Felder sind technisch vom Matching getrennt und alle sichtbaren Ergebnisse bestehen den mobilen Klick- und Verständlichkeitstest.
+
+Der vollständige lokale technische Check läuft mit:
+
+`node tools/kinderwagen-beta-gate.mjs`

@@ -64,7 +64,15 @@ Angezeigt werden:
 - verwendete Quellenarten
 - offene Datenkonflikte
 
-Unter 85 Prozent gewichteter Datenabdeckung wird kein numerischer Match-Score veröffentlicht.
+Unter 85 Prozent gewichteter Datenabdeckung oder bei weniger als vier bekannten anwendbaren Kriterien wird kein numerischer Match-Score veröffentlicht. Fehlt für einen zentralen Nutzungskontext wie regelmäßiges Tragen, enger Zugang, kleiner Kofferraum, ÖPNV oder unebene Wege der relevante Wert, erscheint ebenfalls kein Prozentwert. Eine teilweise erfüllte Kernpassung begrenzt die höchste erreichbare Stufe: bis 0,5 auf höchstens 84 Prozent, unter voller Erfüllung auf höchstens 89 Prozent. Starke Nebenkriterien können einen Kernkonflikt damit nicht zu einer „sehr hohen Übereinstimmung“ überdecken.
+
+Die sichtbaren Match-Stufen sind verbindlich:
+
+- 90–100 Prozent: sehr hohe Übereinstimmung
+- 85–89 Prozent: gute Übereinstimmung
+- 75–84 Prozent: solide Übereinstimmung mit sichtbarem Kompromiss
+- 65–74 Prozent: nur eingeschränkte Alternative nach bewusst gewähltem Abstrich
+- unter 65 Prozent: keine Empfehlung
 
 ## Was bewusst getrennt bleibt
 
@@ -120,11 +128,11 @@ Ein Produkt darf als Top-Empfehlung erscheinen, wenn:
 
 Ein verbindliches Tragegewicht darf nur gegen dieselbe dokumentierte Konfiguration geprüft werden: Gestell allein, Gestell mit Sportsitz oder Gestell mit Babywanne. Ein Gesamtgewicht mit Sitz darf fehlende Babywannen- oder Gestellwerte nicht ersetzen.
 
-Ein ausdrücklich priorisiertes Kriterium mit Erfüllungswert `0` verhindert eine veröffentlichte Top-Empfehlung, selbst wenn weniger wichtige Vorteile den rechnerischen Gesamtscore über 60 Prozent heben würden.
+Ein ausdrücklich priorisiertes Kriterium mit Erfüllungswert `0` verhindert eine veröffentlichte Top-Empfehlung, selbst wenn weniger wichtige Vorteile den rechnerischen Gesamtscore über 75 Prozent heben würden.
 
 Ein Flow darf öffentlich indexiert werden, wenn:
 
-1. mindestens 15 relevante Modelle aus mehreren Marken enthalten sind,
+1. mindestens 20 relevante Modelle aus mehreren Marken enthalten sind; eine geschlossene Beta darf ab 15 Modellen starten,
 2. die zehn Referenzprofile die erwarteten Entscheidungsregeln erfüllen,
 3. Tastatur- und Smartphone-Nutzung geprüft sind,
 4. Ergebnisabbrüche und „nicht hilfreich“-Feedback messbar sind,

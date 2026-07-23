@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "my-junior-noax",
+  "identity": {
+    "brand": "my junior",
+    "model": "NOAX 2",
+    "generation": "Current DE 2in1 Starter-Set listing 910",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Preisbewusster Stadtwagen mit kompaktem Faltmaß und großem Korb",
+    "notes": "Gezielt für die dünn abgedeckten Segmente unter 600 Euro und kleines Auto aufgenommen. Herstellerangaben sind noch nicht unabhängig praktisch geprüft."
+  },
+  "sources": [
+    {
+      "id": "myjunior-noax2-product",
+      "url": "https://my-junior.com/de/kinderwagen/910-my-junior-noax.html",
+      "kind": "manufacturer",
+      "title": "my junior NOAX 2 2in1 Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "myjunior-service",
+      "url": "https://my-junior.com/de/content/5-herstellergarantie-und-reparaturservice-kinderwagen",
+      "kind": "manufacturer",
+      "title": "my junior Garantie- und Reparaturservice",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktuelle 2in1-Konfiguration laut Herstellerseite mit mehreren Farben und Lieferzeit von vier bis acht Tagen.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt die Nutzung ab Geburt mit Babywanne." },
+    "newbornConfiguration": { "value": "NOAX 2 2in1 Starter-Set mit Gestell, Babywanne und Sportsitz", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "requiredConfigurationPriceEur": { "value": 539.1, "unit": "EUR", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Geprüfter Aktionspreis des 2in1 Starter-Sets; Herstellerseite nennt 599 Euro als vorherigen Preis.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "58,5 cm sind nur als gefaltete Breite mit Rädern veröffentlicht und werden nicht als ungefaltete Wagenbreite übernommen." },
+    "foldedDimensionsCm": { "value": { "length": 73, "width": 58.5, "height": 31, "configuration": "with_wheels_attachment_not_specified" }, "unit": "cm", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Mit Rädern; ohne Räder nennt der Hersteller 65 x 51 x 25 cm. Sportsitz-Faltung ist dokumentiert, der Zustand des veröffentlichten Maßes aber nicht eindeutig zugeordnet." },
+    "frameWeightKg": { "value": 8.7, "unit": "kg", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Gestell mit Rädern." },
+    "seatWeightKg": { "value": 3.9, "unit": "kg", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus 12,6 kg mit Sportsitz minus 8,7 kg Gestell abgeleitet." },
+    "carrycotWeightKg": { "value": 3.9, "unit": "kg", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus 12,6 kg mit Babywanne minus 8,7 kg Gestell abgeleitet." },
+    "liftReadyWeightKg": { "value": 12.6, "unit": "kg", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt 12,6 kg sowohl mit Babywanne als auch mit Sportsitz." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": 80, "unit": "cm", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMaxCm": { "value": 110, "unit": "cm", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "wheelDiameterFrontCm": { "value": 25.4, "unit": "cm", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus offiziell genannten 10 Zoll umgerechnet." },
+    "wheelDiameterRearCm": { "value": 30.48, "unit": "cm", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Aus offiziell genannten 12 Zoll umgerechnet." },
+    "wheelMaterial": { "value": "puncture-resistant_air_chamber", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "suspension": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Fahrkomfort wird beworben, eine konkrete Federungsart aber nicht eindeutig benannt." },
+    "basketLoadKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "basketVolumeL": { "value": 31, "unit": "l", "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Schnelles Falten ist dokumentiert, eine vollständige Einhand-Faltung nicht." },
+    "foldWithSeat": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Faltung inklusive Sportsitz wird ausdrücklich beschrieben." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "travelSystem": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Kompatible Babyschalen werden genannt; Adapter ist im 2in1 Starter-Set nicht enthalten." },
+    "canopyCoverage": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "canopyVentilation": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Belüftungsfenster an Babywanne und Sportsitz dokumentiert." },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["myjunior-noax2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Regencape und Moskitonetz im 2in1 Starter-Set gelistet." },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt Beratung zu Ersatzteilen sowie Reparatur oder Austausch einzelner Bauteile." },
+    "repairService": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Door2Door-Reparaturservice innerhalb Deutschlands unter den jeweils geltenden Voraussetzungen; Servicequalität nicht unabhängig geprüft." },
+    "warrantyYears": { "value": 10, "unit": "years", "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Bis zu 10 Jahre für berechtigte Produkte und Bauteile; Dauer, Registrierung, Ursache und Ausschlüsse unterscheiden sich je Fall." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten; Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["unfoldedWidthCm", "frameWeightKg", "wheelDiameterFrontCm"], "rationale": "Relativ leichtes Gestell und Herstellerpositionierung für die Stadt; ungefaltete Breite und unabhängiger Fahrtest fehlen." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelDiameterFrontCm", "wheelDiameterRearCm", "wheelMaterial", "suspension"], "rationale": "Große Luftkammerreifen sind dokumentiert; Federungsart und unabhängiger Fahrtest fehlen." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Faltmaß und Faltung mit Sportsitz sind dokumentiert; Einhand- und Standfunktion bleiben offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "31 Liter Volumen sind offiziell angegeben; die Traglast bleibt offen." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "Regencape, Moskitonetz und Belüftungsfenster sind dokumentiert; die Verdeckgröße bleibt offen." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteilberatung, Bauteilreparatur und Door2Door-Service sind dokumentiert; Voraussetzungen und praktische Servicequalität unterscheiden sich je Fall." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "reversibleSeat", "travelSystem"], "rationale": "Geburtswanne, umsetzbarer Sportsitz und Travel-System-Kompatibilität sind dokumentiert." }
+  },
+  "editorial": {
+    "bestFor": ["preisbewusste Familien mit Stadt- und Autonutzung", "großer Korb bei moderatem Gesamtpreis", "gemischte Stadtwege ohne tägliches Treppentragen"],
+    "tradeoffs": ["12,6 kg mit Aufsatz sind für häufiges Tragen nur mittelmäßig", "ungefaltete Breite und konkrete Federungsart sind offen", "Einhand-Faltung ist nicht eindeutig belegt"],
+    "openChecks": ["12,6-kg-Konfiguration praktisch tragen", "Faltvorgang und Kofferraum-Fit ausprobieren", "ungefaltete Breite vor engem Aufzug oder Durchgang erfragen"],
+    "dataConflicts": [],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}

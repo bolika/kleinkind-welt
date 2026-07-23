@@ -6,38 +6,44 @@ import { fileURLToPath } from 'node:url';
 import { getVisibleQuestions, hasAnswerValue, validateQuestionValue } from '../js/kinderwagen-question-flow.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const questions = JSON.parse(fs.readFileSync(path.join(root, 'data/kinderwagen-navigator/questions.v0.1.json'), 'utf8')).questions;
+const questionsData = JSON.parse(fs.readFileSync(path.join(root, 'data/kinderwagen-navigator/questions.v0.1.json'), 'utf8'));
+const questions = questionsData.questions;
 const byId = new Map(questions.map((question) => [question.id, question]));
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const visibleIds = (answers) => getVisibleQuestions(questions, answers).map((question) => question.id);
 
-assert(!visibleIds({}).includes('children_count'), 'Kinderanzahl darf vor Wahl des unterstützten Ziels nicht erscheinen');
-assert(visibleIds({})[0] === 'experience_level', 'Erfahrungsstand muss zuerst und ohne Fachbegriffe abgefragt werden');
-assert(visibleIds({ search_goal: 'first_combo_from_birth' }).includes('children_count'), 'Kinderanzahl muss im unterstützten Flow erscheinen');
-assert(!visibleIds({ search_goal: 'first_combo_from_birth', children_count: 'one', car_frequency: 'never' }).includes('car_space'), 'Kofferraum-Einschätzung muss ohne Autonutzung entfallen');
-assert(visibleIds({ search_goal: 'first_combo_from_birth', children_count: 'one', car_frequency: 'weekly' }).includes('car_space'), 'Kofferraum-Einschätzung muss bei Autonutzung erscheinen');
-assert(!questions.some((question) => ['trunk_measurement_known', 'vehicle_selection', 'trunk_dimensions'].includes(question.id)), 'Komplexe Fahrzeug- und Maßstrecke muss aus dem Hauptflow entfernt sein');
-assert(visibleIds({ access_context: 'elevator' }).includes('elevator_visual_type'), 'Aufzugbilder müssen nach Auswahl Aufzug erscheinen');
-assert(!visibleIds({ access_context: 'doorway' }).includes('elevator_visual_type'), 'Aufzugbilder dürfen bei normaler Tür nicht erscheinen');
-assert(visibleIds({ access_context: 'elevator' }).includes('maximum_access_width'), 'Lichte Breite muss für den Aufzug angeboten werden');
-assert(!visibleIds({ access_context: 'none' }).includes('maximum_access_width'), 'Breitenfrage muss ohne Engstelle entfallen');
-assert(visibleIds({ access_context: 'elevator', maximum_access_width: 59 }).includes('measurement_confirmation'), 'Maßbestätigung muss nach Zugangsmaß erscheinen');
-assert(!visibleIds({}).includes('measurement_confirmation'), 'Maßbestätigung darf ohne Maßangabe nicht erscheinen');
-assert(visibleIds({ stairs_frequency: 'daily', lift_unit: 'frame_with_carrycot' }).includes('maximum_lift_weight'), 'Tragegrenze muss für Gestell mit Babywanne angeboten werden');
+assert(questionsData.flowVersion === '0.2.0', 'Der verkürzte Flow benötigt eine eigene Flow-Version 0.2.0');
+assert(visibleIds({})[0] === 'search_goal', 'Die Produktart muss ohne Vorfrage zuerst erscheinen');
+assert(byId.get('search_goal').options.some((option) => option.value === 'travel_buggy'), 'Reisebuggy fehlt als eigenes Segment');
+assert(visibleIds({ search_goal: 'first_combo_from_birth' }).includes('daily_context'), 'Alltagsfrage muss im unterstützten Flow erscheinen');
+assert(!visibleIds({ search_goal: 'first_combo_from_birth', daily_context: ['regular_car'] }).includes('lift_unit'), 'Trageeinheit darf ohne Tragekontext nicht erscheinen');
+assert(visibleIds({ search_goal: 'first_combo_from_birth', daily_context: ['regular_carrying'] }).includes('lift_unit'), 'Trageeinheit muss nur bei regelmäßigem Tragen erscheinen');
 
-assert(validateQuestionValue(byId.get('budget'), 199) !== null, 'Budget unter Minimum muss abgelehnt werden');
+const baseAnswers = {
+  search_goal: 'first_combo_from_birth',
+  daily_context: ['regular_car'],
+  terrain: ['mixed'],
+  budget: 900,
+  top_priorities: ['easy_folding', 'storage']
+};
+assert(visibleIds(baseAnswers).length === 5, 'Der Standardpfad muss genau fünf Fragen enthalten');
+assert(visibleIds({ ...baseAnswers, daily_context: ['regular_carrying'], lift_unit: 'frame_with_seat' }).length === 6, 'Der Tragepfad muss genau eine Zusatzfrage enthalten');
+assert(!questions.some((question) => ['experience_level', 'children_count', 'maximum_lift_weight', 'maximum_access_width', 'pusher_heights', 'measurement_confirmation'].includes(question.id)), 'Manuelle Maße und redundante Vorfragen dürfen nicht im Kernflow bleiben');
+
+assert(validateQuestionValue(byId.get('budget'), 299) !== null, 'Budget unter Minimum muss abgelehnt werden');
 assert(validateQuestionValue(byId.get('budget'), 900) === null, 'Gültiges Budget muss akzeptiert werden');
-assert(validateQuestionValue(byId.get('car_space'), 'unsure') === null, 'Unsichere Kofferraum-Einschätzung muss zulässig sein');
-assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit']) !== null, 'Nur eine Top-Priorität muss abgelehnt werden');
-assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry']) === null, 'Zwei Top-Prioritäten müssen akzeptiert werden');
-assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry', 'service']) === null, 'Drei Top-Prioritäten müssen akzeptiert werden');
-assert(validateQuestionValue(byId.get('top_priorities'), ['city_transit', 'easy_to_carry', 'service', 'weather']) !== null, 'Vier Top-Prioritäten müssen abgelehnt werden');
-assert(hasAnswerValue({ pusher_heights: [] }, 'pusher_heights') === false, 'Leere optionale Liste darf nicht als beantwortet gelten');
+assert(validateQuestionValue(byId.get('daily_context'), ['none_special', 'regular_car']) !== null, 'Exklusive Alltag-Auswahl darf nicht kombiniert werden');
+assert(validateQuestionValue(byId.get('daily_context'), ['none_special']) === null, 'Alleinige neutrale Alltag-Auswahl muss zulässig sein');
+assert(validateQuestionValue(byId.get('daily_context'), ['regular_car', 'small_trunk']) !== null, 'Die beiden Auto-Platzvarianten dürfen nicht kombiniert werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['easy_folding']) !== null, 'Nur eine Top-Priorität muss abgelehnt werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['easy_folding', 'storage']) === null, 'Genau zwei Top-Prioritäten müssen akzeptiert werden');
+assert(validateQuestionValue(byId.get('top_priorities'), ['easy_folding', 'storage', 'weather']) !== null, 'Drei Top-Prioritäten müssen abgelehnt werden');
+assert(hasAnswerValue({ daily_context: [] }, 'daily_context') === false, 'Leere Auswahl darf nicht als beantwortet gelten');
 
 if (errors.length) {
   errors.forEach((error) => console.error(`ERROR ${error}`));
   process.exit(1);
 }
 
-console.log('Fragefluss-Test bestanden: Einsteigerpfad, grobe Kofferraum-Einschätzung, Pflichtfelder und Auswahlgrenzen geprüft.');
+console.log('Fragefluss-Test bestanden: Reisebuggy-Segment, fünf Kernfragen, adaptive Tragefrage und Auswahlgrenzen geprüft.');

@@ -56,6 +56,7 @@ function isVisible(question, answers) {
   if (condition.operator === 'answered') return isAnswered(answers, condition.questionId);
   if (condition.operator === 'equals') return answer === condition.value;
   if (condition.operator === 'in') return (condition.value ?? []).includes(answer);
+  if (condition.operator === 'contains') return Array.isArray(answer) && answer.includes(condition.value);
   return false;
 }
 
@@ -75,6 +76,11 @@ function validateAnswer(question, answer, profileId) {
     const min = question.validation?.minimumSelections ?? 0;
     const max = question.validation?.maximumSelections ?? Infinity;
     if (answer.length < min || answer.length > max) errors.push(`${prefix}: ${answer.length} Auswahlen, erwartet ${min} bis ${max}`);
+    const exclusive = question.validation?.exclusiveOptions ?? [];
+    if (answer.length > 1 && answer.some((item) => exclusive.includes(item))) errors.push(`${prefix}: exklusive Auswahl wurde kombiniert`);
+    for (const group of question.validation?.exclusiveGroups ?? []) {
+      if (answer.filter((item) => group.includes(item)).length > 1) errors.push(`${prefix}: ähnliche exklusive Antworten wurden kombiniert`);
+    }
   }
   if (['number', 'budget'].includes(question.type)) {
     if (typeof answer !== 'number') {
@@ -138,6 +144,9 @@ const scoreRules = criteriaData.scoreRules ?? {};
 if (!scoreRules.eligibilityBeforeScoring) errors.push('Score-Regel: Eligibility muss vor dem Scoring stehen');
 if (scoreRules.minimumCoverageForNumericScore < 80) errors.push('Score-Regel: Datenabdeckung für einen numerischen Score ist zu niedrig');
 if (!scoreRules.unknownHardCriterionBlocksTopResult) errors.push('Score-Regel: unbekannte Muss-Kriterien müssen Top-Ergebnisse blockieren');
+if (!scoreRules.unknownCoreContextBlocksNumericScore) errors.push('Score-Regel: unbekannter zentraler Nutzungskontext muss einen numerischen Score blockieren');
+if (!(scoreRules.coreContextRules?.length >= 5)) errors.push('Score-Regel: zentrale Nutzungskontexte sind unvollständig');
+if (scoreRules.coreContextScoreCaps?.partial > 84 || scoreRules.coreContextScoreCaps?.strongPartial > 89) errors.push('Score-Regel: teilweise erfüllter Nutzungskontext darf keine zu hohe Match-Stufe erreichen');
 if (!criteriaData.qualityPromise?.notAClaim) errors.push('Qualitätsversprechen benötigt eine klare Abgrenzung');
 
 const questions = questionsData.questions ?? [];
@@ -172,12 +181,14 @@ for (const criterionId of collectCriterionReferences(questionsData)) {
 const profiles = profilesData.profiles ?? [];
 duplicateIds(profiles, 'Referenzprofile');
 if (profiles.length < 10) errors.push(`Es werden mindestens 10 Referenzprofile benötigt, gefunden: ${profiles.length}`);
+const derivedAnswerIds = new Set(['budget_strictness']);
 
 for (const profile of profiles) {
   const answers = profile.answers ?? {};
   for (const [questionId, answer] of Object.entries(answers)) {
     const question = questionById.get(questionId);
     if (!question) {
+      if (derivedAnswerIds.has(questionId)) continue;
       errors.push(`Profil ${profile.id}: Antwort für unbekannte Frage ${questionId}`);
       continue;
     }

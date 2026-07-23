@@ -1,279 +1,198 @@
 {
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
-  "purpose": "Diese Profile testen die Entscheidungslogik, bevor reale Produkte die Gewichtung beeinflussen.",
+  "flowVersion": "0.2.0",
+  "purpose": "Die Profile testen den verkürzten Flow, seine drei Kernpersonas und wichtige Randfälle deterministisch.",
   "profiles": [
     {
-      "id": "city_walkup_daily_transit",
-      "label": "Stadtwohnung ohne Aufzug",
+      "id": "persona_low_budget_city_no_elevator",
+      "label": "Low Budget, Stadt, kein Aufzug",
       "answers": {
-        "experience_level": "first_time",
         "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 900,
-        "budget_strictness": "strict",
-        "stairs_frequency": "daily",
+        "daily_context": ["regular_carrying", "regular_transit"],
         "lift_unit": "frame_with_seat",
-        "maximum_lift_weight": 11,
-        "car_frequency": "never",
-        "public_transport_frequency": "daily",
         "terrain": ["smooth_city"],
-        "pusher_heights": [168],
-        "required_features": [],
-        "top_priorities": ["easy_to_carry", "city_transit"],
-        "measurement_confirmation": "measured"
-      },
-      "expected": {
-        "route": "supported",
-        "mustUseGates": ["newborn_configuration", "single_child_combo_scope", "total_required_price", "lift_weight_limit"],
-        "dominantCriteria": ["frequent_carrying_fit", "public_transport_fit", "city_maneuverability"],
-        "mustExplain": ["Gewicht der tatsächlich getragenen Einheit", "Wendigkeit und Breite im ÖPNV", "Kompromiss auf unebenen Wegen"],
-        "requiredOpenChecks": [],
-        "resultPolicy": "Kein Top-Ergebnis über 11 kg in der gewählten Tragekonfiguration."
-      }
-    },
-    {
-      "id": "elevator_compact_car",
-      "label": "Stadtfamilie mit Aufzug und kleinem Auto",
-      "answers": {
-        "experience_level": "some_experience",
-        "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1200,
-        "budget_strictness": "flexible_10",
-        "stairs_frequency": "never",
-        "access_context": "elevator",
-        "elevator_visual_type": "single_sliding",
-        "maximum_access_width": 66,
-        "car_frequency": "weekly",
-        "car_space": "limited",
-        "public_transport_frequency": "sometimes",
-        "terrain": ["smooth_city", "cobblestone"],
-        "pusher_heights": [165, 182],
-        "required_features": ["fold_with_seat"],
-        "top_priorities": ["compact_in_car", "easy_folding"],
-        "measurement_confirmation": "measured"
-      },
-      "expected": {
-        "route": "supported",
-        "mustUseGates": ["newborn_configuration", "access_width", "required_features"],
-        "dominantCriteria": ["car_transport_fit", "folding_convenience"],
-        "mustExplain": ["Faltmaß in passender Orientierung", "ob mit Sitz gefaltet wird", "zusätzliche Demontageschritte"],
-        "requiredOpenChecks": [],
-        "resultPolicy": "Knapper Kofferraum beeinflusst die Rangfolge, wird aber ohne Messung nie als garantierter Fit dargestellt."
-      }
-    },
-    {
-      "id": "rural_rough_terrain",
-      "label": "Ländlicher Alltag mit Wald- und Feldwegen",
-      "answers": {
-        "experience_level": "experienced",
-        "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1500,
-        "budget_strictness": "orientation",
-        "stairs_frequency": "never",
-        "car_frequency": "daily",
-        "car_space": "generous",
-        "public_transport_frequency": "never",
-        "terrain": ["forest_field", "gravel_park"],
-        "pusher_heights": [174, 187],
-        "required_features": [],
-        "top_priorities": ["rough_terrain", "storage"]
-      },
-      "expected": {
-        "route": "supported",
-        "mustUseGates": ["newborn_configuration"],
-        "dominantCriteria": ["rough_surface_fit", "storage_capacity"],
-        "mustExplain": ["Rad- und Federungsdaten", "Evidenz für unebene Wege", "Kompromiss bei Gewicht oder Packmaß"],
-        "requiredOpenChecks": [],
-        "resultPolicy": "Marketingbegriffe wie All-Terrain genügen ohne konkrete Daten nicht für eine volle Erfüllung."
-      }
-    },
-    {
-      "id": "suburban_mixed_unknown_trunk",
-      "label": "Gemischter Vorstadtalltag ohne Kofferraummaße",
-      "answers": {
-        "experience_level": "first_time",
-        "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1000,
-        "budget_strictness": "flexible_10",
-        "stairs_frequency": "occasionally",
-        "lift_unit": "frame_only",
-        "car_frequency": "weekly",
-        "car_space": "unsure",
-        "public_transport_frequency": "sometimes",
-        "terrain": ["mixed"],
-        "pusher_heights": [170, 180],
-        "required_features": ["reversible_seat"],
-        "top_priorities": ["long_use", "weather"]
-      },
-      "expected": {
-        "route": "supported",
-        "mustUseGates": ["newborn_configuration", "required_features"],
-        "dominantCriteria": ["long_term_flexibility", "weather_protection", "car_transport_fit"],
-        "mustExplain": ["fehlende Kofferraumprüfung", "Preis inklusive benötigter Konfiguration", "Kompromiss zwischen Komfort und Packmaß"],
-        "requiredOpenChecks": ["car_fit_practical_check"],
-        "resultPolicy": "Die unsichere Platzangabe bevorzugt kompakte Faltmaße, erzeugt aber keine garantierte Passt-Aussage."
-      }
-    },
-    {
-      "id": "narrow_elevator",
-      "label": "Sehr schmaler Aufzug",
-      "answers": {
-        "experience_level": "some_experience",
-        "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1100,
+        "budget": 600,
         "budget_strictness": "strict",
-        "stairs_frequency": "occasionally",
-        "lift_unit": "frame_with_seat",
-        "access_context": "elevator",
-        "elevator_visual_type": "narrow_single",
-        "maximum_access_width": 59,
-        "car_frequency": "never",
-        "public_transport_frequency": "often",
-        "terrain": ["smooth_city"],
-        "pusher_heights": [172],
-        "required_features": [],
-        "top_priorities": ["city_transit", "easy_to_carry"],
-        "measurement_confirmation": "measured"
+        "top_priorities": ["easy_to_carry", "easy_folding"]
       },
       "expected": {
         "route": "supported",
-        "mustUseGates": ["newborn_configuration", "access_width", "total_required_price"],
-        "dominantCriteria": ["city_maneuverability", "public_transport_fit", "frequent_carrying_fit"],
-        "mustExplain": ["Wagenbreite gegen 59 cm Nutzerlimit", "verbleibender Spielraum", "Alternative bei zu geringer Auswahl"],
-        "requiredOpenChecks": [],
-        "resultPolicy": "Ein breiteres Modell darf nicht durch bessere Komfortwerte zurück ins Ranking gelangen."
+        "mustUseGates": ["newborn_configuration", "single_child_combo_scope", "total_required_price"],
+        "dominantCriteria": ["frequent_carrying_fit", "folding_convenience", "public_transport_fit"],
+        "mustExplain": ["vergleichbares Gewicht der gewählten Trageeinheit", "Stadt- und ÖPNV-Passung"],
+        "requiredOpenChecks": ["Tragekomfort praktisch prüfen"],
+        "resultPolicy": "Eine feste Budgetgrenze wird nicht still überschritten; Gewicht und Breite bleiben relative, transparent erklärte Proxys."
       }
     },
     {
-      "id": "tall_parents_service_focus",
-      "label": "Große Eltern mit Fokus auf lange Nutzbarkeit",
+      "id": "persona_high_budget_frequent_travel",
+      "label": "High Budget, viel unterwegs",
       "answers": {
-        "experience_level": "experienced",
         "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1400,
+        "daily_context": ["regular_car", "regular_transit"],
+        "terrain": ["smooth_city"],
+        "budget": 1600,
         "budget_strictness": "orientation",
-        "stairs_frequency": "never",
-        "car_frequency": "monthly",
-        "car_space": "not_important",
-        "public_transport_frequency": "never",
-        "terrain": ["mixed"],
-        "pusher_heights": [190, 198],
-        "required_features": ["reversible_seat"],
-        "top_priorities": ["long_use", "service"]
-      },
-      "expected": {
-        "route": "supported",
-        "mustUseGates": ["newborn_configuration", "required_features"],
-        "dominantCriteria": ["long_term_flexibility", "repairability_service"],
-        "mustExplain": ["Schieberbereich", "Probefahrt wegen Körpergröße", "konkrete Ersatzteil- und Serviceangaben"],
-        "requiredOpenChecks": ["pushbar_practical_test"],
-        "resultPolicy": "Schiebermaße dürfen nicht als Garantie für ergonomische Passung dargestellt werden."
-      }
-    },
-    {
-      "id": "daily_car_one_hand_requirements",
-      "label": "Täglicher Autotransport mit Muss-Funktionen",
-      "answers": {
-        "experience_level": "some_experience",
-        "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1300,
-        "budget_strictness": "strict",
-        "stairs_frequency": "never",
-        "car_frequency": "daily",
-        "car_space": "limited",
-        "public_transport_frequency": "never",
-        "terrain": ["smooth_city"],
-        "pusher_heights": [164, 184],
-        "required_features": ["one_hand_fold", "fold_with_seat"],
         "top_priorities": ["compact_in_car", "easy_folding"]
       },
       "expected": {
         "route": "supported",
-        "mustUseGates": ["total_required_price", "required_features"],
-        "dominantCriteria": ["car_transport_fit", "folding_convenience"],
-        "mustExplain": ["Bedingungen der Einhand-Faltung", "Faltmaß mit Sitz", "Gewicht beim Einladen"],
-        "requiredOpenChecks": [],
-        "resultPolicy": "Eine Einhand-Faltung zählt nur, wenn die Herstelleranleitung den vollständigen relevanten Faltvorgang belegt."
+        "mustUseGates": ["newborn_configuration", "single_child_combo_scope"],
+        "dominantCriteria": ["car_transport_fit", "public_transport_fit", "folding_convenience"],
+        "mustExplain": ["Faltmaß und Faltvorgang", "kein garantierter Fahrzeug-Fit"],
+        "requiredOpenChecks": ["am eigenen Auto prüfen"],
+        "resultPolicy": "Das hohe Orientierungsbudget erweitert die Auswahl, beeinflusst den Match-Score aber nicht."
+      }
+    },
+    {
+      "id": "persona_mid_budget_functionality",
+      "label": "Mid Budget, hohe Funktionalität",
+      "answers": {
+        "search_goal": "first_combo_from_birth",
+        "daily_context": ["small_trunk"],
+        "terrain": ["smooth_city"],
+        "budget": 950,
+        "budget_strictness": "strict",
+        "top_priorities": ["storage", "long_use"]
+      },
+      "expected": {
+        "route": "supported",
+        "mustUseGates": ["newborn_configuration", "single_child_combo_scope", "total_required_price"],
+        "dominantCriteria": ["storage_capacity", "long_term_flexibility", "car_transport_fit"],
+        "mustExplain": ["Stauraum und Nutzungsflexibilität", "Faltmaß als Fahrzeug-Proxy"],
+        "requiredOpenChecks": ["Kofferraum praktisch prüfen"],
+        "resultPolicy": "Funktionalität wird über belegte Signale statt eine pauschale Marketingwertung abgebildet."
+      }
+    },
+    {
+      "id": "rural_rough_terrain",
+      "label": "Ländlicher Alltag mit unebenen Wegen",
+      "answers": {
+        "search_goal": "first_combo_from_birth",
+        "daily_context": ["regular_car"],
+        "terrain": ["forest_field", "gravel_park"],
+        "budget": 1500,
+        "budget_strictness": "orientation",
+        "top_priorities": ["storage", "weather"]
+      },
+      "expected": {
+        "route": "supported",
+        "mustUseGates": ["newborn_configuration"],
+        "dominantCriteria": ["rough_surface_fit", "storage_capacity", "weather_protection"],
+        "mustExplain": ["belegte Geländepassung", "Stauraum oder Wetterschutz"],
+        "requiredOpenChecks": ["Fahrzeug-Fit prüfen"],
+        "resultPolicy": "Eine nicht erfüllte Geländepassung bleibt trotz guter Nebenkriterien sichtbar."
+      }
+    },
+    {
+      "id": "tight_access_transit",
+      "label": "Enge Zugänge und regelmäßiger ÖPNV",
+      "answers": {
+        "search_goal": "first_combo_from_birth",
+        "daily_context": ["tight_access", "regular_transit"],
+        "terrain": ["smooth_city"],
+        "budget": 1200,
+        "budget_strictness": "orientation",
+        "top_priorities": ["easy_folding", "long_use"]
+      },
+      "expected": {
+        "route": "supported",
+        "mustUseGates": ["newborn_configuration"],
+        "dominantCriteria": ["compact_access_fit", "public_transport_fit", "city_maneuverability"],
+        "mustExplain": ["relative Wagenbreite", "konkrete Öffnung vor Kauf messen"],
+        "requiredOpenChecks": ["Engstelle prüfen"],
+        "resultPolicy": "Ohne gemessenes Innenmaß darf die Breite nur gewichten und niemals einen garantierten Fit behaupten."
       }
     },
     {
       "id": "strict_low_budget",
-      "label": "Strikte niedrige Budgetgrenze",
+      "label": "Sehr niedrige feste Budgetgrenze",
       "answers": {
-        "experience_level": "first_time",
         "search_goal": "first_combo_from_birth",
-        "children_count": "one",
+        "daily_context": ["none_special"],
+        "terrain": ["smooth_city"],
         "budget": 500,
         "budget_strictness": "strict",
-        "stairs_frequency": "never",
-        "car_frequency": "never",
-        "public_transport_frequency": "sometimes",
-        "terrain": ["smooth_city"],
-        "required_features": [],
-        "top_priorities": ["city_transit", "long_use"]
+        "top_priorities": ["easy_folding", "storage"]
       },
       "expected": {
         "route": "supported",
         "mustUseGates": ["newborn_configuration", "total_required_price"],
-        "dominantCriteria": ["city_maneuverability", "long_term_flexibility"],
-        "mustExplain": ["Gesamtpreis statt Einstiegspreis", "ehrliche Rückmeldung bei zu kleiner Auswahl", "keine versteckte Budgetüberschreitung"],
+        "dominantCriteria": ["folding_convenience", "storage_capacity"],
+        "mustExplain": ["kein künstlicher Treffer unterhalb des Katalogpreises", "konkreter nächster Budgetschritt"],
         "requiredOpenChecks": [],
-        "resultPolicy": "Wenn kein ausreichend passendes Modell innerhalb des Budgets existiert, wird kein künstlicher 60-Prozent-Treffer erzeugt."
+        "resultPolicy": "Kein Treffer erzwingt keinen Neustart; ein konkreter Budgetkompromiss muss direkt neu rechnen."
       }
     },
     {
-      "id": "estimated_measurements",
-      "label": "Nur geschätzte Maße vorhanden",
+      "id": "balanced_service_weather",
+      "label": "Ausgewogener Alltag mit Service- und Wetterfokus",
       "answers": {
-        "experience_level": "first_time",
         "search_goal": "first_combo_from_birth",
-        "children_count": "one",
-        "budget": 1000,
-        "budget_strictness": "strict",
-        "stairs_frequency": "daily",
-        "lift_unit": "frame_with_carrycot",
-        "maximum_lift_weight": 12,
-        "access_context": "elevator",
-        "elevator_visual_type": "single_sliding",
-        "maximum_access_width": 62,
-        "car_frequency": "weekly",
-        "car_space": "unsure",
-        "public_transport_frequency": "often",
+        "daily_context": ["none_special"],
+        "terrain": ["mixed"],
+        "budget": 1200,
+        "budget_strictness": "orientation",
+        "top_priorities": ["service", "weather"]
+      },
+      "expected": {
+        "route": "supported",
+        "mustUseGates": ["newborn_configuration"],
+        "dominantCriteria": ["repairability_service", "weather_protection"],
+        "mustExplain": ["dokumentierter Service", "Wetter- und Sonnenschutz"],
+        "requiredOpenChecks": [],
+        "resultPolicy": "Fehlende Service-Daten reduzieren die Abdeckung und werden nicht positiv geraten."
+      }
+    },
+    {
+      "id": "compact_car_strict_budget",
+      "label": "Kleines Auto mit fester Budgetgrenze",
+      "answers": {
+        "search_goal": "first_combo_from_birth",
+        "daily_context": ["small_trunk"],
         "terrain": ["smooth_city"],
-        "required_features": [],
-        "top_priorities": ["easy_to_carry", "compact_in_car"],
-        "measurement_confirmation": "estimated"
+        "budget": 800,
+        "budget_strictness": "strict",
+        "top_priorities": ["compact_in_car", "easy_folding"]
       },
       "expected": {
         "route": "supported",
         "mustUseGates": ["newborn_configuration", "total_required_price"],
-        "dominantCriteria": ["frequent_carrying_fit", "car_transport_fit", "folding_convenience"],
-        "mustExplain": ["geschätzte statt gemessene Grenzwerte", "keine belegte Passt-Aussage", "konkrete Nachmess-Checkliste"],
-        "requiredOpenChecks": ["confirm_measurements"],
-        "resultPolicy": "Geschätzte Maße dürfen nicht als erfüllte harte Kriterien in den Passungsnachweis eingehen."
+        "dominantCriteria": ["car_transport_fit", "folding_convenience"],
+        "mustExplain": ["relatives Faltvolumen", "keine Fahrzeuggarantie"],
+        "requiredOpenChecks": ["Kofferraum praktisch prüfen"],
+        "resultPolicy": "Eine grobe Kofferraumangabe gewichtet kompakte Modelle, schließt ohne Messung aber keines hart aus."
+      }
+    },
+    {
+      "id": "travel_buggy_out_of_scope",
+      "label": "Reisebuggy gesucht",
+      "answers": {
+        "search_goal": "travel_buggy"
+      },
+      "expected": {
+        "route": "unsupported_travel_buggy",
+        "mustUseGates": [],
+        "dominantCriteria": [],
+        "mustExplain": ["eigene Produktgruppe", "Nachfrage transparent erfassen"],
+        "requiredOpenChecks": [],
+        "resultPolicy": "Reisebuggys werden nicht in ein fachlich falsches Kombi-Kinderwagen-Ranking gezwungen."
       }
     },
     {
       "id": "siblings_out_of_scope",
       "label": "Geschwisterwagen gesucht",
       "answers": {
-        "experience_level": "some_experience",
         "search_goal": "siblings_twins"
       },
       "expected": {
         "route": "unsupported_siblings",
         "mustUseGates": [],
         "dominantCriteria": [],
-        "mustExplain": ["Der aktuelle Navigator unterstützt diesen Fall noch nicht", "keine unpassende Kombi-Empfehlung", "anonyme Nachfrageerfassung"],
+        "mustExplain": ["eigene Sitzkonfiguration", "eigene Breiten- und Gewichtslogik"],
         "requiredOpenChecks": [],
-        "resultPolicy": "Der Flow endet transparent ohne Produkt-Ranking."
+        "resultPolicy": "Geschwisterwagen bleiben bis zu einem eigenen Datenmodell außerhalb des Rankings."
       }
     }
   ]

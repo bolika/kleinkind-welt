@@ -14,6 +14,7 @@ export function matchesQuestionCondition(condition, answers) {
   if (condition.operator === 'answered') return hasAnswerValue(answers, condition.questionId);
   if (condition.operator === 'equals') return value === condition.value;
   if (condition.operator === 'in') return condition.value.includes(value);
+  if (condition.operator === 'contains') return Array.isArray(value) && value.includes(condition.value);
   return true;
 }
 
@@ -29,8 +30,16 @@ export function validateQuestionValue(question, value) {
   if (question.type === 'multi_choice') {
     const min = question.validation?.minimumSelections ?? 0;
     const max = question.validation?.maximumSelections ?? Infinity;
+    const exclusive = question.validation?.exclusiveOptions ?? [];
+    const exclusiveGroups = question.validation?.exclusiveGroups ?? [];
     if (value.length < min) return `Bitte wählt mindestens ${min} ${min === 1 ? 'Option' : 'Optionen'}.`;
     if (value.length > max) return `Bitte wählt höchstens ${max} Optionen.`;
+    if (value.some((item) => exclusive.includes(item)) && value.length > 1) {
+      return 'Diese Antwort kann nicht mit einer weiteren Option kombiniert werden.';
+    }
+    if (exclusiveGroups.some((group) => value.filter((item) => group.includes(item)).length > 1)) {
+      return 'Bitte wählt bei den ähnlichen Antworten nur die passendere Variante.';
+    }
   }
   const numericValues = question.type === 'dimensions' ? Object.values(value) : (question.type === 'number_list' ? value : [value]);
   for (const numeric of numericValues) {

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "0.1.0",
+  "productId": "my-junior-miyo2",
+  "identity": {
+    "brand": "my junior",
+    "model": "MIYO 2",
+    "generation": "Current DE 2in1 Starter-Set listing 944",
+    "market": "DE",
+    "category": "single-combi-from-birth",
+    "supportedChildren": 1
+  },
+  "review": {
+    "status": "pilot",
+    "checkedAt": "2026-07-23",
+    "reviewDueAt": "2026-08-23",
+    "reviewedBy": "AI research pilot",
+    "pilotArchetype": "Serviceorientierter Kombi-Kinderwagen mit Wetterschutz und großem Korb",
+    "notes": "Gezielt aufgenommen, um die dünne Alternativenabdeckung für Service, Wetterschutz und längere Nutzung zu verbessern. Herstellerangaben sind noch nicht unabhängig praktisch geprüft."
+  },
+  "sources": [
+    {
+      "id": "myjunior-miyo2-product",
+      "url": "https://my-junior.com/de/kinderwagen/944-my-junior-miyo2-kinderwagen.html",
+      "kind": "manufacturer",
+      "title": "my junior MIYO 2 2in1 Produktseite",
+      "checkedAt": "2026-07-23"
+    },
+    {
+      "id": "myjunior-service",
+      "url": "https://my-junior.com/de/content/5-herstellergarantie-und-reparaturservice-kinderwagen",
+      "kind": "manufacturer",
+      "title": "my junior Garantie- und Reparaturservice",
+      "checkedAt": "2026-07-23"
+    }
+  ],
+  "facts": {
+    "marketStatus": { "value": "current_available", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Aktuelle 2in1-Konfiguration laut Herstellerseite lieferbar; Farbe und Aktionspreis können sich ändern.", "freshUntil": "2026-08-06" },
+    "newbornApproved": { "value": true, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt die Nutzung ab Geburt mit Babywanne." },
+    "newbornConfiguration": { "value": "MIYO 2 2in1 Starter-Set mit Gestell, Babywanne und Sportsitz", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotIncluded": { "value": true, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Babywanne ist im geprüften 2in1 Starter-Set enthalten." },
+    "requiredConfigurationPriceEur": { "value": 449.1, "unit": "EUR", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Geprüfter Aktionspreis des 2in1 Starter-Sets; Herstellerseite nennt 499 Euro als vorherigen Preis.", "freshUntil": "2026-08-06" },
+    "unfoldedWidthCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Die Herstellerseite nennt 60 cm nur innerhalb des Faltmaßes; daraus wird keine ungefaltete Wagenbreite abgeleitet." },
+    "foldedDimensionsCm": { "value": { "length": 89, "width": 60, "height": 28, "configuration": "chassis_folded_attachment_not_specified" }, "unit": "cm", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Herstellerangabe für das geklappte Gestell; Räder- und Aufsatzzustand sind nicht genauer erläutert." },
+    "frameWeightKg": { "value": 9.1, "unit": "kg", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Gestellgewicht laut Hersteller; ohne Räder werden 6,55 kg genannt." },
+    "seatWeightKg": { "value": 3.8, "unit": "kg", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "carrycotWeightKg": { "value": 3.85, "unit": "kg", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "liftReadyWeightKg": { "value": 12.95, "unit": "kg", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "derived_proxy", "note": "Für die Geburtsphase aus 9,1 kg Gestell plus 3,85 kg Babywanne berechnet; persönlicher Tragekomfort ist damit nicht belegt." },
+    "liftReadyConfiguration": { "value": "frame_with_carrycot", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "pushbarMinCm": { "value": null, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "unknown", "note": "Die veröffentlichte Spanne 61–114 cm enthält einen auffälligen Minimalwert; bis zur Klärung wird daraus kein Mindestwert übernommen." },
+    "pushbarMaxCm": { "value": 114, "unit": "cm", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Oberer Wert der veröffentlichten Spanne; praktisch mit den schiebenden Personen prüfen." },
+    "wheelDiameterFrontCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "wheelDiameterRearCm": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "wheelMaterial": { "value": "puncture-resistant_air_chamber", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Als unplattbare Luftkammerreifen beschrieben; Fahrverhalten nicht praktisch geprüft." },
+    "suspension": { "value": "individually_adjustable_all_wheel", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "basketLoadKg": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "basketVolumeL": { "value": 40, "unit": "l", "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented" },
+    "oneHandFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Keine eindeutige Einhand-Angabe auf der geprüften Produktseite." },
+    "foldWithSeat": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Das Faltmaß nennt den Aufsatzzustand nicht." },
+    "selfStandingFold": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown" },
+    "reversibleSeat": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Die Sitzrichtung ist auf der geprüften Herstellerseite nicht eindeutig textlich dokumentiert." },
+    "travelSystem": { "value": true, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Kompatible Babyschalen und Adapter werden genannt; Adapter ist im 2in1 Starter-Set nicht enthalten." },
+    "canopyCoverage": { "value": null, "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Eine konkrete Verdeckgröße oder UV-Schutzklasse des Kinderwagens ist nicht eindeutig veröffentlicht." },
+    "canopyVentilation": { "value": true, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Ventilation ist für die Babywanne dokumentiert." },
+    "rainCoverIncluded": { "value": true, "sourceIds": ["myjunior-miyo2-product"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Regencape, Moskitonetz und Windschutz sind im geprüften 2in1-Set gelistet." },
+    "sparePartsAvailability": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Hersteller nennt Beratung zu Ersatzteilen sowie Reparatur oder Austausch einzelner Bauteile; konkrete Verfügbarkeit je Teil vorab prüfen." },
+    "repairService": { "value": true, "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Door2Door-Reparaturservice innerhalb Deutschlands unter den jeweils geltenden Voraussetzungen; Servicequalität nicht unabhängig geprüft." },
+    "warrantyYears": { "value": 10, "unit": "years", "sourceIds": ["myjunior-service"], "checkedAt": "2026-07-23", "status": "officially_documented", "note": "Bis zu 10 Jahre für berechtigte Produkte und Bauteile; Dauer, Registrierung, Ursache und Ausschlüsse unterscheiden sich je Fall." },
+    "officialSafetyNoticeStatus": { "value": "not_checked_in_pilot", "sourceIds": [], "checkedAt": "2026-07-23", "status": "unknown", "note": "Kein Sicherheitsurteil ableiten; Safety-Gate-Prüfung bleibt vor öffentlicher Empfehlung erforderlich." }
+  },
+  "signals": {
+    "cityManeuverability": { "value": 0.5, "status": "proxy", "evidenceFields": ["frameWeightKg", "wheelMaterial", "suspension"], "rationale": "Schwenkbare Luftkammerreifen und ein dokumentiertes Gestellgewicht sprechen für Alltagswendigkeit; Breite und Fahrverhalten sind nicht praktisch geprüft." },
+    "roughSurfaceFit": { "value": 0.5, "status": "proxy", "evidenceFields": ["wheelMaterial", "suspension", "wheelDiameterFrontCm", "wheelDiameterRearCm"], "rationale": "Luftkammerreifen und einstellbare Allrad-Federung sind dokumentiert; ohne Radmaße und unabhängigen Fahrtest bleibt die Geländepassung ein Proxy." },
+    "foldingConvenience": { "value": 0.5, "status": "proxy", "evidenceFields": ["foldedDimensionsCm", "oneHandFold", "foldWithSeat", "selfStandingFold"], "rationale": "Faltmaß und klappbare Babywanne sind dokumentiert; Bedienablauf, Sitzkonfiguration und Standfunktion bleiben offen." },
+    "storageCapacity": { "value": 1, "status": "documented", "evidenceFields": ["basketVolumeL", "basketLoadKg"], "rationale": "Ein Korbvolumen von 40 Litern ist offiziell angegeben; die maximale Traglast bleibt offen." },
+    "weatherProtection": { "value": 1, "status": "documented", "evidenceFields": ["rainCoverIncluded", "canopyVentilation", "canopyCoverage"], "rationale": "Regencape, Moskitonetz, Windschutz und Wannenventilation sind im geprüften Set dokumentiert; die Verdeckgröße bleibt offen." },
+    "repairabilityService": { "value": 1, "status": "documented", "evidenceFields": ["sparePartsAvailability", "repairService", "warrantyYears"], "rationale": "Ersatzteilberatung, Bauteilreparatur und Door2Door-Service sind dokumentiert; Voraussetzungen, Abdeckung und praktische Servicequalität unterscheiden sich je Fall." },
+    "longTermFlexibility": { "value": 1, "status": "documented", "evidenceFields": ["newbornConfiguration", "travelSystem", "reversibleSeat"], "rationale": "Nutzung ab Geburt, Sportsitz bis 15 Kilogramm und Travel-System-Kompatibilität sind dokumentiert; Sitzrichtung bleibt offen." }
+  },
+  "editorial": {
+    "bestFor": ["Familien mit Fokus auf dokumentierten Reparaturservice", "Alltag mit viel Zubehörbedarf und Wetterschutz", "Stadt und gemischte Wege ohne häufiges Tragen"],
+    "tradeoffs": ["Mit 12,95 kg in der Geburtskonfiguration kein ausgewiesener Treppen-Spezialist", "Ungefaltete Breite und praktischer Faltablauf sind noch offen", "Die 10-Jahres-Angabe gilt nicht pauschal für jedes Bauteil und jeden Schaden"],
+    "openChecks": ["Faltvorgang und Kofferraum-Fit praktisch prüfen", "Ungefaltete Breite vor engem Aufzug oder Durchgang beim Hersteller erfragen", "Garantie- und Servicebedingungen für den konkreten Kaufweg prüfen"],
+    "dataConflicts": ["Die veröffentlichte Schieberhöhe von 61–114 cm enthält einen auffälligen unteren Wert; nur der Maximalwert wird bis zur Klärung verwendet."],
+    "colorDirections": ["dark_neutral", "light_neutral", "green_earth"],
+    "testingDisclosure": "Kein eigener Produkttest; Passung aus dokumentierten Produktdaten und ausgewiesenen Proxys abgeleitet."
+  }
+}
