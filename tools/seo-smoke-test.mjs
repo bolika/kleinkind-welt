@@ -32,6 +32,15 @@ const warn = (condition, message) => {
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const routeToFile = (route) => route === "/" ? "index.html" : `${route.replace(/^\//, "")}.html`;
 const routes = [...read("sitemap.xml").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+const redirectRules = new Map(
+  read("_redirects")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"))
+    .map((line) => line.split(/\s+/))
+    .filter((parts) => parts.length >= 3)
+    .map(([source, destination, status]) => [source, { destination, status }])
+);
 const sitemapLastmod = new Map([...read("sitemap.xml").matchAll(/<url>[\s\S]*?<loc>([^<]+)<\/loc>[\s\S]*?<lastmod>([^<]+)<\/lastmod>[\s\S]*?<\/url>/g)]
   .map((match) => [new URL(match[1]).pathname, match[2]]));
 const llmsUrls = new Set([...read("llms.txt").matchAll(/https:\/\/kleinkind-welt\.de[^)\s]+/g)].map((m) => new URL(m[0]).pathname));
@@ -50,6 +59,10 @@ const renderedEvidenceIds = new Set();
 check(routes.length > 0, "Sitemap enthält keine URLs.");
 check(llmsUrls.size >= routes.length, `llms.txt enthält nur ${llmsUrls.size} URLs, Sitemap ${routes.length}.`);
 for (const route of routes) check(llmsUrls.has(route), `Sitemap-URL fehlt in llms.txt: ${route}`);
+for (const route of routes.filter((item) => item.startsWith("/artikel/"))) {
+  const rule = redirectRules.get(`${route}.html`);
+  check(rule?.destination === route && rule?.status === "301!", `${route}.html: erzwungene Netlify-301-Regel auf ${route} fehlt.`);
+}
 
 const seenTitles = new Map();
 const seenCanonicals = new Map();
