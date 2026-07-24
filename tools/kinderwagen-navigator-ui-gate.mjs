@@ -36,6 +36,7 @@ assert(/type="module" src="\/js\/kinderwagen-navigator-app\.mjs/.test(html), 'Br
 assert(/affiliate-tracking\.js/.test(html), 'Zentrales Affiliate-Klicktracking fehlt auf der Navigator-Seite');
 assert(/data-navigator-model-count/.test(html), 'Hero benötigt einen dynamischen Katalogzähler');
 assert(/Der aktuelle Katalog ist ein Testkatalog/.test(html), 'Pilotgrenze des Katalogs fehlt');
+assert(/navigator-beta-badge/.test(html) && /Beta-Version/.test(html) && /ausschließlich Kombi-Kinderwagen ab Geburt/.test(html), 'Beta-Status und aktueller Produkt-Scope müssen im ersten Viewport sichtbar sein');
 assert(!/95%/.test(html), 'Statischer Beispielscore darf den echten Matcher nicht überlagern');
 
 assert(/@media \(max-width: 640px\)/.test(css), 'Mobile Breakpoint fehlt');
@@ -58,7 +59,7 @@ for (const action of ['budget_gewaehlt', 'kompromiss_akzeptiert']) {
 }
 assert(/flow_version/.test(app), 'Tracking muss die Flow-Version mitsenden');
 assert(/erste_gueltige_antwort/.test(app) && /renderQuestion\(state\.questions\[0\]\.id,\s*\{\s*scroll:\s*false,\s*focus:\s*false\s*\}\)/.test(app), 'Erste Frage muss ohne Startscreen und ohne automatischen Scrollsprung erscheinen; Start zählt erst nach einer gültigen Antwort');
-assert(/coreQuestionIds/.test(app) && /top_priorities/.test(app), 'Fortschritt muss die fünf Kernfragen statt nur aktuell sichtbarer Fragen zählen');
+assert(/coreQuestionIds/.test(app) && /top_priorities/.test(app), 'Fortschritt muss die vier Kernfragen statt nur aktuell sichtbarer Fragen zählen');
 assert(/question\.id === 'top_priorities' \? 'Ergebnis anzeigen' : 'Weiter'/.test(app), 'Nur die letzte Kernfrage darf „Ergebnis anzeigen“ ankündigen');
 assert(/affiliateDisclosure\.hidden = false/.test(app), 'Affiliate-Hinweis muss sich bei veröffentlichten Angeboten automatisch aktivieren');
 assert(/offers\.v0\.1\.json/.test(app), 'Separate Händlerangebotsdaten werden nicht geladen');
@@ -88,13 +89,14 @@ const supportedTypes = new Set(['single_choice', 'multi_choice', 'budget', 'numb
 for (const question of questions.questions) assert(supportedTypes.has(question.type), `Nicht unterstützter Fragetyp ${question.type} bei ${question.id}`);
 
 const expectedAnswerKeys = [
-  'search_goal', 'daily_context', 'lift_unit', 'terrain', 'budget', 'top_priorities'
+  'daily_context', 'lift_unit', 'terrain', 'budget', 'top_priorities'
 ];
 assert(JSON.stringify(questions.questions.map((question) => question.id)) === JSON.stringify(expectedAnswerKeys), 'Frage-IDs passen nicht zum Matcher-Vertrag');
-assert(questions.flowVersion === '0.2.0', 'Flow-Version 0.2.0 fehlt');
+assert(questions.flowVersion === '0.3.0', 'Flow-Version 0.3.0 fehlt');
 assert(questions.designRules?.showAnswerSummaryBeforeResult === false, 'Der zusätzliche Bestätigungsscreen muss im Kurzflow entfallen');
 assert(/else renderResults\(\)/.test(app), 'Die letzte Frage muss direkt zum Ergebnis führen');
-assert(questions.questions.find((question) => question.id === 'search_goal')?.options?.some((option) => option.value === 'travel_buggy'), 'Reisebuggy-Segment fehlt');
+assert(!questions.questions.some((question) => question.id === 'search_goal'), 'Nicht unterstützte Kinderwagenarten dürfen in der Beta nicht auswählbar sein');
+assert(/BETA_SEARCH_GOAL = 'first_combo_from_birth'/.test(app) && /answers: \{ search_goal: BETA_SEARCH_GOAL \}/.test(app), 'Der sichtbare Kurzflow muss intern transparent auf Kombi-Kinderwagen ab Geburt begrenzt bleiben');
 assert(questions.questions.find((question) => question.id === 'top_priorities')?.validation?.minimumSelections === 2, 'Zwei Top-Prioritäten müssen erzwungen werden');
 assert(questions.questions.find((question) => question.id === 'top_priorities')?.validation?.maximumSelections === 2, 'Genau zwei Top-Prioritäten dürfen gewählt werden');
 assert(/Maximum erreicht/.test(app) && /input\.disabled/.test(app), 'Mehrfachauswahl muss ihr Maximum live ankündigen und weitere Optionen sperren');

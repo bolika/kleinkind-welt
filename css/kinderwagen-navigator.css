@@ -62,6 +62,20 @@
   text-transform: uppercase;
 }
 
+.navigator-beta-badge {
+  display: inline-flex;
+  min-height: 24px;
+  margin-right: 6px;
+  padding: 3px 8px;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--primary-dark);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  vertical-align: middle;
+}
+
 .navigator-hero h1 {
   max-width: 13ch;
   margin: 10px 0 14px;
@@ -418,6 +432,25 @@
   color: var(--text-light);
   font-size: 0.82rem;
   line-height: 1.5;
+}
+
+.navigator-beta-notice {
+  display: flex;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+  padding: 11px 14px;
+  align-items: baseline;
+  border: 1px solid rgba(43, 111, 103, 0.26);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--text-light);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.navigator-beta-notice strong {
+  flex: 0 0 auto;
+  color: var(--primary-dark);
 }
 
 .navigator-affiliate-disclosure strong {
@@ -2186,6 +2219,11 @@
 
   .navigator-tool-column {
     margin-top: 14px;
+  }
+
+  .navigator-beta-notice {
+    display: grid;
+    gap: 2px;
   }
 
   .navigator-app {

@@ -4,6 +4,7 @@ import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-off
 import { resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
+const BETA_SEARCH_GOAL = 'first_combo_from_birth';
 const app = document.querySelector('[data-navigator-app]');
 const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
 const loadStartedAt = performance.now();
@@ -31,10 +32,10 @@ function observeMobileQuestionAction(card, action) {
 }
 
 const state = {
-  answers: {},
+  answers: { search_goal: BETA_SEARCH_GOAL },
   skipped: new Set(),
   questions: [],
-  flowVersion: '0.2.0',
+  flowVersion: '0.3.0',
   criteriaData: null,
   products: [],
   offers: [],
@@ -115,7 +116,7 @@ function pruneHiddenAnswers() {
 }
 
 function progressFor(question) {
-  const coreQuestionIds = new Set(['search_goal', 'daily_context', 'terrain', 'budget', 'top_priorities']);
+  const coreQuestionIds = new Set(['daily_context', 'terrain', 'budget', 'top_priorities']);
   const sequence = state.questions.filter((item) => {
     if (coreQuestionIds.has(item.id)) return true;
     return item.id === 'lift_unit' && matchesCondition(item.showWhen);
@@ -341,7 +342,6 @@ function validate(question, value) {
 }
 
 function immediateRoute(question, value) {
-  if (question.id === 'search_goal') return question.options.find((option) => option.value === value)?.route;
   if (question.id === 'children_count' && value === 'more_than_one') return 'unsupported_siblings';
   return null;
 }
@@ -1253,7 +1253,7 @@ function renderResults() {
 }
 
 function restartNavigator() {
-  state.answers = {};
+  state.answers = { search_goal: BETA_SEARCH_GOAL };
   state.skipped = new Set();
   state.acceptedCompromises = [];
   state.started = true;
@@ -1273,7 +1273,7 @@ async function loadData() {
   if (!Array.isArray(products) || !products.length) throw new Error('catalog_empty');
   if (catalogBundle.modelVersion !== criteriaData.modelVersion) throw new Error('catalog_version_mismatch');
   state.questions = questionsData.questions.sort((a, b) => a.order - b.order);
-  state.flowVersion = questionsData.flowVersion ?? '0.2.0';
+  state.flowVersion = questionsData.flowVersion ?? '0.3.0';
   state.criteriaData = criteriaData;
   state.products = products;
   state.offers = offerData.offers ?? [];

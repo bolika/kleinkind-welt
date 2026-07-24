@@ -1,38 +1,22 @@
 {
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
-  "flowVersion": "0.2.0",
+  "flowVersion": "0.3.0",
   "designRules": {
     "oneQuestionPerScreen": true,
     "showBackButton": true,
     "showAnswerSummaryBeforeResult": false,
-    "estimatedQuestions": "5 Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage",
+    "estimatedQuestions": "4 Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage",
     "doNotPromiseDurationUntilMeasured": true
   },
   "questions": [
     {
-      "id": "search_goal",
-      "order": 0,
-      "type": "single_choice",
-      "required": true,
-      "prompt": "Welchen Kinderwagen sucht ihr?",
-      "help": "Der Daten-Pilot vergleicht aktuell Kombi-Kinderwagen ab Geburt; andere Typen führen wir separat.",
-      "options": [
-        { "value": "first_combo_from_birth", "label": "Kombi-Kinderwagen ab Geburt", "route": "supported" },
-        { "value": "buggy", "label": "Buggy für ein älteres Kind", "route": "unsupported_buggy" },
-        { "value": "travel_buggy", "label": "Reisebuggy – leicht und kompakt", "route": "unsupported_travel_buggy" },
-        { "value": "siblings_twins", "label": "Geschwister- oder Zwillingswagen", "route": "unsupported_siblings" },
-        { "value": "unsure", "label": "Noch unsicher", "route": "scope_help" }
-      ]
-    },
-    {
       "id": "daily_context",
-      "order": 1,
+      "order": 0,
       "type": "multi_choice",
       "required": true,
       "prompt": "Was prägt euren Alltag mit dem Kinderwagen?",
       "help": "Wählt alles, was regelmäßig vorkommt – höchstens drei Punkte. „Nichts davon“ kann nicht mit anderen Antworten kombiniert werden.",
-      "showWhen": { "questionId": "search_goal", "operator": "equals", "value": "first_combo_from_birth" },
       "validation": {
         "minimumSelections": 1,
         "maximumSelections": 3,
@@ -50,7 +34,7 @@
     },
     {
       "id": "lift_unit",
-      "order": 2,
+      "order": 1,
       "type": "single_choice",
       "required": true,
       "prompt": "Was müsst ihr meistens tragen?",
@@ -65,7 +49,7 @@
     },
     {
       "id": "terrain",
-      "order": 3,
+      "order": 2,
       "type": "multi_choice",
       "required": true,
       "prompt": "Wo seid ihr regelmäßig unterwegs?",
@@ -82,7 +66,7 @@
     },
     {
       "id": "budget",
-      "order": 4,
+      "order": 3,
       "type": "budget",
       "required": true,
       "prompt": "Wie hoch ist euer Gesamtbudget?",
@@ -98,7 +82,7 @@
     },
     {
       "id": "top_priorities",
-      "order": 5,
+      "order": 4,
       "type": "multi_choice",
       "required": true,
       "prompt": "Welche zwei Eigenschaften entscheiden für euch?",

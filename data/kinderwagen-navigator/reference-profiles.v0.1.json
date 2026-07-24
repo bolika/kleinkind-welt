@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
-  "flowVersion": "0.2.0",
+  "flowVersion": "0.3.0",
   "purpose": "Die Profile testen den verkürzten Flow, Hypothesen-Archetypen, einen Erstkauf ohne Sonderfall und wichtige Randfälle deterministisch. Sie sind keine validierten Nutzer-Personas.",
   "researchStatus": "assumption_based_reference_profiles",
   "profiles": [

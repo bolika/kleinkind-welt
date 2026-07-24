@@ -16,7 +16,7 @@ Er ersetzt keine Untersuchung mit echten Eltern. Beobachtungen aus realen Sessio
 
 ## Ergebnis
 
-Der Kernflow ist technisch und strukturell gut nutzbar: fünf Pflichtfragen, nur bei regelmäßigem Tragen eine sechste Frage, eine Frage je Ansicht, keine manuelle Eingabe von Auto- oder Aufzugsmaßen und ein No-Match-Pfad ohne Neustart.
+Der Kernflow ist technisch und strukturell gut nutzbar: vier Pflichtfragen, nur bei regelmäßigem Tragen eine fünfte Frage, eine Frage je Ansicht, keine manuelle Eingabe von Auto- oder Aufzugsmaßen und ein No-Match-Pfad ohne Neustart. Seit Flow-Version 0.3 ist die nicht unterstützte Produktart-Auswahl in der Beta entfernt; der Finder ist sichtbar auf Kombi-Kinderwagen ab Geburt begrenzt.
 
 Nach den Korrekturen gelten folgende lokale Befunde:
 

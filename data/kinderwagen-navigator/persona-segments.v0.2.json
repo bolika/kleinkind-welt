@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "flowVersion": "0.2.0",
+  "flowVersion": "0.3.0",
   "researchMaturity": {
     "status": "hypothesis_archetypes",
     "validatedPersonas": false,

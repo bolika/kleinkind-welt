@@ -182,6 +182,9 @@ const profiles = profilesData.profiles ?? [];
 duplicateIds(profiles, 'Referenzprofile');
 if (profiles.length < 10) errors.push(`Es werden mindestens 10 Referenzprofile benötigt, gefunden: ${profiles.length}`);
 const derivedAnswerIds = new Set(['budget_strictness']);
+const systemAnswerValues = new Map([
+  ['search_goal', new Set(['first_combo_from_birth', 'buggy', 'travel_buggy', 'siblings_twins', 'unsure'])]
+]);
 
 for (const profile of profiles) {
   const answers = profile.answers ?? {};
@@ -189,6 +192,10 @@ for (const profile of profiles) {
     const question = questionById.get(questionId);
     if (!question) {
       if (derivedAnswerIds.has(questionId)) continue;
+      if (systemAnswerValues.has(questionId)) {
+        if (!systemAnswerValues.get(questionId).has(answer)) errors.push(`Profil ${profile.id}: unbekannter Systemwert ${questionId}=${answer}`);
+        continue;
+      }
       errors.push(`Profil ${profile.id}: Antwort für unbekannte Frage ${questionId}`);
       continue;
     }

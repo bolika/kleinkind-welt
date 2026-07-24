@@ -17,7 +17,7 @@ last-updated: 2026-07-23
 ## Kinderwagen
 
 - [Kinderwagen-Hub](https://kleinkind-welt.de/kinderwagen): Einstieg zu Navigator, Grundlagen und Entscheidungshilfen
-- [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierter Daten-Pilot mit fünf Kernfragen, transparenten Match-Scores und sichtbaren Kompromissen
+- [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierte Beta für Kombi-Kinderwagen ab Geburt mit vier Kernfragen, transparenten Match-Scores und sichtbaren Kompromissen
 - [Kinderwagen-Arten](https://kleinkind-welt.de/artikel/kinderwagen-arten): Kombi-Kinderwagen, Buggy, Reisebuggy und Mehrlingswagen einordnen
 - [Kinderwagen für Stadt oder Gelände](https://kleinkind-welt.de/artikel/kinderwagen-stadt-oder-land): Räder, Breite, Federung und Gewicht nach Alltag priorisieren
 - [Kinderwagen und Kofferraum](https://kleinkind-welt.de/artikel/kinderwagen-kofferraum): Faltmaß, Kofferraumöffnung und Probebeladung

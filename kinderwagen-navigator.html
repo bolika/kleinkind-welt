@@ -9,10 +9,10 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="robots" content="noindex,follow">
-  <meta name="description" content="Welcher Kinderwagen passt zu euch? Der datenbasierte Kinderwagen-Finder vergleicht Alltag, Budget und Prioritäten – mit transparenten Matches und Kompromissen.">
+  <meta name="description" content="Welcher Kombi-Kinderwagen passt zu euch? Die Beta vergleicht Alltag, Budget und Prioritäten in vier Fragen – mit transparenten Matches und Kompromissen.">
   <title>Kinderwagen-Finder: Welcher passt zu euch?</title>
   <link rel="stylesheet" href="/css/style.css?v=20260722-navigator">
-  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260723-ux-audit">
+  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260724-beta-scope">
   <link rel="canonical" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <link rel="preload" href="/data/kinderwagen-navigator/catalog.bundle.v0.1.json" as="fetch" crossorigin="anonymous">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de/kinderwagen-navigator">
@@ -21,7 +21,7 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Kleinkind-Welt.de">
   <meta property="og:title" content="Kinderwagen-Finder: Welcher passt zu euch?">
-  <meta property="og:description" content="Fünf Kernfragen führen zu nachvollziehbaren Kinderwagen-Matches – unabhängig von Provisionen und mit sichtbaren Kompromissen.">
+  <meta property="og:description" content="Vier Kernfragen führen in der Beta zu nachvollziehbaren Kombi-Kinderwagen-Matches – unabhängig von Provisionen und mit sichtbaren Kompromissen.">
   <meta property="og:url" content="https://kleinkind-welt.de/kinderwagen-navigator">
   <meta property="og:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="Kleinkind-Welt.de – nachvollziehbare Entscheidungshilfen für Eltern">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kinderwagen-Finder: Welcher passt zu euch?">
-  <meta name="twitter:description" content="Fünf Kernfragen, bis zu drei transparente Matches und keine provisionsgetriebene Reihenfolge.">
+  <meta name="twitter:description" content="Vier Kernfragen, bis zu drei transparente Kombi-Kinderwagen-Matches und keine provisionsgetriebene Reihenfolge.">
   <meta name="twitter:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <script type="application/ld+json">
   {
@@ -40,13 +40,13 @@
         "@id": "https://kleinkind-welt.de/kinderwagen-navigator#app",
         "name": "Kinderwagen-Finder von Kleinkind-Welt",
         "url": "https://kleinkind-welt.de/kinderwagen-navigator",
-        "description": "Ein kostenloser Kinderwagen-Finder, der Alltag, Budget und persönliche Prioritäten mit dokumentierten Produktdaten abgleicht.",
+        "description": "Beta eines kostenlosen Kinderwagen-Finders, der Alltag, Budget und persönliche Prioritäten mit dokumentierten Daten zu Kombi-Kinderwagen ab Geburt abgleicht.",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "Alle",
         "browserRequirements": "JavaScript erforderlich",
         "isAccessibleForFree": true,
         "inLanguage": "de-DE",
-        "dateModified": "2026-07-23",
+        "dateModified": "2026-07-24",
         "publisher": {
           "@type": "Organization",
           "@id": "https://kleinkind-welt.de/#organization",
@@ -121,13 +121,17 @@
   <section class="navigator-hero" aria-labelledby="navigator-title">
     <div class="navigator-shell navigator-hero-grid navigator-hero-grid--tool">
       <div class="navigator-hero-copy">
-        <span class="navigator-eyebrow">Datenbasierter Kinderwagen-Finder · <span data-navigator-model-count>20</span> Modelle</span>
+        <span class="navigator-eyebrow"><span class="navigator-beta-badge">Beta</span> Datenbasierter Kinderwagen-Finder · <span data-navigator-model-count>20</span> Modelle</span>
         <h1 id="navigator-title">Welcher Kinderwagen passt zu euch?</h1>
-        <p>Fünf Fragen führen zu bis zu drei nachvollziehbaren Matches – mit Gesamtpreis und wichtigstem Kompromiss.</p>
+        <p>Vier Fragen führen zu bis zu drei nachvollziehbaren Matches – mit Gesamtpreis und wichtigstem Kompromiss.</p>
         <p class="navigator-hero-note">Aktuell belastbar für Kombi-Kinderwagen ab Geburt · kostenlos · ohne Anmeldung</p>
       </div>
 
       <div class="navigator-tool-column" id="navigator-tool">
+        <div class="navigator-beta-notice">
+          <strong>Beta-Version</strong>
+          <span>Aktuell vergleicht der Finder ausschließlich Kombi-Kinderwagen ab Geburt.</span>
+        </div>
         <div class="navigator-affiliate-disclosure" data-navigator-affiliate-disclosure hidden>
           <strong>Affiliate-Hinweis:</strong> Händlerlinks können Affiliate-Links sein. Bei einem Kauf erhalten wir möglicherweise eine Provision – ohne Mehrkosten für euch. Die Vergütung verändert weder Match-Score noch Reihenfolge.
         </div>
@@ -235,8 +239,8 @@
     <div class="navigator-shell">
       <span class="navigator-eyebrow">Bewusste Pilotgrenze</span>
       <h2 id="status-title">Der aktuelle Katalog ist ein Testkatalog, noch kein vollständiger Marktüberblick</h2>
-      <p>Flow-Version 0.2 nutzt fünf Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage, und prüft die Logik gegen Referenzprofile. Die Seite bleibt bis zu einem breiteren Katalog und realen Nutzertests von Suchmaschinen ausgeschlossen.</p>
-      <p class="navigator-editorial-note"><strong>Zuletzt fachlich geprüft: 23. Juli 2026.</strong> Verantwortlich für Freigabe und Korrekturen ist Boris Nazarov. Mehr zur Trennung von Recherche, Bewertung und Monetarisierung steht in unserer <a href="/bewertungsmethode">Bewertungsmethode</a>.</p>
+      <p>Flow-Version 0.3 nutzt vier Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage, und prüft die Logik gegen Referenzprofile. Die Seite bleibt bis zu einem breiteren Katalog und realen Nutzertests von Suchmaschinen ausgeschlossen.</p>
+      <p class="navigator-editorial-note"><strong>Zuletzt fachlich geprüft: 24. Juli 2026.</strong> Verantwortlich für Freigabe und Korrekturen ist Boris Nazarov. Mehr zur Trennung von Recherche, Bewertung und Monetarisierung steht in unserer <a href="/bewertungsmethode">Bewertungsmethode</a>.</p>
     </div>
   </section>
 </main>
@@ -292,6 +296,6 @@
   })();
 </script>
 <script src="/js/affiliate-tracking.js?v=20260722" defer></script>
-<script type="module" src="/js/kinderwagen-navigator-app.mjs?v=20260723-ux-audit"></script>
+<script type="module" src="/js/kinderwagen-navigator-app.mjs?v=20260724-beta-scope"></script>
 </body>
 </html>
