@@ -5,6 +5,11 @@
 # Lokale Render-/Prüfartefakte
 tmp/
 
+# Node / Playwright (lokale Tests)
+node_modules/
+playwright-report/
+test-results/
+
 # Lokale Affiliate-Feeds können API-Schlüssel in Download-URLs oder Rohdaten enthalten
 imports/awin/
 .env
