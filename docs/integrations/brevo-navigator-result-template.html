@@ -1,0 +1,166 @@
+<!--
+  Brevo Transactional Template: "Navigator-Ergebnis"
+  ==================================================
+  Einrichtung: Brevo -> Transactional -> Templates -> New Template
+  -> Editor "Paste your code" waehlen -> kompletten Inhalt dieser Datei einfuegen
+  -> Betreff: "Eure Kinderwagen-Matches von Kleinkind-Welt"
+  -> Absender: bestehender verifizierter Absender
+  -> Speichern, Template-ID notieren (braucht die Netlify-Function)
+
+  Erwartete params (von netlify/functions/navigator-result.js):
+    params.profil        Text, z.B. "Stadt + Auto knapp + bis 800 EUR fest + Leicht/Falten"
+    params.datum         Text, z.B. "27. Juli 2026"
+    params.navigatorUrl  Link zurueck zum Navigator (mit UTM), z.B.
+                         https://kleinkind-welt.de/kinderwagen-navigator?utm_source=email&utm_medium=transactional&utm_campaign=navigator-result
+    params.matches       Liste, je Eintrag:
+      badge          z.B. "Beste Passung zu euren Angaben"
+      name           z.B. "ABC Design Samba 2 Komplett-Set"
+      score          z.B. "84 % Passung" oder "Datenlage noch offen"
+      preis          z.B. "Gesamtpreis 749 EUR inkl. Babywanne"
+      kompromiss     z.B. "Faltmass liegt 4 cm ueber eurem Zielwert" (optional)
+      herstellerUrl  Produktseite des Herstellers
+      guideUrl       passender Guide-Artikel (optional)
+      guideTitel     z.B. "Guide: Kinderwagen und Kofferraum" (optional)
+
+  Hinweise:
+  - Nur Inline-CSS und Tabellen (E-Mail-Clients, Outlook-kompatibel)
+  - Keine Webfonts: E-Mail nutzt bewusst System-Schrift
+  - Logo wird von der Live-Domain geladen
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Eure Kinderwagen-Matches</title>
+</head>
+<body style="margin:0; padding:0; background-color:#F7F3EE;">
+  <!-- Preheader (unsichtbar, erscheint in der Inbox-Vorschau) -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    Eure bis zu drei Matches mit Gesamtpreis und wichtigstem Kompromiss, nachvollziehbar begruendet.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F3EE;">
+    <tr>
+      <td align="center" style="padding:28px 16px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:100%;">
+
+          <!-- Kopf -->
+          <tr>
+            <td style="padding:0 8px 18px 8px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="44" valign="middle">
+                    <img src="https://kleinkind-welt.de/images/logo-mark-512.png" width="40" height="40" alt="Kleinkind-Welt" style="display:block; border:0; border-radius:8px;">
+                  </td>
+                  <td valign="middle" style="padding-left:10px; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                    <span style="font-size:17px; font-weight:800; color:#22303A;">Kleinkind-Welt</span><br>
+                    <span style="font-size:12px; color:#5F574D;">Ehrliche Empfehlungen f&uuml;r Eltern</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Intro-Karte -->
+          <tr>
+            <td style="background-color:#2B6F67; border-radius:14px; padding:26px 26px 22px 26px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                    <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#FFD9CF; padding-bottom:8px;">Euer Ergebnis vom {{ params.datum }}</span>
+                    <h1 style="margin:0 0 10px 0; font-size:24px; line-height:1.25; font-weight:800; color:#FFFFFF;">Eure Kinderwagen-Matches</h1>
+                    <p style="margin:0; font-size:14px; line-height:1.6; color:#DDEAE7;">
+                      Auf Basis eurer Angaben: <strong style="color:#FFFFFF;">{{ params.profil }}</strong>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Match-Karten -->
+          {% for match in params.matches %}
+          <tr>
+            <td style="padding-top:14px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FDFAF6; border:1px solid #DDD5C8; border-left:4px solid {% if loop.first %}#2B6F67{% else %}#DDD5C8{% endif %}; border-radius:12px;">
+                <tr>
+                  <td style="padding:20px 22px; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#2B6F67; padding-bottom:4px;">{{ match.badge }}</td>
+                        <td align="right" style="font-size:18px; font-weight:800; color:#203A49; white-space:nowrap;">{{ match.score }}</td>
+                      </tr>
+                    </table>
+
+                    <p style="margin:2px 0 6px 0; font-size:17px; font-weight:800; color:#22303A;">{{ match.name }}</p>
+                    <p style="margin:0 0 12px 0; font-size:13px; line-height:1.5; color:#5F574D;">{{ match.preis }} &middot; Daten-Match, kein eigener Produkttest</p>
+
+                    {% if match.kompromiss %}
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F6F0E6; border-radius:8px;">
+                      <tr>
+                        <td style="padding:10px 12px; font-size:13px; line-height:1.5; color:#5F574D; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+                          <strong style="color:#B26A1B;">Wichtigster Kompromiss:</strong> {{ match.kompromiss }}
+                        </td>
+                      </tr>
+                    </table>
+                    {% endif %}
+
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:14px;">
+                      <tr>
+                        <td style="background-color:#B33D31; border-radius:8px;">
+                          <a href="{{ match.herstellerUrl }}" target="_blank" style="display:inline-block; padding:11px 18px; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:13px; font-weight:700; color:#FFFFFF; text-decoration:none;">Beim Hersteller ansehen</a>
+                        </td>
+                        {% if match.guideUrl %}
+                        <td style="padding-left:10px;">
+                          <a href="{{ match.guideUrl }}" target="_blank" style="display:inline-block; padding:11px 4px; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:13px; font-weight:700; color:#2B6F67; text-decoration:underline;">{{ match.guideTitel }}</a>
+                        </td>
+                        {% endif %}
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endfor %}
+
+          <!-- Zurueck zum Navigator -->
+          <tr>
+            <td align="center" style="padding:22px 8px 6px 8px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color:#2B6F67; border-radius:8px;">
+                    <a href="{{ params.navigatorUrl }}" target="_blank" style="display:inline-block; padding:13px 26px; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:14px; font-weight:700; color:#FFFFFF; text-decoration:none;">Angaben &auml;ndern und neu matchen</a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:12px 0 0 0; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:12px; line-height:1.6; color:#7A7268; max-width:480px;">
+                Der Prozentwert beschreibt die Passung zu euren Angaben. Er ist keine Sicherheits-, Qualit&auml;ts- oder Testnote. Preise k&ouml;nnen sich kurzfristig &auml;ndern, massgeblich sind die Angaben beim H&auml;ndler oder Hersteller.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Fusszeile -->
+          <tr>
+            <td style="padding:22px 8px 0 8px; border-top:1px solid #DDD5C8; font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+              <p style="margin:14px 0 6px 0; font-size:12px; line-height:1.6; color:#7A7268;">
+                Diese E-Mail wurde einmalig versendet, weil du dir dein Navigator-Ergebnis auf kleinkind-welt.de zuschicken lassen wolltest. Es entsteht daraus kein Abo.
+              </p>
+              <p style="margin:0 0 24px 0; font-size:12px; line-height:1.6; color:#7A7268;">
+                Kleinkind-Welt.de &middot;
+                <a href="https://kleinkind-welt.de/impressum" target="_blank" style="color:#2B6F67; text-decoration:underline;">Impressum</a> &middot;
+                <a href="https://kleinkind-welt.de/datenschutz" target="_blank" style="color:#2B6F67; text-decoration:underline;">Datenschutz</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
