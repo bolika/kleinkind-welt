@@ -1113,6 +1113,92 @@ function renderCompromisePanel(result) {
   return panel;
 }
 
+function renderEmailPanel(result) {
+  const panel = element('section', 'navigator-email');
+  panel.setAttribute('aria-label', 'Ergebnis per E-Mail sichern');
+  panel.append(element('strong', 'navigator-email__title', 'Ergebnis behalten und gemeinsam entscheiden'));
+  panel.append(element('p', 'navigator-email__copy', 'Wir senden euch diese Matches einmalig per E-Mail – mit Begründung und wichtigstem Kompromiss. Kein Abo, keine Werbung.'));
+  const form = element('form', 'navigator-email__form');
+  const input = element('input', 'navigator-email__input');
+  input.type = 'email';
+  input.name = 'email';
+  input.required = true;
+  input.autocomplete = 'email';
+  input.placeholder = 'deine@email.de';
+  input.setAttribute('aria-label', 'E-Mail-Adresse');
+  const honeypot = element('input', 'navigator-email__honeypot');
+  honeypot.type = 'text';
+  honeypot.name = 'website';
+  honeypot.tabIndex = -1;
+  honeypot.autocomplete = 'off';
+  honeypot.setAttribute('aria-hidden', 'true');
+  const submit = element('button', 'navigator-primary-button navigator-email__submit', 'Matches senden');
+  submit.type = 'submit';
+  const status = element('p', 'navigator-email__status');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.hidden = true;
+  const privacy = element('p', 'navigator-email__note', 'Einmalige Zusendung auf eure Anfrage, kein Newsletter. Details in der ');
+  const privacyLink = element('a', '', 'Datenschutzerklärung');
+  privacyLink.href = '/datenschutz';
+  privacy.append(privacyLink, document.createTextNode('.'));
+  form.append(input, honeypot, submit);
+  panel.append(form, status, privacy);
+
+  const resetSubmit = () => {
+    submit.disabled = false;
+    submit.textContent = 'Matches senden';
+  };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submit.disabled = true;
+    submit.textContent = 'Wird gesendet …';
+    status.hidden = true;
+    status.classList.remove('is-error');
+    const payload = {
+      email: input.value.trim(),
+      website: honeypot.value,
+      profil: visibleQuestions()
+        .filter((question) => hasAnswer(question.id))
+        .map((question) => answerSummary(question, state.answers[question.id]))
+        .join(' · ')
+        .slice(0, 300),
+      matches: result.results.slice(0, 3).map((item, index) => ({
+        productId: item.productId,
+        badge: resultBadge(item, index + 1, result.results).label,
+        score: item.matchScore === null ? 'Datenlage noch offen' : `${item.matchScore} % Passung`,
+        kompromiss: item.compromise ? comparisonTradeoff(item) : ''
+      }))
+    };
+    try {
+      const response = await fetch('/api/navigator-result', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json().catch(() => ({}));
+      status.hidden = false;
+      if (response.ok && data.ok) {
+        status.textContent = 'Die Matches sind unterwegs – schaut zur Sicherheit auch im Spam-Ordner nach.';
+        form.hidden = true;
+        track('ergebnis_email_gesendet', { matches: String(result.results.length) });
+      } else {
+        status.textContent = data.message || 'Der Versand hat gerade nicht geklappt. Bitte versucht es später erneut.';
+        status.classList.add('is-error');
+        resetSubmit();
+      }
+    } catch (error) {
+      status.hidden = false;
+      status.textContent = 'Der Versand hat gerade nicht geklappt. Bitte versucht es später erneut.';
+      status.classList.add('is-error');
+      resetSubmit();
+    }
+  });
+
+  return panel;
+}
+
 function renderResults() {
   resetMobileQuestionAction();
   const result = matchStrollers({ answers: state.answers, products: state.products, criteriaData: state.criteriaData });
@@ -1166,6 +1252,7 @@ function renderResults() {
 
   const note = element('p', 'navigator-result-disclaimer', 'Der Prozentwert ist eine Passung zu euren Angaben – keine Sicherheits-, Qualitäts- oder Testnote. Produktdaten und Verfügbarkeit vor dem Kauf beim Anbieter prüfen.');
   wrap.append(note);
+  if (result.results.length) wrap.append(renderEmailPanel(result));
   const feedback = element('div', 'navigator-feedback');
   feedback.append(element('strong', '', 'War dieses Ergebnis hilfreich?'));
   const feedbackActions = element('div', 'navigator-feedback__actions');

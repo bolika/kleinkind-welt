@@ -2450,3 +2450,87 @@
     width: 100%;
   }
 }
+
+/* ── Ergebnis per E-Mail sichern ── */
+.navigator-email {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid rgba(43, 111, 103, 0.28);
+  border-radius: var(--r-md, 14px);
+  background: linear-gradient(135deg, rgba(43, 111, 103, 0.08), rgba(240, 111, 91, 0.06));
+}
+
+.navigator-email__title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.navigator-email__copy {
+  margin: 0 0 12px;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.navigator-email__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navigator-email__input {
+  flex: 1 1 220px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm, 8px);
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+}
+
+.navigator-email__input:focus {
+  outline: 3px solid rgba(43, 111, 103, 0.18);
+  border-color: var(--primary);
+}
+
+.navigator-email__submit {
+  flex: 0 0 auto;
+}
+
+.navigator-email__honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.navigator-email__status {
+  margin: 10px 0 0;
+  padding: 9px 12px;
+  border-radius: var(--r-sm, 8px);
+  background: rgba(43, 111, 103, 0.10);
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.navigator-email__status.is-error {
+  background: rgba(240, 111, 91, 0.14);
+  color: #8A2D24;
+}
+
+.navigator-email__note {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+  .navigator-email__form {
+    flex-direction: column;
+  }
+
+  .navigator-email__submit {
+    width: 100%;
+  }
+}
