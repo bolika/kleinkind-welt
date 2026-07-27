@@ -1,4 +1,4 @@
-import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260723-ux-audit';
+import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260727-phase1';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs?v=20260723-3';
 import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-images';
 import { resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit';
@@ -902,6 +902,84 @@ function comparisonSection(results, badges) {
   return details;
 }
 
+function productForResult(result) {
+  return state.products.find((product) => product.productId === result.productId) ?? null;
+}
+
+function manufacturerLink(result) {
+  const sources = productForResult(result)?.sources ?? [];
+  const source = sources.find((item) => item.kind === 'manufacturer' && /^https:\/\//.test(item.url || ''))
+    ?? sources.find((item) => /^https:\/\//.test(item.url || ''));
+  if (!source) return null;
+  const link = element('a', 'navigator-result-actions__manufacturer', 'Beim Hersteller ansehen');
+  link.href = source.url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.addEventListener('click', () => track('hersteller_geoeffnet', { produkt: result.productId }));
+  return link;
+}
+
+const COMPROMISE_GUIDES = {
+  car_transport_fit: { url: '/artikel/kinderwagen-kofferraum', label: 'Guide: Kinderwagen und Kofferraum' },
+  folded_fit: { url: '/artikel/kinderwagen-kofferraum', label: 'Guide: Kinderwagen und Kofferraum' },
+  folding_convenience: { url: '/artikel/kinderwagen-kofferraum', label: 'Guide: Kinderwagen und Kofferraum' },
+  total_required_price: { url: '/artikel/kinderwagen-gesamtpreis', label: 'Guide: Gesamtpreis verstehen' },
+  rough_surface_fit: { url: '/artikel/kinderwagen-stadt-oder-land', label: 'Guide: Stadt oder Land' },
+  city_maneuverability: { url: '/artikel/kinderwagen-stadt-oder-land', label: 'Guide: Stadt oder Land' },
+  long_term_flexibility: { url: '/artikel/kinderwagen-arten', label: 'Guide: Kinderwagen-Arten' }
+};
+
+function compromiseGuideLink(result) {
+  if (!result.compromise) return null;
+  const weakest = (result.evaluations ?? [])
+    .filter((evaluation) => typeof evaluation.value === 'number')
+    .sort((a, b) => a.value - b.value || b.weight - a.weight)[0];
+  const guide = weakest ? COMPROMISE_GUIDES[weakest.criterionId] : null;
+  if (!guide) return null;
+  const link = element('a', 'navigator-result-actions__guide', guide.label);
+  link.href = guide.url;
+  link.addEventListener('click', () => track('kompromiss_guide_geoeffnet', { kriterium: weakest.criterionId }));
+  return link;
+}
+
+function renderAccessoryPanel(top) {
+  const panel = element('aside', 'navigator-accessories');
+  panel.append(element('strong', 'navigator-accessories__title', 'Passendes Zubehör bei Amazon suchen'));
+  const list = element('div', 'navigator-accessories__links');
+  const amazonLink = (query, label) => {
+    const link = element('a', 'navigator-accessories__link', label);
+    link.href = `https://www.amazon.de/s?k=${encodeURIComponent(query)}&tag=kleinkindwelt-21`;
+    link.target = '_blank';
+    link.rel = 'noopener sponsored';
+    link.addEventListener('click', () => track('zubehoer_geoeffnet', { art: label, produkt: top.productId }));
+    return link;
+  };
+  list.append(amazonLink(`${top.brand} ${top.model} Babyschalen Adapter`, 'Babyschalen-Adapter'));
+  list.append(amazonLink('Sonnensegel Kinderwagen UV-Schutz', 'Sonnensegel'));
+  const rainCoverIncluded = productForResult(top)?.facts?.rainCoverIncluded?.value === true;
+  if (!rainCoverIncluded) list.append(amazonLink(`Regenschutz ${top.brand} ${top.model}`, 'Regenschutz'));
+  panel.append(list);
+  panel.append(element('p', 'navigator-accessories__note', 'Affiliate-Suchlinks zu Amazon – ohne Einfluss auf Match-Score und Reihenfolge. Passung des Zubehörs bitte vor dem Kauf prüfen.'));
+  return panel;
+}
+
+function renderReadMore() {
+  const panel = element('aside', 'navigator-readmore');
+  panel.append(element('strong', 'navigator-readmore__title', 'Weiterlesen zur Entscheidung'));
+  const list = element('div', 'navigator-readmore__links');
+  for (const [href, label] of [
+    ['/artikel/kinderwagen-arten', 'Kinderwagen-Arten im Überblick'],
+    ['/artikel/kinderwagen-gesamtpreis', 'Gesamtpreis verstehen'],
+    ['/artikel/kinderwagen-gebraucht-kaufen', 'Gebraucht kaufen: worauf achten']
+  ]) {
+    const link = element('a', 'navigator-readmore__link', label);
+    link.href = href;
+    list.append(link);
+  }
+  panel.append(list);
+  return panel;
+}
+
 function resultCard(result, rank, preliminary = false, fallback = false, badge = null) {
   const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}${fallback ? ' is-fallback' : ''}`);
   card.id = `navigator-result-${result.productId}`;
@@ -973,6 +1051,13 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
   for (const strength of comparisonStrengths(result, 2)) list.append(element('li', 'is-match', strength));
   if (result.compromise) list.append(element('li', 'is-compromise', `Wichtigster Abstrich: ${comparisonTradeoff(result)}`));
   card.append(list);
+
+  const actions = element('div', 'navigator-result-actions');
+  const manufacturer = manufacturerLink(result);
+  if (manufacturer) actions.append(manufacturer);
+  const guide = compromiseGuideLink(result);
+  if (guide) actions.append(guide);
+  if (actions.childElementCount) card.append(actions);
 
   if (!preliminary && !fallback) {
     const offers = offerSection(result, rank);
@@ -1233,7 +1318,12 @@ function renderResults() {
   if (comparison) wrap.append(comparison);
 
   const cards = element('div', 'navigator-live-results');
-  result.results.forEach((item, index) => cards.append(resultCard(item, index + 1, false, false, badges[index])));
+  result.results.forEach((item, index) => {
+    cards.append(resultCard(item, index + 1, false, false, badges[index]));
+    // E-Mail-Sicherung direkt nach dem Top-Match: Wert ist gezeigt,
+    // bevor Vergleichsdetails und Alternativen folgen.
+    if (index === 0) cards.append(renderEmailPanel(result));
+  });
   if (!result.results.length) result.closest.forEach((item, index) => cards.append(resultCard(item, index + 1, item.eligible, true)));
   wrap.append(cards);
 
@@ -1252,7 +1342,8 @@ function renderResults() {
 
   const note = element('p', 'navigator-result-disclaimer', 'Der Prozentwert ist eine Passung zu euren Angaben – keine Sicherheits-, Qualitäts- oder Testnote. Produktdaten und Verfügbarkeit vor dem Kauf beim Anbieter prüfen.');
   wrap.append(note);
-  if (result.results.length) wrap.append(renderEmailPanel(result));
+  if (result.results.length) wrap.append(renderAccessoryPanel(result.results[0]));
+  wrap.append(renderReadMore());
   const feedback = element('div', 'navigator-feedback');
   feedback.append(element('strong', '', 'War dieses Ergebnis hilfreich?'));
   const feedbackActions = element('div', 'navigator-feedback__actions');

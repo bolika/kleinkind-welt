@@ -66,6 +66,8 @@ function liftWeightFor(product, liftUnit) {
     const combined = combinedWeight(product, 'carrycotWeightKg');
     if (combined) return combined;
   }
+  if (liftUnit === 'carrycot_only') return isKnown(fact(product, 'carrycotWeightKg')) ? fact(product, 'carrycotWeightKg') : null;
+  if (liftUnit === 'seat_only') return isKnown(fact(product, 'seatWeightKg')) ? fact(product, 'seatWeightKg') : null;
   const documentedConfiguration = fact(product, 'liftReadyConfiguration');
   const documentedWeight = fact(product, 'liftReadyWeightKg');
   return documentedConfiguration?.value === liftUnit && isKnown(documentedWeight) ? documentedWeight : null;
@@ -75,7 +77,9 @@ function liftUnitLabel(liftUnit) {
   return {
     frame_only: 'Gestell',
     frame_with_seat: 'Gestell mit Sitzeinheit',
-    frame_with_carrycot: 'Gestell mit Babywanne'
+    frame_with_carrycot: 'Gestell mit Babywanne',
+    carrycot_only: 'Babywanne (ohne Gestell)',
+    seat_only: 'Sitzeinheit (ohne Gestell)'
   }[liftUnit] ?? 'gewählte Trageeinheit';
 }
 

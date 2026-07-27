@@ -44,6 +44,8 @@
         { "value": "frame_only", "label": "Nur das Gestell" },
         { "value": "frame_with_seat", "label": "Gestell mit Sitzeinheit" },
         { "value": "frame_with_carrycot", "label": "Gestell mit Babywanne" },
+        { "value": "carrycot_only", "label": "Nur die Babywanne · Wagen bleibt stehen" },
+        { "value": "seat_only", "label": "Nur die Sitzeinheit · Wagen bleibt stehen" },
         { "value": "unknown", "label": "Noch nicht sicher" }
       ]
     },

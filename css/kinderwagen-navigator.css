@@ -2534,3 +2534,125 @@
     width: 100%;
   }
 }
+
+/* ── Anschluss-Wege pro Ergebnis-Karte ── */
+.navigator-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 14px 0 4px;
+}
+
+.navigator-result-actions__manufacturer {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--r-sm, 8px);
+  background: var(--primary-dark);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background var(--motion-fast, 0.15s ease);
+}
+
+.navigator-result-actions__manufacturer:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.navigator-result-actions__guide {
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Zubehoer-Upsell (Amazon-Suchlinks) ── */
+.navigator-accessories {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md, 14px);
+  background: var(--white);
+}
+
+.navigator-accessories__title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.navigator-accessories__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navigator-accessories__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill, 999px);
+  background: var(--bg);
+  color: var(--primary-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color var(--motion-fast, 0.15s ease), background var(--motion-fast, 0.15s ease);
+}
+
+.navigator-accessories__link:hover {
+  border-color: var(--primary);
+  background: var(--white);
+}
+
+.navigator-accessories__note {
+  margin: 10px 0 0;
+  color: var(--text-light);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+/* ── Weiterlesen-Block ── */
+.navigator-readmore {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-md, 14px);
+}
+
+.navigator-readmore__title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.navigator-readmore__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.navigator-readmore__link {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .navigator-result-actions__manufacturer {
+    width: 100%;
+    justify-content: center;
+  }
+}
