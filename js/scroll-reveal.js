@@ -12,6 +12,8 @@
 
   document.documentElement.classList.add('reveal-init');
 
+  // Frueh triggern (240px bevor die Sektion sichtbar wird), damit beim
+  // Scrollen nie eine scheinbar leere Flaeche entsteht.
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -19,12 +21,25 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  }, { rootMargin: '0px 0px 240px 0px', threshold: 0 });
 
+  var pending = [];
   targets.forEach(function (el, i) {
     // Erste Sektion (Hero) nie verzoegern: sofort sichtbar.
     if (i === 0) return;
     el.classList.add('reveal');
+    pending.push(el);
     observer.observe(el);
   });
+
+  // Sicherheitsnetz: Nach 3s alles aufdecken, falls der Observer auf
+  // einem Geraet nicht wie erwartet feuert.
+  setTimeout(function () {
+    pending.forEach(function (el) {
+      if (!el.classList.contains('reveal-visible')) {
+        el.classList.add('reveal-visible');
+        observer.unobserve(el);
+      }
+    });
+  }, 3000);
 })();
