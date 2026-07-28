@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "modelVersion": "0.1.0",
-  "flowVersion": "0.3.0",
+  "flowVersion": "0.4.0",
   "designRules": {
     "oneQuestionPerScreen": true,
     "showBackButton": true,
@@ -11,8 +11,43 @@
   },
   "questions": [
     {
-      "id": "daily_context",
+      "id": "search_goal",
       "order": 0,
+      "type": "single_choice",
+      "required": true,
+      "prompt": "Welche Art Kinderwagen sucht ihr?",
+      "help": "Für nicht unterstützte Arten sagen wir es offen statt ein unpassendes Ranking zu zeigen.",
+      "options": [
+        {
+          "value": "first_combo_from_birth",
+          "label": "Kombi-Kinderwagen ab Geburt",
+          "hint": "Babywanne und Sitzeinheit"
+        },
+        {
+          "value": "travel_buggy",
+          "label": "Reisebuggy",
+          "hint": "leicht, klein faltbar, für Flug und Urlaub"
+        },
+        {
+          "value": "buggy",
+          "label": "Buggy ohne Liegefunktion",
+          "hint": "für Kinder, die schon sicher sitzen"
+        },
+        {
+          "value": "siblings_twins",
+          "label": "Geschwister- oder Zwillingswagen",
+          "hint": "zwei Kinder gleichzeitig"
+        },
+        {
+          "value": "unsure",
+          "label": "Noch unsicher",
+          "hint": "wir helfen bei der Einordnung"
+        }
+      ]
+    },
+    {
+      "id": "daily_context",
+      "order": 1,
       "type": "multi_choice",
       "required": true,
       "prompt": "Was prägt euren Alltag mit dem Kinderwagen?",
@@ -20,85 +55,219 @@
       "validation": {
         "minimumSelections": 1,
         "maximumSelections": 3,
-        "exclusiveOptions": ["none_special"],
-        "exclusiveGroups": [["regular_car", "small_trunk"]]
+        "exclusiveOptions": [
+          "none_special"
+        ],
+        "exclusiveGroups": [
+          [
+            "regular_car",
+            "small_trunk"
+          ]
+        ]
       },
       "options": [
-        { "value": "regular_carrying", "label": "Treppen oder häufiges Tragen" },
-        { "value": "regular_car", "label": "Regelmäßig im Auto · Platz eher okay" },
-        { "value": "small_trunk", "label": "Regelmäßig im Auto · Platz eher knapp" },
-        { "value": "regular_transit", "label": "Oft mit Bus und Bahn" },
-        { "value": "tight_access", "label": "Schmaler Aufzug oder enge Tür" },
-        { "value": "none_special", "label": "Nichts davon ist besonders wichtig" }
+        {
+          "value": "regular_carrying",
+          "label": "Treppen oder häufiges Tragen"
+        },
+        {
+          "value": "regular_car",
+          "label": "Regelmäßig im Auto · Platz eher okay"
+        },
+        {
+          "value": "small_trunk",
+          "label": "Regelmäßig im Auto · Platz eher knapp"
+        },
+        {
+          "value": "regular_transit",
+          "label": "Oft mit Bus und Bahn"
+        },
+        {
+          "value": "tight_access",
+          "label": "Schmaler Aufzug oder enge Tür"
+        },
+        {
+          "value": "none_special",
+          "label": "Nichts davon ist besonders wichtig"
+        }
       ]
     },
     {
       "id": "lift_unit",
-      "order": 1,
+      "order": 2,
       "type": "single_choice",
       "required": true,
       "prompt": "Was müsst ihr meistens tragen?",
       "help": "Damit vergleichen wir dieselbe Einheit. Ist es noch unklar, nutzen wir das dokumentierte Gewicht der alltagstypischen Konfiguration als vorsichtigen Proxy.",
-      "showWhen": { "questionId": "daily_context", "operator": "contains", "value": "regular_carrying" },
+      "showWhen": {
+        "questionId": "daily_context",
+        "operator": "contains",
+        "value": "regular_carrying"
+      },
       "options": [
-        { "value": "frame_only", "label": "Nur das Gestell" },
-        { "value": "frame_with_seat", "label": "Gestell mit Sitzeinheit" },
-        { "value": "frame_with_carrycot", "label": "Gestell mit Babywanne" },
-        { "value": "carrycot_only", "label": "Nur die Babywanne · Wagen bleibt stehen" },
-        { "value": "seat_only", "label": "Nur die Sitzeinheit · Wagen bleibt stehen" },
-        { "value": "unknown", "label": "Noch nicht sicher" }
+        {
+          "value": "frame_only",
+          "label": "Nur das Gestell"
+        },
+        {
+          "value": "frame_with_seat",
+          "label": "Gestell mit Sitzeinheit"
+        },
+        {
+          "value": "frame_with_carrycot",
+          "label": "Gestell mit Babywanne"
+        },
+        {
+          "value": "carrycot_only",
+          "label": "Nur die Babywanne · Wagen bleibt stehen"
+        },
+        {
+          "value": "seat_only",
+          "label": "Nur die Sitzeinheit · Wagen bleibt stehen"
+        },
+        {
+          "value": "unknown",
+          "label": "Noch nicht sicher"
+        }
       ]
     },
     {
       "id": "terrain",
-      "order": 2,
+      "order": 3,
       "type": "multi_choice",
       "required": true,
       "prompt": "Wo seid ihr regelmäßig unterwegs?",
       "help": "Wählt ein bis zwei typische Untergründe.",
-      "showWhen": { "questionId": "daily_context", "operator": "answered" },
-      "validation": { "minimumSelections": 1, "maximumSelections": 2 },
+      "showWhen": {
+        "questionId": "daily_context",
+        "operator": "answered"
+      },
+      "validation": {
+        "minimumSelections": 1,
+        "maximumSelections": 2
+      },
       "options": [
-        { "value": "smooth_city", "label": "Glatte Gehwege und Stadt" },
-        { "value": "cobblestone", "label": "Kopfsteinpflaster und schlechte Gehwege" },
-        { "value": "gravel_park", "label": "Schotter und Parkwege" },
-        { "value": "forest_field", "label": "Wald- und Feldwege" },
-        { "value": "mixed", "label": "Ein ausgewogener Mix" }
+        {
+          "value": "smooth_city",
+          "label": "Glatte Gehwege und Stadt"
+        },
+        {
+          "value": "cobblestone",
+          "label": "Kopfsteinpflaster und schlechte Gehwege"
+        },
+        {
+          "value": "gravel_park",
+          "label": "Schotter und Parkwege"
+        },
+        {
+          "value": "forest_field",
+          "label": "Wald- und Feldwege"
+        },
+        {
+          "value": "mixed",
+          "label": "Ein ausgewogener Mix"
+        }
       ]
     },
     {
       "id": "budget",
-      "order": 3,
+      "order": 4,
       "type": "budget",
       "required": true,
       "prompt": "Wie hoch ist euer Gesamtbudget?",
       "help": "Gemeint ist die benötigte Konfiguration inklusive Babywanne. Wählt direkt darunter, ob das Budget eine feste Grenze oder nur Orientierung ist.",
-      "showWhen": { "questionId": "terrain", "operator": "answered" },
-      "validation": { "currency": "EUR", "minimum": 300, "maximum": 2000, "step": 50, "suggested": 900 },
+      "showWhen": {
+        "questionId": "terrain",
+        "operator": "answered"
+      },
+      "validation": {
+        "currency": "EUR",
+        "minimum": 300,
+        "maximum": 2000,
+        "step": 50,
+        "suggested": 900
+      },
       "budgetModes": [
-        { "value": "strict", "label": "Feste Obergrenze" },
-        { "value": "orientation", "label": "Orientierung – gute Treffer darüber zeigen" }
+        {
+          "value": "strict",
+          "label": "Feste Obergrenze"
+        },
+        {
+          "value": "orientation",
+          "label": "Orientierung – gute Treffer darüber zeigen"
+        }
       ],
       "defaultBudgetMode": "strict",
-      "output": { "criterionId": "total_required_price", "field": "maximumBudgetEur" }
+      "output": {
+        "criterionId": "total_required_price",
+        "field": "maximumBudgetEur"
+      }
     },
     {
       "id": "top_priorities",
-      "order": 4,
+      "order": 5,
       "type": "multi_choice",
       "required": true,
       "prompt": "Welche zwei Eigenschaften entscheiden für euch?",
       "help": "Genau zwei. Alltag, Untergrund und Budget berücksichtigen wir bereits automatisch.",
-      "showWhen": { "questionId": "budget", "operator": "answered" },
-      "validation": { "minimumSelections": 2, "maximumSelections": 2 },
+      "showWhen": {
+        "questionId": "budget",
+        "operator": "answered"
+      },
+      "validation": {
+        "minimumSelections": 2,
+        "maximumSelections": 2
+      },
       "options": [
-        { "value": "easy_to_carry", "label": "Möglichst leicht zu tragen", "criteriaIds": ["frequent_carrying_fit"] },
-        { "value": "compact_in_car", "label": "Kompakt im Auto", "criteriaIds": ["car_transport_fit"] },
-        { "value": "easy_folding", "label": "Einfach zu falten", "criteriaIds": ["folding_convenience"] },
-        { "value": "storage", "label": "Viel gut nutzbarer Stauraum", "criteriaIds": ["storage_capacity"] },
-        { "value": "long_use", "label": "Flexibel über mehrere Nutzungsphasen", "criteriaIds": ["long_term_flexibility"] },
-        { "value": "service", "label": "Ersatzteile und Reparaturmöglichkeiten", "criteriaIds": ["repairability_service"] },
-        { "value": "weather", "label": "Guter Wetter- und Sonnenschutz", "criteriaIds": ["weather_protection"] }
+        {
+          "value": "easy_to_carry",
+          "label": "Möglichst leicht zu tragen",
+          "criteriaIds": [
+            "frequent_carrying_fit"
+          ]
+        },
+        {
+          "value": "compact_in_car",
+          "label": "Kompakt im Auto",
+          "criteriaIds": [
+            "car_transport_fit"
+          ]
+        },
+        {
+          "value": "easy_folding",
+          "label": "Einfach zu falten",
+          "criteriaIds": [
+            "folding_convenience"
+          ]
+        },
+        {
+          "value": "storage",
+          "label": "Viel gut nutzbarer Stauraum",
+          "criteriaIds": [
+            "storage_capacity"
+          ]
+        },
+        {
+          "value": "long_use",
+          "label": "Flexibel über mehrere Nutzungsphasen",
+          "criteriaIds": [
+            "long_term_flexibility"
+          ]
+        },
+        {
+          "value": "service",
+          "label": "Ersatzteile und Reparaturmöglichkeiten",
+          "criteriaIds": [
+            "repairability_service"
+          ]
+        },
+        {
+          "value": "weather",
+          "label": "Guter Wetter- und Sonnenschutz",
+          "criteriaIds": [
+            "weather_protection"
+          ]
+        }
       ]
     }
   ]

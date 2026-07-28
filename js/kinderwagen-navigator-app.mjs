@@ -1,14 +1,24 @@
-import { compromiseOptions, matchStrollers } from '/js/kinderwagen-matcher.mjs?v=20260727-phase1';
+import { compromiseOptions, matchStrollers, matcherInternals } from '/js/kinderwagen-matcher.mjs?v=20260728-typfrage';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs?v=20260723-3';
 import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-images';
 import { resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
-const BETA_SEARCH_GOAL = 'first_combo_from_birth';
 const app = document.querySelector('[data-navigator-app]');
 const affiliateDisclosure = document.querySelector('[data-navigator-affiliate-disclosure]');
+const betaNotice = document.querySelector('[data-navigator-beta-notice]');
 const loadStartedAt = performance.now();
 let mobileQuestionActionObserver = null;
+
+// Der Hinweis steht, sobald die Ergebnisansicht Partnerlinks zeigt – und nur dann, damit
+// der Finder auf Smartphones im ersten Viewport bleibt. Er darf nicht an der Angebotsliste
+// hängen: die Zubehörlinks zu Amazon erscheinen auch ohne Händlerangebote.
+// Umgekehrt der Beta-Hinweis: Er setzt vor dem Start eine Erwartung und ist im Ergebnis
+// überflüssig, weil die Art dort längst gewählt ist.
+function setAffiliateDisclosureVisible(visible) {
+  if (betaNotice) betaNotice.hidden = visible;
+  if (affiliateDisclosure) affiliateDisclosure.hidden = !visible;
+}
 
 function preferredScrollBehavior() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
@@ -19,8 +29,16 @@ function resetMobileQuestionAction() {
   mobileQuestionActionObserver = null;
 }
 
-function observeMobileQuestionAction(card, action) {
+// Der eingeblendete Button liegt fixiert am unteren Bildschirmrand und verdeckt dort auf
+// kleinen Geräten eine Antwortoption. Solange nichts gewählt ist, gibt es aber auch nichts
+// zu bestätigen — deshalb erscheint er erst mit der ersten gültigen Antwort. Das schafft im
+// ersten Viewport genau den Platz, der für eine vollständig sichtbare Option fehlte.
+function observeMobileQuestionAction(card, action, isReady) {
   resetMobileQuestionAction();
+  if (!isReady()) {
+    action.classList.remove('is-mobile-action-visible');
+    return;
+  }
   if (!('IntersectionObserver' in window)) {
     action.classList.add('is-mobile-action-visible');
     return;
@@ -32,7 +50,7 @@ function observeMobileQuestionAction(card, action) {
 }
 
 const state = {
-  answers: { search_goal: BETA_SEARCH_GOAL },
+  answers: {},
   skipped: new Set(),
   questions: [],
   flowVersion: '0.3.0',
@@ -153,6 +171,7 @@ function choiceControl(question, multi = false) {
     input.checked = multi ? (selected ?? []).includes(option.value) : selected === option.value;
     const marker = element('span', 'navigator-choice__marker');
     const copy = element('span', 'navigator-choice__copy', option.label);
+    if (option.hint) copy.append(element('span', 'navigator-choice__hint', option.hint));
     label.append(input);
     if (option.visual) {
       const visual = element('span', `navigator-choice__visual is-${option.visual}`);
@@ -342,6 +361,12 @@ function validate(question, value) {
 }
 
 function immediateRoute(question, value) {
+  // Die Typ-Weiche fällt sofort. Wer keinen Kombi-Kinderwagen sucht, soll das nach der
+  // ersten Frage erfahren und nicht erst nach fünf weiteren.
+  if (question.id === 'search_goal') {
+    const route = matcherInternals.routeFor({ search_goal: value });
+    return route === 'supported' ? null : route;
+  }
   if (question.id === 'children_count' && value === 'more_than_one') return 'unsupported_siblings';
   return null;
 }
@@ -457,13 +482,34 @@ function renderQuestion(questionId, options = {}) {
   next.dataset.mobileFixedAction = '';
   actions.append(next);
   form.append(actions);
+
+  // Auf Mobil liegt der Button über der Falz, die Optionen darunter. Ein aktiver Button
+  // lädt dort zum Tippen ein, bevor überhaupt etwas gewählt wurde — und antwortet mit
+  // einer Fehlermeldung. Deshalb bleibt er gesperrt, solange die Antwort ungültig ist.
+  // Der Zustand wird erst beim Absenden geschrieben, deshalb muss hier der aktuelle
+  // Formularwert gelesen werden und nicht state.answers.
+  // Bewusst `aria-disabled` statt `disabled`: Ein echtes disabled-Attribut nimmt den Button
+  // aus der Tabreihenfolge, dann finden Tastatur- und Screenreader-Nutzer ihn nicht mehr und
+  // erfahren nie, dass noch eine Antwort fehlt. So bleibt er auffindbar, sieht inaktiv aus,
+  // und ein Absenden erklärt über die bestehende Fehlermeldung, was fehlt.
+  const istGueltig = () => !validateQuestionValue(question, valuesFromInputs(question));
+  const syncNextState = () => {
+    next.setAttribute('aria-disabled', istGueltig() ? 'false' : 'true');
+    observeMobileQuestionAction(card, next, istGueltig);
+  };
+  form.addEventListener('input', syncNextState);
+  form.addEventListener('change', syncNextState);
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     saveAndContinue(question);
   });
   card.append(form);
+  setAffiliateDisclosureVisible(false);
   app.replaceChildren(card);
-  observeMobileQuestionAction(card, next);
+  // Erst nach dem Einhängen ins Dokument, damit valuesFromInputs() die Felder findet:
+  // Beim Zurückgehen ist die Frage bereits beantwortet, dann steht der Button sofort.
+  syncNextState();
   if (shouldFocus) {
     title.tabIndex = -1;
     title.focus({ preventScroll: true });
@@ -508,6 +554,7 @@ function renderSummary() {
   calculate.addEventListener('click', renderResults);
   actions.append(back, calculate);
   card.append(actions);
+  setAffiliateDisclosureVisible(false);
   app.replaceChildren(card);
   track('zusammenfassung_angesehen', { fragen: String(Object.keys(state.answers).length) });
   app.scrollIntoView({ behavior: preferredScrollBehavior(), block: 'start' });
@@ -524,12 +571,118 @@ function renderUnsupported(route) {
   const card = element('div', 'navigator-app-card navigator-route-card');
   card.append(element('span', 'navigator-card-kicker', 'Ehrliche Grenze des Piloten'));
   card.append(element('h2', '', copy[0]), element('p', 'navigator-question-help', copy[1]));
-  const restart = element('button', 'navigator-primary-button', 'Zum unterstützten Finder');
+  const segment = ROUTE_SEGMENTS[route];
+  if (segment) card.append(renderWaitlistPanel(segment, route));
+  const restart = element('button', 'navigator-secondary-button', 'Zum unterstützten Finder');
   restart.type = 'button';
   restart.addEventListener('click', restartNavigator);
   card.append(restart);
+  setAffiliateDisclosureVisible(false);
   app.replaceChildren(card);
   track('route_nicht_unterstuetzt', { route });
+}
+
+const ROUTE_SEGMENTS = {
+  unsupported_travel_buggy: 'travel_buggy',
+  unsupported_buggy: 'buggy',
+  unsupported_siblings: 'siblings_twins',
+  scope_help: 'unsure'
+};
+
+// Wer hier landet, hat eine klare Kaufabsicht, für die wir noch keine Daten haben.
+// Statt ihn wegzuschicken, fragen wir nach der Adresse und messen so gleichzeitig,
+// welches Segment wir als Nächstes aufbauen sollten.
+function renderWaitlistPanel(segment, route) {
+  const panel = element('section', 'navigator-email navigator-waitlist');
+  panel.setAttribute('aria-label', 'Auf die Warteliste');
+  panel.append(element('strong', 'navigator-email__title', 'Sollen wir Bescheid geben, sobald dieser Vergleich steht?'));
+  panel.append(element('p', 'navigator-email__copy', 'Eine einzige E-Mail, wenn dieses Segment mit belastbaren Daten online geht. Eure Auswahl zählt außerdem als Stimme dafür, was wir als Nächstes aufbauen.'));
+
+  const form = element('form', 'navigator-email__form');
+  const input = element('input', 'navigator-email__input');
+  input.type = 'email';
+  input.name = 'email';
+  input.required = true;
+  input.autocomplete = 'email';
+  input.placeholder = 'deine@email.de';
+  input.setAttribute('aria-label', 'E-Mail-Adresse');
+
+  const honeypot = element('input', 'navigator-email__honeypot');
+  honeypot.type = 'text';
+  honeypot.name = 'website';
+  honeypot.tabIndex = -1;
+  honeypot.autocomplete = 'off';
+  honeypot.setAttribute('aria-hidden', 'true');
+
+  const submit = element('button', 'navigator-primary-button navigator-email__submit', 'Auf die Warteliste');
+  submit.type = 'submit';
+  form.append(input, honeypot, submit);
+
+  const consentLabel = element('label', 'navigator-waitlist__consent');
+  const consent = document.createElement('input');
+  consent.type = 'checkbox';
+  consent.name = 'consent';
+  consent.required = true;
+  consentLabel.append(consent, element('span', '', 'Ich möchte einmalig informiert werden, wenn dieser Vergleich verfügbar ist.'));
+
+  const status = element('p', 'navigator-email__status');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.hidden = true;
+
+  const privacy = element('p', 'navigator-email__note', 'Bestätigung per Double-Opt-In, jederzeit widerrufbar. Details in der ');
+  const privacyLink = element('a', '', 'Datenschutzerklärung');
+  privacyLink.href = '/datenschutz';
+  privacy.append(privacyLink, document.createTextNode('.'));
+
+  panel.append(form, consentLabel, status, privacy);
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!consent.checked) {
+      status.hidden = false;
+      status.classList.add('is-error');
+      status.textContent = 'Bitte bestätigt die Einwilligung.';
+      return;
+    }
+    submit.disabled = true;
+    submit.textContent = 'Wird gesendet …';
+    status.hidden = true;
+    status.classList.remove('is-error');
+    try {
+      const response = await fetch('/api/navigator-waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: input.value.trim(),
+          segment,
+          consent: true,
+          website: honeypot.value
+        })
+      });
+      const data = await response.json().catch(() => ({}));
+      status.hidden = false;
+      if (response.ok && data.ok) {
+        status.textContent = data.message || 'Fast geschafft: Bitte bestätigt die Anmeldung in der E-Mail.';
+        form.remove();
+        consentLabel.remove();
+        track('warteliste_eingetragen', { segment, route });
+      } else {
+        status.classList.add('is-error');
+        status.textContent = data.message || 'Das hat gerade nicht funktioniert. Bitte später erneut versuchen.';
+        submit.disabled = false;
+        submit.textContent = 'Auf die Warteliste';
+      }
+    } catch (error) {
+      status.hidden = false;
+      status.classList.add('is-error');
+      status.textContent = 'Das hat gerade nicht funktioniert. Bitte später erneut versuchen.';
+      submit.disabled = false;
+      submit.textContent = 'Auf die Warteliste';
+    }
+  });
+
+  return panel;
 }
 
 function formatPrice(value) {
@@ -1413,6 +1566,7 @@ function renderResults() {
   }
   actions.append(change, restart);
   wrap.append(actions);
+  setAffiliateDisclosureVisible(true);
   app.replaceChildren(wrap);
   observeOfferImpressions(wrap);
   observeResultImpressions(wrap);
@@ -1431,7 +1585,7 @@ function renderResults() {
 }
 
 function restartNavigator() {
-  state.answers = { search_goal: BETA_SEARCH_GOAL };
+  state.answers = {};
   state.skipped = new Set();
   state.acceptedCompromises = [];
   state.started = true;
@@ -1456,9 +1610,6 @@ async function loadData() {
   state.products = products;
   state.offers = offerData.offers ?? [];
   state.mediaAssets = mediaData.assets ?? [];
-  if (affiliateDisclosure && state.offers.length > 0) {
-    affiliateDisclosure.hidden = false;
-  }
   document.querySelectorAll('[data-navigator-model-count]').forEach((node) => {
     node.textContent = String(products.length);
   });
