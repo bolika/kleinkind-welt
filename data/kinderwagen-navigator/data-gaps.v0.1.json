@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-07-23",
+  "checkedAt": "2026-07-28",
   "policy": {
     "missingCriticalFactsMustBeTracked": true,
     "inferenceFromFoldedDimensionsForbidden": true,
@@ -61,6 +61,249 @@
       "nextReviewAt": "2026-08-23",
       "reason": "Die offizielle Seite nennt 55 cm nur als Faltbreite mit Rädern. Eine ungefaltete Gesamtbreite ist nicht eindeutig veröffentlicht.",
       "resolution": "Aktualisierte technische Daten prüfen oder die ungefaltete Gesamtbreite schriftlich beim Hersteller erfragen."
+    },
+    {
+      "productId": "abc-design-salsa-5-air",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.abc-design.de/kombi-kinderwagen-salsa-5-air-coal",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "abc-design-samba-2",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.abc-design.de/kombi-kinderwagen-samba-2-pine",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "cybex-balios-s-lux-current",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.cybex-online.com/de/de/p/10109665.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "cybex-mios-current",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.cybex-online.com/de/de/p/st-pl-mios-5.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "joie-versatrax-2024",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://joiebaby.com/de/versatrax-kombi-kinderwagen-2024",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "joolz-hub2",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.joolz.com/de/de/schwarze-kinderwagen/100001.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "joolz-hub2",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://www.joolz.com/de/de/schwarze-kinderwagen/100001.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-esme-2in1",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/esme-2w1?color=grau",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-esme-2in1",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/esme-2w1?color=grau",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-nea-2",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/nea-2",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-prime-3-2in1",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/prime-3-2w1?color=schwarz",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-prime-3-2in1",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/prime-3-2w1?color=schwarz",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "kinderkraft-yoxi-2in1",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/yoxi-2in1?color=schwarz",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät.",
+      "researchNote": "Recherche 2026-07-28: Die Herstellerseite formuliert \"YOXI wird auch mit einem Handgriff zusammengelegt\". Im Deutschen bezeichnet \"ein Handgriff\" eine einzelne Handbewegung und nicht zwingend die Bedienung mit einer Hand. Nicht als Einhandfaltung verwertbar."
+    },
+    {
+      "productId": "kinderkraft-yoxi-2in1",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://kinderkraft.de/produkte/yoxi-2in1?color=schwarz",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-liyo",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/1010-my-junior-kinderwagen-liyo.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät.",
+      "researchNote": "Recherche 2026-07-28: Auch die Bedienungsanleitung (User-Manual-LIYO.pdf, deutscher Abschnitt ab S. 18) beschreibt den Faltvorgang nur über Warnhinweise und Illustrationen und nennt keine Einhandbedienung."
+    },
+    {
+      "productId": "my-junior-liyo",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/1010-my-junior-kinderwagen-liyo.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-mavi",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/984-my-junior-mavi.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-miyo2",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/944-my-junior-miyo2-kinderwagen.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-miyo2",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/944-my-junior-miyo2-kinderwagen.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-noax",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/910-my-junior-noax.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät.",
+      "researchNote": "Recherche 2026-07-28: Die Herstellerseite nennt \"Sekundenschnelles Zusammenklappen\" und \"mühelos mitsamt Sportsitz klappen\". Beides sagt nichts über die Zahl der benötigten Hände."
+    },
+    {
+      "productId": "my-junior-noax",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/910-my-junior-noax.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-vigo",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/897-my-junior-vigo.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-vita-unique3",
+      "field": "oneHandFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/931-my-junior-vita-unique3.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt keine Einhandbedienung des Faltvorgangs. Formulierungen wie \"mit einem Handgriff\" oder \"sekundenschnell\" sind nicht eindeutig auf eine Hand bezogen und dürfen nicht als Einhandfaltung gewertet werden.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob der Faltvorgang mit einer Hand ausgeführt werden kann, oder eigene dokumentierte Prüfung am Gerät."
+    },
+    {
+      "productId": "my-junior-vita-unique3",
+      "field": "selfStandingFold",
+      "status": "manufacturer_confirmation_required",
+      "officialSourceUrl": "https://my-junior.com/de/kinderwagen/931-my-junior-vita-unique3.html",
+      "sourceCheckedAt": "2026-07-28",
+      "nextReviewAt": "2026-08-28",
+      "reason": "Die offizielle Produktdokumentation belegt nicht, ob das gefaltete Gestell selbstständig steht.",
+      "resolution": "Schriftliche Herstellerbestätigung einholen, ob das gefaltete Gestell frei stehend bleibt, oder eigene dokumentierte Prüfung am Gerät."
     }
   ]
 }
