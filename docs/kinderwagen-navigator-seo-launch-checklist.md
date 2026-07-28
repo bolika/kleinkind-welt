@@ -27,6 +27,30 @@ Der finale Release-Check schlägt bei einem offenen Gate absichtlich fehl:
 node tools/kinderwagen-index-readiness.mjs --strict
 ```
 
+## Stand des Gates `keyboardAndSmallScreenTest`
+
+Der Tastatur- und Smartphone-Anteil ist seit 28.07.2026 automatisiert und grün, geprüft in
+Chromium, Firefox und WebKit:
+
+```bash
+python3 -m http.server 8765        # in einem zweiten Terminal
+npx playwright test e2e/navigator-keyboard-mobile.spec.ts
+```
+
+Abgedeckt ist: kompletter Kernpfad bis zum Ergebnis rein per Tabulator und Enter bei
+390 px Breite, Fokusübergabe an die jeweils neue Frage, kein horizontales Scrollen, keine
+JavaScript-Fehler, Fokussierbarkeit und Tastaturauslösung aller Bedienelemente sowie
+Kennzeichnung und Partner-ID aller Amazon-Links im Ergebnis.
+
+Der Tab-Reihenfolge-Test wird in WebKit übersprungen. Safari bewegt den Fokus per Tabulator
+voreingestellt auf kein Element, auch nicht auf Links oder Buttons. Das ist eine
+Browsereinstellung und kein Mangel der Seite; die Bedienbarkeit bei gesetztem Fokus wird in
+WebKit separat geprüft und ist grün.
+
+Das Gate bleibt trotzdem `partial`: **Der Screenreader-Kernpfad ist nicht getestet.** Er
+lässt sich nicht sinnvoll automatisieren und braucht einen manuellen Durchlauf mit VoiceOver
+oder TalkBack.
+
 ## Erst nach fachlicher Freigabe
 
 1. `noindex,follow` entfernen.
