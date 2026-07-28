@@ -89,10 +89,19 @@ exports.handler = async (event) => {
 
   // Bewusst nach der Validierung: Auch ohne fertige Brevo-Einrichtung bleibt die
   // Fehlermeldung ehrlich, statt eine Anmeldung vorzutäuschen.
-  if (!apiKey || !Number.isInteger(listId) || !Number.isInteger(templateId)) {
+  const fehlend = [];
+  if (!apiKey) fehlend.push('BREVO_API_KEY');
+  if (!Number.isInteger(listId)) fehlend.push('BREVO_WAITLIST_LIST_ID');
+  if (!Number.isInteger(templateId)) fehlend.push('BREVO_WAITLIST_DOI_TEMPLATE_ID');
+
+  if (fehlend.length) {
+    // Nur die Namen, niemals die Werte. Ohne diese Liste bleibt bei der Einrichtung
+    // unklar, welche der drei Variablen fehlt oder keine ganze Zahl ist.
+    console.error('Warteliste nicht konfiguriert. Fehlend oder ungueltig:', fehlend.join(', '));
     return json(503, {
       ok: false,
       message: 'Die Warteliste ist technisch noch nicht fertig eingerichtet. Bitte versuche es später erneut.',
+      fehlendeKonfiguration: fehlend,
     });
   }
 
