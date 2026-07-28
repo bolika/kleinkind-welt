@@ -48,9 +48,16 @@
 <main id="main-content">
   <section class="newsletter-confirmation" id="download">
     <div class="newsletter-confirmation-copy">
-      <span class="newsletter-label">Newsletter bestätigt</span>
-      <h1>Schön, dass du dabei bist.</h1>
+      <span class="newsletter-label" data-confirmation-label>Newsletter bestätigt</span>
+      <h1 data-confirmation-title>Schön, dass du dabei bist.</h1>
       <p data-confirmation-intro>Deine Anmeldung ist bestätigt. Ab jetzt bekommst du passende Spielideen und Kaufhilfen von Kleinkind-Welt.</p>
+    </div>
+
+    <div class="download-card" data-warteliste-card hidden>
+      <span class="download-card-kicker">Was jetzt passiert</span>
+      <h2>Eine einzige E-Mail, wenn es soweit ist</h2>
+      <p>Wir melden uns genau einmal — sobald wir diesen Kinderwagen-Typ mit belegten Daten vergleichen können. Kein Newsletter, keine Zwischenmeldungen. Deine Auswahl zählt außerdem als Stimme dafür, welches Segment wir als Nächstes aufbauen.</p>
+      <p class="download-note">Jedes Segment braucht eigene Kriterien: Beim Reisebuggy entscheiden Handgepäckmaß und Faltmechanik, beim Geschwisterwagen Breite und Sitzkombinationen. Diese Merkmale in unser Kombi-Ranking zu mischen würde eine Vergleichbarkeit vortäuschen, die es nicht gibt.</p>
     </div>
 
     <div class="download-card" data-freebie-card>
@@ -65,7 +72,7 @@
       <p class="download-note" data-freebie-note>In den nächsten Tagen bekommst du außerdem weitere passende Tipps per E-Mail.</p>
     </div>
 
-    <div class="download-next">
+    <div class="download-next" data-standard-next>
       <h2>Danach sinnvoll weiterstöbern</h2>
       <div class="download-next-grid">
         <a href="/spielzeug-nach-alter">
@@ -79,6 +86,24 @@
         <a href="/ueber-uns">
           <strong>Über Kleinkind-Welt</strong>
           <span>Warum wir Empfehlungen bewusst vorsichtig formulieren.</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="download-next" data-warteliste-next hidden>
+      <h2>Bis dahin vielleicht schon nützlich</h2>
+      <div class="download-next-grid">
+        <a href="/artikel/kinderwagen-arten">
+          <strong>Kinderwagen-Arten im Überblick</strong>
+          <span>Was Kombi, Buggy, Reisebuggy und Geschwisterwagen unterscheidet.</span>
+        </a>
+        <a href="/artikel/kinderwagen-kofferraum">
+          <strong>Passt er ins Auto?</strong>
+          <span>Faltmaße von 20 Modellen und zehn Kofferräumen im Vergleich.</span>
+        </a>
+        <a href="/artikel/kinderwagen-gesamtpreis">
+          <strong>Was er wirklich kostet</strong>
+          <span>Preise ab Geburt von 179 bis 1299 Euro — und was enthalten ist.</span>
         </a>
       </div>
     </div>
@@ -192,6 +217,34 @@
     };
 
     var params = new URLSearchParams(window.location.search);
+
+    // Wartelisten-Bestaetigung: eigener Pfad, weil dieselbe Seite als Ziel des
+    // Double-Opt-In dient. Ohne diese Weiche laese ein Wartelisten-Bestaetiger
+    // "Newsletter bestaetigt", was er nie abonniert hat.
+    if (params.get('warteliste')) {
+      var wlLabel = document.querySelector('[data-confirmation-label]');
+      var wlTitle = document.querySelector('[data-confirmation-title]');
+      var wlIntro = document.querySelector('[data-confirmation-intro]');
+      if (wlLabel) wlLabel.textContent = 'Warteliste bestätigt';
+      if (wlTitle) wlTitle.textContent = 'Du stehst auf der Liste.';
+      if (wlIntro) wlIntro.textContent = 'Deine Anmeldung ist bestätigt. Du bekommst eine Nachricht, sobald wir diesen Kinderwagen-Typ belastbar vergleichen können.';
+      document.title = 'Warteliste bestätigt | Kleinkind-Welt';
+
+      var wlCard = document.querySelector('[data-warteliste-card]');
+      var fbCard = document.querySelector('[data-freebie-card]');
+      var wlNext = document.querySelector('[data-warteliste-next]');
+      var stdNext = document.querySelector('[data-standard-next]');
+      if (wlCard) wlCard.hidden = false;
+      if (fbCard) fbCard.hidden = true;
+      if (wlNext) wlNext.hidden = false;
+      if (stdNext) stdNext.hidden = true;
+
+      if (window.plausible) {
+        plausible('Warteliste bestätigt');
+      }
+      return;
+    }
+
     var freebieKey = params.get('freebie');
     var ageInterest = params.get('alter');
     var data = freebies[freebieKey];
