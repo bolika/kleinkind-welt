@@ -96,24 +96,41 @@ exports.handler = async (event) => {
     });
   }
 
+  const anmelden = (mitAttribut) => fetch(BREVO_DOI_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'api-key': apiKey,
+    },
+    body: JSON.stringify({
+      email,
+      includeListIds: [listId],
+      templateId,
+      redirectionUrl,
+      ...(mitAttribut
+        ? { attributes: { [segmentAttribute]: segmentLabels[segment] || segment } }
+        : {}),
+    }),
+  });
+
   try {
-    const response = await fetch(BREVO_DOI_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'api-key': apiKey,
-      },
-      body: JSON.stringify({
-        email,
-        includeListIds: [listId],
-        templateId,
-        redirectionUrl,
-        attributes: {
-          [segmentAttribute]: segmentLabels[segment] || segment,
-        },
-      }),
-    });
+    let response = await anmelden(true);
+
+    // Existiert das Segment-Attribut in Brevo nicht, lehnt die API den ganzen Aufruf ab.
+    // Dann lieber ohne Attribut anmelden als den Lead verlieren — welches Segment gefragt
+    // war, steht dann nur im Funktionslog statt am Kontakt.
+    if (response.status === 400) {
+      const detail = await response.text().catch(() => '');
+      console.error('Brevo waitlist: Anmeldung mit Attribut abgelehnt, versuche ohne.', detail);
+      response = await anmelden(false);
+      if (response.ok) {
+        console.warn(
+          `Brevo waitlist: Kontakt ohne Segment-Attribut angelegt. Segment war "${segment}". `
+          + `Attribut "${segmentAttribute}" in Brevo als Textfeld anlegen.`
+        );
+      }
+    }
 
     if (!response.ok) {
       let detail = '';
