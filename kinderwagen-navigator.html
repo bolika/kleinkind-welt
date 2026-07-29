@@ -15,9 +15,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css?v=20260727-scrollfix">
-  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260728-mobilefix4">
+  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260729-cls">
   <link rel="canonical" href="https://kleinkind-welt.de/kinderwagen-navigator">
+  <!-- Die App rendert die erste Frage erst, wenn ALLE fuenf Dateien da sind
+       (Promise.all in kinderwagen-navigator-app.mjs). Ohne Preload starten die
+       vier weiteren Requests erst, nachdem das Modul ausgefuehrt wurde — das
+       war die eigentliche Ursache des Layout-Shifts, nicht die Kartenhoehe. -->
+  <link rel="preload" href="/data/kinderwagen-navigator/questions.v0.1.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/data/kinderwagen-navigator/criteria.v0.1.json" as="fetch" crossorigin="anonymous">
   <link rel="preload" href="/data/kinderwagen-navigator/catalog.bundle.v0.1.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/data/kinderwagen-navigator/offers.v0.1.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/data/kinderwagen-navigator/media.v0.1.json" as="fetch" crossorigin="anonymous">
+  <!-- Die vier Module werden erst entdeckt, wenn app.mjs geparst ist. Der
+       modulepreload laedt sie parallel zum Hauptmodul statt danach. Die
+       Query-Strings muessen identisch zu den Imports sein, sonst laedt der
+       Browser zweimal. -->
+  <link rel="modulepreload" href="/js/kinderwagen-matcher.mjs?v=20260728-typfrage">
+  <link rel="modulepreload" href="/js/kinderwagen-question-flow.mjs?v=20260723-3">
+  <link rel="modulepreload" href="/js/kinderwagen-offers.mjs?v=20260723-images">
+  <link rel="modulepreload" href="/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <link rel="alternate" hreflang="x-default" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <meta property="og:type" content="website">
@@ -252,7 +268,7 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo logo-footer"><img src="/images/logo-mark.svg" alt="Kleinkind-Welt" class="logo-mark-img" width="40" height="40"></a>
+        <a href="/" class="logo logo-footer"><img src="/images/logo-mark.svg" alt="Kleinkind-Welt" class="logo-mark-img" width="40" height="40" loading="lazy"></a>
         <p>Nachvollziehbare Kaufhilfen für Familien mit Babys und Kleinkindern.</p>
       </div>
       <div>

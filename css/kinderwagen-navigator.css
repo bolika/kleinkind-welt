@@ -721,9 +721,33 @@
   box-shadow: 0 16px 38px rgba(32, 58, 73, 0.13);
 }
 
+/* Die Ladekarte reserviert die Hoehe, die die erste Fragekarte danach
+   einnimmt. Ohne diesen Platzhalter springt der Inhalt unter dem Finder um
+   400 bis 640 px nach unten, sobald die fuenf JSON-Dateien geladen sind
+   (gemessene CLS 0,455 auf 390 px Breite).
+
+   Die Werte sind bewusst das gemessene MINIMUM des jeweiligen Bereichs, nicht
+   der Mittelwert: Waechst die Karte, verschiebt sich nur der Rest nach unten.
+   Wuerde die reservierte Hoehe die echte uebersteigen, schrumpfte die Karte
+   beim Austausch — und das zaehlt genauso als Layout-Shift. */
 .navigator-loading-card {
+  display: grid;
+  place-items: center;
+  min-height: 670px;
   color: var(--text-light);
   text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .navigator-loading-card { min-height: 570px; }
+}
+
+@media (max-width: 599px) {
+  .navigator-loading-card { min-height: 765px; }
+}
+
+@media (max-width: 389px) {
+  .navigator-loading-card { min-height: 800px; }
 }
 
 .navigator-app-card h2,

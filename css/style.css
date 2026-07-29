@@ -2719,6 +2719,7 @@ footer ul a:hover { color: white; }
   margin: 28px 0;
 }
 
+.so-waehlen-wir-box h2,
 .so-waehlen-wir-box h3,
 .so-waehlen-wir-box h4 {
   font-size: 0.8rem;
@@ -3472,6 +3473,7 @@ footer ul a:hover { color: white; }
   box-shadow: var(--shadow-sm);
 }
 
+.methodenbox h2,
 .methodenbox h3,
 .methodenbox h4 {
   margin: 0 0 10px 0;
@@ -3527,6 +3529,7 @@ footer ul a:hover { color: white; }
   text-transform: uppercase;
 }
 
+.entscheidungshilfe-box h2,
 .entscheidungshilfe-box h3 {
   margin: 0 0 10px;
   font-size: 1.12rem;
@@ -3590,6 +3593,7 @@ footer ul a:hover { color: white; }
   text-transform: uppercase;
 }
 
+.schnellentscheidung-box h2,
 .schnellentscheidung-box h3 {
   margin: 0 0 14px;
   font-size: 1.12rem;
@@ -4360,6 +4364,7 @@ footer ul a:hover { color: white; }
   text-transform: uppercase;
 }
 
+.bonus-cta h2,
 .bonus-cta h3 {
   margin: 0 0 8px;
   font-size: 1.15rem;
@@ -4578,6 +4583,7 @@ footer ul a:hover { color: white; }
   font-size: 0.88rem;
 }
 
+.quellenbox h2,
 .quellenbox h4,
 .quellenbox h3 {
   margin: 0 0 10px 0;
@@ -5017,6 +5023,77 @@ footer ul a:hover { color: white; }
   background: var(--white);
   color: var(--text-light);
   line-height: 1.5;
+}
+
+/* Vier Bedingungen und sechs Datenbefunde auf dem Kinderwagen-Hub.
+   Uebernimmt Karten-Optik und Abstaende von .kinderwagen-principles li,
+   ergaenzt aber eine sichtbare Nummerierung fuer die Bedingungen. */
+.kinderwagen-bedingungen,
+.kinderwagen-befunde {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 26px;
+  padding: 0;
+  list-style: none;
+  counter-reset: bedingung;
+}
+
+.kinderwagen-bedingungen > li,
+.kinderwagen-befunde > li {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--white);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.kinderwagen-bedingungen > li {
+  counter-increment: bedingung;
+  padding-left: 58px;
+  position: relative;
+}
+
+.kinderwagen-bedingungen > li::before {
+  content: counter(bedingung);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.kinderwagen-bedingungen > li > strong,
+.kinderwagen-befunde > li > strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.kinderwagen-befunde > li > strong {
+  display: inline;
+}
+
+.kinderwagen-bedingungen > li > p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .kinderwagen-bedingungen > li {
+    padding: 16px 16px 16px 52px;
+  }
+
+  .kinderwagen-bedingungen > li::before {
+    top: 16px;
+    left: 15px;
+  }
 }
 
 .kinderwagen-final-cta {

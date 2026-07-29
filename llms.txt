@@ -4,7 +4,7 @@
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-23
+last-updated: 2026-07-29
 
 ## Über diese Seite
 
@@ -16,13 +16,26 @@ last-updated: 2026-07-23
 
 ## Kinderwagen
 
-- [Kinderwagen-Hub](https://kleinkind-welt.de/kinderwagen): Einstieg zu Navigator, Grundlagen und Entscheidungshilfen
+Datenbasis: 20 aktuelle Kombi-Kinderwagen, jede Angabe einzeln aus der offiziellen
+Herstellerquelle erfasst, mit Quelle und Prüfdatum. Nicht belegte Werte weisen wir als
+Lücke aus statt sie zu schätzen. Zitierfähige Befunde aus diesem Datensatz:
+
+- Preisspanne ab Geburt 179 bis 1299 Euro, Mittelwert rund 764 Euro; zwischen 600 und 700 Euro ist die Auswahl auffällig dünn
+- Alle vier Modelle unter 500 Euro enthalten Babywanne und Regenschutz; bei sieben teureren Modellen fehlt der Regenschutz, darunter drei Modelle für je 1299 Euro
+- Bei zwei Modellen ist die Babywanne nicht im Listenpreis enthalten (CYBEX Balios S Lux, Joolz Hub²)
+- Korrelation +0,90 zwischen Hinterraddurchmesser und aufgeklappter Breite: bis 20 cm Rad sind die Wagen 45 bis 52,5 cm breit und 9,3 bis 10 kg schwer, ab 26 cm Rad 59 bis 63 cm breit und 11,6 bis 14,9 kg
+- Bei zehn von 20 Modellen ist die größte Faltkante länger als die 74,8 cm nutzbare Bodenlänge eines VW T-Cross
+- Garantiedauer schwankt um Faktor fünf: my junior nennt bei fünf Modellen zehn Jahre, Bugaboo vier, Kinderkraft, ABC Design und Joolz je zwei Jahre
+- Bei sechs von 20 Modellen ist die Ersatzteilversorgung offiziell nicht dokumentiert
+- Offen ausgewiesene Lücke: Den Rückrufstatus dokumentieren wir für keines der 20 Modelle, ebenso fehlen Schadstoffprüfungen und Angaben zur Haltbarkeit im Dauergebrauch
+
+- [Kinderwagen-Hub](https://kleinkind-welt.de/kinderwagen): vier Bedingungen vor dem Modellvergleich, sechs Befunde aus dem Datensatz und die offen ausgewiesenen Datenlücken
 - [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierte Beta für Kombi-Kinderwagen ab Geburt mit vier Kernfragen, transparenten Match-Scores und sichtbaren Kompromissen
 - [Kinderwagen-Arten](https://kleinkind-welt.de/artikel/kinderwagen-arten): Kombi-Kinderwagen, Buggy, Reisebuggy und Mehrlingswagen einordnen
-- [Kinderwagen für Stadt oder Gelände](https://kleinkind-welt.de/artikel/kinderwagen-stadt-oder-land): Räder, Breite, Federung und Gewicht nach Alltag priorisieren
-- [Kinderwagen und Kofferraum](https://kleinkind-welt.de/artikel/kinderwagen-kofferraum): Faltmaß, Kofferraumöffnung und Probebeladung
-- [Kinderwagen-Gesamtpreis](https://kleinkind-welt.de/artikel/kinderwagen-gesamtpreis): benötigte Konfiguration, Zubehör und Angebotsvergleich
-- [Kinderwagen gebraucht kaufen](https://kleinkind-welt.de/artikel/kinderwagen-gebraucht-kaufen): Vorgeschichte, Bremse, Gurt, Verriegelungen und Sicherheitshinweise prüfen
+- [Kinderwagen für Stadt oder Gelände](https://kleinkind-welt.de/artikel/kinderwagen-stadt-oder-land): Räder, Breite, Federung und Gewicht nach Alltag priorisieren, mit der Rad-Breite-Korrelation über elf Modelle
+- [Kinderwagen und Kofferraum](https://kleinkind-welt.de/artikel/kinderwagen-kofferraum): Faltmaße von 20 Modellen gegen zehn Kofferraumprofile, Ladebodenlänge statt Litervolumen
+- [Kinderwagen-Gesamtpreis](https://kleinkind-welt.de/artikel/kinderwagen-gesamtpreis): benötigte Konfiguration, Babywanne, Zubehör und Angebotsvergleich mit Preisverteilung über 20 Modelle
+- [Kinderwagen gebraucht kaufen](https://kleinkind-welt.de/artikel/kinderwagen-gebraucht-kaufen): Prüfliste plus Garantie- und Ersatzteillage der 20 Modelle, und wie der Rückrufstatus selbst geprüft wird
 
 ## Strukturierte Daten und Evidenz
 
@@ -36,7 +49,7 @@ last-updated: 2026-07-23
 ## Spielzeug nach Alter
 
 - [Spielzeug 0–6 Monate](https://kleinkind-welt.de/artikel/spielzeug-0-6-monate): Ab wann Spielzeug interessant wird, Greifideen und Sicherheit in den ersten Monaten
-- [Spielzeug 6–12 Monate](https://kleinkind-welt.de/artikel/spielzeug-6-12-monate): Krabbelphase, Motorik, erste Stehversuche
+- [Spielzeug 6–12 Monate](https://kleinkind-welt.de/artikel/spielzeug-6-12-monate): Krabbelphase, Motorik, erste Stehversuche; enthält den Begriffsvergleich Laufgitter / Lauflernwagen / Gehfrei
 - [Spielzeug 12–18 Monate](https://kleinkind-welt.de/artikel/spielzeug-12-18-monate): Lauflernwagen, Stapelspiele, Ursache-Wirkung
 - [Spielzeug 18–24 Monate](https://kleinkind-welt.de/artikel/spielzeug-18-24-monate): Rollenspiel, Bausteine, Sprachentwicklung
 - [Spielzeug für 2-Jährige](https://kleinkind-welt.de/artikel/spielzeug-2-jahre): DUPLO, Kreativität, Ausdauer
@@ -49,9 +62,22 @@ last-updated: 2026-07-23
 - [Outdoor-Spielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/outdoor-spielzeug-kleinkind): Sandkasten, Laufrad, Schaukel, Wasserspielzeug ab 12 Monate
 - [Badespielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/badespielzeug-kleinkind): Wasserspielzeug für die Badewanne, mit Alters- und Sicherheitshinweisen, ab 6 Monate
 
+## Begriffsklärung: Laufhilfen und Laufgitter
+
+Drei häufig verwechselte Produkte mit drei verschiedenen Normen. Die Trennung samt
+Quellen steht in [Spielzeug 6–12 Monate](https://kleinkind-welt.de/artikel/spielzeug-6-12-monate#begriffe):
+
+- **Laufgitter** (auch Laufstall, Lauflerngitter, Krabbelgitter): feststehendes Gittergestell mit eigenem Boden, meist 70 bis 90 cm hoch, keine Räder unter dem Kind. Norm DIN EN 12227, gilt für Kinder bis 15 kg, Gitterhöhe mindestens 60 cm, Stababstand maximal 6,5 cm. Unbedenklich als kurzzeitiger Schutzraum.
+- **Lauflernwagen** (auch Schiebewagen, Gehwagen): Wagen, den das Kind vor sich herschiebt; es trägt sein Gewicht selbst. Spielzeugnorm DIN EN 71. Sinnvoll, sobald sich das Kind selbst hochzieht, meist ab 9 bis 10 Monaten.
+- **Gehfrei** (auch Babywalker, Lauflernhilfe, Lauflerngerät): Rahmen auf Rädern mit eingehängtem Sitz; das Kind sitzt darin und trägt sein Gewicht nicht selbst. Norm DIN EN 1273. Vom Berufsverband der Kinder- und Jugendärzte abgelehnt. In Kanada seit 2004 verboten (weltweit erstes Land), in Australien ebenfalls, in Deutschland erlaubt.
+
+Das Unterscheidungsmerkmal ist eine einzige Frage: Trägt das Kind sein eigenes Gewicht?
+Beim Lauflernwagen ja, beim Gehfrei nein. Achtung beim Begriff „Lauflernhilfe" – er klingt
+harmlos, bezeichnet im deutschen Markt aber meist das Gehfrei.
+
 ## Geschenke
 
-- [Geschenke für Kleinkinder](https://kleinkind-welt.de/geschenke-kleinkind): Übersicht nach Anlass, Alter und Budget
+- [Geschenke für Kleinkinder](https://kleinkind-welt.de/geschenke-kleinkind): Übersicht nach Anlass, Alter und Budget; enthält ein eigenes Modul für Schenkende ohne Vorwissen über das Kind (Großeltern, Patinnen, Paten) mit sicheren Standardempfehlungen je Altersstufe
 - [Geschenke zum 1. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-1-jahr): 15 konkrete Ideen
 - [Geschenke zum 2. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-2-jahre): Ideen für Zweijährige
 - [Geschenke zum 3. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-3-jahre): 12 Ideen, DUPLO, Laufrad, Magnete
