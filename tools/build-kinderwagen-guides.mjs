@@ -40,7 +40,7 @@ const nav = `      <ul id="nav-menu">
 
 const footer = `  <div class="footer-inner">
     <div class="footer-grid">
-      <div class="footer-brand"><a href="/" class="logo logo-footer"><img src="/images/logo-mark.svg" alt="Kleinkind-Welt" class="logo-mark-img" width="40" height="40"></a><p>Nachvollziehbare Kaufhilfen für Familien mit Babys und Kleinkindern.</p></div>
+      <div class="footer-brand"><a href="/" class="logo logo-footer"><img src="/images/logo-mark.svg" alt="Kleinkind-Welt" class="logo-mark-img" width="40" height="40" loading="lazy"></a><p>Nachvollziehbare Kaufhilfen für Familien mit Babys und Kleinkindern.</p></div>
       <div><h4>Themen</h4><ul><li><a href="/spielzeug-nach-alter">Spielzeug</a></li><li><a href="/kinderwagen">Kinderwagen</a></li><li><a href="/geschenke-kleinkind">Geschenke</a></li><li><a href="/kaufhilfen">Kaufhilfen</a></li></ul></div>
       <div><h4>Transparenz</h4><ul><li><a href="/ueber-uns">Über uns</a></li><li><a href="/bewertungsmethode">Bewertungsmethode</a></li><li><a href="/impressum">Impressum</a></li><li><a href="/datenschutz">Datenschutz</a></li></ul></div>
     </div>
@@ -150,7 +150,7 @@ ${nav}
     </div>
     <div class="kurzantwort-box"><span class="kurzantwort-label">Kurzantwort</span><p>${guide.shortAnswer}</p></div>
     <div class="methodenbox">
-      <h4>Wofür dieser Ratgeber gedacht ist</h4>
+      <h2>Wofür dieser Ratgeber gedacht ist</h2>
       <p class="methodenbox-proof"><strong>Orientierung statt Prüfurteil:</strong> Wir übersetzen dokumentierte Kriterien in alltagstaugliche Fragen. Konkrete Freigaben, Maße und Lieferumfänge müssen am jeweiligen Modell geprüft werden.</p>
     </div>
 ${renderSections(guide.sections)}
@@ -161,7 +161,7 @@ ${renderSections(guide.sections)}
       <a href="/kinderwagen-navigator" class="btn" data-navigator-link data-placement="guide-${guide.slug}">Navigator starten</a>
     </div>
     <div class="quellenbox" id="quellen">
-      <h4>Quellen und redaktioneller Stand</h4>
+      <h2>Quellen und redaktioneller Stand</h2>
       <ul>
 ${renderSources(guide.sources)}
       </ul>
@@ -184,6 +184,7 @@ ${footer}
 </footer>
 <script src="/js/navigator-link-tracking.js?v=20260723-2" defer></script>
 <script src="/js/faq-accordion.js?v=20260713" defer></script>
+<script src="/js/mobile-tables.js" defer></script>
 <script>
   document.addEventListener('DOMContentLoaded',function(){var toggle=document.querySelector('.nav-toggle');var menu=document.getElementById('nav-menu');if(toggle&&menu)toggle.addEventListener('click',function(){var open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',open?'true':'false');toggle.textContent=open?'✕':'☰';});});
 </script>
