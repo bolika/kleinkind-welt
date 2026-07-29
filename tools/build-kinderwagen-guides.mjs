@@ -1,5 +1,26 @@
 #!/usr/bin/env node
 
+// Geruest-Generator fuer Kinderwagen-Ratgeber.
+//
+// WICHTIG, Stand 29.07.2026: Die fuenf bestehenden Ratgeber sind seit dem
+// 28.07.2026 HANDGEPFLEGT. Sie wurden um Datentabellen mit je bis zu 20 Zeilen,
+// je sechs FAQ-Eintraege und belegte Zahlen erweitert — Inhalte, die sich in
+// dieser Datenquelle nicht sinnvoll abbilden lassen. Der Generator wuerde beim
+// Ueberschreiben zusammen rund 4400 Woerter und 20 FAQ-Eintraege loeschen.
+//
+// Deshalb gilt:
+//   * Ohne --force schreibt dieses Werkzeug abgewichene Dateien NICHT.
+//   * --check meldet Abweichungen als Information und schlaegt nicht mehr fehl.
+//     Was auf diesen Seiten wirklich garantiert sein muss — Title, Canonical,
+//     genau eine H1, Skip-Link, Landmark, Alt-Texte, Tabellenbeschriftungen,
+//     Affiliate-Kennzeichnung, Schema-Gueltigkeit — prueft tools/seo-smoke-test.mjs
+//     mit 45 inhaltsunabhaengigen Zusicherungen, und die Navigation prueft
+//     tools/sync-site-navigation.mjs. Das ist fuer redaktionelle Artikel das
+//     passendere Netz als "gleicht der Vorlage".
+//
+// Der verbleibende Nutzen des Werkzeugs ist das Anlegen NEUER Ratgeber: Eintrag
+// in die Datenquelle, dann `node tools/build-kinderwagen-guides.mjs --force`.
+
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -8,6 +29,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "data", "kinderwagen-guides.v0.1.json");
 const data = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
 const checkOnly = process.argv.includes("--check");
+const force = process.argv.includes("--force");
+
+const wortzahl = (html) => {
+  const main = /<main\b[\s\S]*?<\/main>/.exec(html);
+  return (main ? main[0] : html).replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+};
 
 const renderList = (items = []) => items.length
   ? `<ul>\n${items.map((item) => `        <li>${item}</li>`).join("\n")}\n      </ul>`
@@ -193,22 +220,61 @@ ${footer}
 `;
 };
 
-const mismatches = [];
+const abgewichen = [];
+const geschrieben = [];
+const fehler = [];
+
 for (const guide of data.guides) {
   const outputPath = path.join(root, "artikel", `${guide.slug}.html`);
-  const rendered = renderGuide(guide);
-  if (checkOnly) {
-    if (!fs.existsSync(outputPath) || fs.readFileSync(outputPath, "utf8") !== rendered) {
-      mismatches.push(path.relative(root, outputPath));
-    }
-  } else {
-    fs.writeFileSync(outputPath, rendered);
+  let rendered;
+  try {
+    rendered = renderGuide(guide);
+  } catch (error) {
+    fehler.push(`${guide.slug}: Vorlage nicht renderbar — ${error.message}`);
+    continue;
   }
+  // Die Datenquelle darf nicht verrotten: Das Ergebnis muss gueltiges JSON-LD
+  // enthalten, auch wenn es nie geschrieben wird.
+  const ldMatch = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(rendered);
+  if (!ldMatch) fehler.push(`${guide.slug}: gerendertes JSON-LD fehlt`);
+  else {
+    try { JSON.parse(ldMatch[1]); }
+    catch (error) { fehler.push(`${guide.slug}: gerendertes JSON-LD ungültig — ${error.message}`); }
+  }
+
+  const vorhanden = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, "utf8") : null;
+  const weichtAb = vorhanden !== null && vorhanden !== rendered;
+
+  if (checkOnly) {
+    if (weichtAb) abgewichen.push({ slug: guide.slug, ist: wortzahl(vorhanden), vorlage: wortzahl(rendered) });
+    continue;
+  }
+  if (weichtAb && !force) {
+    abgewichen.push({ slug: guide.slug, ist: wortzahl(vorhanden), vorlage: wortzahl(rendered) });
+    continue;
+  }
+  fs.writeFileSync(outputPath, rendered);
+  geschrieben.push(guide.slug);
 }
 
-if (mismatches.length) {
-  console.error(`Kinderwagen-Ratgeber sind nicht aktuell: ${mismatches.join(", ")}`);
+if (fehler.length) {
+  fehler.forEach((f) => console.error(`ERROR ${f}`));
   process.exit(1);
 }
 
-console.log(`${checkOnly ? "Geprüft" : "Erstellt"}: ${data.guides.length} Kinderwagen-Ratgeber.`);
+if (abgewichen.length) {
+  const verlust = abgewichen.reduce((summe, a) => summe + Math.max(0, a.ist - a.vorlage), 0);
+  console.log(`${abgewichen.length} Ratgeber sind handgepflegt und weichen von der Vorlage ab:`);
+  for (const a of abgewichen) {
+    console.log(`  artikel/${a.slug}.html — ${a.ist} Wörter im Bestand, ${a.vorlage} in der Vorlage`);
+  }
+  if (!checkOnly && !force) {
+    console.error(`\nNICHT geschrieben. Ein Überschreiben würde ${verlust} Wörter löschen.`);
+    console.error(`Wenn das gewollt ist: erneut mit --force aufrufen.`);
+    process.exit(1);
+  }
+  console.log(`Zusammen ${verlust} Wörter, die die Vorlage nicht abbilden kann — deshalb kein Fehler.`);
+}
+
+if (geschrieben.length) console.log(`Erstellt: ${geschrieben.join(", ")}.`);
+console.log(`${checkOnly ? "Geprüft" : "Verarbeitet"}: ${data.guides.length} Kinderwagen-Ratgeber, Datenquelle renderbar.`);

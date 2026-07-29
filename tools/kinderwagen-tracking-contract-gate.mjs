@@ -22,9 +22,26 @@ for (const action of contract.requiredActions ?? []) {
 for (const property of contract.requiredContextProperties ?? []) {
   if (!app.includes(property)) errors.push(`Pflichtkontext fehlt im Navigator: ${property}`);
 }
+// Die Absicht dieser Regel ist: keine personenbezogenen Daten in Plausible.
+// Geprueft wird deshalb die TRACKING-NUTZLAST, nicht die ganze Datei.
+//
+// Vorher scannte das Gate den kompletten Quelltext nach `email:` und schlug
+// deshalb beim POST-Body an /api/navigator-waitlist an — einer notwendigen
+// Uebergabe an den eigenen Endpunkt, die nichts mit Plausible zu tun hat. Die
+// Regel muss die Nutzlast treffen, nicht jedes Vorkommen des Wortes.
+const trackingNutzlasten = [
+  // Argumentobjekte aller track('aktion', { ... })-Aufrufe
+  ...[...app.matchAll(/track\(\s*'[^']+'\s*,\s*(\{[\s\S]*?\})\s*\)/g)].map((match) => match[1]),
+  // und der props-Block, der tatsaechlich an Plausible geht
+  ...[...app.matchAll(/props:\s*(\{[\s\S]*?\n {4}\})/g)].map((match) => match[1]),
+];
+if (!trackingNutzlasten.length) errors.push('Keine Tracking-Nutzlast gefunden — die Prüfung greift ins Leere');
 for (const property of contract.forbiddenPropertyNames ?? []) {
-  const propertyPattern = new RegExp(`(?:^|[,{\\s])${property}\\s*:`, 'm');
-  if (propertyPattern.test(app)) errors.push(`Verbotene Tracking-Eigenschaft gefunden: ${property}`);
+  const propertyPattern = new RegExp(`(?:^|[,{\\s])${property}\\s*:`);
+  const treffer = trackingNutzlasten.filter((nutzlast) => propertyPattern.test(nutzlast));
+  if (treffer.length) {
+    errors.push(`Verbotene Tracking-Eigenschaft in der Nutzlast: ${property} (${treffer.length} Stelle(n))`);
+  }
 }
 if (contract.eventName !== 'Kinderwagen-Navigator' || !app.includes("plausible('Kinderwagen-Navigator'")) {
   errors.push('Zentraler Plausible-Eventname stimmt nicht mit dem Vertrag überein');

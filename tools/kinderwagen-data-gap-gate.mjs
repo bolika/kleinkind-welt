@@ -12,6 +12,14 @@ const products = catalog.products.map((filename) =>
   JSON.parse(fs.readFileSync(path.join(dataDir, 'products', filename), 'utf8'))
 );
 const productById = new Map(products.map((product) => [product.productId, product]));
+// Kritisch ist eine Angabe, wenn ihr Fehlen das Match veraendert. Genau das ist
+// das Kriterium fuer die Trackingpflicht in data-gaps.v0.1.json.
+//
+// oneHandFold und selfStandingFold waren hier nicht gelistet, obwohl der Matcher
+// beide auswertet und die Registry ihre Luecken bereits vollstaendig fuehrt
+// (10 von 10 bzw. 14 von 14 unbekannte Werte belegt). Das Gate meldete deshalb
+// die eigene Registry als fehlerhaft. Mit der Ergaenzung gilt die Trackingpflicht
+// auch fuer neue Produkte mit unbekannter Faltbedienung.
 const criticalFacts = [
   'marketStatus',
   'newbornApproved',
@@ -21,7 +29,9 @@ const criticalFacts = [
   'unfoldedWidthCm',
   'foldedDimensionsCm',
   'liftReadyWeightKg',
-  'liftReadyConfiguration'
+  'liftReadyConfiguration',
+  'oneHandFold',
+  'selfStandingFold'
 ];
 const allowedStatuses = new Set([
   'manufacturer_confirmation_required',

@@ -1,5 +1,8 @@
 {
   "schemaVersion": 1,
+  "status": "geruest",
+  "hinweis": "Die fuenf hier beschriebenen Ratgeber sind seit dem 28.07.2026 handgepflegt. Sie enthalten Datentabellen mit bis zu 20 Zeilen und je sechs FAQ-Eintraege, die dieses Schema nicht abbilden kann. Diese Datei bleibt als Geruest fuer NEUE Ratgeber erhalten; sie ist nicht mehr die Quelle der bestehenden Seiten. tools/build-kinderwagen-guides.mjs verweigert deshalb das Ueberschreiben ohne --force. Die Zusicherungen fuer diese Seiten liegen in tools/seo-smoke-test.mjs und tools/sync-site-navigation.mjs.",
+  "handgepflegtSeit": "2026-07-28",
   "reviewedAt": "2026-07-23",
   "reviewDueAt": "2027-01-23",
   "guides": [
