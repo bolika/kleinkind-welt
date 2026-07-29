@@ -9,13 +9,13 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="robots" content="noindex,follow">
-  <meta name="description" content="Welcher Kombi-Kinderwagen passt zu euch? Die Beta vergleicht Alltag, Budget und Prioritäten in vier Fragen – mit transparenten Matches und Kompromissen.">
+  <meta name="description" content="Welcher Kombi-Kinderwagen passt zu euch? Die Beta vergleicht Alltag, Budget und Prioritäten in fünf Fragen – mit transparenten Matches und Kompromissen.">
   <title>Kinderwagen-Finder: Welcher passt zu euch?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=20260727-scrollfix">
-  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260729-cls">
+  <link rel="stylesheet" href="/css/style.css?v=20260729-ux">
+  <link rel="stylesheet" href="/css/kinderwagen-navigator.css?v=20260729-ux">
   <link rel="canonical" href="https://kleinkind-welt.de/kinderwagen-navigator">
   <!-- Die App rendert die erste Frage erst, wenn ALLE fuenf Dateien da sind
        (Promise.all in kinderwagen-navigator-app.mjs). Ohne Preload starten die
@@ -40,7 +40,7 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Kleinkind-Welt.de">
   <meta property="og:title" content="Kinderwagen-Finder: Welcher passt zu euch?">
-  <meta property="og:description" content="Vier Kernfragen führen in der Beta zu nachvollziehbaren Kombi-Kinderwagen-Matches – unabhängig von Provisionen und mit sichtbaren Kompromissen.">
+  <meta property="og:description" content="Fünf Fragen führen in der Beta zu nachvollziehbaren Kombi-Kinderwagen-Matches – unabhängig von Provisionen und mit sichtbaren Kompromissen.">
   <meta property="og:url" content="https://kleinkind-welt.de/kinderwagen-navigator">
   <meta property="og:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <meta property="og:image:width" content="1200">
@@ -48,7 +48,7 @@
   <meta property="og:image:alt" content="Kleinkind-Welt.de – nachvollziehbare Entscheidungshilfen für Eltern">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Kinderwagen-Finder: Welcher passt zu euch?">
-  <meta name="twitter:description" content="Vier Kernfragen, bis zu drei transparente Kombi-Kinderwagen-Matches und keine provisionsgetriebene Reihenfolge.">
+  <meta name="twitter:description" content="Fünf Fragen, bis zu drei transparente Kombi-Kinderwagen-Matches und keine provisionsgetriebene Reihenfolge.">
   <meta name="twitter:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <script type="application/ld+json">
   {
@@ -114,7 +114,7 @@
 <header>
   <div class="nav-inner">
     <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="288" height="64"></a>
-    <nav>
+    <nav aria-label="Hauptmenü">
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
       <ul id="nav-menu">
         <li><a href="/spielzeug-nach-alter">Spielzeug</a></li>
@@ -142,7 +142,7 @@
       <div class="navigator-hero-copy">
         <span class="navigator-eyebrow"><span class="navigator-beta-badge">Beta</span> Datenbasierter Kinderwagen-Finder · <span data-navigator-model-count>20</span> Modelle</span>
         <h1 id="navigator-title">Welcher Kinderwagen passt zu euch?</h1>
-        <p>Vier Fragen führen zu bis zu drei nachvollziehbaren Matches – mit Gesamtpreis und wichtigstem Kompromiss.</p>
+        <p>Fünf Fragen führen zu bis zu drei nachvollziehbaren Matches – mit Gesamtpreis und wichtigstem Kompromiss.</p>
         <p class="navigator-hero-note">Kostenlos · ohne Anmeldung</p>
       </div>
 
@@ -258,7 +258,7 @@
     <div class="navigator-shell">
       <span class="navigator-eyebrow">Bewusste Pilotgrenze</span>
       <h2 id="status-title">Der aktuelle Katalog ist ein Testkatalog, noch kein vollständiger Marktüberblick</h2>
-      <p>Flow-Version 0.3 nutzt vier Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage, und prüft die Logik gegen Referenzprofile. Die Seite bleibt bis zu einem breiteren Katalog und realen Nutzertests von Suchmaschinen ausgeschlossen.</p>
+      <p>Flow-Version 0.4 nutzt fünf Fragen, bei regelmäßigem Tragen eine sechste, und prüft die Logik gegen Referenzprofile. Die Seite bleibt bis zu einem breiteren Katalog und realen Nutzertests von Suchmaschinen ausgeschlossen.</p>
       <p class="navigator-editorial-note"><strong>Zuletzt fachlich geprüft: 24. Juli 2026.</strong> Verantwortlich für Freigabe und Korrekturen ist Boris Nazarov. Mehr zur Trennung von Recherche, Bewertung und Monetarisierung steht in unserer <a href="/bewertungsmethode">Bewertungsmethode</a>.</p>
     </div>
   </section>
@@ -315,7 +315,7 @@
   })();
 </script>
 <script src="/js/affiliate-tracking.js?v=20260722" defer></script>
-<script type="module" src="/js/kinderwagen-navigator-app.mjs?v=20260728-mobilefix4"></script>
+<script type="module" src="/js/kinderwagen-navigator-app.mjs?v=20260729-ux"></script>
 <script src="/js/scroll-reveal.js?v=2" defer></script>
 </body>
 </html>

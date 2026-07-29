@@ -3484,8 +3484,8 @@ footer ul a:hover { color: white; }
 .methodenbox-proof {
   margin: 0 0 12px 0;
   color: var(--text);
-  font-size: 0.86rem;
-  line-height: 1.55;
+  font-size: 0.93rem;
+  line-height: 1.58;
 }
 
 .methodenbox-proof strong {
@@ -5691,4 +5691,22 @@ html.reveal-init .reveal.reveal-visible {
     transform: none;
     transition: none;
   }
+}
+
+/* Zwei Links in einer Tabellenzelle lagen auf schmalen Viewports nur 15,6 px
+   auseinander (Mittelpunktabstand). WCAG 2.5.8 verlangt bei Zielen unter 24 px
+   entweder mehr Groesse oder mehr Abstand — hier kommt beides: eigene Zeile und
+   ausreichende Zielhoehe. */
+.alters-matrix-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.alters-matrix-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 0;
 }

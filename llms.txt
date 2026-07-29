@@ -30,7 +30,7 @@ Lücke aus statt sie zu schätzen. Zitierfähige Befunde aus diesem Datensatz:
 - Offen ausgewiesene Lücke: Den Rückrufstatus dokumentieren wir für keines der 20 Modelle, ebenso fehlen Schadstoffprüfungen und Angaben zur Haltbarkeit im Dauergebrauch
 
 - [Kinderwagen-Hub](https://kleinkind-welt.de/kinderwagen): vier Bedingungen vor dem Modellvergleich, sechs Befunde aus dem Datensatz und die offen ausgewiesenen Datenlücken
-- [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierte Beta für Kombi-Kinderwagen ab Geburt mit vier Kernfragen, transparenten Match-Scores und sichtbaren Kompromissen
+- [Kinderwagen-Navigator](https://kleinkind-welt.de/kinderwagen-navigator): nicht indexierte Beta für Kombi-Kinderwagen ab Geburt mit fünf Fragen (sechs bei regelmäßigem Tragen), transparenten Match-Scores und sichtbaren Kompromissen
 - [Kinderwagen-Arten](https://kleinkind-welt.de/artikel/kinderwagen-arten): Kombi-Kinderwagen, Buggy, Reisebuggy und Mehrlingswagen einordnen
 - [Kinderwagen für Stadt oder Gelände](https://kleinkind-welt.de/artikel/kinderwagen-stadt-oder-land): Räder, Breite, Federung und Gewicht nach Alltag priorisieren, mit der Rad-Breite-Korrelation über elf Modelle
 - [Kinderwagen und Kofferraum](https://kleinkind-welt.de/artikel/kinderwagen-kofferraum): Faltmaße von 20 Modellen gegen zehn Kofferraumprofile, Ladebodenlänge statt Litervolumen

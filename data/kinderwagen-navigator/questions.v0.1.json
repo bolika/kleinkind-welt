@@ -6,7 +6,7 @@
     "oneQuestionPerScreen": true,
     "showBackButton": true,
     "showAnswerSummaryBeforeResult": false,
-    "estimatedQuestions": "4 Kernfragen, bei regelmäßigem Tragen eine Zusatzfrage",
+    "estimatedQuestions": "5 Fragen, bei regelmäßigem Tragen eine sechste",
     "doNotPromiseDurationUntilMeasured": true
   },
   "questions": [

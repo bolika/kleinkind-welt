@@ -133,14 +133,36 @@ function pruneHiddenAnswers() {
   }
 }
 
+// Der Ablauf umfasst alle Fragen aus questions.v0.1.json, nicht eine fest
+// verdrahtete Teilmenge. Vorher fehlte `search_goal` in der Liste; die Anzeige
+// stand deshalb bei der Typfrage UND bei der Folgefrage auf "Frage 1 von 4",
+// und der Nenner wuchs mitten im Ablauf von 4 auf 5, sobald die bedingte
+// Zusatzfrage dazukam.
+//
+// Eine bedingte Frage zaehlt hier mit, solange ihre Bedingung noch nicht
+// entschieden ist. Der Nenner kann dadurch schrumpfen, aber nie wachsen — ein
+// Fortschrittsbalken, der sich verlaengert, kostet mehr Vertrauen als einer,
+// der frueher fertig ist als angekuendigt.
+function conditionDecided(condition) {
+  if (!condition) return true;
+  if (condition.operator === 'any_answered') return (condition.questionIds ?? []).every((id) => hasAnswer(id));
+  if (condition.operator === 'any' || condition.operator === 'all') {
+    return (condition.conditions ?? []).every((item) => conditionDecided(item));
+  }
+  return hasAnswer(condition.questionId);
+}
+
 function progressFor(question) {
-  const coreQuestionIds = new Set(['daily_context', 'terrain', 'budget', 'top_priorities']);
   const sequence = state.questions.filter((item) => {
-    if (coreQuestionIds.has(item.id)) return true;
-    return item.id === 'lift_unit' && matchesCondition(item.showWhen);
+    if (!item.showWhen) return true;
+    if (matchesCondition(item.showWhen)) return true;
+    return !conditionDecided(item.showWhen);
   });
   const index = Math.max(0, sequence.findIndex((item) => item.id === question.id));
-  return { index, total: sequence.length, percent: Math.round(((index + 1) / sequence.length) * 100) };
+  const total = Math.max(sequence.length, index + 1);
+  // Prozent = beantwortete Fragen, nicht die gerade angezeigte. Sonst stand
+  // auf der letzten Frage 100 %, obwohl noch Auswahl und Klick fehlten.
+  return { index, total, percent: Math.round((index / total) * 100) };
 }
 
 function renderProgress(question) {

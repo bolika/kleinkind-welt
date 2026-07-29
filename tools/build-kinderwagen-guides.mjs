@@ -103,7 +103,7 @@ const renderGuide = (guide) => {
   <meta name="description" content="${guide.description}">
   <meta name="robots" content="index, follow">
   <title>${guide.title}</title>
-  <link rel="stylesheet" href="/css/style.css?v=20260723-positioning">
+  <link rel="stylesheet" href="/css/style.css?v=20260729-ux">
   <link rel="canonical" href="https://kleinkind-welt.de${route}">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de${route}">
   <link rel="alternate" hreflang="x-default" href="https://kleinkind-welt.de${route}">
@@ -128,7 +128,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 <header>
   <div class="nav-inner">
     <a href="/" class="logo"><img src="/images/logo-horizontal.svg" alt="Kleinkind-Welt – Ehrliche Empfehlungen für Eltern" class="logo-img" width="288" height="64"></a>
-    <nav>
+    <nav aria-label="Hauptmenü">
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
 ${nav}
     </nav>
@@ -156,7 +156,7 @@ ${nav}
 ${renderSections(guide.sections)}
     <div class="navigator-guide-cta">
       <span>Jetzt auf euren Alltag anwenden</span>
-      <h2>Kombi-Kinderwagen-Match in vier Kernfragen</h2>
+      <h2>Kombi-Kinderwagen-Match in fünf Fragen</h2>
       <p>Die kostenlose Beta vergleicht dokumentierte Produktdaten mit euren Prioritäten und zeigt Kompromisse offen an.</p>
       <a href="/kinderwagen-navigator" class="btn" data-navigator-link data-placement="guide-${guide.slug}">Navigator starten</a>
     </div>
