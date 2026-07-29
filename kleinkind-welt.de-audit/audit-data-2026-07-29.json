@@ -1,0 +1,342 @@
+{
+  "generated": "2026-07-29",
+  "domain": "kleinkind-welt.de",
+  "summary": {
+    "health_score": 82,
+    "business_type": "Content-/Affiliate-Publisher, deutschsprachig, Nische Baby und Kleinkind",
+    "data_gaps": [
+      "Kein GOOGLE_API_KEY: keine CrUX-Felddaten, keine PageSpeed-Werte. CWV nur als Lab-Messung.",
+      "Kein GA4 (Plausible im Einsatz).",
+      "Keine Backlink-API konfiguriert: Autoritaet nicht messbar.",
+      "Zehn Fach-Subagenten gestartet; acht brachen vor dem Schreiben ab. Zwei haben geliefert und sind eingearbeitet: findings/sxo.md (SXO Gap Score 52/100) und findings/cluster.md (Cluster-Architektur 58/100). Ihre Befunde haben den Score von 84 auf 82 korrigiert."
+    ],
+    "top_findings": [
+      "Kinderwagen-Cluster: 7 von 37 URLs nicht indexiert. Ursache (veralteter Sitemap-Stand) am 28.07. behoben, Latenz laeuft noch.",
+      "Geschenke-Cluster: 130 von 457 Impressionen, aber Position 68 bis 88 und null Klicks.",
+      "Zwei Anfragen ranken auf Position 10,8 und 18,3 ohne eigene Seite (lauflerngitter, stapelbecher ab welchem alter).",
+      "Navigator: CLS 0,455 gegen Schwelle 0,25. Ursache ist der Austausch der Ladekarte gegen die hoehere Fragekarte.",
+      "Geschenke-Hub laedt 818 KB, davon 423 KB ein JPG, obwohl das WebP daneben im Repo liegt und ungenutzt ist.",
+      "Hub-Seiten zu duenn: kinderwagen.html 301, spielzeug-nach-alter 415, geschenke-kleinkind 422 Woerter - und genau sie tragen die Kopfbegriffe, die auf Position 70 bis 75 liegen.",
+      "Produktkategorie-Ebene fehlt komplett: nur duplo-vergleich.html ist eine echte Produkttyp-Seite. Erklaert lauflerngitter (10,8), stapelbecher (18,3) und motorikwuerfel test (58,8) auf einmal.",
+      "Sicherheitsrelevante Begriffsverwechslung: spielzeug-6-12-monate setzt 'Lauflerngitter auf Raedern' mit Babywalker gleich, obwohl der Begriff im Markt ein stationaeres Laufgitter bezeichnet. Beste Position der Domain, muss vor jeder neuen Seite geklaert werden.",
+      "spielzeug-rotieren-kleinkind ist Near-Orphan mit 1 Eingangslink und fehlt in der Ratgeber-Uebersicht auf /kaufhilfen, die Vollstaendigkeit verspricht.",
+      "DUPLO-Eignungsfrage auf sechs Seiten mit je eigenem FAQPage-Item: Google entscheidet selbst, welche Seite die Frage besitzt.",
+      "Korrektur: Keine harte Kannibalisierung auf Title/H1/Meta-Ebene. Beide Fachberichte bestaetigen die saubere Alters-/Anlass-Trennung. Das Risiko liegt bei identischen Produkt-Picks und FAQ-Duplikaten.",
+      "low_budget_city_walkup: Persona-Score 0 von 100. Site-weite Suche nach 'ohne Aufzug' und 'kleine Wohnung' ergibt null Treffer.",
+      "Geschenkekaeufer-Persona: 'Grosseltern' erscheint in fuenf Geschenke-Artikeln genau dreimal, immer als Budget-Nebensatz. Wettbewerber fuehren dafuer eigene Artikel."
+    ],
+    "quick_wins": [
+      "geschenke-3-jahre.jpg durch picture-Element mit WebP ersetzen: rund 350 KB auf der meistgesehenen Seite.",
+      "min-height auf dem Navigator-Container setzen: CLS 0,455 auf nahe 0.",
+      "loading=lazy auf die restlichen 140 von 209 img-Tags.",
+      "Eigene Seite fuer lauflerngitter (rankt auf 10,8 mit einer Nebenerwaehnung).",
+      "llms.txt auf den Stand vom 28.07. bringen.",
+      "Zwei Zeilen in _redirects fuer kinderwagen.html und kaufhilfen.html.",
+      "Modul 'Kennst du das Kind nicht so gut?' auf /geschenke-kleinkind und den fuenf Geschenke-Artikeln - trifft die Seite mit den meisten Impressionen.",
+      "spielzeug-rotieren-kleinkind in die Ratgeber-Uebersicht auf /kaufhilfen eintragen und zwei kontextuelle Links setzen.",
+      "Die fuenf Kinderwagen-Spokes gegenseitig verlinken: reines Linksetzen, behebt zwei isolierte Seiten sofort.",
+      "DUPLO-FAQ auf duplo-vergleich.html konsolidieren, fuenf FAQPage-Items entfernen."
+    ],
+    "gsc": {
+      "clicks_90d": 7,
+      "impressions_90d": 457,
+      "position_90d": 53.1,
+      "clicks_28d": 4,
+      "impressions_28d": 268,
+      "position_28d": 65.1,
+      "queries_with_impressions": 87,
+      "indexed_urls": 30,
+      "sitemap_urls": 37,
+      "trend": "Juni 189 Impressionen / 3 Klicks, Juli 268 / 4. Impressionen +42 Prozent, Klicks flach."
+    }
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 88,
+      "what_works": [
+        "Security-Header vollstaendig: CSP, HSTS mit preload, X-Frame-Options DENY, nosniff, Referrer-Policy, Permissions-Policy",
+        "Null defekte interne Links ueber 43 Dateien",
+        "Clean-URLs mit korrekten 301-Weiterleitungen",
+        "Canonicals konsistent, hreflang de plus x-default",
+        "robots.txt erlaubt alle relevanten AI-Crawler explizit",
+        "sitemap.xml valides XML, von Google am 28.07. mit allen 37 URLs gelesen"
+      ],
+      "findings": [
+        {
+          "title": "Sieben URLs nicht indexiert",
+          "severity": "High",
+          "description": "Zwei auf 'Discovered - currently not indexed', fuenf auf 'URL is unknown to Google'. Betrifft /kinderwagen, alle fuenf Kinderwagen-Artikel und /artikel/spielzeug-rotieren-kleinkind.",
+          "recommendation": "Kein Eingriff. Ursache am 28.07. behoben, Latenz laeuft. Woechentlich pruefen; wenn nach vier Wochen noch 'unknown', ist es Autoritaet."
+        },
+        {
+          "title": "Fehlende .html-Weiterleitungen",
+          "severity": "Low",
+          "description": "_redirects hat explizite 301-Regeln fuer alle Artikel, aber nicht fuer kinderwagen.html und kaufhilfen.html. Ob die .html-Varianten parallel erreichbar sind, wurde nicht geprueft.",
+          "recommendation": "Zwei Zeilen im bestehenden Muster ergaenzen."
+        },
+        {
+          "title": "Verifizierungsdatei ohne Title, Description und H1",
+          "severity": "Info",
+          "description": "google390434218d78aff9.html. Nicht in der Sitemap, fuer Google bedeutungslos.",
+          "recommendation": "Optional noindex, sonst ignorieren."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 72,
+      "what_works": [
+        "Wortzahl-Median 1834",
+        "Alle fuenf Kinderwagen-Artikel am 28.07. auf 815 bis 1844 Woerter ausgebaut, mit belegten Datentabellen",
+        "Strenge Evidenzpolitik: Quelle und Pruefdatum je Fakt, Schaetzungen verboten, Datenluecken ausgewiesen",
+        "Zitierfaehige Alleinstellungsmerkmale, etwa Korrelation +0,90 zwischen Radgroesse und Breite"
+      ],
+      "findings": [
+        {
+          "title": "Geschenke-Cluster rankt zu tief",
+          "severity": "High",
+          "description": "130 von 457 Impressionen auf Geschenk-Anfragen, Positionen 68 bis 88, null Klicks. /geschenke-kleinkind ist mit 113 Impressionen die meistgesehene Seite, Position 71,9.",
+          "recommendation": "Intent-Trennung schaerfen und die Geschenkekaeufer-Persona direkt bedienen: Budget, Alter, Entscheidung in drei Zeilen."
+        },
+        {
+          "title": "Kannibalisierungs-Risiko zwischen zwei Serien",
+          "severity": "Medium",
+          "description": "Altersstaffel (sechs Artikel) und Geschenke-Serie (fuenf Artikel) konkurrieren bei Anfragen wie 'geschenk 3 jahre'.",
+          "recommendation": "Alter = informational, Geschenk = commercial. In Titles, H1 und interner Verlinkung trennen."
+        },
+        {
+          "title": "kinderwagen-arten bleibt der schwaechste Artikel",
+          "severity": "Medium",
+          "description": "815 Woerter gegen 1081 bis 1844 bei den uebrigen vier, nur 2 FAQ-Eintraege gegen 6. Gleichzeitig Einstiegsartikel der Kategorie.",
+          "recommendation": "Auf das Niveau der anderen vier bringen, FAQ auf 6 erweitern."
+        },
+        {
+          "title": "Laenge allein loest nichts",
+          "severity": "Info",
+          "description": "/artikel/spielzeug-2-jahre hat 2353 Woerter und null Impressionen.",
+          "recommendation": "Als Gegenbeispiel im Hinterkopf behalten: Wettbewerbsdichte schlaegt Textlaenge."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 82,
+      "what_works": [
+        "Title-Laengen median 52, maximal 60 Zeichen, keiner zu lang",
+        "Meta-Descriptions median 144, maximal 156",
+        "Null doppelte Titles, null doppelte Descriptions",
+        "Genau ein H1 pro Seite"
+      ],
+      "findings": [
+        {
+          "title": "Heading-Hierarchie springt auf 34 Seiten",
+          "severity": "Low",
+          "description": "Muster h1 auf h4 auf h2. Ursache: h4 in Methodenbox und Quellenbox vor der ersten h2.",
+          "recommendation": "In Methoden- und Quellenbox auf ein Element ohne Ueberschriften-Semantik wechseln oder als h2 einordnen."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 92,
+      "what_works": [
+        "Article, FAQPage, BreadcrumbList und Speakable auf allen Artikeln, teils ItemList",
+        "Organization-Knoten mit @id als zentrale Referenz",
+        "FAQPage-Schema und sichtbare Fragen stimmen auf allen 29 Artikeln ueberein; drei Abweichungen am 28.07. behoben",
+        "Navigator mit WebApplication-Schema"
+      ],
+      "findings": [
+        {
+          "title": "Kein Review- oder Product-Schema",
+          "severity": "Info",
+          "description": "Fehlt bewusst und korrekt: Die Seite macht keine eigenen Produkttests, Review-Schema waere unzulaessig.",
+          "recommendation": "So lassen."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 72,
+      "what_works": [
+        "LCP zwischen 304 und 596 ms auf allen Inhaltsseiten (Lab, Mobil)",
+        "CLS 0 auf allen Inhaltsseiten",
+        "Kofferraum-Artikel liefert 1844 Woerter und zwei Tabellen in 33 KB",
+        "Netlify-Caching korrekt fuer HTML"
+      ],
+      "findings": [
+        {
+          "title": "Navigator: CLS 0,455",
+          "severity": "High",
+          "description": "Schwelle fuer 'schlecht' liegt bei 0,25. Die Ladekarte ist deutlich niedriger als die Fragekarte, die sie nach dem JSON-Laden ersetzt. LCP 920 ms.",
+          "recommendation": "min-height auf [data-navigator-app] setzen, etwa 460 px mobil und 380 px Desktop, oder Skeleton gleicher Hoehe. Vor der Indexierung Pflicht."
+        },
+        {
+          "title": "Geschenke-Hub laedt 818 KB",
+          "severity": "Medium",
+          "description": "Meistgesehene Seite der Site. geschenke-3-jahre.jpg bringt 423 KB, obwohl geschenke-3-jahre.webp im Repo liegt und ungenutzt ist. Eingebunden als einfaches img ohne picture-Element.",
+          "recommendation": "picture-Element mit WebP und JPG-Fallback, wie in anderen Artikeln bereits verwendet."
+        },
+        {
+          "title": "14 Bilddateien ueber 200 KB",
+          "severity": "Medium",
+          "description": "Groesste: geschenke-1-jahr-hero.jpg 691 KB, outdoor-spielzeug-kleinkind.jpg 617 KB. Gesamt 12,3 MB in images/.",
+          "recommendation": "Neu komprimieren und konsequent als WebP ausliefern."
+        },
+        {
+          "title": "Nur 69 von 209 img-Tags mit loading=lazy",
+          "severity": "Medium",
+          "description": "140 Bilder laden eager, auch weit unterhalb der Falz.",
+          "recommendation": "Alles ausser dem Hero oberhalb der Falz lazy laden."
+        },
+        {
+          "title": "Keine Felddaten verfuegbar",
+          "severity": "Info",
+          "description": "Ohne GOOGLE_API_KEY keine CrUX- und PageSpeed-Daten. Alle Werte sind Lab-Messungen und damit optimistisch.",
+          "recommendation": "API-Key ist kostenlos, in ~/.config/claude-seo/google-api.json eintragen."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 90,
+      "what_works": [
+        "llms.txt mit Lizenzangabe, Maintainer und thematischer Gliederung",
+        "robots.txt erlaubt OAI-SearchBot, GPTBot, PerplexityBot, ClaudeBot, anthropic-ai, Applebot-Extended und cohere-ai explizit",
+        "Speakable-Markup auf Kurzantwort-Boxen und FAQ",
+        "Kurzantwort-Box am Anfang jedes Artikels als extrahierbare Direktantwort",
+        "Evidenzregister als JSON oeffentlich verlinkt",
+        "Belegte Datentabellen mit Quelle und Pruefdatum"
+      ],
+      "findings": [
+        {
+          "title": "llms.txt veraltet",
+          "severity": "Low",
+          "description": "Stand 23.07.2026, kennt die am 28.07. ergaenzten Datentabellen nicht. Fuehrt den Navigator korrekt als nicht indexierte Beta.",
+          "recommendation": "Bei jeder inhaltlichen Erweiterung mitziehen, beim Navigator-Launch anpassen."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 82,
+      "what_works": [
+        "209 img-Tags, null ohne alt-Attribut",
+        "209 img-Tags, null ohne width und height. Das ist der Grund fuer CLS 0 auf allen Inhaltsseiten",
+        "Drei bewusst leere alt-Attribute fuer dekorative Bilder, korrekt",
+        "70 WebP-Dateien vorhanden"
+      ],
+      "findings": [
+        {
+          "title": "WebP vorhanden, aber nicht ueberall ausgeliefert",
+          "severity": "Medium",
+          "description": "geschenke-3-jahre.webp existiert, die Seite laedt das 423-KB-JPG.",
+          "recommendation": "Alle grossen Bilder auf picture-Element umstellen."
+        }
+      ]
+    }
+  ],
+  "persona_coverage": {
+    "note": "Keines der sieben Navigator-Persona-Segmente hat eine eigene Landingpage. Die fuenf Kinderwagen-Artikel decken Themen ab, nicht Bedingungen.",
+    "segments": [
+      {
+        "id": "compact_car_fixed_budget",
+        "constraint": "kleiner Kofferraum, 800 Euro hart",
+        "page": null,
+        "basis": "Kofferraum-Artikel enthaelt die Datenbasis bereits"
+      },
+      {
+        "id": "low_budget_city_walkup",
+        "constraint": "Treppen und OEPNV, 600 Euro hart",
+        "page": null,
+        "basis": "teilweise in stadt-oder-land"
+      },
+      {
+        "id": "tight_access_transit",
+        "constraint": "enger Aufzug",
+        "page": null,
+        "basis": "Breitendaten in stadt-oder-land"
+      },
+      {
+        "id": "rural_rough_routes",
+        "constraint": "Feld- und Waldwege",
+        "page": null,
+        "basis": "Radgroessen in stadt-oder-land"
+      },
+      {
+        "id": "mid_budget_function_first",
+        "constraint": "Stauraum, lange Nutzung",
+        "page": null,
+        "basis": "keine"
+      },
+      {
+        "id": "service_weather_long_use",
+        "constraint": "Ersatzteile, Wetterschutz",
+        "page": null,
+        "basis": "Servicedaten in gebraucht-kaufen"
+      },
+      {
+        "id": "premium_mobile_family",
+        "constraint": "viel unterwegs, Budget offen",
+        "page": null,
+        "basis": "keine"
+      }
+    ],
+    "actual_demand_persona": "Geschenkekaeufer, haeufig Grosseltern und Freunde. 130 von 457 Impressionen. Wird nicht gezielt bedient."
+  },
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Kritische Fixes",
+        "timeframe": "Woche 1",
+        "items": [
+          "Navigator-CLS beheben: min-height auf dem App-Container",
+          "Geschenke-Hub: geschenke-3-jahre auf picture-Element mit WebP, rund 350 KB Ersparnis",
+          "loading=lazy auf die restlichen 140 img-Tags",
+          "Indexierung woechentlich nachverfolgen, kein Eingriff"
+        ]
+      },
+      {
+        "name": "Phase 2: Wirkungsstarke Verbesserungen",
+        "timeframe": "Woche 2 bis 3",
+        "items": [
+          "Eigene Seite fuer lauflerngitter (Position 10,8 ohne eigene Seite)",
+          "Eigene Seite fuer stapelbecher ab welchem alter (Position 18,3)",
+          "Positionsverlust bei spielzeug unter 20 euro klaeren (18,3 auf 23,6)",
+          "Erste Bedingungsseite: Kinderwagen fuer kleines Auto",
+          "Heading-Hierarchie auf 34 Seiten glaetten",
+          "llms.txt aktualisieren",
+          "Zwei fehlende .html-Weiterleitungen ergaenzen"
+        ]
+      },
+      {
+        "name": "Phase 3: Inhalt und Autoritaet",
+        "timeframe": "Monat 2",
+        "items": [
+          "Autoritaet aufbauen: den Kinderwagen-Datensatz als Zitierargument platzieren, besonders die offen ausgewiesenen Datenluecken",
+          "Kannibalisierung zwischen Alters- und Geschenke-Cluster auflösen",
+          "Geschenkekaeufer-Persona direkt bedienen",
+          "kinderwagen-arten auf das Niveau der anderen vier bringen",
+          "Restliche Bedingungsseiten nach Persona-Segmenten"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring",
+        "timeframe": "Laufend",
+        "items": [
+          "Nach jeder Sitemap-Aenderung neu einreichen",
+          "Woechentlich Indexierungsstatus und Quick-Win-Positionen",
+          "Monatlich Impressionsverlauf gegen Vormonat",
+          "Erfolgsmass sind Impressionen im Kinderwagen-Cluster, nicht Klicks"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "full_report": "FULL-AUDIT-2026-07-29.md",
+    "action_plan": "ACTION-PLAN-2026-07-29.md",
+    "findings_dir": "findings/",
+    "findings_note": "findings/sxo.md und findings/cluster.md sind vom 29.07.2026 und in den Nachtrag des Hauptberichts eingearbeitet. Die uebrigen Dateien in findings/ datieren auf 30.06.2026 aus einem frueheren Audit und wurden nicht ueberschrieben.",
+    "screenshots_dir": "screenshots/"
+  }
+}
