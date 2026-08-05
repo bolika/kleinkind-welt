@@ -193,12 +193,9 @@
       ]
     },
     "herstellerbild": {
-      "kennzeichnung": "keine KI-Kennzeichnung",
-      "begruendung": "Produktabbildung des Herstellers, keine KI beteiligt. Offen ist hier die Bildrechtefrage, nicht die KI-Frage.",
-      "dateien": [
-        "images/Lauflernwagen.jpg",
-        "images/Lauflernwagen.webp"
-      ]
+      "kennzeichnung": "entfernt",
+      "begruendung": "Die selbst gehostete Kopie des Kidpop-Produktbildes ist am 05.08.2026 entfernt worden. Amazons Partnerprogramm erlaubt Produktbilder nur ueber die offiziellen Widgets, nicht als heruntergeladene Kopie. Das Bild kommt jetzt ueber ws-eu.amazon-adsystem.com mit der Partner-ID kleinkindwelt-21 und liegt damit innerhalb der Lizenz.",
+      "dateien": []
     },
     "extern_eingebunden": {
       "kennzeichnung": "keine",
