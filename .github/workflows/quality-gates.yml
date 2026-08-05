@@ -41,6 +41,7 @@ jobs:
           node --check tools/internal-link-audit.mjs
           node --check tools/kinderwagen-media-rights-gate.mjs
           node --check tools/kinderwagen-beta-gate.mjs
+          node --check tools/ki-bildkennzeichnung-gate.mjs
           node --check tools/kinderwagen-tracking-contract-gate.mjs
           node --check tools/prepare-kinderwagen-product-image.mjs
           node --check tools/seo-smoke-test.mjs
@@ -70,6 +71,7 @@ jobs:
           node tools/kinderwagen-media-rights-gate.mjs
           node tools/kinderwagen-beta-gate.mjs
           node tools/site-positioning-gate.mjs
+          node tools/ki-bildkennzeichnung-gate.mjs
           node tools/sync-site-navigation.mjs --check
 
       - name: Run local SEO smoke test

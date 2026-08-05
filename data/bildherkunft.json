@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "1.0.0",
+  "zweck": "Herkunft jedes auf der Website verwendeten Bildes. Grundlage der Kennzeichnungspflicht nach Artikel 50 Absatz 4 der KI-Verordnung (EU) 2024/1689, anwendbar ab 02.08.2026. Fotorealistische, mit KI erzeugte Bilder gelten nach Artikel 3 Nummer 60 als Deepfake, auch wenn keine real existierende Person abgebildet ist. Fuer Bilder gibt es keine redaktionelle Ausnahme.",
+  "geprueft": "2026-07-29",
+  "gruppen": {
+    "ki_generiert": {
+      "kennzeichnung": "sichtbarer Badge im Bild, Text: KI-Bild",
+      "begruendung": "Fotorealistisch erzeugt, wirkt wie eine Fotografie",
+      "motive": {
+        "Speilzeugideen-12-18-monate": [
+          "Speilzeugideen-12-18-monate.jpg",
+          "Speilzeugideen-12-18-monate.webp"
+        ],
+        "badespielzeug-kleinkind": [
+          "badespielzeug-kleinkind-480.jpg",
+          "badespielzeug-kleinkind-480.webp",
+          "badespielzeug-kleinkind-768.jpg",
+          "badespielzeug-kleinkind-768.webp",
+          "badespielzeug-kleinkind.jpg",
+          "badespielzeug-kleinkind.webp"
+        ],
+        "duplo-vergleich": [
+          "duplo-vergleich-480.jpg",
+          "duplo-vergleich-480.webp",
+          "duplo-vergleich-768.jpg",
+          "duplo-vergleich-768.webp",
+          "duplo-vergleich.jpg",
+          "duplo-vergleich.webp"
+        ],
+        "geschenke-1-jahr": [
+          "geschenke-1-jahr-480.jpg",
+          "geschenke-1-jahr-480.webp",
+          "geschenke-1-jahr-768.jpg",
+          "geschenke-1-jahr-768.webp",
+          "geschenke-1-jahr.jpg",
+          "geschenke-1-jahr.webp"
+        ],
+        "geschenke-1-jahr-hero": [
+          "geschenke-1-jahr-hero-sm.webp",
+          "geschenke-1-jahr-hero.jpg",
+          "geschenke-1-jahr-hero.webp"
+        ],
+        "geschenke-2-jahre": [
+          "geschenke-2-jahre-480.webp",
+          "geschenke-2-jahre-768.webp",
+          "geschenke-2-jahre.jpg",
+          "geschenke-2-jahre.webp"
+        ],
+        "geschenke-3-jahre": [
+          "geschenke-3-jahre.jpg",
+          "geschenke-3-jahre.webp"
+        ],
+        "geschenke-zur-geburt": [
+          "geschenke-zur-geburt-480.jpg",
+          "geschenke-zur-geburt-480.webp",
+          "geschenke-zur-geburt-768.jpg",
+          "geschenke-zur-geburt-768.webp",
+          "geschenke-zur-geburt.jpg",
+          "geschenke-zur-geburt.webp"
+        ],
+        "hero-kind-holzspielzeug": [
+          "hero-kind-holzspielzeug.jpg",
+          "hero-kind-holzspielzeug.webp"
+        ],
+        "hero-spielzeug-finden": [
+          "hero-spielzeug-finden-1200.jpg",
+          "hero-spielzeug-finden-1200.webp",
+          "hero-spielzeug-finden.jpg",
+          "hero-spielzeug-finden.webp"
+        ],
+        "hero-spielzeug-finden-640": [
+          "hero-spielzeug-finden-640.jpg",
+          "hero-spielzeug-finden-640.webp"
+        ],
+        "holzspielzeug-vs-plastikspielzeug": [
+          "holzspielzeug-vs-plastikspielzeug-480.jpg",
+          "holzspielzeug-vs-plastikspielzeug-480.webp",
+          "holzspielzeug-vs-plastikspielzeug-768.jpg",
+          "holzspielzeug-vs-plastikspielzeug-768.webp",
+          "holzspielzeug-vs-plastikspielzeug.jpg",
+          "holzspielzeug-vs-plastikspielzeug.webp"
+        ],
+        "montessori-spielzeug-kleinkind": [
+          "montessori-spielzeug-kleinkind-480.jpg",
+          "montessori-spielzeug-kleinkind-480.webp",
+          "montessori-spielzeug-kleinkind-768.jpg",
+          "montessori-spielzeug-kleinkind-768.webp",
+          "montessori-spielzeug-kleinkind.jpg",
+          "montessori-spielzeug-kleinkind.webp"
+        ],
+        "motorikspielzeug-test": [
+          "motorikspielzeug-test.jpg",
+          "motorikspielzeug-test.webp"
+        ],
+        "nachhaltiges-spielzeug-siegel": [
+          "nachhaltiges-spielzeug-siegel-480.jpg",
+          "nachhaltiges-spielzeug-siegel-480.webp",
+          "nachhaltiges-spielzeug-siegel-768.jpg",
+          "nachhaltiges-spielzeug-siegel-768.webp",
+          "nachhaltiges-spielzeug-siegel.jpg",
+          "nachhaltiges-spielzeug-siegel.webp"
+        ],
+        "outdoor-spielzeug-kleinkind": [
+          "outdoor-spielzeug-kleinkind-480.webp",
+          "outdoor-spielzeug-kleinkind-768.webp",
+          "outdoor-spielzeug-kleinkind.jpg",
+          "outdoor-spielzeug-kleinkind.webp"
+        ],
+        "spielzeug-0-6-monate": [
+          "spielzeug-0-6-monate-480.jpg",
+          "spielzeug-0-6-monate-480.webp",
+          "spielzeug-0-6-monate-768.jpg",
+          "spielzeug-0-6-monate-768.webp",
+          "spielzeug-0-6-monate.jpg",
+          "spielzeug-0-6-monate.webp"
+        ],
+        "spielzeug-12-18-monate": [
+          "spielzeug-12-18-monate-480.jpg",
+          "spielzeug-12-18-monate-480.webp",
+          "spielzeug-12-18-monate-768.jpg",
+          "spielzeug-12-18-monate-768.webp",
+          "spielzeug-12-18-monate.jpg",
+          "spielzeug-12-18-monate.webp"
+        ],
+        "spielzeug-18-24-monate": [
+          "spielzeug-18-24-monate-480.jpg",
+          "spielzeug-18-24-monate-480.webp",
+          "spielzeug-18-24-monate-768.jpg",
+          "spielzeug-18-24-monate-768.webp",
+          "spielzeug-18-24-monate.jpg",
+          "spielzeug-18-24-monate.webp"
+        ],
+        "spielzeug-2-jahre": [
+          "spielzeug-2-jahre-480.jpg",
+          "spielzeug-2-jahre-480.webp",
+          "spielzeug-2-jahre-768.jpg",
+          "spielzeug-2-jahre-768.webp",
+          "spielzeug-2-jahre.jpg",
+          "spielzeug-2-jahre.webp"
+        ],
+        "spielzeug-3-jahre": [
+          "spielzeug-3-jahre-480.jpg",
+          "spielzeug-3-jahre-480.webp",
+          "spielzeug-3-jahre-768.jpg",
+          "spielzeug-3-jahre-768.webp",
+          "spielzeug-3-jahre.jpg",
+          "spielzeug-3-jahre.webp"
+        ],
+        "spielzeug-6-12-monate": [
+          "spielzeug-6-12-monate-480.jpg",
+          "spielzeug-6-12-monate-480.webp",
+          "spielzeug-6-12-monate-768.jpg",
+          "spielzeug-6-12-monate-768.webp",
+          "spielzeug-6-12-monate.jpg",
+          "spielzeug-6-12-monate.webp"
+        ],
+        "spielzeug-unter-20-euro": [
+          "spielzeug-unter-20-euro-480.jpg",
+          "spielzeug-unter-20-euro-480.webp",
+          "spielzeug-unter-20-euro-768.jpg",
+          "spielzeug-unter-20-euro-768.webp",
+          "spielzeug-unter-20-euro.jpg",
+          "spielzeug-unter-20-euro.webp"
+        ],
+        "sprache-foerdern-spielzeug": [
+          "sprache-foerdern-spielzeug-480.jpg",
+          "sprache-foerdern-spielzeug-480.webp",
+          "sprache-foerdern-spielzeug-768.jpg",
+          "sprache-foerdern-spielzeug-768.webp",
+          "sprache-foerdern-spielzeug.jpg",
+          "sprache-foerdern-spielzeug.webp"
+        ],
+        "was-wir-nicht-kaufen": [
+          "was-wir-nicht-kaufen-480.jpg",
+          "was-wir-nicht-kaufen-480.webp",
+          "was-wir-nicht-kaufen-768.jpg",
+          "was-wir-nicht-kaufen-768.webp",
+          "was-wir-nicht-kaufen.jpg",
+          "was-wir-nicht-kaufen.webp"
+        ],
+        "weihnachtsgeschenke-kleinkind": [
+          "weihnachtsgeschenke-kleinkind.jpg",
+          "weihnachtsgeschenke-kleinkind.webp"
+        ]
+      }
+    },
+    "echte_fotografie": {
+      "kennzeichnung": "keine",
+      "begruendung": "Von Boris Nazarov selbst aufgenommen, keine KI beteiligt",
+      "dateien": [
+        "images/autor-boris.jpg",
+        "images/autor-boris-160.webp"
+      ]
+    },
+    "herstellerbild": {
+      "kennzeichnung": "keine KI-Kennzeichnung",
+      "begruendung": "Produktabbildung des Herstellers, keine KI beteiligt. Offen ist hier die Bildrechtefrage, nicht die KI-Frage.",
+      "dateien": [
+        "images/Lauflernwagen.jpg",
+        "images/Lauflernwagen.webp"
+      ]
+    },
+    "extern_eingebunden": {
+      "kennzeichnung": "keine",
+      "begruendung": "Echte Produktfotos, direkt vom Amazon-Widget geladen",
+      "quelle": "ws-eu.amazon-adsystem.com"
+    },
+    "gestaltete_grafik": {
+      "kennzeichnung": "keine",
+      "begruendung": "Vektor- und Layoutgrafik ohne fotorealistischen Inhalt",
+      "dateien": [
+        "images/logo-horizontal.svg",
+        "images/logo-mark.svg",
+        "images/logo-mark-512.png",
+        "images/favicon-32.png",
+        "images/apple-touch-icon.png",
+        "favicon.ico"
+      ]
+    },
+    "og_grafik": {
+      "kennzeichnung": "Foto-Anteil entfernt",
+      "begruendung": "Die Vorschaugrafik erscheint auf fremden Plattformen, wo die Website kein Label anbringen kann. Deshalb enthaelt sie seit 29.07.2026 keinen fotorealistischen Inhalt mehr, sondern nur Marke, Text und Farbflaeche.",
+      "dateien": [
+        "images/og-kleinkind-welt.png",
+        "images/og-kleinkind-welt.webp",
+        "images/og-kleinkind-welt-768.jpg",
+        "images/og-kleinkind-welt-768.webp",
+        "images/og-kleinkind-welt-480.jpg",
+        "images/og-kleinkind-welt-480.webp"
+      ]
+    }
+  }
+}
