@@ -1345,7 +1345,7 @@ nav a:hover { color: var(--primary); }
 
 .hero-product-teaser {
   display: grid;
-  grid-template-columns: 78px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
@@ -1377,18 +1377,9 @@ nav a:hover { color: var(--primary); }
   transform: translateY(-1px);
 }
 
-.hero-product-teaser picture,
-.hero-product-teaser img {
-  display: block;
-  width: 78px;
-  height: 78px;
-}
 
-.hero-product-teaser img {
-  object-fit: contain;
-  border-radius: var(--r-sm);
-  background: var(--white);
-}
+
+
 
 .hero-product-teaser-copy {
   display: grid;
@@ -2168,19 +2159,9 @@ nav a:hover { color: var(--primary); }
 .produkt-img-link { display: none; } /* Temporär ausgeblendet — Platzhalter bis echte Fotos da sind */
 .produkt-img-link img { max-width: 180px; height: auto; border-radius: var(--r-sm); border: 1px solid #f0f0f0; transition: transform var(--motion-lift); }
 .produkt-img-link img:hover { transform: scale(1.03); }
-.produkt-box--featured .produkt-img-link {
-  display: flex;
-  justify-content: center;
-  margin: 12px 0 16px;
-}
-.produkt-box--featured .produkt-img-link picture { display: block; }
-.produkt-box--featured .produkt-img-link img {
-  width: min(100%, 220px);
-  max-width: 220px;
-  aspect-ratio: 1;
-  object-fit: contain;
-  background: var(--white);
-}
+
+
+
 .produkt-review-note {
   padding: 10px 12px;
   margin: 12px 0 16px;
@@ -3152,53 +3133,24 @@ footer ul a:hover { color: white; }
    layout stays stacked so the Pinterest entry path remains compact. */
 @media (min-width: 641px) {
   .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero {
-    display: grid;
-    grid-template-columns: minmax(230px, 0.9fr) minmax(0, 1.1fr);
-    column-gap: 24px;
     row-gap: 8px;
     align-items: center;
   }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual {
-    grid-column: 1;
-    grid-row: 1 / span 6;
-    width: 100%;
-    min-height: 250px;
-  }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero > :not(.kaufbox-product-visual) {
-    grid-column: 2;
-  }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual img {
-    height: 280px;
-  }
+
+
+
 
   .page-geschenke-1-jahr .kaufbox--decision .kaufbox-trust {
     align-self: start;
   }
 }
 
-.kaufbox-product-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  width: min(100%, 320px);
-  min-height: 220px;
-  padding: 10px;
-  border: 1px solid rgba(43,111,103,0.16);
-  border-radius: var(--r-sm);
-  background: var(--white);
-}
 
-.kaufbox-product-visual img {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  height: 260px;
-  object-fit: contain;
-}
+
+
 
 .kaufbox--decision .kaufbox-hero .kaufbox-name {
   font-size: clamp(1.25rem, 3vw, 1.55rem);
@@ -3298,13 +3250,8 @@ footer ul a:hover { color: white; }
   .kaufbox--decision .kaufbox-hero {
     padding: 16px;
   }
-  .kaufbox-product-visual {
-    width: 100%;
-    min-height: 190px;
-  }
-  .kaufbox-product-visual img {
-    height: 210px;
-  }
+
+
   .kaufbox-actions {
     width: 100%;
   }
@@ -4662,17 +4609,13 @@ footer ul a:hover { color: white; }
   }
 
   .hero-product-teaser {
-    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
     margin-top: 16px;
     padding: 7px 10px 7px 7px;
   }
 
-  .hero-product-teaser picture,
-  .hero-product-teaser img {
-    width: 68px;
-    height: 68px;
-  }
+
 
   .hero-product-teaser-copy > span {
     font-size: 0.86rem;
@@ -5292,17 +5235,13 @@ footer ul a:hover { color: white; }
   }
 
   .page-geschenke-1-jahr .hero-product-teaser {
-    grid-template-columns: 62px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 9px;
     margin-top: 8px;
     padding: 6px 8px 6px 6px;
   }
 
-  .page-geschenke-1-jahr .hero-product-teaser picture,
-  .page-geschenke-1-jahr .hero-product-teaser img {
-    width: 62px;
-    height: 62px;
-  }
+
 
   .page-geschenke-1-jahr .hero-product-teaser-copy strong {
     font-size: 0.66rem;
@@ -5331,30 +5270,16 @@ footer ul a:hover { color: white; }
   }
 
   .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero {
-    display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
-    column-gap: 12px;
     row-gap: 6px;
     align-items: center;
     padding: 12px;
   }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual {
-    grid-column: 1;
-    grid-row: 1 / span 4;
-    width: 112px;
-    min-height: 112px;
-    padding: 5px;
-  }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-product-visual img {
-    width: 100%;
-    height: 102px;
-  }
 
-  .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero > :not(.kaufbox-product-visual) {
-    grid-column: 2;
-  }
+
+
+
 
   .page-geschenke-1-jahr .kaufbox--decision .kaufbox-hero .kaufbox-name {
     font-size: 1.04rem;
