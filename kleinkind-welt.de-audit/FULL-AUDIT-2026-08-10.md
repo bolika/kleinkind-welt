@@ -4,7 +4,10 @@ Folge-Audit zu `FULL-AUDIT-2026-07-29.md` (Score 82). Zwölf Tage Abstand.
 Geschäftstyp: redaktionelle Affiliate-Kaufberatung, 37 URLs, deutschsprachig,
 Domain seit Ende Mai 2026 live.
 
-**Health Score: 86 von 100** (vorher 82)
+**Health Score: 88 von 100** (vorher 82)
+
+*Korrigiert von zunächst 86: Die Bildkategorie war zu hart bewertet, weil ich
+übersehen hatte, dass die toten Bilder ohnehin ausgeblendet waren.*
 
 | Kategorie | Gewicht | 29.07. | 10.08. |
 |---|---|---|---|
@@ -14,17 +17,32 @@ Domain seit Ende Mai 2026 live.
 | Schema | 10 % | 92 | **96** |
 | Performance | 10 % | 72 | **84** |
 | AI Search Readiness | 10 % | 90 | 92 |
-| Images | 5 % | 82 | **45** |
+| Images | 5 % | 82 | **78** |
 
-Der Score steigt trotz eines neuen kritischen Befundes, weil sechs von sieben
-Kategorien messbar besser geworden sind. Die Bildkategorie bricht ein — aus einem
-Grund, der nicht in diesem Repo liegt.
+Alle sieben Kategorien liegen über 78. Die Bildkategorie verliert leicht, weil
+26 Einbindungen auf einen abgeschalteten Host zeigten — inzwischen entfernt.
 
 ---
 
-## Der wichtigste Befund: 26 Produktbilder sind tot
+## 26 tote Produktbilder — Einstufung nachträglich korrigiert
 
-**Kritisch. Nicht selbst verursacht. Betrifft die kommerziellen Kernseiten.**
+**Korrektur vom 10.08.2026, nach Rückfrage:** Ich hatte das als kritisch
+eingestuft und geschrieben, die Empfehlungen verlören an Glaubwürdigkeit. **Das
+war falsch.** Alle 26 Bilder liegen in `.produkt-img-link`, und dieser Container
+steht site-weit auf `display: none` — mit dem Kommentar „Temporär ausgeblendet,
+Platzhalter bis echte Fotos da sind". Kein Besucher hat diese Bilder je gesehen.
+
+Richtige Einstufung: **niedrig**. Es war totes Markup, das 26 Anfragen an einen
+nicht mehr existierenden Host auslöste — messbar in der Konsole, unsichtbar auf
+der Seite.
+
+Was dagegen wirklich sichtbar kaputt war: das Kidpop-Bild im Hero-Teaser und in
+der Kaufbox von `geschenke-1-jahr`. Diese beiden lagen **nicht** in dem
+ausgeblendeten Container. Genau die hat Boris gemeldet, und sie sind am 05.08.
+entfernt worden.
+
+**Erledigt am 10.08.:** Alle 26 Anker entfernt. Site-weit null Verweise auf
+`amazon-adsystem.com/widgets` mehr.
 
 Amazon hat die alten Bild-Widget-Hosts abgeschaltet. Belegt durch vergleichende
 DNS-Auflösung:
@@ -53,12 +71,9 @@ von Boris, dass ein solches Bild bei ihm nicht angezeigt wurde.
 | `artikel/geschenke-1-jahr` | 3 |
 | `artikel/montessori-spielzeug-kleinkind` | 3 |
 
-Betroffen ist ausgerechnet `montessori-spielzeug-kleinkind` — die Seite mit dem
-zweitmeisten Suchinteresse, siehe unten.
-
-**Warum das mehr als Kosmetik ist.** Eine Produktempfehlung ohne Abbildung
-verliert an Glaubwürdigkeit, genau an der Stelle, an der der Nutzer klicken
-soll. Die Alt-Texte versprechen ein Bild, das nie kommt.
+**Warum es trotzdem weg musste.** Jede Einbindung löste einen DNS-Fehlschlag
+aus, sechs Seiten trugen zwischen drei und sechs davon. Kein Nutzerschaden, aber
+auch kein Nutzen.
 
 **Der Weg zurück ist unbequem.** Amazon hat den einfachen Bildweg für
 Partner geschlossen: Die SiteStripe-Bildlinks wurden 2024 eingeschränkt, und die
@@ -66,9 +81,9 @@ Partner geschlossen: Die SiteStripe-Bildlinks wurden 2024 eingeschränkt, und di
 qualifizierende Verkäufe voraussetzt — bei sieben Klicks in 90 Tagen keine
 realistische Option. Oder eigene Fotos.
 
-**Empfehlung:** Die 26 `img`-Tags entfernen und die Produktboxen wie bereits bei
-`geschenke-1-jahr` auf textgeführte Darstellung umstellen. Das ist in einer
-Stunde getan, ehrlich, und beseitigt 26 kaputte Bilder. Eigene Fotos später.
+**Für die Zukunft:** Sollen dort echte Produktbilder erscheinen, bleiben nur
+eigene Fotos oder die Product Advertising API. Keine KI-Bilder — ein erzeugtes
+Bild eines konkreten kaufbaren Produkts führt in die Irre, auch mit Kennzeichnung.
 
 ---
 

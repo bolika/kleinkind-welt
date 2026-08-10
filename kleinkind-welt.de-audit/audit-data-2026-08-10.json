@@ -1,16 +1,16 @@
 {
   "summary": {
-    "health_score": 86,
+    "health_score": 88,
     "business_type": "Redaktionelle Affiliate-Kaufberatung (Spielzeug und Kinderwagen), deutschsprachig, 37 URLs",
     "top_findings": [
-      "26 Produktbilder tot: Amazon hat ws-eu und ws-na.amazon-adsystem.com aus dem DNS genommen, betrifft 6 kommerzielle Seiten",
+      "26 Produktbilder zeigten auf abgeschaltete Amazon-Hosts. Einstufung nachtraeglich von kritisch auf niedrig korrigiert: Alle lagen in .produkt-img-link, das site-weit display:none traegt — kein Besucher hat sie je gesehen. Am 10.08. entfernt.",
       "/kinderwagen ist Google nach 12 Tagen unverändert unbekannt, obwohl technisch fehlerfrei und in der Sitemap",
       "Der gesamte Kinderwagen-Cluster erzeugt in 90 Tagen null Impressionen",
       "montessori-spielzeug-kleinkind belegt, dass On-Page erschöpft ist: 1942 Wörter, Title und H1 auf der Anfrage, 9 Eingangslinks, Position 60,5",
       "Impressionen 448 auf 588 (+31 %), Anfragen 58 auf 109 (+88 %), Klicks unverändert 7"
     ],
     "quick_wins": [
-      "Die 26 toten img-Tags entfernen und Produktboxen textgeführt lassen (rund eine Stunde)",
+      "Erledigt am 10.08.: die 26 toten img-Anker entfernt, site-weit null Verweise mehr",
       "Eigene Seite für montessori puzzle 1 jahr (Position 35,2 aus einem Nebenabsatz)",
       "GOOGLE_API_KEY eintragen, schaltet PageSpeed und CrUX kostenlos frei",
       "Kernzahlen des Kinderwagen-Datensatzes zusätzlich auf der indexierten Seite /kaufhilfen unterbringen"
@@ -131,7 +131,7 @@
     },
     {
       "name": "Images",
-      "score": 45,
+      "score": 78,
       "what_works": [
         "alle Bilder mit alt-Attribut",
         "alle mit width und height, kein Layout-Shift",
@@ -140,10 +140,10 @@
       ],
       "findings": [
         {
-          "title": "26 Produktbilder tot, Amazon hat die Widget-Hosts abgeschaltet",
-          "severity": "Critical",
-          "description": "ws-eu.amazon-adsystem.com und ws-na.amazon-adsystem.com lösen nicht mehr auf, während amazon.de, m.media-amazon.com, images-eu.ssl-images-amazon.com und amazon-adsystem.com auflösen. Keine Netzsperre, sondern fehlende Subdomains. 26 Einbindungen, 24 ASINs, 6 kommerzielle Seiten, darunter montessori-spielzeug-kleinkind mit dem zweitmeisten Suchinteresse.",
-          "recommendation": "Die 26 img-Tags entfernen und die Produktboxen textgeführt lassen, wie bei geschenke-1-jahr erprobt. Kein Ersatz durch KI-Bilder. Product Advertising API 5.0 setzt qualifizierende Verkäufe voraus und ist bei 7 Klicks in 90 Tagen keine Option."
+          "title": "26 tote Amazon-Bildverweise, ausgeblendet und inzwischen entfernt",
+          "severity": "Low",
+          "description": "ws-eu und ws-na.amazon-adsystem.com loesen nicht mehr auf, waehrend amazon.de, m.media-amazon.com und amazon-adsystem.com aufloesen. Die 26 Einbindungen lagen jedoch alle in produkt-img-link, das site-weit display:none traegt ('Temporaer ausgeblendet, Platzhalter bis echte Fotos da sind'). Kein sichtbarer Mangel, aber 26 DNS-Fehlschlaege auf sechs Seiten. Sichtbar kaputt waren nur das Hero-Teaser- und Kaufbox-Bild in geschenke-1-jahr, beide am 05.08. entfernt.",
+          "recommendation": "Erledigt am 10.08.: alle 26 Anker entfernt."
         }
       ]
     }

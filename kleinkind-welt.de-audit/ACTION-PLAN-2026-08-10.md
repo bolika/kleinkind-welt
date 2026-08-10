@@ -1,24 +1,23 @@
 # Aktionsplan kleinkind-welt.de · 10.08.2026
 
-Abgeleitet aus `FULL-AUDIT-2026-08-10.md`. Score 86 von 100.
+Abgeleitet aus `FULL-AUDIT-2026-08-10.md`. Score 88 von 100.
 
-**Die Lage in einem Satz:** Am Handwerk ist nichts mehr zu holen — sechs von
-sieben Kategorien liegen über 84, die technische Prüfung ist fehlerfrei. Was
-fehlt, ist externe Autorität, und ein Dienstleister hat 26 Bilder abgeschaltet.
+**Die Lage in einem Satz:** Am Handwerk ist nichts mehr zu holen — alle sieben
+Kategorien liegen über 78, die technische Prüfung ist fehlerfrei. Was fehlt, ist
+externe Autorität.
 
 ---
 
 ## Phase 1 — diese Woche
 
-### 1.1 Die 26 toten Produktbilder entfernen (Kritisch)
+### 1.1 Die 26 toten Produktbilder entfernen — ERLEDIGT am 10.08. (war: Kritisch, richtig: Niedrig)
 
-Amazon hat `ws-eu.amazon-adsystem.com` und `ws-na.amazon-adsystem.com` aus dem
-DNS genommen. Alle darüber eingebundenen Bilder sind kaputt, auf sechs
-kommerziellen Seiten.
+**Einstufung korrigiert.** Amazon hat `ws-eu` und `ws-na.amazon-adsystem.com` aus
+dem DNS genommen. Die 26 Einbindungen lagen aber alle in `.produkt-img-link`, das
+site-weit `display: none` trägt — kein Besucher hat sie je gesehen. Es war totes
+Markup mit 26 DNS-Fehlschlägen, kein sichtbarer Mangel.
 
-Vorgehen wie bereits bei `geschenke-1-jahr` erprobt: `img`-Tag entfernen, die
-Produktbox textgeführt lassen, tot gewordene CSS-Regeln aufräumen. Aufwand rund
-eine Stunde für alle sechs Seiten.
+Alle 26 Anker sind am 10.08. entfernt. Site-weit null Verweise mehr.
 
 Kein Ersatz durch KI-Bilder. Ein erzeugtes Bild eines konkreten kaufbaren
 Produkts führt in die Irre, auch mit Kennzeichnung.
