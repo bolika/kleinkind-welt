@@ -1,0 +1,195 @@
+{
+  "summary": {
+    "health_score": 86,
+    "business_type": "Redaktionelle Affiliate-Kaufberatung (Spielzeug und Kinderwagen), deutschsprachig, 37 URLs",
+    "top_findings": [
+      "26 Produktbilder tot: Amazon hat ws-eu und ws-na.amazon-adsystem.com aus dem DNS genommen, betrifft 6 kommerzielle Seiten",
+      "/kinderwagen ist Google nach 12 Tagen unverändert unbekannt, obwohl technisch fehlerfrei und in der Sitemap",
+      "Der gesamte Kinderwagen-Cluster erzeugt in 90 Tagen null Impressionen",
+      "montessori-spielzeug-kleinkind belegt, dass On-Page erschöpft ist: 1942 Wörter, Title und H1 auf der Anfrage, 9 Eingangslinks, Position 60,5",
+      "Impressionen 448 auf 588 (+31 %), Anfragen 58 auf 109 (+88 %), Klicks unverändert 7"
+    ],
+    "quick_wins": [
+      "Die 26 toten img-Tags entfernen und Produktboxen textgeführt lassen (rund eine Stunde)",
+      "Eigene Seite für montessori puzzle 1 jahr (Position 35,2 aus einem Nebenabsatz)",
+      "GOOGLE_API_KEY eintragen, schaltet PageSpeed und CrUX kostenlos frei",
+      "Kernzahlen des Kinderwagen-Datensatzes zusätzlich auf der indexierten Seite /kaufhilfen unterbringen"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 87,
+      "what_works": [
+        "38 JSON-LD-Blöcke, keiner ungültig",
+        "0 Überschriftensprünge site-weit",
+        "genau eine h1 je Seite",
+        "alle Seiten mit Meta-Description",
+        "keine toten internen Links",
+        "/kinderwagen liefert 200, korrektes Canonical, index/follow, kein Disallow"
+      ],
+      "findings": [
+        {
+          "title": "6 URLs discovered, aber nicht indexiert",
+          "severity": "High",
+          "description": "Die fünf Kinderwagen-Artikel und spielzeug-rotieren-kleinkind sind Google bekannt, werden aber nicht indexiert. Gegenüber dem 29.07. Fortschritt, aber kein Ergebnis.",
+          "recommendation": "Nicht über die Sitemap lösen, die wurde seit 29.07. nicht erneut gelesen. Externe Verlinkung und Links aus indexierten Seiten."
+        },
+        {
+          "title": "/kinderwagen ist Google unbekannt",
+          "severity": "High",
+          "description": "HTTP 200, in der Sitemap, index/follow, korrektes Canonical, 8 redaktionelle Eingangslinks, am 29.07. auf 1149 Wörter ausgebaut. Nach 12 Tagen unverändert unknown. Technisch nichts zu reparieren.",
+          "recommendation": "Prominentere Verlinkung von der Startseite, Links aus indexierten Artikeln, ein externer Link auf den Hub."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 84,
+      "what_works": [
+        "keine dünnen Hubs mehr, 301/415/422 auf 1149/1215/1589 Wörter",
+        "Begriffsklärung Laufgitter/Lauflernwagen/Gehfrei mit Normen und drei Quellen",
+        "157 FAQ-Paare inhaltlich deckungsgleich mit dem sichtbaren Text"
+      ],
+      "findings": [
+        {
+          "title": "Autorität ist der begrenzende Faktor, nicht der Inhalt",
+          "severity": "Critical",
+          "description": "montessori-spielzeug-kleinkind: 1942 Wörter, 8 FAQ, Title und H1 exakt auf der Anfrage montessori spielzeug 1 jahr, 9 interne Eingangslinks, Position 60,5. Die Geschenk-Anfragen tragen 252 von 459 Impressionen und stehen zwischen Position 63 und 80.",
+          "recommendation": "Autorität über den Kinderwagen-Datensatz aufbauen. Weitere On-Page-Arbeit an gut optimierten Seiten einstellen."
+        },
+        {
+          "title": "kinderwagen-arten ist der kürzeste Ratgeber",
+          "severity": "Low",
+          "description": "895 Wörter gegen 1250 bis 1993 bei den übrigen vier.",
+          "recommendation": "Vertagen, bis der Cluster indexiert ist. Sonst Arbeit ohne Sichtbarkeit."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 92,
+      "what_works": [
+        "0 Überschriftensprünge, vorher 34 Seiten",
+        "alle Titles unter 60 Zeichen",
+        "alle Metas vorhanden und über 80 Zeichen",
+        "Kinderwagen-Cluster von 1–2 auf 2–4 Geschwister-Links",
+        "spielzeug-rotieren von 1 auf 4 Eingangslinks"
+      ],
+      "findings": [
+        {
+          "title": "12 von 37 URLs ohne jede Impression in 90 Tagen",
+          "severity": "Medium",
+          "description": "Darunter der gesamte Kinderwagen-Bereich und spielzeug-rotieren-kleinkind.",
+          "recommendation": "Folgt aus der Indexierung, nicht aus On-Page. Erst Phase 2."
+        }
+      ]
+    },
+    {
+      "name": "Schema",
+      "score": 96,
+      "what_works": [
+        "38 JSON-LD-Blöcke, alle gültig",
+        "157 FAQ-Paare, keine Abweichung zwischen Schema und sichtbarem Text (vorher 26 von 145)",
+        "FAQPage auf allen drei Hubs neu"
+      ],
+      "findings": []
+    },
+    {
+      "name": "Performance",
+      "score": 84,
+      "what_works": [
+        "Navigator-CLS von 0,455 auf 0 über sechs Viewports",
+        "5 JSON-Preloads und 4 Modulpreloads, keine Doppel-Downloads",
+        "Reflow bei 320 px und 200 % Textzoom fehlerfrei"
+      ],
+      "findings": [
+        {
+          "title": "Keine Felddaten zu Core Web Vitals",
+          "severity": "Low",
+          "description": "Kein GOOGLE_API_KEY konfiguriert, deshalb kein PageSpeed und kein CrUX. Der CLS-Wert ist eine Labormessung.",
+          "recommendation": "API-Key ist kostenlos, eintragen in ~/.config/claude-seo/google-api.json."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 92,
+      "what_works": [
+        "llms.txt mit zitierfähigen Datenbefunden und der Begriffsklärung",
+        "KI-Bildkennzeichnung nach Artikel 50 der KI-Verordnung an 62 Einbindungen",
+        "offen ausgewiesene Datenlücken, für Zitate wertvoll"
+      ],
+      "findings": [
+        {
+          "title": "KI-Hinweis stand vor der H1 der Startseite",
+          "severity": "Medium",
+          "description": "Der Hauptinhalt begann mit dem Wort KI-Bild statt mit der Seitenaussage. Für Screenreader das erste Wort im Hauptinhalt, für die Textextraktion der Seitenanfang.",
+          "recommendation": "Behoben: Hinweis hinter den Textblock verschoben, optisch unverändert. Die CI-Regel ist von einer Positions- auf eine Zählregel umgestellt."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 45,
+      "what_works": [
+        "alle Bilder mit alt-Attribut",
+        "alle mit width und height, kein Layout-Shift",
+        "62 KI-Bilder sichtbar gekennzeichnet, Register in data/bildherkunft.json",
+        "WebP über picture-Elemente"
+      ],
+      "findings": [
+        {
+          "title": "26 Produktbilder tot, Amazon hat die Widget-Hosts abgeschaltet",
+          "severity": "Critical",
+          "description": "ws-eu.amazon-adsystem.com und ws-na.amazon-adsystem.com lösen nicht mehr auf, während amazon.de, m.media-amazon.com, images-eu.ssl-images-amazon.com und amazon-adsystem.com auflösen. Keine Netzsperre, sondern fehlende Subdomains. 26 Einbindungen, 24 ASINs, 6 kommerzielle Seiten, darunter montessori-spielzeug-kleinkind mit dem zweitmeisten Suchinteresse.",
+          "recommendation": "Die 26 img-Tags entfernen und die Produktboxen textgeführt lassen, wie bei geschenke-1-jahr erprobt. Kein Ersatz durch KI-Bilder. Product Advertising API 5.0 setzt qualifizierende Verkäufe voraus und ist bei 7 Klicks in 90 Tagen keine Option."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Kritische Fixes",
+        "timeframe": "Diese Woche",
+        "items": [
+          "26 tote Produktbilder entfernen und Boxen textgeführt lassen",
+          "Eigene Seite für montessori puzzle 1 jahr",
+          "Sitemap NICHT erneut einreichen"
+        ]
+      },
+      {
+        "name": "Phase 2: Die eigentliche Aufgabe",
+        "timeframe": "Wochen 2 bis 8",
+        "items": [
+          "Autorität über den Kinderwagen-Datensatz aufbauen",
+          "Kernzahlen zusätzlich auf der indexierten /kaufhilfen unterbringen",
+          "/kinderwagen entdeckbar machen: Startseite, indexierte Artikel, ein externer Link"
+        ]
+      },
+      {
+        "name": "Phase 3: Vertagt mit Begründung",
+        "timeframe": "Nach gelöster Indexierung",
+        "items": [
+          "low_budget_city_walkup bedienen, ohne Aufzug fehlt site-weit",
+          "kinderwagen-arten nachziehen",
+          "GOOGLE_API_KEY eintragen"
+        ]
+      },
+      {
+        "name": "Phase 4: Laufend",
+        "timeframe": "Wöchentlich und monatlich",
+        "items": [
+          "Indexierung der 7 offenen URLs verfolgen",
+          "Auf die erste Kinderwagen-Anfrage mit Impression warten",
+          "Impressionen und Positionen gegen Vormonat"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

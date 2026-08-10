@@ -56,6 +56,8 @@ sammle(root);
 // --- 1. und 2.: Einbindungen pruefen -----------------------------------------
 let gepruefteEinbindungen = 0;
 const verwendeteBilder = new Set();
+const kiBloeckeJeSeite = new Map();
+const badgesJeSeite = new Map();
 
 for (const seite of seiten) {
   const html = fs.readFileSync(path.join(root, seite), 'utf8');
@@ -82,10 +84,25 @@ for (const seite of seiten) {
     }
     if (!istKiBild(block.text)) continue;
     gepruefteEinbindungen += 1;
-    const danach = html.slice(block.ende, block.ende + 200);
-    pruefe(danach.includes(BADGE),
-      `${seite}: KI-Bild ohne sichtbaren Hinweis (${(block.text.match(/images\/[^"\s,]+/) ?? ['?'])[0]})`);
+    kiBloeckeJeSeite.set(seite, (kiBloeckeJeSeite.get(seite) ?? 0) + 1);
   }
+
+  // Gezaehlt statt positionsgebunden gepruefte Regel: Jede Seite braucht
+  // mindestens so viele sichtbare Hinweise wie sie KI-Bilder einbindet.
+  //
+  // Die frueher benutzte Regel "Hinweis innerhalb von 200 Zeichen nach dem Bild"
+  // war zu eng. Auf der Startseite stand der Hinweis dadurch VOR der H1, und der
+  // Hauptinhalt begann mit dem Wort "KI-Bild" statt mit der Seitenaussage. Da der
+  // Hinweis absolut positioniert ist, darf er im Markup hinter dem Textblock
+  // stehen — sichtbar bleibt er an derselben Stelle.
+  const badges = (html.match(/class="ki-badge"/g) ?? []).length;
+  badgesJeSeite.set(seite, badges);
+}
+
+for (const [seite, anzahl] of kiBloeckeJeSeite) {
+  const badges = badgesJeSeite.get(seite) ?? 0;
+  pruefe(badges >= anzahl,
+    `${seite}: ${anzahl} KI-Bild(er), aber nur ${badges} sichtbare Hinweise`);
 }
 pruefe(gepruefteEinbindungen > 0, 'Keine KI-Bild-Einbindung gefunden — die Prüfung greift ins Leere');
 
