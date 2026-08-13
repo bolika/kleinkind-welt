@@ -55,6 +55,12 @@ https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 /spielzeug-nach-alter.html /spielzeug-nach-alter 301!
 /geschenke-kleinkind.html /geschenke-kleinkind 301!
 /kinderwagen.html /kinderwagen 301!
+
+# /kontakt ist im deutschen Web die erwartete URL fuer die Kontaktseite.
+# Plausible zeigt am 11.08.2026 einen Aufruf mit 404 — bei fuenf Besuchern
+# in sieben Tagen. Die Angaben stehen im Ueber-uns-Abschnitt Kontakt.
+/kontakt /ueber-uns#kontakt 301!
+/kontakt.html /ueber-uns#kontakt 301!
 /kaufhilfen.html /kaufhilfen 301!
 /kinderwagen-navigator.html /kinderwagen-navigator 301!
 /saisonale-empfehlungen/sommer-spielzeug.html /saisonale-empfehlungen/sommer-spielzeug 301!
