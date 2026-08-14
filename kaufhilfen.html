@@ -59,7 +59,7 @@
       {
         "@type": "ItemList",
         "name": "Kaufhilfen für Familien",
-        "numberOfItems": 7,
+        "numberOfItems": 8,
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Kinderwagen-Navigator", "url": "https://kleinkind-welt.de/kinderwagen-navigator"},
           {"@type": "ListItem", "position": 2, "name": "3-Minuten-Fehlkauf-Check", "url": "https://kleinkind-welt.de/kaufhilfen#fehlkauf-check"},
@@ -67,7 +67,30 @@
           {"@type": "ListItem", "position": 4, "name": "Sicherheits-Quickcheck U3", "url": "https://kleinkind-welt.de/kaufhilfen#sicherheit"},
           {"@type": "ListItem", "position": 5, "name": "Fake-Montessori-Check", "url": "https://kleinkind-welt.de/kaufhilfen#fake-montessori"},
           {"@type": "ListItem", "position": 6, "name": "Spielzeug-Rotation Wochenplan", "url": "https://kleinkind-welt.de/kaufhilfen#rotation"},
-          {"@type": "ListItem", "position": 7, "name": "Geschenk-Finder", "url": "https://kleinkind-welt.de/kaufhilfen#geschenk-finder"}
+          {"@type": "ListItem", "position": 7, "name": "Geschenk-Finder", "url": "https://kleinkind-welt.de/kaufhilfen#geschenk-finder"},
+          {"@type": "ListItem", "position": 8, "name": "Fünf Befunde aus 20 Kombi-Kinderwagen", "url": "https://kleinkind-welt.de/kaufhilfen#kinderwagen-zahlen"}
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://kleinkind-welt.de/kaufhilfen#kinderwagen-datensatz",
+        "name": "Kombi-Kinderwagen: 20 Modelle mit offiziellen Herstellerangaben",
+        "description": "Faltmaße, Radgrößen, aufgeklappte Breite, Garantiedauer sowie Ersatzteil- und Reparaturlage von 20 aktuellen Kombi-Kinderwagen. Jede Angabe stammt aus einer offiziellen Herstellerquelle und ist mit Prüfdatum erfasst. Nicht belegte Angaben sind ausdrücklich als nicht dokumentiert ausgewiesen und nicht geschätzt.",
+        "url": "https://kleinkind-welt.de/kaufhilfen#kinderwagen-zahlen",
+        "inLanguage": "de",
+        "isAccessibleForFree": true,
+        "temporalCoverage": "2026-07",
+        "creator": {"@id": "https://kleinkind-welt.de/#organization"},
+        "variableMeasured": [
+          "Faltmaß in Zentimetern",
+          "Hinterraddurchmesser in Zentimetern",
+          "Aufgeklappte Breite in Zentimetern",
+          "Garantiedauer in Jahren",
+          "Ersatzteilverfügbarkeit",
+          "Reparaturservice",
+          "Babywanne im Lieferumfang",
+          "Regenschutz im Lieferumfang",
+          "Offizieller Rückrufstatus"
         ]
       },
       {
@@ -110,7 +133,7 @@
   <div class="article-body kaufhilfen-body">
     <div class="kurzantwort-box">
       <span class="kurzantwort-label">Kurzantwort</span>
-      <p>Wähle zuerst den passenden Bereich: Die Kinderwagen-Beta führt in fünf Fragen zu begründeten Matches für Kombi-Kinderwagen ab Geburt. Bei Spielzeug helfen Fehlkauf-Check, Alters-Matrix und Sicherheitscheck dabei, weniger, aber passender zu kaufen.</p>
+      <p>Wähle zuerst den passenden Bereich: Die Kinderwagen-Beta führt in fünf Fragen zu begründeten Matches für Kombi-Kinderwagen ab Geburt. Bei Spielzeug helfen Fehlkauf-Check, Alters-Matrix und Sicherheitscheck dabei, weniger, aber passender zu kaufen. Wer schon beim Kinderwagen steht, findet unter <a href="#kinderwagen-zahlen">Fünf Befunde aus 20 Kombi-Kinderwagen</a> die Angaben, die Hersteller selten nebeneinanderstellen.</p>
     </div>
 
     <div class="affiliate-hinweis">
@@ -384,6 +407,59 @@
       </table>
     </div>
 
+    <h2 class="kaufhilfen-group-title">Kinderwagen prüfen</h2>
+
+    <h2 id="kinderwagen-zahlen">Fünf Befunde aus 20 Kombi-Kinderwagen</h2>
+    <p>Für 20 aktuelle Kombi-Kinderwagen haben wir jede Herstellerangabe einzeln erfasst, jede mit Quelle und Prüfdatum. Fünf Muster daraus stehen in keinem Prospekt. Preise lassen wir hier absichtlich weg: Sie ändern sich ständig, die folgenden Angaben nicht. Die vollständige Preisrechnung steht im <a href="/kinderwagen">Kinderwagen-Ratgeber</a>.</p>
+    <div class="table-scroll">
+      <table class="budget-table kaufhilfe-table" aria-label="Fünf Befunde aus 20 dokumentierten Kombi-Kinderwagen">
+        <colgroup>
+          <col style="width:17%">
+          <col style="width:60%">
+          <col style="width:23%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Worum es geht</th>
+            <th>Was die 20 Modelle zeigen</th>
+            <th>Nachlesen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Räder gegen Faltmaß</td>
+            <td>Beides zusammen gibt es kaum: Korrelation +0,90 zwischen Hinterraddurchmesser und aufgeklappter Breite – über die elf Modelle, für die beide Angaben offiziell vorliegen.</td>
+            <td><a href="/artikel/kinderwagen-stadt-oder-land">Stadt oder Gelände</a></td>
+          </tr>
+          <tr>
+            <td>Kofferraum</td>
+            <td>Zehn von 20 Modellen haben eine größte Faltkante über 74,8 cm – so lang ist der Ladeboden eines VW T-Cross hinter der zweiten Sitzreihe.</td>
+            <td><a href="/artikel/kinderwagen-kofferraum">Faltmaße prüfen</a></td>
+          </tr>
+          <tr>
+            <td>Garantie</td>
+            <td>Die Garantiedauer schwankt um den Faktor fünf. Sechs Modelle von my junior nennen zehn Jahre, Bugaboo vier, Kinderkraft, ABC Design und Joolz je zwei Jahre; bei fünf Modellen ist keine Dauer dokumentiert.</td>
+            <td><a href="/artikel/kinderwagen-gebraucht-kaufen">Garantie-Tabelle</a></td>
+          </tr>
+          <tr>
+            <td>Ersatzteile</td>
+            <td>Bei fünf von 20 Modellen ist die Ersatzteilversorgung offiziell nicht dokumentiert. Beim Gebrauchtkauf ist das die wichtigere Zahl als der Preis.</td>
+            <td><a href="/artikel/kinderwagen-gebraucht-kaufen">Prüfliste</a></td>
+          </tr>
+          <tr>
+            <td>Bauform</td>
+            <td>Kombi, Buggy, Travelsystem und Geschwisterwagen unterscheiden sich vor allem darin, ab welchem Alter und für welchen Untergrund sie nutzbar sind.</td>
+            <td><a href="/artikel/kinderwagen-arten">Bauformen</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kurzantwort-box">
+      <span class="kurzantwort-label">Was in diesen Daten fehlt</span>
+      <p>Den <strong>Rückrufstatus dokumentieren wir für keines der 20 Modelle</strong> – wir haben keine belastbare Einzelfallprüfung durchgeführt und schätzen nichts. Wer das prüfen will, sucht Marke und Modell im europäischen Schnellwarnsystem Safety Gate und auf der Herstellerseite unter Service oder Rückrufe. Ebenso fehlen uns Angaben zu Schadstoffprüfungen und zur Haltbarkeit im Dauergebrauch. Diese Lücken weisen wir aus, statt sie durch Vermutungen zu füllen.</p>
+    </div>
+
     <div class="bonus-next-box">
       <h2>Jetzt passende Empfehlungen ansehen</h2>
       <p>Wenn du die wichtigsten Fragen geklärt hast, geh in den passenden Ratgeber. Dort findest du konkrete Empfehlungen mit Alter, Vor- und Nachteilen.</p>
@@ -407,6 +483,7 @@
         <li><a href="/artikel/spielzeug-2-jahre">Spielzeug 2 Jahre</a></li>
         <li><a href="/artikel/spielzeug-3-jahre">Spielzeug 3 Jahre</a></li>
         <li><a href="/artikel/spielzeug-unter-20-euro">Spielzeug unter 20 Euro</a></li>
+        <li><a href="/artikel/puzzle-ab-1-jahr">Puzzle ab 1 Jahr</a></li>
       </ul>
 
       <h3 style="margin-top:1.25rem; font-size:1rem;">Geschenke & Anlässe</h3>

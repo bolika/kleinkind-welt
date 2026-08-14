@@ -41,6 +41,7 @@ jobs:
           node --check tools/internal-link-audit.mjs
           node --check tools/kinderwagen-media-rights-gate.mjs
           node --check tools/kinderwagen-beta-gate.mjs
+          node --check tools/kinderwagen-kennzahlen-gate.mjs
           node --check tools/ki-bildkennzeichnung-gate.mjs
           node --check tools/kinderwagen-tracking-contract-gate.mjs
           node --check tools/prepare-kinderwagen-product-image.mjs
@@ -66,6 +67,9 @@ jobs:
       - name: Validate AI publishing inputs and generated assets
         run: |
           node tools/build-kinderwagen-guides.mjs --check
+          # Vor dem Beta-Gate, damit die Zahlenpruefung auch dann laeuft, wenn
+          # das Beta-Gate wegen abgelaufener Preisfrische abbricht.
+          node tools/kinderwagen-kennzahlen-gate.mjs
           node tools/content-brief-gate.mjs
           node tools/generate-seal-assets.mjs --check
           node tools/kinderwagen-media-rights-gate.mjs
