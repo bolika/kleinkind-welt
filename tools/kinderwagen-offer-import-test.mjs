@@ -24,6 +24,25 @@ assert(document.offers[0].price.amount === 799.9, 'Preis wurde nicht korrekt ein
 assert(document.offers[0].identifiers.gtins[0] === '1234567890123', 'GTIN wurde nicht normalisiert.');
 assert(document.offers[0].availability.stockQuantity === undefined, 'Leerer Lagerbestand darf nicht als 0 Stück importiert werden.');
 assert(document.offers[0].imageUrl === undefined, 'Feed-Bilder dürfen vor geklärter Bildnutzung nicht importiert werden.');
+const duplicateImport = importOffers({ rows: [rows[0], rows[0]], mappingData, now });
+assert(duplicateImport.document.offers.length === 1, 'Identische Händlerzeilen dürfen kein doppeltes Angebot erzeugen.');
+assert(duplicateImport.report.duplicateRowsCollapsed === 1, 'Zusammengeführte Feed-Duplikate müssen im Report erscheinen.');
+const alternateAwinReference = {
+  ...rows[0],
+  aw_product_id: '99999999999',
+  aw_deep_link: 'https://www.awin1.com/pclick.php?p=99999999999&a=123456&m=14986'
+};
+const alternateReferenceImport = importOffers({ rows: [rows[0], alternateAwinReference], mappingData, now });
+assert(alternateReferenceImport.document.offers.length === 1, 'Gleiche Händlerdaten aus zwei Awin-Feedvarianten müssen zusammengeführt werden.');
+const conflictingDuplicate = { ...rows[0], search_price: '999.90' };
+assert(() => {
+  try {
+    importOffers({ rows: [rows[0], conflictingDuplicate], mappingData, now });
+    return false;
+  } catch {
+    return true;
+  }
+}, 'Widersprüchliche Händlerzeilen müssen den Import blockieren.');
 const approvedImageDocument = importOffers({
   rows,
   mappingData: { ...mappingData, feedImageUsageStatus: 'approved_for_feed_only' },

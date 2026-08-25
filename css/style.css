@@ -1647,6 +1647,29 @@ nav a:hover { color: var(--primary); }
 
 .btn-amazon:hover { background: var(--accent-action-hover); color: #fff; }
 
+.btn-merchant {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid var(--primary);
+  border-radius: var(--r-sm);
+  background: var(--white);
+  color: var(--primary-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  transition: background var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast);
+}
+
+.btn-merchant:hover,
+.btn-merchant:focus-visible {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: var(--white);
+}
+
 .affiliate-link--blocked {
   opacity: 0.78;
   cursor: help;
@@ -1999,6 +2022,145 @@ nav a:hover { color: var(--primary); }
 .kw-product-actions .btn-amazon {
   min-height: 42px;
   padding: 10px 18px;
+}
+
+.kw-product-card--top .kw-product-actions .btn-amazon,
+.kw-product-card--top .kw-product-actions .btn-merchant {
+  box-sizing: border-box;
+  height: 46px;
+  justify-content: center;
+  width: 220px;
+  min-width: 220px;
+}
+
+.kw-merchant-match {
+  flex-basis: 100%;
+  margin: 2px 0 10px;
+  color: var(--text-light);
+  font-size: 0.79rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.kw-merchant-match strong {
+  color: var(--primary-dark);
+}
+
+.kw-live-offer {
+  display: flex;
+  align-items: baseline;
+  gap: 8px 14px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 2px 0 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.kw-live-offer-total {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.kw-live-offer-details {
+  color: var(--primary-dark);
+  font-weight: 650;
+}
+
+.kw-live-offer-checked {
+  margin-left: auto;
+  color: var(--text-light);
+  font-size: 0.72rem;
+}
+
+.has-fresh-babywalz-offer .kw-offer-primary {
+  order: 1;
+  border-color: var(--accent-action);
+  background: var(--accent-action);
+  color: var(--white);
+}
+
+.has-fresh-babywalz-offer .kw-offer-primary:hover,
+.has-fresh-babywalz-offer .kw-offer-primary:focus-visible {
+  border-color: var(--accent-action-hover);
+  background: var(--accent-action-hover);
+  color: var(--white);
+}
+
+.has-fresh-babywalz-offer .kw-offer-secondary {
+  order: 2;
+  border: 1px solid var(--primary);
+  background: var(--white);
+  color: var(--primary-dark);
+}
+
+.has-fresh-babywalz-offer .kw-offer-secondary:hover,
+.has-fresh-babywalz-offer .kw-offer-secondary:focus-visible {
+  border-color: var(--primary-dark);
+  background: var(--primary-dark);
+  color: var(--white);
+}
+
+.has-fresh-babywalz-offer .kw-method-link {
+  order: 3;
+}
+
+@media (min-width: 769px) {
+  .kw-product-card--compact .kw-live-offer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3px 10px;
+    align-items: baseline;
+    padding: 8px 0;
+  }
+
+  .kw-product-card--compact .kw-live-offer-total {
+    font-size: 0.86rem;
+    white-space: nowrap;
+  }
+
+  .kw-product-card--compact .kw-live-offer-details,
+  .kw-product-card--compact .kw-live-offer-checked {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .kw-product-card--compact .kw-live-offer-details {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .kw-product-card--compact .kw-live-offer-checked {
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .kw-product-card--compact .kw-product-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .kw-product-card--compact .kw-product-actions .btn-amazon,
+  .kw-product-card--compact .kw-product-actions .btn-merchant {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: 8px 6px;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .kw-product-card--compact .kw-product-actions > :only-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .kw-method-link {
@@ -2964,14 +3126,29 @@ footer ul a:hover { color: white; }
 @media (max-width: 480px) {
   .produkt-box { padding: 16px; }
   .kaufempfehlung-box { padding: 16px; }
-  .btn-amazon { display: flex; width: 100%; justify-content: center; text-align: center; }
+  .btn-amazon,
+  .btn-merchant { display: flex; width: 100%; justify-content: center; text-align: center; }
   .kw-product-actions,
   .kw-product-actions .btn-amazon,
+  .kw-product-actions .btn-merchant,
   .kw-product-actions .kw-method-link {
     width: 100%;
   }
+  .kw-product-card--top .kw-product-actions .btn-amazon,
+  .kw-product-card--top .kw-product-actions .btn-merchant {
+    width: 100%;
+    min-width: 0;
+  }
   .kw-product-actions .kw-method-link {
     text-align: center;
+  }
+  .kw-live-offer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  .kw-live-offer-checked {
+    margin-left: 0;
   }
   .kw-product-card--compact .kw-product-head {
     align-items: flex-start;
@@ -3225,6 +3402,16 @@ footer ul a:hover { color: white; }
   font-size: 0.84rem;
 }
 
+.kaufbox--decision .kaufbox-option .btn-merchant {
+  align-self: flex-start;
+  padding: 7px 14px;
+  font-size: 0.84rem;
+}
+
+.kaufbox--decision .kw-merchant-match {
+  margin: 0;
+}
+
 .kaufbox--decision .kaufbox-avoid {
   border: 1px solid rgba(240,111,91,0.24);
   border-left: 4px solid var(--accent);
@@ -3258,6 +3445,9 @@ footer ul a:hover { color: white; }
   .kaufbox--decision .kaufbox-option .btn-inline {
     width: 100%;
     justify-content: center;
+  }
+  .kaufbox--decision .kaufbox-option .btn-merchant {
+    width: 100%;
   }
 }
 

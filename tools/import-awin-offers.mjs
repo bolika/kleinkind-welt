@@ -111,6 +111,11 @@ function slug(value) {
     .replace(/^-+|-+$/g, '');
 }
 
+function merchantOfferFingerprint(offer) {
+  const { awinProductId, deeplink, ...merchantFacts } = offer;
+  return JSON.stringify(merchantFacts);
+}
+
 function isAwinTrackingLink(value) {
   try {
     const url = new URL(value);
@@ -156,14 +161,16 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
   const importedAt = now.toISOString();
   const freshUntil = plusDays(now, 2);
   const offers = [];
-  const unmatched = [];
+  const unmatched = new Set();
+  const importedByMerchantProductId = new Map();
+  let duplicateRowsCollapsed = 0;
 
   for (const row of rows) {
     const rowAdvertiserId = Number(first(row, ['merchant_id', 'advertiser_id']));
     if (rowAdvertiserId && rowAdvertiserId !== advertiserId) continue;
     const mapping = mappingForRow(row, mappingData.mappings ?? []);
     if (!mapping) {
-      unmatched.push(first(row, ['merchant_product_id', 'aw_product_id', 'product_name']) || 'unbekannt');
+      unmatched.add(first(row, ['merchant_product_id', 'aw_product_id', 'product_name']) || 'unbekannt');
       continue;
     }
 
@@ -210,6 +217,16 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
       offer.imageRightsStatus = 'approved_for_feed_only';
     }
     if (feedUpdatedAt) offer.feedUpdatedAt = feedUpdatedAt;
+
+    const existingOffer = importedByMerchantProductId.get(merchantProductId);
+    if (existingOffer) {
+      if (merchantOfferFingerprint(existingOffer) !== merchantOfferFingerprint(offer)) {
+        throw new Error(`Widersprüchliche Feed-Duplikate für Händlerprodukt ${merchantProductId}.`);
+      }
+      duplicateRowsCollapsed += 1;
+      continue;
+    }
+    importedByMerchantProductId.set(merchantProductId, offer);
     offers.push(offer);
   }
 
@@ -232,7 +249,8 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
       feedRows: rows.length,
       mappedOffers: offers.length,
       displayableOffers: offers.filter((offer) => offer.configuration.status === 'exact_required_configuration').length,
-      unmatchedRows: unmatched.length
+      unmatchedRows: unmatched.size,
+      duplicateRowsCollapsed
     }
   };
 }
@@ -281,7 +299,7 @@ export function runCli(argv = process.argv.slice(2)) {
   }
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, `${JSON.stringify(document, null, 2)}\n`);
-  console.log(`Awin-Import für ${mappingData.merchant.name} abgeschlossen: ${report.feedRows} Feed-Zeilen, ${report.mappedOffers} zugeordnet, ${report.displayableOffers} als vollständige Konfiguration freigegeben, ${report.unmatchedRows} nicht zugeordnet.`);
+  console.log(`Awin-Import für ${mappingData.merchant.name} abgeschlossen: ${report.feedRows} Feed-Zeilen, ${report.mappedOffers} zugeordnet, ${report.displayableOffers} als vollständige Konfiguration freigegeben, ${report.unmatchedRows} nicht zugeordnet, ${report.duplicateRowsCollapsed} identische Duplikate zusammengeführt.`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) runCli();

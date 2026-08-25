@@ -1,0 +1,54 @@
+name: Refresh Babywalz prices
+
+on:
+  schedule:
+    - cron: "41 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: babywalz-price-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Download curated Babywalz feed
+        env:
+          AWIN_BABYWALZ_FEED_URL: ${{ secrets.AWIN_BABYWALZ_FEED_URL }}
+        run: |
+          test -n "$AWIN_BABYWALZ_FEED_URL" || { echo "Repository secret AWIN_BABYWALZ_FEED_URL fehlt."; exit 1; }
+          mkdir -p imports/awin
+          curl --fail --silent --show-error "$AWIN_BABYWALZ_FEED_URL" --output imports/awin/babywalz.csv.gz
+          gzip --test imports/awin/babywalz.csv.gz
+
+      - name: Generate and validate price snapshot
+        run: |
+          node tools/generate-babywalz-price-snapshot.mjs \
+            --input imports/awin/babywalz.csv.gz \
+            --mapping data/affiliate-offers/babywalz.mapping.v0.1.json \
+            --output data/affiliate-offers/babywalz-prices.v0.1.json
+          node tools/babywalz-price-snapshot-test.mjs
+          node tools/awin-article-offer-gate.mjs
+
+      - name: Publish refreshed snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/affiliate-offers/babywalz-prices.v0.1.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: refresh Babywalz prices"
+          git push

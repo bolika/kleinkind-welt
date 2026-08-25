@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-25",
+  "advertiserName": "Babywalz DE",
+  "advertiserId": 12387,
+  "publisherId": 2998119,
+  "merchant": {
+    "id": "babywalz",
+    "name": "Babywalz"
+  },
+  "feedImageUsageStatus": "terms_review_required",
+  "shippingPolicy": {
+    "generalFreeShippingThreshold": null,
+    "status": "promotion_dependent",
+    "checkedAt": "2026-08-25",
+    "source": "https://www.baby-walz.de/code/"
+  },
+  "policy": {
+    "commissionDoesNotAffectEditorialRanking": true,
+    "titleOnlyMatchingAllowed": false,
+    "pricesRenderedFromThisFile": false,
+    "feedImagesRenderedBeforeApproval": false
+  },
+  "mappings": [
+    {
+      "offerId": "babywalz-8390215",
+      "productId": "u20-stapelbecher",
+      "title": "Badabulle Stapelbecher Silikon 7tlg.",
+      "merchantProductIds": ["8390215"],
+      "gtins": ["3661276189270"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44809755368&a=2998119&m=12387",
+      "editorialMatch": "Stapelbecher für Bad, Sand und freies Stapelspiel; Anbieterangabe ab Geburt.",
+      "feedEvidence": {
+        "observedPrice": 9.9,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "kaufbox-stapelbecher",
+          "clickref": "u20_stapelbecher_kaufbox"
+        },
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "stapelbecher",
+          "clickref": "u20_stapelbecher_card"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-7412835",
+      "productId": "u20-klopfbank",
+      "title": "Solini Klopfbank aus Holz",
+      "merchantProductIds": ["7412835"],
+      "gtins": ["4055512667766"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=40834866528&a=2998119&m=12387",
+      "editorialMatch": "Holz-Klopfbank mit Hammer und acht Klopfstiften; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 12.29,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "kaufbox-hammer-stoepsel",
+          "clickref": "u20_klopfbank_kaufbox"
+        },
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "hammer-stoepsel",
+          "clickref": "u20_klopfbank_card"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-8395292",
+      "productId": "u20-steckpuzzle",
+      "title": "Hape Steckpuzzle Bauernhof",
+      "merchantProductIds": ["8395292"],
+      "gtins": ["6943478056572"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44790810774&a=2998119&m=12387",
+      "editorialMatch": "Holz-Steckpuzzle mit großen Griffknöpfen; Anbieterangabe ab 2 Jahren.",
+      "feedEvidence": {
+        "observedPrice": 8.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "steckpuzzle",
+          "clickref": "u20_steckpuzzle_card"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-8293872",
+      "productId": "u20-pappbilderbuch",
+      "title": "Ravensburger Pappbilderbuch Meine allerersten Tiere",
+      "merchantProductIds": ["8293872"],
+      "gtins": ["9783473421466"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=42519965642&a=2998119&m=12387",
+      "editorialMatch": "Robustes Pappbilderbuch zum Anschauen und Benennen; Anbieterangabe ab 6 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 5.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "kaufbox-pappbilderbuecher",
+          "clickref": "u20_pappbuch_kaufbox"
+        },
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "pappbilderbuecher",
+          "clickref": "u20_pappbuch_card"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-8395586",
+      "productId": "u20-fingermalen",
+      "title": "Hape Fingermalen",
+      "merchantProductIds": ["8395586"],
+      "gtins": ["6943478039407"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44790810430&a=2998119&m=12387",
+      "editorialMatch": "Fingermal-Set mit vier Farben und neun Tierbildern; Anbieterangabe ab 3 Jahren.",
+      "feedEvidence": {
+        "observedPrice": 12.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "fingerfarben",
+          "clickref": "u20_fingermalen_card"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-5743389",
+      "productId": "u20-greifling-beissring",
+      "title": "Sophie La Girafe Greifling & Kühlbeißring fresh",
+      "merchantProductIds": ["5743389"],
+      "gtins": ["3056560103290"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=40834858177&a=2998119&m=12387",
+      "editorialMatch": "Kombinierter Greifling und Kühlbeißring; Anbieterangabe ab 3 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 10.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-25"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-unter-20-euro.html",
+          "scopeId": "greifrassel",
+          "clickref": "u20_greifling_card"
+        }
+      ]
+    }
+  ]
+}
