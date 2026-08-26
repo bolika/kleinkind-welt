@@ -12,6 +12,9 @@ test-results/
 
 # Lokale Affiliate-Feeds können API-Schlüssel in Download-URLs oder Rohdaten enthalten
 imports/awin/
+
+# Lokale Analytics-Exporte bleiben auch ohne direkte Personenbezüge außerhalb von Git
+imports/analytics/
 .env
 .env.*
 !.env.example

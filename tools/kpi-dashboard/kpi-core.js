@@ -11,8 +11,8 @@
   ];
 
   const META_FIELDS = {
-    eventName: ["event name", "event", "goal", "goal name", "event goal", "ereignis", "ziel"],
-    eventCount: ["events", "event count", "total events", "conversions", "conversion count", "ereignisse"],
+    eventName: ["event name", "event", "goal", "goal name", "event goal", "ereignis", "ziel", "name"],
+    eventCount: ["events", "event count", "total events", "total conversions", "conversions", "conversion count", "ereignisse"],
     transactionId: ["transaction id", "order id", "bestellnummer", "transaktions id", "sale id"],
     status: ["status", "transaction status", "order status", "approval status", "commission status"]
   };

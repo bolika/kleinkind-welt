@@ -58,6 +58,14 @@ const eventExport = core.importCSV(
 assert.equal(eventExport.totals.affiliateClicks, 17);
 assert.ok(eventExport.warnings.some(function (warning) { return warning.includes("abgeleitet"); }));
 
+const plausibleStandardExport = core.importCSV(
+  "plausible",
+  "name,unique_conversions,total_conversions\nAffiliate-Klick,4,7\n",
+  "conversions.csv"
+);
+assert.equal(plausibleStandardExport.totals.affiliateClicks, 7);
+assert.ok(plausibleStandardExport.warnings.some(function (warning) { return warning.includes("abgeleitet"); }));
+
 const transactionExport = core.importCSV(
   "awin",
   "Transaction Date,Transaction ID,Status,Commission Amount\n2026-08-24,T-1,approved,2.50\n2026-08-25,T-2,declined,0.00\n",
@@ -100,4 +108,4 @@ dashboardFiles.forEach(function (name) {
   assert.doesNotMatch(text, /localStorage|sessionStorage|sendBeacon|XMLHttpRequest|\bfetch\s*\(/, name + " darf keine Daten speichern oder uebertragen");
 });
 
-console.log("KPI-Dashboard: 35 Parser-, Mapping-, Aggregations- und Datenschutzpruefungen bestanden.");
+console.log("KPI-Dashboard: 37 Parser-, Mapping-, Aggregations- und Datenschutzpruefungen bestanden.");
