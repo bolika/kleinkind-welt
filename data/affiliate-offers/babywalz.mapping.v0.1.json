@@ -54,13 +54,8 @@
       "placements": [
         {
           "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "kaufbox-stapelbecher",
-          "clickref": "u20_stapelbecher_kaufbox"
-        },
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "stapelbecher",
-          "clickref": "u20_stapelbecher_card"
+          "scopeId": "greifen",
+          "clickref": "u20_moment_stapelbecher"
         }
       ]
     },
@@ -82,13 +77,8 @@
       "placements": [
         {
           "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "kaufbox-hammer-stoepsel",
-          "clickref": "u20_klopfbank_kaufbox"
-        },
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "hammer-stoepsel",
-          "clickref": "u20_klopfbank_card"
+          "scopeId": "klopfen",
+          "clickref": "u20_moment_klopfbank"
         }
       ]
     },
@@ -107,13 +97,7 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": [
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "steckpuzzle",
-          "clickref": "u20_steckpuzzle_card"
-        }
-      ]
+      "placements": []
     },
     {
       "offerId": "babywalz-8293872",
@@ -133,13 +117,8 @@
       "placements": [
         {
           "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "kaufbox-pappbilderbuecher",
-          "clickref": "u20_pappbuch_kaufbox"
-        },
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "pappbilderbuecher",
-          "clickref": "u20_pappbuch_card"
+          "scopeId": "erzaehlen",
+          "clickref": "u20_moment_pappbuch"
         }
       ]
     },
@@ -158,13 +137,7 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": [
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "fingerfarben",
-          "clickref": "u20_fingermalen_card"
-        }
-      ]
+      "placements": []
     },
     {
       "offerId": "babywalz-5743389",
@@ -181,13 +154,7 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": [
-        {
-          "page": "artikel/spielzeug-unter-20-euro.html",
-          "scopeId": "greifrassel",
-          "clickref": "u20_greifling_card"
-        }
-      ]
+      "placements": []
     }
   ]
 }

@@ -216,10 +216,9 @@ Neue Seiten erst dann, wenn GSC, Community-Fragen oder Händlerdaten einen klare
 
 ### Säule E: Affiliate-CRO ohne Vertrauensverlust
 
-- Babywalz auf Mobile als soliden primären Button darstellen, sobald das exakte Angebot valide ist; Amazon bleibt als klarer sekundärer Preischeck.
+- Pro Produkt genau einen Händler-CTA zeigen: Babywalz bei frischem, verfügbarem und exakt gemapptem Angebot; Amazon nur als Fallback, wenn diese Bedingungen nicht erfüllt sind.
 - Die Primärdarstellung darf nicht von höherer Provision, sondern von Produktgleichheit, Verfügbarkeit, Gesamtpreis und Nutzerfit abhängen.
-- Auch ohne frischen Preis sollte der verfügbare Babywalz-Link nicht zu einem optisch nebensächlichen Button zurückfallen; nur der Preisblock und Preisvorteilsanspruch müssen verschwinden.
-- CTA und Preisinformation zusammenhalten. Bei frischem Angebot kann der primäre Button konkret `14,89 € gesamt bei Babywalz` zeigen; darunter steht `inkl. Versand` und der Preisstand. Ohne frischen Preis bleibt `Bei Babywalz ansehen` als solider Primärbutton.
+- CTA und Preisinformation zusammenhalten. Bei frischem Angebot kann der primäre Button konkret `14,89 € gesamt bei Babywalz` zeigen; darunter steht `inkl. Versand` und der Preisstand. Ohne frischen, gültigen Datensatz wird Babywalz ausgeblendet und der geprüfte Amazon-Link übernimmt sichtbar.
 - Clickrefs nach Seite, Produkt, Platzierung und Händler beibehalten.
 - Nach vier Wochen nur Änderungen skalieren, die qualifizierte Händlerklicks oder bestätigte Sales verbessern.
 

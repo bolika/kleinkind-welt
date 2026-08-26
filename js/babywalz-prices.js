@@ -64,6 +64,12 @@
     link.classList.add('kw-offer-primary');
 
     const amazon = scope.querySelector('a[data-affiliate="amazon"]');
+    if (scope.dataset.merchantChoice === 'single') {
+      link.hidden = false;
+      if (amazon) amazon.hidden = true;
+      return;
+    }
+
     if (amazon) {
       amazon.dataset.originalLabel = amazon.textContent.trim();
       amazon.textContent = 'Amazon-Preis prüfen';

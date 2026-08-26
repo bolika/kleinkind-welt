@@ -4,7 +4,7 @@
 
 Die Seite `artikel/spielzeug-unter-20-euro.html` zeigt Babywalz-Preise nur, wenn das redaktionell zugeordnete Produkt verfügbar ist, der Gesamtpreis inklusive Feed-Versand höchstens 20 Euro beträgt und der Snapshot jünger als 48 Stunden ist.
 
-Bei fehlenden, ungültigen oder veralteten Daten bleiben die Händlerlinks sichtbar. Preiszeile und dynamische CTA-Priorisierung werden dann nicht ausgespielt.
+Pro Empfehlung ist nur ein Händler-CTA sichtbar. Bei einem frischen, verfügbaren und zur 20-Euro-Regel passenden Babywalz-Angebot erscheinen Gesamtpreis und Babywalz-CTA. Bei fehlenden, ungültigen, zu teuren oder veralteten Daten bleibt stattdessen ausschließlich der redaktionell geprüfte Amazon-Link als Fallback sichtbar.
 
 ## GitHub-Einrichtung
 
@@ -25,7 +25,7 @@ node tools/babywalz-feed-health.mjs
 node tools/babywalz-feed-health.mjs --strict
 ```
 
-`--strict` ist für den Refresh-Workflow gedacht und schlägt bei fehlendem, ungültigem oder abgelaufenem Snapshot fehl. Das allgemeine Qualitäts-Gate meldet den Status nur informativ, damit ein vorübergehend veralteter Preisfeed keine redaktionellen Änderungen blockiert. Auf der Website bleiben geprüfte Babywalz-Links bestehen; Preiszeilen werden nach 48 Stunden automatisch ausgeblendet.
+`--strict` ist für den Refresh-Workflow gedacht und schlägt bei fehlendem, ungültigem oder abgelaufenem Snapshot fehl. Das allgemeine Qualitäts-Gate meldet den Status nur informativ, damit ein vorübergehend veralteter Preisfeed keine redaktionellen Änderungen blockiert. Auf der Website werden Preiszeile und Babywalz-CTA nach 48 Stunden automatisch ausgeblendet; der geprüfte Amazon-Fallback übernimmt ohne zweite Händlerentscheidung.
 
 Offizielle Awin-Advertiser-Creatives und Produktfeed-Bilder werden getrennt behandelt. Ein Banner darf nur erscheinen, wenn sein exaktes Ziel, Bild, Placement und die vom Betreiber bestätigte Freigabebasis in `data/affiliate-offers/babywalz.mapping.v0.1.json` erfasst sind. Produktfeed-Bilder bleiben bis zu einer separaten Freigabe gesperrt.
 
