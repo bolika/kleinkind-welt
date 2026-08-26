@@ -10,6 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const mappingPath = path.join(root, 'data/affiliate-offers/babywalz.mapping.v0.1.json');
 const priceSnapshotPath = path.join(root, 'data/affiliate-offers/babywalz-prices.v0.1.json');
 const feedPath = path.join(root, 'imports/awin/babywalz.csv.gz');
+const headersPath = path.join(root, '_headers');
 const errors = [];
 
 function check(condition, message) {
@@ -55,6 +56,7 @@ function stockStatus(row) {
 }
 
 const mapping = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
+const responseHeaders = fs.readFileSync(headersPath, 'utf8');
 check(mapping.advertiserId === 12387, 'Babywalz-Advertiser-ID muss 12387 sein.');
 check(Number.isInteger(mapping.publisherId) && mapping.publisherId > 0, 'Awin-Publisher-ID fehlt.');
 check(mapping.feedImageUsageStatus === 'terms_review_required', 'Feed-Bilder müssen bis zur schriftlichen Freigabe gesperrt bleiben.');
@@ -64,6 +66,7 @@ check(mapping.policy?.titleOnlyMatchingAllowed === false, 'Titelähnlichkeit dar
 check(mapping.policy?.pricesRenderedFromThisFile === false, 'Beobachtete Feed-Preise dürfen nicht statisch ausgespielt werden.');
 check(mapping.shippingPolicy?.generalFreeShippingThreshold === null, 'Keine unbestätigte Gratisversandgrenze veröffentlichen.');
 check(mapping.shippingPolicy?.status === 'promotion_dependent', 'Babywalz-Portofrei-Aktionen müssen als aktionsabhängig geführt werden.');
+check(/img-src[^;]*https:\/\/\*\.awin1\.com/.test(responseHeaders), 'CSP muss freigegebene Awin-Advertiser-Bilder erlauben.');
 
 const seenOfferIds = new Set();
 const seenClickrefs = new Set();
