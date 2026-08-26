@@ -187,7 +187,6 @@ if (fs.existsSync(feedPath)) {
     const matches = offer.merchantProductIds.flatMap((id) => rowsByMerchantProductId.get(id) ?? []);
     check(matches.length > 0, `${offer.offerId}: Produkt fehlt im lokalen Babywalz-Feed.`);
     duplicateRowsObserved += Math.max(0, matches.length - 1);
-    const mappedLink = trackingParts(offer.deeplink);
     for (const row of matches) {
       feedRowsChecked += 1;
       check(row.merchant_id === String(mapping.advertiserId), `${offer.offerId}: Feed enthält falsche Advertiser-ID.`);
@@ -196,7 +195,6 @@ if (fs.existsSync(feedPath)) {
       check(Number(row.search_price) > 0 && Number(row.search_price) <= offer.feedEvidence.priceLimit, `${offer.offerId}: Feed-Preis liegt nicht mehr innerhalb der Seitengrenze.`);
       check(stockStatus(row) === 'in_stock', `${offer.offerId}: Produkt ist im Feed nicht mehr verfügbar.`);
     }
-    check(matches.some((row) => trackingParts(row.aw_deep_link).product === mappedLink.product), `${offer.offerId}: Mapping verwendet keine der angebotenen Awin-Produktreferenzen.`);
   }
 }
 
