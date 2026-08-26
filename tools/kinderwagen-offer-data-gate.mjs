@@ -21,6 +21,12 @@ function errorIf(condition, message) {
   if (condition) errors.push(message);
 }
 
+function isIsoDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 errorIf(offers.schemaVersion !== 1, 'Angebotsdaten benötigen schemaVersion 1.');
 errorIf(!Array.isArray(offers.offers), 'offers muss eine Liste sein.');
 for (const source of offers.sources ?? []) {
@@ -56,7 +62,7 @@ for (const offer of offers.offers ?? []) {
   errorIf(!offer.configuration?.verifiedAt, `${offer.offerId}: Konfiguration wurde nicht datiert geprüft`);
   errorIf(!(offer.price?.amount > 0) || offer.price?.currency !== 'EUR', `${offer.offerId}: ungültiger Preis`);
   errorIf(typeof offer.title !== 'string' || offer.title.length < 3, `${offer.offerId}: Produkttitel fehlt`);
-  errorIf(!offer.price?.freshUntil || !offer.availability?.freshUntil, `${offer.offerId}: Preis oder Bestand ohne Ablaufdatum`);
+  errorIf(!isIsoDate(offer.price?.freshUntil) || !isIsoDate(offer.availability?.freshUntil), `${offer.offerId}: Preis oder Bestand ohne gültiges Ablaufdatum`);
 }
 errorIf(/commission|provision|epc|approvalRate/i.test(JSON.stringify(offers)), 'Angebotsdaten dürfen keine Provisions- oder Programmrankingfelder enthalten.');
 

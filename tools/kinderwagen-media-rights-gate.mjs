@@ -15,7 +15,12 @@ const productIds = new Set(products.map((product) => product.productId));
 const seenAssets = new Set();
 const coveredProducts = new Set();
 const errors = [];
-const today = new Date().toISOString().slice(0, 10);
+
+function isIsoDate(value) {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
 
 for (const asset of media.assets ?? []) {
   if (!asset.assetId || seenAssets.has(asset.assetId)) errors.push(`Doppelte oder fehlende assetId: ${asset.assetId || "leer"}`);
@@ -25,9 +30,9 @@ for (const asset of media.assets ?? []) {
   if (!asset.localPath && !asset.remoteUrl) errors.push(`${asset.assetId}: localPath oder remoteUrl fehlt`);
   if (asset.localPath && !asset.localPath.startsWith("/images/products/")) errors.push(`${asset.assetId}: localPath liegt außerhalb /images/products/`);
   if (asset.localPath && !fs.existsSync(path.join(root, asset.localPath.replace(/^\//, "")))) errors.push(`${asset.assetId}: lokale Datei fehlt`);
-  if (!asset.rightsBasis || !asset.usageScope || !asset.checkedAt || !asset.alt) errors.push(`${asset.assetId}: Rechte- oder Beschreibungsfelder fehlen`);
+  if (!asset.rightsBasis || !asset.usageScope || !isIsoDate(asset.checkedAt) || !asset.alt) errors.push(`${asset.assetId}: Rechte- oder Beschreibungsfelder fehlen`);
   if (asset.rightsBasis !== "owned_original" && !asset.rightsReference) errors.push(`${asset.assetId}: rightsReference fehlt`);
-  if (asset.validUntil && asset.validUntil < today) errors.push(`${asset.assetId}: Nutzungsrecht ist seit ${asset.validUntil} abgelaufen`);
+  if (asset.validUntil && !isIsoDate(asset.validUntil)) errors.push(`${asset.assetId}: validUntil ist kein gültiges Datum`);
   if ((asset.status ?? "approved") === "approved") coveredProducts.add(asset.productId);
 }
 

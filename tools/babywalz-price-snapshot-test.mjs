@@ -43,7 +43,14 @@ assert.equal(snapshot.offers['babywalz-123'].shipping, 4.99);
 assert.equal(snapshot.offers['babywalz-123'].totalPrice, 14.89);
 assert.equal(snapshot.offers['babywalz-123'].availability, 'in_stock');
 
-assert.throws(() => generateSnapshot({ mappingData, now, rows: [] }), /genau eine Feed-Zeile/);
+const alternateFeedSnapshot = generateSnapshot({
+  mappingData,
+  now,
+  rows: [{ ...baseRow, aw_product_id: '111', aw_deep_link: 'https://www.awin1.com/pclick.php?p=111&a=2998119&m=12387' }]
+});
+assert.equal(alternateFeedSnapshot.offers['babywalz-123'].totalPrice, 14.89);
+
+assert.throws(() => generateSnapshot({ mappingData, now, rows: [] }), /keine Feed-Zeile/);
 assert.throws(() => generateSnapshot({
   mappingData,
   now,
@@ -54,5 +61,13 @@ assert.throws(() => generateSnapshot({
   now,
   rows: [{ ...baseRow, delivery_cost: '', aw_deep_link: 'https://www.awin1.com/pclick.php?p=222&a=2998119&m=12387' }]
 }), /Versandkosten fehlt/);
+assert.throws(() => generateSnapshot({
+  mappingData,
+  now,
+  rows: [
+    { ...baseRow, aw_deep_link: 'https://www.awin1.com/pclick.php?p=111&a=2998119&m=12387' },
+    { ...baseRow, search_price: '10.90', aw_deep_link: 'https://www.awin1.com/pclick.php?p=222&a=2998119&m=12387' }
+  ]
+}), /widersprüchliche Preis-/);
 
 console.log('Babywalz-Preis-Snapshot-Test bestanden.');

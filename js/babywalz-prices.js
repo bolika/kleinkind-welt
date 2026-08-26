@@ -86,7 +86,7 @@
         if (validOffer(offer)) renderOffer(link, offer, snapshot.generatedAt);
       }
     } catch {
-      // Links bleiben als unaufdringlicher Fallback nutzbar, wenn Preisdaten fehlen.
+      // The merchant CTA remains usable; only freshness-bound price UI is omitted.
     }
   }
 

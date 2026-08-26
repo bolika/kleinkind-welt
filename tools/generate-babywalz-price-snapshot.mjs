@@ -42,6 +42,14 @@ function trackingProduct(value) {
   }
 }
 
+function sameCommercialData(left, right) {
+  return left.productPrice === right.productPrice &&
+    left.shipping === right.shipping &&
+    left.totalPrice === right.totalPrice &&
+    left.currency === right.currency &&
+    left.availability === right.availability;
+}
+
 function availability(row) {
   const value = `${row.in_stock || ''} ${row.stock_status || ''}`.toLowerCase();
   if (/nicht.?verf|out.?of.?stock|unavailable|^(0|false|no)$/.test(value.trim())) return 'out_of_stock';
@@ -64,40 +72,55 @@ export function generateSnapshot({ rows, mappingData, now = new Date() }) {
     const expectedAwinProductId = trackingProduct(mapping.deeplink);
     if (!expectedAwinProductId) throw new Error(`${mapping.offerId}: Awin-Produktreferenz fehlt im Mapping.`);
 
-    const exactRows = rows.filter((row) =>
+    const merchantRows = rows.filter((row) =>
       row.merchant_id === String(mappingData.advertiserId) &&
-      trackingProduct(row.aw_deep_link) === expectedAwinProductId
+      (mapping.merchantProductIds ?? []).includes(row.merchant_product_id)
     );
-    if (exactRows.length !== 1) {
-      throw new Error(`${mapping.offerId}: genau eine Feed-Zeile für Awin-Produkt ${expectedAwinProductId} erwartet, gefunden ${exactRows.length}.`);
+    if (merchantRows.length === 0) {
+      throw new Error(`${mapping.offerId}: keine Feed-Zeile für die geprüfte Händlerprodukt-ID gefunden.`);
     }
 
-    const row = exactRows[0];
-    const gtins = rowGtins(row);
-    if (!(mapping.merchantProductIds ?? []).includes(row.merchant_product_id)) {
-      throw new Error(`${mapping.offerId}: Händlerprodukt-ID passt nicht zum geprüften Mapping.`);
-    }
-    if (!(mapping.gtins ?? []).some((gtin) => gtins.includes(gtin))) {
+    const identityRows = merchantRows.filter((row) => {
+      const gtins = rowGtins(row);
+      return (mapping.gtins ?? []).some((gtin) => gtins.includes(gtin));
+    });
+    if (identityRows.length === 0) {
       throw new Error(`${mapping.offerId}: GTIN passt nicht zum geprüften Mapping.`);
     }
-    if (row.product_name !== mapping.title) {
-      throw new Error(`${mapping.offerId}: Produkttitel weicht vom geprüften Mapping ab.`);
-    }
-    if ((row.currency || 'EUR').toUpperCase() !== 'EUR') {
-      throw new Error(`${mapping.offerId}: nur EUR-Preise dürfen veröffentlicht werden.`);
+
+    const normalizedRows = identityRows.map((row) => {
+      if (row.product_name !== mapping.title) {
+        throw new Error(`${mapping.offerId}: Produkttitel weicht vom geprüften Mapping ab.`);
+      }
+      const currency = (row.currency || 'EUR').toUpperCase();
+      if (currency !== 'EUR') {
+        throw new Error(`${mapping.offerId}: nur EUR-Preise dürfen veröffentlicht werden.`);
+      }
+      const productPrice = money(row.search_price || row.store_price, 'Produktpreis', mapping.offerId);
+      const shipping = money(row.delivery_cost, 'Versandkosten', mapping.offerId);
+      return {
+        row,
+        productPrice,
+        shipping,
+        totalPrice: Math.round((productPrice + shipping) * 100) / 100,
+        currency,
+        availability: availability(row)
+      };
+    });
+
+    const preferred = normalizedRows.find(({ row }) => trackingProduct(row.aw_deep_link) === expectedAwinProductId) ?? normalizedRows[0];
+    if (!normalizedRows.every((candidate) => sameCommercialData(candidate, preferred))) {
+      throw new Error(`${mapping.offerId}: mehrere Feed-Zeilen enthalten widersprüchliche Preis-, Versand- oder Verfügbarkeitsdaten.`);
     }
 
-    const productPrice = money(row.search_price || row.store_price, 'Produktpreis', mapping.offerId);
-    const shipping = money(row.delivery_cost, 'Versandkosten', mapping.offerId);
-    const totalPrice = Math.round((productPrice + shipping) * 100) / 100;
     offers[mapping.offerId] = {
       productId: mapping.productId,
-      merchantProductId: row.merchant_product_id,
-      productPrice,
-      shipping,
-      totalPrice,
-      currency: (row.currency || 'EUR').toUpperCase(),
-      availability: availability(row)
+      merchantProductId: preferred.row.merchant_product_id,
+      productPrice: preferred.productPrice,
+      shipping: preferred.shipping,
+      totalPrice: preferred.totalPrice,
+      currency: preferred.currency,
+      availability: preferred.availability
     };
   }
 

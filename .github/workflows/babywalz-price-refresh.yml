@@ -26,6 +26,16 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Confirm feed configuration
+        env:
+          AWIN_BABYWALZ_FEED_URL: ${{ secrets.AWIN_BABYWALZ_FEED_URL }}
+        run: |
+          if [ -z "$AWIN_BABYWALZ_FEED_URL" ]; then
+            echo "## Babywalz refresh blocked" >> "$GITHUB_STEP_SUMMARY"
+            echo "Repository secret \`AWIN_BABYWALZ_FEED_URL\` is missing. Add the curated Awin download URL and rerun this workflow." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
       - name: Download curated Babywalz feed
         env:
           AWIN_BABYWALZ_FEED_URL: ${{ secrets.AWIN_BABYWALZ_FEED_URL }}
@@ -43,6 +53,7 @@ jobs:
             --output data/affiliate-offers/babywalz-prices.v0.1.json
           node tools/babywalz-price-snapshot-test.mjs
           node tools/awin-article-offer-gate.mjs
+          node tools/babywalz-feed-health.mjs --strict
 
       - name: Publish refreshed snapshot
         run: |
@@ -52,3 +63,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh Babywalz prices"
           git push
+
+      - name: Report feed health
+        if: always()
+        run: node tools/babywalz-feed-health.mjs --markdown >> "$GITHUB_STEP_SUMMARY"

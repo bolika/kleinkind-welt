@@ -66,6 +66,7 @@
       }
 
       var payload = Object.fromEntries(new FormData(form).entries());
+      var outcome = 'fehler';
       try {
         var response = await fetch(form.action, {
           method: 'POST',
@@ -89,6 +90,7 @@
         form.reset();
         if (ageSelect) updateAgeFreebieNote();
         if (monthInput) monthInput.classList.add('is-empty');
+        outcome = 'doi-gestartet';
       } catch (error) {
         if (feedback) {
           feedback.textContent = error.message || 'Die Anmeldung konnte gerade nicht verarbeitet werden.';
@@ -107,7 +109,10 @@
           props: {
             seite: location.pathname.split('/').filter(Boolean).join('/') || 'home',
             platzierung: form.getAttribute('data-placement') || payload.quelle || 'newsletter',
-            status: feedback && feedback.classList.contains('is-error') ? 'fehler' : 'doi-gestartet'
+            status: outcome,
+            segment: payload.interessen_alter || 'nicht_gesetzt',
+            quelle: payload.quelle || 'nicht_gesetzt',
+            event_schema: '2'
           }
         });
       }

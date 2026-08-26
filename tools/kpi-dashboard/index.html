@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Kleinkind-Welt KPI-Dashboard</title>
+  <meta name="description" content="Rein lokales KPI-Dashboard fuer CSV-Exporte aus Plausible, Amazon, Awin und Brevo.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="kpi-core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Kleinkind-Welt</p>
+      <h1>KPI-Dashboard</h1>
+    </div>
+    <div class="privacy-state" aria-label="Datenschutzstatus">
+      <span class="privacy-dot" aria-hidden="true"></span>
+      <span>Nur lokal im Browser</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="workspace-intro" aria-labelledby="import-title">
+      <div>
+        <h2 id="import-title">Daten importieren</h2>
+        <p>CSV-Exporte zuordnen. Dateien werden weder hochgeladen noch gespeichert.</p>
+      </div>
+      <div class="workspace-actions">
+        <span id="source-count" class="source-count">0 von 4 Quellen importiert</span>
+        <button id="reset-button" class="button button-secondary" type="button" disabled>Alle Daten entfernen</button>
+      </div>
+    </section>
+
+    <section class="source-grid" aria-label="Datenquellen">
+      <article class="source-card" data-source-card="plausible">
+        <div class="source-heading">
+          <div>
+            <h3>Plausible</h3>
+            <p>Traffic- oder Event-Export</p>
+          </div>
+          <span class="status-badge status-missing" data-status>Fehlt</span>
+        </div>
+        <label class="file-button" for="file-plausible" role="button" tabindex="0">CSV-Dateien auswaehlen</label>
+        <input id="file-plausible" data-source-input="plausible" type="file" multiple accept=".csv,.tsv,text/csv,text/tab-separated-values">
+        <div class="source-detail" data-source-detail>Noch keine Datei importiert.</div>
+      </article>
+
+      <article class="source-card" data-source-card="amazon">
+        <div class="source-heading">
+          <div>
+            <h3>Amazon</h3>
+            <p>PartnerNet-Bericht</p>
+          </div>
+          <span class="status-badge status-missing" data-status>Fehlt</span>
+        </div>
+        <label class="file-button" for="file-amazon" role="button" tabindex="0">CSV-Dateien auswaehlen</label>
+        <input id="file-amazon" data-source-input="amazon" type="file" multiple accept=".csv,.tsv,text/csv,text/tab-separated-values">
+        <div class="source-detail" data-source-detail>Noch keine Datei importiert.</div>
+      </article>
+
+      <article class="source-card" data-source-card="awin">
+        <div class="source-heading">
+          <div>
+            <h3>Awin</h3>
+            <p>Performance- oder Transaktionsbericht</p>
+          </div>
+          <span class="status-badge status-missing" data-status>Fehlt</span>
+        </div>
+        <label class="file-button" for="file-awin" role="button" tabindex="0">CSV-Dateien auswaehlen</label>
+        <input id="file-awin" data-source-input="awin" type="file" multiple accept=".csv,.tsv,text/csv,text/tab-separated-values">
+        <div class="source-detail" data-source-detail>Noch keine Datei importiert.</div>
+      </article>
+
+      <article class="source-card" data-source-card="brevo">
+        <div class="source-heading">
+          <div>
+            <h3>Brevo</h3>
+            <p>Kampagnen- oder Anmeldestatistik</p>
+          </div>
+          <span class="status-badge status-missing" data-status>Fehlt</span>
+        </div>
+        <label class="file-button" for="file-brevo" role="button" tabindex="0">CSV-Dateien auswaehlen</label>
+        <input id="file-brevo" data-source-input="brevo" type="file" multiple accept=".csv,.tsv,text/csv,text/tab-separated-values">
+        <div class="source-detail" data-source-detail>Noch keine Datei importiert.</div>
+      </article>
+    </section>
+
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+    <section class="dashboard-section" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Gesamtzeitraum der Importe</p>
+          <h2 id="overview-title">Kern-KPIs</h2>
+        </div>
+        <p class="data-rule">Fehlende Daten werden nicht als 0 gewertet.</p>
+      </div>
+      <div id="kpi-grid" class="kpi-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="dashboard-section" aria-labelledby="weeks-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Montag bis Sonntag</p>
+          <h2 id="weeks-title">Wochenansicht</h2>
+        </div>
+        <span id="week-count" class="week-count">Keine datierten Zeilen</span>
+      </div>
+      <div id="weekly-trend" class="trend-shell" aria-label="Wochenverlauf"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Woche</th>
+              <th scope="col">Besucher</th>
+              <th scope="col">Sitzungen</th>
+              <th scope="col">Affiliate-Klicks</th>
+              <th scope="col">Partner-Klicks</th>
+              <th scope="col">Bestellungen</th>
+              <th scope="col">Provision</th>
+              <th scope="col">Anmeldungen</th>
+            </tr>
+          </thead>
+          <tbody id="week-table-body"></tbody>
+        </table>
+      </div>
+      <div id="week-empty" class="empty-state">
+        Importiere mindestens eine CSV mit Datumsspalte, um den Wochenverlauf zu sehen.
+      </div>
+    </section>
+
+    <section class="help-band" aria-labelledby="help-title">
+      <div>
+        <h2 id="help-title">Import pruefen</h2>
+        <p>Unter jeder Quelle siehst du erkannte Spalten, Zeitraum und Hinweise. Einen ungeeigneten Export kannst du direkt ersetzen.</p>
+      </div>
+      <a class="text-link" href="../../docs/integrations/analytics-kpi-dashboard.md">Bedienungsdoku oeffnen</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Keine API, keine Cookies, kein Local Storage. Neuladen entfernt alle importierten Daten.</p>
+  </footer>
+</body>
+</html>

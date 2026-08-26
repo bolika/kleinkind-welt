@@ -46,6 +46,12 @@ function isUnknown(fact) {
   return !fact || fact.value === null || fact.value === undefined || ['unknown', 'stale'].includes(fact.status);
 }
 
+function isIsoDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 for (const gap of registry.gaps ?? []) {
   const key = `${gap.productId}:${gap.field}`;
   if (tracked.has(key)) errors.push(`${key}: Datenlücke doppelt erfasst`);
@@ -62,8 +68,8 @@ for (const gap of registry.gaps ?? []) {
   if (!(product.sources ?? []).some((source) => source.url === gap.officialSourceUrl)) {
     errors.push(`${key}: offizielle Quelle ist nicht in der Produktdatei referenziert`);
   }
-  if (!gap.sourceCheckedAt || gap.sourceCheckedAt > today) errors.push(`${key}: ungültiges Quellen-Prüfdatum`);
-  if (!gap.nextReviewAt || gap.nextReviewAt < today) errors.push(`${key}: nächste Prüfung ist überfällig`);
+  if (!isIsoDate(gap.sourceCheckedAt) || gap.sourceCheckedAt > today) errors.push(`${key}: ungültiges Quellen-Prüfdatum`);
+  if (!isIsoDate(gap.nextReviewAt)) errors.push(`${key}: nächste Prüfung benötigt ein gültiges Datum`);
   if (!gap.reason || !gap.resolution) errors.push(`${key}: Begründung oder Lösungsweg fehlt`);
 }
 

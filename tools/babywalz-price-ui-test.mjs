@@ -81,6 +81,21 @@ async function testStaleFallback(browser) {
   assert.equal(await page.locator('.kw-live-offer').count(), 0, 'Veraltete Preise dürfen nicht erscheinen.');
   assert.equal(await page.locator('.has-fresh-babywalz-offer').count(), 0, 'Veraltete Preise dürfen keine CTA-Priorität ändern.');
   assert.equal(await page.locator('#stapelbecher a[data-affiliate="amazon"]').textContent(), 'Bei Amazon ansehen');
+  const fallback = await page.evaluate(() => {
+    const babywalz = document.querySelector('#stapelbecher .btn-babywalz');
+    const amazon = document.querySelector('#stapelbecher a[data-affiliate="amazon"]');
+    return {
+      babywalzOrder: Number(getComputedStyle(babywalz).order),
+      amazonOrder: Number(getComputedStyle(amazon).order),
+      babywalzBackground: getComputedStyle(babywalz).backgroundColor,
+      amazonBackground: getComputedStyle(amazon).backgroundColor,
+      babywalzWidth: babywalz.getBoundingClientRect().width,
+      amazonWidth: amazon.getBoundingClientRect().width
+    };
+  });
+  assert.ok(fallback.babywalzOrder < fallback.amazonOrder, 'Babywalz muss auch ohne Preis visuell zuerst stehen.');
+  assert.notEqual(fallback.babywalzBackground, fallback.amazonBackground, 'Primär- und Sekundär-CTA müssen unterscheidbar bleiben.');
+  assert.ok(Math.abs(fallback.babywalzWidth - fallback.amazonWidth) < 1, 'Mobile Fallback-CTAs müssen gleich breit sein.');
   assert.deepEqual(errors, [], `Fallback erzeugt Browserfehler: ${errors.join(' | ')}`);
   await page.close();
 }

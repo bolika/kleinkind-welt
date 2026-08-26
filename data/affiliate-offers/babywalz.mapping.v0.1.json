@@ -9,6 +9,20 @@
     "name": "Babywalz"
   },
   "feedImageUsageStatus": "terms_review_required",
+  "advertiserCreativeUsage": {
+    "status": "operator_confirmed_in_acceptance_email",
+    "confirmedAt": "2026-08-26",
+    "scope": "Official Awin advertiser creatives only; product-feed images remain blocked until separately confirmed.",
+    "creatives": [
+      {
+        "creativeId": "2239252",
+        "page": "artikel/spielzeug-unter-20-euro.html",
+        "placement": "sidebar-banner",
+        "destinationUrl": "https://www.awin1.com/cread.php?s=2239252&v=12387&q=337497&r=2998119",
+        "imageUrl": "https://www.awin1.com/cshow.php?s=2239252&v=12387&q=337497&r=2998119"
+      }
+    ]
+  },
   "shippingPolicy": {
     "generalFreeShippingThreshold": null,
     "status": "promotion_dependent",

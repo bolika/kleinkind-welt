@@ -1,6 +1,17 @@
 {
   "schemaVersion": 1,
   "checkedAt": "2026-07-23",
+  "dataOperations": {
+    "navigatorState": "paused",
+    "stateChangedAt": "2026-08-26",
+    "ciFreshnessMode": "report_only",
+    "reason": "Der Kinderwagen-Navigator ist bewusst pausiert, bis Produktreviews und zeitkritische Fakten erneut anhand ihrer Quellen geprüft wurden. Abgelaufene Werte gelten nicht als aktuell.",
+    "resumeRequirements": [
+      "Frische-Report ohne überfällige Punkte",
+      "Produktreviews und zeitkritische Fakten anhand der dokumentierten Quellen erneut geprüft",
+      "navigatorState auf active und ciFreshnessMode auf blocking umgestellt"
+    ]
+  },
   "manualGates": {
     "modelSafetyNoticeReview": {
       "status": "pending",

@@ -312,7 +312,8 @@
       plausible('Newsletter bestätigt', {
         props: {
           freebie: freebieKey || 'none',
-          alter: params.get('alter') || ''
+          alter: params.get('alter') || 'nicht_gesetzt',
+          event_schema: '1'
         }
       });
     }
@@ -324,7 +325,8 @@
           props: {
             freebie: freebieKey || 'none',
             seite: 'newsletter-bestaetigt',
-            version: link.hasAttribute('data-freebie-mobile-link') ? 'mobile-html' : (link.hasAttribute('data-freebie-mobile-pdf-link') ? 'mobile-pdf' : 'desktop-pdf')
+            version: link.hasAttribute('data-freebie-mobile-link') ? 'mobile-html' : (link.hasAttribute('data-freebie-mobile-pdf-link') ? 'mobile-pdf' : 'desktop-pdf'),
+            event_schema: '1'
           }
         });
       });

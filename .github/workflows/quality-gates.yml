@@ -36,7 +36,10 @@ jobs:
           node --check js/affiliate-tracking.js
           node --check js/babywalz-prices.js
           node --check js/faq-accordion.js
+          node --check tools/analytics-contract-gate.mjs
           node --check tools/awin-article-offer-gate.mjs
+          node --check tools/affiliate-integrity-check.mjs
+          node --check tools/babywalz-feed-health.mjs
           node --check tools/babywalz-price-snapshot-test.mjs
           node --check tools/babywalz-price-ui-test.mjs
           node --check tools/build-kinderwagen-guides.mjs
@@ -46,9 +49,13 @@ jobs:
           node --check tools/internal-link-audit.mjs
           node --check tools/kinderwagen-media-rights-gate.mjs
           node --check tools/kinderwagen-beta-gate.mjs
+          node --check tools/kinderwagen-data-freshness-gate.mjs
           node --check tools/kinderwagen-kennzahlen-gate.mjs
           node --check tools/ki-bildkennzeichnung-gate.mjs
           node --check tools/kinderwagen-tracking-contract-gate.mjs
+          node --check tools/kpi-dashboard/app.js
+          node --check tools/kpi-dashboard/kpi-core.js
+          node --check tools/kpi-dashboard/validate.cjs
           node --check tools/prepare-kinderwagen-product-image.mjs
           node --check tools/seo-smoke-test.mjs
           node --check tools/site-positioning-gate.mjs
@@ -65,6 +72,7 @@ jobs:
           jq empty data/kinderwagen-guides.v0.1.json
           jq empty data/kinderwagen-navigator/media.schema.json
           jq empty data/kinderwagen-navigator/media.v0.1.json
+          jq empty data/kinderwagen-navigator/release-readiness.v0.1.json
           jq empty data/kinderwagen-navigator/tracking-contract.v0.1.json
           jq empty data/spielzeug-siegel.json
           jq empty data/seo-monitoring-config.json
@@ -72,11 +80,15 @@ jobs:
 
       - name: Validate AI publishing inputs and generated assets
         run: |
+          node tools/analytics-contract-gate.mjs
+          node tools/kpi-dashboard/validate.cjs
           node tools/build-kinderwagen-guides.mjs --check
           node tools/babywalz-price-snapshot-test.mjs
           node tools/awin-article-offer-gate.mjs
-          # Vor dem Beta-Gate, damit die Zahlenpruefung auch dann laeuft, wenn
-          # das Beta-Gate wegen abgelaufener Preisfrische abbricht.
+          node tools/affiliate-integrity-check.mjs --strict
+          node tools/babywalz-feed-health.mjs
+          # Als eigene strukturelle Prüfung vor dem zusammengefassten Beta-Gate.
+          # Zeitkritische Datenfrische läuft in einem getrennten CI-Job.
           node tools/kinderwagen-kennzahlen-gate.mjs
           node tools/content-brief-gate.mjs
           node tools/generate-seal-assets.mjs --check
@@ -90,6 +102,32 @@ jobs:
         run: |
           node tools/seo-smoke-test.mjs --local
           node tools/internal-link-audit.mjs
+
+  kinderwagen-freshness:
+    name: Kinderwagen data freshness
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Generate machine-readable stale report
+        run: node tools/kinderwagen-data-freshness-gate.mjs --report="${RUNNER_TEMP}/kinderwagen-stale-report.json"
+
+      - name: Upload stale report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kinderwagen-stale-report-${{ github.run_id }}
+          path: ${{ runner.temp }}/kinderwagen-stale-report.json
+          if-no-files-found: error
+          retention-days: 30
 
   live-quality:
     name: Daily production smoke test

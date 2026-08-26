@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
-// Prueft die Kennzeichnung KI-generierter Bilder.
+// Prueft das risikobasierte Herkunfts- und Kennzeichnungsregister fuer Bilder.
 //
-// Rechtsgrundlage: Artikel 50 Absatz 4 der Verordnung (EU) 2024/1689, anwendbar
-// ab 02.08.2026. Fotorealistisch mit KI erzeugte Bilder gelten nach Artikel 3
-// Nummer 60 als Deepfake, auch wenn keine real existierende Person abgebildet
-// ist. Anders als beim Text gibt es fuer Bilder KEINE redaktionelle Ausnahme.
+// Die Regeln sind eine interne Arbeitsbewertung und keine Rechtsberatung. Das
+// Gate entscheidet nicht selbst, ob eine gesetzliche Kennzeichnungspflicht
+// besteht. Es erzwingt nachvollziehbare Metadaten und behandelt eine noch nicht
+// menschlich freigegebene Reduktion konservativ wie "Badge beibehalten".
 //
 // Geprueft wird:
-//   1. Jedes verwendete Rasterbild ist in data/bildherkunft.json eingeordnet.
-//      Ein neues Bild ohne Eintrag laesst das Gate scheitern — die Einordnung
-//      soll man nicht vergessen koennen.
-//   2. Jede Einbindung eines KI-Bildes traegt einen sichtbaren Hinweis im DOM.
-//   3. Der Hinweis ist echter Text, kein CSS-generierter Inhalt: Er muss ohne
-//      Hilfsmittel wahrnehmbar sein.
-//   4. Die Vorschaugrafik enthaelt keinen fotorealistischen Inhalt, weil auf
-//      fremden Plattformen kein Label angebracht werden kann.
+//   1. Jedes verwendete lokale Rasterbild ist im Herkunftsregister eingeordnet.
+//   2. Jedes KI-Motiv hat Git-Evidenz, Risikoklasse, Arbeitsvorschlag und einen
+//      expliziten Status der menschlichen Einzelfallfreigabe.
+//   3. Die datierte Bestandsbaseline schuetzt vorhandene Hinweise. Bei Motiven,
+//      die nach dem Stichtag entstehen, greift zusaetzlich die Risikologik.
+//   4. Eine spaeter freigegebene zentrale Offenlegung braucht auf jeder
+//      betroffenen Seite einen sichtbaren .ki-herkunft-hinweis.
+//   5. Die Vorschaugrafik enthaelt weiterhin keinen fotorealistischen Anteil.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,16 +27,132 @@ const fehler = [];
 const pruefe = (bedingung, meldung) => { if (!bedingung) fehler.push(meldung); };
 
 const BADGE = 'ki-badge';
-const KI_PRAEFIXE = [/images\/articles\//, /images\/hero-/];
-const AUSGENOMMEN = ['autor-boris', 'Lauflernwagen', 'logo-', 'favicon',
-                     'apple-touch', 'og-kleinkind', 'amazon-adsystem', 'siegel'];
+const ZENTRALER_HINWEIS = 'ki-herkunft-hinweis';
+const RISIKOKLASSEN = new Set(['niedrig', 'mittel', 'hoch']);
+const VORSCHLAEGE = new Set(['badge-beibehalten', 'zentral-offenlegen', 'manuell-pruefen']);
+const FREIGABESTATUS = new Set(['nicht-aus-git-ableitbar', 'freigegeben', 'abgelehnt']);
 
-const istKiBild = (block) => {
-  if (AUSGENOMMEN.some((x) => block.includes(x))) return false;
-  return KI_PRAEFIXE.some((p) => p.test(block));
+const istIsoDatum = (wert) => typeof wert === 'string'
+  && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(wert)
+  && !Number.isNaN(Date.parse(wert));
+
+const schemaMajor = Number.parseInt(String(register.schemaVersion ?? '').split('.')[0], 10);
+pruefe(schemaMajor >= 2, 'bildherkunft.json braucht schemaVersion 2 oder neuer');
+pruefe(typeof register.arbeitsbewertung === 'string'
+  && register.arbeitsbewertung.includes('keine Rechtsberatung'),
+'Das Register muss die Einordnung ausdruecklich als Arbeitsbewertung und nicht als Rechtsberatung bezeichnen');
+pruefe(/^\d{4}-\d{2}-\d{2}$/.test(register.stichtagArbeitsbewertung ?? ''),
+  'stichtagArbeitsbewertung fehlt oder ist ungueltig');
+
+const gruppen = register.gruppen ?? {};
+const kiGruppe = gruppen.ki_generiert ?? {};
+const motive = kiGruppe.motive ?? {};
+const motiveMetadaten = kiGruppe.motiveMetadaten ?? {};
+const gitEvidenz = register.gitEvidenz ?? {};
+const badgeBaseline = register.sichtbareBadgeBaseline ?? {};
+const baselineSeiten = badgeBaseline.seiten ?? {};
+const baselineBadgeAnzahl = Object.values(baselineSeiten)
+  .reduce((summe, anzahl) => summe + (Number.isInteger(anzahl) ? anzahl : 0), 0);
+const stichtag = Date.parse(`${register.stichtagArbeitsbewertung}T00:00:00Z`);
+
+pruefe(/^\d{4}-\d{2}-\d{2}$/.test(badgeBaseline.erfasstAm ?? ''),
+  'sichtbareBadgeBaseline braucht ein gueltiges Erfassungsdatum');
+pruefe(typeof badgeBaseline.zweck === 'string' && badgeBaseline.zweck.length > 40,
+  'sichtbareBadgeBaseline braucht eine nachvollziehbare Begruendung');
+for (const [seite, anzahl] of Object.entries(baselineSeiten)) {
+  pruefe(Number.isInteger(anzahl) && anzahl > 0,
+    `${seite}: Badge-Baseline muss eine positive Ganzzahl sein`);
+  pruefe(fs.existsSync(path.join(root, seite)), `${seite}: Seite aus Badge-Baseline fehlt`);
+}
+
+pruefe(Object.keys(motive).length > 0, 'Keine KI-Motive im Register vorhanden');
+pruefe(Object.keys(motive).length === Object.keys(motiveMetadaten).length,
+  'KI-Motive und motiveMetadaten muessen dieselbe Anzahl Eintraege haben');
+
+const dateiZuGruppe = new Map();
+const dateiZuKiMotiv = new Map();
+
+const registriereDatei = (datei, gruppe, motiv = null) => {
+  const basis = path.basename(datei);
+  pruefe(!dateiZuGruppe.has(basis), `${basis} ist im Herkunftsregister mehrfach eingeordnet`);
+  dateiZuGruppe.set(basis, gruppe);
+  if (motiv) dateiZuKiMotiv.set(basis, motiv);
 };
 
-// Alle HTML-Seiten der Website einsammeln
+for (const [gruppenname, gruppe] of Object.entries(gruppen)) {
+  pruefe(typeof gruppe.begruendung === 'string' && gruppe.begruendung.length > 20,
+    `Gruppe ${gruppenname} im Register hat keine belastbare Begruendung`);
+  for (const datei of gruppe.dateien ?? []) registriereDatei(datei, gruppenname);
+}
+
+for (const [name, dateien] of Object.entries(motive)) {
+  pruefe(Array.isArray(dateien) && dateien.length > 0,
+    `KI-Motiv ${name} hat keine Dateien`);
+  for (const datei of dateien ?? []) registriereDatei(datei, 'ki_generiert', name);
+
+  const meta = motiveMetadaten[name];
+  pruefe(!!meta, `KI-Motiv ${name} hat keine pruefbaren Metadaten`);
+  if (!meta) continue;
+
+  const zeit = meta.entstehungszeit ?? {};
+  pruefe(zeit.actualCreatedAt === null || istIsoDatum(zeit.actualCreatedAt),
+    `KI-Motiv ${name}: actualCreatedAt muss null oder ein ISO-Zeitpunkt sein`);
+  pruefe(istIsoDatum(zeit.repositoryFirstSeenAt),
+    `KI-Motiv ${name}: repositoryFirstSeenAt fehlt oder ist ungueltig`);
+  pruefe(zeit.evidenceType === 'git-first-seen',
+    `KI-Motiv ${name}: evidenceType muss git-first-seen sein`);
+  pruefe(/^[0-9a-f]{40}$/.test(zeit.evidenceCommit ?? ''),
+    `KI-Motiv ${name}: evidenceCommit ist keine vollstaendige Git-SHA`);
+
+  const ersterCommit = gitEvidenz[zeit.evidenceCommit];
+  pruefe(!!ersterCommit, `KI-Motiv ${name}: evidenceCommit fehlt in gitEvidenz`);
+  if (ersterCommit && istIsoDatum(zeit.repositoryFirstSeenAt)) {
+    pruefe(ersterCommit.committedAt === zeit.repositoryFirstSeenAt,
+      `KI-Motiv ${name}: repositoryFirstSeenAt stimmt nicht mit gitEvidenz ueberein`);
+    pruefe(zeit.beforeStichtag === (Date.parse(zeit.repositoryFirstSeenAt) < stichtag),
+      `KI-Motiv ${name}: beforeStichtag stimmt nicht mit repositoryFirstSeenAt ueberein`);
+  }
+
+  pruefe(RISIKOKLASSEN.has(meta.risikoklasse),
+    `KI-Motiv ${name}: unbekannte Risikoklasse ${meta.risikoklasse}`);
+  pruefe(Array.isArray(meta.risikofaktoren) && meta.risikofaktoren.length > 0,
+    `KI-Motiv ${name}: Risikofaktoren fehlen`);
+  pruefe(VORSCHLAEGE.has(meta.arbeitsvorschlag),
+    `KI-Motiv ${name}: unbekannter Arbeitsvorschlag ${meta.arbeitsvorschlag}`);
+  pruefe(!(meta.risikoklasse === 'hoch' && meta.arbeitsvorschlag === 'zentral-offenlegen'),
+    `KI-Motiv ${name}: hohes Risiko darf nicht automatisch nur zentral offengelegt werden`);
+
+  const freigabe = meta.menschlicheFreigabe ?? {};
+  pruefe(FREIGABESTATUS.has(freigabe.status),
+    `KI-Motiv ${name}: Status der menschlichen Freigabe fehlt oder ist unbekannt`);
+  pruefe(/^[0-9a-f]{40}$/.test(freigabe.evidenceCommit ?? '')
+    && !!gitEvidenz[freigabe.evidenceCommit],
+  `KI-Motiv ${name}: Freigabe-Evidenz ist nicht im Register belegt`);
+
+  if (freigabe.status === 'freigegeben') {
+    pruefe(typeof freigabe.reviewedBy === 'string' && freigabe.reviewedBy.trim().length > 0,
+      `KI-Motiv ${name}: Freigabe braucht reviewedBy`);
+    pruefe(istIsoDatum(freigabe.reviewedAt),
+      `KI-Motiv ${name}: Freigabe braucht reviewedAt als ISO-Zeitpunkt`);
+  } else {
+    pruefe(freigabe.reviewedBy === null && freigabe.reviewedAt === null,
+      `KI-Motiv ${name}: Ohne Freigabe muessen reviewedBy und reviewedAt null bleiben`);
+  }
+}
+
+for (const name of Object.keys(motiveMetadaten)) {
+  pruefe(Object.hasOwn(motive, name),
+    `motiveMetadaten enthaelt unbekanntes KI-Motiv ${name}`);
+}
+
+const brauchtDirektenBadge = (name) => {
+  const meta = motiveMetadaten[name];
+  if (!meta) return true;
+  if (meta.risikoklasse === 'hoch') return true;
+  if (meta.arbeitsvorschlag !== 'zentral-offenlegen') return true;
+  return meta.menschlicheFreigabe?.status !== 'freigegeben';
+};
+
 const seiten = [];
 const sammle = (verzeichnis) => {
   for (const eintrag of fs.readdirSync(verzeichnis, { withFileTypes: true })) {
@@ -44,7 +160,7 @@ const sammle = (verzeichnis) => {
     const rel = path.relative(root, voll);
     if (eintrag.isDirectory()) {
       if (['node_modules', '.git', 'claude-seo', 'docs', 'freebies',
-           'playwright-report', 'kleinkind-welt.de-audit', 'test-results'].includes(eintrag.name)) continue;
+        'playwright-report', 'kleinkind-welt.de-audit', 'test-results'].includes(eintrag.name)) continue;
       sammle(voll);
     } else if (eintrag.name.endsWith('.html')) {
       seiten.push(rel);
@@ -53,95 +169,107 @@ const sammle = (verzeichnis) => {
 };
 sammle(root);
 
-// --- 1. und 2.: Einbindungen pruefen -----------------------------------------
-let gepruefteEinbindungen = 0;
+const bildDateienImBlock = (text) => {
+  const dateien = new Set();
+  for (const treffer of text.matchAll(/(?:src|srcset)="([^"]+)"/g)) {
+    for (const kandidat of treffer[1].split(',')) {
+      const url = kandidat.trim().split(/\s+/)[0];
+      if (!url || /^(?:https?:|data:|\/\/)/.test(url)) continue;
+      const ohneQuery = url.split(/[?#]/)[0];
+      if (/\.(jpg|jpeg|png|webp)$/i.test(ohneQuery)) dateien.add(path.basename(ohneQuery));
+    }
+  }
+  return dateien;
+};
+
+let gepruefteKiEinbindungen = 0;
+let direktKennzeichnungspflichtigeEinbindungen = 0;
+let zentralFreigegebeneEinbindungen = 0;
 const verwendeteBilder = new Set();
-const kiBloeckeJeSeite = new Map();
-const badgesJeSeite = new Map();
 
 for (const seite of seiten) {
   const html = fs.readFileSync(path.join(root, seite), 'utf8');
-
-  // picture-Bloecke und freistehende img-Tags als Bloecke behandeln
   const bloecke = [];
+
   for (const m of html.matchAll(/<picture\b[\s\S]*?<\/picture>/g)) {
     bloecke.push({ start: m.index, ende: m.index + m[0].length, text: m[0] });
   }
   for (const m of html.matchAll(/<img\b[^>]*>/g)) {
-    if (bloecke.some((b) => b.start <= m.index && m.index < b.ende)) continue;
+    if (bloecke.some((block) => block.start <= m.index && m.index < block.ende)) continue;
     bloecke.push({ start: m.index, ende: m.index + m[0].length, text: m[0] });
   }
 
+  let neueDirekteHinweise = 0;
+  let brauchtZentralenHinweis = false;
+
   for (const block of bloecke) {
-    for (const treffer of block.text.matchAll(/(?:src|srcset)="([^"]+)"/g)) {
-      for (const kandidat of treffer[1].split(',')) {
-        const datei = kandidat.trim().split(/\s+/)[0];
-        if (/^https?:/.test(datei)) continue;
-        if (/\.(jpg|jpeg|png|webp)$/i.test(datei)) {
-          verwendeteBilder.add(path.basename(datei));
-        }
-      }
+    const dateien = bildDateienImBlock(block.text);
+    for (const datei of dateien) verwendeteBilder.add(datei);
+
+    const kiMotive = new Set([...dateien].map((datei) => dateiZuKiMotiv.get(datei)).filter(Boolean));
+    if (!kiMotive.size) continue;
+    gepruefteKiEinbindungen += 1;
+
+    const metadaten = [...kiMotive].map((name) => motiveMetadaten[name]).filter(Boolean);
+    const nachStichtag = metadaten.some((meta) => meta.entstehungszeit?.beforeStichtag === false);
+    if (nachStichtag && [...kiMotive].some(brauchtDirektenBadge)) {
+      neueDirekteHinweise += 1;
+      direktKennzeichnungspflichtigeEinbindungen += 1;
+    } else if (metadaten.length && metadaten.every((meta) =>
+      meta.arbeitsvorschlag === 'zentral-offenlegen'
+      && meta.menschlicheFreigabe?.status === 'freigegeben')) {
+      brauchtZentralenHinweis = true;
+      zentralFreigegebeneEinbindungen += 1;
     }
-    if (!istKiBild(block.text)) continue;
-    gepruefteEinbindungen += 1;
-    kiBloeckeJeSeite.set(seite, (kiBloeckeJeSeite.get(seite) ?? 0) + 1);
   }
 
-  // Gezaehlt statt positionsgebunden gepruefte Regel: Jede Seite braucht
-  // mindestens so viele sichtbare Hinweise wie sie KI-Bilder einbindet.
-  //
-  // Die frueher benutzte Regel "Hinweis innerhalb von 200 Zeichen nach dem Bild"
-  // war zu eng. Auf der Startseite stand der Hinweis dadurch VOR der H1, und der
-  // Hauptinhalt begann mit dem Wort "KI-Bild" statt mit der Seitenaussage. Da der
-  // Hinweis absolut positioniert ist, darf er im Markup hinter dem Textblock
-  // stehen — sichtbar bleibt er an derselben Stelle.
-  const badges = (html.match(/class="ki-badge"/g) ?? []).length;
-  badgesJeSeite.set(seite, badges);
-}
+  const benoetigteBadges = (baselineSeiten[seite] ?? 0) + neueDirekteHinweise;
+  const badges = (html.match(/class="[^"]*\bki-badge\b[^"]*"/g) ?? []).length;
+  pruefe(badges >= benoetigteBadges,
+    `${seite}: ${benoetigteBadges} direkte KI-Hinweise erforderlich, aber nur ${badges} vorhanden`);
 
-for (const [seite, anzahl] of kiBloeckeJeSeite) {
-  const badges = badgesJeSeite.get(seite) ?? 0;
-  pruefe(badges >= anzahl,
-    `${seite}: ${anzahl} KI-Bild(er), aber nur ${badges} sichtbare Hinweise`);
-}
-pruefe(gepruefteEinbindungen > 0, 'Keine KI-Bild-Einbindung gefunden — die Prüfung greift ins Leere');
-
-// --- 3.: Hinweis ist echter Text ---------------------------------------------
-const css = fs.readFileSync(path.join(root, 'css/style.css'), 'utf8');
-const badgeRegel = new RegExp(`\\.${BADGE}\\s*\\{[^}]*\\}`).exec(css);
-pruefe(!!badgeRegel, `CSS-Regel .${BADGE} fehlt`);
-if (badgeRegel) {
-  pruefe(!/content\s*:/.test(badgeRegel[0]),
-    `.${BADGE} darf den Hinweis nicht per CSS-content erzeugen — er muss ohne Hilfsmittel wahrnehmbar sein`);
-}
-const irgendwoText = seiten.some((seite) =>
-  new RegExp(`class="${BADGE}"[^>]*>\\s*\\S`).test(fs.readFileSync(path.join(root, seite), 'utf8')));
-pruefe(irgendwoText, `Kein .${BADGE} enthält sichtbaren Text`);
-
-// --- 1.: Register vollstaendig ------------------------------------------------
-const gruppen = register.gruppen ?? {};
-const eingeordnet = new Set();
-for (const [name, gruppe] of Object.entries(gruppen)) {
-  for (const datei of gruppe.dateien ?? []) eingeordnet.add(path.basename(datei));
-  for (const varianten of Object.values(gruppe.motive ?? {})) {
-    for (const datei of varianten) eingeordnet.add(path.basename(datei));
+  if (brauchtZentralenHinweis) {
+    pruefe(new RegExp(`class="[^"]*\\b${ZENTRALER_HINWEIS}\\b[^"]*"[^>]*>\\s*\\S`).test(html),
+      `${seite}: freigegebene zentrale Offenlegung braucht sichtbaren .${ZENTRALER_HINWEIS}`);
   }
-  pruefe(typeof gruppe.begruendung === 'string' && gruppe.begruendung.length > 20,
-    `Gruppe ${name} im Register hat keine belastbare Begründung`);
 }
+
+for (const seite of Object.keys(baselineSeiten)) {
+  pruefe(seiten.includes(seite), `${seite}: Badge-Baseline verweist nicht auf eine gepruefte HTML-Seite`);
+}
+
+pruefe(gepruefteKiEinbindungen > 0,
+  'Keine registrierte KI-Bild-Einbindung gefunden - die Pruefung greift ins Leere');
+
 for (const datei of [...verwendeteBilder].sort()) {
-  pruefe(eingeordnet.has(datei),
+  pruefe(dateiZuGruppe.has(datei),
     `${datei} ist verwendet, aber in data/bildherkunft.json nicht eingeordnet`);
 }
 
-// --- 4.: Vorschaugrafik ohne Fotorealismus ------------------------------------
+if (baselineBadgeAnzahl + direktKennzeichnungspflichtigeEinbindungen > 0) {
+  const css = fs.readFileSync(path.join(root, 'css/style.css'), 'utf8');
+  const badgeRegel = new RegExp(`\\.${BADGE}\\s*\\{[^}]*\\}`).exec(css);
+  pruefe(!!badgeRegel, `CSS-Regel .${BADGE} fehlt`);
+  if (badgeRegel) {
+    pruefe(!/content\s*:/.test(badgeRegel[0]),
+      `.${BADGE} darf den Hinweis nicht per CSS-content erzeugen`);
+  }
+  const irgendwoText = seiten.some((seite) =>
+    new RegExp(`class="[^"]*\\b${BADGE}\\b[^"]*"[^>]*>\\s*\\S`)
+      .test(fs.readFileSync(path.join(root, seite), 'utf8')));
+  pruefe(irgendwoText, `Kein .${BADGE} enthaelt sichtbaren Text`);
+}
+
 pruefe(gruppen.og_grafik?.kennzeichnung === 'Foto-Anteil entfernt',
-  'Das Register muss festhalten, dass die Vorschaugrafik keinen fotorealistischen Inhalt enthält');
+  'Das Register muss festhalten, dass die Vorschaugrafik keinen fotorealistischen Inhalt enthaelt');
 
 if (fehler.length) {
-  fehler.forEach((f) => console.error(`ERROR ${f}`));
+  fehler.forEach((meldung) => console.error(`ERROR ${meldung}`));
   process.exit(1);
 }
 
-console.log(`KI-Bildkennzeichnung bestanden: ${gepruefteEinbindungen} Einbindungen gekennzeichnet, `
-  + `${verwendeteBilder.size} verwendete Bilder im Register eingeordnet.`);
+console.log(`KI-Herkunftsgate bestanden: ${gepruefteKiEinbindungen} KI-Einbindungen, `
+  + `${baselineBadgeAnzahl} geschuetzte Bestandsbadges, `
+  + `${direktKennzeichnungspflichtigeEinbindungen} neue direkte Hinweise nach Stichtag, `
+  + `${zentralFreigegebeneEinbindungen} zentral freigegeben, `
+  + `${verwendeteBilder.size} verwendete lokale Rasterbilder eingeordnet.`);

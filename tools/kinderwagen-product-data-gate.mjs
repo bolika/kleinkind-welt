@@ -14,7 +14,6 @@ const errors = [];
 const warnings = [];
 const reports = [];
 const productIds = new Set();
-const today = new Date().toISOString().slice(0, 10);
 
 const requiredRoot = schema.required ?? [];
 const requiredFacts = schema.properties?.facts?.required ?? [];
@@ -40,6 +39,12 @@ function exists(value) {
   return value !== null && value !== undefined && value !== '';
 }
 
+function isIsoDate(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 function containsCommercialRankingField(value) {
   return /affiliate|commission|provision|sponsor|campaignbudget|merchantpriority/i.test(JSON.stringify(value));
 }
@@ -61,7 +66,8 @@ for (const file of files) {
   if (product.identity?.market !== 'DE' || product.identity?.category !== 'single-combi-from-birth' || product.identity?.supportedChildren !== 1) {
     errors.push(`${relative}: Produkt liegt außerhalb des MVP-Scopes`);
   }
-  if (product.review?.reviewDueAt < today) errors.push(`${relative}: Review überfällig seit ${product.review?.reviewDueAt}`);
+  if (!isIsoDate(product.review?.checkedAt)) errors.push(`${relative}: Review benötigt ein gültiges Prüfdatum`);
+  if (!isIsoDate(product.review?.reviewDueAt)) errors.push(`${relative}: Review benötigt ein gültiges Fälligkeitsdatum`);
   if (containsCommercialRankingField(product)) errors.push(`${relative}: kommerzielles Ranking-Feld in Match-Daten gefunden`);
 
   const sourceIds = new Set();
@@ -69,7 +75,7 @@ for (const file of files) {
     if (!source.id || sourceIds.has(source.id)) errors.push(`${relative}: fehlende oder doppelte Quellen-ID`);
     sourceIds.add(source.id);
     if (!String(source.url ?? '').startsWith('https://')) errors.push(`${relative}: Quelle ${source.id} nutzt kein HTTPS`);
-    if (!source.checkedAt) errors.push(`${relative}: Quelle ${source.id} ohne Prüfdatum`);
+    if (!isIsoDate(source.checkedAt)) errors.push(`${relative}: Quelle ${source.id} ohne gültiges Prüfdatum`);
   }
 
   let knownFacts = 0;
@@ -82,8 +88,8 @@ for (const file of files) {
     if (!allowedFactStatuses.has(fact.status)) errors.push(`${relative}: Fakt ${key} hat ungültigen Status ${fact.status}`);
     if (!Array.isArray(fact.sourceIds)) errors.push(`${relative}: Fakt ${key} benötigt sourceIds`);
     for (const sourceId of fact.sourceIds ?? []) if (!sourceIds.has(sourceId)) errors.push(`${relative}: Fakt ${key} referenziert unbekannte Quelle ${sourceId}`);
-    if (!fact.checkedAt) errors.push(`${relative}: Fakt ${key} ohne Prüfdatum`);
-    if (fact.freshUntil && fact.freshUntil < today) errors.push(`${relative}: Fakt ${key} ist seit ${fact.freshUntil} abgelaufen`);
+    if (!isIsoDate(fact.checkedAt)) errors.push(`${relative}: Fakt ${key} ohne gültiges Prüfdatum`);
+    if (fact.freshUntil && !isIsoDate(fact.freshUntil)) errors.push(`${relative}: Fakt ${key} hat ein ungültiges Ablaufdatum`);
     if (['officially_documented', 'independently_observed'].includes(fact.status) && !(fact.sourceIds ?? []).length) {
       errors.push(`${relative}: belegter Fakt ${key} ohne Quelle`);
     }
