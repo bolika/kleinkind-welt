@@ -46,11 +46,11 @@
   }
 
   function scopeFor(link) {
-    return link.closest('.kw-product-card, .kaufbox-hero, .kaufbox-option');
+    return link.closest('.kw-product-card, .kaufbox-hero, .kaufbox-option, .pilot-product');
   }
 
   function actionAreaFor(link) {
-    return link.closest('.kw-product-actions, .kaufbox-actions') || link;
+    return link.closest('.kw-product-actions, .kaufbox-actions, .pilot-actions') || link;
   }
 
   function renderOffer(link, offer, generatedAt) {
