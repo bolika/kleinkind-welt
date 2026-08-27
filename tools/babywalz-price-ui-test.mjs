@@ -63,7 +63,7 @@ async function testStaleFallback(browser) {
 
   assert.equal(await page.locator('.kw-live-offer').count(), 0, 'Veraltete Preise dürfen nicht erscheinen.');
   assert.equal(await page.locator('.has-fresh-babywalz-offer').count(), 0, 'Veraltete Preise dürfen keine CTA-Priorität ändern.');
-  assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').textContent(), 'Bei Amazon ansehen');
+  assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').textContent(), 'Preis bei Amazon prüfen');
   const fallback = await page.evaluate(() => {
     const babywalz = document.querySelector('#greifen a[data-merchant="babywalz"]');
     const amazon = document.querySelector('#greifen a[data-affiliate="amazon"]');

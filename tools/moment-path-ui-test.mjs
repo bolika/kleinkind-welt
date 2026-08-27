@@ -46,10 +46,20 @@ async function checkPage(browser, entry, width, height) {
     assert.equal(await page.locator('.play-fit > div').count(), 6, 'unter-20: je Empfehlung Passt- und Eher-nicht-Hinweis erwartet.');
     assert.equal(await page.locator('.kw-live-offer').count(), 3, 'unter-20: drei aktuelle Gesamtpreise erwartet.');
     assert.equal(await page.locator('.pilot-product a[data-affiliate]:visible').count(), 3, 'unter-20: genau ein sichtbarer Händler pro Produkt erwartet.');
+    await page.locator('.play-moments a[href="#klopfen"]').click();
+    await page.waitForTimeout(900);
+    assert.equal(await page.locator('.play-moments a[aria-current="location"]').getAttribute('href'), '#klopfen', 'unter-20: aktive Wegmarke folgt nicht der Auswahl.');
+    await page.evaluate(() => window.scrollTo(0, 0));
   } else {
     assert.equal(await page.locator('.kw-moment-fit').count(), 3, `${entry.slug}: drei Fit-Einordnungen erwartet.`);
     assert.equal(await page.locator('.kw-moment-fit > div').count(), 6, `${entry.slug}: je Empfehlung Passt- und Eher-nicht-Hinweis erwartet.`);
     assert.equal(await page.locator('.kw-moment-action a').count(), 3, `${entry.slug}: drei eindeutige Moment-CTAs erwartet.`);
+    assert.equal(await page.locator('.kw-moment-nav a').count(), 3, `${entry.slug}: drei Wegmarken erwartet.`);
+    const secondMomentHref = await page.locator('.kw-moment-nav a').nth(1).getAttribute('href');
+    await page.locator('.kw-moment-nav a').nth(1).click();
+    await page.waitForTimeout(900);
+    assert.equal(await page.locator('.kw-moment-nav a[aria-current="location"]').getAttribute('href'), secondMomentHref, `${entry.slug}: aktive Wegmarke folgt nicht der Auswahl.`);
+    await page.evaluate(() => window.scrollTo(0, 0));
   }
 
   const layout = await page.evaluate(({ selector, fullPilot }) => {

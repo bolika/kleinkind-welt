@@ -64,6 +64,49 @@
     selectTab(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
   });
 
+  const momentLinks = [...document.querySelectorAll('.play-moments a[href^="#"]')];
+  const momentTargets = momentLinks
+    .map((link) => ({ link, target: document.querySelector(link.getAttribute('href')) }))
+    .filter(({ target }) => target);
+
+  function markCurrentMoment(activeLink) {
+    momentLinks.forEach((link) => {
+      if (link === activeLink) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  momentLinks.forEach((link) => {
+    link.addEventListener('click', () => markCurrentMoment(link));
+  });
+
+  if (momentTargets.length) {
+    let momentFrame = 0;
+
+    function syncCurrentMoment() {
+      const navigation = document.querySelector('.play-moments');
+      const navigationBottom = navigation ? navigation.getBoundingClientRect().bottom : 0;
+      const marker = navigationBottom + Math.min(160, window.innerHeight * .18);
+      const current = momentTargets.find(({ target }) => {
+        const bounds = target.getBoundingClientRect();
+        return bounds.top <= marker && bounds.bottom > marker;
+      });
+
+      if (current) markCurrentMoment(current.link);
+      else momentLinks.forEach((link) => link.removeAttribute('aria-current'));
+      momentFrame = 0;
+    }
+
+    function requestMomentSync() {
+      if (momentFrame) return;
+      momentFrame = window.requestAnimationFrame(syncCurrentMoment);
+    }
+
+    window.addEventListener('scroll', requestMomentSync, { passive: true });
+    window.addEventListener('resize', requestMomentSync, { passive: true });
+    requestMomentSync();
+  }
+
   if (liteMode) return;
 
   const layers = [...document.querySelectorAll('[data-parallax]')];

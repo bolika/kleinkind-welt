@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-08-26T08:01:12.099Z",
-  "freshUntil": "2026-08-28T08:01:12.099Z",
+  "generatedAt": "2026-08-26T14:12:08.679Z",
+  "freshUntil": "2026-08-28T14:12:08.679Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -66,6 +66,33 @@
       "productPrice": 10.99,
       "shipping": 4.99,
       "totalPrice": 15.98,
+      "currency": "EUR",
+      "availability": "in_stock"
+    },
+    "babywalz-7412860": {
+      "productId": "solini-sortierbox",
+      "merchantProductId": "7412860",
+      "productPrice": 13.19,
+      "shipping": 4.99,
+      "totalPrice": 18.18,
+      "currency": "EUR",
+      "availability": "in_stock"
+    },
+    "babywalz-8395160": {
+      "productId": "hape-formensortierer",
+      "merchantProductId": "8395160",
+      "productPrice": 13.99,
+      "shipping": 4.99,
+      "totalPrice": 18.98,
+      "currency": "EUR",
+      "availability": "in_stock"
+    },
+    "babywalz-6276008": {
+      "productId": "haba-greifpuzzle-tierkinder",
+      "merchantProductId": "6276008",
+      "productPrice": 8.99,
+      "shipping": 4.99,
+      "totalPrice": 13.98,
       "currency": "EUR",
       "availability": "in_stock"
     }

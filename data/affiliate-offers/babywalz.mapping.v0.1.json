@@ -15,11 +15,12 @@
     "scope": "Official Awin advertiser creatives only; product-feed images remain blocked until separately confirmed.",
     "creatives": [
       {
-        "creativeId": "2239252",
+        "creativeId": "337490",
+        "type": "text",
         "page": "artikel/spielzeug-unter-20-euro.html",
-        "placement": "sidebar-banner",
-        "destinationUrl": "https://www.awin1.com/cread.php?s=2239252&v=12387&q=337497&r=2998119",
-        "imageUrl": "https://www.awin1.com/cshow.php?s=2239252&v=12387&q=337497&r=2998119"
+        "placement": "more-products",
+        "destinationUrl": "https://www.awin1.com/awclick.php?gid=337490&mid=12387&awinaffid=2998119&linkid=2165473&clickref=kw_u20_more_toys",
+        "anchorText": "Spiel und Spaß / Baby- und Kinderspielzeug"
       }
     ]
   },
@@ -155,6 +156,110 @@
         "checkedAt": "2026-08-25"
       },
       "placements": []
+    },
+    {
+      "offerId": "babywalz-7412860",
+      "productId": "solini-sortierbox",
+      "title": "Solini Sortier- und Steckspiel",
+      "merchantProductIds": ["7412860"],
+      "gtins": ["4055512667797"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=32925150429&a=2998119&m=12387",
+      "editorialMatch": "Sortier- und Steckbox aus Holz mit zwölf Formen; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 13.19,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-26"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-12-18-monate.html",
+          "scopeId": "produkt-formenbox",
+          "clickref": "1218_card_solini_sortierbox"
+        },
+        {
+          "page": "artikel/spielzeug-12-18-monate.html",
+          "scopeId": "vergleich-solini-sortierbox",
+          "clickref": "1218_table_solini_sortierbox"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-8395160",
+      "productId": "hape-formensortierer",
+      "title": "Hape Farben- & Formensortierer",
+      "merchantProductIds": ["8395160"],
+      "gtins": ["6943478006270"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44790814082&a=2998119&m=12387",
+      "editorialMatch": "Farben- und Formensortierer aus Holz mit neun Steckelementen; Anbieterangabe ab 18 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 13.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-26"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "moment-sortieren",
+          "clickref": "1824_moment_hape_formensortierer"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "produkt-formensortierer",
+          "clickref": "1824_card_hape_formensortierer"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "vergleich-babywalz-unter-15",
+          "clickref": "1824_table_hape_formensortierer"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-6276008",
+      "productId": "haba-greifpuzzle-tierkinder",
+      "title": "Haba Greifpuzzle Bauernhof-Tierkinder",
+      "merchantProductIds": ["6276008"],
+      "gtins": ["4010168218892"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45568655808&a=2998119&m=12387",
+      "editorialMatch": "Holz-Greifpuzzle mit vier Bauernhof-Tierkindern; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 8.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-08-26"
+      },
+      "placements": [
+        {
+          "page": "artikel/geschenke-1-jahr.html",
+          "scopeId": "geschenk-zuordnen",
+          "clickref": "g1_moment_haba_greifpuzzle"
+        },
+        {
+          "page": "artikel/geschenke-1-jahr.html",
+          "scopeId": "geschenkidee-haba-greifpuzzle",
+          "clickref": "g1_list_haba_greifpuzzle"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "produkt-haba-greifpuzzle",
+          "clickref": "1824_card_haba_greifpuzzle"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "vergleich-babywalz-unter-15",
+          "clickref": "1824_table_haba_greifpuzzle"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "vergleich-geschenk-haba-greifpuzzle",
+          "clickref": "1824_table_gift_haba_greifpuzzle"
+        }
+      ]
     }
   ]
 }

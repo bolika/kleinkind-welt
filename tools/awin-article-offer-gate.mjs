@@ -125,9 +125,14 @@ for (const creative of mapping.advertiserCreativeUsage?.creatives ?? []) {
   if (!htmlByPage.has(creative.page)) htmlByPage.set(creative.page, fs.readFileSync(pagePath, 'utf8'));
   const html = htmlByPage.get(creative.page);
   const links = linksIn(html).filter((link) => link.href === creative.destinationUrl);
-  const images = imagesIn(html).filter((image) => image.src === creative.imageUrl);
   check(links.length === 1, `${creative.creativeId}: genau ein Advertiser-Creative-Link erwartet, gefunden ${links.length}.`);
-  check(images.length === 1, `${creative.creativeId}: genau ein Advertiser-Creative-Bild erwartet, gefunden ${images.length}.`);
+  if (creative.type === 'text') {
+    check(Boolean(creative.anchorText) && html.includes(`>${creative.anchorText}</a>`), `${creative.creativeId}: freigegebener Creative-Linktext fehlt.`);
+  } else {
+    const images = imagesIn(html).filter((image) => image.src === creative.imageUrl);
+    check(images.length === 1, `${creative.creativeId}: genau ein Advertiser-Creative-Bild erwartet, gefunden ${images.length}.`);
+    approvedCreativeImages.add(creative.imageUrl);
+  }
   if (links.length === 1) {
     const rel = new Set((links[0].rel || '').split(/\s+/));
     check(rel.has('sponsored'), `${creative.creativeId}: rel=sponsored fehlt.`);
@@ -135,7 +140,6 @@ for (const creative of mapping.advertiserCreativeUsage?.creatives ?? []) {
     check(links[0]['data-affiliate'] === 'awin', `${creative.creativeId}: data-affiliate=awin fehlt.`);
     check(links[0]['data-placement'] === creative.placement, `${creative.creativeId}: Placement stimmt nicht.`);
   }
-  approvedCreativeImages.add(creative.imageUrl);
 }
 
 for (const [page, html] of htmlByPage) {
@@ -207,4 +211,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Babywalz-Angebots-Gate bestanden: ${mapping.mappings.length} Angebote, ${seenClickrefs.size} Produktplatzierungen, ${approvedCreativeImages.size} freigegebene Advertiser-Creatives, ${feedRowsChecked} lokale Feed-Zeilen geprüft, keine Feed-Produktbilder veröffentlicht.`);
+console.log(`Babywalz-Angebots-Gate bestanden: ${mapping.mappings.length} Angebote, ${seenClickrefs.size} Produktplatzierungen, ${mapping.advertiserCreativeUsage?.creatives?.length ?? 0} freigegebene Advertiser-Creatives, ${feedRowsChecked} lokale Feed-Zeilen geprüft, keine Feed-Produktbilder veröffentlicht.`);
