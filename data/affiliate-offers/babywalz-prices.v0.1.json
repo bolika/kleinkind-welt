@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-08-26T14:12:08.679Z",
-  "freshUntil": "2026-08-28T14:12:08.679Z",
+  "generatedAt": "2026-08-27T14:46:14.680Z",
+  "freshUntil": "2026-08-29T14:46:14.680Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -36,9 +36,9 @@
     "babywalz-8395292": {
       "productId": "u20-steckpuzzle",
       "merchantProductId": "8395292",
-      "productPrice": 8.99,
+      "productPrice": 9.09,
       "shipping": 4.99,
-      "totalPrice": 13.98,
+      "totalPrice": 14.08,
       "currency": "EUR",
       "availability": "in_stock"
     },
@@ -63,9 +63,9 @@
     "babywalz-5743389": {
       "productId": "u20-greifling-beissring",
       "merchantProductId": "5743389",
-      "productPrice": 10.99,
+      "productPrice": 11.99,
       "shipping": 4.99,
-      "totalPrice": 15.98,
+      "totalPrice": 16.98,
       "currency": "EUR",
       "availability": "in_stock"
     },
@@ -81,18 +81,18 @@
     "babywalz-8395160": {
       "productId": "hape-formensortierer",
       "merchantProductId": "8395160",
-      "productPrice": 13.99,
+      "productPrice": 14.09,
       "shipping": 4.99,
-      "totalPrice": 18.98,
+      "totalPrice": 19.08,
       "currency": "EUR",
       "availability": "in_stock"
     },
     "babywalz-6276008": {
       "productId": "haba-greifpuzzle-tierkinder",
       "merchantProductId": "6276008",
-      "productPrice": 8.99,
+      "productPrice": 9.99,
       "shipping": 4.99,
-      "totalPrice": 13.98,
+      "totalPrice": 14.98,
       "currency": "EUR",
       "availability": "in_stock"
     }
