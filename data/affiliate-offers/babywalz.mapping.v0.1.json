@@ -65,6 +65,16 @@
           "page": "artikel/spielzeug-unter-20-euro.html",
           "scopeId": "greifen",
           "clickref": "u20_moment_stapelbecher"
+        },
+        {
+          "page": "artikel/spielzeug-6-12-monate.html",
+          "scopeId": "produkt-stapelbecher",
+          "clickref": "612_card_badabulle_stapelbecher"
+        },
+        {
+          "page": "artikel/spielzeug-12-18-monate.html",
+          "scopeId": "produkt-stapelbecher",
+          "clickref": "1218_card_badabulle_stapelbecher"
         }
       ]
     },
@@ -89,6 +99,11 @@
           "page": "artikel/spielzeug-unter-20-euro.html",
           "scopeId": "klopfen",
           "clickref": "u20_moment_klopfbank"
+        },
+        {
+          "page": "artikel/geschenke-2-jahre.html",
+          "scopeId": "hape-hammerbank",
+          "clickref": "g2_card_solini_klopfbank"
         }
       ]
     },
@@ -107,7 +122,18 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": []
+      "placements": [
+        {
+          "page": "artikel/geschenke-2-jahre.html",
+          "scopeId": "ravensburger-puzzle",
+          "clickref": "g2_card_hape_steckpuzzle"
+        },
+        {
+          "page": "artikel/spielzeug-2-jahre.html",
+          "scopeId": "produkt-steckpuzzle",
+          "clickref": "s2_card_hape_steckpuzzle"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8293872",
@@ -130,6 +156,16 @@
           "page": "artikel/spielzeug-unter-20-euro.html",
           "scopeId": "erzaehlen",
           "clickref": "u20_moment_pappbuch"
+        },
+        {
+          "page": "artikel/geschenke-1-jahr.html",
+          "scopeId": "geschenk-benennen",
+          "clickref": "g1_moment_ravensburger_tiere"
+        },
+        {
+          "page": "artikel/spielzeug-12-18-monate.html",
+          "scopeId": "produkt-pappbuecher",
+          "clickref": "1218_card_ravensburger_tiere"
         }
       ]
     },
@@ -148,7 +184,18 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": []
+      "placements": [
+        {
+          "page": "artikel/geschenke-3-jahre.html",
+          "scopeId": "produkt-kreativset",
+          "clickref": "g3_card_hape_fingermalen"
+        },
+        {
+          "page": "artikel/spielzeug-3-jahre.html",
+          "scopeId": "produkt-kreativset",
+          "clickref": "s3_card_hape_fingermalen"
+        }
+      ]
     },
     {
       "offerId": "babywalz-5743389",
@@ -165,7 +212,18 @@
         "priceLimit": 20,
         "checkedAt": "2026-08-25"
       },
-      "placements": []
+      "placements": [
+        {
+          "page": "artikel/spielzeug-0-6-monate.html",
+          "scopeId": "produkt-greifling",
+          "clickref": "06_card_sophie_greifling"
+        },
+        {
+          "page": "artikel/spielzeug-6-12-monate.html",
+          "scopeId": "produkt-greifling",
+          "clickref": "612_card_sophie_greifling"
+        }
+      ]
     },
     {
       "offerId": "babywalz-7412860",
@@ -295,6 +353,14 @@
         "page": "artikel/weihnachtsgeschenke-kleinkind.html",
         "scopeId": "produkt-lauflernwagen",
         "clickref": "weihnachten_card_smallfoot_lauflernwagen"
+      }, {
+        "page": "artikel/geschenke-1-jahr.html",
+        "scopeId": "geschenk-losziehen",
+        "clickref": "g1_moment_smallfoot_lauflernwagen"
+      }, {
+        "page": "artikel/spielzeug-12-18-monate.html",
+        "scopeId": "produkt-lauflernwagen",
+        "clickref": "1218_card_smallfoot_lauflernwagen"
       }]
     },
     {
@@ -316,6 +382,10 @@
         "page": "artikel/weihnachtsgeschenke-kleinkind.html",
         "scopeId": "produkt-duplo",
         "clickref": "weihnachten_card_duplo_tiere"
+      }, {
+        "page": "artikel/spielzeug-18-24-monate.html",
+        "scopeId": "produkt-duplo-tiere",
+        "clickref": "1824_card_duplo_tiere"
       }]
     },
     {
@@ -379,6 +449,232 @@
         "page": "artikel/montessori-spielzeug-kleinkind.html",
         "scopeId": "produkt-montessori-fortgeschritten",
         "clickref": "montessori_card_hape_steckpuzzle"
+      }]
+    },
+    {
+      "offerId": "babywalz-7174675",
+      "productId": "duplo-10913-steinebox",
+      "title": "Lego® Duplo® 10913 Steinebox",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["7174675"],
+      "gtins": ["5702016617740"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=25743537713&a=2998119&m=12387",
+      "editorialMatch": "Klassische DUPLO-Steinebox für freies Bauen und Sortieren; Anbieterangaben am Produkt prüfen.",
+      "feedEvidence": {
+        "observedPrice": 23.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 30,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [
+        {
+          "page": "artikel/geschenke-2-jahre.html",
+          "scopeId": "duplo-steinebox",
+          "clickref": "g2_card_duplo_10913"
+        },
+        {
+          "page": "artikel/spielzeug-2-jahre.html",
+          "scopeId": "produkt-duplo-steinebox",
+          "clickref": "s2_card_duplo_10913"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-7174837",
+      "productId": "duplo-10914-deluxe-steinebox",
+      "title": "Lego® Duplo® 10914 Deluxe Steinebox",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["7174837"],
+      "gtins": ["5702016617757"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=25676749117&a=2998119&m=12387",
+      "editorialMatch": "Große DUPLO-Steinebox für freies Bauen und länger nutzbare Spielszenen.",
+      "feedEvidence": {
+        "observedPrice": 40.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 50,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [
+        {
+          "page": "artikel/geschenke-3-jahre.html",
+          "scopeId": "produkt-duplo-deluxe",
+          "clickref": "g3_card_duplo_10914"
+        },
+        {
+          "page": "artikel/spielzeug-3-jahre.html",
+          "scopeId": "produkt-duplo-deluxe",
+          "clickref": "s3_card_duplo_10914"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-894023",
+      "productId": "haba-erster-obstgarten",
+      "title": "Haba Meine ersten Spiele - Erster Obstgarten",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["894023"],
+      "gtins": ["4010168046556"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=21659904281&a=2998119&m=12387",
+      "editorialMatch": "Kooperatives erstes Regelspiel mit kurzer Spieldauer; Anbieterangaben und Kleinteilehinweise prüfen.",
+      "feedEvidence": {
+        "observedPrice": 18.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 25,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [
+        {
+          "page": "artikel/geschenke-3-jahre.html",
+          "scopeId": "produkt-erster-obstgarten",
+          "clickref": "g3_card_erster_obstgarten"
+        },
+        {
+          "page": "artikel/spielzeug-3-jahre.html",
+          "scopeId": "produkt-erster-obstgarten",
+          "clickref": "s3_card_erster_obstgarten"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-8290580",
+      "productId": "baby-kontrastbuch-gute-nacht",
+      "title": "Arsedition Pappbilderbuch Meine kleine Babywelt: Kontrastbuch Gute Nacht",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["8290580"],
+      "gtins": ["9783845861388"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=42519967253&a=2998119&m=12387",
+      "editorialMatch": "Kompaktes Kontrast-Pappbilderbuch für kurze gemeinsame Betrachtungsmomente.",
+      "feedEvidence": {
+        "observedPrice": 8.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 15,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/spielzeug-0-6-monate.html",
+        "scopeId": "produkt-kontrastbuch",
+        "clickref": "06_card_kontrastbuch"
+      }]
+    },
+    {
+      "offerId": "babywalz-7980140",
+      "productId": "fehn-schmusetuch-otter-theo",
+      "title": "Fehn Musselin-Schmusetuch Otter Theo",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["7980140"],
+      "gtins": ["4001998047028"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=38569559918&a=2998119&m=12387",
+      "editorialMatch": "Leichtes Musselin-Schmusetuch zum beaufsichtigten Greifen und Fühlen; Schlafhinweise beachten.",
+      "feedEvidence": {
+        "observedPrice": 10.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/spielzeug-0-6-monate.html",
+        "scopeId": "produkt-schmusetuch",
+        "clickref": "06_card_schmusetuch_otter"
+      }]
+    },
+    {
+      "offerId": "babywalz-6288111",
+      "productId": "fehn-spielbogen-teddy-rainbow",
+      "title": "Fehn Spielbogen mit 3-D-Activity-Decke Teddy Rainbow",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["6288111"],
+      "gtins": ["4001998160888"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=21902408915&a=2998119&m=12387",
+      "editorialMatch": "Spielbogen mit Activity-Decke für beaufsichtigte Spielphasen; Nutzungs- und Sicherheitshinweise prüfen.",
+      "feedEvidence": {
+        "observedPrice": 52.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 70,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [
+        {
+          "page": "artikel/spielzeug-0-6-monate.html",
+          "scopeId": "produkt-spielbogen",
+          "clickref": "06_card_fehn_spielbogen"
+        },
+        {
+          "page": "artikel/spielzeug-6-12-monate.html",
+          "scopeId": "produkt-spielbogen",
+          "clickref": "612_card_fehn_spielbogen"
+        }
+      ]
+    },
+    {
+      "offerId": "babywalz-7980213",
+      "productId": "fehn-stoffbuch-otter-theo",
+      "title": "Fehn Stoffbuch Otter Theo",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["7980213"],
+      "gtins": ["4001998047110"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=38569558383&a=2998119&m=12387",
+      "editorialMatch": "Weiches Stoffbuch mit unterschiedlichen Oberflächen für beaufsichtigte Entdeckungsmomente.",
+      "feedEvidence": {
+        "observedPrice": 11,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/spielzeug-6-12-monate.html",
+        "scopeId": "produkt-stoffbuch",
+        "clickref": "612_card_stoffbuch_otter"
+      }]
+    },
+    {
+      "offerId": "babywalz-8389780",
+      "productId": "kinderkraft-mini-laufrad-cutie",
+      "title": "Kinderkraft Mini-Laufrad CUTIE",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["8389780"],
+      "gtins": ["5902533925377"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44790813851&a=2998119&m=12387",
+      "editorialMatch": "Kompaktes Mini-Laufrad; Sitzhöhe, Herstelleralter und sichere Nutzung vor dem Kauf prüfen.",
+      "feedEvidence": {
+        "observedPrice": 24.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 35,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/spielzeug-2-jahre.html",
+        "scopeId": "produkt-laufrad-cutie",
+        "clickref": "s2_card_laufrad_cutie"
+      }]
+    },
+    {
+      "offerId": "babywalz-8384207",
+      "productId": "kinderkraft-laufrad-2way-next",
+      "title": "Kinderkraft Laufrad 2WAY NEXT OFF ROAD",
+      "preferredImageField": "large_image",
+      "merchantProductIds": ["8384207"],
+      "gtins": ["5902533927463"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44695062531&a=2998119&m=12387",
+      "editorialMatch": "Verstellbares Laufrad für draußen; Sitzhöhe, Herstelleralter und Schutzausrüstung prüfen.",
+      "feedEvidence": {
+        "observedPrice": 28.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 40,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/geschenke-3-jahre.html",
+        "scopeId": "produkt-laufrad-2way",
+        "clickref": "g3_card_laufrad_2way"
       }]
     }
   ]

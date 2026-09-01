@@ -43,6 +43,7 @@ jobs:
           node --check tools/babywalz-feed-health.mjs
           node --check tools/babywalz-price-snapshot-test.mjs
           node --check tools/babywalz-price-ui-test.mjs
+          node --check tools/babywalz-product-image-ui-test.mjs
           node --check tools/build-kinderwagen-guides.mjs
           node --check tools/content-brief-gate.mjs
           node --check tools/generate-seal-assets.mjs
