@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-09-01T08:28:26.805Z",
-  "freshUntil": "2026-09-03T08:28:26.805Z",
+  "generatedAt": "2026-09-01T08:54:58.462Z",
+  "freshUntil": "2026-09-03T08:54:58.462Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -71,9 +71,7 @@
       "shipping": 4.99,
       "totalPrice": 17.98,
       "currency": "EUR",
-      "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c27cff530b713247665e39fda6b4d37b.jpg",
-      "imageRightsStatus": "approved_for_feed_only"
+      "availability": "in_stock"
     },
     "babywalz-5743389": {
       "productId": "u20-greifling-beissring",
