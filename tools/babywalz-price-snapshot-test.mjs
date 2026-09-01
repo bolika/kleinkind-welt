@@ -56,6 +56,21 @@ const alternateFeedSnapshot = generateSnapshot({
 });
 assert.equal(alternateFeedSnapshot.offers['babywalz-123'].totalPrice, 14.89);
 
+const preferredProductImageSnapshot = generateSnapshot({
+  mappingData: {
+    ...mappingData,
+    mappings: [{ ...mappingData.mappings[0], preferredImageField: 'large_image' }]
+  },
+  now,
+  rows: [{
+    ...baseRow,
+    merchant_image_url: 'https://cdn.example.com/lifestyle.jpg',
+    large_image: 'https://cdn.example.com/produktfreisteller.jpg',
+    aw_deep_link: 'https://www.awin1.com/pclick.php?p=222&a=2998119&m=12387'
+  }]
+});
+assert.equal(preferredProductImageSnapshot.offers['babywalz-123'].imageUrl, 'https://cdn.example.com/produktfreisteller.jpg');
+
 assert.throws(() => generateSnapshot({ mappingData, now, rows: [] }), /keine Feed-Zeile/);
 assert.throws(() => generateSnapshot({
   mappingData,

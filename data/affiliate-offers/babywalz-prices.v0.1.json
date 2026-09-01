@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-09-01T08:54:58.462Z",
-  "freshUntil": "2026-09-03T08:54:58.462Z",
+  "generatedAt": "2026-09-01T12:24:26.684Z",
+  "freshUntil": "2026-09-03T12:24:26.684Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -24,7 +24,7 @@
       "totalPrice": 14.89,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/da64f266bdb3ab75d71be9ef55b23f13.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/fb964126c35a79499d32511791a64b8c.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7412835": {
@@ -36,7 +36,7 @@
       "totalPrice": 17.28,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/7a9d4fce00d99c1db87fb557af0b2b37.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/69e35217bf28c071b2bd94235791a5da.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395292": {
@@ -60,7 +60,7 @@
       "totalPrice": 10.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/535ff46f15f5f106dd77b40cf7d8466a.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/827dc878e840ad5faf5ef92972e1f232.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395586": {
@@ -71,7 +71,9 @@
       "shipping": 4.99,
       "totalPrice": 17.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c27cff530b713247665e39fda6b4d37b.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-5743389": {
       "productId": "u20-greifling-beissring",

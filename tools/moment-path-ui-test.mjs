@@ -18,9 +18,9 @@ const snapshot = {
   freshUntil: new Date(now + 60 * 60 * 1000).toISOString(),
   priceIncludesShipping: true,
   offers: {
-    'babywalz-8390215': { availability: 'in_stock', currency: 'EUR', productPrice: 9.9, shipping: 4.99, totalPrice: 14.89 },
-    'babywalz-7412835': { availability: 'in_stock', currency: 'EUR', productPrice: 12.29, shipping: 4.99, totalPrice: 17.28 },
-    'babywalz-8293872': { availability: 'in_stock', currency: 'EUR', productPrice: 5.99, shipping: 4.99, totalPrice: 10.98 }
+    'babywalz-8390215': { productId: 'u20-stapelbecher', availability: 'in_stock', currency: 'EUR', productPrice: 9.9, shipping: 4.99, totalPrice: 14.89, imageUrl: 'https://images.example/stapel.jpg', imageRightsStatus: 'approved_for_feed_only' },
+    'babywalz-7412835': { productId: 'u20-klopfbank', availability: 'in_stock', currency: 'EUR', productPrice: 12.29, shipping: 4.99, totalPrice: 17.28, imageUrl: 'https://images.example/klopf.jpg', imageRightsStatus: 'approved_for_feed_only' },
+    'babywalz-8293872': { productId: 'u20-pappbilderbuch', availability: 'in_stock', currency: 'EUR', productPrice: 5.99, shipping: 4.99, totalPrice: 10.98, imageUrl: 'https://images.example/buch.jpg', imageRightsStatus: 'approved_for_feed_only' }
   }
 };
 
@@ -32,6 +32,11 @@ async function checkPage(browser, entry, width, height) {
     status: 200,
     contentType: 'application/json',
     body: JSON.stringify(snapshot)
+  }));
+  await page.route('https://images.example/**', (route) => route.fulfill({
+    status: 200,
+    contentType: 'image/png',
+    body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', 'base64')
   }));
   await page.goto(`${baseUrl}${entry.path}`, { waitUntil: 'networkidle' });
   if (entry.fullPilot) await page.locator('.kw-live-offer').first().waitFor();
@@ -45,7 +50,8 @@ async function checkPage(browser, entry, width, height) {
     assert.equal(await page.locator('.play-fit').count(), 3, 'unter-20: drei Fit-Einordnungen erwartet.');
     assert.equal(await page.locator('.play-fit > div').count(), 6, 'unter-20: je Empfehlung Passt- und Eher-nicht-Hinweis erwartet.');
     assert.equal(await page.locator('.kw-live-offer').count(), 3, 'unter-20: drei aktuelle Gesamtpreise erwartet.');
-    assert.equal(await page.locator('.pilot-product a[data-affiliate]:visible').count(), 3, 'unter-20: genau ein sichtbarer Händler pro Produkt erwartet.');
+    assert.equal(await page.locator('.kw-offer-media').count(), 3, 'unter-20: drei einheitliche Produktbilder erwartet.');
+    assert.equal(await page.locator('.pilot-actions a[data-affiliate]:visible').count(), 3, 'unter-20: genau eine sichtbare Händleraktion pro Produkt erwartet.');
     await page.locator('.play-moments a[href="#klopfen"]').click();
     await page.waitForTimeout(900);
     assert.equal(await page.locator('.play-moments a[aria-current="location"]').getAttribute('href'), '#klopfen', 'unter-20: aktive Wegmarke folgt nicht der Auswahl.');
@@ -63,7 +69,7 @@ async function checkPage(browser, entry, width, height) {
   }
 
   const layout = await page.evaluate(({ selector, fullPilot }) => {
-    const buttons = [...document.querySelectorAll(fullPilot ? '.pilot-product a[data-affiliate]' : '.kw-moment-action a')]
+    const buttons = [...document.querySelectorAll(fullPilot ? '.pilot-actions a[data-affiliate]' : '.kw-moment-action a')]
       .filter((button) => button.getClientRects().length > 0);
     return {
       overflow: document.documentElement.scrollWidth - window.innerWidth,
@@ -89,8 +95,20 @@ async function checkPage(browser, entry, width, height) {
         if (!fullPilot) return true;
         const disclosure = document.querySelector('.play-hero .concept-disclosure');
         const image = document.querySelector('.play-hero-photo');
-        if (!disclosure || !image) return false;
+        if (!disclosure) return false;
+        if (!image) return true;
         return disclosure.getBoundingClientRect().bottom <= image.getBoundingClientRect().top + 1;
+      })(),
+      compactProductFlow: (() => {
+        if (!fullPilot) return true;
+        const product = document.querySelector('.pilot-product');
+        const story = product?.querySelector('.play-story')?.getBoundingClientRect();
+        const media = product?.querySelector('.kw-offer-media')?.getBoundingClientRect();
+        const offer = product?.querySelector('.play-offer')?.getBoundingClientRect();
+        if (!story || !media || !offer) return false;
+        return window.innerWidth < 769
+          ? story.top <= media.top && media.bottom <= offer.top + 1
+          : Math.abs(story.top - media.top) <= 2 && media.bottom <= offer.top + 24;
       })()
     };
   }, { selector: entry.selector, fullPilot: entry.fullPilot });
@@ -104,6 +122,7 @@ async function checkPage(browser, entry, width, height) {
   assert.ok(entry.fullPilot || layout.pathBounds.width >= width - 2, `${entry.slug} ${width}px: Vollbreitenpfad ist nur ${layout.pathBounds.width}px breit.`);
   assert.equal(layout.skipVisible, false, `${entry.slug} ${width}px: Skip-Link ist ohne Fokus sichtbar.`);
   assert.equal(layout.heroTextClearsImage, true, `${entry.slug} ${width}px: Hero-Text überlappt das Bild.`);
+  assert.equal(layout.compactProductFlow, true, `${entry.slug} ${width}px: Produktbild und Angebot folgen nicht dem vorgesehenen Lesefluss.`);
   assert.deepEqual(errors, [], `${entry.slug} ${width}px: Browserfehler: ${errors.join(' | ')}`);
 
   if (entry.fullPilot) {

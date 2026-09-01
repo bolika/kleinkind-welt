@@ -63,9 +63,14 @@ function rowGtins(row) {
     .filter((value) => /^[0-9]{8,14}$/.test(value)))];
 }
 
-function usableImageUrl(row) {
+function usableImageUrl(row, preferredField) {
+  const imageFields = ['aw_image_url', 'merchant_image_url', 'large_image'];
+  const orderedFields = imageFields.includes(preferredField)
+    ? [preferredField, ...imageFields.filter((field) => field !== preferredField)]
+    : imageFields;
   const candidates = [];
-  for (const value of [row.aw_image_url, row.merchant_image_url, row.large_image]) {
+  for (const field of orderedFields) {
+    const value = row[field];
     const source = String(value ?? '').trim();
     if (!source.startsWith('https://')) continue;
     if (/noimage|placeholder|kein[-_]?bild/i.test(source)) continue;
@@ -134,7 +139,7 @@ export function generateSnapshot({ rows, mappingData, now = new Date() }) {
       currency: preferred.currency,
       availability: preferred.availability
     };
-    const imageUrl = usableImageUrl(preferred.row);
+    const imageUrl = usableImageUrl(preferred.row, mapping.preferredImageField);
     if (mappingData.feedImageUsageStatus === 'approved_for_feed_only' && imageUrl) {
       offers[mapping.offerId].imageUrl = imageUrl;
       offers[mapping.offerId].imageRightsStatus = 'approved_for_feed_only';

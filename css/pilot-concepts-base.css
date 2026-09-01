@@ -108,6 +108,22 @@ h3 {
   text-decoration: none;
 }
 
+.concept-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (max-width: 520px) {
+  .concept-header-nav {
+    gap: 10px;
+  }
+
+  .concept-header-link {
+    font-size: 0.76rem;
+  }
+}
+
 .concept-container {
   width: min(100% - 32px, 980px);
   margin-inline: auto;
