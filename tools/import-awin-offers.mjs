@@ -79,6 +79,17 @@ function first(row, keys) {
   return '';
 }
 
+function usableImageUrl(row) {
+  const candidates = [];
+  for (const key of ['aw_image_url', 'merchant_image_url', 'large_image']) {
+    const value = String(row[key] ?? '').trim();
+    if (!value.startsWith('https://')) continue;
+    if (/noimage|placeholder|kein[-_]?bild/i.test(value)) continue;
+    candidates.push(value);
+  }
+  return candidates.find((value) => /\.cdn\.aboutyou\.cloud\//i.test(value)) ?? candidates[0] ?? '';
+}
+
 function parseMoney(value) {
   if (typeof value === 'number') return value;
   const source = String(value ?? '').trim().replace(/[^0-9,.-]/g, '');
@@ -112,8 +123,14 @@ function slug(value) {
 }
 
 function merchantOfferFingerprint(offer) {
-  const { awinProductId, deeplink, ...merchantFacts } = offer;
+  const { awinProductId, deeplink, imageUrl, imageRightsStatus, feedUpdatedAt, ...merchantFacts } = offer;
   return JSON.stringify(merchantFacts);
+}
+
+function imageRank(value) {
+  if (!value) return 0;
+  if (/\.cdn\.aboutyou\.cloud\//i.test(value)) return 2;
+  return 1;
 }
 
 function isAwinTrackingLink(value) {
@@ -209,7 +226,7 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
       importedAt
     };
     const awinProductId = first(row, ['aw_product_id']);
-    const imageUrl = first(row, ['aw_image_url', 'merchant_image_url', 'large_image']);
+    const imageUrl = usableImageUrl(row);
     const feedUpdatedAt = first(row, ['last_updated']);
     if (awinProductId) offer.awinProductId = awinProductId;
     if (mappingData.feedImageUsageStatus === 'approved_for_feed_only' && imageUrl.startsWith('https://')) {
@@ -222,6 +239,10 @@ export function importOffers({ rows, mappingData, now = new Date() }) {
     if (existingOffer) {
       if (merchantOfferFingerprint(existingOffer) !== merchantOfferFingerprint(offer)) {
         throw new Error(`Widersprüchliche Feed-Duplikate für Händlerprodukt ${merchantProductId}.`);
+      }
+      if (imageRank(offer.imageUrl) > imageRank(existingOffer.imageUrl)) {
+        existingOffer.imageUrl = offer.imageUrl;
+        existingOffer.imageRightsStatus = offer.imageRightsStatus;
       }
       duplicateRowsCollapsed += 1;
       continue;

@@ -1,6 +1,6 @@
 # Awin-Mehrhändler-Integration für den Kinderwagen-Navigator
 
-Status: sechs Bewerbungen vorbereitet; echte Angebote bleiben bis zur jeweiligen Programmfreigabe gesperrt.
+Status: Babywalz ist freigegeben und mit fünf exakt geprüften Geburtskonfigurationen integriert. Weitere Händlerangebote bleiben bis zur jeweiligen Programmfreigabe gesperrt.
 
 ## Programme
 
@@ -8,6 +8,7 @@ Die maschinenlesbare Registry liegt in `data/kinderwagen-navigator/awin-programs
 
 | Händler | Feed | Rolle |
 | --- | --- | --- |
+| Babywalz | ja | freigegebener markenübergreifender Händler mit Produktbildern |
 | Babyprofi | ja | markenübergreifender Händler |
 | Bugaboo | ja | direkter Markenkanal |
 | Joolz | ja | direkter Markenkanal |
@@ -30,7 +31,7 @@ Angezeigte Awin-Kennzahlen wie EPC, Conversion- oder Approval-Rate werden nicht 
 
 1. `applicationStatus` des Programms in der Registry auf `joined` setzen.
 2. Bestätigte Awin-Advertiser-ID in Registry und Händler-Mapping eintragen.
-3. Programmbedingungen zur Bildnutzung prüfen und `feedImageUsageStatus` aktualisieren.
+3. Programmbedingungen zur Bildnutzung prüfen und `feedImageUsageStatus` aktualisieren. Für Babywalz wurde die Nutzung der Produktfeed-Bilder am 01.09.2026 durch den Betreiber bestätigt; Bilder werden direkt vom Feed geladen und nicht lokal gespeichert.
 4. Feed als CSV oder CSV.GZ ausschließlich unter `imports/awin/` speichern.
 5. Produkt ausschließlich über kuratierte Händlerprodukt-ID oder GTIN zuordnen.
 6. Modellgeneration und vollständige Geburtskonfiguration auf der Händlerseite kontrollieren.

@@ -5,6 +5,7 @@ import { generateSnapshot } from './generate-babywalz-price-snapshot.mjs';
 
 const mappingData = {
   advertiserId: 12387,
+  feedImageUsageStatus: 'approved_for_feed_only',
   merchant: { id: 'babywalz', name: 'Babywalz' },
   mappings: [{
     offerId: 'babywalz-123',
@@ -24,7 +25,9 @@ const baseRow = {
   delivery_cost: '4.99',
   currency: 'EUR',
   in_stock: '1',
-  stock_status: 'verfügbar'
+  stock_status: 'verfügbar',
+  aw_image_url: 'https://example.com/noimage.gif',
+  large_image: 'https://cdn.example.com/geprueftes-produkt.jpg'
 };
 const now = new Date('2026-08-25T08:00:00.000Z');
 const snapshot = generateSnapshot({
@@ -42,6 +45,9 @@ assert.equal(snapshot.offers['babywalz-123'].productPrice, 9.9);
 assert.equal(snapshot.offers['babywalz-123'].shipping, 4.99);
 assert.equal(snapshot.offers['babywalz-123'].totalPrice, 14.89);
 assert.equal(snapshot.offers['babywalz-123'].availability, 'in_stock');
+assert.equal(snapshot.offers['babywalz-123'].title, 'Geprüftes Produkt');
+assert.equal(snapshot.offers['babywalz-123'].imageUrl, 'https://cdn.example.com/geprueftes-produkt.jpg');
+assert.equal(snapshot.offers['babywalz-123'].imageRightsStatus, 'approved_for_feed_only');
 
 const alternateFeedSnapshot = generateSnapshot({
   mappingData,

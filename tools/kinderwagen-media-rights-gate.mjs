@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data", "kinderwagen-navigator");
 const media = JSON.parse(fs.readFileSync(path.join(dataDir, "media.v0.1.json"), "utf8"));
+const offers = JSON.parse(fs.readFileSync(path.join(dataDir, "offers.v0.1.json"), "utf8"));
 const catalog = JSON.parse(fs.readFileSync(path.join(dataDir, "catalog.v0.1.json"), "utf8"));
 const products = catalog.products.map((filename) =>
   JSON.parse(fs.readFileSync(path.join(dataDir, "products", filename), "utf8"))
@@ -14,6 +15,7 @@ const products = catalog.products.map((filename) =>
 const productIds = new Set(products.map((product) => product.productId));
 const seenAssets = new Set();
 const coveredProducts = new Set();
+let approvedOfferImages = 0;
 const errors = [];
 
 function isIsoDate(value) {
@@ -36,6 +38,18 @@ for (const asset of media.assets ?? []) {
   if ((asset.status ?? "approved") === "approved") coveredProducts.add(asset.productId);
 }
 
+for (const offer of offers.offers ?? []) {
+  if (!offer.imageUrl) continue;
+  if (!productIds.has(offer.productId)) errors.push(`${offer.offerId}: unbekannte productId ${offer.productId}`);
+  if (!offer.imageUrl.startsWith("https://")) errors.push(`${offer.offerId}: imageUrl muss HTTPS verwenden`);
+  if (offer.imageRightsStatus !== "approved_for_feed_only") {
+    errors.push(`${offer.offerId}: Bild ohne freigegebenen Feed-Nutzungsstatus`);
+    continue;
+  }
+  approvedOfferImages += 1;
+  coveredProducts.add(offer.productId);
+}
+
 const localProductImages = fs.readdirSync(path.join(root, "images", "products"))
   .filter((name) => name !== ".gitkeep");
 for (const file of localProductImages) {
@@ -49,4 +63,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Kinderwagen-Medienprüfung bestanden: ${media.assets.length} freigegebene Assets für ${coveredProducts.size}/${products.length} Produkte.`);
+console.log(`Kinderwagen-Medienprüfung bestanden: ${media.assets.length} eigene Assets und ${approvedOfferImages} freigegebene Feed-Bilder für ${coveredProducts.size}/${products.length} Produkte.`);

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "advertiserName": "Babywalz DE",
+  "advertiserId": 12387,
+  "feedImageUsageStatus": "approved_for_feed_only",
+  "feedImageUsageApproval": {
+    "status": "operator_confirmed",
+    "confirmedAt": "2026-09-01",
+    "scope": "Babywalz product-feed images may be used for Babywalz affiliate placements; remote feed URLs only."
+  },
+  "merchant": {
+    "id": "babywalz",
+    "name": "Babywalz"
+  },
+  "mappings": [
+    {
+      "productId": "abc-design-salsa-5-air",
+      "merchantProductIds": ["8214506"],
+      "gtins": ["4045875164576"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Salsa 5 Air inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    },
+    {
+      "productId": "bugaboo-fox-5-renew",
+      "merchantProductIds": ["8253412"],
+      "gtins": ["8717447629467"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Fox 5 Renew inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    },
+    {
+      "productId": "cybex-balios-s-lux-current",
+      "merchantProductIds": ["8248117"],
+      "gtins": ["4069291006197"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Balios S Lux Bundle inklusive Cot S Lux und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    },
+    {
+      "productId": "joolz-day5",
+      "merchantProductIds": ["7902263"],
+      "gtins": ["8715688081204"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Day5 inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    },
+    {
+      "productId": "joolz-geo5",
+      "merchantProductIds": ["8368422"],
+      "gtins": ["8715688102657"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Geo5 inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    }
+  ]
+}

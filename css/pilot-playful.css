@@ -81,6 +81,18 @@
   font-size: .58rem;
 }
 
+.play-photo-label.ki-badge {
+  right: 12px;
+  bottom: 10px;
+  padding: 4px 7px;
+  border-radius: 0;
+  color: #46504d;
+  background: rgba(247, 245, 239, .94);
+  font-size: .58rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
 .play-hero-content {
   position: relative;
   z-index: 6;
@@ -351,6 +363,32 @@
 .play-page .kw-live-offer {
   margin: 18px 0;
   padding: 14px 0;
+}
+
+.play-page .kw-offer-media {
+  align-self: end;
+  width: min(100%, 330px);
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid rgba(48, 82, 74, .18);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 20px 54px rgba(35, 64, 57, .09);
+}
+
+@media (min-width: 769px) {
+  .play-page .pilot-product:has(.kw-offer-media) {
+    grid-template-columns: minmax(280px, .74fr) minmax(0, 1.26fr);
+  }
+
+  .play-page .play-chapter--sun .pilot-product:has(.kw-offer-media) .kw-offer-media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .play-page .play-chapter--sun .pilot-product:has(.kw-offer-media) .play-story {
+    grid-column: 2;
+  }
 }
 
 .play-page .kw-live-offer-total {

@@ -27,9 +27,11 @@ node tools/babywalz-feed-health.mjs --strict
 
 `--strict` ist für den Refresh-Workflow gedacht und schlägt bei fehlendem, ungültigem oder abgelaufenem Snapshot fehl. Das allgemeine Qualitäts-Gate meldet den Status nur informativ, damit ein vorübergehend veralteter Preisfeed keine redaktionellen Änderungen blockiert. Auf der Website werden Preiszeile und Babywalz-CTA nach 48 Stunden automatisch ausgeblendet; der geprüfte Amazon-Fallback übernimmt ohne zweite Händlerentscheidung.
 
-Offizielle Awin-Advertiser-Creatives und Produktfeed-Bilder werden getrennt behandelt. Ein Banner darf nur erscheinen, wenn sein exaktes Ziel, Bild, Placement und die vom Betreiber bestätigte Freigabebasis in `data/affiliate-offers/babywalz.mapping.v0.1.json` erfasst sind. Produktfeed-Bilder bleiben bis zu einer separaten Freigabe gesperrt.
+Offizielle Awin-Advertiser-Creatives und Produktfeed-Bilder werden getrennt behandelt. Ein Banner darf nur erscheinen, wenn sein exaktes Ziel, Bild, Placement und die vom Betreiber bestätigte Freigabebasis in `data/affiliate-offers/babywalz.mapping.v0.1.json` erfasst sind.
 
-Der Workflow läuft danach täglich, erzeugt `data/affiliate-offers/babywalz-prices.v0.1.json` neu und veröffentlicht die Änderung über einen automatischen Commit.
+Der Betreiber hat am 01.09.2026 bestätigt, dass Babywalz-Produkte und die zugehörigen Produktfeed-Bilder im Affiliate-Kontext genutzt werden dürfen. Deshalb steht `feedImageUsageStatus` auf `approved_for_feed_only`. Die Website lädt nur die HTTPS-Bild-URL aus derselben exakt zugeordneten Feed-Zeile wie Preis und Verfügbarkeit. Platzhalterbilder werden verworfen. Bilder werden weder lokal gespeichert noch verändert; eine lokale Kopie setzt eine separate Freigabe voraus.
+
+Der Workflow läuft danach täglich, erzeugt `data/affiliate-offers/babywalz-prices.v0.1.json` neu, aktualisiert die exakt zugeordneten Babywalz-Angebote samt Feed-Bildern in `data/kinderwagen-navigator/offers.v0.1.json` und veröffentlicht beide Änderungen über einen automatischen Commit.
 
 ## Produktzuordnung über mehrere Awin-Feeds
 

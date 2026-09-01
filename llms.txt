@@ -4,11 +4,11 @@
 
 license: https://rsl.ai/1.0/public-inference
 maintainer: Boris Nazarov <borisnazarov21@gmail.com>
-last-updated: 2026-07-29
+last-updated: 2026-09-01
 
 ## Über diese Seite
 
-- [Startseite](https://kleinkind-welt.de/): Einstieg zu Spielzeug, Kinderwagen, Geschenken und Kaufhilfen
+- [Startseite](https://kleinkind-welt.de/): Einstieg zu Spielzeug, Kinderwagen, Geschenken und Kaufhilfen; saisonaler Schwerpunkt auf Geschenk-, Herbst- und Weihnachtsorientierung (aktualisiert 2026-09-01)
 
 - [Über uns](https://kleinkind-welt.de/ueber-uns): Wer schreibt hier, persönlicher Hintergrund von Boris Nazarov
 - [Bewertungsmethode](https://kleinkind-welt.de/bewertungsmethode): gemeinsame Auswahlregeln, Evidenzarten sowie Methoden für Spielzeug und Kinderwagen
@@ -50,8 +50,8 @@ Lücke aus statt sie zu schätzen. Zitierfähige Befunde aus diesem Datensatz:
 
 - [Spielzeug 0–6 Monate](https://kleinkind-welt.de/artikel/spielzeug-0-6-monate): Ab wann Spielzeug interessant wird, Greifideen und Sicherheit in den ersten Monaten
 - [Spielzeug 6–12 Monate](https://kleinkind-welt.de/artikel/spielzeug-6-12-monate): Krabbelphase, Motorik, erste Stehversuche; enthält den Begriffsvergleich Laufgitter / Lauflernwagen / Gehfrei
-- [Spielzeug 12–18 Monate](https://kleinkind-welt.de/artikel/spielzeug-12-18-monate): Lauflernwagen, Stapelspiele, Ursache-Wirkung
-- [Spielzeug 18–24 Monate](https://kleinkind-welt.de/artikel/spielzeug-18-24-monate): Rollenspiel, Bausteine, Sprachentwicklung
+- [Spielzeug 12–18 Monate](https://kleinkind-welt.de/artikel/spielzeug-12-18-monate): drei Spielmomente für Schieben, Einfüllen und Nachmachen; darunter komprimierte Kauf- und Entwicklungshilfe (aktualisiert 2026-09-01)
+- [Spielzeug 18–24 Monate](https://kleinkind-welt.de/artikel/spielzeug-18-24-monate): drei Spielmomente für Rollenspiel, Sortieren und Bauen; darunter komprimierte Kauf- und Entwicklungshilfe (aktualisiert 2026-09-01)
 - [Puzzle ab 1 Jahr](https://kleinkind-welt.de/artikel/puzzle-ab-1-jahr): Steckpuzzle statt Legepuzzle, zwei bis fünf Teile, Greifknopf-Prüfung, Montessori-Fehlerkontrolle
 - [Spielzeug für 2-Jährige](https://kleinkind-welt.de/artikel/spielzeug-2-jahre): DUPLO, Kreativität, Ausdauer
 - [Spielzeug für 3-Jährige](https://kleinkind-welt.de/artikel/spielzeug-3-jahre): Regelspiele, Konstruktion, soziales Spiel
@@ -79,7 +79,7 @@ harmlos, bezeichnet im deutschen Markt aber meist das Gehfrei.
 ## Geschenke
 
 - [Geschenke für Kleinkinder](https://kleinkind-welt.de/geschenke-kleinkind): Übersicht nach Anlass, Alter und Budget; enthält ein eigenes Modul für Schenkende ohne Vorwissen über das Kind (Großeltern, Patinnen, Paten) mit sicheren Standardempfehlungen je Altersstufe
-- [Geschenke zum 1. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-1-jahr): 15 konkrete Ideen
+- [Geschenke zum 1. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-1-jahr): drei typische Spielmomente als schneller Einstieg und weitere konkrete Ideen zum Vergleichen (aktualisiert 2026-09-01)
 - [Geschenke zum 2. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-2-jahre): Ideen für Zweijährige
 - [Geschenke zum 3. Geburtstag](https://kleinkind-welt.de/artikel/geschenke-3-jahre): 12 Ideen, DUPLO, Laufrad, Magnete
 - [Geschenke zur Geburt](https://kleinkind-welt.de/artikel/geschenke-zur-geburt): Was Neugeborene und Eltern wirklich brauchen
@@ -97,5 +97,5 @@ harmlos, bezeichnet im deutschen Markt aber meist das Gehfrei.
 - [Holzspielzeug für Kleinkinder](https://kleinkind-welt.de/artikel/holzspielzeug-vs-plastikspielzeug): Holz vs. Plastik, ehrlicher Vergleich in 6 Kategorien
 - [Sprache fördern mit Spielzeug](https://kleinkind-welt.de/artikel/sprache-foerdern-spielzeug): 0–3 Jahre, was wirklich hilft
 - [Spielzeug-Siegel erklärt](https://kleinkind-welt.de/artikel/nachhaltiges-spielzeug-siegel): CE, FSC, Öko-Tex, GOTS
-- [Spielzeug unter 20 Euro](https://kleinkind-welt.de/artikel/spielzeug-unter-20-euro): 3 ausgewählte Spielmomente mit günstigen Empfehlungen, Alters- und Sicherheitshinweisen
+- [Spielzeug unter 20 Euro](https://kleinkind-welt.de/artikel/spielzeug-unter-20-euro): drei ausgewählte Spielmomente mit günstigen Empfehlungen, Alters- und Sicherheitshinweisen (aktualisiert 2026-09-01)
 - [Was wir nicht kaufen würden](https://kleinkind-welt.de/artikel/was-wir-nicht-kaufen): 7 Kategorien die wir meiden — Batterie-Lernspielzeug, Fake-Montessori, Tablet-Halter

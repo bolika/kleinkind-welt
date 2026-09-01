@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-25",
+  "checkedAt": "2026-09-01",
   "advertiserName": "Babywalz DE",
   "advertiserId": 12387,
   "publisherId": 2998119,
@@ -8,11 +8,16 @@
     "id": "babywalz",
     "name": "Babywalz"
   },
-  "feedImageUsageStatus": "terms_review_required",
+  "feedImageUsageStatus": "approved_for_feed_only",
+  "feedImageUsageApproval": {
+    "status": "operator_confirmed",
+    "confirmedAt": "2026-09-01",
+    "scope": "Babywalz product-feed images may be used for Babywalz affiliate placements. Images are loaded from the feed URL without local caching or alteration."
+  },
   "advertiserCreativeUsage": {
     "status": "operator_confirmed_in_acceptance_email",
     "confirmedAt": "2026-08-26",
-    "scope": "Official Awin advertiser creatives only; product-feed images remain blocked until separately confirmed.",
+    "scope": "Official Awin advertiser creatives plus Babywalz product-feed images confirmed separately by the operator.",
     "creatives": [
       {
         "creativeId": "337490",
@@ -34,7 +39,9 @@
     "commissionDoesNotAffectEditorialRanking": true,
     "titleOnlyMatchingAllowed": false,
     "pricesRenderedFromThisFile": false,
-    "feedImagesRenderedBeforeApproval": false
+    "feedImagesRenderedBeforeApproval": false,
+    "feedImagesLoadedFromFeedOnly": true,
+    "feedImagesCachedLocally": false
   },
   "mappings": [
     {
@@ -182,6 +189,11 @@
           "page": "artikel/spielzeug-12-18-monate.html",
           "scopeId": "vergleich-solini-sortierbox",
           "clickref": "1218_table_solini_sortierbox"
+        },
+        {
+          "page": "artikel/montessori-spielzeug-kleinkind.html",
+          "scopeId": "produkt-montessori-sortieren",
+          "clickref": "montessori_card_solini_sortieren"
         }
       ]
     },
@@ -260,6 +272,111 @@
           "clickref": "1824_table_gift_haba_greifpuzzle"
         }
       ]
+    },
+    {
+      "offerId": "babywalz-7480377",
+      "productId": "weihnachten-lauflernwagen",
+      "title": "Small Foot Lauflernwagen Move it!",
+      "merchantProductIds": ["7480377"],
+      "gtins": ["4020972109477"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45137756940&a=2998119&m=12387",
+      "editorialMatch": "Stabiler Schiebewagen mit Transportfläche; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 45.79,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 60,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+        "scopeId": "produkt-lauflernwagen",
+        "clickref": "weihnachten_card_smallfoot_lauflernwagen"
+      }]
+    },
+    {
+      "offerId": "babywalz-8347301",
+      "productId": "weihnachten-duplo-tiere",
+      "title": "Lego® Duplo® 10477 3-in-1 Kreative Tiere",
+      "merchantProductIds": ["8347301"],
+      "gtins": ["5702018032039"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=43647813531&a=2998119&m=12387",
+      "editorialMatch": "Kompaktes DUPLO-Set mit drei baubaren Tieren; Anbieterangabe ab 18 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 9.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+        "scopeId": "produkt-duplo",
+        "clickref": "weihnachten_card_duplo_tiere"
+      }]
+    },
+    {
+      "offerId": "babywalz-8336709",
+      "productId": "weihnachten-raupe-fuehlbuch",
+      "title": "Gerstenberg Verlag Die Kleine Raupe Nimmersatt Mein Tier-Fühlbuch Die kleine Raupe Nimmersatt",
+      "merchantProductIds": ["8336709"],
+      "gtins": ["9783836962261"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=43040775591&a=2998119&m=12387",
+      "editorialMatch": "Robustes Tier-Fühlbuch für einen gemeinsamen ruhigen Weihnachtsmoment.",
+      "feedEvidence": {
+        "observedPrice": 17,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 25,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+        "scopeId": "produkt-buecher",
+        "clickref": "weihnachten_card_raupe_fuehlbuch"
+      }]
+    },
+    {
+      "offerId": "babywalz-8395047",
+      "productId": "montessori-spiegelpuzzle",
+      "title": "Hape Spiegelpuzzle Montessori",
+      "merchantProductIds": ["8395047"],
+      "gtins": ["6943478037878"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=44790814355&a=2998119&m=12387",
+      "editorialMatch": "Einfaches Spiegelpuzzle mit großen Formen; Anbieterangabe ab 10 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 10.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/montessori-spielzeug-kleinkind.html",
+        "scopeId": "produkt-montessori-einstieg",
+        "clickref": "montessori_card_spiegelpuzzle"
+      }]
+    },
+    {
+      "offerId": "babywalz-6264646",
+      "productId": "montessori-kreatives-steckpuzzle",
+      "title": "Hape Steckspiel Kreatives Steckpuzzle",
+      "merchantProductIds": ["6264646"],
+      "gtins": ["6943478002586"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=22141806965&a=2998119&m=12387",
+      "editorialMatch": "Anspruchsvolleres Steckpuzzle mit 16 Teilen; Anbieterangabe ab 18 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 16.99,
+        "currency": "EUR",
+        "availability": "in_stock",
+        "priceLimit": 20,
+        "checkedAt": "2026-09-01"
+      },
+      "placements": [{
+        "page": "artikel/montessori-spielzeug-kleinkind.html",
+        "scopeId": "produkt-montessori-fortgeschritten",
+        "clickref": "montessori_card_hape_steckpuzzle"
+      }]
     }
   ]
 }

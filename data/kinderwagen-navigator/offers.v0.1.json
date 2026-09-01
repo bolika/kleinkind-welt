@@ -1,7 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T00:00:00.000Z",
+  "generatedAt": "2026-09-01T08:28:28.871Z",
   "sources": [
+    {
+      "network": "awin",
+      "advertiserId": 12387,
+      "advertiserName": "Babywalz DE",
+      "mode": "feed"
+    },
     {
       "network": "awin",
       "advertiserId": 14986,
@@ -9,5 +15,202 @@
       "mode": "prepared"
     }
   ],
-  "offers": []
+  "offers": [
+    {
+      "offerId": "babywalz-8214506",
+      "productId": "abc-design-salsa-5-air",
+      "merchant": {
+        "id": "babywalz",
+        "name": "Babywalz"
+      },
+      "network": {
+        "id": "awin",
+        "advertiserId": 12387
+      },
+      "merchantProductId": "8214506",
+      "title": "Abc Design Kombikinderwagen Salsa 5 Air gruen",
+      "deeplink": "https://www.awin1.com/pclick.php?p=39194302561&a=2998119&m=12387",
+      "price": {
+        "amount": 899,
+        "currency": "EUR",
+        "freshUntil": "2026-09-03",
+        "shippingAmount": 0
+      },
+      "availability": {
+        "status": "in_stock",
+        "freshUntil": "2026-09-03"
+      },
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Salsa 5 Air inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      },
+      "identifiers": {
+        "gtins": [
+          "4045875164576"
+        ]
+      },
+      "importedAt": "2026-09-01T08:28:28.871Z",
+      "awinProductId": "39194302561",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/e81cf7e962297fab8c4f4f1effcd1f25.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    {
+      "offerId": "babywalz-8253412",
+      "productId": "bugaboo-fox-5-renew",
+      "merchant": {
+        "id": "babywalz",
+        "name": "Babywalz"
+      },
+      "network": {
+        "id": "awin",
+        "advertiserId": 12387
+      },
+      "merchantProductId": "8253412",
+      "title": "Bugaboo Fox 5 Renew Kombikinderwagen beige",
+      "deeplink": "https://www.awin1.com/pclick.php?p=40480590684&a=2998119&m=12387",
+      "price": {
+        "amount": 1299,
+        "currency": "EUR",
+        "freshUntil": "2026-09-03",
+        "shippingAmount": 0
+      },
+      "availability": {
+        "status": "in_stock",
+        "freshUntil": "2026-09-03"
+      },
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Fox 5 Renew inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      },
+      "identifiers": {
+        "gtins": [
+          "8717447629467"
+        ]
+      },
+      "importedAt": "2026-09-01T08:28:28.871Z",
+      "awinProductId": "40480590684",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/eae09efa04117467235bbbfc19788b29.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    {
+      "offerId": "babywalz-8248117",
+      "productId": "cybex-balios-s-lux-current",
+      "merchant": {
+        "id": "babywalz",
+        "name": "Babywalz"
+      },
+      "network": {
+        "id": "awin",
+        "advertiserId": 12387
+      },
+      "merchantProductId": "8248117",
+      "title": "Cybex Gold Kombikinderwagen Balios S Lux",
+      "deeplink": "https://www.awin1.com/pclick.php?p=39523228966&a=2998119&m=12387",
+      "price": {
+        "amount": 468,
+        "currency": "EUR",
+        "freshUntil": "2026-09-03",
+        "oldAmount": 749.9,
+        "shippingAmount": 1.99
+      },
+      "availability": {
+        "status": "in_stock",
+        "freshUntil": "2026-09-03"
+      },
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Balios S Lux Bundle inklusive Cot S Lux und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      },
+      "identifiers": {
+        "gtins": [
+          "4069291006197"
+        ]
+      },
+      "importedAt": "2026-09-01T08:28:28.871Z",
+      "awinProductId": "39523228966",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/efd2cbd843ebcd2264baafb35f44530a.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    {
+      "offerId": "babywalz-7902263",
+      "productId": "joolz-day5",
+      "merchant": {
+        "id": "babywalz",
+        "name": "Babywalz"
+      },
+      "network": {
+        "id": "awin",
+        "advertiserId": 12387
+      },
+      "merchantProductId": "7902263",
+      "title": "Joolz day⁵ Kombikinderwagen beige",
+      "deeplink": "https://www.awin1.com/pclick.php?p=37351971141&a=2998119&m=12387",
+      "price": {
+        "amount": 1299,
+        "currency": "EUR",
+        "freshUntil": "2026-09-03",
+        "shippingAmount": 1.99
+      },
+      "availability": {
+        "status": "in_stock",
+        "freshUntil": "2026-09-03"
+      },
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Day5 inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      },
+      "identifiers": {
+        "gtins": [
+          "8715688081204"
+        ]
+      },
+      "importedAt": "2026-09-01T08:28:28.871Z",
+      "awinProductId": "37351971141",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/2837b0c421c21e46cda8691b15c23fe9.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    {
+      "offerId": "babywalz-8368422",
+      "productId": "joolz-geo5",
+      "merchant": {
+        "id": "babywalz",
+        "name": "Babywalz"
+      },
+      "network": {
+        "id": "awin",
+        "advertiserId": 12387
+      },
+      "merchantProductId": "8368422",
+      "title": "Joolz geo⁵ Kombikinderwagen schwarz",
+      "deeplink": "https://www.awin1.com/pclick.php?p=44681178637&a=2998119&m=12387",
+      "price": {
+        "amount": 1299,
+        "currency": "EUR",
+        "freshUntil": "2026-09-03",
+        "shippingAmount": 1.99
+      },
+      "availability": {
+        "status": "in_stock",
+        "freshUntil": "2026-09-03"
+      },
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "Geo5 inklusive Tragewanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      },
+      "identifiers": {
+        "gtins": [
+          "8715688102657"
+        ]
+      },
+      "importedAt": "2026-09-01T08:28:28.871Z",
+      "awinProductId": "44681178637",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/a2dac5cd97c0588224e930880c301eba.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    }
+  ]
 }

@@ -8,24 +8,140 @@
   <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="description" content="Geschenke für Kleinkinder: sinnvolle Geschenkideen zur Geburt, zum 1., 2. und 3. Geburtstag, Weihnachten und kleine Budgets - ehrlich kuratiert.">
-  <title>Geschenke für Kleinkinder: sinnvolle Ideen | Kleinkind-Welt</title>
+  <meta name="description" content="Geschenke für Kleinkinder schnell finden: sinnvolle Ideen nach Alter, Budget und Anlass - auch wenn du das Kind kaum kennst.">
+  <title>Geschenke für Kleinkinder nach Alter &amp; Budget</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css?v=20260805-kaufbox">
+  <style>
+    .gift-hub-updated {
+      margin: -10px 0 24px;
+      color: var(--text-light);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .gift-finder {
+      margin: 0 0 34px;
+      padding: 26px 0 28px;
+      border-block: 1px solid var(--border);
+    }
+
+    .gift-finder-header {
+      max-width: 680px;
+      margin-bottom: 22px;
+    }
+
+    .gift-finder-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gift-finder h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+    }
+
+    .gift-finder-header p {
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    .gift-finder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .gift-finder-group + .gift-finder-group {
+      border-left: 1px solid var(--border);
+      padding-left: 28px;
+    }
+
+    .gift-finder-group h3 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+    }
+
+    .gift-finder-group > p {
+      min-height: 42px;
+      margin: 0 0 8px;
+      color: var(--text-light);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .gift-finder-links {
+      display: grid;
+    }
+
+    .gift-finder-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 44px;
+      padding: 9px 0;
+      border-top: 1px solid var(--border);
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .gift-finder-links a::after {
+      content: "\2192";
+      margin-left: 12px;
+      color: var(--accent-action-hover);
+    }
+
+    .gift-finder-links a:hover,
+    .gift-finder-links a:focus-visible {
+      color: var(--accent-action-hover);
+    }
+
+    @media (max-width: 760px) {
+      .gift-hub-page .article-body.kaufhilfen-body > .gift-finder {
+        max-width: 100%;
+      }
+
+      .gift-finder {
+        padding-block: 22px;
+      }
+
+      .gift-finder-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .gift-finder-group + .gift-finder-group {
+        border-top: 1px solid var(--border);
+        border-left: 0;
+        padding-top: 20px;
+        padding-left: 0;
+      }
+
+      .gift-finder-group > p {
+        min-height: 0;
+      }
+    }
+  </style>
   <link rel="canonical" href="https://kleinkind-welt.de/geschenke-kleinkind">
   <link rel="alternate" hreflang="de" href="https://kleinkind-welt.de/geschenke-kleinkind">
   <link rel="alternate" hreflang="x-default" href="https://kleinkind-welt.de/geschenke-kleinkind">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kleinkind-welt.de/geschenke-kleinkind">
-  <meta property="og:title" content="Geschenke für Kleinkinder: sinnvolle Ideen">
-  <meta property="og:description" content="Geschenkideen für Babys und Kleinkinder von 0 bis 3 Jahren - nach Anlass, Alter und Budget sortiert.">
+  <meta property="og:title" content="Geschenke für Kleinkinder nach Alter und Budget">
+  <meta property="og:description" content="Sinnvolle Geschenkideen für Babys und Kleinkinder - schnell nach Alter, Budget und Nähe zum Kind ausgewählt.">
   <meta property="og:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <meta property="og:site_name" content="Kleinkind-Welt.de">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Geschenke für Kleinkinder: sinnvolle Ideen">
-  <meta name="twitter:description" content="Sinnvolle Geschenkideen zur Geburt, zum Geburtstag, zu Weihnachten und für kleine Budgets.">
+  <meta name="twitter:title" content="Geschenke für Kleinkinder nach Alter und Budget">
+  <meta name="twitter:description" content="Sinnvolle Geschenkideen für Babys und Kleinkinder - schnell nach Alter, Budget und Nähe zum Kind ausgewählt.">
   <meta name="twitter:image" content="https://kleinkind-welt.de/images/og-kleinkind-welt.png">
   <script async src="https://plausible.io/js/pa-sdQfun3sDROuYngxixuyz.js"></script>
   <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({outboundLinks:true})</script>
@@ -37,8 +153,9 @@
         "@type": "CollectionPage",
         "@id": "https://kleinkind-welt.de/geschenke-kleinkind",
         "url": "https://kleinkind-welt.de/geschenke-kleinkind",
-        "name": "Geschenke für Kleinkinder: sinnvolle Ideen",
-        "description": "Geschenkideen für Babys und Kleinkinder von 0 bis 3 Jahren - nach Anlass, Alter und Budget sortiert.",
+        "name": "Geschenke für Kleinkinder nach Alter und Budget",
+        "description": "Sinnvolle Geschenkideen für Babys und Kleinkinder - schnell nach Alter, Budget und Nähe zum Kind ausgewählt.",
+        "dateModified": "2026-09-01",
         "inLanguage": "de",
         "isPartOf": {
           "@id": "https://kleinkind-welt.de/#website"
@@ -145,31 +262,65 @@
 <main id="main-content" class="age-hub-page gift-hub-page">
   <div class="ueber-uns-hero kaufhilfen-hero">
     <p class="hero-kicker">Geschenke für Kleinkinder</p>
-    <h1>Sinnvolle Geschenkideen für 0 bis 3 Jahre</h1>
-    <p>Geschenke zur Geburt, zum Geburtstag, zu Weihnachten und für kleine Budgets - sortiert nach Alter, Anlass und Alltagstauglichkeit.</p>
+    <h1>Geschenke für Kleinkinder: schnell die passende Idee finden</h1>
+    <p>Wähle nach Alter, Budget oder danach, wie gut du das Kind kennst. So landest du direkt beim passenden Ratgeber statt in einer endlosen Produktliste.</p>
   </div>
 
   <div class="article-body kaufhilfen-body">
-    <div class="age-nav" aria-label="Geschenke nach Anlass">
-      <a href="#geburt" class="age-btn">Zur Geburt</a>
-      <a href="#1-jahr" class="age-btn active">1. Geburtstag</a>
-      <a href="#2-jahre" class="age-btn">2. Geburtstag</a>
-      <a href="#3-jahre" class="age-btn">3. Geburtstag</a>
-      <a href="#weihnachten" class="age-btn">Weihnachten</a>
-      <a href="#budget" class="age-btn">Unter 20 Euro</a>
-    </div>
+    <p class="gift-hub-updated">Redaktionell aktualisiert am 1. September 2026</p>
 
     <div class="kurzantwort-box">
       <span class="kurzantwort-label">Kurzantwort</span>
       <p>Ein gutes Kleinkind-Geschenk passt zur nächsten Entwicklungsphase, ist sicher unter 3 Jahren und bleibt länger interessant als nur am Auspacktag. Besonders gute Geschenke sind robust, einfach zu verstehen und im Alltag wirklich nutzbar.</p>
     </div>
 
+    <section class="gift-finder" aria-labelledby="geschenk-schnellwahl">
+      <div class="gift-finder-header">
+        <span class="gift-finder-kicker">In wenigen Sekunden</span>
+        <h2 id="geschenk-schnellwahl">Wie möchtest du auswählen?</h2>
+        <p>Nimm den Weg, bei dem du schon eine Antwort kennst. Jeder führt direkt zu einer kleinen, passenden Auswahl.</p>
+      </div>
+
+      <div class="gift-finder-grid">
+        <div class="gift-finder-group">
+          <h3>Nach Alter</h3>
+          <p>Am treffsichersten, wenn du das Alter kennst.</p>
+          <div class="gift-finder-links">
+            <a href="/artikel/geschenke-zur-geburt">Zur Geburt</a>
+            <a href="/artikel/geschenke-1-jahr">Zum 1. Geburtstag</a>
+            <a href="/artikel/geschenke-2-jahre">Zum 2. Geburtstag</a>
+            <a href="/artikel/geschenke-3-jahre">Zum 3. Geburtstag</a>
+          </div>
+        </div>
+
+        <div class="gift-finder-group">
+          <h3>Nach Budget</h3>
+          <p>Hilfreich für Mitbringsel oder ein gemeinsames Geschenk.</p>
+          <div class="gift-finder-links">
+            <a href="/artikel/spielzeug-unter-20-euro">Bis 20 Euro</a>
+            <a href="#budget-orientierung">Budget einordnen</a>
+            <a href="#budget-orientierung">Größeres Geschenk planen</a>
+          </div>
+        </div>
+
+        <div class="gift-finder-group">
+          <h3>Nach Nähe zum Kind</h3>
+          <p>Die sichere Abkürzung, wenn dir Wünsche und Spielzeugkiste unbekannt sind.</p>
+          <div class="gift-finder-links">
+            <a href="#uebersicht">Ich kenne das Kind gut</a>
+            <a href="#ohne-vorwissen">Ich kenne es kaum</a>
+            <a href="/artikel/weihnachtsgeschenke-kleinkind">Es ist für Weihnachten</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="affiliate-hinweis">
       <strong>Transparent:</strong> Einige Geschenk-Ratgeber enthalten Affiliate-Links. Wir sortieren trotzdem nach Alter, Sicherheit, Eltern-Erfahrungen und Nutzungsdauer - nicht nach Provision. Mehr dazu in der <a href="/bewertungsmethode">Bewertungsmethode</a>.
     </div>
 
-    <h2 id="uebersicht">Geschenke für Kleinkinder nach Anlass</h2>
-    <p>Sechs Ratgeber deckt dieser Bereich ab: die vier klassischen Anlässe von der Geburt bis zum dritten Geburtstag, dazu Weihnachten und ein eigener Ratgeber für kleine Budgets. Jeder nennt konkrete Ideen mit Altersbezug – und jeder sagt auch, wovon wir abraten.</p>
+    <h2 id="uebersicht">Alle Geschenk-Ratgeber nach Anlass</h2>
+    <p>Hier findest du die ausführlichen Wege zur Geburt, zum ersten, zweiten und dritten Geburtstag, für Weihnachten und für kleine Budgets. Jeder Ratgeber nennt konkrete Ideen mit Altersbezug und zeigt auch, was in der jeweiligen Situation weniger gut passt.</p>
 
     <div class="card-grid">
       <a href="/artikel/geschenke-zur-geburt" class="card" id="geburt">
@@ -306,7 +457,7 @@
           </tr>
           <tr>
             <td><strong>12 bis 24 Monate</strong></td>
-            <td>Stapelbecher, ein einfaches Steckpuzzle, Pappbilderbücher</td>
+            <td>Stapelbecher, ein einfaches Steckpuzzle, Pappbilderbücher; zur Einordnung von Steck- und Sortierspielen siehe <a href="/artikel/montessori-spielzeug-kleinkind">Montessori-Spielzeug ab 1 Jahr</a></td>
             <td>Deckt Sortieren, Stapeln und Sprache ab – die drei Dinge, die in dieser Phase ohnehin passieren.</td>
           </tr>
           <tr>
@@ -323,7 +474,7 @@
       </table>
     </div>
 
-    <p>Was hier bewusst <em>nicht</em> steht: Kuscheltiere und Themen-Sets zu Zeichentrickfiguren. Beide sind selten falsch, aber fast immer schon dreifach vorhanden. Wenn du nach Alter genauer werden willst, führen die sechs Ratgeber oben weiter – oder direkt der Bereich <a href="/spielzeug-nach-alter">Spielzeug nach Alter</a>.</p>
+    <p>Was hier bewusst <em>nicht</em> steht: Kuscheltiere und Themen-Sets zu Zeichentrickfiguren. Beide sind selten falsch, aber fast immer schon dreifach vorhanden. Wenn du nach Alter genauer werden willst, helfen <a href="/artikel/spielzeug-12-18-monate">Spielzeug für 12–18 Monate</a>, <a href="/artikel/spielzeug-18-24-monate">Spielzeug für 18–24 Monate</a> oder der komplette Bereich <a href="/spielzeug-nach-alter">Spielzeug nach Alter</a>.</p>
 
     <h2 id="budget-orientierung">Wie viel gibt man für ein Kleinkind-Geschenk aus?</h2>
 

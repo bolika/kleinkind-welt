@@ -45,21 +45,28 @@ jobs:
           curl --fail --silent --show-error "$AWIN_BABYWALZ_FEED_URL" --output imports/awin/babywalz.csv.gz
           gzip --test imports/awin/babywalz.csv.gz
 
-      - name: Generate and validate price snapshot
+      - name: Generate and validate Babywalz data
         run: |
           node tools/generate-babywalz-price-snapshot.mjs \
             --input imports/awin/babywalz.csv.gz \
             --mapping data/affiliate-offers/babywalz.mapping.v0.1.json \
             --output data/affiliate-offers/babywalz-prices.v0.1.json
+          node tools/import-awin-offers.mjs \
+            --input imports/awin/babywalz.csv.gz \
+            --mapping data/kinderwagen-navigator/babywalz.mapping.v0.1.json \
+            --output data/kinderwagen-navigator/offers.v0.1.json \
+            --merge data/kinderwagen-navigator/offers.v0.1.json
           node tools/babywalz-price-snapshot-test.mjs
           node tools/awin-article-offer-gate.mjs
+          node tools/kinderwagen-awin-program-gate.mjs
+          node tools/kinderwagen-offer-data-gate.mjs
           node tools/babywalz-feed-health.mjs --strict
 
       - name: Publish refreshed snapshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/affiliate-offers/babywalz-prices.v0.1.json
+          git add data/affiliate-offers/babywalz-prices.v0.1.json data/kinderwagen-navigator/offers.v0.1.json
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh Babywalz prices"
           git push

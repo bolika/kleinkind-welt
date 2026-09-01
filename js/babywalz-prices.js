@@ -15,12 +15,20 @@
   }
 
   function validOffer(offer) {
+    const withinPageLimit = !document.body.classList.contains('page-spielzeug-unter-20-euro') || offer?.totalPrice <= PRICE_LIMIT;
     return offer?.availability === 'in_stock' &&
       offer.currency === 'EUR' &&
       Number.isFinite(offer.productPrice) && offer.productPrice > 0 &&
       Number.isFinite(offer.shipping) && offer.shipping >= 0 &&
-      Number.isFinite(offer.totalPrice) && offer.totalPrice <= PRICE_LIMIT &&
+      Number.isFinite(offer.totalPrice) && offer.totalPrice > 0 && withinPageLimit &&
       Math.abs(offer.totalPrice - (offer.productPrice + offer.shipping)) < 0.011;
+  }
+
+  function validImage(offer) {
+    return offer?.imageRightsStatus === 'approved_for_feed_only' &&
+      typeof offer.imageUrl === 'string' &&
+      /^https:\/\//.test(offer.imageUrl) &&
+      !/noimage|placeholder|kein[-_]?bild/i.test(offer.imageUrl);
   }
 
   function priceRow(offer, generatedAt) {
@@ -46,7 +54,7 @@
   }
 
   function scopeFor(link) {
-    return link.closest('.kw-product-card, .kaufbox-hero, .kaufbox-option, .pilot-product');
+    return link.closest('.kw-product-card, .kaufbox-hero, .kaufbox-option, .pilot-product, .produkt-box, .kw-moment-action');
   }
 
   function actionAreaFor(link) {
@@ -58,6 +66,28 @@
     if (!scope || scope.classList.contains('has-fresh-babywalz-offer')) return;
 
     const actionArea = actionAreaFor(link);
+    if (validImage(offer) && !scope.querySelector('.kw-offer-media')) {
+      const mediaLink = document.createElement('a');
+      mediaLink.className = 'kw-offer-media';
+      mediaLink.href = link.href;
+      mediaLink.target = '_blank';
+      mediaLink.rel = 'sponsored noopener nofollow';
+      mediaLink.dataset.affiliate = 'awin';
+      mediaLink.dataset.merchant = 'babywalz';
+      mediaLink.dataset.productId = offer.productId;
+      mediaLink.dataset.offerId = link.dataset.offerId;
+      mediaLink.dataset.placement = 'product-image';
+      mediaLink.setAttribute('aria-label', `${offer.title} bei Babywalz ansehen`);
+
+      const image = document.createElement('img');
+      image.src = offer.imageUrl;
+      image.alt = offer.title;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.referrerPolicy = 'no-referrer-when-downgrade';
+      mediaLink.append(image);
+      scope.insertBefore(mediaLink, scope.firstChild);
+    }
     const row = priceRow(offer, generatedAt);
     actionArea.parentNode.insertBefore(row, actionArea);
     scope.classList.add('has-fresh-babywalz-offer');

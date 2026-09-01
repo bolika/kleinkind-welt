@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-07-23",
+  "checkedAt": "2026-09-01",
   "policy": {
     "programAvailabilityDoesNotAffectMatchScore": true,
     "commissionDoesNotAffectOfferOrder": true,
@@ -14,6 +14,20 @@
     "feedImagesRequireTermsReview": true
   },
   "programs": [
+    {
+      "merchant": { "id": "babywalz", "name": "Babywalz" },
+      "advertiserName": "Babywalz DE",
+      "advertiserId": 12387,
+      "applicationStatus": "joined",
+      "integrationMode": "awin_feed",
+      "productFeedAvailable": true,
+      "feedImageUsageStatus": "approved_for_feed_only",
+      "priority": "P0",
+      "mappingFile": "data/kinderwagen-navigator/babywalz.mapping.v0.1.json",
+      "catalogProductIds": ["abc-design-salsa-5-air", "bugaboo-fox-5-renew", "cybex-balios-s-lux-current", "joolz-day5", "joolz-geo5"],
+      "plannedModelIds": [],
+      "role": "Freigegebener markenübergreifender Händler für exakt geprüfte Geburtskonfigurationen."
+    },
     {
       "merchant": { "id": "babyprofi", "name": "Babyprofi" },
       "advertiserName": "Babyprofi-online DE",

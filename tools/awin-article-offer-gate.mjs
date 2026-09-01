@@ -59,7 +59,9 @@ const mapping = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
 const responseHeaders = fs.readFileSync(headersPath, 'utf8');
 check(mapping.advertiserId === 12387, 'Babywalz-Advertiser-ID muss 12387 sein.');
 check(Number.isInteger(mapping.publisherId) && mapping.publisherId > 0, 'Awin-Publisher-ID fehlt.');
-check(mapping.feedImageUsageStatus === 'terms_review_required', 'Feed-Bilder müssen bis zur schriftlichen Freigabe gesperrt bleiben.');
+check(mapping.feedImageUsageStatus === 'approved_for_feed_only', 'Bestätigte Babywalz-Feed-Bildfreigabe fehlt.');
+check(mapping.feedImageUsageApproval?.status === 'operator_confirmed', 'Betreiberbestätigung für Babywalz-Feed-Bilder fehlt.');
+check(mapping.feedImageUsageApproval?.confirmedAt === '2026-09-01', 'Datum der Betreiberbestätigung für Feed-Bilder fehlt.');
 check(mapping.advertiserCreativeUsage?.status === 'operator_confirmed_in_acceptance_email', 'Freigabebasis für offizielle Advertiser-Creatives fehlt.');
 check(mapping.policy?.commissionDoesNotAffectEditorialRanking === true, 'Provisionsunabhängigkeit fehlt.');
 check(mapping.policy?.titleOnlyMatchingAllowed === false, 'Titelähnlichkeit darf keine Produktzuordnung erzeugen.');
@@ -67,6 +69,8 @@ check(mapping.policy?.pricesRenderedFromThisFile === false, 'Beobachtete Feed-Pr
 check(mapping.shippingPolicy?.generalFreeShippingThreshold === null, 'Keine unbestätigte Gratisversandgrenze veröffentlichen.');
 check(mapping.shippingPolicy?.status === 'promotion_dependent', 'Babywalz-Portofrei-Aktionen müssen als aktionsabhängig geführt werden.');
 check(/img-src[^;]*https:\/\/\*\.awin1\.com/.test(responseHeaders), 'CSP muss freigegebene Awin-Advertiser-Bilder erlauben.');
+check(/img-src[^;]*https:\/\/\*\.productserve\.com/.test(responseHeaders), 'CSP muss freigegebene Productserve-Feed-Bilder erlauben.');
+check(/img-src[^;]*https:\/\/\*\.aboutyou\.cloud/.test(responseHeaders), 'CSP muss freigegebene Babywalz-CDN-Bilder erlauben.');
 
 const seenOfferIds = new Set();
 const seenClickrefs = new Set();
@@ -143,11 +147,14 @@ for (const creative of mapping.advertiserCreativeUsage?.creatives ?? []) {
 }
 
 for (const [page, html] of htmlByPage) {
+  const approvedFeedImages = new Set(Object.values(JSON.parse(fs.readFileSync(priceSnapshotPath, 'utf8')).offers ?? {})
+    .filter((offer) => offer.imageRightsStatus === 'approved_for_feed_only')
+    .map((offer) => offer.imageUrl));
   const externalMerchantImages = imagesIn(html)
     .map((image) => image.src)
     .filter((src) => /(?:baby-walz\.de|awin1\.com)/i.test(src || ''));
   for (const src of externalMerchantImages) {
-    check(approvedCreativeImages.has(src), `${page}: nicht freigegebenes Babywalz-Feed- oder Advertiser-Bild gefunden.`);
+    check(approvedCreativeImages.has(src) || approvedFeedImages.has(src), `${page}: nicht freigegebenes Babywalz-Feed- oder Advertiser-Bild gefunden.`);
   }
   check(html.includes('Babywalz über Awin'), `${page}: transparenter Affiliate-Hinweis für Babywalz fehlt.`);
   check(html.includes('/js/babywalz-prices.js'), `${page}: ausfallsichere Babywalz-Preislogik fehlt.`);
@@ -176,6 +183,11 @@ if (fs.existsSync(priceSnapshotPath)) {
     check(Number.isFinite(price.productPrice) && price.productPrice > 0, `${mappingOffer.offerId}: Produktpreis fehlt.`);
     check(Number.isFinite(price.shipping) && price.shipping >= 0, `${mappingOffer.offerId}: Versandkosten fehlen.`);
     check(Math.abs(price.totalPrice - (price.productPrice + price.shipping)) < 0.011, `${mappingOffer.offerId}: Gesamtpreis ist rechnerisch falsch.`);
+    check(price.title === mappingOffer.title, `${mappingOffer.offerId}: Bild-Alttext-Titel im Preis-Snapshot passt nicht.`);
+    if (price.imageUrl) {
+      check(price.imageRightsStatus === 'approved_for_feed_only', `${mappingOffer.offerId}: Feed-Bild ohne bestätigten Rechtestatus.`);
+      check(/^https:\/\//.test(price.imageUrl) && !/noimage|placeholder|kein[-_]?bild/i.test(price.imageUrl), `${mappingOffer.offerId}: ungültige oder Platzhalter-Bild-URL.`);
+    }
   }
 }
 
@@ -211,4 +223,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Babywalz-Angebots-Gate bestanden: ${mapping.mappings.length} Angebote, ${seenClickrefs.size} Produktplatzierungen, ${mapping.advertiserCreativeUsage?.creatives?.length ?? 0} freigegebene Advertiser-Creatives, ${feedRowsChecked} lokale Feed-Zeilen geprüft, keine Feed-Produktbilder veröffentlicht.`);
+console.log(`Babywalz-Angebots-Gate bestanden: ${mapping.mappings.length} Angebote, ${seenClickrefs.size} Produktplatzierungen, ${mapping.advertiserCreativeUsage?.creatives?.length ?? 0} Advertiser-Creatives, ${feedRowsChecked} lokale Feed-Zeilen und freigegebene Feed-Produktbilder geprüft.`);

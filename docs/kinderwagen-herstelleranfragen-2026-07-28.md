@@ -13,12 +13,13 @@ Antworten bitte als `sources`-Eintrag mit `kind: "manufacturer_confirmation"`, D
 wörtlichem Zitat hinterlegen — nicht paraphrasiert.
 
 Jede Anfrage deckt zusätzlich die **Bildrechte** mit ab. Das Gate `productMediaCoverage`
-steht bei 0 von 20 und ist der größte Einzelblocker; `media.v0.1.json` ist leer. Das
+steht nach der Babywalz-Integration bei 5 von 20; `media.v0.1.json` ist für eigene oder
+direkt freigegebene Hersteller-Assets weiterhin leer. Das
 Register verlangt pro Bild `rightsBasis` und `usageScope` — beides kann nur der
 Rechteinhaber liefern. Beide Langläufer laufen damit über eine Mail statt über zwei
 Runden. Wichtig: die Bildrechte hängen **nicht** an Awin. Die Feed-Bilder der
-Awin-Programme stehen auf `feedImageUsageStatus: terms_review_required` und sind damit der
-langsamere Weg.
+Awin-Programme stehen grundsätzlich auf `feedImageUsageStatus: terms_review_required` und sind damit der
+langsamere Weg. Ausnahme: Für Babywalz wurde die Feed-Bildnutzung am 01.09.2026 durch den Betreiber bestätigt und auf `approved_for_feed_only` gesetzt.
 
 ---
 

@@ -57,7 +57,10 @@ for (const program of registry.programs ?? []) {
   for (const candidateId of program.plannedModelIds ?? []) if (!candidateIds.has(candidateId)) errors.push(`${merchantId}: unbekannter Ausbaukandidat ${candidateId}`);
 }
 
-if (merchantIds.size !== 6) errors.push(`Genau sechs angefragte Programme erwartet, gefunden: ${merchantIds.size}`);
+if (merchantIds.size !== 7) errors.push(`Genau sieben Programme erwartet, gefunden: ${merchantIds.size}`);
+const babywalz = registry.programs.find((program) => program.merchant?.id === 'babywalz');
+if (babywalz?.advertiserId !== 12387 || babywalz?.applicationStatus !== 'joined') errors.push('Freigegebenes Babywalz-Programm mit Advertiser-ID 12387 fehlt');
+if (babywalz?.feedImageUsageStatus !== 'approved_for_feed_only') errors.push('Bestätigte Babywalz-Feed-Bildnutzung fehlt');
 const babyprofi = registry.programs.find((program) => program.merchant?.id === 'babyprofi');
 if (babyprofi?.advertiserId !== 14986) errors.push('Babyprofi Advertiser-ID 14986 fehlt');
 if (registry.policy?.programAvailabilityDoesNotAffectMatchScore !== true) errors.push('Unabhängigkeitsregel für Programmverfügbarkeit fehlt');
@@ -69,4 +72,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Awin-Programm-Gate bestanden: ${merchantIds.size} Bewerbungen vorbereitet, ${advertiserIds.size} bestätigte Advertiser-ID, Matching und Provision getrennt.`);
+console.log(`Awin-Programm-Gate bestanden: ${merchantIds.size} Programme verwaltet, ${advertiserIds.size} bestätigte Advertiser-IDs, Matching und Provision getrennt.`);

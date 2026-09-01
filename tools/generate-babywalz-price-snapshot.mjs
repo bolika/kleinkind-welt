@@ -63,6 +63,17 @@ function rowGtins(row) {
     .filter((value) => /^[0-9]{8,14}$/.test(value)))];
 }
 
+function usableImageUrl(row) {
+  const candidates = [];
+  for (const value of [row.aw_image_url, row.merchant_image_url, row.large_image]) {
+    const source = String(value ?? '').trim();
+    if (!source.startsWith('https://')) continue;
+    if (/noimage|placeholder|kein[-_]?bild/i.test(source)) continue;
+    candidates.push(source);
+  }
+  return candidates.find((source) => /\.cdn\.aboutyou\.cloud\//i.test(source)) ?? candidates[0] ?? null;
+}
+
 export function generateSnapshot({ rows, mappingData, now = new Date() }) {
   const generatedAt = now.toISOString();
   const freshUntil = new Date(now.getTime() + FRESHNESS_HOURS * 60 * 60 * 1000).toISOString();
@@ -116,12 +127,18 @@ export function generateSnapshot({ rows, mappingData, now = new Date() }) {
     offers[mapping.offerId] = {
       productId: mapping.productId,
       merchantProductId: preferred.row.merchant_product_id,
+      title: preferred.row.product_name,
       productPrice: preferred.productPrice,
       shipping: preferred.shipping,
       totalPrice: preferred.totalPrice,
       currency: preferred.currency,
       availability: preferred.availability
     };
+    const imageUrl = usableImageUrl(preferred.row);
+    if (mappingData.feedImageUsageStatus === 'approved_for_feed_only' && imageUrl) {
+      offers[mapping.offerId].imageUrl = imageUrl;
+      offers[mapping.offerId].imageRightsStatus = 'approved_for_feed_only';
+    }
   }
 
   return {

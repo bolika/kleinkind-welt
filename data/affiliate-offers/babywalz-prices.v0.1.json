@@ -10,91 +10,178 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-08-31T10:05:34.623Z",
-  "freshUntil": "2026-09-02T10:05:34.623Z",
+  "generatedAt": "2026-09-01T08:28:26.805Z",
+  "freshUntil": "2026-09-03T08:28:26.805Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
     "babywalz-8390215": {
       "productId": "u20-stapelbecher",
       "merchantProductId": "8390215",
+      "title": "Badabulle Stapelbecher Silikon 7tlg.",
       "productPrice": 9.9,
       "shipping": 4.99,
       "totalPrice": 14.89,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/da64f266bdb3ab75d71be9ef55b23f13.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7412835": {
       "productId": "u20-klopfbank",
       "merchantProductId": "7412835",
+      "title": "Solini Klopfbank aus Holz",
       "productPrice": 12.29,
       "shipping": 4.99,
       "totalPrice": 17.28,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/7a9d4fce00d99c1db87fb557af0b2b37.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395292": {
       "productId": "u20-steckpuzzle",
       "merchantProductId": "8395292",
+      "title": "Hape Steckpuzzle Bauernhof",
       "productPrice": 8.99,
       "shipping": 4.99,
       "totalPrice": 13.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/d3242c83af9df57e1de5435c1061931b.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8293872": {
       "productId": "u20-pappbilderbuch",
       "merchantProductId": "8293872",
+      "title": "Ravensburger Pappbilderbuch Meine allerersten Tiere",
       "productPrice": 5.99,
       "shipping": 4.99,
       "totalPrice": 10.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/535ff46f15f5f106dd77b40cf7d8466a.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395586": {
       "productId": "u20-fingermalen",
       "merchantProductId": "8395586",
+      "title": "Hape Fingermalen",
       "productPrice": 12.99,
       "shipping": 4.99,
       "totalPrice": 17.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c27cff530b713247665e39fda6b4d37b.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-5743389": {
       "productId": "u20-greifling-beissring",
       "merchantProductId": "5743389",
+      "title": "Sophie La Girafe Greifling & Kühlbeißring fresh",
       "productPrice": 10.99,
       "shipping": 4.99,
       "totalPrice": 15.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/192297acbd00982196d45964904efc0f.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7412860": {
       "productId": "solini-sortierbox",
       "merchantProductId": "7412860",
+      "title": "Solini Sortier- und Steckspiel",
       "productPrice": 13.19,
       "shipping": 4.99,
       "totalPrice": 18.18,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/773f617dba08a700d6ea95f62dba46d4.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395160": {
       "productId": "hape-formensortierer",
       "merchantProductId": "8395160",
+      "title": "Hape Farben- & Formensortierer",
       "productPrice": 13.99,
       "shipping": 4.99,
       "totalPrice": 18.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/124cba4372d42e1d9eae9b75d07cb0df.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-6276008": {
       "productId": "haba-greifpuzzle-tierkinder",
       "merchantProductId": "6276008",
+      "title": "Haba Greifpuzzle Bauernhof-Tierkinder",
       "productPrice": 8.99,
       "shipping": 4.99,
       "totalPrice": 13.98,
       "currency": "EUR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/3ea690b7e9c60b110b20be2e8cf83399.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    "babywalz-7480377": {
+      "productId": "weihnachten-lauflernwagen",
+      "merchantProductId": "7480377",
+      "title": "Small Foot Lauflernwagen Move it!",
+      "productPrice": 45.79,
+      "shipping": 1.99,
+      "totalPrice": 47.78,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/32f9db315bc9c0e671f68d50c6532a39.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    "babywalz-8347301": {
+      "productId": "weihnachten-duplo-tiere",
+      "merchantProductId": "8347301",
+      "title": "Lego® Duplo® 10477 3-in-1 Kreative Tiere",
+      "productPrice": 9.99,
+      "shipping": 4.99,
+      "totalPrice": 14.98,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/b72b8b2d8dc13b9ed6386f4c4f8af116.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    "babywalz-8336709": {
+      "productId": "weihnachten-raupe-fuehlbuch",
+      "merchantProductId": "8336709",
+      "title": "Gerstenberg Verlag Die Kleine Raupe Nimmersatt Mein Tier-Fühlbuch Die kleine Raupe Nimmersatt",
+      "productPrice": 17,
+      "shipping": 1.99,
+      "totalPrice": 18.99,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/fc943bea3d3a2ef8c84ba35f9ba2a087.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    "babywalz-8395047": {
+      "productId": "montessori-spiegelpuzzle",
+      "merchantProductId": "8395047",
+      "title": "Hape Spiegelpuzzle Montessori",
+      "productPrice": 10.99,
+      "shipping": 4.99,
+      "totalPrice": 15.98,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/e2b23a0fee4e97d4c1fd380f0c6de445.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
+    },
+    "babywalz-6264646": {
+      "productId": "montessori-kreatives-steckpuzzle",
+      "merchantProductId": "6264646",
+      "title": "Hape Steckspiel Kreatives Steckpuzzle",
+      "productPrice": 16.99,
+      "shipping": 1.99,
+      "totalPrice": 18.98,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/6aba15c223c1e2067a4179f2f459ae3a.jpg",
+      "imageRightsStatus": "approved_for_feed_only"
     }
   }
 }

@@ -20,7 +20,18 @@ async function testViewport(browser, width, height) {
   await page.goto(articleUrl, { waitUntil: 'networkidle' });
   await page.locator('.kw-live-offer').first().waitFor();
 
+  for (const image of await page.locator('.kw-offer-media img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((element) => element.complete && element.naturalWidth > 0
+      ? true
+      : new Promise((resolve) => {
+          element.addEventListener('load', () => resolve(true), { once: true });
+          element.addEventListener('error', () => resolve(false), { once: true });
+        }));
+  }
+
   assert.equal(await page.locator('.kw-live-offer').count(), 3, `${width}px: drei Preiszeilen erwartet.`);
+  assert.equal(await page.locator('.kw-offer-media').count(), 3, `${width}px: drei freigegebene Produktbilder erwartet.`);
   assert.equal(await page.locator('.has-fresh-babywalz-offer').count(), 3, `${width}px: drei priorisierte Babywalz-Angebote erwartet.`);
   assert.equal(await page.locator('#greifen .kw-live-offer-total').textContent(), 'Gesamt inkl. Versand: 14,89 €');
   assert.equal(await page.locator('#greifen .kw-live-offer-details').textContent(), 'Produkt 9,90 € + Versand 4,99 €');
@@ -29,8 +40,10 @@ async function testViewport(browser, width, height) {
 
   const layout = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth - window.innerWidth,
-    visibleMerchantButtons: [...document.querySelectorAll('.pilot-product a[data-affiliate]')].filter((link) => link.getClientRects().length > 0).length,
+    visibleMerchantButtons: [...document.querySelectorAll('.pilot-actions a[data-affiliate]')].filter((link) => link.getClientRects().length > 0).length,
     primaryHeight: document.querySelector('#greifen .kw-offer-primary').getBoundingClientRect().height,
+    productImageAlt: document.querySelector('#greifen .kw-offer-media img').alt,
+    productImagesLoaded: [...document.querySelectorAll('.kw-offer-media img')].every((image) => image.complete && image.naturalWidth > 0),
     totalVisible: [...document.querySelectorAll('.kw-live-offer-total')].every((element) => {
       const box = element.getBoundingClientRect();
       return box.width > 0 && box.height > 0;
@@ -39,6 +52,8 @@ async function testViewport(browser, width, height) {
   assert.ok(layout.overflow <= 1, `${width}px: horizontaler Overflow von ${layout.overflow}px.`);
   assert.equal(layout.visibleMerchantButtons, 3, `${width}px: pro Produkt darf nur ein Händler-CTA sichtbar sein.`);
   assert.ok(layout.primaryHeight >= 48, `${width}px: primärer Händler-CTA ist zu klein.`);
+  assert.equal(layout.productImageAlt, 'Badabulle Stapelbecher Silikon 7tlg.', `${width}px: Produktbild hat keinen feedbasierten Alttext.`);
+  assert.equal(layout.productImagesLoaded, true, `${width}px: mindestens ein Feed-Produktbild konnte nicht geladen werden.`);
   assert.equal(layout.totalVisible, true, `${width}px: Preistext ist nicht vollständig sichtbar.`);
   assert.deepEqual(errors, [], `${width}px: Browserfehler: ${errors.join(' | ')}`);
 
@@ -62,6 +77,7 @@ async function testStaleFallback(browser) {
   await page.goto(articleUrl, { waitUntil: 'networkidle' });
 
   assert.equal(await page.locator('.kw-live-offer').count(), 0, 'Veraltete Preise dürfen nicht erscheinen.');
+  assert.equal(await page.locator('.kw-offer-media').count(), 0, 'Veraltete Feed-Daten dürfen keine Produktbilder ausspielen.');
   assert.equal(await page.locator('.has-fresh-babywalz-offer').count(), 0, 'Veraltete Preise dürfen keine CTA-Priorität ändern.');
   assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').textContent(), 'Preis bei Amazon prüfen');
   const fallback = await page.evaluate(() => {
@@ -70,7 +86,7 @@ async function testStaleFallback(browser) {
     return {
       babywalzHidden: babywalz.hidden,
       amazonVisible: amazon.getClientRects().length > 0,
-      visibleMerchantButtons: [...document.querySelectorAll('.pilot-product a[data-affiliate]')].filter((link) => link.getClientRects().length > 0).length
+      visibleMerchantButtons: [...document.querySelectorAll('.pilot-actions a[data-affiliate]')].filter((link) => link.getClientRects().length > 0).length
     };
   });
   assert.equal(fallback.babywalzHidden, true, 'Ohne frisches Angebot muss Babywalz verborgen bleiben.');

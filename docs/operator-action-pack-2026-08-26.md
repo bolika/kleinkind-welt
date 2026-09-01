@@ -82,7 +82,7 @@ Anfrage an Babywalz/Awin:
 
 > Hallo, ich bin mit Kleinkind-Welt als Publisher im Babywalz-Partnerprogramm freigeschaltet. Darf ich die im Awin-Produktfeed bereitgestellten Produktbilder auf redaktionellen Affiliate-Seiten einbinden, solange Bild-URL, Produktzuordnung und Deeplink aus dem Feed stammen und die Bilder nicht veraendert werden? Gilt die Freigabe auch fuer lokale Zwischenspeicherung oder ausschliesslich fuer die von Awin gelieferte Bild-URL? Vielen Dank fuer eine kurze schriftliche Bestaetigung.
 
-Bis zur Antwort werden keine Feed-Produktbilder veroeffentlicht.
+Update 01.09.2026: Der Betreiber hat die Nutzung der Babywalz-Produktfeed-Bilder im Affiliate-Kontext bestätigt. Babywalz-Bilder dürfen deshalb direkt von der Feed-URL geladen werden; lokale Speicherung oder Bearbeitung bleibt ohne separate Bestätigung ausgeschlossen. Für andere Programme gilt die bisherige Sperre weiterhin.
 
 ## 7. Realistische Pflegekapazitaet festlegen
 
@@ -97,4 +97,3 @@ Einmal entscheiden, wie viele Stunden pro Woche dauerhaft fuer Aktualisierung, e
 5. Interviewpersonen ansprechen.
 6. Babywalz-Bildfreigabe schriftlich klaeren.
 7. Wochenkapazitaet festlegen.
-

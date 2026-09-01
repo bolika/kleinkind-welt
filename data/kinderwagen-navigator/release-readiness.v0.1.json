@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-07-23",
+  "checkedAt": "2026-09-01",
   "dataOperations": {
     "navigatorState": "paused",
     "stateChangedAt": "2026-08-26",
@@ -20,10 +20,10 @@
       "note": "Vor Indexierung muss für jedes Modell eine aktuelle manuelle Suche in offiziellen Rückruf- und Safety-Gate-Quellen dokumentiert werden. Kein Treffer ist kein Sicherheitsurteil."
     },
     "productMediaCoverage": {
-      "status": "pending",
-      "completed": 0,
+      "status": "partial",
+      "completed": 5,
       "target": 20,
-      "note": "Für jedes veröffentlichte Modell wird mindestens ein rechtssicher nutzbares Produktbild mit Quelle und Nutzungsumfang benötigt."
+      "note": "Fünf exakt zugeordnete Babywalz-Angebote liefern freigegebene Feed-Bilder über Awin. Für die übrigen Modelle wird weiterhin mindestens ein rechtssicher nutzbares Produktbild mit Quelle und Nutzungsumfang benötigt."
     },
     "keyboardAndSmallScreenTest": {
       "status": "partial",

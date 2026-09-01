@@ -6,7 +6,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.amazon-adsystem.com https://*.media-amazon.com https://*.awin1.com; connect-src 'self' https://plausible.io; font-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.amazon-adsystem.com https://*.media-amazon.com https://*.awin1.com https://*.productserve.com https://*.aboutyou.cloud; connect-src 'self' https://plausible.io; font-src 'self'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';
 
 # CSS/JS: 1 Jahr + immutable (versionierter ?v=-Query-String verhindert veralteten Cache)
 /css/*

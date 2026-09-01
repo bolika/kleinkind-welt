@@ -34,6 +34,19 @@ const alternateAwinReference = {
 };
 const alternateReferenceImport = importOffers({ rows: [rows[0], alternateAwinReference], mappingData, now });
 assert(alternateReferenceImport.document.offers.length === 1, 'Gleiche Händlerdaten aus zwei Awin-Feedvarianten müssen zusammengeführt werden.');
+const alternateImageReference = {
+  ...rows[0],
+  aw_product_id: '88888888888',
+  aw_deep_link: 'https://www.awin1.com/pclick.php?p=88888888888&a=123456&m=14986',
+  aw_image_url: 'https://example.invalid/noimage.gif',
+  large_image: 'https://shop.cdn.aboutyou.cloud/images/testmodell.jpg'
+};
+const approvedAlternateImageImport = importOffers({
+  rows: [rows[0], alternateImageReference],
+  mappingData: { ...mappingData, feedImageUsageStatus: 'approved_for_feed_only' },
+  now
+});
+assert(approvedAlternateImageImport.document.offers[0].imageUrl === 'https://shop.cdn.aboutyou.cloud/images/testmodell.jpg', 'Bei identischen Feed-Duplikaten muss das direkte Nicht-Platzhalterbild bevorzugt werden.');
 const conflictingDuplicate = { ...rows[0], search_price: '999.90' };
 assert(() => {
   try {
