@@ -37,6 +37,7 @@ jobs:
           node --check js/babywalz-prices.js
           node --check js/faq-accordion.js
           node --check tools/analytics-contract-gate.mjs
+          node --check tools/affiliate-merchant-event-ui-test.mjs
           node --check tools/awin-article-offer-gate.mjs
           node --check tools/affiliate-integrity-check.mjs
           node --check tools/babywalz-feed-health.mjs
@@ -57,6 +58,7 @@ jobs:
           node --check tools/kpi-dashboard/kpi-core.js
           node --check tools/kpi-dashboard/validate.cjs
           node --check tools/prepare-kinderwagen-product-image.mjs
+          node --check tools/product-experience-gate.mjs
           node --check tools/seo-smoke-test.mjs
           node --check tools/site-positioning-gate.mjs
           node --check tools/sync-site-navigation.mjs
@@ -74,6 +76,7 @@ jobs:
           jq empty data/kinderwagen-navigator/media.v0.1.json
           jq empty data/kinderwagen-navigator/release-readiness.v0.1.json
           jq empty data/kinderwagen-navigator/tracking-contract.v0.1.json
+          jq empty data/product-experience/*.json
           jq empty data/spielzeug-siegel.json
           jq empty data/seo-monitoring-config.json
           jq empty content-briefs/*.json
@@ -94,6 +97,7 @@ jobs:
           node tools/generate-seal-assets.mjs --check
           node tools/kinderwagen-media-rights-gate.mjs
           node tools/kinderwagen-beta-gate.mjs
+          node tools/product-experience-gate.mjs
           node tools/site-positioning-gate.mjs
           node tools/ki-bildkennzeichnung-gate.mjs
           node tools/sync-site-navigation.mjs --check

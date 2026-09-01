@@ -46,14 +46,24 @@ Zeitraum fuer alle Quellen: die letzten 90 vollstaendigen Tage. Nur aggregierte 
 
 Die CSV-Dateien koennen anschliessend lokal in `tools/kpi-dashboard/index.html` importiert werden. Das Dashboard sendet nichts ins Netz und speichert nichts dauerhaft.
 
+### Plausible-Ziele für Händlervergleich
+
+Custom Properties sind im aktuellen Plan nicht verfügbar. Deshalb unter `Site Settings` -> `Goals` drei Custom-Event-Ziele mit exakt diesen Namen anlegen:
+
+1. `Affiliate-Babywalz`
+2. `Affiliate-Amazon`
+3. `Affiliate-Anderer-Haendler`
+
+`Affiliate-Klick` bleibt das Gesamtziel. Die drei Händler-Ziele sind nur dessen Aufteilung und dürfen in Auswertungen nicht zusätzlich zur Gesamtzahl addiert werden.
+
 ## 4. Eigene Erfahrung fuer den Stapelbecher-Pilot
 
 Noch nicht als Produkttest veroeffentlichen. Zuerst in `docs/experience-pilot-stapelbecher.md` dokumentieren:
 
-- exakter Produktname, Hersteller, Modell und Bezugsquelle;
-- ob es genau das verlinkte Produkt ist;
+- festgelegtes Produkt: Badabulle Stapelbecher Silikon 7tlg., Babywalz 8390215, GTIN 3661276189270;
+- Bezugsquelle, Kaufdatum und Bestätigung, dass genau dieses Produkt beobachtet wurde;
 - drei eigene Fotos ohne erkennbares Kindergesicht;
-- Beobachtungen an Tag 1, 7, 14 und 30;
+- drei Situationen über mindestens sieben Tage; Tag 14 und 30 sind optionale Haltbarkeits-Updates;
 - Reinigung, Platzbedarf, benoetigte Hilfe und erkennbare Grenzen.
 
 Bis dieser Nachweis vollstaendig ist, bleibt die sichtbare Kennzeichnung korrekt bei `Redaktionelle Einordnung` und `Kein eigener Produkttest`.

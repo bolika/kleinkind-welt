@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "experienceId": "stapelbecher-pilot-2026",
+  "productId": "u20-stapelbecher",
+  "page": "artikel/spielzeug-unter-20-euro.html",
+  "evidenceId": "spielzeug-unter-20-euro-recommendation-1",
+  "status": "planned",
+  "identity": {
+    "brand": "Badabulle",
+    "title": "Badabulle Stapelbecher Silikon 7tlg.",
+    "merchant": "Babywalz",
+    "merchantProductId": "8390215",
+    "gtin": "3661276189270"
+  },
+  "sourceEvidence": {
+    "affiliateOfferId": "babywalz-8390215",
+    "identityCheckedAt": "2026-09-01",
+    "ageClaimFromFeed": "ab Geburt",
+    "ageClaimVerifiedOnOwnedProduct": false,
+    "note": "Die Altersangabe aus dem Feed wird erst nach Prüfung von Verpackung oder Anleitung als eigene Produktbeobachtung verwendet."
+  },
+  "method": {
+    "minimumObservationDays": 7,
+    "minimumSessions": 3,
+    "requiredContexts": [
+      {
+        "id": "dry-play",
+        "label": "trockenes Greifen, Verstecken oder Stapeln"
+      },
+      {
+        "id": "fill-and-pour",
+        "label": "Befüllen oder Umfüllen mit Wasser oder trockenem Material"
+      },
+      {
+        "id": "clean-and-store",
+        "label": "Reinigung, Trocknung und Aufbewahrung"
+      }
+    ],
+    "minimumOwnedPhotos": 3,
+    "claimBoundary": "Ein Einzelfall erlaubt Aussagen nur über das konkret beobachtete Produkt und die dokumentierten Situationen."
+  },
+  "observations": {
+    "ownershipConfirmed": false,
+    "acquisitionSource": null,
+    "acquisitionDate": null,
+    "startDate": null,
+    "endDate": null,
+    "participantAgeBand": null,
+    "sessions": [],
+    "photos": []
+  },
+  "approval": {
+    "status": "pending",
+    "reviewedBy": null,
+    "reviewedAt": null
+  },
+  "privacy": {
+    "childNameStored": false,
+    "recognizableChildFaceAllowed": false,
+    "preciseBirthDateStored": false
+  }
+}

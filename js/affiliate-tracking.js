@@ -86,6 +86,13 @@
     }
   }
 
+  function merchantBreakdownEvent(link) {
+    var merchant = cleanText(link.dataset.merchant || link.dataset.affiliate || destinationHost(link)).toLowerCase();
+    if (merchant.includes('babywalz')) return 'Affiliate-Babywalz';
+    if (merchant.includes('amazon') || merchant.includes('amzn.to')) return 'Affiliate-Amazon';
+    return 'Affiliate-Anderer-Haendler';
+  }
+
   document.addEventListener('click', function (event) {
     var target = event.target;
     var link = target && target.closest ? target.closest('a[data-affiliate]') : null;
@@ -107,6 +114,10 @@
         event_schema: '3'
       }
     });
+
+    // Separate goal names remain filterable when the Plausible plan does not
+    // expose custom properties. The canonical event above stays the baseline.
+    window.plausible(merchantBreakdownEvent(link), { interactive: false });
   });
 
   document.addEventListener('click', function (event) {

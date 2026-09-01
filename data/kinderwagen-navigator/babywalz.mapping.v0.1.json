@@ -62,6 +62,26 @@
         "label": "Geo5 inklusive Tragewanne und Sportsitz",
         "verifiedAt": "2026-09-01"
       }
+    },
+    {
+      "productId": "kinderkraft-esme-2in1",
+      "merchantProductIds": ["8387869", "8387877"],
+      "gtins": ["5902533929665", "5902533929658"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "ESME 2in1 mit wandelbarer Babywanne und Sportsitz",
+        "verifiedAt": "2026-09-01"
+      }
+    },
+    {
+      "productId": "kinderkraft-prime-3-2in1",
+      "merchantProductIds": ["8355428"],
+      "gtins": ["5902533928965"],
+      "configuration": {
+        "status": "exact_required_configuration",
+        "label": "PRIME 3 mit Babywanne, Sportsitz und Babyschale (3in1)",
+        "verifiedAt": "2026-09-01"
+      }
     }
   ]
 }

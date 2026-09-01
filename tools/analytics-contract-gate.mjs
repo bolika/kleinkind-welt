@@ -18,6 +18,10 @@ for (const property of ['seite', 'produkt', 'produkt_id', 'platzierung', 'partne
   check(affiliate.includes(`${property}:`), `Affiliate-Klick: Property ${property} fehlt.`);
 }
 check(affiliate.includes("event_schema: '3'"), 'Affiliate-Klick: Schema muss Version 3 sein.');
+for (const eventName of ['Affiliate-Babywalz', 'Affiliate-Amazon', 'Affiliate-Anderer-Haendler']) {
+  check(affiliate.includes(`'${eventName}'`), `${eventName}: Händler-Event fehlt.`);
+}
+check(affiliate.includes('{ interactive: false }'), 'Händler-Aufschlüsselung muss als nicht-interaktives Zusatzereignis gesendet werden.');
 
 for (const [file, source] of [['js/newsletter-form.js', newsletter], ['kaufhilfen.html', toolsPage]]) {
   check(source.includes("plausible('Newsletter-Formular'"), `${file}: Newsletter-Formular-Event fehlt.`);
@@ -38,4 +42,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Analytics-Contract-Gate bestanden: Affiliate-, Newsletter-, DOI- und Download-Events sind versioniert.');
+console.log('Analytics-Contract-Gate bestanden: Affiliate-, Händler-, Newsletter-, DOI- und Download-Events sind versioniert.');

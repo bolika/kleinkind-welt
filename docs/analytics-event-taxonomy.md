@@ -1,6 +1,6 @@
 # Analytics-Event-Taxonomie
 
-Stand: 26.08.2026  
+Stand: 01.09.2026
 System: Plausible Analytics ohne Cookies
 
 ## Grundregeln
@@ -17,6 +17,9 @@ System: Plausible Analytics ohne Cookies
 | Ereignis | Zweck | Pflicht-Properties | Aktuelles Schema |
 |---|---|---|---:|
 | `Affiliate-Klick` | Ausgehenden Händlerklick messen | `seite`, `produkt`, `produkt_id`, `platzierung`, `partner`, `haendler`, `angebot`, `ziel_host`, `event_schema` | 3 |
+| `Affiliate-Babywalz` | Babywalz-Klick ohne Property-Filter separat zählen | keine | 1 |
+| `Affiliate-Amazon` | Amazon-Klick ohne Property-Filter separat zählen | keine | 1 |
+| `Affiliate-Anderer-Haendler` | übrige Händler ohne Property-Filter separat zählen | keine | 1 |
 | `Newsletter-Formular` | DOI-Start oder Formularfehler messen | `seite`, `platzierung`, `status`, `segment`, `quelle`, `event_schema` | 2 |
 | `Newsletter bestätigt` | Abgeschlossenen DOI messen | `freebie`, `alter`, `event_schema` | 1 |
 | `Freebie Download` | Gewählte Freebie-Version messen | `freebie`, `seite`, `version`, `event_schema` | 1 |
@@ -45,10 +48,22 @@ System: Plausible Analytics ohne Cookies
 
 Neue Placements werden nur ergänzt, wenn sie eine eigenständige Nutzerentscheidung abbilden.
 
+### Händler-Aufschlüsselung ohne Custom Properties
+
+`Affiliate-Klick` bleibt das einzige Ereignis für die Gesamtzahl und die historische Vergleichbarkeit. Zusätzlich wird pro Klick genau eines der drei Händler-Ereignisse als nicht-interaktives Ereignis gesendet. Diese Aufschlüsselung darf deshalb nicht zur Gesamtzahl addiert werden.
+
+In Plausible müssen unter `Site Settings -> Goals` folgende Custom-Event-Ziele angelegt werden:
+
+- `Affiliate-Babywalz`
+- `Affiliate-Amazon`
+- `Affiliate-Anderer-Haendler`
+
+Die jeweilige Zielansicht kann anschließend nach der automatisch erfassten Seiten-URL gefiltert werden. Custom Properties sind dafür nicht erforderlich.
+
 ## Funnel und Berechnung
 
 1. Einstiegsseite: Seitenaufruf aus Plausible beziehungsweise organischer Klick aus GSC.
-2. Händlerinteresse: `Affiliate-Klick` je Seite, Produkt und Placement.
+2. Händlerinteresse: `Affiliate-Klick` als Gesamtwert; Händleranteile über die drei separaten Händler-Ziele.
 3. Lead-Start: `Newsletter-Formular` mit Status `doi-gestartet`.
 4. Lead bestätigt: `Newsletter bestätigt`.
 5. Nutzwert abgerufen: `Freebie Download` nach Version.

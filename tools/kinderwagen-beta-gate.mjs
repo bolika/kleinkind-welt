@@ -18,6 +18,7 @@ const gates = [
   'tools/kinderwagen-research-batch-gate.mjs',
   'tools/kinderwagen-vehicle-data-gate.mjs',
   'tools/kinderwagen-awin-program-gate.mjs',
+  'tools/kinderwagen-babywalz-coverage-test.mjs',
   'tools/kinderwagen-offer-data-gate.mjs',
   'tools/kinderwagen-offer-import-test.mjs',
   'tools/kinderwagen-result-presentation-test.mjs',

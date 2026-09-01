@@ -33,6 +33,7 @@ assert(html.indexOf('data-navigator-app') < html.indexOf('navigator-quick-proof'
 assert(/navigator-hero-grid--tool/.test(html), 'Tool muss im ersten Hero-Viewport verankert sein');
 assert(/data-navigator-affiliate-disclosure/.test(html), 'Vorbereiteter Affiliate-Hinweis oberhalb des Tools fehlt');
 assert(/type="module" src="\/js\/kinderwagen-navigator-app\.mjs/.test(html), 'Browser-App wird nicht als Modul geladen');
+assert(html.includes('/js/kinderwagen-result-presentation.mjs?v=20260901-ties') && app.includes('/js/kinderwagen-result-presentation.mjs?v=20260901-ties'), 'Result-Presentation-Preload und App-Import müssen denselben Cache-Key nutzen');
 assert(/affiliate-tracking\.js/.test(html), 'Zentrales Affiliate-Klicktracking fehlt auf der Navigator-Seite');
 assert(/data-navigator-model-count/.test(html), 'Hero benötigt einen dynamischen Katalogzähler');
 assert(/Der aktuelle Katalog ist ein Testkatalog/.test(html), 'Pilotgrenze des Katalogs fehlt');
@@ -85,7 +86,10 @@ assert(/kein_passendes_modell/.test(app) && /haendlerangebot_fehlt/.test(app), '
 assert(/navigator-comparison/.test(app) && /Wagenbreite/.test(app) && /Größter Abstrich/.test(app), 'Direktvergleich mit entscheidungsrelevanten Kriterien fehlt');
 assert(/navigator-comparison__position/.test(app) && /--navigator-comparison-width/.test(app) && /scroll-snap-type: x proximity/.test(css), 'Mobiler Direktvergleich benötigt Positionssignal, sichtbaren Folgeinhalt und horizontale Führung');
 assert(/navigator-result-more/.test(app) && /Details, Prüfpunkte und Quellen/.test(app), 'Sekundäre Ergebnisbelege müssen mobil einklappbar sein');
-assert(/Beste Passung zu euren Angaben/.test(presentation) && /Preisgünstigere Alternative/.test(presentation), 'Transparente Ergebnisrollen und relationale Preisalternative fehlen');
+assert(/Beste Passung/.test(presentation) && /Günstiger/.test(presentation), 'Transparente Ergebnisrollen und relationale Preisalternative fehlen');
+assert(/Vorn nach Kriterien/.test(presentation) && /Gleicher Wert/.test(presentation) && /Reihenfolge ist keine Präferenz/.test(presentation), 'Sichtbare Score-Gleichstände benötigen neutrale Rollen und eine Reihenfolgeerklärung');
+assert(/navigator-comparison__best/.test(app) && /Höchste Passung/.test(app) && /Größter Korb/.test(app), 'Vergleichs-Bestwerte müssen zusätzlich zur Farbe knapp beschriftet sein');
+assert(/navigator-result-badge[\s\S]*white-space: nowrap/.test(css), 'Kurze Ergebnis-Badges dürfen innerhalb eines Chips nicht umbrechen');
 assert(/observeComparisonImpression/.test(app), 'Der Direktvergleich benötigt ein geräteunabhängiges Sichtbarkeitssignal');
 assert(/element\('fieldset', `navigator-choice-grid/.test(app) && /visually-hidden', question\.prompt/.test(app), 'Auswahlgruppen benötigen semantische Fieldsets und eine zugängliche Legende');
 assert(/preferredScrollBehavior/.test(app) && /prefers-reduced-motion/.test(app), 'Automatische Scrollbewegungen müssen reduzierte Bewegung respektieren');

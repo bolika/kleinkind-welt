@@ -9,6 +9,7 @@ Status: beobachtete Exportdaten; keine Aussage zur Kausalität
 - Ungefilterter Plausible-Export mit Wochenverlauf, Seiten, Einstiegsseiten und Quellen.
 - Separater Export mit dem Goal `Affiliate-Klick`.
 - Custom Properties sind im aktuellen Plausible-Plan nicht verfügbar.
+- Der Betreiber hat bestätigt, dass eine manuelle IP-Sperre in Plausible bereits eingerichtet ist. Zeitpunkt sowie Abdeckung von IPv4, IPv6, Mobilfunk und VPN sind aus dem Export nicht erkennbar.
 - Die Rohdaten liegen nur lokal unter `imports/analytics/` und werden durch `.gitignore` von Git ausgeschlossen.
 - Der Export umfasst rund 76 statt 90 Tage. Vor dem 12.06.2026 liegen in diesen Dateien keine Werte vor.
 
@@ -41,7 +42,7 @@ Damit gingen die ausgewiesenen Besucher um 73,2 Prozent und die Sitzungen um 78,
 - Die Woche ab 06.07. enthält nur 6 Sitzungen, aber 147 Seitenaufrufe beziehungsweise 24,5 Aufrufe je Sitzung. Das ist ein deutlicher Prüf- oder Intensivnutzungs-Ausreißer.
 - Die Woche ab 20.07. hat mit 55 Sitzungen einen zweiten Einzelspike.
 - Die Woche ab 24.08. ist unvollständig.
-- Es gibt keinen bereinigten Vergleich ohne Betreiber- und Testtraffic.
+- Der Export erlaubt keine rückwirkende Prüfung, welche eigenen Browser, IPv4-/IPv6-Adressen, Mobilfunknetze oder VPN-Verbindungen von der bestehenden Sperre erfasst waren.
 
 ## Herkunft
 
@@ -53,7 +54,7 @@ Damit gingen die ausgewiesenen Besucher um 73,2 Prozent und die Sitzungen um 78,
 | Organic Shopping | 1 | 0,6 % |
 | Referral | 1 | 0,6 % |
 
-Die Kanalsummen können dieselbe Person in mehr als einem Segment enthalten. Dennoch ist die Richtung eindeutig: Die Baseline wird von `Direct` dominiert. Pinterest stellt 30 Besucher, Google 7, DuckDuckGo 3, Ecosia 2 und Bing 1. Deshalb darf der Rückgang des Gesamttraffics nicht automatisch als Google-Verlust interpretiert werden.
+Die Kanalsummen können dieselbe Person in mehr als einem Segment enthalten. Dennoch ist die Richtung eindeutig: Die Baseline wird von `Direct` dominiert. `Direct` ist nicht mit internem Traffic gleichzusetzen; dazu gehören auch eingegebene URLs, Bookmarks, E-Mail-Links, Messenger und andere Aufrufe ohne Referrer. Pinterest stellt 30 Besucher, Google 7, DuckDuckGo 3, Ecosia 2 und Bing 1. Deshalb darf der Rückgang des Gesamttraffics weder automatisch als Google-Verlust noch als Betreibertraffic interpretiert werden.
 
 ## Seiten und Affiliate-Signal
 
@@ -80,7 +81,7 @@ Mobile bleibt der primäre Prüf- und Optimierungskontext.
 
 ## Konsequenzen
 
-1. Betreiber- und Testtraffic ab sofort in allen eigenen Browsern ausschließen.
+1. Bestehende IP-Sperre beibehalten und nur prüfen, ob auch IPv6, Mobilfunk, VPN sowie weitere eigene Browser erfasst sind; eine rückwirkende Bereinigung wird nicht behauptet.
 2. GSC und Plausible getrennt interpretieren: GSC für Suchsichtbarkeit, Plausible für reale Seitennutzung.
 3. Keine neue Contentmasse aus dieser Stichprobe ableiten.
 4. `spielzeug-unter-20-euro` nach dem aktuellen Deploy und Recrawl für 14 und 28 Tage stabil messen.

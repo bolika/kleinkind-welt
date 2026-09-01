@@ -1,7 +1,7 @@
 import { compromiseOptions, matchStrollers, matcherInternals } from '/js/kinderwagen-matcher.mjs?v=20260728-typfrage';
 import { getVisibleQuestions, hasAnswerValue, matchesQuestionCondition, validateQuestionValue } from '/js/kinderwagen-question-flow.mjs?v=20260723-3';
 import { isFreshDate, offersForProduct, trackingLink } from '/js/kinderwagen-offers.mjs?v=20260723-images';
-import { resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260723-ux-audit';
+import { rankingNote, resultBadge } from '/js/kinderwagen-result-presentation.mjs?v=20260901-ties';
 
 const DATA_ROOT = '/data/kinderwagen-navigator';
 const app = document.querySelector('[data-navigator-app]');
@@ -65,10 +65,10 @@ const state = {
 };
 
 const marketLabels = {
-  current_available: 'Beim Hersteller verfügbar',
-  current_color_dependent: 'Verfügbarkeit hängt von der Variante ab',
-  current_temporarily_unavailable_manufacturer: 'Beim Hersteller vorübergehend nicht verfügbar',
-  current_retailer_only: 'Aktuell über Händler erhältlich',
+  current_available: 'Hersteller: verfügbar',
+  current_color_dependent: 'Variante prüfen',
+  current_temporarily_unavailable_manufacturer: 'Hersteller: derzeit ausverkauft',
+  current_retailer_only: 'Über Händler erhältlich',
   discontinued: 'Eingestellt',
   retired: 'Nicht mehr im Katalog',
   unknown: 'Verfügbarkeit vor Kauf prüfen'
@@ -709,7 +709,7 @@ function renderWaitlistPanel(segment, route) {
 
 function formatPrice(value) {
   if (typeof value !== 'number') return 'Gesamtpreis noch offen';
-  return `Geburtskonfiguration: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)}`;
+  return `Ab Geburt: ${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value)}`;
 }
 
 function offerAvailability(offer) {
@@ -1030,12 +1030,12 @@ function comparisonSection(results, badges) {
   const comparableWeightConfigurations = new Set(results.map((result) => result.comparisonFacts?.liftConfiguration).filter(Boolean));
   const weightBest = comparableWeightConfigurations.size === 1 ? lowestWeight : null;
   const rows = [
-    { label: 'Passung', value: (result) => result.matchScore, format: (value) => typeof value === 'number' ? `${value}%` : 'Keine Zahl', best: bestMatch },
-    { label: 'Gesamtpreis ab Geburt', value: (result) => result.priceEur, format: formatComparisonPrice, best: lowestPrice },
-    { label: 'Wagenbreite', value: (result) => result.comparisonFacts?.unfoldedWidthCm, format: (value) => typeof value === 'number' ? `${value} cm` : 'Nicht belegt', best: lowestWidth },
-    { label: comparisonWeightLabel(results), value: (result) => result.comparisonFacts?.liftWeightKg, format: (value) => typeof value === 'number' ? `${new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value)} kg` : 'Nicht belegt', best: weightBest },
+    { label: 'Passung', value: (result) => result.matchScore, format: (value) => typeof value === 'number' ? `${value}%` : 'Keine Zahl', best: bestMatch, bestLabel: 'Höchste Passung' },
+    { label: 'Gesamtpreis ab Geburt', value: (result) => result.priceEur, format: formatComparisonPrice, best: lowestPrice, bestLabel: 'Günstigster' },
+    { label: 'Wagenbreite', value: (result) => result.comparisonFacts?.unfoldedWidthCm, format: (value) => typeof value === 'number' ? `${value} cm` : 'Nicht belegt', best: lowestWidth, bestLabel: 'Schmalster' },
+    { label: comparisonWeightLabel(results), value: (result) => result.comparisonFacts?.liftWeightKg, format: (value) => typeof value === 'number' ? `${new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format(value)} kg` : 'Nicht belegt', best: weightBest, bestLabel: 'Leichtester' },
     { label: 'Faltmaß', value: (result) => result.comparisonFacts?.foldedDimensionsCm, format: formatDimensions },
-    { label: 'Korb: Liter · kg', value: (result) => result.comparisonFacts, format: formatStorage, bestValue: (facts) => facts?.basketVolumeL, best: largestVolume },
+    { label: 'Korb: Liter · kg', value: (result) => result.comparisonFacts, format: formatStorage, bestValue: (facts) => facts?.basketVolumeL, best: largestVolume, bestLabel: 'Größter Korb' },
     { label: 'Einhand-Faltung', value: (result) => result.comparisonFacts?.oneHandFold, format: formatYesNo },
     { label: 'Stärkste Passung', value: comparisonStrength, format: (value) => value ?? 'Nicht belegt', long: true },
     { label: 'Größter Abstrich', value: comparisonTradeoff, format: (value) => value ?? 'Nicht belegt', long: true }
@@ -1046,11 +1046,23 @@ function comparisonSection(results, badges) {
     const label = element('th', 'navigator-comparison__criterion', row.label);
     label.scope = 'row';
     tableRow.append(label);
+    const comparableValues = results.map((result) => {
+      const rawValue = row.value(result);
+      return row.bestValue ? row.bestValue(rawValue) : rawValue;
+    });
+    const bestCount = typeof row.best === 'number'
+      ? comparableValues.filter((value) => typeof value === 'number' && value === row.best).length
+      : 0;
     results.forEach((result) => {
       const rawValue = row.value(result);
       const compareValue = row.bestValue ? row.bestValue(rawValue) : rawValue;
       const isBest = typeof row.best === 'number' && typeof compareValue === 'number' && compareValue === row.best;
-      tableRow.append(element('td', isBest ? 'is-best-value' : '', row.format(rawValue)));
+      const cell = element('td', isBest ? 'is-best-value' : '');
+      cell.append(element('span', 'navigator-comparison__value', row.format(rawValue)));
+      if (isBest && row.bestLabel) {
+        cell.append(element('small', 'navigator-comparison__best', bestCount > 1 ? 'Gleichauf' : row.bestLabel));
+      }
+      tableRow.append(cell);
     });
     body.append(tableRow);
   }
@@ -1155,7 +1167,7 @@ function renderReadMore() {
   return panel;
 }
 
-function resultCard(result, rank, preliminary = false, fallback = false, badge = null) {
+function resultCard(result, rank, preliminary = false, fallback = false, badge = null, rankedResults = []) {
   const card = element('article', `navigator-live-result${preliminary ? ' is-preliminary' : ''}${fallback ? ' is-fallback' : ''}`);
   card.id = `navigator-result-${result.productId}`;
   if (badge?.kind === 'recommended') card.classList.add('is-primary-match');
@@ -1173,7 +1185,10 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
     : (badge ?? { label: role, kind: 'alternative' });
   heading.append(element('span', `navigator-result-badge is-${visibleBadge.kind}`, visibleBadge.label));
   heading.append(element('h3', '', `${result.brand} ${result.model}`));
-  if (!preliminary && result.scoreGapToBest > 0) heading.append(element('p', 'navigator-rank-context', `${result.scoreGapToBest} Punkte hinter der besten Gesamtpassung`));
+  if (!preliminary && !fallback) {
+    const note = rankingNote(result, rank, rankedResults);
+    if (note) heading.append(element('p', 'navigator-rank-context', note));
+  }
   const score = element('div', 'navigator-score');
   if (fallback && result.failures.length) {
     score.classList.add('is-data-gap');
@@ -1202,7 +1217,8 @@ function resultCard(result, rank, preliminary = false, fallback = false, badge =
   meta.append(
     element('span', '', formatPrice(result.priceEur)),
     element('span', '', marketLabels[result.marketStatus] ?? marketLabels.unknown),
-    element('span', '', 'Daten-Match · kein eigener Produkttest')
+    element('span', '', 'Datenvergleich'),
+    element('span', '', 'Kein eigener Test')
   );
   card.append(meta);
 
@@ -1494,7 +1510,7 @@ function renderResults() {
 
   const cards = element('div', 'navigator-live-results');
   result.results.forEach((item, index) => {
-    cards.append(resultCard(item, index + 1, false, false, badges[index]));
+    cards.append(resultCard(item, index + 1, false, false, badges[index], result.results));
     // E-Mail-Sicherung direkt nach dem Top-Match: Wert ist gezeigt,
     // bevor Vergleichsdetails und Alternativen folgen.
     if (index === 0) cards.append(renderEmailPanel(result));
