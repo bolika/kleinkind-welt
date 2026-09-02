@@ -510,20 +510,20 @@
       ]
     },
     {
-      "offerId": "babywalz-894023",
-      "productId": "haba-erster-obstgarten",
-      "title": "Haba Meine ersten Spiele - Erster Obstgarten",
+      "offerId": "babywalz-8409013",
+      "productId": "haba-obstgarten",
+      "title": "Haba Spiel Obstgarten",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["894023"],
-      "gtins": ["4010168046556"],
-      "deeplink": "https://www.awin1.com/pclick.php?p=21659904281&a=2998119&m=12387",
-      "editorialMatch": "Kooperatives erstes Regelspiel mit kurzer Spieldauer; Anbieterangaben und Kleinteilehinweise prüfen.",
+      "merchantProductIds": ["8409013"],
+      "gtins": ["4010168293974"],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45257943270&a=2998119&m=12387",
+      "editorialMatch": "Kooperatives Farbwürfelspiel ab drei Jahren mit kurzer Spieldauer; Anbieterangaben und Kleinteilehinweise prüfen.",
       "feedEvidence": {
-        "observedPrice": 18.99,
+        "observedPrice": 29,
         "currency": "EUR",
         "availability": "in_stock",
-        "priceLimit": 25,
-        "checkedAt": "2026-09-01"
+        "priceLimit": 35,
+        "checkedAt": "2026-09-02"
       },
       "placements": [
         {

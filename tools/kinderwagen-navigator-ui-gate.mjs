@@ -144,12 +144,13 @@ for (const [page, source] of Object.entries(entryPages)) {
   assert(/data-navigator-link/.test(source), `${page}: Navigator-Einstieg benötigt Klicktracking`);
   assert(/navigator-link-tracking\.js/.test(source), `${page}: Navigator-Linktracking wird nicht geladen`);
 }
-assert(/home-navigator-section/.test(entryPages.home) && /home-navigator-demo/.test(entryPages.home), 'Startseite benötigt eine prominente Navigator-Vorschau');
-assert(/data-placement="home-preview-primary"/.test(entryPages.home), 'Startseiten-Vorschau benötigt einen direkt messbaren Navigator-Einstieg');
-assert(/data-navigator-catalog-count/.test(entryPages.home), 'Startseiten-Vorschau benötigt einen dynamischen Katalogzähler');
-assert(/home-navigator-section/.test(siteCss) && /navigator-inline-card/.test(siteCss), 'Styles für Startseiten-Vorschau und kontextuelle Links fehlen');
-assert(/interner_einstieg/.test(linkTracking) && /data-navigator-catalog-count/.test(linkTracking), 'Internes Navigator-Tracking oder Katalogzählersynchronisierung fehlt');
-assert(!/95\s*%/.test(entryPages.home), 'Startseiten-Vorschau darf keinen überhöhten Beispielscore versprechen');
+// Die Startseite führt bewusst über vier gleichgewichtete Schnellstarts. Eine
+// große Navigator-Demo würde diese reduzierte Orientierung wieder verdrängen.
+assert(/class="home-quicklinks"/.test(entryPages.home), 'Startseite benötigt die kompakte Schnellstart-Navigation');
+assert(/href="\/kinderwagen-navigator"[\s\S]*data-navigator-link[\s\S]*data-placement="home-quicklinks"/.test(entryPages.home), 'Kinderwagen-Schnellstart benötigt einen direkt messbaren Navigator-Einstieg');
+assert(!/home-navigator-demo/.test(entryPages.home), 'Startseite darf die entfernte große Navigator-Demo nicht erneut einführen');
+assert(/home-quicklinks/.test(siteCss) && /navigator-inline-card/.test(siteCss), 'Styles für Schnellstarts und kontextuelle Navigator-Links fehlen');
+assert(/interner_einstieg/.test(linkTracking), 'Internes Navigator-Tracking fehlt');
 for (const filename of catalog.products) {
   const file = path.join(root, 'data', 'kinderwagen-navigator', 'products', filename);
   assert(fs.existsSync(file), `Katalogdatei fehlt: ${filename}`);

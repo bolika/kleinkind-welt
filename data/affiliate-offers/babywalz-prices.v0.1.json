@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-09-01T14:18:55.102Z",
-  "freshUntil": "2026-09-03T14:18:55.102Z",
+  "generatedAt": "2026-09-02T13:03:54.858Z",
+  "freshUntil": "2026-09-04T13:03:54.858Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -207,16 +207,16 @@
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/0c0fe4cd3b61403f6df062570191fc3e.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
-    "babywalz-894023": {
-      "productId": "haba-erster-obstgarten",
-      "merchantProductId": "894023",
-      "title": "Haba Meine ersten Spiele - Erster Obstgarten",
-      "productPrice": 18.99,
+    "babywalz-8409013": {
+      "productId": "haba-obstgarten",
+      "merchantProductId": "8409013",
+      "title": "Haba Spiel Obstgarten",
+      "productPrice": 29,
       "shipping": 1.99,
-      "totalPrice": 20.98,
+      "totalPrice": 30.99,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/bcc259ea4d0a4b08e3992859068fd5f6.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/bde8dcec851a2fa8dd324a8a4a263354.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8290580": {

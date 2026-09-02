@@ -17,6 +17,10 @@ Im Projekt umgesetzt:
 - fünf vollständige Babywalz-Kinderwagenangebote mit Produktbild in den Navigator integriert, ohne die redaktionelle Rangfolge zu verändern
 - tägliche Feed-Aktualisierung und technische Gates für Artikel- und Kinderwagenangebote erweitert
 - Mobile- und Desktop-Browsertests für Preis-, Bild- und CTA-Darstellung ergänzt
+- Geschenk-Hub um einen verlinkbaren 60-Sekunden-Kaufcheck und offizielle Sicherheitsquellen verdichtet; unbelegte Budgetnormen und Sicherheitsabsolutheiten entfernt
+- Montessori-Seite um einen eingeklappten Beobachtungscheck ergänzt, der aktuelles Spielinteresse vor Produktlabel und Produktmenge stellt
+- veralteten Homepage-Vertrag im Kinderwagen-Quality-Gate an die bewusst kompakte Schnellstart-Navigation angepasst
+- nicht mehr verfügbares Babywalz-Angebot für „Erster Obstgarten“ durch das exakt gemappte aktuelle HABA-Spiel „Obstgarten“ ersetzt
 
 Noch nicht als Wirkung validiert:
 
