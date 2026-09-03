@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-09-02T13:03:54.858Z",
-  "freshUntil": "2026-09-04T13:03:54.858Z",
+  "generatedAt": "2026-09-03T08:18:02.471Z",
+  "freshUntil": "2026-09-05T08:18:02.471Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -24,7 +24,7 @@
       "totalPrice": 14.89,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/fb964126c35a79499d32511791a64b8c.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/da64f266bdb3ab75d71be9ef55b23f13.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7412835": {
@@ -36,7 +36,7 @@
       "totalPrice": 17.28,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/69e35217bf28c071b2bd94235791a5da.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/7a9d4fce00d99c1db87fb557af0b2b37.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395292": {
@@ -60,7 +60,7 @@
       "totalPrice": 10.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/827dc878e840ad5faf5ef92972e1f232.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/535ff46f15f5f106dd77b40cf7d8466a.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8395586": {
@@ -71,9 +71,7 @@
       "shipping": 4.99,
       "totalPrice": 17.98,
       "currency": "EUR",
-      "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c27cff530b713247665e39fda6b4d37b.jpg",
-      "imageRightsStatus": "approved_for_feed_only"
+      "availability": "in_stock"
     },
     "babywalz-5743389": {
       "productId": "u20-greifling-beissring",
@@ -192,7 +190,7 @@
       "totalPrice": 25.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/d5ec80dc9d2ba125be656b99863f7ec6.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/44d150c6e18ad3e744d66c55b1570f26.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7174837": {
@@ -204,7 +202,7 @@
       "totalPrice": 42.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/0c0fe4cd3b61403f6df062570191fc3e.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/b17ab5c829595670e7e03d2a595d506c.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8409013": {
@@ -216,7 +214,7 @@
       "totalPrice": 30.99,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/bde8dcec851a2fa8dd324a8a4a263354.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c6a6c68d645af597c791ecb87651ae48.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8290580": {
@@ -228,67 +226,67 @@
       "totalPrice": 13.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/9858b032f25bfeb96c96d7653178c4ff.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/117be6a3d04c354c2e5e372ebf5f104e.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7980140": {
       "productId": "fehn-schmusetuch-otter-theo",
       "merchantProductId": "7980140",
       "title": "Fehn Musselin-Schmusetuch Otter Theo",
-      "productPrice": 10.99,
+      "productPrice": 11,
       "shipping": 4.99,
-      "totalPrice": 15.98,
+      "totalPrice": 15.99,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/8113c0b56bfd849f8c6e14c133ad5c4e.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/32fd66f94f1ee5e62901e75e5d06b6a0.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-6288111": {
       "productId": "fehn-spielbogen-teddy-rainbow",
       "merchantProductId": "6288111",
       "title": "Fehn Spielbogen mit 3-D-Activity-Decke Teddy Rainbow",
-      "productPrice": 52.99,
+      "productPrice": 55.99,
       "shipping": 1.99,
-      "totalPrice": 54.98,
+      "totalPrice": 57.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/a9b6302cda6884664549e3899f8868a5.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/2871e440099fe21c9c8baf47ad64931d.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-7980213": {
       "productId": "fehn-stoffbuch-otter-theo",
       "merchantProductId": "7980213",
       "title": "Fehn Stoffbuch Otter Theo",
-      "productPrice": 11,
+      "productPrice": 10.99,
       "shipping": 4.99,
-      "totalPrice": 15.99,
+      "totalPrice": 15.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/a9fcb9f5b6bc634990269e28a7731e30.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/f30f70bf624af0b0ca0e79c376d96181.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8389780": {
       "productId": "kinderkraft-mini-laufrad-cutie",
       "merchantProductId": "8389780",
       "title": "Kinderkraft Mini-Laufrad CUTIE",
-      "productPrice": 24.99,
+      "productPrice": 26.99,
       "shipping": 1.99,
-      "totalPrice": 26.98,
+      "totalPrice": 28.98,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/74d4cf5f36c3f755cf3ca0002755a01d.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/9e0b59ca24f232a2d5ec6787b66b6382.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     },
     "babywalz-8384207": {
       "productId": "kinderkraft-laufrad-2way-next",
       "merchantProductId": "8384207",
       "title": "Kinderkraft Laufrad 2WAY NEXT OFF ROAD",
-      "productPrice": 28.99,
+      "productPrice": 34.9,
       "shipping": 1.99,
-      "totalPrice": 30.98,
+      "totalPrice": 36.89,
       "currency": "EUR",
       "availability": "in_stock",
-      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/f6752b1ed0792051d99ce43cefcdc9c2.jpg",
+      "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/c164a6b591fc731849a97b7ac184b3a3.jpg",
       "imageRightsStatus": "approved_for_feed_only"
     }
   }
