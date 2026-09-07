@@ -64,6 +64,11 @@ const approvedImageDocument = importOffers({
 assert(approvedImageDocument.offers[0].imageUrl === 'https://example.invalid/testmodell.jpg', 'Freigegebenes Feed-Bild muss importiert werden.');
 assert(approvedImageDocument.offers[0].imageRightsStatus === 'approved_for_feed_only', 'Freigegebenes Feed-Bild benötigt einen expliziten Rechte-Status.');
 assert(displayableOffer(document.offers[0], now), 'Vollständiges verfügbares Angebot muss darstellbar sein.');
+const unavailable = structuredClone(document.offers[0]);
+unavailable.availability.status = 'out_of_stock';
+assert(!displayableOffer(unavailable, now), 'Frisch bestätigte ausverkaufte Angebote dürfen nicht erscheinen.');
+unavailable.availability.status = 'in_stock';
+assert(displayableOffer(unavailable, now), 'Wieder verfügbare Angebote müssen erneut erscheinen können.');
 assert(!displayableOffer(document.offers[1], now), 'Teilkonfiguration darf nicht als Kaufangebot erscheinen.');
 assert(offersForProduct(document.offers, 'bugaboo-fox-5-renew', now).length === 1, 'UI-Auswahl muss Teilkonfiguration ausfiltern.');
 assert(isFreshDate(document.offers[0].price.freshUntil, now), 'Importierter Preis muss frisch sein.');

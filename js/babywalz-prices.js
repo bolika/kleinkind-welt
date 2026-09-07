@@ -15,7 +15,9 @@
   }
 
   function validOffer(offer) {
-    const withinPageLimit = !document.body.classList.contains('page-spielzeug-unter-20-euro') || offer?.totalPrice <= PRICE_LIMIT;
+    const pageLimit = Number(document.body.dataset.priceLimit) ||
+      (document.body.classList.contains('page-spielzeug-unter-20-euro') ? PRICE_LIMIT : Infinity);
+    const withinPageLimit = offer?.totalPrice <= pageLimit;
     return offer?.availability === 'in_stock' &&
       offer.currency === 'EUR' &&
       Number.isFinite(offer.productPrice) && offer.productPrice > 0 &&
@@ -111,6 +113,14 @@
     const links = [...document.querySelectorAll('a[data-merchant="babywalz"][data-offer-id]')];
     if (!links.length) return;
 
+    // A named product must keep its own merchant destination when prices expire.
+    for (const link of links) {
+      if (scopeFor(link)?.dataset.merchantChoice !== 'single') continue;
+      link.hidden = false;
+      const amazon = scopeFor(link).querySelector('a[data-affiliate="amazon"]');
+      if (amazon) amazon.hidden = true;
+    }
+
     try {
       const response = await fetch(SNAPSHOT_URL, { cache: 'no-store', credentials: 'same-origin' });
       if (!response.ok) return;
@@ -120,6 +130,10 @@
       for (const link of links) {
         const offer = snapshot.offers?.[link.dataset.offerId];
         if (validOffer(offer)) renderOffer(link, offer, snapshot.generatedAt);
+        else if (offer?.availability === 'out_of_stock') link.textContent = 'Verfügbarkeit bei Babywalz prüfen';
+        else if (Number(document.body.dataset.priceLimit) > 0 && offer?.totalPrice > Number(document.body.dataset.priceLimit)) {
+          link.textContent = 'Aktuell über Budget: bei Babywalz prüfen';
+        }
       }
     } catch {
       // The merchant CTA remains usable; only freshness-bound price UI is omitted.

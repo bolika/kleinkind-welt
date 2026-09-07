@@ -6,6 +6,7 @@
   "stichtagArbeitsbewertung": "2026-08-02",
   "sichtbareBadgeBaseline": {
     "erfasstAm": "2026-08-26",
+    "aenderungsnotiz20260907": "Montessori: Busy-Board-Empfehlung samt KI-Bild entfernt. Daher nur noch ein Bild und ein Badge auf dieser Seite; keine Kennzeichnung eines verbleibenden Motivs entfernt.",
     "zweck": "Schuetzt vorhandene sichtbare Hinweise vor unbeabsichtigter Entfernung, ohne bei vor dem Stichtag belegten Motiven neue Badges automatisch zu erzwingen.",
     "seiten": {
       "artikel/badespielzeug-kleinkind.html": 7,
@@ -14,7 +15,7 @@
       "artikel/geschenke-3-jahre.html": 1,
       "artikel/geschenke-zur-geburt.html": 1,
       "artikel/holzspielzeug-vs-plastikspielzeug.html": 1,
-      "artikel/montessori-spielzeug-kleinkind.html": 2,
+      "artikel/montessori-spielzeug-kleinkind.html": 1,
       "artikel/motorikspielzeug-test.html": 1,
       "artikel/outdoor-spielzeug-kleinkind.html": 1,
       "artikel/reisespielzeug-kleinkind.html": 1,

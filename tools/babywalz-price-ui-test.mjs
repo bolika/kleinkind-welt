@@ -9,10 +9,17 @@ import { chromium } from 'playwright';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:8766';
 const articleUrl = `${baseUrl}/artikel/spielzeug-unter-20-euro.html`;
+const fixture = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliate-offers/babywalz-prices.v0.1.json'), 'utf8'));
+fixture.generatedAt = new Date(Date.now() - 60000).toISOString();
+fixture.freshUntil = new Date(Date.now() + 3600000).toISOString();
+for (const id of ['babywalz-8390215', 'babywalz-7412835', 'babywalz-8293872']) {
+  Object.assign(fixture.offers[id], { availability: 'in_stock', productPrice: 9.90, shipping: 4.99, totalPrice: 14.89 });
+}
 
 async function testViewport(browser, width, height) {
   const page = await browser.newPage({ viewport: { width, height } });
   const errors = [];
+  await page.route('**/data/affiliate-offers/babywalz-prices.v0.1.json', route => route.fulfill({ json: fixture }));
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
   });
@@ -36,7 +43,7 @@ async function testViewport(browser, width, height) {
   assert.equal(await page.locator('#greifen .kw-live-offer-total').textContent(), 'Gesamt inkl. Versand: 14,89 €');
   assert.equal(await page.locator('#greifen .kw-live-offer-details').textContent(), 'Produkt 9,90 € + Versand 4,99 €');
   assert.equal(await page.locator('#greifen .kw-offer-primary').textContent(), 'Bei Babywalz ansehen');
-  assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').isHidden(), true, `${width}px: Amazon darf bei frischem Babywalz-Angebot nicht gleichzeitig sichtbar sein.`);
+  assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').count(), 0, `${width}px: kein abweichendes Amazon-Produkt in der Badabulle-Karte.`);
 
   const layout = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth - window.innerWidth,
@@ -61,38 +68,23 @@ async function testViewport(browser, width, height) {
   await page.close();
 }
 
-async function testStaleFallback(browser) {
-  const snapshot = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliate-offers/babywalz-prices.v0.1.json'), 'utf8'));
-  snapshot.generatedAt = '2026-08-20T08:00:00.000Z';
-  snapshot.freshUntil = '2026-08-22T08:00:00.000Z';
-
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  const errors = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  await page.route('**/data/affiliate-offers/babywalz-prices.v0.1.json', (route) => route.fulfill({
-    status: 200,
-    contentType: 'application/json',
-    body: JSON.stringify(snapshot)
-  }));
+async function testFallback(browser, mode) {
+  const snapshot = structuredClone(fixture);
+  if (mode === 'stale') snapshot.freshUntil = new Date(Date.now() - 1000).toISOString();
+  if (mode === 'missing') snapshot.offers = {};
+  if (mode === 'unavailable') for (const offer of Object.values(snapshot.offers)) offer.availability = 'out_of_stock';
+  if (mode === 'over-budget') for (const offer of Object.values(snapshot.offers)) {
+    offer.productPrice = 30; offer.totalPrice = 30 + offer.shipping;
+  }
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, javaScriptEnabled: mode !== 'no-js' });
+  await page.route('**/data/affiliate-offers/babywalz-prices.v0.1.json', route =>
+    mode === 'failure' ? route.fulfill({ status: 503, body: '' }) : route.fulfill({ json: snapshot }));
   await page.goto(articleUrl, { waitUntil: 'networkidle' });
-
-  assert.equal(await page.locator('.kw-live-offer').count(), 0, 'Veraltete Preise dürfen nicht erscheinen.');
-  assert.equal(await page.locator('.kw-offer-media').count(), 0, 'Veraltete Feed-Daten dürfen keine Produktbilder ausspielen.');
-  assert.equal(await page.locator('.has-fresh-babywalz-offer').count(), 0, 'Veraltete Preise dürfen keine CTA-Priorität ändern.');
-  assert.equal(await page.locator('#greifen a[data-affiliate="amazon"]').textContent(), 'Preis bei Amazon prüfen');
-  const fallback = await page.evaluate(() => {
-    const babywalz = document.querySelector('#greifen a[data-merchant="babywalz"]');
-    const amazon = document.querySelector('#greifen a[data-affiliate="amazon"]');
-    return {
-      babywalzHidden: babywalz.hidden,
-      amazonVisible: amazon.getClientRects().length > 0,
-      visibleMerchantButtons: [...document.querySelectorAll('.pilot-actions a[data-affiliate]')].filter((link) => link.getClientRects().length > 0).length
-    };
-  });
-  assert.equal(fallback.babywalzHidden, true, 'Ohne frisches Angebot muss Babywalz verborgen bleiben.');
-  assert.equal(fallback.amazonVisible, true, 'Ohne frisches Babywalz-Angebot muss Amazon als Fallback erscheinen.');
-  assert.equal(fallback.visibleMerchantButtons, 3, 'Auch im Fallback darf pro Produkt nur ein Händler-CTA sichtbar sein.');
-  assert.deepEqual(errors, [], `Fallback erzeugt Browserfehler: ${errors.join(' | ')}`);
+  assert.equal(await page.locator('.kw-live-offer').count(), 0, mode + ': keine unbestätigten Preise.');
+  assert.equal(await page.locator('.kw-offer-media').count(), 0, mode + ': keine unbestätigten Feed-Bilder.');
+  assert.equal(await page.locator('.pilot-actions a[data-affiliate="amazon"]').count(), 0, mode + ': kein fremdes Ersatzprodukt.');
+  assert.equal(await page.locator('.pilot-actions a[data-merchant="babywalz"]:visible').count(), 3, mode + ': Produktlink bleibt nutzbar.');
+  assert.ok((await page.locator('#greifen a[data-merchant="babywalz"]').getAttribute('href')).includes('p=44809755368'));
   await page.close();
 }
 
@@ -101,8 +93,8 @@ try {
   for (const viewport of [[390, 844], [768, 1024], [1440, 1100]]) {
     await testViewport(browser, viewport[0], viewport[1]);
   }
-  await testStaleFallback(browser);
-  console.log('Babywalz-Preis-UI-Test bestanden: ein sichtbarer Händler pro Produkt auf 390, 768 und 1440 px sowie Amazon-Fallback.');
+  for (const mode of ['stale', 'missing', 'unavailable', 'over-budget', 'failure', 'no-js']) await testFallback(browser, mode);
+  console.log('Babywalz-Preis-UI-Test bestanden: ein sichtbarer Händler pro Produkt auf 390, 768 und 1440 px sowie sechs ausfallsichere Produktlink-Szenarien.');
 } finally {
   await browser.close();
 }

@@ -86,4 +86,4 @@ Bis zum ersten Nachhervergleich Ende September werden nur diese Signale bewertet
 - Affiliate-Klicker, nicht die doppelt erfassten Outbound-Klicks addieren
 - qualifizierte Antworten, Erwaehnungen und neue verweisende Domains
 
-Eine UX- oder Conversion-Entscheidung wird nicht aus weniger als 30 Einstiegen pro Zielseite abgeleitet.
+Bei wenigen Einstiegen bleiben Conversion-Unterschiede deskriptive Hinweise. Eine feste Zahl wie 30 Besuche macht einen Vergleich nicht automatisch belastbar; Zeitraum, Fallzahlen und Unsicherheit werden immer mitberichtet.

@@ -1,3 +1,5 @@
+/artikel/adventskalender-kleinkind.html /artikel/adventskalender-kleinkind 301!
+/artikel/nikolausgeschenke-kleinkind.html /artikel/nikolausgeschenke-kleinkind 301!
 # www → non-www (falls nicht im Netlify-Dashboard konfiguriert)
 https://www.kleinkind-welt.de/* https://kleinkind-welt.de/:splat 301!
 

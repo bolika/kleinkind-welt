@@ -49,8 +49,12 @@
       "productId": "u20-stapelbecher",
       "title": "Badabulle Stapelbecher Silikon 7tlg.",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8390215"],
-      "gtins": ["3661276189270"],
+      "merchantProductIds": [
+        "8390215"
+      ],
+      "gtins": [
+        "3661276189270"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44809755368&a=2998119&m=12387",
       "editorialMatch": "Stapelbecher für Bad, Sand und freies Stapelspiel; Anbieterangabe ab Geburt.",
       "feedEvidence": {
@@ -75,6 +79,11 @@
           "page": "artikel/spielzeug-12-18-monate.html",
           "scopeId": "produkt-stapelbecher",
           "clickref": "1218_card_badabulle_stapelbecher"
+        },
+        {
+          "page": "artikel/nikolausgeschenke-kleinkind.html",
+          "scopeId": "becher",
+          "clickref": "nikolaus_card_becher"
         }
       ]
     },
@@ -83,8 +92,12 @@
       "productId": "u20-klopfbank",
       "title": "Solini Klopfbank aus Holz",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["7412835"],
-      "gtins": ["4055512667766"],
+      "merchantProductIds": [
+        "7412835"
+      ],
+      "gtins": [
+        "4055512667766"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=40834866528&a=2998119&m=12387",
       "editorialMatch": "Holz-Klopfbank mit Hammer und acht Klopfstiften; Anbieterangabe ab 12 Monaten.",
       "feedEvidence": {
@@ -104,6 +117,11 @@
           "page": "artikel/geschenke-2-jahre.html",
           "scopeId": "hape-hammerbank",
           "clickref": "g2_card_solini_klopfbank"
+        },
+        {
+          "page": "artikel/nikolausgeschenke-kleinkind.html",
+          "scopeId": "klopfen",
+          "clickref": "nikolaus_card_klopfen"
         }
       ]
     },
@@ -111,8 +129,12 @@
       "offerId": "babywalz-8395292",
       "productId": "u20-steckpuzzle",
       "title": "Hape Steckpuzzle Bauernhof",
-      "merchantProductIds": ["8395292"],
-      "gtins": ["6943478056572"],
+      "merchantProductIds": [
+        "8395292"
+      ],
+      "gtins": [
+        "6943478056572"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44790810774&a=2998119&m=12387",
       "editorialMatch": "Holz-Steckpuzzle mit großen Griffknöpfen; Anbieterangabe ab 2 Jahren.",
       "feedEvidence": {
@@ -140,8 +162,12 @@
       "productId": "u20-pappbilderbuch",
       "title": "Ravensburger Pappbilderbuch Meine allerersten Tiere",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8293872"],
-      "gtins": ["9783473421466"],
+      "merchantProductIds": [
+        "8293872"
+      ],
+      "gtins": [
+        "9783473421466"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=42519965642&a=2998119&m=12387",
       "editorialMatch": "Robustes Pappbilderbuch zum Anschauen und Benennen; Anbieterangabe ab 6 Monaten.",
       "feedEvidence": {
@@ -166,6 +192,11 @@
           "page": "artikel/spielzeug-12-18-monate.html",
           "scopeId": "produkt-pappbuecher",
           "clickref": "1218_card_ravensburger_tiere"
+        },
+        {
+          "page": "artikel/nikolausgeschenke-kleinkind.html",
+          "scopeId": "buch",
+          "clickref": "nikolaus_card_buch"
         }
       ]
     },
@@ -173,8 +204,12 @@
       "offerId": "babywalz-8395586",
       "productId": "u20-fingermalen",
       "title": "Hape Fingermalen",
-      "merchantProductIds": ["8395586"],
-      "gtins": ["6943478039407"],
+      "merchantProductIds": [
+        "8395586"
+      ],
+      "gtins": [
+        "6943478039407"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44790810430&a=2998119&m=12387",
       "editorialMatch": "Fingermal-Set mit vier Farben und neun Tierbildern; Anbieterangabe ab 3 Jahren.",
       "feedEvidence": {
@@ -201,8 +236,12 @@
       "offerId": "babywalz-5743389",
       "productId": "u20-greifling-beissring",
       "title": "Sophie La Girafe Greifling & Kühlbeißring fresh",
-      "merchantProductIds": ["5743389"],
-      "gtins": ["3056560103290"],
+      "merchantProductIds": [
+        "5743389"
+      ],
+      "gtins": [
+        "3056560103290"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=40834858177&a=2998119&m=12387",
       "editorialMatch": "Kombinierter Greifling und Kühlbeißring; Anbieterangabe ab 3 Monaten.",
       "feedEvidence": {
@@ -229,8 +268,12 @@
       "offerId": "babywalz-7412860",
       "productId": "solini-sortierbox",
       "title": "Solini Sortier- und Steckspiel",
-      "merchantProductIds": ["7412860"],
-      "gtins": ["4055512667797"],
+      "merchantProductIds": [
+        "7412860"
+      ],
+      "gtins": [
+        "4055512667797"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=32925150429&a=2998119&m=12387",
       "editorialMatch": "Sortier- und Steckbox aus Holz mit zwölf Formen; Anbieterangabe ab 12 Monaten.",
       "feedEvidence": {
@@ -262,8 +305,12 @@
       "offerId": "babywalz-8395160",
       "productId": "hape-formensortierer",
       "title": "Hape Farben- & Formensortierer",
-      "merchantProductIds": ["8395160"],
-      "gtins": ["6943478006270"],
+      "merchantProductIds": [
+        "8395160"
+      ],
+      "gtins": [
+        "6943478006270"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44790814082&a=2998119&m=12387",
       "editorialMatch": "Farben- und Formensortierer aus Holz mit neun Steckelementen; Anbieterangabe ab 18 Monaten.",
       "feedEvidence": {
@@ -295,8 +342,12 @@
       "offerId": "babywalz-6276008",
       "productId": "haba-greifpuzzle-tierkinder",
       "title": "Haba Greifpuzzle Bauernhof-Tierkinder",
-      "merchantProductIds": ["6276008"],
-      "gtins": ["4010168218892"],
+      "merchantProductIds": [
+        "6276008"
+      ],
+      "gtins": [
+        "4010168218892"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=45568655808&a=2998119&m=12387",
       "editorialMatch": "Holz-Greifpuzzle mit vier Bauernhof-Tierkindern; Anbieterangabe ab 12 Monaten.",
       "feedEvidence": {
@@ -338,8 +389,12 @@
       "offerId": "babywalz-7480377",
       "productId": "weihnachten-lauflernwagen",
       "title": "Small Foot Lauflernwagen Move it!",
-      "merchantProductIds": ["7480377"],
-      "gtins": ["4020972109477"],
+      "merchantProductIds": [
+        "7480377"
+      ],
+      "gtins": [
+        "4020972109477"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=45137756940&a=2998119&m=12387",
       "editorialMatch": "Stabiler Schiebewagen mit Transportfläche; Anbieterangabe ab 12 Monaten.",
       "feedEvidence": {
@@ -349,26 +404,34 @@
         "priceLimit": 60,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
-        "scopeId": "produkt-lauflernwagen",
-        "clickref": "weihnachten_card_smallfoot_lauflernwagen"
-      }, {
-        "page": "artikel/geschenke-1-jahr.html",
-        "scopeId": "geschenk-losziehen",
-        "clickref": "g1_moment_smallfoot_lauflernwagen"
-      }, {
-        "page": "artikel/spielzeug-12-18-monate.html",
-        "scopeId": "produkt-lauflernwagen",
-        "clickref": "1218_card_smallfoot_lauflernwagen"
-      }]
+      "placements": [
+        {
+          "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+          "scopeId": "produkt-lauflernwagen",
+          "clickref": "weihnachten_card_smallfoot_lauflernwagen"
+        },
+        {
+          "page": "artikel/geschenke-1-jahr.html",
+          "scopeId": "geschenk-losziehen",
+          "clickref": "g1_moment_smallfoot_lauflernwagen"
+        },
+        {
+          "page": "artikel/spielzeug-12-18-monate.html",
+          "scopeId": "produkt-lauflernwagen",
+          "clickref": "1218_card_smallfoot_lauflernwagen"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8347301",
       "productId": "weihnachten-duplo-tiere",
       "title": "Lego® Duplo® 10477 3-in-1 Kreative Tiere",
-      "merchantProductIds": ["8347301"],
-      "gtins": ["5702018032039"],
+      "merchantProductIds": [
+        "8347301"
+      ],
+      "gtins": [
+        "5702018032039"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=43647813531&a=2998119&m=12387",
       "editorialMatch": "Kompaktes DUPLO-Set mit drei baubaren Tieren; Anbieterangabe ab 18 Monaten.",
       "feedEvidence": {
@@ -378,22 +441,29 @@
         "priceLimit": 20,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
-        "scopeId": "produkt-duplo",
-        "clickref": "weihnachten_card_duplo_tiere"
-      }, {
-        "page": "artikel/spielzeug-18-24-monate.html",
-        "scopeId": "produkt-duplo-tiere",
-        "clickref": "1824_card_duplo_tiere"
-      }]
+      "placements": [
+        {
+          "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+          "scopeId": "produkt-duplo",
+          "clickref": "weihnachten_card_duplo_tiere"
+        },
+        {
+          "page": "artikel/spielzeug-18-24-monate.html",
+          "scopeId": "produkt-duplo-tiere",
+          "clickref": "1824_card_duplo_tiere"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8336709",
       "productId": "weihnachten-raupe-fuehlbuch",
       "title": "Gerstenberg Verlag Die Kleine Raupe Nimmersatt Mein Tier-Fühlbuch Die kleine Raupe Nimmersatt",
-      "merchantProductIds": ["8336709"],
-      "gtins": ["9783836962261"],
+      "merchantProductIds": [
+        "8336709"
+      ],
+      "gtins": [
+        "9783836962261"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=43040775591&a=2998119&m=12387",
       "editorialMatch": "Robustes Tier-Fühlbuch für einen gemeinsamen ruhigen Weihnachtsmoment.",
       "feedEvidence": {
@@ -403,18 +473,24 @@
         "priceLimit": 25,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/weihnachtsgeschenke-kleinkind.html",
-        "scopeId": "produkt-buecher",
-        "clickref": "weihnachten_card_raupe_fuehlbuch"
-      }]
+      "placements": [
+        {
+          "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+          "scopeId": "produkt-buecher",
+          "clickref": "weihnachten_card_raupe_fuehlbuch"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8395047",
       "productId": "montessori-spiegelpuzzle",
       "title": "Hape Spiegelpuzzle Montessori",
-      "merchantProductIds": ["8395047"],
-      "gtins": ["6943478037878"],
+      "merchantProductIds": [
+        "8395047"
+      ],
+      "gtins": [
+        "6943478037878"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44790814355&a=2998119&m=12387",
       "editorialMatch": "Einfaches Spiegelpuzzle mit großen Formen; Anbieterangabe ab 10 Monaten.",
       "feedEvidence": {
@@ -424,18 +500,24 @@
         "priceLimit": 20,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/montessori-spielzeug-kleinkind.html",
-        "scopeId": "produkt-montessori-einstieg",
-        "clickref": "montessori_card_spiegelpuzzle"
-      }]
+      "placements": [
+        {
+          "page": "artikel/montessori-spielzeug-kleinkind.html",
+          "scopeId": "produkt-montessori-einstieg",
+          "clickref": "montessori_card_spiegelpuzzle"
+        }
+      ]
     },
     {
       "offerId": "babywalz-6264646",
       "productId": "montessori-kreatives-steckpuzzle",
       "title": "Hape Steckspiel Kreatives Steckpuzzle",
-      "merchantProductIds": ["6264646"],
-      "gtins": ["6943478002586"],
+      "merchantProductIds": [
+        "6264646"
+      ],
+      "gtins": [
+        "6943478002586"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=22141806965&a=2998119&m=12387",
       "editorialMatch": "Anspruchsvolleres Steckpuzzle mit 16 Teilen; Anbieterangabe ab 18 Monaten.",
       "feedEvidence": {
@@ -445,19 +527,25 @@
         "priceLimit": 20,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/montessori-spielzeug-kleinkind.html",
-        "scopeId": "produkt-montessori-fortgeschritten",
-        "clickref": "montessori_card_hape_steckpuzzle"
-      }]
+      "placements": [
+        {
+          "page": "artikel/montessori-spielzeug-kleinkind.html",
+          "scopeId": "produkt-montessori-fortgeschritten",
+          "clickref": "montessori_card_hape_steckpuzzle"
+        }
+      ]
     },
     {
       "offerId": "babywalz-7174675",
       "productId": "duplo-10913-steinebox",
       "title": "Lego® Duplo® 10913 Steinebox",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["7174675"],
-      "gtins": ["5702016617740"],
+      "merchantProductIds": [
+        "7174675"
+      ],
+      "gtins": [
+        "5702016617740"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=25743537713&a=2998119&m=12387",
       "editorialMatch": "Klassische DUPLO-Steinebox für freies Bauen und Sortieren; Anbieterangaben am Produkt prüfen.",
       "feedEvidence": {
@@ -485,8 +573,12 @@
       "productId": "duplo-10914-deluxe-steinebox",
       "title": "Lego® Duplo® 10914 Deluxe Steinebox",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["7174837"],
-      "gtins": ["5702016617757"],
+      "merchantProductIds": [
+        "7174837"
+      ],
+      "gtins": [
+        "5702016617757"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=25676749117&a=2998119&m=12387",
       "editorialMatch": "Große DUPLO-Steinebox für freies Bauen und länger nutzbare Spielszenen.",
       "feedEvidence": {
@@ -514,8 +606,12 @@
       "productId": "haba-obstgarten",
       "title": "Haba Spiel Obstgarten",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8409013"],
-      "gtins": ["4010168293974"],
+      "merchantProductIds": [
+        "8409013"
+      ],
+      "gtins": [
+        "4010168293974"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=45257943270&a=2998119&m=12387",
       "editorialMatch": "Kooperatives Farbwürfelspiel ab drei Jahren mit kurzer Spieldauer; Anbieterangaben und Kleinteilehinweise prüfen.",
       "feedEvidence": {
@@ -543,8 +639,12 @@
       "productId": "baby-kontrastbuch-gute-nacht",
       "title": "Arsedition Pappbilderbuch Meine kleine Babywelt: Kontrastbuch Gute Nacht",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8290580"],
-      "gtins": ["9783845861388"],
+      "merchantProductIds": [
+        "8290580"
+      ],
+      "gtins": [
+        "9783845861388"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=42519967253&a=2998119&m=12387",
       "editorialMatch": "Kompaktes Kontrast-Pappbilderbuch für kurze gemeinsame Betrachtungsmomente.",
       "feedEvidence": {
@@ -554,19 +654,25 @@
         "priceLimit": 15,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/spielzeug-0-6-monate.html",
-        "scopeId": "produkt-kontrastbuch",
-        "clickref": "06_card_kontrastbuch"
-      }]
+      "placements": [
+        {
+          "page": "artikel/spielzeug-0-6-monate.html",
+          "scopeId": "produkt-kontrastbuch",
+          "clickref": "06_card_kontrastbuch"
+        }
+      ]
     },
     {
       "offerId": "babywalz-7980140",
       "productId": "fehn-schmusetuch-otter-theo",
       "title": "Fehn Musselin-Schmusetuch Otter Theo",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["7980140"],
-      "gtins": ["4001998047028"],
+      "merchantProductIds": [
+        "7980140"
+      ],
+      "gtins": [
+        "4001998047028"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=38569559918&a=2998119&m=12387",
       "editorialMatch": "Leichtes Musselin-Schmusetuch zum beaufsichtigten Greifen und Fühlen; Schlafhinweise beachten.",
       "feedEvidence": {
@@ -576,19 +682,25 @@
         "priceLimit": 20,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/spielzeug-0-6-monate.html",
-        "scopeId": "produkt-schmusetuch",
-        "clickref": "06_card_schmusetuch_otter"
-      }]
+      "placements": [
+        {
+          "page": "artikel/spielzeug-0-6-monate.html",
+          "scopeId": "produkt-schmusetuch",
+          "clickref": "06_card_schmusetuch_otter"
+        }
+      ]
     },
     {
       "offerId": "babywalz-6288111",
       "productId": "fehn-spielbogen-teddy-rainbow",
       "title": "Fehn Spielbogen mit 3-D-Activity-Decke Teddy Rainbow",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["6288111"],
-      "gtins": ["4001998160888"],
+      "merchantProductIds": [
+        "6288111"
+      ],
+      "gtins": [
+        "4001998160888"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=21902408915&a=2998119&m=12387",
       "editorialMatch": "Spielbogen mit Activity-Decke für beaufsichtigte Spielphasen; Nutzungs- und Sicherheitshinweise prüfen.",
       "feedEvidence": {
@@ -616,8 +728,12 @@
       "productId": "fehn-stoffbuch-otter-theo",
       "title": "Fehn Stoffbuch Otter Theo",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["7980213"],
-      "gtins": ["4001998047110"],
+      "merchantProductIds": [
+        "7980213"
+      ],
+      "gtins": [
+        "4001998047110"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=38569558383&a=2998119&m=12387",
       "editorialMatch": "Weiches Stoffbuch mit unterschiedlichen Oberflächen für beaufsichtigte Entdeckungsmomente.",
       "feedEvidence": {
@@ -627,19 +743,25 @@
         "priceLimit": 20,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/spielzeug-6-12-monate.html",
-        "scopeId": "produkt-stoffbuch",
-        "clickref": "612_card_stoffbuch_otter"
-      }]
+      "placements": [
+        {
+          "page": "artikel/spielzeug-6-12-monate.html",
+          "scopeId": "produkt-stoffbuch",
+          "clickref": "612_card_stoffbuch_otter"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8389780",
       "productId": "kinderkraft-mini-laufrad-cutie",
       "title": "Kinderkraft Mini-Laufrad CUTIE",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8389780"],
-      "gtins": ["5902533925377"],
+      "merchantProductIds": [
+        "8389780"
+      ],
+      "gtins": [
+        "5902533925377"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44790813851&a=2998119&m=12387",
       "editorialMatch": "Kompaktes Mini-Laufrad; Sitzhöhe, Herstelleralter und sichere Nutzung vor dem Kauf prüfen.",
       "feedEvidence": {
@@ -649,19 +771,25 @@
         "priceLimit": 35,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/spielzeug-2-jahre.html",
-        "scopeId": "produkt-laufrad-cutie",
-        "clickref": "s2_card_laufrad_cutie"
-      }]
+      "placements": [
+        {
+          "page": "artikel/spielzeug-2-jahre.html",
+          "scopeId": "produkt-laufrad-cutie",
+          "clickref": "s2_card_laufrad_cutie"
+        }
+      ]
     },
     {
       "offerId": "babywalz-8384207",
       "productId": "kinderkraft-laufrad-2way-next",
       "title": "Kinderkraft Laufrad 2WAY NEXT OFF ROAD",
       "preferredImageField": "large_image",
-      "merchantProductIds": ["8384207"],
-      "gtins": ["5902533927463"],
+      "merchantProductIds": [
+        "8384207"
+      ],
+      "gtins": [
+        "5902533927463"
+      ],
       "deeplink": "https://www.awin1.com/pclick.php?p=44695062531&a=2998119&m=12387",
       "editorialMatch": "Verstellbares Laufrad für draußen; Sitzhöhe, Herstelleralter und Schutzausrüstung prüfen.",
       "feedEvidence": {
@@ -671,11 +799,13 @@
         "priceLimit": 40,
         "checkedAt": "2026-09-01"
       },
-      "placements": [{
-        "page": "artikel/geschenke-3-jahre.html",
-        "scopeId": "produkt-laufrad-2way",
-        "clickref": "g3_card_laufrad_2way"
-      }]
+      "placements": [
+        {
+          "page": "artikel/geschenke-3-jahre.html",
+          "scopeId": "produkt-laufrad-2way",
+          "clickref": "g3_card_laufrad_2way"
+        }
+      ]
     }
   ]
 }

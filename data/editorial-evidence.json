@@ -604,36 +604,6 @@
       "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
     },
     {
-      "id": "montessori-spielzeug-kleinkind-recommendation-4",
-      "page": "/artikel/montessori-spielzeug-kleinkind",
-      "item": "Busy Board / Beschäftigungsbrett",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://montessori-ami.org/about-montessori/montessori-0-3",
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "montessori-spielzeug-kleinkind-recommendation-5",
-      "page": "/artikel/montessori-spielzeug-kleinkind",
-      "item": "Holz-Formensortierer (ab 12 Monate)",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://montessori-ami.org/about-montessori/montessori-0-3",
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
       "id": "motorikspielzeug-test-recommendation-1",
       "page": "/artikel/motorikspielzeug-test",
       "item": "Motorikbrett aus Holz (Platz 1 von 8)",
@@ -1693,19 +1663,6 @@
       "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
     },
     {
-      "id": "weihnachtsgeschenke-kleinkind-recommendation-1",
-      "page": "/artikel/weihnachtsgeschenke-kleinkind",
-      "item": "Motorikbrett aus Holz",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
       "id": "weihnachtsgeschenke-kleinkind-recommendation-2",
       "page": "/artikel/weihnachtsgeschenke-kleinkind",
       "item": "BRIO Lauflernwagen",
@@ -1732,19 +1689,6 @@
       "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
     },
     {
-      "id": "weihnachtsgeschenke-kleinkind-recommendation-4",
-      "page": "/artikel/weihnachtsgeschenke-kleinkind",
-      "item": "Kugelbahn aus Holz",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
       "id": "weihnachtsgeschenke-kleinkind-recommendation-5",
       "page": "/artikel/weihnachtsgeschenke-kleinkind",
       "item": "Pappfühlbücher mit Tieren",
@@ -1758,43 +1702,43 @@
       "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
     },
     {
-      "id": "weihnachtsgeschenke-kleinkind-recommendation-6",
-      "page": "/artikel/weihnachtsgeschenke-kleinkind",
-      "item": "Spielzeugküche aus Holz",
+      "id": "nikolausgeschenke-kleinkind-recommendation-1",
+      "page": "/artikel/nikolausgeschenke-kleinkind",
+      "item": "Ravensburger Pappbilderbuch Meine allerersten Tiere",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-07",
       "articleSourceUrls": [
         "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Kein eigener Produkttest; bestehende Produktzuordnung redaktionell fuer Nikolaus eingeordnet."
     },
     {
-      "id": "weihnachtsgeschenke-kleinkind-recommendation-7",
-      "page": "/artikel/weihnachtsgeschenke-kleinkind",
-      "item": "Balanceboard",
+      "id": "nikolausgeschenke-kleinkind-recommendation-2",
+      "page": "/artikel/nikolausgeschenke-kleinkind",
+      "item": "Badabulle Stapelbecher Silikon 7tlg.",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-07",
       "articleSourceUrls": [
         "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Kein eigener Produkttest; bestehende Produktzuordnung redaktionell fuer Nikolaus eingeordnet."
     },
     {
-      "id": "weihnachtsgeschenke-kleinkind-recommendation-8",
-      "page": "/artikel/weihnachtsgeschenke-kleinkind",
-      "item": "Pikler-Dreieck",
+      "id": "nikolausgeschenke-kleinkind-recommendation-3",
+      "page": "/artikel/nikolausgeschenke-kleinkind",
+      "item": "Solini Klopfbank aus Holz",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-07",
       "articleSourceUrls": [
         "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Kein eigener Produkttest; bestehende Produktzuordnung redaktionell fuer Nikolaus eingeordnet."
     }
   ]
 }
