@@ -1,0 +1,67 @@
+.birth-guide {
+  --moment-ink: #263b35;
+  --moment-green: #246c60;
+  --moment-line: #d7dfda;
+  color: var(--moment-ink);
+  background: #fffefa;
+  padding-bottom: 48px;
+}
+.birth-intro, .birth-content {
+  width: min(100% - 40px, 960px);
+  margin-inline: auto;
+}
+.birth-intro { padding: 32px 0 28px; max-width: 760px; }
+.birth-guide .birth-eyebrow { font-size: 13px; font-weight: 700; color: var(--moment-green); margin: 0 0 10px; }
+.birth-guide h1 { font-size: 38px; line-height: 1.12; letter-spacing: 0; margin: 0 0 16px; }
+.birth-lead { font-size: 21px; line-height: 1.55; max-width: 660px; margin: 0 0 18px; }
+.birth-byline, .birth-disclosure { font-size: 13px; line-height: 1.65; color: #59645f; }
+.birth-byline { margin: 0; }
+.birth-photo { width: min(100%, 1040px); height: 220px; margin: 0 auto; position: relative; overflow: hidden; }
+.birth-photo picture, .birth-photo img { display: block; width: 100%; height: 100%; }
+.birth-photo img { object-fit: cover; object-position: center 52%; }
+.birth-photo .ki-badge { position: absolute; right: 12px; bottom: 12px; }
+.moment-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid var(--moment-line); }
+.moment-nav a { display: flex; align-items: center; gap: 10px; padding: 22px 10px; min-height: 64px; color: var(--moment-ink); font-size: 15px; font-weight: 700; text-decoration: none; }
+.moment-nav span { font-size: 13px; color: var(--moment-green); }
+.moment-nav a:hover { background: #edf5f0; }
+.birth-disclosure { margin: 20px 0; }
+.birth-guide .birth-answer { margin: 24px 0 0; padding: 0 0 28px; border: 0; border-bottom: 1px solid var(--moment-line); background: none; border-radius: 0; }
+.birth-answer p { font-size: 16px; line-height: 1.7; margin-bottom: 0; }
+.birth-moment { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 40px; padding: 48px 0; border-bottom: 1px solid var(--moment-line); }
+.birth-moment-heading { min-width: 0; }
+.moment-number { display: block; font: 700 40px/1.1 'Outfit', sans-serif; margin-bottom: 22px; color: #247666; }
+.birth-moment:nth-of-type(2) .moment-number { color: #a84a61; }
+.birth-moment:nth-of-type(3) .moment-number { color: #476da0; }
+.birth-guide h2 { font-size: 28px; line-height: 1.2; letter-spacing: 0; margin: 0 0 20px; }
+.birth-moment-body > p { font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
+.birth-guide .moment-fit { font-size: 14px; color: #59645f; margin-top: 18px; }
+.birth-guide .birth-product { background: #f0f6f2; border: 1px solid #d2e2d7; border-radius: 8px; box-shadow: none; padding: 24px; margin: 24px 0; }
+.birth-product h3 { font-size: 21px; line-height: 1.3; margin: 0 0 12px; }
+.birth-product p { font-size: 16px; line-height: 1.6; }
+.birth-product .btn-amazon { display: flex; justify-content: center; width: 100%; box-sizing: border-box; font-size: 16px; min-height: 48px; padding: 13px 16px; }
+.birth-guide .produkt-evidenz { font-size: 12px; line-height: 1.6; margin-top: 18px; }
+.birth-guide .produkt-evidenz strong { display: block; padding: 0; border: 0; border-radius: 0; background: none; letter-spacing: 0; min-height: 0; }
+.birth-guide .birth-product > p:first-of-type::before { content: none; }
+.moment-detail { border-block: 1px solid var(--moment-line); padding: 0; margin-top: 18px; }
+.moment-detail summary { font-size: 15px; font-weight: 600; cursor: pointer; padding: 16px 4px; min-height: 48px; }
+.moment-detail p, .moment-detail li { font-size: 15px; line-height: 1.7; }
+.moment-detail blockquote { font-size: 19px; line-height: 1.6; margin: 6px 0 18px; padding-left: 18px; border-left: 3px solid var(--moment-green); }
+.birth-basics { padding: 40px 0 20px; }
+.birth-basics ul { padding-left: 20px; line-height: 1.8; }
+.birth-guide .faq-section { margin: 24px 0; }
+.birth-next { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 32px; font-size: 15px; }
+.birth-guide :where(a, summary):focus-visible { outline: 3px solid #246c60; outline-offset: 4px; }
+.birth-guide :where(section, details, [id]) { scroll-margin-top: 100px; }
+@media (max-width: 640px) {
+  .birth-intro, .birth-content { width: calc(100% - 36px); }
+  .birth-intro { padding-top: 24px; }
+  .birth-guide h1 { font-size: 32px; }
+  .birth-lead { font-size: 19px; }
+  .birth-photo { height: 164px; }
+  .moment-nav { grid-template-columns: 1fr; }
+  .moment-nav a { padding: 13px 2px; min-height: 48px; border-bottom: 1px solid #e8ede9; }
+  .birth-moment { grid-template-columns: 1fr; gap: 6px; padding: 32px 0; }
+  .moment-number { font-size: 32px; margin-bottom: 14px; }
+  .birth-guide h2 { font-size: 26px; }
+  .birth-guide .birth-product { padding: 20px; }
+}

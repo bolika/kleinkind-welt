@@ -1,0 +1,15 @@
+.duplo-guide .comparison-jumps { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 24px 0; }
+.duplo-guide .comparison-jumps a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+.duplo-guide .comparison-source { font-size: 13px; line-height: 1.7; color: #58615c; }
+.duplo-guide .comparison-caution { padding-left: 16px; border-left: 3px solid #b44435; font-size: 15px; }
+.duplo-guide .vergleich-tabelle caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
+.duplo-guide .vergleich-tabelle th[scope="row"] { background: transparent; color: inherit; text-align: left; white-space: normal; }
+.duplo-guide .produkt-box h3 { font-size: 23px; line-height: 1.3; }
+.duplo-guide .produkt-box > .btn-amazon { width: fit-content; max-width: 100%; }
+.duplo-guide .produkt-evidenz { margin-top: 18px; }
+.duplo-guide .produkt-evidenz strong { display: block; padding: 0; border: 0; border-radius: 0; background: none; letter-spacing: 0; }
+.duplo-guide [id] { scroll-margin-top: 100px; }
+@media (max-width: 640px) {
+  .duplo-guide .produkt-box > .btn-amazon { display: flex; justify-content: center; width: 100%; box-sizing: border-box; font-size: 16px; }
+  .duplo-guide .vergleich-tabelle { min-width: 580px; }
+}

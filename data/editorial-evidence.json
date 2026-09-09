@@ -134,77 +134,69 @@
     {
       "id": "duplo-vergleich-recommendation-2",
       "page": "/artikel/duplo-vergleich",
-      "item": "LEGO DUPLO Classic Steinebox",
+      "item": "LEGO DUPLO Deluxe Steinebox 10914",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
-        "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
+        "https://www.lego.com/de-de/product/deluxe-brick-box-10914",
+        "https://www.lego.com/de-de/service/help-topics/article/building-with-lego-and-duplo-bricks"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "duplo-vergleich-recommendation-3",
       "page": "/artikel/duplo-vergleich",
-      "item": "Magnetbausteine (Magna-Tiles, PicassoTiles)",
+      "item": "MAGNA-TILES Magnetbausteine",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
+        "https://magnatiles.com/products/magna-tiles-classic-32-piece-set",
         "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "duplo-vergleich-recommendation-4",
       "page": "/artikel/duplo-vergleich",
-      "item": "Holzbausteine (Grimm's Regenbogen-Bauklötze)",
+      "item": "goki Kleiner Regenbogen 58479",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
-        "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
+        "https://goki.eu/de/bausteine-kleiner-regenbogen/item-1-58479.html"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "duplo-vergleich-recommendation-5",
       "page": "/artikel/duplo-vergleich",
-      "item": "Mega Bloks First Builders",
+      "item": "MEGA BLOKS First Builders",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
-        "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
+        "https://shop.mattel.com/en-ca/products/first-builders-big-building-bag-dch62-en-ca"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "duplo-vergleich-recommendation-6",
       "page": "/artikel/duplo-vergleich",
-      "item": "Kapla Holzplanken",
+      "item": "KAPLA Holzplanken",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/1-3-jahre/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en",
-        "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Magnets"
+        "https://www.kapla.com/en/"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "geschenke-1-jahr-recommendation-1",
@@ -471,92 +463,26 @@
     {
       "id": "geschenke-zur-geburt-recommendation-1",
       "page": "/artikel/geschenke-zur-geburt",
-      "item": "Gutschein Kochen / Mahlzeiten-Lieferdienst",
+      "item": "Ein abgesprochenes Essen",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
+      "reviewedAt": "2026-09-09",
+      "articleSourceUrls": [],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "geschenke-zur-geburt-recommendation-2",
-      "page": "/artikel/geschenke-zur-geburt",
-      "item": "Bio-Bodysuits Set (5er oder 7er Pack)",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "geschenke-zur-geburt-recommendation-3",
-      "page": "/artikel/geschenke-zur-geburt",
-      "item": "Spielbogen aus Holz",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "geschenke-zur-geburt-recommendation-4",
-      "page": "/artikel/geschenke-zur-geburt",
-      "item": "Greifrassel-Set aus Holz und Naturkautschuk",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "geschenke-zur-geburt-recommendation-5",
       "page": "/artikel/geschenke-zur-geburt",
-      "item": "Pappbilderbücher-Set (3–5 Bücher)",
+      "item": "Erste Bilder für Babyaugen. 0–3 Monate",
       "evidenceType": "editorial-assessment",
       "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
+      "reviewedAt": "2026-09-09",
       "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
+        "https://www.oetinger.de/buch/erste-bilder-fuer-babyaugen-ab-0-monaten/9783751203982"
       ],
       "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
-    },
-    {
-      "id": "geschenke-zur-geburt-recommendation-6",
-      "page": "/artikel/geschenke-zur-geburt",
-      "item": "Bio-Schlafsack für Babys",
-      "evidenceType": "editorial-assessment",
-      "ownProductTest": false,
-      "reviewedAt": "2026-07-13",
-      "articleSourceUrls": [
-        "https://www.kindergesundheit-info.de/themen/spielen/0-12-monate/",
-        "https://www.kindergesundheit-info.de/themen/sicher-aufwachsen/0-12-monate/",
-        "https://single-market-economy.ec.europa.eu/sectors/toys/toy-safety_en"
-      ],
-      "approvalStatus": "editorial-label-approved",
-      "limitation": "Kein eigener vollständiger Produkttest; Einordnung anhand veröffentlichter Kriterien und der im Artikel genannten Grundlagen."
+      "limitation": "Redaktionelle Einordnung ohne eigenen Produkttest. Keine gemessene Qualitätsrangliste oder zugesicherte Entwicklungswirkung. Modellangaben nur im Umfang der aufgeführten Quellen."
     },
     {
       "id": "montessori-spielzeug-kleinkind-recommendation-1",
