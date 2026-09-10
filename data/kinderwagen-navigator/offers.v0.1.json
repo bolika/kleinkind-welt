@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-09T08:23:36.327Z",
+  "generatedAt": "2026-09-10T08:24:09.025Z",
   "sources": [
     {
       "network": "awin",
@@ -31,14 +31,14 @@
       "title": "Abc Design Kombikinderwagen Salsa 5 Air gruen",
       "deeplink": "https://www.awin1.com/pclick.php?p=39194302561&a=2998119&m=12387",
       "price": {
-        "amount": 899.9,
+        "amount": 899,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 0
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -50,7 +50,7 @@
           "4045875164576"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "39194302561",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/e81cf7e962297fab8c4f4f1effcd1f25.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -72,12 +72,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 0
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -89,7 +89,7 @@
           "8717447629467"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "40480590684",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/eae09efa04117467235bbbfc19788b29.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -111,13 +111,13 @@
       "price": {
         "amount": 483,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "oldAmount": 749.9,
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -129,7 +129,7 @@
           "4069291006197"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "39523228966"
     },
     {
@@ -149,12 +149,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -166,7 +166,7 @@
           "8715688081204"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "37351971141",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/2837b0c421c21e46cda8691b15c23fe9.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -188,12 +188,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -205,7 +205,7 @@
           "8715688102657"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "44681178637",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/a2dac5cd97c0588224e930880c301eba.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -227,12 +227,12 @@
       "price": {
         "amount": 179,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 1.99
       },
       "availability": {
-        "status": "out_of_stock",
-        "freshUntil": "2026-09-11"
+        "status": "in_stock",
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -244,7 +244,7 @@
           "5902533929665"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "44809754387"
     },
     {
@@ -264,12 +264,12 @@
       "price": {
         "amount": 179,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 1.99
       },
       "availability": {
-        "status": "out_of_stock",
-        "freshUntil": "2026-09-11"
+        "status": "in_stock",
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -281,7 +281,7 @@
           "5902533929658"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "44809754479"
     },
     {
@@ -301,12 +301,12 @@
       "price": {
         "amount": 499,
         "currency": "EUR",
-        "freshUntil": "2026-09-11",
+        "freshUntil": "2026-09-12",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "out_of_stock",
-        "freshUntil": "2026-09-11"
+        "freshUntil": "2026-09-12"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -318,7 +318,7 @@
           "5902533928965"
         ]
       },
-      "importedAt": "2026-09-09T08:23:36.327Z",
+      "importedAt": "2026-09-10T08:24:09.025Z",
       "awinProductId": "44173889134",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/4fb9f550cfe78273b925fce64c066078.jpg",
       "imageRightsStatus": "approved_for_feed_only"
