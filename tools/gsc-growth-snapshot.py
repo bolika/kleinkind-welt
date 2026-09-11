@@ -94,13 +94,13 @@ def compare(config: dict, days: int, end: date) -> dict:
                     "clicks": old.get("clicks", 0),
                     "impressions": old.get("impressions", 0),
                     "ctr": old.get("ctr", 0),
-                    "position": old.get("position", 0),
+                    "position": old.get("position") if old.get("impressions") else None,
                 },
                 "current": {
                     "clicks": new.get("clicks", 0),
                     "impressions": new.get("impressions", 0),
                     "ctr": new.get("ctr", 0),
-                    "position": new.get("position", 0),
+                    "position": new.get("position") if new.get("impressions") else None,
                 },
             }
         )
@@ -129,6 +129,8 @@ def compare(config: dict, days: int, end: date) -> dict:
             for metric in ("clicks", "impressions", "ctr", "position")
         },
         "priorityPages": priority,
+        "releases": config.get("releases", []),
+        "pendingChanges": config.get("pendingChanges"),
         "interpretation": (
             "For position, a negative absolute delta is an improvement. "
             "Very small datasets and anonymized queries require cautious interpretation."
@@ -183,7 +185,7 @@ def as_markdown(report: dict) -> str:
         lines.append(
             f"| `{item['path']}` | {item['previous']['impressions']} | "
             f"{item['current']['impressions']} | {item['previous']['clicks']} | "
-            f"{item['current']['clicks']} | {item['current']['position']} |"
+            f"{item['current']['clicks']} | {item['current']['position'] if item['current']['position'] is not None else 'nicht gemessen'} |"
         )
     lines.extend(
         [
@@ -191,6 +193,11 @@ def as_markdown(report: dict) -> str:
             "> Position: kleiner ist besser. Bei sehr kleinen Datenmengen erst nach mehreren Perioden entscheiden.",
         ]
     )
+    lines.extend(["", "## Release-Kontext", ""])
+    for release in report.get("releases", []):
+        lines.append(f"- {release['date']}: {release['label']}")
+    if report.get("pendingChanges"):
+        lines.append(f"- Noch nicht live: {report['pendingChanges']}")
     return "\n".join(lines)
 
 

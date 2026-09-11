@@ -1,0 +1,18 @@
+.gift-selection-page .article-hero { padding: 28px 20px 16px; }
+.gift-selection-page .article-hero h1 { font-size: 2rem; line-height: 1.15; letter-spacing: 0; hyphens: none; }
+.gift-selection-page .article-body { padding-top: 0; }
+.gift-selection-page .gift-intro { font-size: 0.875rem; color: var(--text-light); margin: 0 0 16px; }
+.gift-selection-page .gift-moments { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px; }
+.gift-selection-page .gift-moments a { padding: 12px 16px; min-height: 44px; border: 1px solid var(--primary); border-radius: 6px; color: var(--primary-dark); text-decoration: none; font-weight: 700; }
+.gift-selection-page .gift-moments a:hover, .gift-selection-page .gift-moments a:focus-visible { background: var(--primary); color: white; }
+.gift-selection-page .kw-product-stack { margin-top: 16px; }
+.gift-selection-page .kw-product-card { border-radius: 8px; scroll-margin-top: 90px; }
+.gift-selection-page .kw-product-label { letter-spacing: 0; }
+.gift-selection-page .kw-product-verdict { font-size: 1.05rem; }
+.gift-selection-page .gift-more { margin: 24px 0; border-block: 1px solid var(--border); padding: 16px 0; }
+.gift-selection-page .gift-more summary { cursor: pointer; font-weight: 700; min-height: 44px; display: list-item; }
+.gift-selection-page .gift-more[open] > .kw-product-grid { margin-top: 20px; }
+.gift-selection-page .gift-notes { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 12px; }
+@media (min-width: 760px) {
+  .gift-selection-page .article-hero h1 { font-size: 2.5rem; }
+}

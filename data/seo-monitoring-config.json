@@ -2,9 +2,19 @@
   "schemaVersion": 1,
   "property": "sc-domain:kleinkind-welt.de",
   "releaseDate": "2026-07-23",
+  "releases": [
+    { "date": "2026-09-07", "label": "Adventskalender und Nikolaus", "pages": ["/artikel/adventskalender-kleinkind", "/artikel/nikolausgeschenke-kleinkind"] },
+    { "date": "2026-09-09", "label": "DUPLO und Geburt: neue Auswahl", "pages": ["/artikel/duplo-vergleich", "/artikel/geschenke-zur-geburt"] }
+  ],
+  "pendingChanges": "Auswahl Geschenke 2 Jahre, Geschenke-Hub und Montessori: lokal vorbereitet; Release-Datum erst nach Veröffentlichung ergänzen.",
   "gscDataLagDays": 3,
   "checkpointsDays": [14, 28],
   "priorityPages": [
+    "/",
+    "/artikel/geschenke-2-jahre",
+    "/artikel/weihnachtsgeschenke-kleinkind",
+    "/artikel/adventskalender-kleinkind",
+    "/artikel/nikolausgeschenke-kleinkind",
     "/artikel/spielzeug-unter-20-euro",
     "/artikel/spielzeug-0-6-monate",
     "/artikel/spielzeug-6-12-monate",

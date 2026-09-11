@@ -8,12 +8,12 @@ const browser = await chromium.launch({ headless: true });
 
 try {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  await page.route(/plausible\.io/, route => route.abort());
   await page.addInitScript(() => {
     window.__plausibleEvents = [];
     window.plausible = (name, options) => window.__plausibleEvents.push({ name, options });
   });
-  await page.goto(`${baseUrl}/artikel/spielzeug-unter-20-euro.html`, { waitUntil: 'networkidle' });
-  await page.evaluate(() => {
+  await page.addInitScript(() => {
     document.addEventListener('click', (event) => {
       if (event.target.closest('a[data-affiliate]')) event.preventDefault();
     }, true);
@@ -27,8 +27,10 @@ try {
     assert.equal(events[1].options?.interactive, false, `${expectedMerchantEvent} muss nicht-interaktiv sein.`);
   }
 
-  await assertClick('#greifen a[data-merchant="babywalz"]', 'Affiliate-Babywalz');
-  await assertClick('#greifen a[data-affiliate="amazon"]', 'Affiliate-Amazon');
+  await page.goto(`${baseUrl}/artikel/spielzeug-unter-20-euro.html`, { waitUntil: 'networkidle' });
+  await assertClick('a[data-merchant="babywalz"]', 'Affiliate-Babywalz');
+  await page.goto(`${baseUrl}/artikel/geschenke-zur-geburt.html`, { waitUntil: 'networkidle' });
+  await assertClick('a[data-affiliate="amazon"]', 'Affiliate-Amazon');
   await page.close();
   console.log('Affiliate-Händler-UI-Test bestanden: Gesamtziel plus genau ein nicht-interaktives Händlerziel.');
 } finally {

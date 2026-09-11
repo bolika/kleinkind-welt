@@ -67,6 +67,9 @@ jobs:
       - name: Validate GSC monitoring script syntax
         run: python3 -c 'from pathlib import Path; compile(Path("tools/gsc-growth-snapshot.py").read_text(), "tools/gsc-growth-snapshot.py", "exec")'
 
+      - name: Validate private export reporting
+        run: python3 tools/growth-weekly-report-test.py
+
       - name: Validate structured editorial data
         run: |
           jq empty data/editorial-evidence.json

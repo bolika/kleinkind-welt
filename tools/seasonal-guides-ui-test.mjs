@@ -15,6 +15,7 @@ try {
     for (const slug of ['weihnachtsgeschenke-kleinkind', 'adventskalender-kleinkind', 'nikolausgeschenke-kleinkind']) {
       const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
       const errors = [];
+      await page.route(/plausible\.io/, route => route.abort());
       page.on('pageerror', error => errors.push(error.message));
       await page.route('**/data/affiliate-offers/babywalz-prices.v0.1.json', route => route.fulfill({ json: snapshot }));
       await page.goto(`${base}/artikel/${slug}.html`, { waitUntil: 'networkidle' });

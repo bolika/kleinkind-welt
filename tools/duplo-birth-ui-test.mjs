@@ -15,6 +15,10 @@ try {
       await page.route(/plausible\.io/, route => route.abort());
       await page.goto(`${base}/artikel/${slug}.html`, { waitUntil: 'networkidle' });
       await page.evaluate(() => document.fonts.ready);
+      const heroRequests = await page.evaluate(slug => performance.getEntriesByType('resource')
+        .filter(entry => new URL(entry.name).pathname.match(new RegExp(`/images/articles/${slug}(?:-\\d+)?\\.(?:webp|jpg)$`)))
+        .map(entry => entry.name), slug);
+      assert.equal(heroRequests.length, 1, `${slug}: only one responsive hero request at ${width}: ${heroRequests}`);
       assert.equal(await page.locator('main h1').count(), 1);
       assert.equal(await page.locator('main .ki-badge').count(), 1);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${slug}: overflow at ${width}`);
