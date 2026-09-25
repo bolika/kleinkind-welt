@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-09-24T08:45:32.764Z",
-  "freshUntil": "2026-09-26T08:45:32.764Z",
+  "generatedAt": "2026-09-25T09:06:01.133Z",
+  "freshUntil": "2026-09-27T09:06:01.133Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -101,9 +101,9 @@
       "productId": "hape-formensortierer",
       "merchantProductId": "8395160",
       "title": "Hape Farben- & Formensortierer",
-      "productPrice": 15.99,
-      "shipping": 1.99,
-      "totalPrice": 17.98,
+      "productPrice": 13.99,
+      "shipping": 4.99,
+      "totalPrice": 18.98,
       "currency": "EUR",
       "availability": "in_stock",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/124cba4372d42e1d9eae9b75d07cb0df.jpg",
