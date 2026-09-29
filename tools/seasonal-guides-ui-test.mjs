@@ -20,10 +20,10 @@ try {
       await page.route('**/data/affiliate-offers/babywalz-prices.v0.1.json', route => route.fulfill({ json: snapshot }));
       await page.goto(`${base}/artikel/${slug}.html`, { waitUntil: 'networkidle' });
       assert.equal(await page.locator('h1').count(), 1);
-      const expected = slug.startsWith('advent') ? 0 : 3;
+      const expected = slug.startsWith('advent') ? 2 : 3;
       assert.equal(await page.locator('.produkt-box').count(), expected);
       assert.equal(await page.locator('.kw-offer-media').count(), expected);
-      if (!expected) assert.equal(await page.locator('.season-moments li').count(), 24);
+      if (slug.startsWith('advent')) assert.equal(await page.locator('.season-moments li').count(), 24);
       for (const img of await page.locator('.kw-offer-media img').all()) {
         await img.scrollIntoViewIfNeeded();
         await img.evaluate(image => image.decode());

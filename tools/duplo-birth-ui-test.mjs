@@ -38,7 +38,7 @@ try {
       await firstFaq.locator('button').click();
       assert.equal(await firstFaq.locator('button').getAttribute('aria-expanded'), 'true');
       const links = page.locator('main a[data-affiliate]');
-      assert.equal(await links.count(), slug === 'duplo-vergleich' ? 5 : 1);
+      assert.equal(await links.count(), slug === 'duplo-vergleich' ? 6 : 1);
       for (const a of await links.all()) {
         assert.match(await a.getAttribute('rel'), /sponsored/);
         const box = await a.boundingBox();

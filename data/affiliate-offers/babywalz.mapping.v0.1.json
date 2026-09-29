@@ -84,6 +84,11 @@
           "page": "artikel/nikolausgeschenke-kleinkind.html",
           "scopeId": "becher",
           "clickref": "nikolaus_card_becher"
+        },
+        {
+          "page": "artikel/adventskalender-kleinkind.html",
+          "scopeId": "becher",
+          "clickref": "advent_card_becher"
         }
       ]
     },
@@ -197,6 +202,11 @@
           "page": "artikel/nikolausgeschenke-kleinkind.html",
           "scopeId": "buch",
           "clickref": "nikolaus_card_buch"
+        },
+        {
+          "page": "artikel/adventskalender-kleinkind.html",
+          "scopeId": "buch",
+          "clickref": "advent_card_buch"
         }
       ]
     },
