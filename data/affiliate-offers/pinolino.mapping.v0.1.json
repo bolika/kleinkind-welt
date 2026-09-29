@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-29",
+  "advertiserName": "Pinolino DE",
+  "advertiserId": 129719,
+  "publisherId": 2998119,
+  "feedId": 117180,
+  "feedImageUsageStatus": "approved_by_program_2026-09-29",
+  "imagePolicy": "Nur Awin-Proxybild aw_image_url (images2.productserve.com), keine lokale Kopie.",
+  "mappings": [
+    {
+      "offerId": "pinolino-269477",
+      "productId": "pinolino-lauflernwagen-uli",
+      "title": "Pinolino Lauflernwagen 'Uli'",
+      "feedProductName": "Lauflernwagen 'Uli', weiß",
+      "awProductId": "45584914953",
+      "merchantProductIds": [
+        "269477"
+      ],
+      "gtins": [
+        "4035769046798"
+      ],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45584914953&a=2998119&m=129719",
+      "imageUrl": "https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Awww.pinolino.de%2Fmedia%2Fimage%2F269477.jpg&feedId=117180&k=b57f57687b195700a076a364c3a80b4b38b55687",
+      "editorialMatch": "Holz-Lauflernwagen mit stufenlos einstellbarer Bremse und Ladefläche; Anbieterangabe 1 bis 6 Jahre.",
+      "feedEvidence": {
+        "observedPrice": 53.9,
+        "currency": "EUR",
+        "deliveryCost": 0.0,
+        "availability": "in_stock",
+        "checkedAt": "2026-09-29"
+      },
+      "placements": [
+        {
+          "page": "artikel/weihnachtsgeschenke-kleinkind.html",
+          "scopeId": "weihnachten-alt-uli",
+          "clickref": "weihnachten_alt_pinolino_uli"
+        }
+      ]
+    },
+    {
+      "offerId": "pinolino-242493",
+      "productId": "pinolino-schaukelpferd-ring",
+      "title": "Pinolino Schaukelpferd mit Ring, grau/natur",
+      "feedProductName": "Schaukelpferd 'Pinolino' mit Ring, grau/natur",
+      "awProductId": "45584914984",
+      "merchantProductIds": [
+        "242493"
+      ],
+      "gtins": [
+        "4035769045210"
+      ],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45584914984&a=2998119&m=129719",
+      "imageUrl": "https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Awww.pinolino.de%2Fmedia%2Fimage%2F242493.jpg&feedId=117180&k=d066211ec9b5366171a61392cb46cee3f93b2b74",
+      "editorialMatch": "Schaukelpferd aus Buche mit abnehmbarem Sicherheitsring; Anbieterangabe ¾ bis 4 Jahre.",
+      "feedEvidence": {
+        "observedPrice": 89.9,
+        "currency": "EUR",
+        "deliveryCost": 0.0,
+        "availability": "in_stock",
+        "checkedAt": "2026-09-29"
+      },
+      "placements": [
+        {
+          "page": "artikel/geschenke-1-jahr.html",
+          "scopeId": "geschenkidee-pinolino-schaukelpferd",
+          "clickref": "g1_list_pinolino_schaukelpferd"
+        }
+      ]
+    },
+    {
+      "offerId": "pinolino-398301",
+      "productId": "pinolino-kletterdreieck-kari",
+      "title": "Pinolino Kletterdreieck 'Kari'",
+      "feedProductName": "Kletterdreieck 'Kari'",
+      "awProductId": "45584914930",
+      "merchantProductIds": [
+        "398301"
+      ],
+      "gtins": [
+        "4035769054496"
+      ],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45584914930&a=2998119&m=129719",
+      "imageUrl": "https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Awww.pinolino.de%2Fmedia%2Fimage%2F398301.jpg&feedId=117180&k=ead5332aa4bd885a9af7ac24027e2a4b3fcc764f",
+      "editorialMatch": "Kletterdreieck nach Pikler, 5-fach verstellbarer Winkel; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 109.9,
+        "currency": "EUR",
+        "deliveryCost": 0.0,
+        "availability": "in_stock",
+        "checkedAt": "2026-09-29"
+      },
+      "placements": [
+        {
+          "page": "artikel/pikler-dreieck.html",
+          "scopeId": "kletterdreieck-kari",
+          "clickref": "pikler_card_kari_dreieck"
+        }
+      ]
+    },
+    {
+      "offerId": "pinolino-398310",
+      "productId": "pinolino-kletterset-kari",
+      "title": "Pinolino Kletterset 'Kari' mit Dreieck und Brett",
+      "feedProductName": "Kletterset 'Kari' mit Dreieck und Brett, 2-tlg.",
+      "awProductId": "45584914933",
+      "merchantProductIds": [
+        "398310"
+      ],
+      "gtins": [
+        "4035769054779"
+      ],
+      "deeplink": "https://www.awin1.com/pclick.php?p=45584914933&a=2998119&m=129719",
+      "imageUrl": "https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Awww.pinolino.de%2Fmedia%2Fimage%2F398310.jpg&feedId=117180&k=fc4ba7a8b52f09ef41623c39c9bd2244867f8c5b",
+      "editorialMatch": "Kletterdreieck plus beidseitig nutzbares Kletter-/Rutschbrett; Anbieterangabe ab 12 Monaten.",
+      "feedEvidence": {
+        "observedPrice": 182.0,
+        "currency": "EUR",
+        "deliveryCost": 0.0,
+        "availability": "in_stock",
+        "checkedAt": "2026-09-29"
+      },
+      "placements": [
+        {
+          "page": "artikel/pikler-dreieck.html",
+          "scopeId": "kletterset-kari",
+          "clickref": "pikler_card_kari_set"
+        }
+      ]
+    }
+  ]
+}

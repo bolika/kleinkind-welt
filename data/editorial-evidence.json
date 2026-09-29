@@ -1691,6 +1691,34 @@
       ],
       "approvalStatus": "editorial-label-approved",
       "limitation": "Kein eigener Produkttest; bestehende Produktzuordnung redaktionell als Adventskalender-Fuellung eingeordnet."
+    },
+    {
+      "id": "pikler-dreieck-recommendation-1",
+      "page": "/artikel/pikler-dreieck",
+      "item": "Pinolino Kletterdreieck 'Kari'",
+      "evidenceType": "editorial-assessment",
+      "ownProductTest": false,
+      "reviewedAt": "2026-09-29",
+      "articleSourceUrls": [
+        "https://www.pikler.de/emmi-pikler.html",
+        "https://www.kindergesundheit-info.de/themen/bewegung-und-sport/wie-viel-bewegung-ist-gut/"
+      ],
+      "approvalStatus": "editorial-label-approved",
+      "limitation": "Kein eigener Produkttest; Einordnung nach Herstellerangaben aus dem Pinolino-Datenfeed vom 29.09.2026."
+    },
+    {
+      "id": "pikler-dreieck-recommendation-2",
+      "page": "/artikel/pikler-dreieck",
+      "item": "Pinolino Kletterset 'Kari' mit Dreieck und Brett",
+      "evidenceType": "editorial-assessment",
+      "ownProductTest": false,
+      "reviewedAt": "2026-09-29",
+      "articleSourceUrls": [
+        "https://www.pikler.de/emmi-pikler.html",
+        "https://www.kindergesundheit-info.de/themen/bewegung-und-sport/wie-viel-bewegung-ist-gut/"
+      ],
+      "approvalStatus": "editorial-label-approved",
+      "limitation": "Kein eigener Produkttest; Einordnung nach Herstellerangaben aus dem Pinolino-Datenfeed vom 29.09.2026."
     }
   ]
 }

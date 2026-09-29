@@ -1,0 +1,30 @@
+/* Statische Partnerangebote (z. B. Pinolino über Awin) ohne Live-Preis-Snapshot */
+.produkt-alternative {
+  margin: 20px 0 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-sm, 8px);
+  background: var(--white);
+}
+
+.produkt-alternative p {
+  margin: 0 0 12px;
+}
+
+.produkt-alternative .btn-amazon {
+  margin-top: 0;
+}
+
+.produkt-box[data-offer-media="static"]::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (min-width: 769px) {
+  .produkt-box[data-offer-media="static"] .kw-offer-media {
+    float: right;
+    width: 180px;
+    margin: 0 0 18px 24px;
+  }
+}

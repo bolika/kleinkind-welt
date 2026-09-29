@@ -89,6 +89,7 @@
   function merchantBreakdownEvent(link) {
     var merchant = cleanText(link.dataset.merchant || link.dataset.affiliate || destinationHost(link)).toLowerCase();
     if (merchant.includes('babywalz')) return 'Affiliate-Babywalz';
+    if (merchant.includes('pinolino')) return 'Affiliate-Pinolino';
     if (merchant.includes('amazon') || merchant.includes('amzn.to')) return 'Affiliate-Amazon';
     return 'Affiliate-Anderer-Haendler';
   }

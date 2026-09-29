@@ -39,6 +39,7 @@ jobs:
           node --check tools/analytics-contract-gate.mjs
           node --check tools/affiliate-merchant-event-ui-test.mjs
           node --check tools/awin-article-offer-gate.mjs
+          node --check tools/pinolino-offer-gate.mjs
           node --check tools/affiliate-integrity-check.mjs
           node --check tools/babywalz-feed-health.mjs
           node --check tools/babywalz-price-snapshot-test.mjs
@@ -92,6 +93,7 @@ jobs:
           node tools/build-kinderwagen-guides.mjs --check
           node tools/babywalz-price-snapshot-test.mjs
           node tools/awin-article-offer-gate.mjs
+          node tools/pinolino-offer-gate.mjs
           node tools/affiliate-integrity-check.mjs --strict
           node tools/babywalz-feed-health.mjs
           # Als eigene strukturelle Prüfung vor dem zusammengefassten Beta-Gate.

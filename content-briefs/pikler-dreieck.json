@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "slug": "pikler-dreieck",
+  "status": "review_required",
+  "publishReady": false,
+  "primaryQuery": "pikler dreieck ab wann",
+  "secondaryQueries": [
+    "pikler dreieck",
+    "kletterdreieck kleinkind",
+    "pikler dreieck lohnt sich",
+    "pikler dreieck größe",
+    "pikler dreieck sicherheit"
+  ],
+  "searchIntent": "commercial-investigation",
+  "targetAudience": "Eltern von Kindern um das erste Lebensjahr, die überlegen, ob und wann sich ein Kletterdreieck lohnt, sowie Angehörige, die es verschenken möchten.",
+  "uniqueValue": "Bereitschaftszeichen statt Altersgrenze, ehrliche Platzrechnung mit konkreten Herstellermaßen, klare Pikler-Einordnung (Kind nicht hinaufsetzen) und ausdrücklich auch, wann sich ein Dreieck nicht lohnt.",
+  "titleOptions": [
+    "Pikler-Dreieck: ab wann, wie viel Platz, lohnt es sich?",
+    "Pikler-Dreieck ab wann? Bereitschaftszeichen, Platz und Sicherheit"
+  ],
+  "recommendedTitle": "Pikler-Dreieck: ab wann, wie viel Platz, lohnt es sich?",
+  "answerFirst": "Ein Pikler-Dreieck passt, sobald sich das Kind selbst hochzieht und sicher krabbelt; Pinolino nennt für 'Kari' ab 12 Monaten. Das Kind wird nicht hinaufgesetzt, sondern klettert so hoch, wie es selbst kommt. Nötig ist ein Dreieck nicht.",
+  "outline": [
+    "Kurzantwort: ab wann, wie, lohnt es sich",
+    "Konkrete Auswahl: Dreieck, optional Set mit Brett",
+    "Was ist ein Pikler-Dreieck (Lóczy, Emmi Pikler, mehr als ein Gerät)",
+    "Ab wann: Beobachten statt Kalender",
+    "Platzbedarf mit Herstellermaßen",
+    "Sicherheits-Checkliste",
+    "Wann es sich nicht lohnt, Alternativen",
+    "FAQ"
+  ],
+  "targetWordCount": 1100,
+  "internalLinks": [
+    { "url": "/artikel/motorikspielzeug-test", "anchor": "Motorikspielzeug nach Platz und Spielweise", "role": "commercial-support" },
+    { "url": "/artikel/montessori-spielzeug-kleinkind", "anchor": "Montessori-Spielzeug ab 1 Jahr", "role": "cluster-support" },
+    { "url": "/artikel/geschenke-1-jahr", "anchor": "Geschenke zum 1. Geburtstag", "role": "commercial-support" },
+    { "url": "/artikel/weihnachtsgeschenke-kleinkind", "anchor": "Weihnachtsgeschenke für Kleinkinder", "role": "commercial-support" }
+  ],
+  "cta": {
+    "type": "affiliate",
+    "label": "Bei Pinolino ansehen",
+    "target": "Pinolino über Awin",
+    "amazonLinks": false
+  },
+  "measurement": {
+    "primary": "GSC impressions and clicks for pikler dreieck queries; Bing/ChatGPT entries in Plausible",
+    "secondary": ["Affiliate-Pinolino events", "Awin clickrefs pikler_card_kari_dreieck and pikler_card_kari_set"],
+    "reviewAfterDays": 60
+  },
+  "distribution": ["Pinterest pin: Pikler-Dreieck ab wann (Checkliste)", "internal links from Montessori, Motorik, Weihnachten"],
+  "cannibalizationGuard": "Owns Pikler/Kletterdreieck queries. Montessori page keeps hand activities; Motorik page keeps compact room options.",
+  "sources": [
+    { "id": "pikler-berlin-bio", "url": "https://www.pikler.de/emmi-pikler.html", "kind": "primary", "checkedAt": "2026-09-29" },
+    { "id": "pikler-berlin-dreieck", "url": "https://www.pikler.de/?file=files/downloads/ausbildung%20pikler%20p%23U00e4dagogik/M%C3%BChlinghaus_Werner_Das%20andere%20Dreieck.pdf&cid=499", "kind": "primary", "checkedAt": "2026-09-29" },
+    { "id": "biog-bewegung-0-3", "url": "https://www.kindergesundheit-info.de/themen/bewegung-und-sport/wie-viel-bewegung-ist-gut/", "kind": "official", "checkedAt": "2026-09-29" },
+    { "id": "pinolino-feed", "url": "https://www.pinolino.de/", "kind": "manufacturer", "checkedAt": "2026-09-29" }
+  ],
+  "claims": [
+    { "id": "loczy-origin", "type": "history", "text": "Kletterdreieck und andere Klettermöglichkeiten wurden im Budapester Säuglings- und Kleinkindheim Lóczy entwickelt, das Emmi Pikler (1902–1984) über Jahrzehnte leitete.", "sourceIds": ["pikler-berlin-dreieck", "pikler-berlin-bio"], "approvedForPublish": false },
+    { "id": "free-movement", "type": "development", "text": "Nach Pikler sollen sich Kinder motorisch frei und im eigenen Zeitmaß entwickeln, ohne frühzeitig hingesetzt oder aufgestellt zu werden; daraus folgt: das Kind nicht auf das Dreieck setzen.", "sourceIds": ["pikler-berlin-dreieck"], "approvedForPublish": false },
+    { "id": "more-than-triangle", "type": "development", "text": "Die Pikler-Pädagogik umfasst mehr als Bewegungsmaterial, insbesondere Beziehung und Pflegemomente.", "sourceIds": ["pikler-berlin-dreieck"], "approvedForPublish": false },
+    { "id": "biog-movement", "type": "development", "text": "Für 0 bis 3 Jahre empfiehlt das BIÖG so viel Bewegung wie möglich in sicherer Umgebung, ohne den natürlichen Bewegungsdrang einzuschränken.", "sourceIds": ["biog-bewegung-0-3"], "approvedForPublish": false },
+    { "id": "readiness-signs", "type": "safety", "text": "Bereitschaftszeichen (selbst hochziehen, sicher krabbeln, wieder herunterkommen) sind redaktionelle Orientierung auf Basis des Pikler-Prinzips, keine medizinische Altersgrenze.", "sourceIds": ["pikler-berlin-dreieck", "biog-bewegung-0-3"], "approvedForPublish": false },
+    { "id": "kari-specs", "type": "product", "text": "Pinolino 'Kari': ab 12 Monaten, 75 × 68 × 62 cm bei 60 Grad, Winkel 60–180 Grad fünffach über zwei Schrauben verstellbar, rutschhemmende Aufstellfläche; Brett 115 × 40 × 6 cm.", "sourceIds": ["pinolino-feed"], "approvedForPublish": false }
+  ],
+  "humanApproval": {
+    "required": true,
+    "notes": "Vor Veröffentlichung Claims prüfen und approvedBy/approvedAt setzen. Kein eigener Produkttest vorhanden; Sicherheits-Checkliste ist redaktionell."
+  },
+  "reviewDueAt": "2027-03-29"
+}

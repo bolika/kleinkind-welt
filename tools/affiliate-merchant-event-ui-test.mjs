@@ -29,6 +29,8 @@ try {
 
   await page.goto(`${baseUrl}/artikel/spielzeug-unter-20-euro.html`, { waitUntil: 'networkidle' });
   await assertClick('a[data-merchant="babywalz"]', 'Affiliate-Babywalz');
+  await page.goto(`${baseUrl}/artikel/pikler-dreieck.html`, { waitUntil: 'networkidle' });
+  await assertClick('a[data-merchant="pinolino"]', 'Affiliate-Pinolino');
   await page.goto(`${baseUrl}/artikel/geschenke-zur-geburt.html`, { waitUntil: 'networkidle' });
   await assertClick('a[data-affiliate="amazon"]', 'Affiliate-Amazon');
   await page.close();

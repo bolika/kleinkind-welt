@@ -18,7 +18,7 @@ for (const property of ['seite', 'produkt', 'produkt_id', 'platzierung', 'partne
   check(affiliate.includes(`${property}:`), `Affiliate-Klick: Property ${property} fehlt.`);
 }
 check(affiliate.includes("event_schema: '3'"), 'Affiliate-Klick: Schema muss Version 3 sein.');
-for (const eventName of ['Affiliate-Babywalz', 'Affiliate-Amazon', 'Affiliate-Anderer-Haendler']) {
+for (const eventName of ['Affiliate-Babywalz', 'Affiliate-Pinolino', 'Affiliate-Amazon', 'Affiliate-Anderer-Haendler']) {
   check(affiliate.includes(`'${eventName}'`), `${eventName}: Händler-Event fehlt.`);
 }
 check(affiliate.includes('{ interactive: false }'), 'Händler-Aufschlüsselung muss als nicht-interaktives Zusatzereignis gesendet werden.');
