@@ -10,8 +10,8 @@
     "checkedAt": "2026-08-25",
     "source": "https://www.baby-walz.de/code/"
   },
-  "generatedAt": "2026-10-02T10:03:21.212Z",
-  "freshUntil": "2026-10-04T10:03:21.212Z",
+  "generatedAt": "2026-10-03T09:26:04.910Z",
+  "freshUntil": "2026-10-05T09:26:04.910Z",
   "freshnessHours": 48,
   "priceIncludesShipping": true,
   "offers": {
@@ -233,9 +233,9 @@
       "productId": "fehn-schmusetuch-otter-theo",
       "merchantProductId": "7980140",
       "title": "Fehn Musselin-Schmusetuch Otter Theo",
-      "productPrice": 10.99,
+      "productPrice": 12.99,
       "shipping": 4.99,
-      "totalPrice": 15.98,
+      "totalPrice": 17.98,
       "currency": "EUR",
       "availability": "in_stock",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/32fd66f94f1ee5e62901e75e5d06b6a0.jpg",
