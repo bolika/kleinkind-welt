@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T10:34:56.538Z",
+  "generatedAt": "2026-10-08T10:56:08.164Z",
   "sources": [
     {
       "network": "awin",
@@ -33,12 +33,12 @@
       "price": {
         "amount": 899,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "shippingAmount": 0
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -50,7 +50,7 @@
           "4045875164576"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "39194302561",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/e81cf7e962297fab8c4f4f1effcd1f25.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -72,12 +72,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "shippingAmount": 0
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -89,7 +89,7 @@
           "8717447629467"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "40480590684",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/eae09efa04117467235bbbfc19788b29.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -106,18 +106,18 @@
         "advertiserId": 12387
       },
       "merchantProductId": "8248117",
-      "title": "Cybex Gold Kombikinderwagen Balios S Lux",
+      "title": "Cybex Kombikinderwagen Balios S Lux",
       "deeplink": "https://www.awin1.com/pclick.php?p=39523228966&a=2998119&m=12387",
       "price": {
         "amount": 520,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "oldAmount": 749.9,
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -129,7 +129,7 @@
           "4069291006197"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "39523228966"
     },
     {
@@ -149,12 +149,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -166,7 +166,7 @@
           "8715688081204"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "37351971141",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/2837b0c421c21e46cda8691b15c23fe9.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -188,12 +188,12 @@
       "price": {
         "amount": 1299,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -205,7 +205,7 @@
           "8715688102657"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "44681178637",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/a2dac5cd97c0588224e930880c301eba.jpg",
       "imageRightsStatus": "approved_for_feed_only"
@@ -227,13 +227,13 @@
       "price": {
         "amount": 160.99,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "oldAmount": 179,
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -245,7 +245,7 @@
           "5902533929665"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "44809754387"
     },
     {
@@ -263,15 +263,14 @@
       "title": "Kinderkraft Kombikinderwagen ESME grau",
       "deeplink": "https://www.awin1.com/pclick.php?p=44809754479&a=2998119&m=12387",
       "price": {
-        "amount": 160.99,
+        "amount": 179,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
-        "oldAmount": 179,
+        "freshUntil": "2026-10-10",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "out_of_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -283,7 +282,7 @@
           "5902533929658"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "44809754479"
     },
     {
@@ -303,12 +302,12 @@
       "price": {
         "amount": 499,
         "currency": "EUR",
-        "freshUntil": "2026-10-09",
+        "freshUntil": "2026-10-10",
         "shippingAmount": 1.99
       },
       "availability": {
         "status": "in_stock",
-        "freshUntil": "2026-10-09"
+        "freshUntil": "2026-10-10"
       },
       "configuration": {
         "status": "exact_required_configuration",
@@ -320,7 +319,7 @@
           "5902533928965"
         ]
       },
-      "importedAt": "2026-10-07T10:34:56.538Z",
+      "importedAt": "2026-10-08T10:56:08.164Z",
       "awinProductId": "44173889134",
       "imageUrl": "https://walz-live.cdn.aboutyou.cloud/images/4fb9f550cfe78273b925fce64c066078.jpg",
       "imageRightsStatus": "approved_for_feed_only"
